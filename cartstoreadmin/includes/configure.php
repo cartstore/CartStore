@@ -1,15 +1,15 @@
 <?php
 
   
-  define('HTTP_SERVER', 'http://dev.cartstore.com');
-  define('HTTP_CATALOG_SERVER', 'http://dev.cartstore.com');
-  define('HTTPS_CATALOG_SERVER', 'http://dev.cartstore.com');
+  define('HTTP_SERVER', 'http://demo.cartstore.com');
+  define('HTTP_CATALOG_SERVER', 'http://demo.cartstore.com');
+  define('HTTPS_CATALOG_SERVER', 'http://demo.cartstore.com');
   define('ENABLE_SSL_CATALOG', 'false');
-  define('DIR_FS_DOCUMENT_ROOT', '/home/devcarts/public_html/');
+  define('DIR_FS_DOCUMENT_ROOT', '/home/democar/public_html/');
   define('DIR_WS_ADMIN', '/cartstoreadmin/');
-  define('DIR_FS_ADMIN', '/home/devcarts/public_html/cartstoreadmin/');
+  define('DIR_FS_ADMIN', '/home/democar/public_html/cartstoreadmin/');
   define('DIR_WS_CATALOG', '/');
-  define('DIR_FS_CATALOG', '/home/devcarts/public_html/');
+  define('DIR_FS_CATALOG', '/home/democar/public_html/');
   define('DIR_WS_IMAGES', 'images/');
   define('DIR_WS_ICONS', DIR_WS_IMAGES . 'icons/');
   define('DIR_WS_CATALOG_IMAGES', DIR_WS_CATALOG . 'images/');

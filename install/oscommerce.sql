@@ -27,10 +27,6 @@ CREATE TABLE IF NOT EXISTS `address_book` (
   KEY `idx_address_book_customers_id` (`customers_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
 
-INSERT INTO `address_book` (`address_book_id`, `customers_id`, `entry_gender`, `entry_company`, `entry_company_tax_id`, `entry_firstname`, `entry_lastname`, `entry_street_address`, `entry_street_address_2`, `entry_suburb`, `entry_postcode`, `entry_city`, `entry_state`, `entry_country_id`, `entry_zone_id`) VALUES
-(92, 79, '', NULL, NULL, 'Jason', 'Phillips', '750 S Orange Blossom Trail', 'Suite 225', NULL, '32805', 'Orlando', '', 223, 18),
-(93, 80, '', NULL, NULL, 'Jason', 'Phillips', '750 s obt suite 225', '', NULL, '32805', 'Orlando', '', 223, 18),
-(94, 81, '', NULL, NULL, 'Test', 'test', '123 test way', '', NULL, '32805', 'orlando', '', 223, 18);
 
 DROP TABLE IF EXISTS `address_format`;
 CREATE TABLE IF NOT EXISTS `address_format` (
@@ -64,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 INSERT INTO `admin` (`admin_id`, `admin_groups_id`, `admin_firstname`, `admin_lastname`, `admin_email_address`, `admin_password`, `admin_created`, `admin_modified`, `admin_logdate`, `admin_lognum`) VALUES
-(16, 1, 'System', 'Admin', 'info@cartstore.com', 'ca6b94ccb303751f25e6943f66e945c6:fb', '2009-05-22 23:40:41', '2011-04-25 17:56:25', '2011-05-16 03:59:07', 568);
+(16, 1, 'System', 'Admin', 'bugs@cartstore.com', '4ff1ec98198a29d9adbe697252d92a13:03', '2009-05-22 23:40:41', '2011-04-25 17:56:25', '2011-05-18 15:44:36', 569);
 
 DROP TABLE IF EXISTS `admin_access_files`;
 CREATE TABLE IF NOT EXISTS `admin_access_files` (
@@ -578,7 +574,7 @@ CREATE TABLE IF NOT EXISTS `banners` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 INSERT INTO `banners` (`banners_id`, `language_id`, `banners_title`, `banners_url`, `banners_image`, `banners_group`, `banners_html_text`, `expires_impressions`, `expires_date`, `date_scheduled`, `date_added`, `date_status_change`, `status`) VALUES
-(3, 1, 'CartStore', '', '', 'specials', '<div class="modulelist">\r\n  <div class="module-cart">\r\n    <div>\r\n      <div>\r\n        <div>\r\n          <div class="description">\r\n            <h3>Welcome to CartStore 5â„¢  powered by osCommerceâ„¢ core engine.</h3>\r\n            <p>CartStore is an extremely powerful open source php shopping cart software that is based on oscommerce core and it maintains compatibility with oscommerce add-ons for 2.2 and 2.3 versions. An oscommerce programmer must integrate add-ons.<br>\r\n            </p><br>\r\n\r\n\r\n           <strong>What makes CartStore so great?</strong>\r\n            <ul>\r\n              <li>\r\n                <p><strong>Secure</strong> - CartStore has built in security features such as anti hacking functionality. CartStore is resistant to 99% of existing known vulnerabilities as well as any future unknown vulnerability and CartStore protects  any addons you integrate or any scripts that are brought into the system  automaticly have  safeguards wrapped around them to stop attacks before they happen. </p>\r\n              </li>\r\n              <li>\r\n                <p><strong>PCI Compliant</strong> â€“ CartStore and CartStore hosting is PCI compliant. </p>\r\n              </li>\r\n              <li>\r\n                <p><strong>Robust</strong> - CartStore is immensely robust with vast product entry options and functionality, with CartStore youâ€™ll most likely find the features you need are already in there or a way to achieve what you need to do. </p>\r\n              </li>\r\n              <li>\r\n                <p><strong>Stability</strong> - CartStore tends to every bug report field by our clients. If you find a bug in our software we will fix it. </p>\r\n              </li>\r\n              <li>\r\n                <p><strong>Modern</strong> - CartStore is on the leading edge of web development best practice standards incorporating all the best modern techniques, software and methods and retiring or modernizing legacy code. CartStore is PHP 6 ready most other carts are not. Most other carts are still coded in legacy html and wont rank well at all in search engines. </p>\r\n              </li>\r\n              <li>\r\n                <p><strong>SEO</strong> - CartStore from top to bottom is optimized by our SEO professionals for optimal ranking. In its structure CartStore achieves 100% perfect software seo optimized output.</p>\r\n              </li>\r\n              <li>\r\n                <p><strong>CMS</strong> - CartStore its own content management system built in so you donâ€™t have to hire a web designer to edit a textual non product page of your store, you will be able to edit most of your entire website directly from the admin. CartStore uses the worldâ€™s best WYIWYG editor know as CKeditor it also uses a non expiring demo version of CKFiles a file/media manager to manage your websites images. </p>\r\n              </li>\r\n              <li>\r\n                <p><strong>MVS</strong> -Multiple vendor system. The multiple vendors shipping is ideal for drop shipping or for shipping packages that mailed with separate carriers or from different locations. The MVS system can automatically send emails to the drop shippers and also charge independent shipping chargers per drop shipper.  Group Level - CartStore has built in functionality to manage different unlimited customer retail levels. IE. Wholesale, retail it even has the group level built into quantity based pricing.</p>\r\n              </li>\r\n            \r\n            </ul><p>Whether you need to add videos to your product or change the buy now url to point to another site CartStore has tackled the advanced requirements request of over 10,000 ecommerce store owners and in return we have incorporated those requirements into CartStore  producing a product built for advanced customers from their needs.\r\n            <br>\r\n            <p><strong>Requirements</strong></p>\r\n            <ul>\r\n              <li>PHP & MySQL  on Apache Linux Server</li>\r\n            </ul>\r\n            <div class="clear"></div>\r\n            <br>\r\n            <a href="http://www.cartstore.com/" class="request" target="_BLANK">Learn More</a>\r\n            <div class="clear"></div>\r\n            <br>\r\n          </div>\r\n          <div class="title"> Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s. </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>', NULL, NULL, NULL, '2007-08-27 15:41:55', NULL, 1),
+(3, 1, 'CartStore', '', '', 'specials', '<div class="modulelist">\r\n  <div class="module-cart">\r\n    <div>\r\n      <div>\r\n        <div>\r\n          <div class="description">\r\n            <h3>Welcome to CartStore 5</h3>\r\n            <p>CartStore is an extremely powerful open source php shopping cart software and it maintains great compatibility with oscommerce 2.2 and 2.3 add-ons. Whether you need to add videos to your product or change the buy now url to point to another site CartStore has tackled the advanced requirements request of over 10,000 ecommerce store owners and in return we have incorporated those requirements into CartStore  producing a product built for advanced customers from their needs. <br>\r\n</p>\r\n            <p><strong>Requirements</strong></p>\r\n            <ul>\r\n              <li>PHP & MySQL  on Apache Linux Server</li>\r\n            </ul>\r\n            <div class="clear"></div>\r\n            <br>\r\n            <a href="http://www.cartstore.com/" class="request" target="_BLANK">Learn More</a>\r\n            <div class="clear"></div>\r\n            <br>\r\n          </div>\r\n          <div class="title"> Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s. </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>', NULL, NULL, NULL, '2007-08-27 15:41:55', NULL, 1),
 (6, 1, 'banner 1', 'http://www.cartstore.com', 'cartstore_banner.jpg', 'rotator', '', 0, NULL, NULL, '2010-10-02 20:58:31', NULL, 1),
 (7, 1, 'StrongCode Banner', 'http://www.strongcode.net', 'strongcode_banner.jpg', 'rotator', '', 0, NULL, NULL, '2010-10-02 21:06:09', NULL, 1);
 
@@ -591,7 +587,7 @@ CREATE TABLE IF NOT EXISTS `banners_history` (
   `banners_history_date` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`banners_history_id`),
   KEY `banners_id` (`banners_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=846 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=849 ;
 
 INSERT INTO `banners_history` (`banners_history_id`, `banners_id`, `banners_shown`, `banners_clicked`, `banners_history_date`) VALUES
 (1, 0, 9, 0, '2007-08-27 15:44:26'),
@@ -1438,7 +1434,10 @@ INSERT INTO `banners_history` (`banners_history_id`, `banners_id`, `banners_show
 (842, 3, 2, 0, '2011-05-15 09:40:03'),
 (843, 6, 21, 0, '2011-05-16 01:26:48'),
 (844, 7, 21, 0, '2011-05-16 01:26:48'),
-(845, 3, 11, 0, '2011-05-16 01:26:48');
+(845, 3, 11, 0, '2011-05-16 01:26:48'),
+(846, 6, 9, 0, '2011-05-18 01:17:54'),
+(847, 7, 9, 0, '2011-05-18 01:17:54'),
+(848, 3, 8, 0, '2011-05-18 01:17:54');
 
 DROP TABLE IF EXISTS `cache`;
 CREATE TABLE IF NOT EXISTS `cache` (
@@ -1609,10 +1608,10 @@ CREATE TABLE IF NOT EXISTS `configuration` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55056 ;
 
 INSERT INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES
-(1, 'Store Name', 'STORE_NAME', 'CartStore 4.0.16', 'The name of my store', 1, 1, '2009-05-16 03:13:11', '2006-06-15 13:53:25', '', ''),
+(1, 'Store Name', 'STORE_NAME', 'CartStore5 Enterprise English', 'The name of my store', 1, 1, '2009-05-16 03:13:11', '2006-06-15 13:53:25', '', ''),
 (2, 'Store Owner', 'STORE_OWNER', 'CartStore', 'The name of my store owner', 1, 2, '2009-05-16 03:13:18', '2006-06-15 13:53:25', '', ''),
-(3, 'E-Mail Address', 'STORE_OWNER_EMAIL_ADDRESS', 'info@cartstore.com', 'The e-mail address of my store owner', 1, 3, '2010-08-06 01:27:16', '2006-06-15 13:53:25', '', ''),
-(4, 'E-Mail From', 'EMAIL_FROM', '"CartStore" <info@cartstore.com>', 'The e-mail address used in (sent) e-mails', 1, 4, '2010-08-06 01:27:29', '2006-06-15 13:53:25', '', ''),
+(3, 'E-Mail Address', 'STORE_OWNER_EMAIL_ADDRESS', 'bugs@cartstore.com', 'The e-mail address of my store owner', 1, 3, '2010-08-06 01:27:16', '2006-06-15 13:53:25', '', ''),
+(4, 'E-Mail From', 'EMAIL_FROM', '"CartStore" <bugs@cartstore.com>', 'The e-mail address used in (sent) e-mails', 1, 4, '2010-08-06 01:27:29', '2006-06-15 13:53:25', '', ''),
 (5, 'Country', 'STORE_COUNTRY', '223', 'The country my store is located in <br><br><b>Note: Please remember to update the store zone.</b>', 1, 6, '2010-07-31 22:41:30', '2006-06-15 13:53:25', 'tep_get_country_name', 'tep_cfg_pull_down_country_list('),
 (6, 'Zone', 'STORE_ZONE', '18', 'The zone my store is located in', 1, 7, '2009-08-02 07:54:07', '2006-06-15 13:53:25', 'tep_cfg_get_zone_name', 'tep_cfg_pull_down_zone_list('),
 (7, 'Expected Sort Order', 'EXPECTED_PRODUCTS_SORT', 'desc', 'This is the sort order used in the expected products box.', 1, 8, '0000-00-00 00:00:00', '2006-06-15 13:53:25', '', 'tep_cfg_select_option(array(''asc'', ''desc''),'),
@@ -2575,7 +2574,7 @@ CREATE TABLE IF NOT EXISTS `counter` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `counter` (`startdate`, `counter`) VALUES
-('20060615', 204281);
+('20060615', 204290);
 
 DROP TABLE IF EXISTS `counter_history`;
 CREATE TABLE IF NOT EXISTS `counter_history` (
@@ -3287,10 +3286,6 @@ CREATE TABLE IF NOT EXISTS `customers` (
   KEY `customers_email_address` (`customers_email_address`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=82 ;
 
-INSERT INTO `customers` (`customers_id`, `customers_gender`, `customers_firstname`, `customers_lastname`, `customers_dob`, `customers_email_address`, `customers_default_address_id`, `customers_telephone`, `customers_fax`, `customers_password`, `customers_newsletter`, `customers_advertiser`, `customers_referer_url`, `customers_paypal_payerid`, `customers_paypal_ec`, `customers_shopping_points`, `customers_points_expires`, `customers_group_id`, `customers_group_ra`, `customers_payment_allowed`, `customers_shipment_allowed`) VALUES
-(79, '', 'Jason', 'Phillips', '0000-00-00 00:00:00', 'info@cartstore.com', 92, '8007687851', '8007687851', '3d055cbd5b223fafacba63af9e603b5d:ba', '', NULL, NULL, NULL, 0, '10.00', '2012-04-24', 0, '0', '', ''),
-(80, '', 'Jason', 'Phillips', '0000-00-00 00:00:00', 'jasonphillips@email.com', 93, '8007687851', '', '38960c2ae3136d1726dfd9021492d590:57', '1', NULL, NULL, NULL, 0, '10.00', '2012-04-28', 0, '0', '', ''),
-(81, '', 'Test', 'test', '0000-00-00 00:00:00', 'testererer@test.net', 94, '12121212', 'info@cartstore.com', '1ac40f0eac293e28a43bffac5c9f9992:a8', '', NULL, NULL, NULL, 0, '10.00', '2012-04-30', 0, '0', '', '');
 
 DROP TABLE IF EXISTS `customers_basket`;
 CREATE TABLE IF NOT EXISTS `customers_basket` (
@@ -3304,13 +3299,8 @@ CREATE TABLE IF NOT EXISTS `customers_basket` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=474 ;
 
 INSERT INTO `customers_basket` (`customers_basket_id`, `customers_id`, `products_id`, `customers_basket_quantity`, `final_price`, `customers_basket_date_added`) VALUES
-(465, 79, '45149', 1, '0.0000', '20110424'),
-(466, 79, '45171', 1, '0.0000', '20110424'),
-(467, 80, '45178', 4, '0.0000', '20110428'),
 (469, 0, '45178', 1, '0.0000', '20110429'),
 (470, 0, '45171', 1, '0.0000', '20110429'),
-(471, 81, '45178', 1, '0.0000', '20110430'),
-(472, 81, '45161', 1, '0.0000', '20110430'),
 (473, 0, '45158', 1, '0.0000', '20110505');
 
 DROP TABLE IF EXISTS `customers_basket_attributes`;
@@ -3352,10 +3342,6 @@ CREATE TABLE IF NOT EXISTS `customers_info` (
   PRIMARY KEY  (`customers_info_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `customers_info` (`customers_info_id`, `customers_info_date_of_last_logon`, `customers_info_number_of_logons`, `customers_info_date_account_created`, `customers_info_date_account_last_modified`, `global_product_notifications`) VALUES
-(79, '2011-05-02 10:36:48', 12, '2011-04-24 18:19:10', NULL, 0),
-(80, NULL, 0, '2011-04-28 21:06:04', NULL, 0),
-(81, NULL, 0, '2011-04-30 23:09:31', NULL, 0);
 
 DROP TABLE IF EXISTS `customers_points_pending`;
 CREATE TABLE IF NOT EXISTS `customers_points_pending` (
@@ -3370,8 +3356,6 @@ CREATE TABLE IF NOT EXISTS `customers_points_pending` (
   PRIMARY KEY  (`unique_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=146 ;
 
-INSERT INTO `customers_points_pending` (`unique_id`, `customer_id`, `orders_id`, `points_pending`, `points_comment`, `date_added`, `points_status`, `points_type`) VALUES
-(145, 0, 223, '1098.00', 'TEXT_DEFAULT_COMMENT', '2011-04-29 19:00:35', 1, 'SP');
 
 DROP TABLE IF EXISTS `customers_wishlist`;
 CREATE TABLE IF NOT EXISTS `customers_wishlist` (
@@ -4145,9 +4129,6 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `customers_id` (`customers_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=225 ;
 
-INSERT INTO `orders` (`orders_id`, `customers_id`, `customers_name`, `customers_company`, `customers_street_address`, `customers_street_address_2`, `customers_suburb`, `customers_city`, `customers_postcode`, `customers_state`, `customers_country`, `customers_telephone`, `customers_email_address`, `customers_address_format_id`, `delivery_name`, `delivery_company`, `delivery_street_address`, `delivery_street_address_2`, `delivery_suburb`, `delivery_city`, `delivery_postcode`, `delivery_state`, `delivery_country`, `delivery_address_format_id`, `billing_name`, `billing_company`, `billing_street_address`, `billing_street_address_2`, `billing_suburb`, `billing_city`, `billing_postcode`, `billing_state`, `billing_country`, `billing_address_format_id`, `payment_method`, `cc_type`, `cc_owner`, `cc_number`, `cc_expires`, `last_modified`, `date_purchased`, `orders_status`, `orders_date_finished`, `usps_track_num`, `usps_track_num2`, `ups_track_num`, `ups_track_num2`, `fedex_track_num`, `fedex_track_num2`, `dhl_track_num`, `dhl_track_num2`, `currency`, `currency_value`, `account_name`, `account_number`, `po_number`, `shipping_tax`, `qbi_imported`, `delivery_date`, `delivery_time_slotid`) VALUES
-(223, 0, 'test test', '', '123 test way', '', '', 'orlando', '32805', 'Florida', 'United States', '8007687851', 'infoe@storecoders.com', 2, 'test test', '', '123 test way', '', '', 'orlando', '32805', 'Florida', 'United States', 2, 'test test', '', '123 test way', '', '', 'orlando', '32805', 'Florida', 'United States', 2, 'Check/Money Order', '', '', '', '', NULL, '2011-04-29 19:00:35', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'USD', '1.000000', '', NULL, NULL, '0.0000', 0, '0000-00-00', 0),
-(224, 0, 'test test', '', '123 test way', '', '', 'london', '32805', 'Florida', 'United States', '8007687851', 'testeedfdfd@test.net', 2, 'test test', '', '123 test way', '', '', 'london', '32805', 'Florida', 'United States', 2, 'test test', '', '123 test way', '', '', 'london', '32805', 'Florida', 'United States', 2, 'Check/Money Order', '', '', '', '', NULL, '2011-04-29 19:23:24', 1, NULL, '23232', '', '', '', '', '', '', '', 'USD', '1.000000', '', NULL, NULL, '0.0000', 0, '0000-00-00', 0);
 
 DROP TABLE IF EXISTS `orders_pay_methods`;
 CREATE TABLE IF NOT EXISTS `orders_pay_methods` (
@@ -4184,11 +4165,6 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   KEY `products_id` (`products_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=474 ;
 
-INSERT INTO `orders_products` (`orders_products_id`, `orders_id`, `products_id`, `products_model`, `products_name`, `products_price`, `final_price`, `products_tax`, `products_quantity`, `products_stock_attributes`, `vendors_id`, `products_returned`, `products_exchanged`, `products_exchanged_id`) VALUES
-(470, 223, 45158, '98', 'Sample Product 25', '99.0000', '99.0000', '0.0000', 1, '', 1, 0, 0, 0),
-(471, 223, 45178, 'CHECKTESTT', 'Sample Product 55', '999.0000', '999.0000', '0.0000', 1, '', 1, 0, 0, 0),
-(472, 224, 45171, 'DATEPICKER', 'Sample Product 52', '79.2000', '79.2000', '0.0000', 2, '', 1, 0, 0, 0),
-(473, 224, 45154, '97', 'Sample Product 13', '99.0000', '99.0000', '0.0000', 1, '', 1, 0, 0, 0);
 
 DROP TABLE IF EXISTS `orders_products_attributes`;
 CREATE TABLE IF NOT EXISTS `orders_products_attributes` (
@@ -4375,10 +4351,7 @@ CREATE TABLE IF NOT EXISTS `orders_status_history` (
 
 INSERT INTO `orders_status_history` (`orders_status_history_id`, `orders_id`, `orders_status_id`, `date_added`, `customer_notified`, `comments`) VALUES
 (66, 0, 1, '2007-04-07 12:30:47', 1, ''),
-(61, 0, 1, '2007-03-21 21:32:44', 1, ''),
-(329, 223, 1, '2011-04-29 19:00:35', 1, '<br />'),
-(330, 224, 1, '2011-04-29 19:23:24', 1, '<br />'),
-(331, 224, 1, '2011-05-05 18:23:58', 0, '');
+(61, 0, 1, '2007-03-21 21:32:44', 1, '');
 
 DROP TABLE IF EXISTS `orders_total`;
 CREATE TABLE IF NOT EXISTS `orders_total` (
@@ -4420,13 +4393,7 @@ INSERT INTO `orders_total` (`orders_total_id`, `orders_id`, `title`, `text`, `va
 (263, 0, 'United Parcel Service (XML) (1 pkg x 11 lbs total) (UPS Ground, ):', '$12.10', '12.1000', 'ot_shipping', 2),
 (264, 0, 'Total:', '<b>$347.10</b>', '347.1000', 'ot_total', 8),
 (270, 0, 'Sub-Total:', '$329.00', '329.0000', 'ot_subtotal', 1),
-(271, 0, 'Total:', '<b>$329.00</b>', '329.0000', 'ot_total', 8),
-(972, 223, 'Sub-Total:', '$1,098.00', '1098.0000', 'ot_subtotal', 1),
-(973, 223, 'Flat Rate (Best Way):', '$5.00', '5.0000', 'ot_shipping', 3),
-(974, 223, 'Total:', '<strong>$1,103.00</strong>', '1103.0000', 'ot_total', 900),
-(975, 224, 'Sub-Total:', '$257.40', '257.4000', 'ot_subtotal', 1),
-(976, 224, 'Pickup Rate (Customer Pickup):', '$0.00', '0.0000', 'ot_shipping', 2),
-(977, 224, 'Total:', '<b>$257.40</b>', '257.4000', 'ot_total', 3);
+(271, 0, 'Total:', '<b>$329.00</b>', '329.0000', 'ot_total', 8);
 
 DROP TABLE IF EXISTS `packaging`;
 CREATE TABLE IF NOT EXISTS `packaging` (
@@ -6197,12 +6164,10 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `sessions` (`sesskey`, `expiry`, `value`) VALUES
-('3136ec8367ecaa1da9ec08286a984e4c', 1305538851, 'language|s:7:"english";languages_id|s:1:"1";selected_box|s:13:"configuration";referer_url|s:75:"http://devphp52.cartstore.com/CartStore_4.0.18_eng/cartstoreadmin/login.php";login_email_address|s:18:"info@cartstore.com";login_id|s:2:"16";login_groups_id|s:1:"1";login_firstname|s:6:"System";'),
-('b7b0417d7c0443e408ff151eea2c55b2', 1305539950, 'language|s:7:"english";languages_id|s:1:"1";selected_box|s:13:"configuration";referer_url|s:65:"http://devphp52.cartstore.com/CartStore5/cartstoreadmin/login.php";login_email_address|s:18:"info@cartstore.com";'),
-('0fb07c09edc58464cc5bcb6d62ecfc31', 1305532763, 'cart|O:12:"shoppingCart":6:{s:8:"contents";a:0:{}s:5:"total";i:0;s:6:"weight";i:0;s:6:"cartID";N;s:12:"content_type";b:0;s:9:"shiptotal";s:0:"";}language|s:7:"english";languages_id|s:1:"1";currency|s:3:"USD";navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:9:"index.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}}s:8:"snapshot";a:0:{}}wishList|O:8:"wishlist":1:{s:6:"wishID";N;}affiliate_ref|N;affiliate_clickthroughs_id|N;viewed|O:15:"viewed_products":1:{s:12:"viewed_items";a:0:{}}viewed_switch|s:4:"true";'),
-('1472057c74b5be5759333849d611fef4', 1305533109, 'cart|O:12:"shoppingCart":8:{s:8:"contents";a:1:{i:45178;a:1:{s:3:"qty";i:1;}}s:5:"total";d:999;s:6:"weight";d:1;s:6:"cartID";s:5:"06297";s:12:"content_type";b:0;s:9:"shiptotal";s:0:"";s:13:"total_virtual";d:0;s:14:"weight_virtual";d:0;}language|s:7:"english";languages_id|s:1:"1";currency|s:3:"USD";navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:9:"index.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}}s:8:"snapshot";a:4:{s:4:"page";s:21:"checkout_shipping.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}}wishList|O:8:"wishlist":1:{s:6:"wishID";N;}affiliate_ref|N;affiliate_clickthroughs_id|N;viewed|O:15:"viewed_products":1:{s:12:"viewed_items";a:0:{}}viewed_switch|s:4:"true";'),
-('1c567e1119ae33b6d935059af94883e8', 1305534206, 'cart|O:12:"shoppingCart":8:{s:8:"contents";a:1:{i:45178;a:1:{s:3:"qty";i:1;}}s:5:"total";d:999;s:6:"weight";d:1;s:6:"cartID";s:5:"20244";s:12:"content_type";b:0;s:9:"shiptotal";s:0:"";s:13:"total_virtual";d:0;s:14:"weight_virtual";d:0;}language|s:7:"english";languages_id|s:1:"1";currency|s:3:"USD";navigation|O:17:"navigationHistory":2:{s:4:"path";a:5:{i:0;a:4:{s:4:"page";s:9:"index.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:6:{s:11:"products_id";s:5:"45178";s:6:"action";s:7:"buy_now";s:4:"sort";s:0:"";s:6:"osCsid";s:32:"1c567e1119ae33b6d935059af94883e8";s:5:"cPath";s:1:"1";s:3:"qty";s:1:"1";}s:4:"post";a:0:{}}i:1;a:4:{s:4:"page";s:17:"shopping_cart.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:1:{s:3:"qty";s:1:"1";}s:4:"post";a:0:{}}i:2;a:4:{s:4:"page";s:21:"checkout_shipping.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}i:3;a:4:{s:4:"page";s:9:"login.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}i:4;a:4:{s:4:"page";s:18:"create_account.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:1:{s:5:"guest";s:5:"guest";}s:4:"post";a:0:{}}}s:8:"snapshot";a:4:{s:4:"page";s:21:"checkout_shipping.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}}wishList|O:8:"wishlist":1:{s:6:"wishID";N;}affiliate_ref|N;affiliate_clickthroughs_id|N;viewed|O:15:"viewed_products":1:{s:12:"viewed_items";a:0:{}}viewed_switch|s:4:"true";'),
-('60a7a6842946eed7147cfa501dedaf57', 1305539356, 'language|s:7:"english";languages_id|s:1:"1";selected_box|s:13:"configuration";referer_url|s:65:"http://devphp52.cartstore.com/CartStore5/cartstoreadmin/login.php";login_email_address|s:18:"info@cartstore.com";login_id|s:2:"16";login_groups_id|s:1:"1";login_firstname|s:6:"System";');
+('1833cbbbf70b29f1995d82d7bf548864', 1305748908, 'cart|O:12:"shoppingCart":5:{s:8:"contents";a:0:{}s:5:"total";i:0;s:6:"weight";i:0;s:12:"content_type";b:0;s:9:"shiptotal";s:0:"";}language|s:7:"english";languages_id|s:1:"1";currency|s:3:"USD";navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:9:"index.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}}s:8:"snapshot";a:0:{}}wishList|O:8:"wishlist":0:{}affiliate_ref|N;affiliate_clickthroughs_id|N;'),
+('327010f80ba0020d3e63230333003505', 1305755059, 'language|s:7:"english";languages_id|s:1:"1";selected_box|s:13:"configuration";'),
+('eaa51ad52a0fc4532becd5eda0553c1c', 1305755491, 'language|s:7:"english";languages_id|s:1:"1";selected_box|s:13:"configuration";login_email_address|s:18:"bugs@cartstore.com";login_id|s:2:"16";login_groups_id|s:1:"1";login_firstname|s:6:"System";messageToStack|N;'),
+('332aa706d6da68ca33368bf470db2b22', 1305749489, 'cart|O:12:"shoppingCart":6:{s:8:"contents";a:0:{}s:5:"total";i:0;s:6:"weight";i:0;s:6:"cartID";N;s:12:"content_type";b:0;s:9:"shiptotal";s:0:"";}language|s:7:"english";languages_id|s:1:"1";currency|s:3:"USD";navigation|O:17:"navigationHistory":2:{s:4:"path";a:1:{i:0;a:4:{s:4:"page";s:9:"index.php";s:4:"mode";s:6:"NONSSL";s:3:"get";a:0:{}s:4:"post";a:0:{}}}s:8:"snapshot";a:0:{}}wishList|O:8:"wishlist":1:{s:6:"wishID";N;}affiliate_ref|N;affiliate_clickthroughs_id|N;viewed|O:15:"viewed_products":1:{s:12:"viewed_items";a:0:{}}viewed_switch|s:4:"true";');
 
 DROP TABLE IF EXISTS `specials`;
 CREATE TABLE IF NOT EXISTS `specials` (
@@ -6266,7 +6231,7 @@ CREATE TABLE IF NOT EXISTS `supertracker` (
   `cart_contents` mediumtext NOT NULL,
   `cart_total` int(11) NOT NULL default '0',
   PRIMARY KEY  (`tracking_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4458 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4463 ;
 
 INSERT INTO `supertracker` (`tracking_id`, `ip_address`, `browser_string`, `country_code`, `country_name`, `customer_id`, `order_id`, `referrer`, `referrer_query_string`, `landing_page`, `exit_page`, `time_arrived`, `last_click`, `num_clicks`, `added_cart`, `completed_purchase`, `categories_viewed`, `products_viewed`, `cart_contents`, `cart_total`) VALUES
 (1, '70.119.91.106', 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)', 'us', 'United States', 0, 0, '', '', '/2.2.7/', '/2.2.7/index.php', '2009-11-15 02:23:01', '2009-11-15 03:24:15', 28, 'true', 'false', 'a:1:{i:1;i:1;}', '*25114?*14645?*14655?*25109?*14646?*25119?*14654?*25111?', 'a:1:{i:25119;a:1:{s:3:"qty";i:1;}}', 88),
@@ -10756,7 +10721,12 @@ INSERT INTO `supertracker` (`tracking_id`, `ip_address`, `browser_string`, `coun
 (4454, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, '', '', '/', '/index.php', '2011-05-16 00:50:02', '2011-05-16 00:50:02', 1, 'false', 'false', '', '', '', 0),
 (4455, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, 'http://devphp52.cartstore.com/', '', '/CartStore5/', '/CartStore_4.0.18_eng/index.php', '2011-05-16 01:26:48', '2011-05-16 01:28:08', 4, 'false', 'false', 'b:0;', '', '', 0),
 (4456, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, '', '', '/CartStore5/', '/CartStore5/index.php', '2011-05-16 02:21:37', '2011-05-16 02:21:44', 3, 'false', 'false', 'a:1:{i:1;i:1;}', '', '', 0),
-(4457, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, 'http://devphp52.cartstore.com/', '', '/CartStore5/', '/CartStore5/create_account.php', '2011-05-16 03:28:44', '2011-05-16 03:59:26', 16, 'true', 'false', 'a:1:{i:1;i:1;}', '', 'a:1:{i:45178;a:1:{s:3:"qty";i:1;}}', 999);
+(4457, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, 'http://devphp52.cartstore.com/', '', '/CartStore5/', '/CartStore5/create_account.php', '2011-05-16 03:28:44', '2011-05-16 03:59:26', 16, 'true', 'false', 'a:1:{i:1;i:1;}', '', 'a:1:{i:45178;a:1:{s:3:"qty";i:1;}}', 999),
+(4458, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, 'http://dev.cartstore.com/install/install.php', 'step=4', '/index.php', '/index.php', '2011-05-18 01:17:54', '2011-05-18 01:17:59', 2, 'false', 'false', 'a:1:{i:13;i:1;}', '', '', 0),
+(4459, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, '', '', '/', '/index.php', '2011-05-18 02:05:41', '2011-05-18 02:14:02', 3, 'false', 'false', 'b:0;', '', '', 0),
+(4460, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, '', '', '/', '/index.php', '2011-05-18 04:41:18', '2011-05-18 04:41:18', 1, 'false', 'false', '', '', '', 0),
+(4461, '68.205.151.16', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, '', '', '/', '/index.php', '2011-05-18 11:06:05', '2011-05-18 11:06:05', 1, 'false', 'false', '', '', '', 0),
+(4462, '96.24.32.252', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1', 'us', 'United States', 0, 0, '', '', '/index.php', '/index.php', '2011-05-18 15:37:48', '2011-05-18 15:47:29', 3, 'false', 'false', 'b:0;', '', '', 0);
 
 DROP TABLE IF EXISTS `sw_default_delivery_time`;
 CREATE TABLE IF NOT EXISTS `sw_default_delivery_time` (
@@ -11131,7 +11101,8 @@ CREATE TABLE IF NOT EXISTS `whos_online` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `whos_online` (`customer_id`, `full_name`, `session_id`, `ip_address`, `time_entry`, `time_last_click`, `last_page_url`, `http_referer`, `user_agent`) VALUES
-(0, 'Guest', '1c567e1119ae33b6d935059af94883e8', '68.205.151.16', '1305532201', '1305532766', '/CartStore5/create_account.php?guest=guest', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1');
+(0, 'Guest', '332aa706d6da68ca33368bf470db2b22', '96.24.32.252', '1305748018', '1305748049', '/', 'http://dev.cartstore.com/cartstoreadmin/banner_manager.php?page=1&bID=3', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1'),
+(0, 'Guest', '1833cbbbf70b29f1995d82d7bf548864', '96.24.32.252', '1305747468', '1305747468', '/index.php', '', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1');
 
 DROP TABLE IF EXISTS `zipcodes`;
 CREATE TABLE IF NOT EXISTS `zipcodes` (

@@ -1,15 +1,4 @@
 <?php
-/*
-  $Id: rpc.php 1768 2008-01-07 17:38:40Z hpdl $
-
-  osCommerce, Open Source E-Commerce Solutions
-  http://www.oscommerce.com
-
-  Copyright (c) 2008 osCommerce
-
-  Released under the GNU General Public License
-*/
-
   header('Cache-Control: no-cache, must-revalidate');
   header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 
