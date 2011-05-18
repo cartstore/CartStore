@@ -1,0 +1,75 @@
+<form name="quick_find" action="advanced_search_result.php" method="get">
+<input type="text" name="keywords" class="textfield">
+<input type="image" src="/includes/sts_templates/default/images/go.gif" alt="" width="23" height="17" border="0">
+</form>
+
+
+<?php echo ''. HTTP_SERVER.''.DIR_WS_HTTP_CATALOG.'';?>
+
+
+<form name="maillist" method="get" action="newsletter.php">
+			
+<input type="text" name="list_firstname" value="" size="20" maxlength="20" >  
+<input type="text" name="list_lastname" value="" ="20" maxlength="20" >
+<input type="text" name="list_email_add" value="" size="20" maxlength="40">   
+<input type="radio" name="list_on_off" value=1 checked>
+<input type="radio" name="list_on_off" value="0">
+<input type="hidden" name="check" value="20">
+<input type="image" src="includes/languages/english/images/buttons/button_send.gif" border="0"  name="Submit"> 
+</form>
+
+
+<form name="login" action="login.php?action=process" method="post">
+<input class="inputbox" type="text" name="email_address">
+<input class="inputbox" type="password" name="password" maxlength="40">
+
+
+
+
+
+
+
+
+
+<?php
+echo tep_display_banner('dynamic', $banner);
+?>
+
+
+<?php 
+
+if ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI']=='' || $_SERVER['REQUEST_URI']=='/') { 
+?>
+
+<?php
+} else  { 
+?>
+<?php
+}
+?>
+
+
+
+
+
+
+
+
+
+-------------------------
+
+<?php if($_SESSION['customer_first_name']!=""){ ?>
+
+
+				Welcome 
+				<?php
+				print($_SESSION['customer_first_name']);
+				?>
+                
+				<?php }else
+				{
+				?>
+				 Welcome Guest!
+				<?php
+				}
+				?>

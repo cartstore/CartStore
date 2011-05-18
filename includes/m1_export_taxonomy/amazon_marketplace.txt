@@ -1,0 +1,2539 @@
+Art & Antiques	optgroup
+Ancient World	68283
+Art/Amateur Art	68494
+Art/Calendars	68495
+Art/Designer	68496
+Art/Fine Art	68497
+Art/For Sale By Artist	226834
+Art/General	68498
+Art/Nudes	68499
+Art/Painting	68500
+Art/Photographic Images	68501
+Art/Pinups	68502
+Art/Posters/Advertising	226841
+Art/Posters/General	265832
+Art/Posters/Vintage	226840
+Art/Prints	68289
+Art/Supplies	68503
+Books & Manuscripts	68284
+Cameras	172087
+Ceramics & Glass/General	170926
+Ceramics & Glass/Glass/40s, 50s & 60s	173551
+Ceramics & Glass/Glass/Art Glass	68690
+Ceramics & Glass/Glass/Carnival	173552
+Ceramics & Glass/Glass/Contemporary Glass	68691
+Ceramics & Glass/Glass/Depression	68692
+Ceramics & Glass/Glass/EAPG	226203
+Ceramics & Glass/Glass/Early American Pattern	68693
+Ceramics & Glass/Glass/Elegant	68694
+Ceramics & Glass/Glass/Fenton	68695
+Ceramics & Glass/Glass/Fire King	68696
+Ceramics & Glass/Glass/General	68697
+Ceramics & Glass/Glass/Kitchen Glassware	68698
+Ceramics & Glass/Glass/Milk	68699
+Ceramics & Glass/Glass/Paperweights	68700
+Ceramics & Glass/Glass/Stain Glass	173553
+Ceramics & Glass/Glass/Swarovski	68701
+Ceramics & Glass/Glass/Vaseline	68702
+Ceramics & Glass/Porcelain/Chalkware	68704
+Ceramics & Glass/Porcelain/Chintz & Shelley	68705
+Ceramics & Glass/Porcelain/Decorative	68706
+Ceramics & Glass/Porcelain/Dinnerware	68707
+Ceramics & Glass/Porcelain/General	68708
+Ceramics & Glass/Porcelain/Haviland & Limoges	68709
+Ceramics & Glass/Porcelain/Hummel & Goebel	68710
+Ceramics & Glass/Porcelain/Lefton	68711
+Ceramics & Glass/Porcelain/Lenox	68712
+Ceramics & Glass/Porcelain/Nippon	68713
+Ceramics & Glass/Porcelain/Noritake	68714
+Ceramics & Glass/Porcelain/Occupied Japan	68715
+Ceramics & Glass/Porcelain/Precious Moments	68716
+Ceramics & Glass/Porcelain/RS Prussia & Related	68717
+Ceramics & Glass/Porcelain/Royal Doulton	68718
+Ceramics & Glass/Porcelain/Wedgwood	68719
+Ceramics & Glass/Pottery/Bauer	68721
+Ceramics & Glass/Pottery/British Art	68722
+Ceramics & Glass/Pottery/California Pottery	68723
+Ceramics & Glass/Pottery/Colorado Pottery	68724
+Ceramics & Glass/Pottery/Dakota Pottery	68725
+Ceramics & Glass/Pottery/Dinnerware	68726
+Ceramics & Glass/Pottery/European Art	68727
+Ceramics & Glass/Pottery/Fiesta	68728
+Ceramics & Glass/Pottery/Franciscan	68729
+Ceramics & Glass/Pottery/Frankoma & Gracetone	68730
+Ceramics & Glass/Pottery/General	68731
+Ceramics & Glass/Pottery/Haeger	68732
+Ceramics & Glass/Pottery/Hall	68733
+Ceramics & Glass/Pottery/Homer Laughlin	68734
+Ceramics & Glass/Pottery/Hull	68735
+Ceramics & Glass/Pottery/Majolica	68736
+Ceramics & Glass/Pottery/McCoy	68737
+Ceramics & Glass/Pottery/Metlox	68738
+Ceramics & Glass/Pottery/Red Wing & Rumrill	68739
+Ceramics & Glass/Pottery/Rookwood	68740
+Ceramics & Glass/Pottery/Roseville	68741
+Ceramics & Glass/Pottery/Royal Copley	68742
+Ceramics & Glass/Pottery/Russel Wright	68743
+Ceramics & Glass/Pottery/Scandinavian Art	68744
+Ceramics & Glass/Pottery/Shawnee	68745
+Ceramics & Glass/Pottery/Staffordshire	68746
+Ceramics & Glass/Pottery/Stangl	68747
+Ceramics & Glass/Pottery/Tablewares	68748
+Ceramics & Glass/Pottery/Van Briggle	68749
+Ceramics & Glass/Pottery/Vernon Kilns	68750
+Ceramics & Glass/Pottery/Watt	68751
+Ceramics & Glass/Pottery/Weller	68752
+Folk Art	68285
+General	68286
+Metalware	68287
+Orientalia	193768
+Post-1900	68282
+Pre-1900	173460
+Scientific Instruments	68290
+Silver & Silver Plate	224821
+Textiles & Linens	68291
+Books	optgroup
+Arts, Architecture & Photography/Architecture	226909
+Arts, Architecture & Photography/Art History	226910
+Arts, Architecture & Photography/Artists	226912
+Arts, Architecture & Photography/Dance	226911
+Arts, Architecture & Photography/Other	170970
+Arts, Architecture & Photography/Other Media	226913
+Arts, Architecture & Photography/Painting	226914
+Arts, Architecture & Photography/Photography	226915
+Arts, Architecture & Photography/Sculpture	226916
+Arts, Architecture & Photography/Theater	226917
+Audiobooks/Biographies & Memoirs	504384
+Audiobooks/Business & Investing	504386
+Audiobooks/Children's Books	504388
+Audiobooks/Computers & Internet	504390
+Audiobooks/Entertainment	504392
+Audiobooks/Foreign Language Instruction	504394
+Audiobooks/Health, Mind & Body	504396
+Audiobooks/History	504398
+Audiobooks/Horror	504400
+Audiobooks/Humor	504402
+Audiobooks/Instructional & How-To	504404
+Audiobooks/Literature & Fiction	504406
+Audiobooks/Mystery & Thrillers	504408
+Audiobooks/Nonfiction	504410
+Audiobooks/Other	173302
+Audiobooks/Radio Shows	504412
+Audiobooks/Religion & Spirituality	504414
+Audiobooks/Romance	504416
+Audiobooks/Science Fiction & Fantasy	504418
+Audiobooks/Sports & Outdoors	504420
+Audiobooks/Travel	504422
+Biographies & Memoirs/Artists & Authors	226893
+Biographies & Memoirs/Athletes & Adventurers	226897
+Biographies & Memoirs/Children's & Young Adult	226894
+Biographies & Memoirs/Leaders	226895
+Biographies & Memoirs/Other	170971
+Biographies & Memoirs/Professionals & Academics	226896
+Business & Investing/Accounting	226899
+Business & Investing/Economics	226900
+Business & Investing/Finance	226901
+Business & Investing/Industries & Professions	226902
+Business & Investing/Investing	226903
+Business & Investing/Management & Leadership	226904
+Business & Investing/Marketing & Sales	226905
+Business & Investing/Other	170972
+Business & Investing/Personal Finance	226906
+Business & Investing/Small Business & Entrepreneurship	226907
+Children's Books/Board Books	226947
+Children's Books/Classics	226942
+Children's Books/Early Readers	226948
+Children's Books/Educational	226943
+Children's Books/Myths, Legends & Fairy Tales	226944
+Children's Books/Older Readers	226949
+Children's Books/Other	68295
+Children's Books/Picture Books	226946
+Children's Books/Series	226945
+Computers & Internet/Certification	226919
+Computers & Internet/Graphics & Software	226920
+Computers & Internet/Networking & OS	226921
+Computers & Internet/Other	170973
+Computers & Internet/Programming	226922
+Computers & Internet/Web Development	226923
+Cooking, Food & Wine/Appetizers	296214
+Cooking, Food & Wine/Baking	296215
+Cooking, Food & Wine/Beverages	296216
+Cooking, Food & Wine/Breakfast	296217
+Cooking, Food & Wine/Culinary Arts & Techniques	296218
+Cooking, Food & Wine/Desserts	296219
+Cooking, Food & Wine/Dietary & Health	296220
+Cooking, Food & Wine/Entertaining	296221
+Cooking, Food & Wine/Essays	296222
+Cooking, Food & Wine/Fruits & Vegetables	296223
+Cooking, Food & Wine/History	296224
+Cooking, Food & Wine/Holiday Cooking	296225
+Cooking, Food & Wine/Microwave Cookery	296226
+Cooking, Food & Wine/Natural & Organic Foods	296227
+Cooking, Food & Wine/Other	170974
+Cooking, Food & Wine/Outdoor	296228
+Cooking, Food & Wine/Pasta	296229
+Cooking, Food & Wine/Pizza	296230
+Cooking, Food & Wine/Poultry	296231
+Cooking, Food & Wine/Quick & Easy Cookery	296232
+Cooking, Food & Wine/Regional Cuisine	296233
+Cooking, Food & Wine/Salads	296234
+Cooking, Food & Wine/Seafood	296235
+Cooking, Food & Wine/Seasonal	296236
+Cooking, Food & Wine/Soups & Stews	296237
+Cooking, Food & Wine/Vegetarian & Vegan	296238
+Entertainment/Comics	226980
+Entertainment/Games	226981
+Entertainment/Humor	226982
+Entertainment/Movies	226983
+Entertainment/Music	226984
+Entertainment/Other	170975
+Entertainment/Radio	226985
+Entertainment/Television	226986
+Foreign Language/Foreign Language Instruction	172781
+Foreign Language/French	296241
+Foreign Language/German	296242
+Foreign Language/Italian	296243
+Foreign Language/Other	296240
+Foreign Language/Spanish	296244
+Health, Mind & Body/Beauty & Fashion	226951
+Health, Mind & Body/Death & Grief	226952
+Health, Mind & Body/Diets & Nutrition	226953
+Health, Mind & Body/Fitness	226954
+Health, Mind & Body/Health Issues	226955
+Health, Mind & Body/Mental Health	226956
+Health, Mind & Body/Other	170976
+Health, Mind & Body/Reference	226957
+Health, Mind & Body/Self-Improvement	226958
+Health, Mind & Body/Sexuality	226959
+Health, Mind & Body/Yoga	296296
+History/Africa	226970
+History/Americas/Canada	296281
+History/Americas/Central America	296279
+History/Americas/Mexico	296282
+History/Americas/North America	296280
+History/Americas/Other	226971
+History/Americas/South America	296284
+History/Americas/United States	296283
+History/Ancient	226972
+History/Asia	226973
+History/Australia & Oceania	226974
+History/Europe	226975
+History/Family & Genealogical	296285
+History/Maritime	296286
+History/Middle East	226976
+History/Military	226977
+History/Other	170977
+History/Social	296287
+History/Travel & Exploration	296288
+History/World	226978
+Home & Garden/Animal Care & Pets	226961
+Home & Garden/Antiques & Collectibles	226962
+Home & Garden/Crafts & Hobbies	226963
+Home & Garden/Entertaining	226964
+Home & Garden/Gardening & Horticulture	226965
+Home & Garden/How-To & Home Improvements	226966
+Home & Garden/Interior Design	226967
+Home & Garden/Other	170978
+Home & Garden/Weddings	226968
+Horror/Dark Fantasy	226988
+Horror/Erotic	226989
+Horror/Ghosts	226990
+Horror/Graphic Novels	226991
+Horror/Occult	226992
+Horror/Other	170979
+Horror/Vampires	226993
+Literature & Fiction/Adventure	226925
+Literature & Fiction/Anthologies/Essays	296290
+Literature & Fiction/Anthologies/Other	226926
+Literature & Fiction/Anthologies/Poetry	296291
+Literature & Fiction/Anthologies/Short Stories	296292
+Literature & Fiction/Drama	226927
+Literature & Fiction/Erotica	226928
+Literature & Fiction/Ethnic	226929
+Literature & Fiction/Gay & Lesbian	226930
+Literature & Fiction/Historical Novels	226931
+Literature & Fiction/History & Criticism	226932
+Literature & Fiction/Military & War	226934
+Literature & Fiction/Other	68296
+Literature & Fiction/Period Literature/18th Century	226936
+Literature & Fiction/Period Literature/19th Century	226937
+Literature & Fiction/Period Literature/Classical Era	226938
+Literature & Fiction/Period Literature/Contemporary	226939
+Literature & Fiction/Period Literature/Gothic	296293
+Literature & Fiction/Period Literature/Renaissance	226940
+Literature & Fiction/Poetry/American	504514
+Literature & Fiction/Poetry/Anthologies	504516
+Literature & Fiction/Poetry/European	504518
+Literature & Fiction/Poetry/History & Criticism	504520
+Literature & Fiction/Poetry/Other	194019
+Literature & Fiction/Poetry/Writing	504522
+Literature & Fiction/Vintage Paperbacks	296294
+Literature & Fiction/Westerns	296295
+Literature & Fiction/World Literature	226933
+Magazines/Animals	68305
+Magazines/Antiques & Collectibles	296257
+Magazines/Art, Architecture & Photography	296258
+Magazines/Automotive	296259
+Magazines/Aviation	296260
+Magazines/Business & Investing	296261
+Magazines/Catalogs	68306
+Magazines/Children	68307
+Magazines/Computers & Internet	296262
+Magazines/Cooking, Food & Wine	296263
+Magazines/Crafts & Hobbies	296264
+Magazines/Entertainment	296265
+Magazines/Fashion	296266
+Magazines/Gardening & Horticulture	296267
+Magazines/Humor	296268
+Magazines/Illustrated	68309
+Magazines/Literary	296269
+Magazines/Medical	296270
+Magazines/Men	68310
+Magazines/National Geographic	296271
+Magazines/News	68311
+Magazines/Other	68308
+Magazines/Periodicals	296272
+Magazines/Political	296273
+Magazines/Pulp	296274
+Magazines/Science & Nature	296275
+Magazines/Science Fiction & Fantasy	170986
+Magazines/Sports/Other	68312
+Magazines/Sports/Sports Illustrated	193953
+Magazines/Travel	296276
+Magazines/Vintage	296277
+Magazines/Women	68313
+Mystery & Thrillers/Mystery/Anthologies	226879
+Mystery & Thrillers/Mystery/British Detectives	226880
+Mystery & Thrillers/Mystery/Hard-Boiled	226881
+Mystery & Thrillers/Mystery/Historical	226882
+Mystery & Thrillers/Mystery/Other	226878
+Mystery & Thrillers/Mystery/Series	226883
+Mystery & Thrillers/Other	68298
+Mystery & Thrillers/Thrillers/Legal	226887
+Mystery & Thrillers/Thrillers/Medical	226888
+Mystery & Thrillers/Thrillers/Other	226886
+Mystery & Thrillers/Thrillers/Psychological & Suspense	226889
+Mystery & Thrillers/Thrillers/Spy & Intrigue	226890
+Mystery & Thrillers/Thrillers/Technothrillers	226891
+Mystery & Thrillers/True Crime	226884
+Nonfiction/Cars & Transportation/Automobilia	296248
+Nonfiction/Cars & Transportation/Aviation	296249
+Nonfiction/Cars & Transportation/Other	265823
+Nonfiction/Cars & Transportation/Railroadiana	296250
+Nonfiction/Cars & Transportation/Ships & Waterways	296251
+Nonfiction/Ethics	296252
+Nonfiction/Gay & Lesbian	265824
+Nonfiction/Geography	296253
+Nonfiction/Government & Politics	265825
+Nonfiction/Law	265826
+Nonfiction/Other	68299
+Nonfiction/Philosophy	265827
+Nonfiction/Social Sciences/Anthropology	296255
+Nonfiction/Social Sciences/Other	265828
+Nonfiction/Social Sciences/Sociology	296256
+Nonfiction/Women's Studies	265829
+Other	68297
+Parenting & Families/Adoption	504426
+Parenting & Families/Aging Parents	504428
+Parenting & Families/Conflict Resolution	504430
+Parenting & Families/Divorce	504432
+Parenting & Families/Education	504434
+Parenting & Families/Family Activities	504436
+Parenting & Families/Family Health	504438
+Parenting & Families/Family Relationships	504440
+Parenting & Families/Other	170980
+Parenting & Families/Parenting	504442
+Parenting & Families/Pregnancy & Childbirth	504444
+Parenting & Families/Reference	504446
+Parenting & Families/Special Needs	504448
+Parenting & Families/Teens	170985
+Rare/Arts, Architecture & Photography	226865
+Rare/Atlases & Maps	296180
+Rare/Biographies & Memoirs	226866
+Rare/Children's Books	226867
+Rare/Cooking, Food & Wine	226868
+Rare/Ephemera	296181
+Rare/Facsimile	296182
+Rare/History	226869
+Rare/Home & Garden	265822
+Rare/Literature & Fiction	226870
+Rare/Manuscripts	296183
+Rare/Modern First Editions	226871
+Rare/Nonfiction/Geography	296185
+Rare/Nonfiction/Government & Politics	296186
+Rare/Nonfiction/Law	296187
+Rare/Nonfiction/Other	226872
+Rare/Nonfiction/Philosophy	296188
+Rare/Nonfiction/Social Sciences	296189
+Rare/Nonfiction/Women's Studies	296190
+Rare/Other	68300
+Rare/Poetry	226873
+Rare/Religion & Spirituality	226874
+Rare/Science & Nature	226875
+Rare/Travel & Exploration	296191
+Reference/Atlases & Maps	296245
+Reference/Bibliography	292144
+Reference/Dictionaries	292145
+Reference/Encyclopedia	292146
+Reference/Other	170981
+Reference/Thesauri	296246
+Religion & Spirituality/Buddhism	296192
+Religion & Spirituality/Christianity	292166
+Religion & Spirituality/Eastern Philosophy	296193
+Religion & Spirituality/Esoterica & New Age	296194
+Religion & Spirituality/Hinduism	296195
+Religion & Spirituality/Islam	292164
+Religion & Spirituality/Judaism	292165
+Religion & Spirituality/Occult	296196
+Religion & Spirituality/Other	170982
+Religion & Spirituality/Sacred Texts	296197
+Religion & Spirituality/Spirituality	296198
+Romance/Contemporary	193848
+Romance/Gothic	296931
+Romance/Historical	193849
+Romance/Inspirational	296933
+Romance/Other	68301
+Romance/Paranormal	296932
+Romance/Regency	193850
+Romance/Suspense	296930
+Romance/Traditional	296929
+Science & Nature/Agricultural Sciences	296200
+Science & Nature/Archaeology	296201
+Science & Nature/Astronomy	296202
+Science & Nature/Biological Sciences	296203
+Science & Nature/Chemistry	296204
+Science & Nature/Earth Sciences	296205
+Science & Nature/Engineering	296206
+Science & Nature/Environmental Sciences	296207
+Science & Nature/History of Science	296208
+Science & Nature/Mathematics	296209
+Science & Nature/Medicine	296210
+Science & Nature/Other	170983
+Science & Nature/Physics	296211
+Science & Nature/Psychology	296212
+Science Fiction & Fantasy/Anthologies	504490
+Science Fiction & Fantasy/Fantasy	504492
+Science Fiction & Fantasy/Gaming	504494
+Science Fiction & Fantasy/Graphic Novels	504496
+Science Fiction & Fantasy/High Tech	504498
+Science Fiction & Fantasy/Historical	504500
+Science Fiction & Fantasy/Military	504502
+Science Fiction & Fantasy/Other	68302
+Science Fiction & Fantasy/Science Fiction	504504
+Science Fiction & Fantasy/Series	504506
+Science Fiction & Fantasy/Star Trek	504508
+Science Fiction & Fantasy/Star Wars	504510
+Sports & Outdoors/Baseball	504452
+Sports & Outdoors/Basketball	504454
+Sports & Outdoors/Biographies	504456
+Sports & Outdoors/Coaching	504458
+Sports & Outdoors/Football (American)	504460
+Sports & Outdoors/Golf	504462
+Sports & Outdoors/Hiking & Camping	504464
+Sports & Outdoors/History	504466
+Sports & Outdoors/Hockey	504468
+Sports & Outdoors/Hunting & Fishing	504470
+Sports & Outdoors/Motor Sports	504472
+Sports & Outdoors/Other	68294
+Sports & Outdoors/Racket Sports	504474
+Sports & Outdoors/Running	504476
+Sports & Outdoors/Soccer	504478
+Sports & Outdoors/Sports Psychology	504480
+Sports & Outdoors/Water Sports	504482
+Sports & Outdoors/Weight Lifting & Training	504484
+Sports & Outdoors/Winter Sports	504486
+Textbooks	68303
+Travel & Exploration	170984
+Cars & Transportation	optgroup
+Books, Software & Videos/Other	497202
+Memorabilia/Automotive Memorabilia	68518
+Memorabilia/Harley Davidson	226202
+Memorabilia/License Plates	68519
+Memorabilia/Motorcycle Memorabilia	68520
+Other	69196
+Parts & Accessories/Auto Accessories/Bras	497204
+Parts & Accessories/Auto Accessories/Car Covers	497206
+Parts & Accessories/Auto Accessories/Car Racks & Travel Accessories	497208
+Parts & Accessories/Auto Accessories/Carpet Kits	497210
+Parts & Accessories/Auto Accessories/Chemicals, Cleaners and Polishes	497212
+Parts & Accessories/Auto Accessories/Collectibles & Novelties	497214
+Parts & Accessories/Auto Accessories/Gauges	497216
+Parts & Accessories/Auto Accessories/Headlight Covers	497218
+Parts & Accessories/Auto Accessories/Light Covers	497220
+Parts & Accessories/Auto Accessories/Organizing	497222
+Parts & Accessories/Auto Accessories/Other	281333
+Parts & Accessories/Auto Accessories/Splash Guards	497224
+Parts & Accessories/Auto Accessories/Tires & Wheels/Other	497232
+Parts & Accessories/Auto Accessories/Tires & Wheels/Tires	497228
+Parts & Accessories/Auto Accessories/Tires & Wheels/Wheels	497230
+Parts & Accessories/Auto Parts/Air Conditioning	497164
+Parts & Accessories/Auto Parts/Alternator	497166
+Parts & Accessories/Auto Parts/Body Hardware	497168
+Parts & Accessories/Auto Parts/Brakes	497170
+Parts & Accessories/Auto Parts/Chassis	497172
+Parts & Accessories/Auto Parts/Clutch	497174
+Parts & Accessories/Auto Parts/Cooling System	497176
+Parts & Accessories/Auto Parts/Electrical	497178
+Parts & Accessories/Auto Parts/Engine	171023
+Parts & Accessories/Auto Parts/Exhaust System	497182
+Parts & Accessories/Auto Parts/Front Drive Axle	497184
+Parts & Accessories/Auto Parts/Heater	497186
+Parts & Accessories/Auto Parts/Other	171022
+Parts & Accessories/Auto Parts/Starter	497188
+Parts & Accessories/Auto Parts/Steering	497190
+Parts & Accessories/Auto Parts/Suspension	497192
+Parts & Accessories/Auto Parts/Transfer Case	497194
+Parts & Accessories/Auto Parts/Tune Up, Ignition & Emission	497196
+Parts & Accessories/Auto Parts/Universal & Rear Axle	497198
+Parts & Accessories/Boats & Watercraft Parts	497236
+Parts & Accessories/Motorcycle & ATV Accessories	281337
+Parts & Accessories/Motorcycle & ATV Parts	281336
+Parts & Accessories/Other	281335
+Parts & Accessories/Performance Parts	497234
+Safety	497240
+Security	497242
+Tools & Equipment	497238
+Vehicles/ATVs & Snowmobiles	171026
+Vehicles/Aviation	281338
+Vehicles/Boats & Watercraft	171021
+Vehicles/Cars	171027
+Vehicles/Classic & Specialty	171028
+Vehicles/Motorcycles	171029
+Vehicles/Other	171025
+Vehicles/RVs	171030
+Vehicles/SUVs & Jeeps	171031
+Vehicles/Travel Trailers	171024
+Vehicles/Trucks, Vans & Commercial	171032
+Clothing & Accessories	optgroup
+Accessories/Bags	226217
+Accessories/General	172782
+Accessories/Hair Accessories	226218
+Accessories/Sunglasses	226216
+Clothing/Baby	171057
+Clothing/Children/Boy	226849
+Clothing/Children/General	68361
+Clothing/Children/Girl	226850
+Clothing/Children/Unisex	226851
+Clothing/General	68362
+Clothing/Men/Big & Tall	226853
+Clothing/Men/General	68363
+Clothing/Men/Workwear	226852
+Clothing/Outdoor	173301
+Clothing/Shoes	68364
+Clothing/Vintage	68365
+Clothing/Women/General	68366
+Clothing/Women/Maternity	171058
+Clothing/Women/Petite	226855
+Clothing/Women/Plus	226856
+Clothing/Women/Workwear	226854
+Coins & Stamps	optgroup
+International Coins/Africa	68383
+International Coins/Ancient & Medieval	68384
+International Coins/Asia	68385
+International Coins/Australia	68386
+International Coins/Canada	68387
+International Coins/Central America	68388
+International Coins/Certificates	68389
+International Coins/Collections & Lots	68390
+International Coins/Commemorative	68391
+International Coins/Currency	68392
+International Coins/England	68393
+International Coins/Errors	68394
+International Coins/France	68395
+International Coins/General	68396
+International Coins/Germany	68397
+International Coins/Gold	68398
+International Coins/Mexico	68399
+International Coins/Mint & Proof Sets	68400
+International Coins/Publications	68401
+International Coins/South America	68402
+International Coins/Supplies	68403
+International Stamps/Africa	68405
+International Stamps/Asia	68406
+International Stamps/British Commonwealth	68407
+International Stamps/Central America	68408
+International Stamps/Collections & Mixture	68409
+International Stamps/Covers	68410
+International Stamps/EFOs	68411
+International Stamps/Europe	68412
+International Stamps/First-Day Covers	68413
+International Stamps/General	68414
+International Stamps/Publications	68415
+International Stamps/South America	68416
+International Stamps/Supplies	68417
+International Stamps/Topical	68418
+Philately	68419
+U.S. Coins/Cents	68421
+U.S. Coins/Certificates	68422
+U.S. Coins/Collections & Lots	68423
+U.S. Coins/Colonial	68424
+U.S. Coins/Commemorative	68425
+U.S. Coins/Currency	68426
+U.S. Coins/Dimes	68427
+U.S. Coins/Dollars	68428
+U.S. Coins/Errors	68429
+U.S. Coins/General	68430
+U.S. Coins/Gold	68431
+U.S. Coins/Halves	68432
+U.S. Coins/Mint & Proof Sets	68433
+U.S. Coins/Nickels	68434
+U.S. Coins/Publications	68435
+U.S. Coins/Quarters	68436
+U.S. Coins/Supplies	68437
+U.S. Stamps/19th-Century	68440
+U.S. Stamps/20th-Century	68442
+U.S. Stamps/Airmail	68443
+U.S. Stamps/Back of Book	68444
+U.S. Stamps/Blocks & Sheets	68445
+U.S. Stamps/Collections & Mixture	68446
+U.S. Stamps/Covers	68447
+U.S. Stamps/Duck Stamps	68448
+U.S. Stamps/EFOs	68449
+U.S. Stamps/First-Day Covers	68450
+U.S. Stamps/General	68451
+U.S. Stamps/Possessions	68452
+U.S. Stamps/Publications	68453
+U.S. Stamps/Revenues	68454
+U.S. Stamps/Supplies	68455
+U.S. Stamps/Topical	68456
+Collectibles	optgroup
+Advertising/Airlines	68459
+Advertising/Automobiles	226206
+Advertising/Bus Lines	68460
+Advertising/Candy	68461
+Advertising/Cereals	226204
+Advertising/Characters	68462
+Advertising/Clocks	68463
+Advertising/Coffee Companies	68464
+Advertising/Dairy	68465
+Advertising/Displays	68466
+Advertising/Farms	68467
+Advertising/Forest Service	68468
+Advertising/Gasoline & Oil	68469
+Advertising/General	68470
+Advertising/Labels	68471
+Advertising/Liquor Companies	68472
+Advertising/Premiums	68473
+Advertising/Radio & Phonograph	68474
+Advertising/Railroads	226205
+Advertising/Restaurants	68475
+Advertising/Signs	68476
+Advertising/Soap	68477
+Advertising/Soda Brands/Coca-Cola	68479
+Advertising/Soda Brands/General	68480
+Advertising/Soda Brands/Pepsi	68481
+Advertising/Soup Companies	68482
+Advertising/Telephone Companies	68483
+Advertising/Tins	68484
+Advertising/Tire Manufacturers	68485
+Advertising/Tobacco Products	68486
+Advertising/Trays	68487
+Advertising/Truck Lines	68488
+Animals/Cats	194011
+Animals/Dogs	194012
+Animals/Fantasy	194016
+Animals/Farm	194013
+Animals/Frogs	194014
+Animals/Horses	194015
+Animals/Wild	194017
+Animals/Zoo	194018
+Animation/Anime & Manga/Dragon Ball	226805
+Animation/Anime & Manga/Hello Kitty	226804
+Animation/Anime & Manga/Model Kits	463940
+Animation/Anime & Manga/Other Anime Collectibles	68491
+Animation/Characters	68492
+Antique Reproductions	173555
+Autographs/Facsimile	226858
+Autographs/General/General	68504
+Autographs/General/Movies	68318
+Avon	226200
+Barber Shop	68505
+Bears/Accessories	68507
+Bears/Antique	68508
+Bears/Artist	68509
+Bears/Boyds	68510
+Bears/Cherished	68511
+Bears/General	68512
+Bears/Muffy	68513
+Bears/Raikes	68514
+Bears/Steiff	68515
+Bells	194024
+Bottles & Cans	172784
+Boy Scouts	265833
+Breweriana	68516
+Cereal Boxes & Premiums	68521
+Character/Advertising	68523
+Character/Beatles	68525
+Character/Comic Book Characters/Batman	68527
+Character/Comic Book Characters/General	68528
+Character/Comic Book Characters/Superman	68529
+Character/Elvis	68533
+Character/Garfield	68534
+Character/General	68535
+Character/James Bond	68536
+Character/Kiss	68537
+Character/Laurel & Hardy	68538
+Character/Marilyn Monroe	68539
+Character/Peanuts/General	68541
+Character/Peanuts/Toys	68542
+Character/Pok?mon/Cards	173549
+Character/Pok?mon/General	173548
+Character/Pok?mon/Toys	173550
+Character/Science Fiction/General	68545
+Character/Smurfs	68570
+Character/Television Characters	68571
+Circus & Carnival	68572
+Coin-Operated Machines	173300
+Collector Plates	68573
+Disney/Figures	68595
+Disney/General	68596
+Disney/Movie Collectibles	68597
+Disney/Pins & Buttons	68598
+Disney/Plush Toys	68599
+Disney/Posters & Lithographs	68600
+Disney/Vintage	194020
+Dolls/Antique/Bisque	68985
+Dolls/Antique/Composition	68986
+Dolls/Antique/General	68987
+Dolls/Artist	68988
+Dolls/Barbie/Accessories	68990
+Dolls/Barbie/General	68991
+Dolls/Barbie/Vintage	68993
+Dolls/Barbie/Vintage Accessories	68992
+Dolls/Cloth/General	68995
+Dolls/Cloth/Raggedy Ann & Andy	68996
+Dolls/Clothes & Accessories/Antique & Vintage	68998
+Dolls/Effanbee	69000
+Dolls/Fashion/Gene	69002
+Dolls/Fashion/General	69003
+Dolls/Figures	69004
+Dolls/General	69005
+Dolls/Hard Plastic	69006
+Dolls/House & Miniatures	69007
+Dolls/Ideal	69008
+Dolls/Madame Alexander	69009
+Dolls/Mattel	69010
+Dolls/Modern/Cabbage Patch	69012
+Dolls/Modern/General	69013
+Dolls/Modern/Holly Hobbie	69014
+Dolls/Modern/Strawberry Shortcake	69015
+Dolls/Nancy Ann	69016
+Dolls/Paper Dolls	69017
+Dolls/Vogue/General	69019
+Dolls/Vogue/Ginnette	69020
+Dolls/Vogue/Ginny	69021
+Dolls/Vogue/Jill & Jeff	69022
+General	170920
+Hallmark/General	68602
+Hallmark/Kiddie Car Classics	68603
+Hallmark/Merry Miniatures	68604
+Hallmark/Miniature Ornaments	68605
+Hallmark/Series Ornaments	68606
+Historical & Cultural/Black Americana	68608
+Historical & Cultural/Ethnographic	68609
+Historical & Cultural/General	68610
+Historical & Cultural/Hawaiiana	68611
+Historical & Cultural/Native Americana	68612
+Historical & Cultural/Orientalia	68613
+Historical & Cultural/Political	68614
+Historical & Cultural/Western Americana	68615
+Historical & Cultural/World's Fair	68616
+Holiday & Seasonal	68617
+Household Items/Banks	68619
+Household Items/Clocks & Timepieces	68620
+Household Items/Cookie Jars	68621
+Household Items/Cookware	68622
+Household Items/General	68623
+Household Items/Kitchenware	68624
+Household Items/Knives	68625
+Household Items/Lamps	68626
+Household Items/Magnets	68627
+Household Items/Metalware	68628
+Household Items/Radios	68629
+Household Items/Salt & Pepper Shakers	68630
+Household Items/Small Appliances	68631
+Household Items/Stoneware	68632
+Household Items/Telephones	68633
+Household Items/Utensils	68634
+Household Items/Vanity Items	68635
+Household Items/Writing Instruments	68636
+Kitsch	224822
+Knives & Swords	173465
+Lunchboxes	68637
+Magic & Novelty Items	68638
+Militaria/Civil War	68658
+Militaria/General	68659
+Militaria/Korea	68660
+Militaria/Pre World War I	68661
+Militaria/Surplus	68662
+Militaria/Vietnam	68663
+Militaria/World War I	68664
+Militaria/World War II	68665
+Music Boxes	68666
+Music/General	68640
+Music/Novelties	173501
+Oddities	68667
+Organizations/Firefighting	68669
+Organizations/Fraternal Groups	68670
+Organizations/Police	68671
+Paper/Maps & Atlases	68673
+Paper/Matchbooks	68674
+Paper/Photographic Images	68675
+Paper/Postcards	68676
+Paper/Posters & Prints/General	68678
+Paper/Posters & Prints/Lithographs	68679
+Paper/Posters & Prints/Prints	68681
+Pez	68683
+Pinbacks	68684
+Porcelain Figurines/Dept 56	68686
+Porcelain Figurines/Enesco	173554
+Porcelain Figurines/General	68687
+Religious	68758
+Rocks, Minerals & Fossils	173240
+Scientific Instruments	68759
+Scripophily	226201
+Television	68654
+Textiles	68760
+Theater	68655
+Tobacciana/Cigars	194023
+Tobacciana/General	68761
+Tobacciana/Lighters	226838
+Tobacciana/Pipes	194022
+Trains, Model Railroads/American Flyer	68754
+Trains, Model Railroads/General	68755
+Trains, Model Railroads/HO	171059
+Trains, Model Railroads/Large scale	171060
+Trains, Model Railroads/Lionel/Accessories	171064
+Trains, Model Railroads/Lionel/Cars	171065
+Trains, Model Railroads/Lionel/Locomotives	171066
+Trains, Model Railroads/Lionel/Other	68756
+Trains, Model Railroads/Lionel/Sets	171067
+Trains, Model Railroads/N & Z	171061
+Trains, Model Railroads/O	171062
+Trains, Model Railroads/Other Tinplates	68757
+Trains, Railroadiana	282082
+Western	68656
+Comics, Cards & Sci-Fi	optgroup
+Anime & Manga/Manga	69142
+Babylon 5/General	69143
+Comic Books/Classic	68575
+Comic Books/General	68576
+Comic Books/Golden Age/Crime	68578
+Comic Books/Golden Age/Funny Animal	68579
+Comic Books/Golden Age/General	68580
+Comic Books/Golden Age/Horror	68581
+Comic Books/Golden Age/Science Fiction	68582
+Comic Books/Golden Age/Superhero	68583
+Comic Books/Magazines	68584
+Comic Books/Modern/DC	296935
+Comic Books/Modern/Dark Horse	296936
+Comic Books/Modern/General	68585
+Comic Books/Modern/Image	296937
+Comic Books/Modern/Independent	296938
+Comic Books/Modern/Marvel	296934
+Comic Books/Newspaper Comic Strips	68586
+Comic Books/Original Art	68587
+Comic Books/Pre-Golden Age	68588
+Comic Books/Silver Age/General	68590
+Comic Books/Silver Age/Horror	68591
+Comic Books/Silver Age/Science Fiction	68592
+Comic Books/Silver Age/Superhero	68593
+General	170921
+Godzilla/General	69145
+Godzilla/Toys & Action Figures	69146
+Star Trek/General	68547
+Star Wars/General	68551
+The X-Files/General	69147
+Toys	68562
+Trading Cards/Beanbag Toy Cards	193771
+Trading Cards/Comic Book Characters	69096
+Trading Cards/Gaming	69097
+Trading Cards/Magic: The Gathering	69098
+Trading Cards/Other: Non-Sports	69099
+Trading Cards/Science Fiction/Babylon 5	68564
+Trading Cards/Science Fiction/General	68565
+Trading Cards/Science Fiction/Star Trek	68566
+Trading Cards/Science Fiction/Star Wars	68567
+Trading Cards/Science Fiction/The X-Files	68568
+Trading Cards/Sports/Baseball/Box	69102
+Trading Cards/Sports/Baseball/General	69103
+Trading Cards/Sports/Baseball/Graded-Slabbed	193945
+Trading Cards/Sports/Baseball/Lots	69104
+Trading Cards/Sports/Baseball/Packs	69105
+Trading Cards/Sports/Baseball/Rookies	69106
+Trading Cards/Sports/Baseball/Sets	69107
+Trading Cards/Sports/Baseball/Singles/1950 - 1980	69109
+Trading Cards/Sports/Baseball/Singles/1981 - now	69110
+Trading Cards/Sports/Baseball/Singles/Pre 1950	69111
+Trading Cards/Sports/Basketball/Box	69113
+Trading Cards/Sports/Basketball/General	69114
+Trading Cards/Sports/Basketball/Graded-Slabbed	193946
+Trading Cards/Sports/Basketball/Lots	69115
+Trading Cards/Sports/Basketball/Packs	69116
+Trading Cards/Sports/Basketball/Rookies	69117
+Trading Cards/Sports/Basketball/Sets	69118
+Trading Cards/Sports/Basketball/Singles	69119
+Trading Cards/Sports/Basketball/WNBA	193949
+Trading Cards/Sports/Football/Box	69121
+Trading Cards/Sports/Football/General	69122
+Trading Cards/Sports/Football/Graded-Slabbed	193947
+Trading Cards/Sports/Football/Lots	69123
+Trading Cards/Sports/Football/Packs	69124
+Trading Cards/Sports/Football/Rookies	69125
+Trading Cards/Sports/Football/Sets	69126
+Trading Cards/Sports/Football/Singles	69127
+Trading Cards/Sports/Hockey/Box	69129
+Trading Cards/Sports/Hockey/General	69130
+Trading Cards/Sports/Hockey/Graded-Slabbed	193948
+Trading Cards/Sports/Hockey/Lots	69131
+Trading Cards/Sports/Hockey/Packs	69132
+Trading Cards/Sports/Hockey/Rookies	69133
+Trading Cards/Sports/Hockey/Sets	69134
+Trading Cards/Sports/Hockey/Singles	69135
+Trading Cards/Sports/Other Sports	69136
+Trading Cards/Sports/Racing/NASCAR	69138
+Trading Cards/Sports/Racing/NHRA	69139
+Trading Cards/Sports/Soccer	193950
+Trading Cards/Sports/Wrestling	193951
+Trading Cards/Wacky Packages	69140
+Computers & Software	optgroup
+Hardware/CPUs/AMD	404298
+Hardware/CPUs/Celeron	404300
+Hardware/CPUs/Fans & Heatsinks	404302
+Hardware/CPUs/Other	69151
+Hardware/CPUs/Pentium	404304
+Hardware/Cards/Other	284067
+Hardware/Cards/Sound	226860
+Hardware/Cards/Video	284946
+Hardware/Desktop PCs/AMD	282059
+Hardware/Desktop PCs/Celeron	282061
+Hardware/Desktop PCs/Other	69160
+Hardware/Desktop PCs/Pentium	282058
+Hardware/Desktop PCs/Up to 486	282057
+Hardware/Handhelds/Accessories	296801
+Hardware/Handhelds/Other	193772
+Hardware/Handhelds/Palm	282043
+Hardware/Handhelds/Windows CE	282044
+Hardware/Input Devices/Gaming Controls	289349
+Hardware/Input Devices/Keyboards	289350
+Hardware/Input Devices/Mice	289351
+Hardware/Input Devices/Other	265091
+Hardware/Laptops/AMD	284966
+Hardware/Laptops/Accessories	284965
+Hardware/Laptops/Celeron	284967
+Hardware/Laptops/Other	69161
+Hardware/Laptops/Pentium	284968
+Hardware/Laptops/Up to 486	284969
+Hardware/Macintosh	69154
+Hardware/Memory/Desktop	282035
+Hardware/Memory/Digital Camera	282039
+Hardware/Memory/Laptop	282036
+Hardware/Memory/Other	69155
+Hardware/Memory/PDA & Handheld	282040
+Hardware/Memory/Printer	282038
+Hardware/Memory/Workstation & Server	282037
+Hardware/Modems/External	284957
+Hardware/Modems/Internal	284956
+Hardware/Modems/Other	69156
+Hardware/Modems/PCMCIA	284958
+Hardware/Monitors/17"	284962
+Hardware/Monitors/19" & Up	284963
+Hardware/Monitors/Flat Screen	284960
+Hardware/Monitors/Other	69157
+Hardware/Monitors/Up to 15"	284961
+Hardware/Motherboards/Other	226859
+Hardware/Motherboards/Slot 1 - Socket 370	404310
+Hardware/Motherboards/Slot 2	404312
+Hardware/Motherboards/Slot A	404308
+Hardware/Motherboards/Super 7 - Socket 7	404314
+Hardware/Multimedia/Other	69158
+Hardware/Multimedia/Speakers	289353
+Hardware/Networking/Cables & Connectors	284069
+Hardware/Networking/Hubs	284070
+Hardware/Networking/Network Cards	284071
+Hardware/Networking/Other	69159
+Hardware/Networking/Routers & Switches	284072
+Hardware/Other	69153
+Hardware/Printers/Accessories & Supplies	296800
+Hardware/Printers/Ink Jet	289355
+Hardware/Printers/Laser	289356
+Hardware/Printers/Other	69162
+Hardware/Scanners	170987
+Hardware/Servers	282060
+Hardware/Storage Media & Drives/CD-Rom & CD-RW Drives	284948
+Hardware/Storage Media & Drives/DVD Drives	284949
+Hardware/Storage Media & Drives/Floppy Drives	284950
+Hardware/Storage Media & Drives/Hard Drives	284951
+Hardware/Storage Media & Drives/Media	284952
+Hardware/Storage Media & Drives/Other	69152
+Hardware/Storage Media & Drives/Removable	284953
+Hardware/Storage Media & Drives/Tape Backup	284954
+Hardware/Vintage	226861
+Internet Services/ISDN	265075
+Internet Services/Other	69163
+Macintosh/Other	282033
+Other	170922
+Software/Business & Productivity/Database	296803
+Software/Business & Productivity/Office Suites	296804
+Software/Business & Productivity/Other	69166
+Software/Business & Productivity/Personal Finance	296805
+Software/Business & Productivity/Programming & Development	296806
+Software/Business & Productivity/Training & Tutorials	296807
+Software/Education & Reference/Art & Culture	265097
+Software/Education & Reference/Early Learning	296808
+Software/Education & Reference/Educational	69168
+Software/Education & Reference/Encyclopedias & Dictionaries	265095
+Software/Education & Reference/Foreign Languages	265093
+Software/Education & Reference/History	296809
+Software/Education & Reference/Mapping	504830
+Software/Education & Reference/Math	296810
+Software/Education & Reference/Other	265094
+Software/Education & Reference/Reading	296811
+Software/Education & Reference/Science & Nature	296812
+Software/Education & Reference/Typing	296813
+Software/Games & Entertainment/Action & Adventure	265067
+Software/Games & Entertainment/Cards, Casino & Lottery	265068
+Software/Games & Entertainment/Children's Activities	296814
+Software/Games & Entertainment/Classic Games & Arcade	296815
+Software/Games & Entertainment/Collections & Bundles	296816
+Software/Games & Entertainment/Other	69169
+Software/Games & Entertainment/Puzzles & Trivia	265069
+Software/Games & Entertainment/Role Playing	265070
+Software/Games & Entertainment/Simulation/ Racing	265074
+Software/Games & Entertainment/Simulation/Flight	296818
+Software/Games & Entertainment/Simulation/Other	265071
+Software/Games & Entertainment/Sports & Outdoors/Football	296820
+Software/Games & Entertainment/Sports & Outdoors/Golf	296821
+Software/Games & Entertainment/Sports & Outdoors/Hunting & Fishing	296823
+Software/Games & Entertainment/Sports & Outdoors/Other	265072
+Software/Games & Entertainment/Sports & Outdoors/Soccer	296822
+Software/Games & Entertainment/Strategy & War	265073
+Software/Graphics & Multimedia/Desktop Publishing	69167
+Software/Graphics & Multimedia/Home Design	296825
+Software/Graphics & Multimedia/Multimedia & Video Editing	69165
+Software/Graphics & Multimedia/Other	69171
+Software/Graphics & Multimedia/Photo Editing	296826
+Software/Interests & Hobbies/Cooking & Health	296828
+Software/Interests & Hobbies/Movies & Music	296829
+Software/Interests & Hobbies/Other	265096
+Software/Macintosh/Business & Productivity	296831
+Software/Macintosh/Education & Reference	296832
+Software/Macintosh/Games & Entertainment	296833
+Software/Macintosh/Graphics & Multimedia	296834
+Software/Macintosh/Interests & Hobbies	296835
+Software/Macintosh/Other	69172
+Software/Macintosh/Utilities	296836
+Software/Other	69170
+Software/Utilities & Operating Systems/Operating Systems	465154
+Software/Utilities & Operating Systems/Other	69173
+Software/Utilities & Operating Systems/Screen Savers	296838
+Software/Utilities & Operating Systems/System Utilities	296840
+Software/Utilities & Operating Systems/Virus Protection	296839
+Electronics & Photography	optgroup
+Audio/Car Stereo/Accessories	296841
+Audio/Car Stereo/Amplifiers	289358
+Audio/Car Stereo/CD Players	289360
+Audio/Car Stereo/Cassette Players	289359
+Audio/Car Stereo/Other	281306
+Audio/Car Stereo/Speakers	289364
+Audio/Car Stereo/Subwoofers	501332
+Audio/DJ	69204
+Audio/Home Stereo/Accessories	501336
+Audio/Home Stereo/Amplifiers	290999
+Audio/Home Stereo/CD Players & Changers	289361
+Audio/Home Stereo/Cassette Decks	291000
+Audio/Home Stereo/Equalizers	501338
+Audio/Home Stereo/Other	69194
+Audio/Home Stereo/Receivers & Tuners	291001
+Audio/Home Stereo/Shelf Systems	281307
+Audio/Home Stereo/Speakers	289365
+Audio/Home Stereo/Subwoofers	501340
+Audio/Home Stereo/Turntables	289363
+Audio/Other	69178
+Audio/Recording Equipment	69193
+Communications/Accessories	265081
+Communications/Answering Devices	193773
+Communications/Corded Phones	193776
+Communications/Cordless Phones	501342
+Communications/Mobile Phones/Batteries & Chargers	265077
+Communications/Mobile Phones/Other	265078
+Communications/Mobile Phones/Phones with Service Plan	265079
+Communications/Mobile Phones/Prepaid Cards & Service Plans	265080
+Communications/Pagers	193775
+Communications/Two-Way Radios	501344
+Home Office Equipment/Copiers	290998
+Home Office Equipment/Fax Machines	193774
+Home Office Equipment/Other	290997
+Other	170923
+Photo, Movie & Video Equipment/Other	69184
+Photo, Movie & Video Equipment/Photo Equipment/35mm	69181
+Photo, Movie & Video Equipment/Photo Equipment/Accessories	69182
+Photo, Movie & Video Equipment/Photo Equipment/Darkroom Equipment	69183
+Photo, Movie & Video Equipment/Photo Equipment/Digital Cameras	69149
+Photo, Movie & Video Equipment/Photo Equipment/Instruction & Manuals	69185
+Photo, Movie & Video Equipment/Photo Equipment/Large Format	69186
+Photo, Movie & Video Equipment/Photo Equipment/Lenses	69187
+Photo, Movie & Video Equipment/Photo Equipment/Lighting & Meters	69188
+Photo, Movie & Video Equipment/Photo Equipment/Medium Format	69189
+Photo, Movie & Video Equipment/Photo Equipment/Subminiature	69191
+Photo, Movie & Video Equipment/Photo Equipment/Vintage & Collectible	69192
+Photo, Movie & Video Equipment/Video Equipment/Accessories	501370
+Photo, Movie & Video Equipment/Video Equipment/Batteries & Chargers	501372
+Photo, Movie & Video Equipment/Video Equipment/Blank Tape/8mm & Hi8	501376
+Photo, Movie & Video Equipment/Video Equipment/Blank Tape/Digital	501378
+Photo, Movie & Video Equipment/Video Equipment/Blank Tape/Other	501386
+Photo, Movie & Video Equipment/Video Equipment/Blank Tape/SVHS	501380
+Photo, Movie & Video Equipment/Video Equipment/Blank Tape/VHS	501382
+Photo, Movie & Video Equipment/Video Equipment/Blank Tape/VHS-C	501384
+Photo, Movie & Video Equipment/Video Equipment/Cables & Cords	501388
+Photo, Movie & Video Equipment/Video Equipment/Camcorders/8mm & Hi8	501396
+Photo, Movie & Video Equipment/Video Equipment/Camcorders/Digital	501398
+Photo, Movie & Video Equipment/Video Equipment/Camcorders/Other	226212
+Photo, Movie & Video Equipment/Video Equipment/Camcorders/SVHS	501400
+Photo, Movie & Video Equipment/Video Equipment/Camcorders/VHS	501402
+Photo, Movie & Video Equipment/Video Equipment/Camcorders/VHS-C	501404
+Photo, Movie & Video Equipment/Video Equipment/Cases & Bags	501390
+Photo, Movie & Video Equipment/Video Equipment/Video Converters	501392
+Portable Electronics/Accessories	501348
+Portable Electronics/Other	501364
+Portable Electronics/Portable Audio/Boomboxes & Radios	69179
+Portable Electronics/Portable Audio/MP3 Players	501352
+Portable Electronics/Portable Audio/Other	281305
+Portable Electronics/Portable Audio/Portable CD Players	501354
+Portable Electronics/Portable Video/Other	501362
+Portable Electronics/Portable Video/Portable DVD Players	501358
+Portable Electronics/Portable Video/Portable TVs	501360
+TV, Video & DVD Players/Accessories	296842
+TV, Video & DVD Players/DVD Players	226211
+TV, Video & DVD Players/Other	69177
+TV, Video & DVD Players/TVs/19" to 29"	289964
+TV, Video & DVD Players/TVs/30" & Over	289965
+TV, Video & DVD Players/TVs/Other	226214
+TV, Video & DVD Players/VCRs	226213
+Family & Living	optgroup
+Beauty/Bath	281993
+Beauty/Cosmetics/Eyes	281995
+Beauty/Cosmetics/Face	281996
+Beauty/Cosmetics/Lips	281997
+Beauty/Cosmetics/Nails	281998
+Beauty/Cosmetics/Other	281303
+Beauty/For Him/Body	282000
+Beauty/For Him/Cologne	282001
+Beauty/For Him/Face	282002
+Beauty/For Him/Other	283115
+Beauty/For Him/Shaving	282003
+Beauty/Fragrance	281302
+Beauty/Hair Care/Conditioner	282005
+Beauty/Hair Care/Other	283117
+Beauty/Hair Care/Shampoo	282006
+Beauty/Hair Care/Styling	282007
+Beauty/Other	226208
+Beauty/Skin Care/Body	282009
+Beauty/Skin Care/Face	282010
+Beauty/Skin Care/Other	283116
+Beauty/Skin Care/Sun	282011
+Health & Wellness/Aromatherapy	282013
+Health & Wellness/Dietary Products	282014
+Health & Wellness/Exercise & Fitness	282015
+Health & Wellness/Family Planning	282016
+Health & Wellness/Herbs & Homeopathy	282018
+Health & Wellness/Home Medical Supplies	282017
+Health & Wellness/Other	226207
+Health & Wellness/Vitamins & Nutritional Supplements	282019
+Parenting/Baby & Toddler/Bouncers, Jumpers & Walkers	171041
+Parenting/Baby & Toddler/Car Seats	171042
+Parenting/Baby & Toddler/Carriers & Slings	171043
+Parenting/Baby & Toddler/Changing Tables	171044
+Parenting/Baby & Toddler/Christening	284066
+Parenting/Baby & Toddler/Diapering & Bathing	171045
+Parenting/Baby & Toddler/Feeding Accessories	171046
+Parenting/Baby & Toddler/Furniture/Bedding	171049
+Parenting/Baby & Toddler/Furniture/Cribs & Cradles	171050
+Parenting/Baby & Toddler/Furniture/Furniture	171051
+Parenting/Baby & Toddler/Furniture/Playpens	171052
+Parenting/Baby & Toddler/High Chairs	171047
+Parenting/Baby & Toddler/Safety Items	171053
+Parenting/Baby & Toddler/Strollers	171054
+Parenting/Baby & Toddler/Swings	171055
+Parenting/Maternity	282022
+Parenting/Other	282021
+Parenting/School Supplies	465156
+Pet Supplies/Birds/Cages & Accessories	296785
+Pet Supplies/Birds/Food	296782
+Pet Supplies/Birds/Healthcare & Remedies	296783
+Pet Supplies/Birds/Other	296781
+Pet Supplies/Birds/Toys	296784
+Pet Supplies/Cats/Beds & Apparel	296778
+Pet Supplies/Cats/Food	296779
+Pet Supplies/Cats/Grooming	296775
+Pet Supplies/Cats/Healthcare & Remedies	296780
+Pet Supplies/Cats/Leashes & Collars	296776
+Pet Supplies/Cats/Other	296774
+Pet Supplies/Cats/Toys	296777
+Pet Supplies/Dogs/Beds & Apparel	296771
+Pet Supplies/Dogs/Food	296772
+Pet Supplies/Dogs/Grooming	296768
+Pet Supplies/Dogs/Healthcare & Remedies	296773
+Pet Supplies/Dogs/Leashes & Collars	296769
+Pet Supplies/Dogs/Other	296767
+Pet Supplies/Dogs/Toys	296770
+Pet Supplies/Farm	296799
+Pet Supplies/Fish/Aquariums & Kits	296788
+Pet Supplies/Fish/Food	296787
+Pet Supplies/Fish/Healthcare & Remedies	296789
+Pet Supplies/Fish/Other	296786
+Pet Supplies/Other	172080
+Pet Supplies/Reptiles & Exotic/Food	296796
+Pet Supplies/Reptiles & Exotic/Habitats	296798
+Pet Supplies/Reptiles & Exotic/Healthcare & Remedies	296797
+Pet Supplies/Reptiles & Exotic/Other	296795
+Pet Supplies/Small Pets/Cages & Kits	296792
+Pet Supplies/Small Pets/Food	296793
+Pet Supplies/Small Pets/Grooming	296791
+Pet Supplies/Small Pets/Healthcare & Remedies	296794
+Pet Supplies/Small Pets/Other	282030
+Wedding/Bridal Accessories	282025
+Wedding/Centerpieces & Decorations	282026
+Wedding/For the Groom	282027
+Wedding/Gowns	282028
+Wedding/Keepsakes & Favors	282029
+Wedding/Other	172785
+Food & Beverages	optgroup
+Beans & Nuts	296721
+Candy & Chocolate/Boxed Chocolates	296723
+Candy & Chocolate/Novelties	296725
+Candy & Chocolate/Other	226998
+Candy & Chocolate/Sweets	296724
+Cheese & Dairy/Belgium	504606
+Cheese & Dairy/France	504608
+Cheese & Dairy/Germany	504610
+Cheese & Dairy/Holland	504612
+Cheese & Dairy/Italy	504614
+Cheese & Dairy/Other	226999
+Cheese & Dairy/Spain	504616
+Cheese & Dairy/Switzerland	504618
+Cheese & Dairy/United Kingdom	504620
+Cheese & Dairy/United States	504622
+Coffee, Tea & Beverages/Coffee	296727
+Coffee, Tea & Beverages/Juice & Drink Mixers	296729
+Coffee, Tea & Beverages/Other	227000
+Coffee, Tea & Beverages/Tea	296728
+Culinary Herbs & Spices	227005
+Desserts, Baked Goods & Mixes/Baking Mixes & Ingredients	296731
+Desserts, Baked Goods & Mixes/Bread	296732
+Desserts, Baked Goods & Mixes/Cake	296733
+Desserts, Baked Goods & Mixes/Cookies	296734
+Desserts, Baked Goods & Mixes/Other	227002
+Dietary Specialties/Gluten-free	296736
+Dietary Specialties/Kosher	296738
+Dietary Specialties/Other	296740
+Dietary Specialties/Salt Restricted	296737
+Dietary Specialties/Sugar Restricted	296739
+Food Gift Baskets/Any Occasion	504626
+Food Gift Baskets/Birthday	504628
+Food Gift Baskets/Congratulations	504630
+Food Gift Baskets/Corporate Gifts	504632
+Food Gift Baskets/Gourmet Baskets	504634
+Food Gift Baskets/New Baby	504636
+Food Gift Baskets/Other	289369
+Food Gift Baskets/Seasonal Holiday	504638
+Food Gift Baskets/Sports Theme	504640
+Food Gift Baskets/Thank You	504642
+Food Gift Baskets/Weddings & Anniversaries	504644
+Fruits & Vegetables	227004
+Gourmet Meal Kits	504542
+Gourmet Prepared Foods	504540
+Health Foods/Drinks	296743
+Health Foods/Food	296742
+Health Foods/Other	281308
+Health Foods/Supplements	296744
+Jams, Honey, Syrups & Spreads	227006
+Meats, Seafood & Poultry/Beef/Dried & Smoked	504546
+Meats, Seafood & Poultry/Beef/Fresh & Frozen Cuts	504548
+Meats, Seafood & Poultry/Beef/Other	296747
+Meats, Seafood & Poultry/Beef/Prepared Meals	504550
+Meats, Seafood & Poultry/Fish/Dried & Smoked	504578
+Meats, Seafood & Poultry/Fish/Fresh & Frozen Cuts	504580
+Meats, Seafood & Poultry/Fish/Other	504584
+Meats, Seafood & Poultry/Fish/Prepared Meals	504582
+Meats, Seafood & Poultry/Game & Exotic Meats/Dried & Smoked & Cured	504596
+Meats, Seafood & Poultry/Game & Exotic Meats/Fresh & Frozen Cuts	504598
+Meats, Seafood & Poultry/Game & Exotic Meats/Other	504602
+Meats, Seafood & Poultry/Game & Exotic Meats/Prepared Meals	504600
+Meats, Seafood & Poultry/Lamb/Dried & Smoked	504554
+Meats, Seafood & Poultry/Lamb/Fresh & Frozen Cuts	504556
+Meats, Seafood & Poultry/Lamb/Other	296749
+Meats, Seafood & Poultry/Lamb/Prepared Meals	504558
+Meats, Seafood & Poultry/Other	227007
+Meats, Seafood & Poultry/Pork/Dried & Smoked	504562
+Meats, Seafood & Poultry/Pork/Fresh & Frozen Cuts	504564
+Meats, Seafood & Poultry/Pork/Other	296746
+Meats, Seafood & Poultry/Pork/Prepared Meals	504566
+Meats, Seafood & Poultry/Poultry/Dried & Smoked	504570
+Meats, Seafood & Poultry/Poultry/Fresh & Frozen Cuts	504572
+Meats, Seafood & Poultry/Poultry/Other	296748
+Meats, Seafood & Poultry/Poultry/Prepared Meals	504574
+Meats, Seafood & Poultry/Sausages/Beef	504526
+Meats, Seafood & Poultry/Sausages/Game & Exotic Meats	504528
+Meats, Seafood & Poultry/Sausages/Lamb	504530
+Meats, Seafood & Poultry/Sausages/Other	504538
+Meats, Seafood & Poultry/Sausages/Pork	504532
+Meats, Seafood & Poultry/Sausages/Poultry	504534
+Meats, Seafood & Poultry/Sausages/Seafood	504536
+Meats, Seafood & Poultry/Shell Fish/Dried & Smoked	504588
+Meats, Seafood & Poultry/Shell Fish/Fresh & Frozen Cuts	504590
+Meats, Seafood & Poultry/Shell Fish/Other	296750
+Meats, Seafood & Poultry/Shell Fish/Prepared Meals	504592
+Oils & Vinegars	227008
+Organic	292161
+Other	226997
+Pasta, Rice, & Grains	227009
+Restaurant Brands	292162
+Sauce, Marinades & Condiments/BBQ	296752
+Sauce, Marinades & Condiments/Dressing & Marinades	296753
+Sauce, Marinades & Condiments/Hot Sauce & Salsa	296754
+Sauce, Marinades & Condiments/Other	227001
+Snack Food/Other	227010
+Snack Food/Salty	296756
+Snack Food/Sour	296758
+Snack Food/Sweet	296757
+Soups & Stocks	227011
+World Flavors/Africa	296761
+World Flavors/Asia	296760
+World Flavors/Europe	296763
+World Flavors/Latin America	296765
+World Flavors/Middle East	296762
+World Flavors/North America	296764
+World Flavors/Other	227003
+Home & Garden	optgroup
+Bathroom/Accessories	296872
+Bathroom/Basins	296873
+Bathroom/Fixtures	296874
+Bathroom/General	296871
+Bathroom/Showers & Bathtubs	296875
+Carpets & Rugs	193778
+Crafts/Crochet	193784
+Crafts/Embroidery	193785
+Crafts/For Sale By Creator	226835
+Crafts/General	296876
+Crafts/Knitting	193783
+Crafts/Quilts & Quilting	224825
+Crafts/Rubber Stamps	193786
+Crafts/Scrapbooking	296877
+Crafts/Weaving	296878
+Dining & Tableware/China & Dinnerware	296881
+Dining & Tableware/Crystal & Glassware	296882
+Dining & Tableware/General	296880
+Dining & Tableware/Silverware	296883
+Furniture/Beds & Mattresses	193780
+Furniture/Bookcases & Shelving	296885
+Furniture/Chairs	296886
+Furniture/Chests of Drawers & Dressers	296887
+Furniture/Couches & Loveseats	193781
+Furniture/Desks	193779
+Furniture/Dining Room Sets	296888
+Furniture/General	173241
+Furniture/Other	296884
+Furniture/Tables	296889
+Garden/Bulbs	171085
+Garden/Composting & Plant Care	296890
+Garden/Feeders & Houses	171077
+Garden/Fresh Flowers	284970
+Garden/General	69197
+Garden/Lawn Furniture	171078
+Garden/Ornaments & Statuary	171079
+Garden/Plants	171081
+Garden/Pots & Containers	296891
+Garden/Seeds	171082
+Garden/Tools	171084
+Garden/Trees & Shrubs	296892
+Garden/Wreaths	171083
+General	69198
+Home Accessories/Candles & Candle Holders	265834
+Home Accessories/Clocks	296864
+Home Accessories/Flower Arrangements	296865
+Home Accessories/Frames	296866
+Home Accessories/General	296863
+Home Accessories/Mirrors	296867
+Home Accessories/Throws	296868
+Home Accessories/Vases	296869
+Home Appliances/Clocks & Timers	291002
+Home Appliances/Countertop Appliances	296851
+Home Appliances/Dishwashers	296852
+Home Appliances/Heaters & Humidifiers	296853
+Home Appliances/Large Appliances	265089
+Home Appliances/Microwaves	296854
+Home Appliances/Other	265088
+Home Appliances/Refrigerators & Freezers	296855
+Home Appliances/Small Appliances	265090
+Home Appliances/Stoves & Ovens	296856
+Home Appliances/Vacuum Cleaners	296857
+Home Appliances/Washers & Dryers	296858
+Household Items	69199
+Kitchen/Accessories	296895
+Kitchen/Bakeware	296896
+Kitchen/General	296894
+Kitchen/Knives	296898
+Kitchen/Pots, Pans & Cookware	296897
+Lamps & Lighting/Floor Lamps	296906
+Lamps & Lighting/General	296905
+Lamps & Lighting/Lighting Fixtures	296907
+Lamps & Lighting/Table Lamps	296908
+Linens/Bath	296901
+Linens/Bed	296902
+Linens/General	296900
+Linens/Table	296903
+Jewelry, Gems & Watches	optgroup
+Beads/Beaded Jewelry	68370
+Beads/Clay	224837
+Beads/Glass	224838
+Beads/Other	68359
+Bracelets/Beaded	296310
+Bracelets/Color Gems/Amethyst	296312
+Bracelets/Color Gems/Aquamarine	296313
+Bracelets/Color Gems/Cubic Zirconia	296315
+Bracelets/Color Gems/Emerald	296316
+Bracelets/Color Gems/Garnet	296317
+Bracelets/Color Gems/Iolite	296318
+Bracelets/Color Gems/Opal	296319
+Bracelets/Color Gems/Other	296323
+Bracelets/Color Gems/Ruby	296320
+Bracelets/Color Gems/Sapphire	296321
+Bracelets/Color Gems/Tanzanite	296322
+Bracelets/Color Gems/Topaz	296314
+Bracelets/Costume	296309
+Bracelets/Designer	296303
+Bracelets/Diamond & Tennis	296304
+Bracelets/Ethnic	296305
+Bracelets/Gold	296299
+Bracelets/Opaque Gems/Cameos	296325
+Bracelets/Opaque Gems/Coral	296326
+Bracelets/Opaque Gems/Jade	296327
+Bracelets/Opaque Gems/Lapis	296328
+Bracelets/Opaque Gems/Onyx	296329
+Bracelets/Opaque Gems/Other	296331
+Bracelets/Opaque Gems/Turquoise	296330
+Bracelets/Other	171072
+Bracelets/Pearl	296306
+Bracelets/Platinum	296302
+Bracelets/Silver	296301
+Bracelets/Synthetic Gems	296332
+Bracelets/Victorian	296308
+Bracelets/Vintage	296307
+Bracelets/White Gold	296300
+Charms & Pendants/Charms/Gold	296481
+Charms & Pendants/Charms/Other	296483
+Charms & Pendants/Charms/Silver	296482
+Charms & Pendants/Other	296488
+Charms & Pendants/Pendants/Gold	296485
+Charms & Pendants/Pendants/Other	296487
+Charms & Pendants/Pendants/Silver	296486
+Earrings/Beaded	296379
+Earrings/Color Gems/Amethyst	296381
+Earrings/Color Gems/Aquamarine	296382
+Earrings/Color Gems/Cubic Zirconia	296384
+Earrings/Color Gems/Emerald	296385
+Earrings/Color Gems/Garnet	296386
+Earrings/Color Gems/Iolite	296387
+Earrings/Color Gems/Opal	296388
+Earrings/Color Gems/Other	296392
+Earrings/Color Gems/Ruby	296389
+Earrings/Color Gems/Sapphire	296390
+Earrings/Color Gems/Tanzanite	296391
+Earrings/Color Gems/Topaz	296383
+Earrings/Costume	296378
+Earrings/Designer	296372
+Earrings/Diamond	296373
+Earrings/Ethnic	296374
+Earrings/Gold	171069
+Earrings/Opaque Gems/Cameos	296394
+Earrings/Opaque Gems/Coral	296395
+Earrings/Opaque Gems/Jade	296396
+Earrings/Opaque Gems/Lapis	296397
+Earrings/Opaque Gems/Onyx	296398
+Earrings/Opaque Gems/Other	296400
+Earrings/Opaque Gems/Turquoise	296399
+Earrings/Other	171073
+Earrings/Pearl	296375
+Earrings/Platinum	296371
+Earrings/Silver	296370
+Earrings/Synthetic Gems	296401
+Earrings/Victorian	296377
+Earrings/Vintage	296376
+Earrings/White Gold	296369
+Men's Accessories/Cuff Links/Gold	296466
+Men's Accessories/Cuff Links/Other	296468
+Men's Accessories/Cuff Links/Silver	296467
+Men's Accessories/Money Clips/Gold	296474
+Men's Accessories/Money Clips/Other	296476
+Men's Accessories/Money Clips/Silver	296475
+Men's Accessories/Other	296477
+Men's Accessories/Tie Clasps/Gold	296470
+Men's Accessories/Tie Clasps/Other	296472
+Men's Accessories/Tie Clasps/Silver	296471
+More Jewelry/Ancient	68369
+More Jewelry/Anklets	296491
+More Jewelry/Body Piercing	296492
+More Jewelry/Carved & Cameo	68371
+More Jewelry/Contemporary	68372
+More Jewelry/Costume	68373
+More Jewelry/General	68374
+More Jewelry/Gold	68376
+More Jewelry/Hairclips	296493
+More Jewelry/Silver	68377
+More Jewelry/Victorian	68378
+More Jewelry/Vintage	68379
+More Jewelry/Writing Instruments	296494
+Necklaces & Chains/Beaded	296345
+Necklaces & Chains/Color Gems/Amethyst	296347
+Necklaces & Chains/Color Gems/Aquamarine	296348
+Necklaces & Chains/Color Gems/Cubic Zirconia	296350
+Necklaces & Chains/Color Gems/Emerald	296351
+Necklaces & Chains/Color Gems/Garnet	296352
+Necklaces & Chains/Color Gems/Iolite	296353
+Necklaces & Chains/Color Gems/Opal	296354
+Necklaces & Chains/Color Gems/Other	296358
+Necklaces & Chains/Color Gems/Ruby	296355
+Necklaces & Chains/Color Gems/Sapphire	296356
+Necklaces & Chains/Color Gems/Tanzanite	296357
+Necklaces & Chains/Color Gems/Topaz	296349
+Necklaces & Chains/Costume	296344
+Necklaces & Chains/Designer	296338
+Necklaces & Chains/Diamond	296339
+Necklaces & Chains/Ethnic	296340
+Necklaces & Chains/Gold	296334
+Necklaces & Chains/Opaque Gems/Cameos	296360
+Necklaces & Chains/Opaque Gems/Coral	296361
+Necklaces & Chains/Opaque Gems/Jade	296362
+Necklaces & Chains/Opaque Gems/Lapis	296363
+Necklaces & Chains/Opaque Gems/Onyx	296364
+Necklaces & Chains/Opaque Gems/Other	296366
+Necklaces & Chains/Opaque Gems/Turquoise	296365
+Necklaces & Chains/Other	224823
+Necklaces & Chains/Pearl	296341
+Necklaces & Chains/Platinum	296337
+Necklaces & Chains/Silver	296336
+Necklaces & Chains/Synthetic Gems	296367
+Necklaces & Chains/Victorian	296343
+Necklaces & Chains/Vintage	296342
+Necklaces & Chains/White Gold	296335
+Other	68375
+Pins & Brooches	296438
+Rings/Beaded	296415
+Rings/Color Gems/Amethyst	296417
+Rings/Color Gems/Aquamarine	296418
+Rings/Color Gems/Cubic Zirconia	296420
+Rings/Color Gems/Emerald	296421
+Rings/Color Gems/Garnet	296422
+Rings/Color Gems/Iolite	296423
+Rings/Color Gems/Opal	296424
+Rings/Color Gems/Other	296428
+Rings/Color Gems/Ruby	296425
+Rings/Color Gems/Sapphire	296426
+Rings/Color Gems/Tanzanite	296427
+Rings/Color Gems/Topaz	296419
+Rings/Costume	296414
+Rings/Designer	296406
+Rings/Diamond/Engagement & Wedding	282024
+Rings/Diamond/Men's	296409
+Rings/Diamond/Other	296408
+Rings/Ethnic	296410
+Rings/Gold	171070
+Rings/Opaque Gems/Cameos	296430
+Rings/Opaque Gems/Coral	296431
+Rings/Opaque Gems/Jade	296432
+Rings/Opaque Gems/Lapis	296433
+Rings/Opaque Gems/Onyx	296434
+Rings/Opaque Gems/Other	296436
+Rings/Opaque Gems/Turquoise	296435
+Rings/Other	171075
+Rings/Pearl	296411
+Rings/Platinum	296405
+Rings/Silver	296404
+Rings/Synthetic Gems	296437
+Rings/Victorian	296413
+Rings/Vintage	296412
+Rings/White Gold	296403
+Sets/Bracelet & Necklace Sets	504664
+Sets/Earrings & Necklace Sets	504660
+Sets/Other	296489
+Sets/Ring Sets	504662
+Unmounted Gemstones/Color Gems/Alexandrite	296443
+Unmounted Gemstones/Color Gems/Amethyst	224831
+Unmounted Gemstones/Color Gems/Aquamarine	296444
+Unmounted Gemstones/Color Gems/Citrine	296446
+Unmounted Gemstones/Color Gems/Cubic Zirconia	296447
+Unmounted Gemstones/Color Gems/Emerald	296440
+Unmounted Gemstones/Color Gems/Garnet	296448
+Unmounted Gemstones/Color Gems/Iolite	296449
+Unmounted Gemstones/Color Gems/Opal	296450
+Unmounted Gemstones/Color Gems/Other	224833
+Unmounted Gemstones/Color Gems/Peridot	296451
+Unmounted Gemstones/Color Gems/Ruby	296441
+Unmounted Gemstones/Color Gems/Sapphire	296442
+Unmounted Gemstones/Color Gems/Smoky Quartz	296452
+Unmounted Gemstones/Color Gems/Spinel	296453
+Unmounted Gemstones/Color Gems/Tanzanite	296454
+Unmounted Gemstones/Color Gems/Topaz	296445
+Unmounted Gemstones/Color Gems/Tourmaline	296455
+Unmounted Gemstones/Diamonds	292154
+Unmounted Gemstones/Opaque Gems/Cameos	296457
+Unmounted Gemstones/Opaque Gems/Coral	296458
+Unmounted Gemstones/Opaque Gems/Jade	296459
+Unmounted Gemstones/Opaque Gems/Lapis	296460
+Unmounted Gemstones/Opaque Gems/Onyx	296461
+Unmounted Gemstones/Opaque Gems/Other	296463
+Unmounted Gemstones/Opaque Gems/Turquoise	296462
+Unmounted Gemstones/Other	68367
+Unmounted Gemstones/Other Accessories & Tools	224830
+Unmounted Gemstones/Pearls	224832
+Unmounted Gemstones/Specimen	224834
+Unmounted Gemstones/Synthetic	224835
+Watches/Children's	296555
+Watches/Men's/Accutron	296501
+Watches/Men's/Baume et Mercier	296495
+Watches/Men's/Breitling	296496
+Watches/Men's/Bulova	296497
+Watches/Men's/Caravelle	504646
+Watches/Men's/Cartier	296498
+Watches/Men's/Casio	296499
+Watches/Men's/Chase-Durer	296500
+Watches/Men's/Citizen	292155
+Watches/Men's/Croton	296504
+Watches/Men's/Designer Styles	504650
+Watches/Men's/Ebel	296502
+Watches/Men's/Esquire	296503
+Watches/Men's/Fine	226221
+Watches/Men's/Fossil	296505
+Watches/Men's/Gucci	296506
+Watches/Men's/Hamilton	296507
+Watches/Men's/Invicta	296508
+Watches/Men's/Longines	296509
+Watches/Men's/Luminox	296513
+Watches/Men's/Movado	296510
+Watches/Men's/Nike	296511
+Watches/Men's/Omega	296512
+Watches/Men's/Other	173462
+Watches/Men's/Pulsar	296516
+Watches/Men's/Rado	296520
+Watches/Men's/Rolex	226220
+Watches/Men's/Seiko	296517
+Watches/Men's/Skagen	296518
+Watches/Men's/Spoon	296514
+Watches/Men's/Storm of London	504648
+Watches/Men's/Suunto	296521
+Watches/Men's/Swatch	292157
+Watches/Men's/Swiss Army	292158
+Watches/Men's/TAG Heuer	292159
+Watches/Men's/Timex	296519
+Watches/Men's/Tissot	292156
+Watches/Men's/Wenger	296522
+Watches/Men's/Wittnauer	296515
+Watches/Novelty	226209
+Watches/Other	68380
+Watches/Pocket Watches/New	296557
+Watches/Pocket Watches/Other	173463
+Watches/Pocket Watches/Vintage	296558
+Watches/Vintage	296559
+Watches/Watch Bands & Batteries/Exotic Bands	296563
+Watches/Watch Bands & Batteries/Leather Bands	296561
+Watches/Watch Bands & Batteries/Lithium Batteries	504654
+Watches/Watch Bands & Batteries/Metal Bands	296562
+Watches/Watch Bands & Batteries/Other	296565
+Watches/Watch Bands & Batteries/Silver Oxide Batteries	504652
+Watches/Watch Bands & Batteries/Sports Bands	296564
+Watches/Women's/Baume et Mercier	296523
+Watches/Women's/Bulova	296525
+Watches/Women's/Cartier	296526
+Watches/Women's/Casio	296527
+Watches/Women's/Citizen	296529
+Watches/Women's/Designer Styles	296524
+Watches/Women's/Ebel	296531
+Watches/Women's/Esquire	296532
+Watches/Women's/Festina	296528
+Watches/Women's/Fine	226224
+Watches/Women's/Fossil	296534
+Watches/Women's/Gucci	296535
+Watches/Women's/Hamilton	296536
+Watches/Women's/Invicta	296530
+Watches/Women's/Longines	296533
+Watches/Women's/Movado	296539
+Watches/Women's/Nike	296540
+Watches/Women's/Nobilia	296537
+Watches/Women's/Omega	296541
+Watches/Women's/Other	173464
+Watches/Women's/Pulsar	296545
+Watches/Women's/Rado	296538
+Watches/Women's/Rolex	226223
+Watches/Women's/Seiko	296546
+Watches/Women's/Skagen	296547
+Watches/Women's/Spoon	296542
+Watches/Women's/Storm of London	296543
+Watches/Women's/Swatch	296548
+Watches/Women's/Swiss Army	296549
+Watches/Women's/Sync-Time	296544
+Watches/Women's/TAG Heuer	296550
+Watches/Women's/Timex	296551
+Watches/Women's/Tissot	292160
+Watches/Women's/Trieste	296552
+Watches/Women's/Visage	296553
+Watches/Women's/Wenger	296554
+Watches/Women's/Wittnauer	504656
+Movies & Video	optgroup
+Celluloid Film/16mm	296575
+Celluloid Film/Raw Film Stock	296576
+Celluloid Film/Super-8 & 8mm	296574
+DVD/Action & Adventure	281310
+DVD/Anime & Animation/For Kids	463928
+DVD/Anime & Animation/Japanese Anime	463926
+DVD/Anime & Animation/Other Animation	296566
+DVD/Art House	281311
+DVD/B-Movies	296567
+DVD/Classics	281312
+DVD/Comedy	281313
+DVD/Documentary	296568
+DVD/Drama	281314
+DVD/Erotic	296569
+DVD/Gay & Lesbian	301950
+DVD/Horror & Suspense	281315
+DVD/International/Africa & the Middle East	465142
+DVD/International/Asia/Hong Kong Cinema	465138
+DVD/International/Asia/Other Asian Cinema	465140
+DVD/International/Australia	465144
+DVD/International/Europe & Russia	465146
+DVD/International/India	465148
+DVD/International/North America	465150
+DVD/International/Other	296570
+DVD/International/South & Central America	465152
+DVD/Kids & Family	281316
+DVD/Martial Arts	281317
+DVD/Music & Musicals	281318
+DVD/Other	68315
+DVD/Rare & Out of Print	281319
+DVD/Science Fiction & Fantasy	281320
+DVD/Sports & Fitness	296571
+DVD/Television	296572
+Laser Discs/Action & Adventure	281324
+Laser Discs/Anime & Animation	296577
+Laser Discs/Art House	296578
+Laser Discs/Classics	296579
+Laser Discs/Comedy	281322
+Laser Discs/Documentary	296580
+Laser Discs/Drama	281323
+Laser Discs/Erotic	296581
+Laser Discs/Horror & Suspense	296582
+Laser Discs/International	296583
+Laser Discs/Kids & Family	296584
+Laser Discs/Martial Arts	296585
+Laser Discs/Music & Musicals	296586
+Laser Discs/Other	68316
+Laser Discs/Rare & Out of Print	296587
+Laser Discs/Science Fiction & Fantasy	296588
+Memorabilia/Animation Cell Art/Disney Cells	463934
+Memorabilia/Animation Cell Art/Japanese Anime Cells	463932
+Memorabilia/Animation Cell Art/Other Animation Cells	68490
+Memorabilia/Animation Cell Art/Peanuts Cells	463938
+Memorabilia/Animation Cell Art/Warner Bros Cells	463936
+Memorabilia/Autographs	296589
+Memorabilia/Clothing	296590
+Memorabilia/Collectibles	296591
+Memorabilia/Lithographs	68320
+Memorabilia/Lobby Cards	173320
+Memorabilia/Movie Posters/Original - General	224840
+Memorabilia/Movie Posters/Original 1969 & Before	301787
+Memorabilia/Movie Posters/Original 1970s	301788
+Memorabilia/Movie Posters/Original 1980s	301789
+Memorabilia/Movie Posters/Original 1990 to Present	301790
+Memorabilia/Movie Posters/Other	68322
+Memorabilia/Movie Posters/Reprints & Video Posters	224841
+Memorabilia/Other	68319
+Memorabilia/Photos	68321
+Memorabilia/Props & Wardrobe	68323
+Memorabilia/TV Memorabilia/Animation Cells	296593
+Memorabilia/TV Memorabilia/Autographs	296594
+Memorabilia/TV Memorabilia/Books & Magazines	296595
+Memorabilia/TV Memorabilia/Collectibles	296596
+Memorabilia/TV Memorabilia/Dolls	296597
+Memorabilia/TV Memorabilia/Music	296598
+Memorabilia/TV Memorabilia/Other	296603
+Memorabilia/TV Memorabilia/Photos & Production Stills	296599
+Memorabilia/TV Memorabilia/Posters	296600
+Memorabilia/TV Memorabilia/Props & Wardrobe	296601
+Memorabilia/TV Memorabilia/Toys & Games	296602
+Movie Equipment/Editing	296849
+Movie Equipment/Other	69190
+Movie Equipment/Production/Cameras	296845
+Movie Equipment/Production/Lighting	296846
+Movie Equipment/Production/Other	296848
+Movie Equipment/Production/Sound	296847
+Movie Equipment/Projectors	296850
+Other	170924
+VHS/Action & Adventure/Cops & Robbers	296628
+VHS/Action & Adventure/Detective	296629
+VHS/Action & Adventure/Espionage	296630
+VHS/Action & Adventure/Other	170961
+VHS/Action & Adventure/War	296631
+VHS/Action & Adventure/Westerns	296632
+VHS/Anime & Animation/Cartoons	296635
+VHS/Anime & Animation/Claymation	296636
+VHS/Anime & Animation/Computer Animation	296637
+VHS/Anime & Animation/For Kids	296638
+VHS/Anime & Animation/Japanese Anime	296634
+VHS/Anime & Animation/Other	292147
+VHS/Anime & Animation/Puppet Animation	296639
+VHS/Art House/Experimental & Avant Garde	465132
+VHS/Art House/Indie	296643
+VHS/Art House/Other	170962
+VHS/Art House/Short Films	296644
+VHS/B-Movies/Burlesque	296646
+VHS/B-Movies/Crime & Espionage	296647
+VHS/B-Movies/Exploitation	296648
+VHS/B-Movies/Horror & Monsters	296649
+VHS/B-Movies/Mystery	296650
+VHS/B-Movies/Novelty	296651
+VHS/B-Movies/Other	292148
+VHS/B-Movies/Retro TV	296652
+VHS/B-Movies/Sci-Fi	296653
+VHS/B-Movies/Spaghetti Westerns	296654
+VHS/B-Movies/Sword & Sandal	296655
+VHS/B-Movies/Teen Delinquency	296656
+VHS/B-Movies/World War II & Documentary	296657
+VHS/Classics/Comedy	296621
+VHS/Classics/Drama	296622
+VHS/Classics/Horror	296623
+VHS/Classics/Other	170963
+VHS/Classics/Science Fiction & Fantasy	296626
+VHS/Classics/Silent	296624
+VHS/Classics/Westerns	296625
+VHS/Comedy/British Comedy	296659
+VHS/Comedy/Campus Life	296660
+VHS/Comedy/Cops & Robbers	296661
+VHS/Comedy/Musical Comedy	296662
+VHS/Comedy/Other	170964
+VHS/Comedy/Romantic Comedy	296663
+VHS/Documentary/Biographies	296665
+VHS/Documentary/History	296666
+VHS/Documentary/Other	296670
+VHS/Documentary/Rare	296667
+VHS/Documentary/Sports	296668
+VHS/Documentary/TV Shows	296669
+VHS/Drama/Crime	296672
+VHS/Drama/Other	170965
+VHS/Drama/Romance	296673
+VHS/Drama/True Stories	296674
+VHS/Erotic	296675
+VHS/Gay & Lesbian	296642
+VHS/Horror & Suspense/Cult	296677
+VHS/Horror & Suspense/Monsters	296678
+VHS/Horror & Suspense/Mystery	296679
+VHS/Horror & Suspense/Other	170966
+VHS/Horror & Suspense/Slasher	296680
+VHS/Horror & Suspense/Supernatural	296681
+VHS/Instructional & How-To/Animal & Pet Care	301932
+VHS/Instructional & How-To/Automotive	301933
+VHS/Instructional & How-To/Boating, Hiking, Skiing & Nature	463920
+VHS/Instructional & How-To/Business & Careers	301934
+VHS/Instructional & How-To/Computers	301935
+VHS/Instructional & How-To/Creative Arts, Hobbies & Crafts	301936
+VHS/Instructional & How-To/Dance Instruction	301938
+VHS/Instructional & How-To/Education	301937
+VHS/Instructional & How-To/Exercise & Fitness	173466
+VHS/Instructional & How-To/Family & Children	296689
+VHS/Instructional & How-To/Food & Beverages	301939
+VHS/Instructional & How-To/Health & Wellness	301940
+VHS/Instructional & How-To/Home & Garden	301941
+VHS/Instructional & How-To/Hunting, Fishing & Wildlife	463922
+VHS/Instructional & How-To/Investing, Finance & Taxes	301942
+VHS/Instructional & How-To/Language Instruction	301943
+VHS/Instructional & How-To/Martial Arts & Self Defense	296694
+VHS/Instructional & How-To/Media & Theatre Arts	463916
+VHS/Instructional & How-To/Music Instruction	301944
+VHS/Instructional & How-To/Other	173467
+VHS/Instructional & How-To/Photography & Fine Art	463918
+VHS/Instructional & How-To/Self-Improvement & Personal Growth	301945
+VHS/Instructional & How-To/Spiritual & Metaphysical	301946
+VHS/Instructional & How-To/Sports	301947
+VHS/Instructional & How-To/Travel	301948
+VHS/International/Africa & the Middle East	296682
+VHS/International/Asia/Hong Kong Cinema	296693
+VHS/International/Asia/Other Asian Cinema	292151
+VHS/International/Australia	296683
+VHS/International/Europe & Russia	292152
+VHS/International/India	292153
+VHS/International/North America	296684
+VHS/International/Other	292150
+VHS/International/South & Central America	296685
+VHS/Kids & Family/Animals	296687
+VHS/Kids & Family/Disney	296688
+VHS/Kids & Family/Other	170967
+VHS/Kids & Family/Rare	296690
+VHS/Martial Arts/Fantasy Horror	296692
+VHS/Martial Arts/Kung-Fu	296695
+VHS/Martial Arts/Other	226836
+VHS/Music Videos & Musicals/Classical & Opera	296697
+VHS/Music Videos & Musicals/Country	296698
+VHS/Music Videos & Musicals/Karaoke	296699
+VHS/Music Videos & Musicals/Musicals	296700
+VHS/Music Videos & Musicals/Other	170968
+VHS/Music Videos & Musicals/Videos - Country	296701
+VHS/Music Videos & Musicals/Videos - Gospel	296702
+VHS/Music Videos & Musicals/Videos - Pop & Rock	296703
+VHS/Music Videos & Musicals/Videos - Rap & Hip Hop	296704
+VHS/Other	68324
+VHS/Rare & Out-of-Print/Action & Adventure	296605
+VHS/Rare & Out-of-Print/Anime & Animation	296606
+VHS/Rare & Out-of-Print/Art House	296607
+VHS/Rare & Out-of-Print/B-Movies	296608
+VHS/Rare & Out-of-Print/Classics	296609
+VHS/Rare & Out-of-Print/Comedy	296610
+VHS/Rare & Out-of-Print/Documentary	296611
+VHS/Rare & Out-of-Print/Drama	296612
+VHS/Rare & Out-of-Print/Horror & Suspense	296613
+VHS/Rare & Out-of-Print/International	296614
+VHS/Rare & Out-of-Print/Kids & Family	296615
+VHS/Rare & Out-of-Print/Martial Arts	296616
+VHS/Rare & Out-of-Print/Music & Musicals	296617
+VHS/Rare & Out-of-Print/Other	172783
+VHS/Rare & Out-of-Print/Science Fiction & Fantasy	296618
+VHS/Rare & Out-of-Print/Television	296619
+VHS/Science Fiction & Fantasy/Futuristic	296706
+VHS/Science Fiction & Fantasy/Other	170969
+VHS/Science Fiction & Fantasy/Swords & Sorcery	296707
+VHS/Sports & Fitness/Baseball	296709
+VHS/Sports & Fitness/Basketball	296710
+VHS/Sports & Fitness/Football	296711
+VHS/Sports & Fitness/Other	173468
+VHS/Sports & Fitness/Wrestling	296712
+VHS/Television/Cartoons	296714
+VHS/Television/Comedy	296715
+VHS/Television/Drama	296716
+VHS/Television/Kids	296717
+VHS/Television/Made-for-TV Movies	296719
+VHS/Television/Mini-Series	296718
+VHS/Television/Other	193852
+VHS/Television/Sci-Fi	296720
+Music	optgroup
+CDs/Alternative	68327
+CDs/Audiophile	283849
+CDs/Big Band & Swing	283851
+CDs/Blues	68328
+CDs/Children	265102
+CDs/Christian & Gospel	173304
+CDs/Classical	68329
+CDs/Comedy & Spoken Word	265100
+CDs/Country	68330
+CDs/DJ Corner	283845
+CDs/Dance & Electronic	68331
+CDs/Folk	68332
+CDs/International	69939
+CDs/Jazz	68334
+CDs/Miscellaneous	68335
+CDs/New Age	69938
+CDs/Oldies	283847
+CDs/Opera	68336
+CDs/Picture	68337
+CDs/Pop	68338
+CDs/R&B, Soul & Funk	69937
+CDs/Rap & Hip-Hop	69936
+CDs/Reggae	265098
+CDs/Rock/Classic	404282
+CDs/Rock/Hard	404284
+CDs/Rock/Metal	404286
+CDs/Rock/Other	68339
+CDs/Rock/Punk	504672
+CDs/Rock/Soft Rock	504668
+CDs/Soundtracks	68340
+DJ Corner/Accessories	283844
+Instruments/Amplifiers	291007
+Instruments/Antique Instruments	69202
+Instruments/Brass	69203
+Instruments/Guitars/Accessories	301949
+Instruments/Guitars/Acoustic	291004
+Instruments/Guitars/Bass	291006
+Instruments/Guitars/Electric	291005
+Instruments/Guitars/Other	69206
+Instruments/Keyboards	69207
+Instruments/Other	69205
+Instruments/Percussion	69208
+Instruments/Pianos	193770
+Instruments/Recording, Pro Audio & Midi	69209
+Instruments/Strings	69210
+Instruments/Woodwinds	69211
+Memorabilia/Autographs	504666
+Memorabilia/Novelties	541738
+Memorabilia/Other	68341
+Memorabilia/Posters, Prints & Photos	172090
+Memorabilia/T-Shirts, Hats & Clothing	283860
+Other	170925
+Sheet Music	68682
+Tapes/Alternative	504676
+Tapes/Audiophile	504678
+Tapes/Blues	504680
+Tapes/Children	283859
+Tapes/Christian & Gospel	504682
+Tapes/Classical	283856
+Tapes/Comedy & Spoken Word	504684
+Tapes/Country	504686
+Tapes/Dance & Electronic	504688
+Tapes/Folk	504690
+Tapes/International	504692
+Tapes/Jazz	504694
+Tapes/New Age	504696
+Tapes/Oldies	504698
+Tapes/Opera	504700
+Tapes/Other	68357
+Tapes/Pop	283857
+Tapes/R&B, Soul, & Funk	504702
+Tapes/Rap & Hip-Hop	504704
+Tapes/Reggae	504706
+Tapes/Rock/Classic	504712
+Tapes/Rock/Hard	504714
+Tapes/Rock/Metal	504716
+Tapes/Rock/Other	283858
+Tapes/Rock/Punk	504718
+Tapes/Rock/Soft	504720
+Tapes/Soundtracks	504708
+Vinyl/Alternative	68343
+Vinyl/Audiophile	283850
+Vinyl/Big Band & Swing	283852
+Vinyl/Blues	68344
+Vinyl/Children	265103
+Vinyl/Christian & Gospel	173303
+Vinyl/Classical	68345
+Vinyl/Comedy & Spoken Word	265101
+Vinyl/Country	68346
+Vinyl/DJ Corner	283846
+Vinyl/Dance & Electronic	68347
+Vinyl/Folk	68348
+Vinyl/International	69943
+Vinyl/Jazz	68350
+Vinyl/Miscellaneous	68351
+Vinyl/New Age	69942
+Vinyl/Oldies	283848
+Vinyl/Opera	68352
+Vinyl/Picture	68353
+Vinyl/Pop	68354
+Vinyl/R&B, Soul & Funk	69941
+Vinyl/Rap & Hip-Hop	69940
+Vinyl/Reggae	265099
+Vinyl/Rock/Classic	404290
+Vinyl/Rock/Hard	404292
+Vinyl/Rock/Metal	404294
+Vinyl/Rock/Other	68355
+Vinyl/Rock/Punk	504674
+Vinyl/Rock/Soft Rock	504670
+Vinyl/Soundtracks	68356
+Other Goods & Services	optgroup
+General	170161
+Metaphysical	224824
+Office & Business/Briefcases	194026
+Office & Business/Desk Accessories	226817
+Office & Business/General Equipment	69175
+Office & Business/General Supplies	226814
+Office & Business/Organizers	226815
+Office & Business/Packing Supplies	465160
+Office & Business/Paper Products	226816
+Office & Business/Presentation Tools	226818
+Property	173470
+Services	173471
+Special Occasions/Christmas Ornaments	265084
+Special Occasions/General	265085
+Special Occasions/Greeting Cards	465158
+Special Occasions/Holidays	265083
+Special Occasions/New Year's	265086
+Tickets & Events/Concert	193943
+Tickets & Events/General	173472
+Tickets & Events/Sports/Auto Racing	226807
+Tickets & Events/Sports/Baseball	226808
+Tickets & Events/Sports/College Basketball	226809
+Tickets & Events/Sports/College Football	226810
+Tickets & Events/Sports/General	193944
+Tickets & Events/Sports/Hockey	226811
+Tickets & Events/Sports/Pro Basketball	226812
+Tickets & Events/Sports/Pro Football	226813
+Sports	optgroup
+Clothing & Footwear	504722
+Exercise Equipment/Exercise Machines	296927
+Exercise Equipment/Other	172786
+Exercise Equipment/Weights	296928
+General Sports/Archery	193921
+General Sports/Billiards	193922
+General Sports/Cycling/Bicycles	504728
+General Sports/Cycling/Equipment	504730
+General Sports/Cycling/Other	171020
+General Sports/Equestrian	69219
+General Sports/Golf/Accessories	226821
+General Sports/Golf/Bags & Carts	504732
+General Sports/Golf/General	69227
+General Sports/Golf/Golf Balls	226822
+General Sports/Golf/Irons	226823
+General Sports/Golf/Putters	226824
+General Sports/Golf/Sets	226825
+General Sports/Golf/Wedges	226826
+General Sports/Golf/Woods	226827
+General Sports/Martial Arts/Accessories	296921
+General Sports/Martial Arts/Books	296920
+General Sports/Martial Arts/Clothing	296916
+General Sports/Martial Arts/Equipment	296919
+General Sports/Martial Arts/Footwear	296917
+General Sports/Martial Arts/Protection	296918
+General Sports/Other	504734
+General Sports/Rollerblading & Skateboarding	193923
+General Sports/Track & Field	296910
+Other	170927
+Outdoor Sports/Camping/Cooking Gear	504738
+Outdoor Sports/Camping/Other	69223
+Outdoor Sports/Camping/Packs	504740
+Outdoor Sports/Camping/Sleeping Bags	504742
+Outdoor Sports/Camping/Tents	504744
+Outdoor Sports/Fishing/Fly-Fishing/Flies & Fly Tying	504750
+Outdoor Sports/Fishing/Fly-Fishing/Fly Line	504752
+Outdoor Sports/Fishing/Fly-Fishing/Fly Reels	504754
+Outdoor Sports/Fishing/Fly-Fishing/Fly Rods	504756
+Outdoor Sports/Fishing/Fly-Fishing/Other	173474
+Outdoor Sports/Fishing/Fly-Fishing/Vests & Waders	504758
+Outdoor Sports/Fishing/Freshwater Gear	504746
+Outdoor Sports/Fishing/Other	69224
+Outdoor Sports/Fishing/Saltwater Gear	504760
+Outdoor Sports/Hiking	69228
+Outdoor Sports/Hunting	69229
+Outdoor Sports/Other	69226
+Outdoor Sports/Rock Climbing	193920
+Racket Sports/Badminton	296914
+Racket Sports/Other	296913
+Racket Sports/Squash	296922
+Racket Sports/Table Tennis	296923
+Racket Sports/Tennis/Other	172081
+Racket Sports/Tennis/Tennis Balls	504764
+Racket Sports/Tennis/Tennis Rackets	504766
+Sports Memorabilia/Auto Racing/Formula 1	193934
+Sports Memorabilia/Auto Racing/General	193932
+Sports Memorabilia/Auto Racing/INDY-CART	193933
+Sports Memorabilia/Auto Racing/NASCAR	68651
+Sports Memorabilia/Autographs/Auto Racing	193925
+Sports Memorabilia/Autographs/Baseball	69214
+Sports Memorabilia/Autographs/Basketball	69215
+Sports Memorabilia/Autographs/Boxing	193926
+Sports Memorabilia/Autographs/Football	69216
+Sports Memorabilia/Autographs/General	69217
+Sports Memorabilia/Autographs/Golf	193927
+Sports Memorabilia/Autographs/Hockey	69218
+Sports Memorabilia/Autographs/Soccer	193928
+Sports Memorabilia/Autographs/Tennis	193929
+Sports Memorabilia/Autographs/Wrestling	193930
+Sports Memorabilia/Baseball/Baseball Bats	193937
+Sports Memorabilia/Baseball/Baseballs	193938
+Sports Memorabilia/Baseball/Commemorative Coins	226828
+Sports Memorabilia/Baseball/Game Programs & Yearbooks	226829
+Sports Memorabilia/Baseball/General	68642
+Sports Memorabilia/Baseball/Jerseys & Apparel	226830
+Sports Memorabilia/Baseball/Photos, Posters & Lithographs	226831
+Sports Memorabilia/Baseball/Pins	226832
+Sports Memorabilia/Baseball/Ticket Stubs	226833
+Sports Memorabilia/Basketball	68643
+Sports Memorabilia/Boxing	193939
+Sports Memorabilia/Fishing	68644
+Sports Memorabilia/Football/Commemorative Coins	281357
+Sports Memorabilia/Football/Footballs	281354
+Sports Memorabilia/Football/Game Programs & Yearbooks	281355
+Sports Memorabilia/Football/General	68645
+Sports Memorabilia/Football/Helmets	281352
+Sports Memorabilia/Football/Jerseys & Apparel	281353
+Sports Memorabilia/Football/Photos, Posters & Lithographs	281356
+Sports Memorabilia/Football/Pins	281358
+Sports Memorabilia/Football/Ticket Stubs	281359
+Sports Memorabilia/Golf	68647
+Sports Memorabilia/Hockey	68648
+Sports Memorabilia/Horse Racing	68649
+Sports Memorabilia/Ice Skating	68650
+Sports Memorabilia/Olympic	68652
+Sports Memorabilia/Other	68646
+Sports Memorabilia/Soccer	193940
+Sports Memorabilia/Tennis	68653
+Sports Memorabilia/Wrestling	281350
+Team Sports/Baseball/Baseballs	504782
+Team Sports/Baseball/Bats	504780
+Team Sports/Baseball/Gloves	504784
+Team Sports/Baseball/Other	69221
+Team Sports/Basketball/Basketballs	504772
+Team Sports/Basketball/Equipment	504776
+Team Sports/Basketball/Hoops	504774
+Team Sports/Basketball/Other	69222
+Team Sports/Cricket	296911
+Team Sports/Football/Equipment	504790
+Team Sports/Football/Footballs	504788
+Team Sports/Football/Other	69225
+Team Sports/Handball	504792
+Team Sports/Other	504802
+Team Sports/Rugby	296909
+Team Sports/Soccer/Equipment	504798
+Team Sports/Soccer/Other	193924
+Team Sports/Soccer/Soccer Balls	504796
+Team Sports/Volleyball	504800
+Water Sports/Kayaking	265836
+Water Sports/Other	296924
+Water Sports/Scuba & Snorkelling	193851
+Water Sports/Surfing, Waterskiing & Windsailing	296925
+Winter Sports/Ice Hockey & Skating/Equipment	504810
+Winter Sports/Ice Hockey & Skating/Hockey Sticks	504808
+Winter Sports/Ice Hockey & Skating/Other	172082
+Winter Sports/Ice Hockey & Skating/Skates	504806
+Winter Sports/Other	296926
+Winter Sports/Skiing/Other	172083
+Winter Sports/Skiing/Ski Boots	504814
+Winter Sports/Skiing/Skis & Bindings	504816
+Winter Sports/Snowboarding/Boards & Bindings	504820
+Winter Sports/Snowboarding/Boots	504822
+Winter Sports/Snowboarding/Other	172084
+Tools & Hardware	optgroup
+Hand	224827
+Hardware	69200
+Power	224828
+Toys & Games	optgroup
+Action Figures/G.I. Joe	68764
+Action Figures/General	68765
+Action Figures/Godzilla	68766
+Action Figures/Movie	68767
+Action Figures/Power Rangers	68768
+Action Figures/Sports/General	68770
+Action Figures/Sports/Sports Bears	193941
+Action Figures/Sports/Starting Lineup	68771
+Action Figures/Star Trek	68772
+Action Figures/Star Wars/Episode I	172780
+Action Figures/Star Wars/Galoob	68553
+Action Figures/Star Wars/General	68554
+Action Figures/Star Wars/Power of the Force 2 (1995-Present)	68555
+Action Figures/Star Wars/Vintage (1978-1985)	68556
+Action Figures/Superhero	68773
+Action Figures/Transformers	68774
+Activities & Learning/Counting, Math & Telling Time	265106
+Activities & Learning/Developmental Toys	265107
+Activities & Learning/General	265110
+Activities & Learning/Juggling, Yo-Yos & Magic	292133
+Activities & Learning/Literacy & Language	265105
+Activities & Learning/Musical Toys	292134
+Activities & Learning/Pretend Play	265108
+Activities & Learning/Science & Nature	265109
+Activities & Learning/Sports & Outdoor Play	292135
+Arts & Crafts	265111
+Baby Toys/Fisher-Price	69028
+Baby Toys/General	171056
+Baby Toys/Rattles & Teethers	292137
+Beanbag Toys/Accessories	68776
+Beanbag Toys/Attic	68777
+Beanbag Toys/By Name/1997 Teddy	68779
+Beanbag Toys/By Name/1998 Holiday Teddy bear	68780
+Beanbag Toys/By Name/1999 Signature Bear	68781
+Beanbag Toys/By Name/Ally the alligator	68782
+Beanbag Toys/By Name/Ants the anteater	68783
+Beanbag Toys/By Name/Baldy the eagle	68784
+Beanbag Toys/By Name/Batty the bat	68785
+Beanbag Toys/By Name/Beak the kiwi bird	68786
+Beanbag Toys/By Name/Bernie the St. Bernard	68787
+Beanbag Toys/By Name/Bessie the cow	68788
+Beanbag Toys/By Name/Blackie the bear	68789
+Beanbag Toys/By Name/Blizzard the white tiger	68790
+Beanbag Toys/By Name/Bones the dog	68791
+Beanbag Toys/By Name/Bongo the monkey	68792
+Beanbag Toys/By Name/Britannia the bear	68793
+Beanbag Toys/By Name/Bronty the brontosaurus	68794
+Beanbag Toys/By Name/Bruno the terriere	68795
+Beanbag Toys/By Name/Bubbles the fish	68796
+Beanbag Toys/By Name/Bucky the beaver	68797
+Beanbag Toys/By Name/Bumble the bee	68798
+Beanbag Toys/By Name/Butch the bull terrier	68799
+Beanbag Toys/By Name/Canyon the cougar	68800
+Beanbag Toys/By Name/Caw the crow	68801
+Beanbag Toys/By Name/Chilly the bear	68802
+Beanbag Toys/By Name/Chip the cat	68803
+Beanbag Toys/By Name/Chocolate the moose	68804
+Beanbag Toys/By Name/Chops the lamb	68805
+Beanbag Toys/By Name/Claude the crab	68806
+Beanbag Toys/By Name/Clubby the bear	68807
+Beanbag Toys/By Name/Congo the gorilla	68808
+Beanbag Toys/By Name/Coral the fish	68809
+Beanbag Toys/By Name/Crunch the shark	68810
+Beanbag Toys/By Name/Cubbie the bear	68811
+Beanbag Toys/By Name/Curly the bear	68812
+Beanbag Toys/By Name/Daisy the cow	68813
+Beanbag Toys/By Name/Derby the horse	68814
+Beanbag Toys/By Name/Digger the crab	68815
+Beanbag Toys/By Name/Doby the doberman	68816
+Beanbag Toys/By Name/Doodle the rooster	68817
+Beanbag Toys/By Name/Dotty the dalmatian	68818
+Beanbag Toys/By Name/Early the robin	68819
+Beanbag Toys/By Name/Ears the bunny	68820
+Beanbag Toys/By Name/Echo the dolphin	68821
+Beanbag Toys/By Name/Eggbert the baby chick	68822
+Beanbag Toys/By Name/Erin the bear	68823
+Beanbag Toys/By Name/Ewey the lamb	68824
+Beanbag Toys/By Name/Fetch the golden retreiver	68825
+Beanbag Toys/By Name/Flash the dolphin	68826
+Beanbag Toys/By Name/Fleece the lamb	68827
+Beanbag Toys/By Name/Flip the cat	68828
+Beanbag Toys/By Name/Floppity the bunny	68829
+Beanbag Toys/By Name/Flutter the butterfly	68830
+Beanbag Toys/By Name/Fortune the panda	68831
+Beanbag Toys/By Name/Freckles the leopard	68832
+Beanbag Toys/By Name/Fuzz the bear	68833
+Beanbag Toys/By Name/Garcia the bear	68834
+Beanbag Toys/By Name/Germania the bear	68835
+Beanbag Toys/By Name/Gigi the poodle	68836
+Beanbag Toys/By Name/Glory the bear	68837
+Beanbag Toys/By Name/Goatee the mountain goat	68838
+Beanbag Toys/By Name/Gobbles the turkey	68839
+Beanbag Toys/By Name/Goldie the fish	68840
+Beanbag Toys/By Name/Goochy the jellyfish	68841
+Beanbag Toys/By Name/Gracie the swan	68842
+Beanbag Toys/By Name/Grunt the razorback	68843
+Beanbag Toys/By Name/Halo the angel bear	68844
+Beanbag Toys/By Name/Happy the hippo	68845
+Beanbag Toys/By Name/Hippie the ty-dye bunny	68846
+Beanbag Toys/By Name/Hippity the bunny	68847
+Beanbag Toys/By Name/Hissy the snake	68848
+Beanbag Toys/By Name/Hoot the owl	68849
+Beanbag Toys/By Name/Hope the praying bear	68850
+Beanbag Toys/By Name/Hoppity the bunny	68851
+Beanbag Toys/By Name/Humphrey the camel	68852
+Beanbag Toys/By Name/Iggy the iguana	68853
+Beanbag Toys/By Name/Inch the worm	68854
+Beanbag Toys/By Name/Inky the octopus	68855
+Beanbag Toys/By Name/Jabber the parrot	68856
+Beanbag Toys/By Name/Jake the mallard duck	68857
+Beanbag Toys/By Name/Jolly the walrus	68858
+Beanbag Toys/By Name/Kicks the soccer bear	68859
+Beanbag Toys/By Name/Kiwi the toucan	68860
+Beanbag Toys/By Name/Kuku the cockatoo	68861
+Beanbag Toys/By Name/Lefty the donkey	68862
+Beanbag Toys/By Name/Legs the frog	68863
+Beanbag Toys/By Name/Libearty the bear	68864
+Beanbag Toys/By Name/Lizzy the lizard	68865
+Beanbag Toys/By Name/Loosy the canadian goose	68866
+Beanbag Toys/By Name/Lucky the ladybug	68867
+Beanbag Toys/By Name/Luke the lab	68868
+Beanbag Toys/By Name/Mac the cardinal	68869
+Beanbag Toys/By Name/Magic the dragon	68870
+Beanbag Toys/By Name/Manny the manatee	68871
+Beanbag Toys/By Name/Maple the bear	68872
+Beanbag Toys/By Name/Mel the koala	68873
+Beanbag Toys/By Name/Millenium the bear	68874
+Beanbag Toys/By Name/Mooch the monkey	68875
+Beanbag Toys/By Name/Mystic the unicorn	68876
+Beanbag Toys/By Name/Nanook the husky	68877
+Beanbag Toys/By Name/Nibbler the rabbit	68878
+Beanbag Toys/By Name/Nibbly the rabbit	68879
+Beanbag Toys/By Name/Nip the cat	68880
+Beanbag Toys/By Name/Nuts the squirrel	68881
+Beanbag Toys/By Name/Patti the platypus	68882
+Beanbag Toys/By Name/Peace the bear	68883
+Beanbag Toys/By Name/Peanut the elephant	68884
+Beanbag Toys/By Name/Peking the bear	68885
+Beanbag Toys/By Name/Pinchers the lobster	68886
+Beanbag Toys/By Name/Pinky the flamingo	68887
+Beanbag Toys/By Name/Pouch the kangaroo	68888
+Beanbag Toys/By Name/Pounce the cat	68889
+Beanbag Toys/By Name/Prance the cat	68890
+Beanbag Toys/By Name/Prickles the hedgehog	68891
+Beanbag Toys/By Name/Princess the bear	68892
+Beanbag Toys/By Name/Puffer the puffin	68893
+Beanbag Toys/By Name/Pugsly the pug	68894
+Beanbag Toys/By Name/Pumkin the pumpkin	68895
+Beanbag Toys/By Name/Quackers the duck	68896
+Beanbag Toys/By Name/Radar the bat	68897
+Beanbag Toys/By Name/Rainbow the chameleon	68898
+Beanbag Toys/By Name/Rex the tyrannosaurus	68899
+Beanbag Toys/By Name/Righty the elephant	68900
+Beanbag Toys/By Name/Ringo the raccoon	68901
+Beanbag Toys/By Name/Roam the buffalo	68902
+Beanbag Toys/By Name/Roary the lion	68903
+Beanbag Toys/By Name/Rocket the blue jay	68904
+Beanbag Toys/By Name/Rover the dog	68905
+Beanbag Toys/By Name/Sammy the ty-dye bear cub	68906
+Beanbag Toys/By Name/Santa	68907
+Beanbag Toys/By Name/Scat the cat	68908
+Beanbag Toys/By Name/Scoop the pelican	68909
+Beanbag Toys/By Name/Scorch the dragon	68910
+Beanbag Toys/By Name/Scottie the terrier	68911
+Beanbag Toys/By Name/Seamore the seal	68912
+Beanbag Toys/By Name/Seaweed the otter	68913
+Beanbag Toys/By Name/Slippery the seal	68914
+Beanbag Toys/By Name/Slither the snake	68915
+Beanbag Toys/By Name/Sly the fox	68916
+Beanbag Toys/By Name/Smoochy the frog	68917
+Beanbag Toys/By Name/Snip the cat	68918
+Beanbag Toys/By Name/Snort the bull	68919
+Beanbag Toys/By Name/Snowball the snowman	68920
+Beanbag Toys/By Name/Sparky the dalmatian	68921
+Beanbag Toys/By Name/Speedy the turtle	68922
+Beanbag Toys/By Name/Spike the rhinoceros	68923
+Beanbag Toys/By Name/Spinner the spider	68924
+Beanbag Toys/By Name/Splash the orca whale	68925
+Beanbag Toys/By Name/Spooky the ghost	68926
+Beanbag Toys/By Name/Spot the dog	68927
+Beanbag Toys/By Name/Spunky the cocker spaniel	68928
+Beanbag Toys/By Name/Squealer the pig	68929
+Beanbag Toys/By Name/Steg the stegosaurus	68930
+Beanbag Toys/By Name/Stilts the stork	68931
+Beanbag Toys/By Name/Sting the ray	68932
+Beanbag Toys/By Name/Stinger the scorpion	68933
+Beanbag Toys/By Name/Stinky the skunk	68934
+Beanbag Toys/By Name/Stretch the ostrich	68935
+Beanbag Toys/By Name/Stripes the tiger	68936
+Beanbag Toys/By Name/Strut the rooster	68937
+Beanbag Toys/By Name/Tabasco the bull	68938
+Beanbag Toys/By Name/Tank the armadillo	68939
+Beanbag Toys/By Name/Teddy the bear	68940
+Beanbag Toys/By Name/Tiny the chihuahua	68941
+Beanbag Toys/By Name/Tracker the bassett hound	68942
+Beanbag Toys/By Name/Trap the mouse	68943
+Beanbag Toys/By Name/Tuffy the terrier	68944
+Beanbag Toys/By Name/Tusk the walrus	68945
+Beanbag Toys/By Name/Twigs the giraffe	68946
+Beanbag Toys/By Name/Valentina the bear	68947
+Beanbag Toys/By Name/Valentino the bear	68948
+Beanbag Toys/By Name/Velvet the panther	68949
+Beanbag Toys/By Name/Waddle the penguin	68950
+Beanbag Toys/By Name/Waves the orca whale	68951
+Beanbag Toys/By Name/Web the spider	68952
+Beanbag Toys/By Name/Weenie the dog	68953
+Beanbag Toys/By Name/Whisper the deer	68954
+Beanbag Toys/By Name/Wise the owl	68955
+Beanbag Toys/By Name/Wrinkles the dog	68956
+Beanbag Toys/By Name/Zero the holiday penguin	68957
+Beanbag Toys/By Name/Ziggy the zebra	68958
+Beanbag Toys/By Name/Zip the cat	68959
+Beanbag Toys/Current & New	68960
+Beanbag Toys/Disney	68961
+Beanbag Toys/General	68962
+Beanbag Toys/Plush Toys	68963
+Beanbag Toys/Retired	68964
+Beanbag Toys/Teenie	68965
+Beanbag Toys/Warner Bros.	68966
+Blocks, Gears & Construction	265112
+Character Toys/General	69054
+Character Toys/My Little Pony	69053
+Character Toys/Teletubbies	69062
+Dolls & Accessories/Clothes & Accessories	68999
+Dolls & Accessories/Dolls as Playthings	292140
+Electronic Toys & Pets/Furby	70002
+Electronic Toys & Pets/General	292142
+Electronic Toys & Pets/Giga Pet & Tamagotchi	69041
+Fast Food/Burger King	69024
+Fast Food/General	69025
+Fast Food/McDonalds	69026
+Fast Food/Wendys	69027
+Games/Board Games	69030
+Games/Casino	69031
+Games/General	69033
+Games/Marbles/Contemporary	69047
+Games/Marbles/Vintage	69048
+Games/Miniatures	172086
+Games/Role Playing Games (RPG)	172085
+General	170928
+Hobbies	69045
+Model Kits	69056
+Modern/General	69050
+Modern/Vehicles	69051
+Modern/Windup	69052
+Plush Toys/Animals	69059
+Plush Toys/Bears as Playthings	69058
+Plush Toys/General	69060
+Puzzles	193769
+Toy Soldiers	69063
+Trains & Model Railroads/Trains for Children	282081
+Vehicles & Ride-ons/Die-Cast/Corgi	68968
+Vehicles & Ride-ons/Die-Cast/Danbury Mint	68969
+Vehicles & Ride-ons/Die-Cast/Dinky	68970
+Vehicles & Ride-ons/Die-Cast/Ertl	68971
+Vehicles & Ride-ons/Die-Cast/Franklin Mint	68972
+Vehicles & Ride-ons/Die-Cast/Gate	296861
+Vehicles & Ride-ons/Die-Cast/General	68973
+Vehicles & Ride-ons/Die-Cast/Hot Wheels	68974
+Vehicles & Ride-ons/Die-Cast/Johnny Lightning	68975
+Vehicles & Ride-ons/Die-Cast/Lledo	296859
+Vehicles & Ride-ons/Die-Cast/Maisto	296860
+Vehicles & Ride-ons/Die-Cast/Matchbox	68976
+Vehicles & Ride-ons/Die-Cast/NASCAR/Action	193935
+Vehicles & Ride-ons/Die-Cast/NASCAR/General	68979
+Vehicles & Ride-ons/Die-Cast/NASCAR/Racing Champions	68980
+Vehicles & Ride-ons/Die-Cast/NASCAR/Revell-Monogram	68981
+Vehicles & Ride-ons/Die-Cast/NASCAR/Winners Circle	68982
+Vehicles & Ride-ons/Die-Cast/NHRA	68977
+Vehicles & Ride-ons/Model Cars, Buses & Trucks	265114
+Vehicles & Ride-ons/Other	265116
+Vehicles & Ride-ons/Ride-ons	265115
+Vehicles & Ride-ons/Slot Cars	69061
+Video & Computer Games/Computer Games/General	69032
+Video & Computer Games/General	69035
+Video & Computer Games/Hardware	69036
+Video & Computer Games/Nintendo/Game Boy	170994
+Video & Computer Games/Nintendo/Game Boy Advance	600618
+Video & Computer Games/Nintendo/GameCube	760550
+Video & Computer Games/Nintendo/General	69037
+Video & Computer Games/Nintendo/NES	568972
+Video & Computer Games/Nintendo/Nintendo 64	170995
+Video & Computer Games/Nintendo/Super Nintendo	170996
+Video & Computer Games/Sega/Dreamcast	265117
+Video & Computer Games/Sega/Game Gear	170998
+Video & Computer Games/Sega/General	69038
+Video & Computer Games/Sega/Sega Genesis	170999
+Video & Computer Games/Sega/Sega Saturn	171000
+Video & Computer Games/Sony PlayStation	69039
+Video & Computer Games/Sony PlayStation2	541740
+Video & Computer Games/Vintage	69040
+Video & Computer Games/Xbox	760552
+Vintage/Animal Drawn	69065
+Vintage/Battery Operated	69066
+Vintage/Cap Guns	69067
+Vintage/Cast Iron	69068
+Vintage/Celluloid	69069
+Vintage/Character	69070
+Vintage/Erector Sets	69071
+Vintage/General	69072
+Vintage/Paper Toys	69073
+Vintage/Pedal Cars	69074
+Vintage/Play Sets	69075
+Vintage/Pull Toys	69076
+Vintage/Puppets	69077
+Vintage/Puzzles	69078
+Vintage/Ramp Walkers	69079
+Vintage/Ride ons	69080
+Vintage/Space Toys	69081
+Vintage/Toy Soldiers	69082
+Vintage/Vintage Tin/Friction	69084
+Vintage/Vintage Tin/General	69085
+Vintage/Vintage Tin/Wind-up	69086
+Vintage/Vintage Vehicles/Construction	69088
+Vintage/Vintage Vehicles/Farm Toys	69089
+Vintage/Vintage Vehicles/General	69090
+Vintage/Vintage Vehicles/Motorcycles	69091
+Vintage/Vintage Vehicles/Pressed Steel	69092
+Vintage/Vintage Vehicles/Rubber	69093
+Vintage/Vintage Vehicles/Slush	69094
+Travel & Real Estate	optgroup
+Accommodation	504824
+Flights	265137
+Foreign Language Instruction/Other	504828
+Luggage & Accessories	226843
+Maps/Africa	504850
+Maps/Arctic & Antarctic	504852
+Maps/Asia	504854
+Maps/Australia	504856
+Maps/Central & South America	504858
+Maps/Europe & Great Britian	504860
+Maps/North America/Canada	504864
+Maps/North America/Mexico	504866
+Maps/North America/United States	504868
+Maps/Oceanic	504870
+Maps/Other	226845
+Other	173280
+Timeshares	265835
+Vacation Packages/All-inclusive Vacations	504834
+Vacation Packages/Cruises	504836
+Vacation Packages/Fly & Drive Vacations	504838
+Vacation Packages/Golfing Vacations	504840
+Vacation Packages/Guided Tours	504842
+Vacation Packages/Other	226844
+Vacation Packages/Short Breaks	504844
+Vacation Packages/Skiing & Adventure Vacations	504846
+	

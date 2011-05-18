@@ -1,0 +1,132 @@
+#module-product h3 {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.details h4 {
+	font-weight: bold;
+	margin-top: 5px;
+}
+hr {
+	color: #C9C9C9;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-color: #CCCCCC;
+}
+.article_desc h2,  .ui-tabs-panel h2,  .blog h2 {
+	font-size:24px;
+	font-weight:bold;
+	line-height:24px;
+	margin-bottom:5px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.article_desc h3,  .ui-tabs-panel h3,  .blog h3 {
+	font-size:20px;
+	font-weight:bold;
+}
+.article_desc h4,  .ui-tabs-panel h4,  .blog h4 {
+	font-size:20px;
+	font-weight:bold;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.article_desc h5,  .ui-tabs-panel h5,  .blog h5, h5 {
+	font-size:14px;
+	font-weight:bold;
+}
+.article_desc h6,  .ui-tabs-panel h6,  .blog h6 {
+	font-size:14px;
+	font-weight:bold;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.article_desc ul,  .ui-tabs-panel ul,  .blog ul,  .description ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 3px;
+}
+.article_desc ul,  .ui-tabs-panel ul,  .blog ul,  .description ul {
+	list-style-type: none;
+}
+.article_desc ul li,  .ui-tabs-panel ul li,  .blog ul li,  .description ul li {
+	background:url("../includes/sts_templates/default/images/module_li_li_bg.jpg") no-repeat scroll left 8px transparent;
+	color:#000000;
+	font-size:12px;
+	line-height:22px;
+	margin-left:16px;
+	padding:0 0 0 20px;
+	text-decoration:none;
+}
+.article_desc ol,  .ui-tabs-panel ol,  .blog ol  .description ol {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+}
+.article_desc ol,  .ui-tabs-panel ol,  .blog ol,  .description ol {
+	list-style-type: lower-alpha;
+}
+blockquote {
+	padding: 15px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border: 1px solid #CCCCCC;
+}
+table.calendarBox table.calendarMonth td {
+	text-align: center;
+}
+table.calendarBox table.calendarMonth td a:link, table.calendarBox table.calendarMonth td a:visited {
+	text-align: center;
+	font-weight: bold;
+	background-color: #C9C9C9;
+	display: block;
+	width: 100%;
+}
+#deslideup {
+	background-color: #eeeeee;
+	padding: 10px;
+}
+#accordion h3 {
+	font-size: 11px;
+}
+#fileQueue {
+	width: 400px;
+	height: 300px;
+	overflow: auto;
+	border: 1px solid #E5E5E5;
+	margin-bottom: 10px;
+}
+
+
+.details .map_name, .details .map_price, .details .msrp_name, .details .msrp_price, .details .t9, .details .t9, .our_price_price {
+	font-size: 14px;
+}
+.alt_prod_list_col_head {
+	font-weight: bold;
+	background-color: #F2F2F2;
+	padding: 3px;
+}
+ 
+.alt_prod_list_col_top td {
+	border: 1px solid #D4D4D4;
+	padding: 3px;
+}
+.alt_prod_list_col_top {
+	margin-bottom: 5px;
+}
+.alt_prod_list_col_top tr {
+}
+
+
+a.button:link, a.button:visited {
+	color: #FFFFFF;
+}
+a.button:hover {
+	color: #666666;
+}

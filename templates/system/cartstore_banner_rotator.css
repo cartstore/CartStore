@@ -1,0 +1,72 @@
+/* Start Banner Rotator */
+#bannerRotator {
+	width: 728px;  /* Banner width */
+	height: 90px;  /* Banner height */
+ 	position: relative;
+	text-align: center;
+		margin-right: auto;
+	margin-left: auto;
+}
+
+#bannerRotator ul { 
+  list-style: none; 
+  padding: 0; 
+  position: relative; 
+}
+
+#bannerRotator ul li { 
+  display: none; 
+  width: 728px;  /* Banner width */
+  height: 90px;  /* Banner height */
+  position: absolute; 
+  top: 0px; 
+  left: 0px; 
+}
+
+#bannerNav { 
+  position: absolute; 
+  left: 335px;  /* Distance from the right side of the controls box to the right edge of the banner */
+  bottom: 0px;  /* Distance from the bottom of the controls box to the bottom of the banner */
+  background: url(../images/icons/transBlack75.png) repeat 0 0;  /* Controls box background image */
+  padding: 5px 5px 5px 10px; 
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px; 
+}
+
+#bannerNav a { 
+  margin: 3px 10px 0 0 ; 
+  height: 10px; 
+  width: 10px; 
+  display: block; 
+  background: url(../images/icons/dotDark.png) no-repeat 0 0;  /* Controls Button image (Inactive) */
+  float: left; 
+}
+
+#bannerNav a.active { 
+  background-image: url(../images/icons/dotLight.png);  /* Controls Button image (Active) */
+}
+
+#bannerNav span.pause, #bannerNav span.play { 
+  cursor: pointer; 
+  height: 15px; 
+  width: 15px; 
+  display: block; 
+  background: url(../images/icons/pause.png) no-repeat 0 0;  /* Controls Pause icon */
+  float: left; 
+}
+
+#bannerNav span.play { 
+  background-image: url(../images/icons/play.png);  /* Controls Play icon */
+}
+
+.divider-tall {
+  clear: both;
+  height: 13px;
+}
+/* End Banner Rotator */
+#jQuerybanner_rotator {
+	text-align: center;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}

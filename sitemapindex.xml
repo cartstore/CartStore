@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<sitemap>
+		<loc>http://demo.cartstore.com/2.2.5/sitemapcategories.xml</loc>
+		<lastmod>2009-09-12</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://demo.cartstore.com/2.2.5/sitemapproducts.xml</loc>
+		<lastmod>2009-09-12</lastmod>
+	</sitemap>
+</sitemapindex>

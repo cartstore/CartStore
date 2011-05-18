@@ -1,0 +1,466 @@
+<?php
+/*
+  $Id: my_points.php, v 2.00 2006/JULY/06 17:37:00 dsa_ Exp $
+  created by Ben Zukrel, Deep Silver Accessories
+  http://www.deep-silver.com
+
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
+
+  Copyright (c) 2005 osCommerce
+
+  Released under the GNU General Public License
+
+***********************************************************
+
+Be carefull when editing this files do not tutch anything between ...
+--- DO NOT EDIT  BOF ---  and   --- DO NOT EDIT  EOF ---
+
+************************************************************/
+
+
+define('NAVBAR_TITLE', 'Reward Point Program FAQ');
+define('HEADING_TITLE', 'Reward Point Program FAQ');
+
+define('POINTS_FAQ_1', 'What is the Reward Point Program?');
+define('POINTS_FAQ_2', 'How does the Program work?');
+define('POINTS_FAQ_3', 'Points and Values');
+define('POINTS_FAQ_4', 'Redeeming Shopping Points');
+define('POINTS_FAQ_5', 'Minimum Points Required');
+define('POINTS_FAQ_6', 'Minimum Purchase Amount Required');
+define('POINTS_FAQ_7', 'Maximum Points Redemptions allowed per order');
+define('POINTS_FAQ_8', 'Will I earn points for shipping fees?');
+define('POINTS_FAQ_9', 'Will I earn points for tax fees?');
+define('POINTS_FAQ_10', 'Will I earn points for discounted products?');
+define('POINTS_FAQ_11', 'Will I earn points when purchases paid with points?');
+define('POINTS_FAQ_12', 'Earning Referral Points');
+define('POINTS_FAQ_13', 'Earning Points While writing a Products Review');
+define('POINTS_FAQ_14', 'Products Restrictions');
+define('POINTS_FAQ_15', 'Products on sale Restrictions');
+define('POINTS_FAQ_16', 'Conditions of Use');
+define('POINTS_FAQ_17', 'When Problems Occur');
+
+define('TEXT_INFORMATION', '<a name="Top"></a>
+<ol>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=1','NONSSL').'">' . POINTS_FAQ_1 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=2','NONSSL').'">' . POINTS_FAQ_2 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=3','NONSSL').'">' . POINTS_FAQ_3 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=4','NONSSL').'">' . POINTS_FAQ_4 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=5','NONSSL').'">' . POINTS_FAQ_5 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=6','NONSSL').'">' . POINTS_FAQ_6 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=7','NONSSL').'">' . POINTS_FAQ_7 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=8','NONSSL').'">' . POINTS_FAQ_8 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=9','NONSSL').'">' . POINTS_FAQ_9 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=10','NONSSL').'">' . POINTS_FAQ_10 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=11','NONSSL').'">' . POINTS_FAQ_11 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=12','NONSSL').'">' . POINTS_FAQ_12 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=13','NONSSL').'">' . POINTS_FAQ_13 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=14','NONSSL').'">' . POINTS_FAQ_14 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=15','NONSSL').'">' . POINTS_FAQ_15 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=16','NONSSL').'">' . POINTS_FAQ_16 . '</a></li>
+  <li><a href="'.tep_href_link(FILENAME_MY_POINTS_HELP,'faq_item=17','NONSSL').'">' . POINTS_FAQ_17 . '</a></li>
+</ol>');
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+switch ($HTTP_GET_VARS['faq_item']) {
+  case '1':
+  $key = 'USE_POINTS_SYSTEM';
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_1 . '');
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+To thank you all for your support and to offer future incentives to you we would like to give something back, this is why we have launched this great Reward Point Program.
+<br /><br />
+Our Reward Point Program is as simple as it sounds.  While shopping at ' . STORE_NAME . ' you will earn Shopping Points for the money you spend.
+<br />
+Once earned, you\'ll be able to use those points to pay for future purchases at  ' . STORE_NAME . '.
+<br /><br />
+The Reward Point Program began on ' . tep_get_last_date($key) . ' . All purchases made after that date will earn points.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+  break;
+  case '2':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_2 . '');
+
+  if (tep_not_null(POINTS_AUTO_EXPIRES)){
+    $points_expire = 'Reward points will expire ' . POINTS_AUTO_EXPIRES . ' months from the date issuance.';
+  } else {
+    $points_expire = 'Reward points do not expire and can be accumulated until you decide to use them.';
+  }
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+When an order is placed, the total amount<small><font color="FF6633">*</font></small> of the order will be used to calculate the amount of points earned.
+These points are added to your Shopping Points account as pending points.
+<br />
+All pending points are listed in your <a href="' . tep_href_link(FILENAME_MY_POINTS) . '"> <u>Shopping Points account </u></a> and will stay there until approved/confirmed by ' . STORE_NAME . '.
+<br /><br />
+Once any pending points have been approved, they will be released and your account will be credited with the value of those points.  Ready for you to spend on whatever you want.
+<br />' . $points_expire . '
+<br />You must login to your account in order to view the status of your points.
+<br /><br />
+During the checkout procces you\'ll be able to pay for your order with your points balance.
+<br />
+<br />
+<small><font color="FF6633">*</font> in most cases shipping fees and taxes excluded .see refered FAQ for more details.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+  break;
+  case '3':
+if (POINTS_PER_AMOUNT_PURCHASE > 1) {
+  $point_or_points = 'points';
+} else {
+  $point_or_points = 'point';
+}
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_3 . '<br /></font></b><small>Points value last updated: ' . tep_get_last_date('REDEEM_POINT_VALUE') . '</small>');
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Currently, for every ' .  $currencies->format(1) . ' spent at ' . STORE_NAME . ' you\'ll earn ' . number_format(POINTS_PER_AMOUNT_PURCHASE,POINTS_DECIMAL_PLACES)  . ' ' . $point_or_points . '.  Each point is worth ' .  $currencies->format(REDEEM_POINT_VALUE) . ' off a future purchase.
+<br />For example:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Product Cost:</b>&nbsp; ' .  $currencies->format(100) . '<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Value of Points Earned:</b>&nbsp; ' .  $currencies->format(tep_calc_shopping_pvalue(100 * POINTS_PER_AMOUNT_PURCHASE)) . '<br /><br />
+Please note, we reserve the right to make changes to the above rate at any time without prior notice.  The rate shown here will always be current.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+  break;
+  case '4':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_4 . '');
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+If you have a balance in your Shopping Points Account, you can use those points to pay for purchases made at ' . STORE_NAME . '.
+<br />
+During the checkout proccess, on the same page that you select a payment method, there will be a box to enter the amount of points you wish to redeem.  Enter the amount of points you would like to spend or tick the box to use all available points.
+Please note, you will still have to select another payment method if there 
+is not enough in your Shopping Points Account to cover the cost of your purchase. 
+<br />
+Continue the checkout procedure and at the confirmation page you\'ll notice that the value of the points redeemed will have been credited towards your order.  Once you confirm your order, your Shopping Points account will be updated and the points used deducted from your balance.
+<br />
+Note that any purchase made by redeeming points will only be rewarded with additional points for the amount spent other then points.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+  break;
+  case '5':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_5 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('POINTS_LIMIT_VALUE') . '</small>');
+    if(POINTS_LIMIT_VALUE  > 0)  {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Currently, a minimum balance of <b>' . number_format(POINTS_LIMIT_VALUE) . '</b> points <b>(' . $currencies->format(tep_calc_shopping_pvalue(POINTS_LIMIT_VALUE)) . ')' . '</b> is required before you can redeem them.
+<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Currently, no minimum balance is required to redeem your points.  Please note, you\'ll still have to select another payment method if there isn\'t enough in your Shopping Points account to cover the cost of your purchase.<br />
+<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ }
+  break;
+  case '6':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_6 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('POINTS_MIN_AMOUNT') . '</small>');
+    if(tep_not_null(POINTS_MIN_AMOUNT))  {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Currently, a minimum of <b>' . $currencies->format(POINTS_MIN_AMOUNT) . '</b> in total (per purchase) is required before any Points Redemptions can take place.
+<br />
+<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Currently, no Minimum Purchase Amount required to redeem your points.
+<br />
+<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ }
+  break;
+  case '7':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_7 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('POINTS_MAX_VALUE') . '</small>');
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+A maximum of <b>' . number_format(POINTS_MAX_VALUE) . '</b> points <b>(' . $currencies->format(tep_calc_shopping_pvalue(POINTS_MAX_VALUE)) . ')' . '</b> is allowed to redeem per order.
+<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+  break;
+  case '8':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_8 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('USE_POINTS_FOR_SHIPPING') . '</small>');
+    if(USE_POINTS_FOR_SHIPPING == 'false')  {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+No.
+<br />
+When calculating the amount of points earned. shipping fees are excluded. ');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Yes.
+<br />
+When calculating the amount of points earned. shipping fees are included.
+<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+ }
+  break;
+  case '9':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_9 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('USE_POINTS_FOR_TAX') . '</small>');
+    if(USE_POINTS_FOR_TAX == 'false')  {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+No.
+<br />
+When calculating the amount of points earned. taxes are excluded. ');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Yes.
+<br />
+When calculating the amount of points earned. taxes are included.
+&nbsp;<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+ }
+  break;
+  case '10':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_10 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('USE_POINTS_FOR_SPECIALS') . '</small>');
+    if(USE_POINTS_FOR_SPECIALS == 'false')  {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+No.
+<br />
+When calculating the amount of points earned. All items which their price have been discounted are excluded. ');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Yes.
+<br />
+When calculating the amount of points earned. All items which their price have been discounted are included.
+&nbsp;<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+ }
+  break;
+  case '11':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_11 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('USE_POINTS_FOR_REDEEMED') . '</small>');
+    if(USE_POINTS_FOR_REDEEMED == 'false')  {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+No.
+<br />
+When calculating the amount of points earned. Any purchase made by redeeming points are excluded. ');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Yes.
+<br />
+Please note, any purchase made by redeeming points will only be rewarded with additional points for the amount spent other then points.
+&nbsp;<br />
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+ }
+  break;
+  case '12':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_12 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('USE_REFERRAL_SYSTEM') . '</small>');
+    if (tep_not_null(USE_REFERRAL_SYSTEM)){
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+<em>"Word-of-mouth" advertising is the most powerful form of advertising there is.</em>
+<br />
+Referral Points is based on the idea that we should both benefit from your referrals.
+<br />
+When referred friend place an order, during the checkout procces on the same page that you select a payment method there will be a box to enter a Referral code .
+Your Referral code is your registered email address with us.
+<br />
+When we receive your referred friends completed and approved order, we will reward your Points account with <b>' .  $currencies->format(tep_calc_shopping_pvalue(USE_REFERRAL_SYSTEM)) . '</b> worth of points .
+<br />
+The more first time orders we receive from your referrals, the more reward points you will receive.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','Currently this feature is disabled.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+ }
+  break;
+  case '13':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_13 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('USE_POINTS_FOR_REVIEWS') . '</small>');
+    if (tep_not_null(USE_POINTS_FOR_REVIEWS)){
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+<em>"Writing Review is ego boost knowing others read your opinions, and maybe even take your advice."</em>
+<br />
+Sharing Your Product Reviews will assist us to continually improve our offers and service to you as well as helps others to choose the right products.
+<br />
+We would like to thank you for helpful review that you gave us, therefore for every quality review, we will reward your Points account with <b>' .  $currencies->format(tep_calc_shopping_pvalue(USE_POINTS_FOR_REVIEWS)) . '</b> worth of points .
+<br />
+Your Review must meet all of the following conditions:
+<ul>
+  <li>Your Reviews must be original.</li>
+  <li>Reviews must be focused and concise on the product under review.</li>
+  <li>Reviews should not duplicate content already published.</li>
+  <li>Be truthful and objective.</li>
+  <li>Reviews should not include posts that have spam, commercial or advertising content or links.</li>
+  <li>Reviews should not abuse, harass, or threaten another\'s personal safety .</li>
+</ul>
+' . STORE_NAME .' reserves the right to refuse or remove any review that does not comply with above conditions.
+<br />
+' . STORE_NAME .' staff reserves the right to correct misspelled words, grammatical errors.
+<br />
+' . STORE_NAME .' is not responsible or liable in any way for ratings and reviews posted by its customers.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','Currently this feature is disabled.');
+
+#---------------------- DO NOT EDIT  BOF ---------------------------- 
+ }
+  break;
+  case '14':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_14 . '');
+	  if (tep_not_null(RESTRICTION_MODEL)) { 
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','<small>Last updated: ' . tep_get_last_date('RESTRICTION_MODEL') . '</small><br />
+Currently, only items which have the model <b>[' . RESTRICTION_MODEL . ']</b> can be purchased using your points balance.
+<br />We strongly advise you to check this page often as we may make changes to this policy.');
+
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ }
+	  if (tep_not_null(RESTRICTION_PID)) { 
+          $p_ids = split("[,]", RESTRICTION_PID);
+        for ($i = 0; $i < count($p_ids); $i++) {
+           $prods_query = tep_db_query("SELECT * FROM products, products_description WHERE products.products_id = products_description.products_id and products_description.language_id = '" . $languages_id . "'and products.products_id = '" . $p_ids[$i] . "'");
+           if ($list = tep_db_fetch_array($prods_query)) {
+             $prods .= '<li>' . $list['products_name'] .'</li>';
+           }
+        }
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','<small>Last updated: ' . tep_get_last_date('RESTRICTION_PID') . '</small><br />
+Currently, only  the following items  can be purchased using your points balance.<ul>' . $prods . '</ul>
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ }
+	  if (tep_not_null(RESTRICTION_PATH)) { 
+          $cat_path = split("[,]", RESTRICTION_PATH);
+        for ($i = 0; $i < count($cat_path); $i++) {
+           $cat_path_query = tep_db_query("select * from " . TABLE_CATEGORIES . ", " . TABLE_CATEGORIES_DESCRIPTION . " WHERE categories.categories_id = categories_description.categories_id and categories_description.language_id = '" . $languages_id . "' and categories.categories_id='" . $cat_path[$i] . "'");
+           if ($list = tep_db_fetch_array($cat_path_query)) {
+             $cats .= '<li>' . $list['categories_name'] .'</li>';
+           }
+        }
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','<small>Last updated: ' . tep_get_last_date('RESTRICTION_PATH') . '</small><br />
+Currently, only items in the following categories  can be purchased using your points balance.<ul>' . $cats . '</ul>
+We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','<small>Last updated: ' . tep_get_last_date('RESTRICTION_PATH') . '</small><br />
+ 
+Currently, no restrictions apply to what items may be purchased using your points balance.
+<br />We advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ }
+  break;
+  case '15':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_15 . '<br /></font></b><small>Last updated: ' . tep_get_last_date('REDEMPTION_DISCOUNTED') . '</small>');
+    if (REDEMPTION_DISCOUNTED == 'true') {  
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+Currently, No items which their price have been discounted can be purchased using your points balance.
+<br />We strongly advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+    } else {
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+ 
+Currently, no restrictions apply to what items may be purchased using your points balance.
+<br />We advise you to check this page often as we may make changes to this policy.');
+
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+ }
+  break;
+  case '16':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_16 . '');
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+<ul>
+  <li>Shopping Points are only available to registered ' . STORE_NAME . ' member\'s.</li>
+  <li>Shopping Points Reward can only be collected and used with online purchases. and are only validated at ' . STORE_NAME . '.</li>
+  <li>Points are non-refundable and can\'t be transferred between member\'s.</li>
+  <li>Shopping Points are non-transferable or exchangeable for cash under any circumstances.</li>
+  <li>Shopping Points will not be refunded for any cancelled order.</li>
+  <li>When buying with Points,you will still have to select another payment method if there is not enough in your Shopping Points Account to cover the cost of your purchase.</li>
+  <li>When calculating the amount of points earned. shipping fees and taxes are excluded(unless other.see refered FAQ for more details).</li>
+</ul>
+Please note, we reserve the right to make changes to this policy at any time without prior notice or liability.');
+
+#---------------------- DO NOT EDIT  EOF ----------------------------
+  break;
+  case '17':
+define('SUB_HEADING_TITLE','' . POINTS_FAQ_17 . '');
+#---------------------- DO NOT EDIT  EOF ----------------------------  
+ 
+define('SUB_HEADING_TEXT','
+For any queries regarding our Reward Point Program, please <a href="' . tep_href_link(FILENAME_CONTACT_US) . '"> <u>contact us </u></a>.  Make sure you provide as much information as possible in the e-mail.');
+  
+#---------------------- DO NOT EDIT  BOF ----------------------------  
+  default:
+define('SUB_HEADING_TITLE','');
+#---------------------- DO NOT EDIT  EOF ----------------------------
+  
+define('SUB_HEADING_TEXT','<font color="FF0000"><b>Please choose from one of the topics above.</b></font>');
+
+  }
+?>

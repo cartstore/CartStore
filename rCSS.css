@@ -1,0 +1,53 @@
+/*Container*/
+.ratingBox{display:inline-block}
+/*Form*/
+.ratingBox form{
+	padding:0px; margin:0px; overflow:hidden; border:none;
+	position:relative;
+}
+/*Average Rating*/
+.ratingBox .rAverage{
+	height:100%;
+	z-index:1;
+}
+/*Loading Image*/
+.ratingBox .rLoad{background:url(images/rLoading.gif) center no-repeat; height:100%; width:100%;}
+/*Form buttons*/
+.ratingBox input{
+	padding:0px; margin:0px; border:none; background:none;
+	position:absolute; left:0px;
+	height:100%;
+	text-indent:-300px;
+	cursor:pointer;
+}
+.ratingBox input:active, .ratingBox input:focus{outline:none;}
+/*Text*/
+.ratingBox p{
+	padding:0px; margin:0px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:9px;
+}
+/*Total votes and current average*/
+.ratingBox .rtxtL{float:left}
+.ratingBox .rtxtR{float:right}
+
+
+/*---------- Style: small ----------*/
+/*Form*/
+.ratingBox .smallRS{background:url(images/small/rElements.png) repeat-x}
+/*Rating Element*/
+.ratingBox .smallRS input:hover{background:url(images/small/rElements.png) bottom left repeat-x}
+/*Average Rating*/
+.ratingBox .smallRS .rAverage{background:url(images/small/rElements.png) center left repeat-x}
+/*Text*/
+.ratingBox .smallRSp{display:none}
+
+/*---------- Style: large ----------*/
+/*Form*/
+.ratingBox .largeRS{background:url(images/large/rElements.png) repeat-x}
+/*Rating Element*/
+.ratingBox .largeRS input:hover{background:url(images/large/rElements.png) bottom left repeat-x}
+/*Average Rating*/
+.ratingBox .largeRS .rAverage{background:url(images/large/rElements.png) center left repeat-x}
+/*Text*/
+.ratingBox .largeRSp{display:block}

@@ -1,0 +1,1126 @@
+Musical Instruments	optgroup
+
+musical-instruments	1
+    keyboard-instruments	2
+
+        accordions	3
+
+        acoustic-pianos	4
+            grand-pianos	5
+            upright-pianos	6
+
+        digital-pianos	7
+
+        electronic-keyboards	8
+            portable-keyboards	9
+            synthesizers-and-workstations	10
+
+        harmoniums	11
+        harpsichords	12
+        organs-keyboard-instruments	13
+        player-pianos	14
+        thumb-pianos	15
+
+    percussion-instruments	16
+
+        bar-chimes	17
+            drum-set-bar-chimes	18
+            handheld-bar-chimes	19
+
+        bells-percussion-instruments	20
+
+            agogo-bells	21
+                drum-set-agogo-bells	22
+                handheld-agogo-bells	23
+
+            barbells-percussion-instruments	24
+
+                drum-set-barbells	25
+                handheld-barbells	26
+
+            concert-bells	27
+
+            cowbells	28
+                drum-set-cowbells	29
+                handheld-cowbells	30
+
+            handbells-percussion-instruments	31
+            jingle-bells	32
+
+        blocks-percussion-instruments	33
+            temple-blocks	34
+
+        cabasas	35
+        castanets	36
+        claves	37
+
+        cymbals	38
+
+            drum-set-cymbals	39
+                china-cymbals	40
+                crash-cymbals	41
+                crash-ride-cymbals	42
+                cymbal-variety-packages	43
+                effect-cymbals	44
+                hi-hat-cymbals	45
+                ride-cymbals	46
+                splash-cymbals	47
+
+            handheld-cymbals	48
+
+        drum-sets	49
+
+        drums-percussion-instruments	50
+            acoustic-drums	51
+
+                acoustic-drum-packages	52
+                ashikos	53
+
+                bass-drums	54
+                    concert-bass-drums	55
+                    drum-set-bass-drums	56
+                    marching-bass-drums	57
+
+                bodhrans	58
+                bongos	59
+                cajons	60
+                congas	61
+                darbukas	62
+                djembes	63
+                doumbeks	64
+                drum-tables	65
+                frame-drums	66
+                hand-drums	67
+                klong-yaws	68
+                ngomas	69
+                ocean-drums	70
+                paddle-drums	71
+                quintos	72
+                slit-drums	73
+
+                snare-drums	74
+                    concert-snare-drums	75
+                    drum-set-snare-drums	76
+                    marching-snare-drums	77
+
+                steel-drums	78
+                tablas	79
+                talking-drums	80
+                tall-drums	81
+                tamboras	82
+                timbals-musical-instruments	83
+                timpanis	84
+
+                    rotary-timpanis	85
+
+                tom-toms	86
+                    concert-tom-toms	87
+                    drum-set-tom-toms	88
+                    marching-tom-toms	89
+
+                tombeks	90
+                tumbas	91
+                udu-drums	92
+
+            electronic-drums	93
+
+                electronic-drum-sets	94
+
+        finger-cymbals	95
+        glockenspiels	96
+        gongs-percussion-instruments	97
+        guiros	98
+        jingle-rings	99
+        jingle-sticks	100
+        kokirikos	101
+        marimbas	102
+        metallophones	103
+        musical-washboards	104
+
+        percussion-sound-effects	105
+            cricket-percussion-sound-effects	106
+
+        rainsticks-percussion-instruments	107
+        rasps-percussion-instruments	108
+        ratchets-percussion-instruments	109
+
+        rattles-percussion-instruments	110
+            maracas	111
+
+        resonator-bells	112
+        sand-blocks-percussion-instruments	113
+        shakers-percussion-instruments	114
+        slapsticks-percussion-instruments	115
+
+        tambourines	116
+            drum-set-tambourines	117
+            handheld-tambourines	118
+            shakerines	119
+
+        triangles-percussion-instruments	120
+        vibraphones	121
+        xylophones	122
+
+    stringed-instruments	123
+        autoharps	124
+        banjos	125
+        bouzoukis	126
+        cellos	127
+        dulcimers	128
+
+        guitars	129
+
+            acoustic-guitars	130
+                acoustic-electric-guitars	131
+                acoustic-guitar-packages	132
+                classical-guitars	133
+                resonator-guitars	134
+                steel-string-acoustic-guitars	135
+
+            bass-guitars	136
+                acoustic-bass-guitars	137
+                acoustic-electric-bass-guitars	138
+                bass-guitar-packages	139
+                electric-bass-guitars	140
+
+            electric-guitars	141
+
+                electric-guitar-packages	142
+                hollow-body-electric-guitars	143
+                semi-hollow-body-electric-guitars	144
+                solid-body-electric-guitars	145
+
+        harps-musical-instruments	146
+
+        lap-and-pedal-steel-guitars	147
+            lap-steel-guitars	148
+            pedal-steel-guitars	149
+
+        lutes	150
+        mandolins	151
+        ouds	152
+        psalteries	153
+        santoors	154
+        sarods	155
+        sitars	156
+        string-basses	157
+        strum-sticks	158
+        tamburas	159
+        ukuleles	160
+        vinas	161
+        violas	162
+
+        violins	163
+            acoustic-violins	164
+            electric-violins	165
+
+        zithers	166
+
+    wind-instruments	167
+        bagpipes	168
+        bamboo-clarinets	169
+        bamboo-flutes	170
+        bamboo-saxophones	171
+        bombards	172
+
+        brass-instruments	173
+            alto-horns	174
+            baritone-horns	175
+            bugles	176
+            cornets	177
+            euphoniums	178
+            flugelhorns	179
+            french-horns	180
+            mellophones	181
+            sousaphones	182
+            trombones	183
+
+            trumpets	184
+                b-flat-trumpets	185
+                c-trumpets	186
+                d-trumpets	187
+                e-flat-d-trumpets	188
+                e-flat-trumpets	189
+                f-trumpets	190
+                g-f-trumpets	191
+                g-trumpets	192
+                piccolo-trumpets	193
+                pocket-trumpets	194
+
+            tubas	195
+
+        conch-shells	196
+        didgeridoos	197
+        fifes	198
+        harmonicas	199
+        jews-harps	200
+        kazoos	201
+        neys	202
+        ocarinas	203
+        ojas	204
+        pan-pipes	205
+        shakuhachis	206
+        shawms	207
+        shenais	208
+        shofars	209
+        shruti-boxes	210
+        suonas	211
+
+        whistles-musical-instruments	212
+            pennywhistles	213
+            samba-whistles	214
+            slide-whistles	215
+            tin-whistles	216
+
+        woodwind-instruments	217
+            bassoons	218
+            clarinets	219
+
+                a-clarinets	220
+                a-flat-clarinets	221
+                alto-clarinets	222
+
+                b-flat-clarinets	223
+                    b-flat-alto-clarinets	224
+                    b-flat-bass-clarinets	225
+                    b-flat-soprano-clarinets	226
+
+                bass-clarinets	227
+                basset-clarinets	228
+                c-clarinets	229
+                contra-alto-clarinets	230
+                contra-bass-clarinets	231
+                d-clarinets	232
+
+                e-flat-clarinets	233
+                    e-flat-alto-clarinets	234
+                    e-flat-bass-clarinets	235
+                    e-flat-soprano-clarinets	236
+
+            english-horns	237
+            flutes-musical-instruments	238
+            oboes	239
+            piccolos	240
+            recorders-wind-instruments	241
+
+            saxophones	242
+                alto-saxophones	243
+                baritone-saxophones	244
+                bass-saxophones	245
+                soprano-saxophones	246
+                tenor-saxophones	247
+
+        zurnas	248
+
+Musical Instruments Accessories & Parts	optgroup
+
+musical-instruments-accessories-and-parts	249
+
+    accessories-for-musicians	250
+        conducting-accessories	251
+        metronomes	252
+
+        music-award-products	253
+            music-award-certificates	254
+            music-award-trophies	255
+
+        music-bell-boards	256
+        music-flash-cards	257
+        music-instruction-banners	258
+        music-lyres	259
+
+        music-staff-boards	260
+            music-staff-paper	261
+
+        music-stand-lights	262
+        music-stands	263
+        music-themed-gifts	264
+        practice-aids	265
+        sheet-music-folders	266
+        tuning-devices	267
+
+    keyboard-instrument-accessories-and-parts	268
+        accordion-accessories-and-parts	269
+
+        acoustic-piano-accessories-and-parts	270
+
+            acoustic-piano-accessories	271
+                acoustic-piano-covers	272
+
+            acoustic-piano-parts	273
+
+        digital-piano-accessories-and-parts	274
+
+            digital-piano-accessories	275
+                digital-piano-covers	276
+                digital-piano-power-supplies	277
+
+            digital-piano-parts	278
+
+        electronic-keyboard-accessories-and-parts	279
+
+            electronic-keyboard-accessories	280
+                electronic-keyboard-bags-cases-and-covers	281
+                electronic-keyboard-expansion-boards-and-sound-libraries	282
+                electronic-keyboard-pedals-and-footswitches	283
+                electronic-keyboard-power-supplies	284
+                electronic-keyboard-stands	285
+
+            electronic-keyboard-parts	286
+
+        harpsichord-accessories-and-parts	287
+        keyboard-instrument-cleaning-and-care-products	288
+        organ-accessories-and-parts	289
+        piano-benches	290
+
+        player-piano-equipment-and-accessories	291
+            player-piano-accessories	292
+
+                player-piano-music-rolls	293
+
+            player-piano-equipment	294
+                player-piano-reproducing-mechanisms	295
+
+    musical-instrument-cleaning-and-care-products	296
+
+        brass-instrument-cleaning-and-care-products	297
+            french-horn-cleaning-and-care-products	298
+            trombone-cleaning-and-care-products	299
+            trumpet-cleaning-and-care-products	300
+            tuba-cleaning-and-care-products	301
+
+        percussion-instrument-cleaning-and-care-products	302
+        stringed-instrument-cleaning-and-care-products	303
+
+            cello-cleaning-and-care-products	304
+            guitar-cleaning-and-care-products	305
+            string-bass-cleaning-and-care-products	306
+            viola-cleaning-and-care-products	307
+            violin-cleaning-and-care-products	308
+
+        woodwind-instrument-cleaning-and-care-products	309
+            clarinet-cleaning-and-care-products	310
+            flute-cleaning-and-care-products	311
+            saxophone-cleaning-and-care-products	312
+
+    percussion-instrument-accessories-and-parts	313
+        bongo-accessories-and-parts	314
+        brushes-percussion-instrument-accessories	315
+
+        cymbal-accessories-and-parts	316
+
+            drum-set-cymbal-accessories	317
+                drum-set-cymbal-bags-and-cases	318
+
+                drum-set-cymbal-stands	319
+                    boom-cymbal-stands	320
+                    convertible-cymbal-stands	321
+                    hi-hat-cymbal-stands	322
+                    straight-cymbal-stands	323
+
+            drum-set-cymbal-parts	324
+
+            handheld-cymbal-accessories	325
+                handheld-cymbal-bags-and-cases	326
+
+            handheld-cymbal-parts	327
+
+        drum-accessories-and-parts	328
+            acoustic-drum-accessories	329
+
+                acoustic-drum-bags-cases-and-covers	330
+
+                    bass-drum-bags-cases-and-covers	331
+                        concert-bass-drum-bags-cases-and-covers	332
+                        drum-set-bass-drum-bags-cases-and-covers	333
+                        marching-bass-drum-bags-cases-and-covers	334
+
+                    hand-drum-bags-cases-and-covers	335
+
+                    snare-drum-bags-cases-and-covers	336
+                        concert-snare-drum-bags-cases-and-covers	337
+                        drum-set-snare-drum-bags-cases-and-covers	338
+                        marching-snare-drum-bags-cases-and-covers	339
+
+                    timpani-bags-cases-and-covers	340
+
+                    tom-tom-bags-cases-and-covers	341
+                        concert-tom-tom-bags-cases-and-covers	342
+                        drum-set-tom-tom-bags-cases-and-covers	343
+                        marching-tom-tom-bags-cases-and-covers	344
+
+                acoustic-drum-stands	345
+
+                    bass-drum-stands	346
+                        concert-bass-drum-stands	347
+                        drum-set-bass-drum-stands	348
+
+                    snare-drum-stands	349
+                        concert-snare-drum-stands	350
+                        drum-set-snare-drum-stands	351
+
+                    timpani-stands	352
+
+                    tom-tom-stands	353
+                        concert-tom-tom-stands	354
+                        drum-set-tom-tom-stands	355
+
+                marching-percussion-instrument-carriers	356
+                    bass-drum-carriers	357
+                    snare-drum-carriers	358
+                    tom-tom-carriers	359
+
+            acoustic-drum-parts	360
+
+                acoustic-drums-heads	361
+
+                    bass-drumheads	362
+                        concert-bass-drumheads	363
+                        drum-set-bass-drumheads	364
+                        marching-bass-drumheads	365
+
+                    drumhead-variety-packages	366
+                    snare-drumheads	367
+
+                        concert-snare-drumheads	368
+                        drum-set-snare-drumheads	369
+                        marching-snare-drumheads	370
+
+                    timpani-heads	371
+                    tom-tom-heads	372
+
+                        concert-tom-tom-drumheads	373
+                        drum-set-tom-tom-drumheads	374
+                        marching-tom-tom-drumheads	375
+
+            electronic-drum-accessories	376
+                electronic-drum-power-supplies	377
+
+            electronic-drum-parts	378
+
+        drum-set-accessories-and-hardware	379
+
+            drum-set-accessories	380
+                bass-drum-pedal-bags-and-cases	381
+                bass-drum-pedals	382
+                drum-rugs	383
+                drum-set-bags-cases-and-covers	384
+                drum-set-racks	385
+                drum-set-sound-shields	386
+                drum-set-thrones	387
+
+            drum-set-mounting-hardware	388
+                drum-set-clamps	389
+                drum-set-mounting-arms	390
+                drum-set-percussion-mounts	391
+
+        drumstick-bags-and-cases	392
+        drumsticks-percussion-instrument-accessories	393
+        glockenspiel-accessories-and-parts	394
+        gong-accessories-and-parts	395
+        mallets-percussion-instrument-accessories	396
+        metallophone-accessories-and-parts	397
+        percussion-practice-devices	398
+
+        percussion-tools	399
+            drum-keys	400
+            drum-wrenches	401
+
+        vibraphone-accessories-and-parts	402
+        xylophone-accessories-and-parts	403
+
+    stringed-instrument-accessories-and-parts	404
+
+        autoharp-accessories-and-parts	405
+        banjo-accessories-and-parts	406
+
+        cello-accessories-and-parts	407
+
+            cello-accessories	408
+                cello-bags-and-cases	409
+                cello-benches	410
+                cello-bows	411
+                cello-rests	412
+                cello-rosin	413
+                cello-stands	414
+                cello-strings	415
+
+            cello-parts	416
+
+        dulcimer-accessories-and-parts	417
+
+        guitar-accessories-and-parts	418
+
+            guitar-accessories	419
+
+                guitar-bags-and-cases	420
+
+                    guitar-bags	421
+                        acoustic-guitar-bags	422
+                        bass-guitar-bags	423
+                        electric-guitar-bags	424
+
+                    guitar-cases	425
+                        acoustic-guitar-cases	426
+                        bass-guitar-cases	427
+                        electric-guitar-cases	428
+
+                guitar-effects	429
+
+                    bass-guitar-effects	430
+                        bass-guitar-multi-effects	431
+                        bass-guitar-single-effects	432
+
+                    electric-guitar-effects	433
+                        electric-guitar-multi-effects	434
+                        electric-guitar-single-effects	435
+
+                            electric-guitar-chorus-effects	436
+                            electric-guitar-compression-effects	437
+                            electric-guitar-delay-and-reverb-effects	438
+                            electric-guitar-distortion-and-overdrive-effects	439
+                            electric-guitar-eq-effects	440
+                            electric-guitar-volume-effects	441
+                            electric-guitar-wah-effects	442
+
+                guitar-picks	443
+                guitar-stands	444
+                guitar-stools	445
+
+                guitar-straps	446
+                    acoustic-guitar-straps	447
+                    bass-guitar-straps	448
+                    electric-guitar-straps	449
+
+                guitar-strings	450
+                    acoustic-guitar-strings	451
+                    bass-guitar-strings	452
+                    electric-guitar-strings	453
+
+                guitar-tools	454
+                guitar-tuners	455
+
+            guitar-replacement-parts	456
+
+                acoustic-guitar-replacement-parts	457
+                    acoustic-guitar-bindings-and-trim	458
+                    acoustic-guitar-bodies	459
+                    acoustic-guitar-bridges-and-bridge-parts	460
+                    acoustic-guitar-finishing-supplies	461
+                    acoustic-guitar-frets	462
+                    acoustic-guitar-necks	463
+                    acoustic-guitar-nuts	464
+                    acoustic-guitar-pick-guards	465
+                    acoustic-guitar-pickups-and-pickup-covers	466
+                    acoustic-guitar-saddles	467
+                    acoustic-guitar-tuning-keys	468
+                    acoustic-guitar-wood-and-inlay-material	469
+
+                bass-guitar-replacement-parts	470
+                    bass-guitar-bindings-and-trim	471
+                    bass-guitar-bodies	472
+                    bass-guitar-bridges-and-bridge-parts	473
+                    bass-guitar-electronics	474
+                    bass-guitar-frets	475
+                    bass-guitar-hardware	476
+                    bass-guitar-knobs	477
+                    bass-guitar-necks	478
+                    bass-guitar-nuts	479
+                    bass-guitar-pick-guards	480
+                    bass-guitar-pickups-and-pickup-covers	481
+                    bass-guitar-saddles	482
+                    bass-guitar-tailpieces	483
+                    bass-guitar-tuning-keys	484
+                    bass-guitar-wood-and-inlay-material	485
+
+                electric-guitar-replacement-parts	486
+                    electric-guitar-bindings-and-trim	487
+                    electric-guitar-bodies	488
+                    electric-guitar-bridges-and-bridge-parts	489
+                    electric-guitar-electronics	490
+                    electric-guitar-frets	491
+                    electric-guitar-hardware	492
+                    electric-guitar-knobs	493
+                    electric-guitar-necks	494
+                    electric-guitar-nuts	495
+                    electric-guitar-pick-guards	496
+                    electric-guitar-pickups-and-pickup-covers	497
+                    electric-guitar-saddles	498
+                    electric-guitar-tailpieces	499
+                    electric-guitar-tuning-keys	500
+                    electric-guitar-wood-and-inlay-material	501
+
+        harp-accessories-and-parts	502
+        lap-and-pedal-steel-accessories-and-parts	503
+        mandolin-accessories-and-parts	504
+
+        sitar-accessories-and-parts	505
+
+            sitar-accessories	506
+                sitar-strings	507
+
+            sitar-parts	508
+
+        string-bass-accessories-and-parts	509
+
+            string-bass-accessories	510
+                string-bass-bags-and-cases	511
+                string-bass-bows	512
+                string-bass-end-pin-rests-and-wheels	513
+                string-bass-rosin	514
+                string-bass-stands	515
+                string-bass-strings	516
+
+            string-bass-parts	517
+
+        ukulele-accessories-and-parts	518
+        viola-accessories-and-parts	519
+
+            viola-accessories	520
+                viola-bags-and-cases	521
+                viola-bows	522
+                viola-rosin	523
+                viola-shoulder-and-chin-rests	524
+                viola-stands	525
+                viola-strings	526
+
+            viola-parts	527
+
+        violin-accessories-and-parts	528
+
+            violin-accessories	529
+                violin-bags-and-cases	530
+                violin-bows	531
+                violin-rosin	532
+                violin-shoulder-and-chin-rests	533
+                violin-stands	534
+                violin-strings	535
+
+            violin-parts	536
+
+    wind-instrument-accessories-and-parts	537
+
+        bagpipe-accessories-and-parts	538
+
+        brass-instrument-accessories-and-parts	539
+            alto-horn-accessories-and-parts	540
+            baritone-horn-accessories-and-parts	541
+            cornet-accessories-and-parts	542
+            euphonium-accessories-and-parts	543
+            flugelhorn-accessories-and-parts	544
+
+            french-horn-accessories-and-parts	545
+
+                french-horn-accessories	546
+                    french-horn-bags-and-cases	547
+                    french-horn-mutes	548
+                    french-horn-stands	549
+
+                french-horn-parts	550
+                    french-horn-mouthpieces	551
+
+            mellophone-accessories-and-parts	552
+            sousaphone-accessories-and-parts	553
+
+            trombone-accessories-and-parts	554
+
+                trombone-accessories	555
+                    trombone-bags-and-cases	556
+                    trombone-mutes	557
+                    trombone-stands	558
+
+                trombone-parts	559
+                    trombone-mouthpieces	560
+
+            trumpet-accessories-and-parts	561
+
+                trumpet-accessories	562
+                    trumpet-bags-and-cases	563
+                    trumpet-mutes	564
+                    trumpet-stands	565
+
+                trumpet-parts	566
+                    trumpet-mouthpieces	567
+
+            tuba-accessories-and-parts	568
+
+                tuba-accessories	569
+                    tuba-bags-and-cases	570
+                    tuba-mutes	571
+                    tuba-stands	572
+
+                tuba-parts	573
+                    tuba-mouthpieces	574
+
+        didgeridoo-accessories-and-parts	575
+        harmonica-accessories-and-parts	576
+
+        woodwind-instrument-accessories-and-parts	577
+
+            bassoon-accessories-and-parts	578
+
+                bassoon-accessories	579
+                    bassoon-bags-and-cases	580
+                    bassoon-reeds	581
+
+                bassoon-parts	582
+
+            clarinet-accessories-and-parts	583
+
+                clarinet-accessories	584
+                    clarinet-bags-and-cases	585
+                    clarinet-reeds	586
+                    clarinet-stands	587
+
+                clarinet-parts	588
+                    clarinet-ligatures	589
+                    clarinet-mouthpieces	590
+
+            english-horn-accessories-and-parts	591
+
+            flute-accessories-and-parts	592
+
+                flute-accessories	593
+                    flute-bags-and-cases	594
+                    flute-stands	595
+
+                flute-parts	596
+
+            oboe-accessories-and-parts	597
+
+                oboe-accessories	598
+                    oboe-bags-and-cases	599
+                    oboe-reeds	600
+
+                oboe-parts	601
+
+            piccolo-accessories-and-parts	602
+            recorder-accessories-and-parts	603
+
+            saxophone-accessories-and-parts	604
+
+                saxophone-accessories	605
+
+                    saxophone-bags-and-cases	606
+                        alto-saxophone-bags-and-cases	607
+                        baritone-saxophone-bags-and-cases	608
+                        bass-saxophone-bags-and-cases	609
+                        soprano-saxophone-bags-and-cases	610
+                        tenor-saxophone-bags-and-cases	611
+
+                    saxophone-reeds	612
+
+                        alto-saxophone-reeds	613
+                        baritone-saxophone-reeds	614
+                        bass-saxophone-reeds	615
+                        soprano-saxophone-reeds	616
+                        tenor-saxophone-reeds	617
+
+                    saxophone-stands	618
+                        alto-saxophone-stands	619
+                        baritone-saxophone-stands	620
+                        bass-saxophone-stands	621
+                        soprano-saxophone-stands	622
+                        tenor-saxophone-stands	623
+
+                saxophone-parts	624
+
+                    saxophone-ligatures	625
+                        alto-saxophone-ligatures	626
+                        baritone-saxophone-ligatures	627
+                        bass-saxophone-ligatures	628
+                        soprano-saxophone-ligatures	629
+                        tenor-saxophone-ligatures	630
+
+                    saxophone-mouthpieces	631
+                        alto-saxophone-mouthpieces	632
+                        baritone-saxophone-mouthpieces	633
+                        bass-saxophone-mouthpieces	634
+                        soprano-saxophone-mouthpieces	635
+                        tenor-saxophone-mouthpieces	636
+
+Stage & Studio Audio Equipment	optgroup
+
+stage-and-studio-audio-equipment	637
+
+    audio-mixer-accessories	638
+        audio-mixer-bags-cases-and-covers	639
+        audio-mixer-stands	640
+
+    audio-mixers	641
+
+        powered-audio-mixers	642
+        unpowered-audio-mixers	643
+
+    audio-monitor-accessories-and-parts	644
+        audio-monitor-accessories	645
+
+            audio-monitor-stands	646
+
+        audio-monitor-parts	647
+
+    audio-monitors	648
+
+        in-ear-audio-monitors-and-systems	649
+            in-ear-audio-monitor-systems	650
+            in-ear-audio-monitors	651
+
+        stage-audio-monitors	652
+        studio-audio-monitors	653
+
+    computer-audio-equipment	654
+        computer-audio-interfaces	655
+        digital-audio-workstation-controllers	656
+
+    dj-accessories	657
+
+        dj-bags-and-cases	658
+            dj-cartridge-bags-and-cases	659
+            dj-cd-player-bags-and-cases	660
+            dj-mixer-bags-and-cases	661
+            dj-turntable-bags-and-cases	662
+
+        dj-racks-and-stands	663
+        dj-slipmats	664
+        dj-turntable-cartridges	665
+
+    dj-equipment	666
+
+        digital-dj-turntables	667
+            direct-drive-digital-dj-turntables	668
+
+        dj-cassette-decks	669
+        dj-cd-players	670
+
+            multiple-disc-dj-cd-players	671
+            single-disc-dj-cd-players	672
+
+        dj-equipment-packages	673
+        dj-mixers	674
+
+        dj-turntables	675
+            belt-drive-dj-turntables	676
+            direct-drive-dj-turntables	677
+
+    electronic-music-production-equipment	678
+
+        audio-production-stations	679
+        audio-samplers	680
+        audio-sequencers	681
+        drum-machines	682
+        sound-modules	683
+        tabletop-synthesizers	684
+
+    instrument-amplifier-accessories-and-parts	685
+
+        instrument-amplifier-accessories	686
+            instrument-amplifier-bags-cases-and-covers	687
+            instrument-amplifier-footswitches-and-controllers	688
+            instrument-amplifier-stands	689
+
+        instrument-amplifier-parts	690
+            instrument-amplifier-speakers	691
+            instrument-amplifier-tubes	692
+
+    instrument-amplifier-equipment	693
+        electronic-drum-amplifier-equipment	694
+
+        guitar-amplifier-equipment	695
+            acoustic-guitar-amplifier-equipment	696
+
+            bass-guitar-amplifier-equipment	697
+                bass-guitar-amplifier-cabinets	698
+                bass-guitar-amplifier-combos	699
+                bass-guitar-amplifier-heads	700
+                bass-guitar-amplifier-preamps	701
+                bass-guitar-amplifier-stacks	702
+
+            electric-guitar-amplifier-equipment	703
+                electric-guitar-amplifier-cabinets	704
+                electric-guitar-amplifier-combos	705
+                electric-guitar-amplifier-heads	706
+                electric-guitar-amplifier-preamps	707
+                electric-guitar-amplifier-stacks	708
+
+        keyboard-amplifier-equipment	709
+
+    karaoke-accessories	710
+        karaoke-bags-and-cases	711
+        karaoke-stands-and-hardware	712
+
+    karaoke-equipment	713
+
+        karaoke-players	714
+            karaoke-cdg-players	715
+            karaoke-dvd-players	716
+            karaoke-vcd-players	717
+
+        karaoke-systems	718
+
+            home-karaoke-systems	719
+            portable-karaoke-systems	720
+
+        karaoke-video-monitors	721
+
+    microphone-accessories	722
+
+        microphone-bags-and-cases	723
+        microphone-clips	724
+        microphone-mounts	725
+        microphone-phantom-power-supplies	726
+        microphone-pop-filters	727
+        microphone-preamps	728
+        microphone-stands	729
+        microphone-windscreens	730
+
+    microphones	731
+        corded-microphones	732
+
+            condenser-microphones	733
+                instrument-condenser-microphones	734
+                multipurpose-condenser-microphones	735
+                vocal-condenser-microphones	736
+
+            dynamic-microphones	737
+                instrument-dynamic-microphones	738
+                multipurpose-dynamic-microphones	739
+                vocal-dynamic-microphones	740
+
+        wireless-microphones-and-wireless-microphone-systems	741
+            wireless-microphone-systems	742
+
+            wireless-microphones	743
+                handheld-wireless-microphones	744
+                headset-wireless-microphones	745
+                instrument-wireless-microphones	746
+                lapel-wireless-microphones	747
+
+    midi-equipment	748
+        midi-controllers	749
+        midi-interfaces	750
+
+    pa-systems	751
+    power-amplifiers	752
+    power-conditioners	753
+
+    recording-studio-environment-equipment	754
+        acoustical-enclosures-and-recording-booths	755
+        recording-studio-furniture	756
+
+        sound-component-racks-and-accessories	757
+            sound-component-rack-accessories	758
+            sound-component-racks	759
+
+        sound-dampening-products	760
+            sound-dampening-deflex-pads	761
+            sound-dampening-foam	762
+            sound-dampening-paneling	763
+            sound-dampening-spray	764
+            sound-dampening-stuffing	765
+
+    signal-processors	766
+        effects-processors	767
+
+            digital-reverb-and-delay	768
+            exciters-and-enhancers	769
+            multi-effects-processors	770
+            vocal-effects-processors	771
+
+        equalizers-and-feedback-controllers	772
+        signal-compressors	773
+
+        signal-converters	774
+            a-b-boxes	775
+            a-d-and-d-a-converters	776
+
+        signal-direct-boxes	777
+        signal-gates	778
+        signal-limiters	779
+
+    studio-and-stage-speaker-accessories-and-parts	780
+
+        studio-and-stage-speaker-accessories	781
+            studio-and-stage-speaker-bags-cases-and-covers	782
+            studio-and-stage-speaker-stands	783
+
+        studio-and-stage-speaker-parts	784
+
+    studio-and-stage-speakers	785
+        studio-and-stage-powered-speaker-cabinets	786
+        studio-and-stage-unpowered-speaker-cabinets	787
+
+    studio-and-stage-subwoofer-accessories-and-parts	788
+        studio-and-stage-subwoofer-accessories	789
+        studio-and-stage-subwoofer-parts	790
+
+    studio-and-stage-subwoofers	791
+
+        stage-subwoofers	792
+            powered-stage-subwoofers	793
+            unpowered-stage-subwoofers	794
+
+        studio-subwoofers	795
+
+    studio-recording-equipment	796
+
+        studio-cassette-recorders-and-duplicators	797
+            studio-cassette-duplicators	798
+            studio-cassette-recorders	799
+
+        studio-cd-recorders-and-duplicators	800
+            studio-cd-duplicators	801
+            studio-cd-recorders	802
+
+        studio-combo-decks	803
+        studio-dat-recorders	804
+        studio-dvd-recorders-and-duplicators	805
+
+            studio-dvd-duplicators	806
+            studio-dvd-recorders	807
+
+        studio-flash-recorders	808
+        studio-minidisc-recorders	809
+
+        studio-multitrack-recorders	810
+            analog-studio-multitrack-recorders	811
+            digital-studio-multitrack-recorders	812
+
+Stage & Studio Lighting Equipment	optgroup
+
+stage-and-studio-lighting-equipment	813
+
+    special-effects-lighting-and-equipment	814
+
+        special-effects-equipment	815
+            bubble-machines-and-accessories	816
+            fog-machines-and-accessories	817
+            mirror-balls-and-accessories	818
+
+        special-effects-lighting	819
+            black-light-bulbs	820
+            led-lighting	821
+            projection-lighting-effects	822
+            rope-lights	823
+            strobe-lighting-effects	824
+
+    stage-lighting-units-and-accessories	825
+
+        stage-lighting-accessories	826
+
+            lighting-control-equipment	827
+                light-boards	828
+                pc-lighting-control	829
+                stage-lighting-dimmers	830
+                stage-lighting-gel-frames	831
+                stage-lighting-gels	832
+
+            stage-lighting-lamps	833
+
+        stage-lighting-units	834
+
+            ellipsoidals	835
+            followspot-units	836
+            fresnel-units	837
+            par-units	838
+            scoop-units	839
+            stage-strip-lights	840

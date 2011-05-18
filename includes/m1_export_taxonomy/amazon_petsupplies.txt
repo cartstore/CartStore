@@ -1,0 +1,560 @@
+Pet Apparel	optgroup
+
+pet-apparel	1
+    pet-bandannas	2
+    pet-boots	3
+    pet-coats	4
+    pet-paw-protectors	5
+    pet-sweaters	6
+
+pet-jewelry	7
+    pet-barrettes	8
+    pet-collar-charms	9
+    pet-necklaces	10
+
+pet-supplies-gift-certificates	11
+
+Pet Food & Feeding Supplies	optgroup
+
+edible-pet-treats	12
+    catnip-treats	13
+
+        catnip-plants	14
+
+        catnip-toys	15
+
+            catnip-toy-animals	16
+                catnip-toy-mice	17
+
+            catnip-toy-bags	18
+            catnip-toy-balls	19
+
+        dried-catnip	20
+
+    pet-rawhide-treats	21
+
+        pet-rawhide-treat-bones	22
+        pet-rawhide-treat-chips	23
+        pet-rawhide-treat-rolls	24
+        pet-rawhide-treat-sticks	25
+
+    pet-snack-treats	26
+
+    pet-treat-animal-parts	27
+        pet-treat-animal-ears	28
+        pet-treat-animal-hooves	29
+        pet-treat-bones	30
+
+            pet-treat-femur-bones	31
+            pet-treat-knee-bones	32
+            pet-treat-knuckle-bones	33
+            pet-treat-rib-bones	34
+
+insect-feeders	35
+pet-bird-feeders	36
+
+pet-feeding-supplies	37
+    pet-cups	38
+
+    pet-dishes	39
+
+        pet-bowls	40
+            food-bowls	41
+            travel-bowls	42
+            water-bowls	43
+
+    pet-hand-feeding-syringes	44
+    pet-hand-feeding-tools	45
+    pet-nursing-bottles	46
+    pet-nursing-kits	47
+    pet-self-feeders	48
+    pet-self-waterers	49
+    pet-water-bottles	50
+
+pet-food	51
+    amphibian-food	52
+
+    bird-food	53
+
+        adult-bird-food	54
+            adult-bird-food-millet	55
+            adult-bird-food-pellets	56
+            adult-bird-food-seed-mixes	57
+
+        bird-food-formula	58
+        special-needs-bird-food	59
+        weaning-bird-food	60
+
+    cat-food	61
+        adult-cat-food	62
+        cat-food-milk-supplements	63
+        hairball-control-cat-food	64
+        infant-cat-food	65
+        kitten-cat-food	66
+        senior-cat-food	67
+        special-needs-cat-food	68
+
+    dog-food	69
+
+        adult-dog-food	70
+        infant-dog-food	71
+        puppy-dog-food	72
+        senior-dog-food	73
+        special-needs-dog-food	74
+        weight-control-dog-food	75
+
+    fish-food	76
+        algae-eater-food	77
+        betta-fish-food	78
+        bottom-feeder-fish-food	79
+        cichlid-fish-food	80
+        freshwater-fish-food	81
+        goldfish-food	82
+        hermit-crab-food	83
+        invertebrate-fish-food	84
+        marine-fish-food	85
+        pond-fish-food	86
+        reef-fish-food	87
+        specialty-fish-food	88
+        tropical-fish-food	89
+
+    insect-food	90
+
+    reptile-food	91
+        anole-food	92
+        aquatic-turtle-food	93
+        bearded-dragon-food	94
+        gecko-food	95
+        iguana-food	96
+        lizard-food	97
+        tortoise-food	98
+
+    small-animal-food	99
+        chinchilla-food	100
+        ferret-food	101
+        guinea-pig-food	102
+        hamster-food	103
+        mice-food	104
+        rabbit-food	105
+        rat-food	106
+
+    spider-food	107
+
+pet-supplies-gift-certificates	108
+
+Pet Grooming Supplies	optgroup
+
+pet-grooming-supplies	109
+    bird-beak-blocks	110
+    pet-antishedding-wipes	111
+    pet-baths	112
+    pet-brushes	113
+    pet-colognes	114
+    pet-combs	115
+    pet-conditioners	116
+    pet-dander-removers	117
+    pet-dematting-combs	118
+    pet-dematting-rakes	119
+    pet-deodorizers	120
+    pet-dryers	121
+    pet-finishing-sprays	122
+    pet-grooming-kits	123
+    pet-grooming-scissors	124
+    pet-grooming-tables	125
+    pet-grooming-trimmers	126
+    pet-hair-magnets	127
+    pet-hair-remover-refills	128
+    pet-hair-removers	129
+    pet-nail-cauterizers	130
+    pet-nail-clippers	131
+    pet-shampoo-wipes	132
+
+    pet-shampoos	133
+        pet-deodorizing-shampoos	134
+        pet-flea-control-shampoos	135
+        pet-medicated-shampoos	136
+        pet-natural-shampoos	137
+        pet-tearless-shampoos	138
+        pet-whitening-shampoos	139
+
+    pet-shedding-tools	140
+    pet-spray-bottles	141
+    pet-styptic-gels	142
+    pet-styptic-powders	143
+
+pet-shower-and-bath-supplies	144
+    pet-bath-wipes	145
+    pet-bathing-brushes	146
+    pet-bathing-cloths	147
+    pet-bathing-mittens	148
+    pet-bathtub-faucet-sprayers	149
+    pet-drain-covers	150
+    pet-drying-cloths	151
+    pet-waterless-pet-baths	152
+
+pet-supplies-gift-certificates	153
+
+Pet Habitats & Supplies	optgroup
+
+aquarium-supplies	154
+
+    aquarium-air-pump-accessories	155
+        aquarium-air-diffusers	156
+        aquarium-air-line-tubing	157
+        aquarium-air-stones	158
+
+    aquarium-air-pumps	159
+    aquarium-cleaning-supplies	160
+
+        aquarium-algae-scrapers	161
+        aquarium-brushes	162
+        aquarium-cleaning-chemicals	163
+        aquarium-gravel-cleaners	164
+        aquarium-gravel-vacuums	165
+        aquarium-nets	166
+        aquarium-sealants	167
+
+    aquarium-decor	168
+        aquarium-decor-backgrounds	169
+        aquarium-decor-coral	170
+        aquarium-decor-driftwood	171
+        aquarium-decor-gravel	172
+        aquarium-decor-marbles	173
+        aquarium-decor-ornaments	174
+        aquarium-decor-plastic-plants	175
+        aquarium-decor-rocks	176
+        aquarium-decor-tank-dividers	177
+
+    aquarium-filter-accessories	178
+        aquarium-filter-carbon	179
+        aquarium-filter-cartridges	180
+        aquarium-filter-pads	181
+        aquarium-filter-resins	182
+        aquarium-filter-sleeves	183
+        aquarium-foam-inserts	184
+
+    aquarium-filters	185
+        aquarium-power-filters	186
+        aquarium-prefilters	187
+        biological-aquarium-filters	188
+
+    aquarium-heaters	189
+    aquarium-hoods	190
+    aquarium-hydrometers	191
+
+    aquarium-lights	192
+        underwater-aquarium-lights	193
+
+    aquarium-stands	194
+    aquarium-starter-kits	195
+    aquarium-test-kits	196
+
+        freshwater-aquarium-test-kits	197
+        marine-aquarium-test-kits	198
+
+    aquarium-thermometers	199
+
+    aquarium-treatments	200
+        aquarium-algaecides	201
+        aquarium-ammonia	202
+        aquarium-biological-additives	203
+        aquarium-chlorine	204
+        aquarium-conditioners	205
+        aquarium-plant-fertilizers	206
+        aquarium-salts	207
+
+    aquarium-water-pump-supplies	208
+        aquarium-water-pump-parts	209
+        aquarium-water-pump-power-heads	210
+
+    aquarium-water-pumps	211
+        inline-aquarium-water-pumps	212
+        submersible-aquarium-water-pumps	213
+
+aquariums	214
+bird-ladders	215
+bird-perches	216
+bird-swings	217
+fish-bowls	218
+
+pet-bed-products	219
+    pet-bed-covers	220
+    pet-bed-frames	221
+    pet-bed-liners	222
+    pet-bed-mats	223
+    pet-bed-pillows	224
+    pet-bed-throws	225
+
+    pet-beds	226
+        cedar-pet-beds	227
+        heated-pet-beds	228
+
+        orthopedic-pet-beds	229
+            memory-foam-pet-beds	230
+
+pet-carriers	231
+
+    hard-sided-pet-carriers	232
+        wheeled-hard-sided-pet-carriers	233
+
+    pet-carrier-backpacks	234
+    pet-carrier-bike-trailers	235
+
+    pet-carrier-duffle-bags	236
+        pet-carrier-wheeled-duffle-bags	237
+
+    pet-carrier-fashion-bags	238
+    pet-carrier-strollers	239
+
+    soft-sided-pet-carriers	240
+        wheeled-soft-sided-pet-carriers	241
+
+pet-doors-and-supplies	242
+    pet-door-accessories	243
+    pet-door-alarms	244
+    pet-door-barrier-systems	245
+    pet-door-doorbells	246
+    pet-door-safety-ramps	247
+    pet-doors	248
+
+pet-habitat-supplies	249
+    bird-nesting-supplies	250
+    birdcage-gravel-paper	251
+    birdcage-seed-guards	252
+    birdcage-stands	253
+    pet-habitat-bedding	254
+    pet-habitat-cleaners	255
+    pet-habitat-cooling-fans	256
+    pet-habitat-decor	257
+
+        pet-habitat-decor-backgrounds	258
+        pet-habitat-decor-branches	259
+        pet-habitat-decor-driftwood	260
+        pet-habitat-decor-hideouts	261
+        pet-habitat-decor-plants	262
+        pet-habitat-decor-rocks	263
+        pet-habitat-decor-terraces	264
+        pet-habitat-decor-trees	265
+        pet-habitat-decor-vines	266
+        pet-habitat-decor-waterfalls	267
+
+    pet-habitat-heaters	268
+        pet-habitat-heat-emitters	269
+        pet-habitat-heat-lamps	270
+        pet-habitat-heat-mats	271
+        pet-habitat-under-tank-heaters	272
+        pet-habitat-warming-stones	273
+
+    pet-habitat-humidity-gauges	274
+    pet-habitat-lights	275
+    pet-habitat-mats	276
+    pet-habitat-pads	277
+    pet-habitat-screen-covers	278
+
+    pet-habitat-substrate	279
+        pet-habitat-bark	280
+        pet-habitat-carpet	281
+        pet-habitat-cedar-shavings	282
+        pet-habitat-sand	283
+
+    pet-habitat-suction-cups	284
+    pet-habitat-tank-tops	285
+    pet-habitat-thermometer-gauges	286
+
+pet-habitats	287
+
+    bird-nests	288
+
+    birdcages	289
+        domed-birdcages	290
+
+    cat-houses	291
+    dog-houses	292
+    pet-terrariums	293
+    reptile-houses	294
+    small-animal-houses	295
+
+pet-kennels	296
+
+pet-litter-and-house-breaking-aids	297
+    litter-box-liners	298
+    litter-boxes	299
+    litter-pans	300
+    litter-scoops	301
+    pet-housebreaking-aids	302
+
+    pet-litter	303
+        bird-cage-litter-and-bedding	304
+        cat-litter	305
+        dog-litter	306
+        small-animal-litter	307
+
+    pet-odor-removers	308
+    pet-pest-repellents	309
+    pet-stain-removers	310
+    pet-training-pads	311
+    pet-waste-shovels	312
+
+pet-supplies-gift-certificates	313
+
+Pet Health Care Supplies	optgroup
+
+air-filters	314
+carpet-deodorizers	315
+home-pest-control-foggers	316
+pet-deodorizer-air-purifiers	317
+
+pet-health-care-supplies	318
+    cat-hairball-remedies	319
+
+    pet-dental-care-supplies	320
+        pet-breath-drops	321
+        pet-breath-sprays	322
+        pet-dental-rinses	323
+        pet-dental-wipes	324
+        pet-toothbrushes	325
+        pet-toothpastes	326
+
+    pet-digestive-remedies	327
+
+    pet-ear-care-supplies	328
+        pet-ear-cleaners	329
+        pet-ear-powders	330
+        pet-ear-wipes	331
+        pet-miticides	332
+
+    pet-exercise-wheels	333
+
+    pet-eye-care-supplies	334
+        pet-eye-cleaners	335
+        pet-eye-drops	336
+        pet-eye-gels	337
+        pet-eye-tear-stain-removers	338
+        pet-eye-wash	339
+        pet-eye-wipes	340
+
+    pet-itch-remedies	341
+    pet-lice-sprays	342
+    pet-medications	343
+    pet-milk-replacers	344
+    pet-relaxants	345
+
+    pet-supplements	346
+        pet-amino-acids	347
+        pet-antioxidant-nutritional-supplements	348
+        pet-brewers-yeast-nutritional-supplements	349
+        pet-fish-oil-nutritional-supplements	350
+        pet-kelp-supplements	351
+        pet-mineral-supplements	352
+
+            pet-calcium-mineral-supplements	353
+            pet-manganese-mineral-supplements	354
+            pet-potassium-mineral-supplements	355
+
+        pet-probiotic-nutritional-supplements	356
+        pet-yucca-herbal-supplements	357
+
+    pet-thermometers	358
+
+    pet-vitamins	359
+        pet-multivitamins	360
+
+    wormers	361
+
+pet-pest-control-supplies	362
+    pest-control-carpet-powders	363
+    pest-control-carpet-sprays	364
+    pet-flea-and-tick-collars	365
+    pet-flea-and-tick-powders	366
+    pet-flea-and-tick-repellents	367
+    pet-flea-and-tick-sprays	368
+    pet-flea-combs	369
+    pet-flea-drops	370
+    pet-mosquito-spray	371
+    pet-tick-removers	372
+
+pet-supplies-gift-certificates	373
+
+Pet Toys	optgroup
+
+pet-supplies-gift-certificates	374
+
+pet-toys	375
+    pet-chew-toys	376
+    pet-flying-discs	377
+    pet-playpens	378
+    pet-squeak-toys	379
+
+    pet-toy-balls	380
+        catnip-toy-balls	381
+
+    pet-toy-bells	382
+
+    pet-toy-mice	383
+        catnip-toy-mice	384
+
+    pet-toy-ropes	385
+    pet-tunnels	386
+
+Pet Training	optgroup
+
+pet-leash-collar-and-harness-supplies	387
+
+    pet-collar-accessories	388
+        pet-collar-bells	389
+        pet-identification-tags	390
+        pinch-collar-links	391
+
+    pet-collars	392
+        pet-choke-collars	393
+        pet-fashion-collars	394
+        pet-pinch-collars	395
+        pet-recovery-collars	396
+        pet-safety-collars	397
+
+    pet-harness-accessories	398
+
+    pet-harnesses	399
+        pet-automotive-harnesses	400
+        pet-halter-harnesses	401
+        pet-head-harnesses	402
+        pet-jump-resistant-harnesses	403
+        pet-vest-harnesses	404
+
+    pet-leash-accessories	405
+
+    pet-leashes	406
+        double-pet-leashes	407
+        hands-free-pet-leashes	408
+        retractable-pet-leashes	409
+
+    pet-muzzles	410
+
+pet-supplies-gift-certificates	411
+
+pet-training-and-behavioral-aids	412
+    dog-whistles	413
+    electronic-bark-collars	414
+    liquid-catnip-spray	415
+    pet-headcollars	416
+
+    pet-pest-repellents	417
+        pet-pest-repellent-formulas	418
+        sonic-pet-pest-repellents	419
+
+    pet-tie-outs-and-stakes	420
+
+        pet-tie-out-stakes	421
+        pet-tie-outs	422
+
+    pet-training-clickers	423
+    pet-training-leads	424
+    radio-pet-fences	425
+    scratch-repellents	426
+    scratching-post-replacement-pads	427
+
+    scratching-posts	428
+        cardboard-scratchers	429
+        hanging-scratchers	430
+
+    sonic-barking-deterrents	431

@@ -1,0 +1,403 @@
+Business & Office Software	optgroup
+
+application-training-software	1
+    business-application-training-software	2
+    graphics-application-training-software	3
+
+business-management-software	4
+business-plan-software	5
+calculator-software	6
+
+communication-software	7
+
+    email-software	8
+        email-client-software	9
+        email-security-and-filtering-software	10
+        email-server-software	11
+
+    fax-software	12
+    instant-messaging-software	13
+    remote-access-software	14
+    synchronization-software	15
+    telephony-software	16
+    video-conferencing-software	17
+
+computer-operating-system-training-software	18
+
+    macintosh-operating-system-training-software	19
+    windows-operating-system-training-software	20
+
+computer-training-software	21
+contact-management-software	22
+
+    calendar-software	23
+    itinerary-and-schedule-software	24
+    organizer-and-address-book-software	25
+
+database-software	26
+desktop-publishing-software	27
+
+document-management-software	28
+    digital-document-creation-software	29
+    document-tracking-and-inventory-software	30
+    note-taking-software	31
+    print-publishing-software	32
+    report-and-form-software	33
+
+financial-software	34
+    accounting-software	35
+
+        check-printing-software	36
+        expense-tracking-software	37
+        general-accounting-software	38
+        payroll-software	39
+        transaction-processing-software	40
+
+    billing-software	41
+    investment-tool-software	42
+    money-management-software	43
+    tax-preparation-software	44
+
+internet-training-software	45
+
+internet-utilities-software	46
+
+inventory-management-software	47
+legal-software	48
+office-suites-software	49
+patient-tracking-software	50
+phone-book-software	51
+
+presentation-software	52
+    flowchart-software	53
+    marketing-presentation-software	54
+
+programming-training-software	55
+project-management-software	56
+sales-software	57
+spreadsheet-software	58
+
+text-and-voice-recognition-software	59
+    scanning-and-ocr-software	60
+    voice-recognition-software	61
+
+word-processing-software	62
+
+Childrens Software	optgroup
+
+childrens-software	63
+
+Education Software	optgroup
+
+education-software	64
+    education-and-reference-suites-software	65
+    personal-improvement-software	66
+    student-aid-software	67
+    teaching-aid-software	68
+
+Graphic Design & Multimedia Software	optgroup
+
+audio-software	69
+    accompaniment-software	70
+    audio-burning-software	71
+    audio-editing-software	72
+    audio-mastering-software	73
+    audio-plug-ins	74
+    digital-audio-workstation-software	75
+    instrument-instruction-software	76
+    looping-software	77
+    media-playing-software	78
+    midi-software	79
+    multitrack-recording-software	80
+    music-instruction-software	81
+    music-notation-software	82
+    player-piano-software	83
+    production-station-software	84
+    remix-software	85
+    rhythm-machine-software	86
+    sampler-software	87
+    sequencer-software	88
+    sound-libraries	89
+    sound-module-software	90
+    synthesizer-software	91
+    virtual-instrument-software	92
+
+desktop-publishing-software	93
+    calendar-software	94
+    cd-labeling-software	95
+    clip-art-software	96
+    greeting-card-software	97
+    mailing-label-software	98
+    printing-software	99
+    textile-and-clothing-design-software	100
+
+e-book-software	101
+font-software	102
+
+graphics-software	103
+    3d-graphics-software	104
+    animation-software	105
+
+        website-animation-software	106
+
+    cad-software	107
+    illustration-software	108
+    image-database-software	109
+    image-editing-software	110
+
+programming-software	111
+
+    database-programming-software	112
+
+        db2-programming-languages	113
+            borland-delphi-programming-software	114
+            seagate-programming-software	115
+            sms-programming-software	116
+
+        filemaker-programming-software	117
+        oracle-programming-software	118
+        sql-programming-software	119
+
+    development-utility-software	120
+        code-testing-software	121
+        program-installation-software	122
+        software-source-codes	123
+
+radio-software	124
+
+video-software	125
+    digital-animation-software	126
+    dvd-software	127
+
+        dvd-burning-software	128
+        dvd-viewing-software	129
+
+    video-compositing-software	130
+    video-editing-software	131
+    video-effects-software	132
+    video-encoding-software	133
+
+web-development-software	134
+
+    website-editors	135
+        intranet-editors	136
+        website-editor-tutorial-software	137
+        wysiwyg-editors	138
+
+    website-object-software	139
+
+Hobby Software	optgroup
+
+hobby-software	140
+    scrapbooking-software	141
+
+Networking Software	optgroup
+
+client-access-licenses	142
+enterprise-management-software	143
+firewall-software	144
+local-area-network-software	145
+netware-software	146
+network-security-software	147
+saa-software	148
+
+server-software	149
+    directory-server-software	150
+    email-server-software	151
+    file-server-software	152
+    print-server-software	153
+    web-application-server-software	154
+    web-server-software	155
+
+tcp-ip-software	156
+virtual-private-network-software	157
+
+web-hosting-software	158
+    website-analysis-software	159
+
+Operating Systems Software	optgroup
+
+beos-operating-system	160
+cpm-operating-system	161
+dos-operating-systems	162
+linux-operating-systems	163
+mac-os-9-x-operating-system	164
+mac-os-x-10-2-jaguar-operating-system	165
+mac-os-x-10-3-panther-operating-system	166
+mac-os-x-operating-system	167
+microsoft-pocket-pc-2002-operating-system	168
+microsoft-windows-mobile-2003-operating-system	169
+os2-operating-system	170
+palm-operating-system	171
+pre-mac-os-9-operating-system	172
+sun-solaris-operating-system	173
+symbian-operating-system	174
+unix-operating-systems	175
+windows-2000-operating-system	176
+windows-3x-and-below-operating-systems	177
+windows-95-operating-system	178
+windows-98-operating-system	179
+windows-98se-operating-system	180
+windows-ce-operating-system	181
+windows-me-operating-system	182
+windows-nt-operating-system	183
+windows-vista-operating-system	184
+windows-xp-home-edition-operating-system	185
+windows-xp-media-center-2004-edition-operating-system	186
+windows-xp-media-center-edition-operating-system	187
+windows-xp-professional-edition-operating-system	188
+windows-xp-professional-tablet-pc-edition-operating-system	189
+
+Programming Software	optgroup
+
+programming-software	190
+
+    development-utility-software	191
+        code-testing-software	192
+        program-installation-software	193
+        software-source-codes	194
+
+    programming-languages-software	195
+
+        database-programming-software	196
+            db2-programming-languages	197
+
+                borland-delphi-programming-software	198
+                seagate-programming-software	199
+                sms-programming-software	200
+
+            filemaker-programming-software	201
+            oracle-programming-software	202
+            sql-programming-software	203
+
+web-development-software	204
+    website-editors	205
+
+        website-editor-tutorial-software	206
+
+Reference Software	optgroup
+
+reference-software	207
+    dictionary-software	208
+    encyclopedia-software	209
+    thesauri-software	210
+
+Software Suites	optgroup
+
+education-and-reference-suites-software	211
+entertainment-suites-software	212
+office-suites-software	213
+utility-suites-software	214
+
+Training & Tutorial Software	optgroup
+
+application-training-software	215
+    business-application-training-software	216
+    graphics-application-training-software	217
+
+computer-operating-system-training-software	218
+    macintosh-operating-system-training-software	219
+    windows-operating-system-training-software	220
+
+computer-training-software	221
+internet-training-software	222
+programming-training-software	223
+
+Travel Software	optgroup
+
+city-guide-software	224
+currency-software	225
+gps-software	226
+itinerary-and-schedule-software	227
+time-keeping-software	228
+
+Utility Software	optgroup
+
+antivirus-software	229
+backup-and-recovery-software	230
+calculator-software	231
+
+communication-software	232
+    instant-messaging-software	233
+
+cross-platform-software	234
+data-security-software	235
+emulation-software	236
+file-compression-and-decompression-software	237
+file-conversion-software	238
+
+internet-utilities-software	239
+    e-commerce-software	240
+    electronic-publishing-software	241
+    internet-phone-software	242
+    internet-security-and-filtering-software	243
+    shared-internet-software	244
+    streaming-video-software	245
+    web-browsing-software	246
+
+memory-management-software	247
+partition-software	248
+pc-maintenance-software	249
+screen-saver-software	250
+
+text-and-voice-recognition-software	251
+    scanning-and-ocr-software	252
+    voice-recognition-software	253
+
+time-keeping-software	254
+utility-suites-software	255
+y2k-software	256
+
+Games	optgroup
+
+computer-video-games	257
+console-video-games	258
+dvd-player-video-games	259
+game-cartridge-videos	260
+pda-video-games	261
+
+Hardware & Accessories	optgroup
+
+video-game-accessories	262
+    computer-game-mice	263
+    video-game-accessory-kits	264
+    video-game-adapters	265
+    video-game-batteries	266
+    video-game-battery-chargers	267
+    video-game-cameras	268
+    video-game-cases	269
+
+    video-game-controllers	270
+        video-game-dance-mats	271
+        video-game-flight-controllers	272
+        video-game-foot-pedals	273
+        video-game-gamepads	274
+        video-game-joysticks	275
+        video-game-keyboards	276
+        video-game-light-guns	277
+        video-game-microphones	278
+
+        video-game-musical-instruments	279
+            video-game-drum-controllers	280
+            video-game-guitar-controllers	281
+
+        video-game-racing-wheel-and-foot-pedal-sets	282
+        video-game-racing-wheels	283
+
+    video-game-displays	284
+    video-game-earphones	285
+    video-game-faceplates	286
+    video-game-headsets	287
+    video-game-lights	288
+    video-game-memory	289
+    video-game-networking-equipment	290
+    video-game-printers	291
+    video-game-protectors	292
+    video-game-remote-controls	293
+    video-game-skins	294
+    video-game-speakers	295
+    video-game-stands	296
+    video-game-storage	297
+
+video-game-cables	298
+video-game-consoles	299

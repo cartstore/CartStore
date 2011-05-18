@@ -1,0 +1,32 @@
+@import url("reset.css");
+
+.clear {
+	clear: both;
+}
+
+body {
+	background-color: #fff;
+	font-family: Tahoma;
+	text-align: left;
+	color: #424242;
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+  }
+  table {
+	background-color: White;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #0000000;
+	line-height: normal;
+  }
+#terms {
+	padding: 25px;
+}
+.pageHeading , h1 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+}
+ 
+ 

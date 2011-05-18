@@ -1,0 +1,2 @@
+<?=$cart->count_contents()?>
+

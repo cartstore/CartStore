@@ -1,0 +1,385 @@
+Apparel & Accessories > Accessories	1529793
+Apparel & Accessories > Active Wear	1529790
+Apparel & Accessories > Bras	1529787
+Apparel & Accessories > Dresses	1529816
+Apparel & Accessories > Jackets & Outerwear	1529811
+Apparel & Accessories > Novelty/ScreenPrint Tees	1529792
+Apparel & Accessories > Pants	1529817
+Apparel & Accessories > Shirts & Tops	1529818
+Apparel & Accessories > Shorts	1529819
+Apparel & Accessories > Skirts	1529820
+Apparel & Accessories > Sleepwear & Lingerie	1529788
+Apparel & Accessories > Socks & Hosiery	1529821
+Apparel & Accessories > Suits & Formal Wear	1529789
+Apparel & Accessories > Sweaters	1529822
+Apparel & Accessories > Swimwear	1529823
+Apparel & Accessories > Underwear & Panties	1529786
+Apparel & Accessories > Uniforms	1529791
+Auto > Apparel & Safety Accessories	1594153
+Auto > Electrical Systems	1594151
+Auto > Exterior	1594147
+Auto > Interior	1594148
+Auto > Motorcycles, ATV's & Snowmobiles	1594152
+Auto > Tools & Garage	1594150
+Auto > Under Car & Hood	1594149
+Baby > Bathing	1532971
+Baby > Bedding	1532958
+Baby > Car Seats	1532947
+Baby > Clothing & Accessories	1532983
+Baby > Diapering	1532932
+Baby > Feeding	1532917
+Baby > Furniture	1532902
+Baby > Healthcare	1532886
+Baby > Safety	1532864
+Baby > Strollers	1532856
+Baby > Toys	1532836
+Baby > Travel	1532826
+Beauty > Bath & Shower	1525803
+Beauty > Beauty Gift Sets	1526065
+Beauty > Body Makeup & Decorations	1525820
+Beauty > Cosmetic Accessories	1525886
+Beauty > Eye Makeup	1525834
+Beauty > Face Makeup	1525854
+Beauty > Hair Care Accessories	1525941
+Beauty > Hair Care Products	1525923
+Beauty > Hair Styling Tools	1525955
+Beauty > Lip Products	1525871
+Beauty > Nail Care Products	1525970
+Beauty > Nail Care Tools	1525988
+Beauty > Perfume & Cologne	1525903
+Beauty > Shaving & Hair Removal Products	1529249
+Beauty > Shaving & Hair Removal Tools	1526007
+Beauty > Skin Care	1526023
+Beauty > Sun Protection & Tanning	1526052
+Books & Magazines > Books	1597174
+Books & Magazines > Magazines	1597175
+Business > Binders, Systems & Accessories	1597191
+Business > Breakroom & Janitorial	1597193
+Business > Business Cases & Travel	1597195
+Business > Calendars, Organizers & Address Books	1597197
+Business > Computer Accessories	1597227
+Business > Currency & Transaction Handling	1597215
+Business > Desk Accessories	1597199
+Business > Desk Supplies	1597201
+Business > Envelopes, Mailing & Shipping	1597203
+Business > Filing Supplies	1597207
+Business > Forms, Recordkeeping & References	1597211
+Business > Labels, Tags & Stamps	1597225
+Business > Office Equipment & Supplies	1597223
+Business > Office Furniture & Room Accessories	1597219
+Business > Paper, Pads, Notebooks & Rolls	1597209
+Business > Presentation & Meeting Supplies	1597217
+Business > Printer, Fax & Copier Supplies	1597213
+Business > Specialty Supplies	1597221
+Business > Writing & Correction	1597205
+Cameras & Optics > Binoculars	1592603
+Cameras & Optics > Camcorders	1592601
+Cameras & Optics > Camera Accessories	1599139
+Cameras & Optics > Camera Cases	1597574
+Cameras & Optics > Darkroom Equipment	1592609
+Cameras & Optics > Digital Cameras	1592600
+Cameras & Optics > Film	1592606
+Cameras & Optics > Film Cameras	1592599
+Cameras & Optics > Filters	1592605
+Cameras & Optics > Flashes	1596195
+Cameras & Optics > Lenses	1592602
+Cameras & Optics > Microscopes	1597580
+Cameras & Optics > Night Vision	1597367
+Cameras & Optics > Studio Equipment	1592608
+Cameras & Optics > Telescopes	1592604
+Cameras & Optics > Tripods	1592607
+Collectibles > Autographed Items	1585033
+Collectibles > Badges, Medals & Pins	1585035
+Collectibles > Coins, Stocks & Bonds	1585036
+Collectibles > Die Cast Models	1585038
+Collectibles > Memorabilia	1596200
+Collectibles > Stamps	1585037
+Collectibles > Trading Cards	1585034
+Collectibles > Water Globes & Carousels	1585039
+Collectibles > Weapons & Armor	1585096
+Computers > Cabinets	1585630
+Computers > Cables & Connectors	1599132
+Computers > Desktops & Servers	1585625
+Computers > Fans, Coolers & Heatsinks	1595082
+Computers > Handhelds	1585627
+Computers > Input Devices	1585634
+Computers > Memory & Flash Memory	1585632
+Computers > Monitors	1596197
+Computers > Motherboards	1585629
+Computers > Networking	1585636
+Computers > Notebook Cases	1597575
+Computers > Notebooks	1585626
+Computers > Output Devices	1585635
+Computers > Power Supplies	1585631
+Computers > Processors	1585628
+Computers > Sound Cards	1595080
+Computers > Storage Devices	1585633
+Computers > Video Cards	1595081
+DVDs & Videos > DVD / Videos	1597181
+Electronics > A/V Cables & Supplies	1596219
+Electronics > Amplifiers	1588863
+Electronics > Blank Media, Care & Storage	1588864
+Electronics > CD Players	1588868
+Electronics > Car Audio & Video	1588862
+Electronics > Car Security	1588869
+Electronics > Cell Phones & Accessories	1588871
+Electronics > DJ & Karaoke Equipment	1610769
+Electronics > DVD &  DVR Players	1588859
+Electronics > GPS Products & Accessories	1588873
+Electronics > Game Consoles	1588860
+Electronics > Headphones	1596222
+Electronics > Home Theater	1588872
+Electronics > MP3 Players & Accessories	1588861
+Electronics > Marine Electronics	1600406
+Electronics > Mini Disk Players	1596220
+Electronics > Power Devices & Batteries	1588866
+Electronics > Radios	1588867
+Electronics > Receivers	1597524
+Electronics > Remote Controls	1588865
+Electronics > Shelf Systems	1596221
+Electronics > Speakers	1596218
+Electronics > Telephones	1588870
+Electronics > Televisions	1588857
+Electronics > Turn Tables	1596217
+Electronics > VCR's	1588858
+Electronics > Video Editing	1588874
+Food & Drink > Beer, Wine & Spirits	1583754
+Food & Drink > Beverages	1583755
+Food & Drink > Bread & Bakery Goods	1583753
+Food & Drink > Candies & Chocolates	1583752
+Food & Drink > Cereals & Grains	1583746
+Food & Drink > Condiments & Seasonings	1583751
+Food & Drink > Cooking & Baking Products	1583750
+Food & Drink > Dairy Products	1583749
+Food & Drink > Food Gifts & Baskets	1583743
+Food & Drink > Fruits, Nuts & Vegetables	1583748
+Food & Drink > Meats, Poultry & Seafood	1583747
+Food & Drink > Monthly Clubs	1610792
+Food & Drink > Prepared Foods	1583745
+Food & Drink > Snacks	1583744
+Food & Drink > Tobacco Products & Supplies	1594104
+Garden & Outdoors > Bird & Wildlife Supplies	1593629
+Garden & Outdoors > Decorative Fences & Edging	1593631
+Garden & Outdoors > Fertilizers & Soil Treatment	1593632
+Garden & Outdoors > Garden D?cor	1593641
+Garden & Outdoors > Gardening Supplies	1593634
+Garden & Outdoors > Gardening Tools	1593635
+Garden & Outdoors > Greenhouses & Terrariums	1593640
+Garden & Outdoors > Lighting	1593639
+Garden & Outdoors > Mailboxes & Signs	1593649
+Garden & Outdoors > Outdoor Cooking	1593643
+Garden & Outdoors > Outdoor Power Equipment	1593636
+Garden & Outdoors > Patio Beverage & Dining	1594058
+Garden & Outdoors > Patio Furniture	1594065
+Garden & Outdoors > Patio Heating & Cooling	1593642
+Garden & Outdoors > Pest Control & Yard Chemicals	1593630
+Garden & Outdoors > Planters & Accessories	1593638
+Garden & Outdoors > Pond & Water Garden Supplies	1593893
+Garden & Outdoors > Pools, Spas & Supplies	1593646
+Garden & Outdoors > Protective Gear	1593637
+Garden & Outdoors > Seeds, Bulbs & Plants	1593645
+Garden & Outdoors > Snow Removal	1593648
+Garden & Outdoors > Spreaders & Sprayers	1593633
+Garden & Outdoors > Watering & Irrigation	1593647
+Health & Wellness > Dental / Oral Care	1585105
+Health & Wellness > Family Planning	1585106
+Health & Wellness > First Aid Supplies	1585107
+Health & Wellness > Foot Care	1585109
+Health & Wellness > Hearing Impaired Products	1585110
+Health & Wellness > Massage & Other Therapies	1585104
+Health & Wellness > Maternity Products	1585118
+Health & Wellness > Medical Supplies & Monitors	1585108
+Health & Wellness > Mobility & Safety Aids	1585112
+Health & Wellness > Orthopedic Care	1585113
+Health & Wellness > Over-the-Counter Medicine	1585114
+Health & Wellness > Personal Care & Hygiene	1585115
+Health & Wellness > Professional Medical Supplies	1585116
+Health & Wellness > Vision Impaired Products	1585111
+Health & Wellness > Vitamins & Supplements	1585117
+Hobbies & Crafts > Artist Tools & Accessories	1584753
+Hobbies & Crafts > Beading & Jewelry Making	1584759
+Hobbies & Crafts > General Craft Supplies	1584760
+Hobbies & Crafts > Models	1584761
+Hobbies & Crafts > Musical Instruments & Accessories	1597465
+Hobbies & Crafts > Other Crafts	1597514
+Hobbies & Crafts > Pens, Pencils & Paints	1584754
+Hobbies & Crafts > Photography	1584715
+Hobbies & Crafts > Scrapbooking & Paper Crafts	1584758
+Hobbies & Crafts > Sewing, Quilting & Needlework	1584755
+Hobbies & Crafts > Stamping	1584757
+Home & Housewares > Bakeware	1529219
+Home & Housewares > Barware	1529212
+Home & Housewares > Bath Accessories	1529206
+Home & Housewares > Bedding	1529208
+Home & Housewares > Bedroom Furniture	1529210
+Home & Housewares > Beds & Mattresses	1529209
+Home & Housewares > Cabinets, Stands & Racks	1529222
+Home & Housewares > Cleaning Supplies	1529226
+Home & Housewares > Cookware	1529218
+Home & Housewares > Coolers & Picnic Supplies	1594086
+Home & Housewares > Cutlery & Flatware	1529215
+Home & Housewares > Decorative Accents	1533181
+Home & Housewares > Dinnerware	1529213
+Home & Housewares > Drinkware	1529211
+Home & Housewares > Fireplaces & Accessories	1529223
+Home & Housewares > Furniture Sets	1597294
+Home & Housewares > Home Linens	1529217
+Home & Housewares > Kitchen Tools & Accessories	1529216
+Home & Housewares > Large Appliances	1595107
+Home & Housewares > Lighting & Accessories	1529227
+Home & Housewares > Rugs & Floor Coverings	1529225
+Home & Housewares > Seating	1529220
+Home & Housewares > Serveware	1529214
+Home & Housewares > Slip Covers	1601501
+Home & Housewares > Small Appliances	1529229
+Home & Housewares > Storage	1529224
+Home & Housewares > Tables	1529221
+Home & Housewares > Towels	1529205
+Home & Housewares > Window Coverings	1529228
+Jewelry & Watches > Body Jewelry	1533033
+Jewelry & Watches > Bracelets	1533016
+Jewelry & Watches > Brooches, Pins & Clips	1533014
+Jewelry & Watches > Charms, Pulls & Medallions	1533015
+Jewelry & Watches > Earrings	1533020
+Jewelry & Watches > Jewelry Accessories	1533047
+Jewelry & Watches > Loose Gems	1533032
+Jewelry & Watches > Necklaces & Pendants	1533017
+Jewelry & Watches > Rings	1533018
+Jewelry & Watches > Sets	1533013
+Jewelry & Watches > Watches	1533019
+Music > Music	1597177
+Music > Musical Instruments	1597179
+Music > Sheet Music	1597178
+Occasion & Party Supplies > Announcements & Cards	1593563
+Occasion & Party Supplies > Costumes & Accessories	1596272
+Occasion & Party Supplies > Event & Party Decorations	1593559
+Occasion & Party Supplies > Event & Party Supplies	1593558
+Occasion & Party Supplies > Event & Party Tableware	1593560
+Occasion & Party Supplies > Floral & Balloon Arrangements	1593561
+Occasion & Party Supplies > Gift Cards & Certificates	1599168
+Occasion & Party Supplies > Gift Packing	1593562
+Pet Supplies > Animal Health	1583969
+Pet Supplies > Birds	1583962
+Pet Supplies > Cats	1583967
+Pet Supplies > Dogs	1583968
+Pet Supplies > Fish	1583966
+Pet Supplies > Horses	1583965
+Pet Supplies > Reptiles & Amphibians	1583963
+Pet Supplies > Small Animals	1583964
+Prints & Posters > Abstracts	1529754
+Prints & Posters > Americana	1529753
+Prints & Posters > Animals	1529752
+Prints & Posters > Architecture	1529751
+Prints & Posters > Cartoons & Animation	1596370
+Prints & Posters > Cityscapes	1529750
+Prints & Posters > Cuisine	1529749
+Prints & Posters > Dance	1529748
+Prints & Posters > Fantasy	1529747
+Prints & Posters > Fashion	1529746
+Prints & Posters > Figurative	1529745
+Prints & Posters > Floral	1529744
+Prints & Posters > Holiday art	1529743
+Prints & Posters > Home & Health	1529742
+Prints & Posters > Humor	1529741
+Prints & Posters > Kids	1529740
+Prints & Posters > Landscapes	1529739
+Prints & Posters > Maps	1529738
+Prints & Posters > Motivational	1529737
+Prints & Posters > Movies, TV & Entertainment	1594336
+Prints & Posters > Music	1529736
+Prints & Posters > Nature	1529735
+Prints & Posters > Places	1529734
+Prints & Posters > Politics & War	1596376
+Prints & Posters > Portraits	1594335
+Prints & Posters > Romantic Art	1529733
+Prints & Posters > Scientific	1596371
+Prints & Posters > Sea & Shore	1529732
+Prints & Posters > Seasons	1529731
+Prints & Posters > Spirituality & Religion	1529730
+Prints & Posters > Sports & Games	1529729
+Prints & Posters > Still Life	1529728
+Prints & Posters > Transportation	1529727
+Prints & Posters > Vintage	1529726
+Prints & Posters > World Culture	1529725
+Shoes > Accessories	1530193
+Shoes > Casual	1585504
+Shoes > Dress	1585503
+Shoes > Industrial / Work	1585506
+Shoes > Orthopedic	1585505
+Shoes > Rain / Snow	1585507
+Shoes > Sports	1530173
+Software > Software	1597183
+Sports & Fitness > Baseball	1593325
+Sports & Fitness > Basketball	1593326
+Sports & Fitness > Boating & Paddling	1593386
+Sports & Fitness > Camping, Hiking & Climbing	1593314
+Sports & Fitness > Cricket	1610848
+Sports & Fitness > Cycling	1593313
+Sports & Fitness > Equestrian	1593315
+Sports & Fitness > Fishing	1593318
+Sports & Fitness > Football	1593323
+Sports & Fitness > General Sports Equipment & Accessories	1594100
+Sports & Fitness > Golf	1593320
+Sports & Fitness > Hunting & Archery	1593319
+Sports & Fitness > Ice & Roller Hockey	1593329
+Sports & Fitness > Other Sports	1593327
+Sports & Fitness > Personal Fitness	1593331
+Sports & Fitness > Pool & Billiards	1599122
+Sports & Fitness > Rugby	1593321
+Sports & Fitness > Skateboarding & Rollerskating	1593317
+Sports & Fitness > Ski & Snow	1593330
+Sports & Fitness > Soccer	1593322
+Sports & Fitness > Softball	1593324
+Sports & Fitness > Tennis	1593316
+Sports & Fitness > Water Sports	1593328
+Tools & Building Supplies > Agricultural & Excavating Equipment	1597121
+Tools & Building Supplies > Air Tools	1596653
+Tools & Building Supplies > Alternative Power Supplies	1596645
+Tools & Building Supplies > Building Supplies	1596668
+Tools & Building Supplies > Cement & Masonry	1596646
+Tools & Building Supplies > Cordless Tools	1596664
+Tools & Building Supplies > Doors & Windows	1596667
+Tools & Building Supplies > Electrical Supplies	1596666
+Tools & Building Supplies > Fasteners	1596656
+Tools & Building Supplies > Floors & Counters	1596665
+Tools & Building Supplies > Hand Tools	1596663
+Tools & Building Supplies > Hardware	1596662
+Tools & Building Supplies > Heating, Cooling & Ventilation	1596661
+Tools & Building Supplies > Heavy Equipment	1596644
+Tools & Building Supplies > Hydraulic Tools & Accessories	1597149
+Tools & Building Supplies > Ladders & Scaffolding	1596660
+Tools & Building Supplies > Lighting Supplies & Accessories	1596659
+Tools & Building Supplies > Maintenance & Repair	1596658
+Tools & Building Supplies > Marking, Measuring & Levels	1596657
+Tools & Building Supplies > Material Handling	1597132
+Tools & Building Supplies > Painting & Refinishing	1596655
+Tools & Building Supplies > Plumbing Supply & Fixtures	1596654
+Tools & Building Supplies > Power Tool Accessories & Supplies	1596651
+Tools & Building Supplies > Power Tools	1596652
+Tools & Building Supplies > Protective Gear & Clothing	1596650
+Tools & Building Supplies > Security & Safety	1596649
+Tools & Building Supplies > Tool Storage	1597043
+Tools & Building Supplies > Wood Products	1596648
+Tools & Building Supplies > Workshop Equipment	1596647
+Toys & Games > Action Figures, Sets & Accessories	1580902
+Toys & Games > Bikes, Scooters & Ride-On's	1580903
+Toys & Games > Board, Card & Dice Games	1580907
+Toys & Games > Building Blocks & Sets	1580905
+Toys & Games > Dolls & Doll Accessories	1580904
+Toys & Games > Education & Science Toys	1580908
+Toys & Games > Electric, Radio & Remote Controlled	1580916
+Toys & Games > Electronic Handheld Games	1580913
+Toys & Games > Game Room Games	1580915
+Toys & Games > Handheld Toys & Games	1580914
+Toys & Games > Outdoor & Playground Toys	1580906
+Toys & Games > Plush & Stuffed Toys	1580912
+Toys & Games > Pretend Play	1580910
+Toys & Games > Puzzles	1580909
+Toys & Games > Vehicles & Playsets	1580911
+Travel > Experience Vouchers	1599187
+Travel > In Flight Comfort	1583929
+Travel > Luggage, Packs & Bags	1583899
+Travel > Packing Aids	1583940
+Travel > Safety & Security Accessories	1583949
+Travel > Travel Accessories	1583912
+Video Games > Video Games	1597185
