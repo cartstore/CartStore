@@ -95,8 +95,8 @@ class imagemagic_functions {
 
 		// and also inserts dots . before and after any non number so that for example '4.3.2RC1' becomes '4.3.2.RC.1'.
 		// Then it splits the results like if you were using explode('.',$ver). Then it compares the parts starting from left to right.
-		$version1 = eregi_replace('([0-9]+)([A-Z]+)([0-9]+)', '\\1.\\2.\\3', $version1);
-		$version2 = eregi_replace('([0-9]+)([A-Z]+)([0-9]+)', '\\1.\\2.\\3', $version2);
+		$version1 = preg_replace('/([0-9]+)([A-Z]+)([0-9]+)/', '\\1.\\2.\\3', $version1);
+		$version2 = preg_replace('/([0-9]+)([A-Z]+)([0-9]+)/', '\\1.\\2.\\3', $version2);
 
 		$parts1 = explode('.', $version1);
 		$parts2 = explode('.', $version1);
@@ -158,7 +158,7 @@ class imagemagic_functions {
 	}
 
 	function IsHexcolor($HexColorString) {
-		return eregi('^[0-9A-F]{6}$', $HexColorString);
+		return preg_match('/^[0-9A-F]{6}$/i', $HexColorString);
 	}
 
 	function ImagecolorAllocateAlphaSafe(&$gdimg_hexcolorallocate, $R, $G, $B, $alpha=false) {
@@ -296,7 +296,7 @@ class imagemagic_functions {
 		static $cache_gd_version = array();
 		if (empty($cache_gd_version)) {
 			$gd_info = imagemagic_functions::gd_info();
-			if (eregi('bundled \((.+)\)$', $gd_info['GD Version'], $matches)) {
+			if (preg_match('/bundled \((.+)\)$/i', $gd_info['GD Version'], $matches)) {
 				$cache_gd_version[1] = $gd_info['GD Version'];  // e.g. "bundled (2.0.15 compatible)"
 				$cache_gd_version[0] = (float) $matches[1];     // e.g. "2.0" (not "bundled (2.0.15 compatible)")
 			} else {
@@ -390,7 +390,7 @@ class imagemagic_functions {
 			}
 			while (!feof($fp)) {
 				$headerline = fgets($fp, 4096);
-				if (eregi('^Content-Length: (.*)', $headerline, $matches)) {
+				if (preg_match('/^Content-Length: (.*)/i', $headerline, $matches)) {
 					$size = intval($matches[1]);
 					break;
 				}
@@ -410,7 +410,7 @@ class imagemagic_functions {
 			}
 			while (!feof($fp)) {
 				$headerline = fgets($fp, 4096);
-				if (eregi('^Last-Modified: (.*)', $headerline, $matches)) {
+				if (preg_match('/^Last-Modified: (.*)/i', $headerline, $matches)) {
 					$date = strtotime($matches[1]) - date('Z');
 					break;
 				}
@@ -443,8 +443,8 @@ class imagemagic_functions {
 		}
 		return min($acceptable);
 	}
-      
-      
+
+
       function ApplyMask(&$gdimg_mask, &$gdimg_image) {
         if (imagemagic_functions::gd_version() < 2) {
            return false;

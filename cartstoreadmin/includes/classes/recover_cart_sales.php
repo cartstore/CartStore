@@ -15,12 +15,12 @@
       $this->infoBoxHeading = array();
       $this->infoBoxContents = array();
     }
-    
+
     function getInfoBox() {
       $box = new box;
       return $box->infoBox($this->infoBoxHeading, $this->infoBoxContents);
     }
-    
+
     function seadate($day)
     {
       $rawtime = strtotime("-".$day." days");
@@ -38,25 +38,25 @@
       if (@date('Y', mktime(0, 0, 0, $month, $day, $year)) == $year) {
         return date(DATE_FORMAT, mktime(0, 0, 0, $month, $day, $year));
       } else {
-        return ereg_replace('2037' . '$', $year, date(DATE_FORMAT, mktime(0, 0, 0, $month, $day, 2037)));
+        return preg_replace('/2037' . '$/', $year, date(DATE_FORMAT, mktime(0, 0, 0, $month, $day, 2037)));
       }
     }
-    
+
 	  // This will return a list of customers with sessions. Handles either the mysql or file case
 	  // Returns an empty array if the check sessions flag is not true (empty array means same SQL statement can be used)
 	  function _GetCustomerSessions()
 	  {
 		  $cust_ses_ids = array();
-  		
+
 		  if( RCS_CHECK_SESSIONS == 'true' )
 		  {
 			  if (STORE_SESSIONS == 'mysql')
 			  {
-				  // --- DB RECORDS --- 
+				  // --- DB RECORDS ---
 				  $sesquery = tep_db_query("select value from " . TABLE_SESSIONS . " where 1");
 				  while ($ses = tep_db_fetch_array($sesquery))
 				  {
-					  if ( ereg( "customer_id[^\"]*\"([0-9]*)\"", $ses['value'], $custval ) )
+					  if ( preg_match( "/customer_id[^\"]*\"([0-9]*)\"/", $ses['value'], $custval ) )
 						  $cust_ses_ids[] = $custval[1];
 				  }
 			  }
@@ -73,8 +73,8 @@
 							  {
 								  $val = fread( $fp, filesize( $file ) );
 								  fclose( $fp );
-  	
-								  if ( ereg( "customer_id[^\"]*\"([0-9]*)\"", $val, $custval ) )
+
+								  if ( preg_match( "/customer_id[^\"]*\"([0-9]*)\"/", $val, $custval ) )
 									  $cust_ses_ids[] = $custval[1];
 							  }
 						  }
@@ -85,8 +85,8 @@
 		  }
 		  return $cust_ses_ids;
 	  }
-      
-    
+
+
     /**
      * \brief Searches the database for incomplete sales. Result is used by admin page (html can be retrieved through getInfoBox) and
      * by cronjob (that actually only uses the returned array of customerid's.
@@ -95,16 +95,16 @@
      */
     function processSearch() {
       global $PHP_SELF, $currencies, $languages_id;
-      
+
       $custids = array();
-      
+
       //Clear any content
       $this->infoBoxHeading = array();
       $this->infoBoxContents = array();
 
       //Compose the heading
       $this->infoBoxContents[] = array(
-        'params' => 'class="dataTableHeadingRow" colspan="8"', 
+        'params' => 'class="dataTableHeadingRow" colspan="8"',
         'text' => tep_draw_form('', FILENAME_RECOVER_CART_SALES));
 
       $this->infoBoxContents[] = array(
@@ -149,7 +149,7 @@
       $cust_ses_ids = $this->_GetCustomerSessions();
       $bdate = $this->seadate($this->skipdays);
       $ndate = $this->seadate($this->basedays);
-      
+
       $query1 = tep_db_query("select cb.customers_id cid,
                                   cb.products_id pid,
                                   cb.customers_basket_quantity qty,
@@ -182,7 +182,7 @@
         {
           // output line
           $totalAll += $tprice;
-          
+
           if ($curcus != "" && !$skip) {
             $this->infoBoxContents[] = array(
               0 => array(
@@ -193,14 +193,14 @@
                 'params' => 'class="dataTableContent" align="right" colspan="6"',
                 'text' => '<a class="button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, 'action=delete&customer_id=' . $curcus . '&tdate=' . $this->basedays . '&sdate=' . $this->skipdays) . '">' .  IMAGE_DELETE . '</a>'));
           }
-          
+
           // set new cline and curcus
           $curcus = $inrec['cid'];
 
           if ($curcus != "")
 		      {
 			      $tprice = 0;
-  	
+
 			      // change the color on those we have contacted add customer tag to customers
 			      $fcolor = RCS_UNCONTACTED_COLOR;
 			      $checked = 1;	// assume we'll send an email
@@ -240,7 +240,7 @@
 			      {
 				      // We have a matching order; assume current customer but not for this order
 				      $customer = '<font color=' . RCS_CURCUST_COLOR . '><b>' . $customer . '</b></font>';
-      			
+
 				      // Now, look to see if one of the orders matches this current order's items
 				      while( $orec = tep_db_fetch_array( $ccquery ) )
 				      {
@@ -258,7 +258,7 @@
 							      // It's rare for the same customer to order the same item twice, so we probably have a matching order, show it
 							      $fcolor = RCS_MATCHED_ORDER_COLOR;
 							      $ccquery = tep_db_query("select orders_status_name from " . TABLE_ORDERS_STATUS . " where language_id = " . (int)$languages_id . " AND orders_status_id = " . (int)$orec['orders_status'] );
-      			
+
 							      if( $srec = tep_db_fetch_array( $ccquery ) )
 								      $status = ' [' . $srec['orders_status_name'] . ']';
 							      else
@@ -266,7 +266,7 @@
 						      }
 					      }
 				      }
-  				    
+
 				      if( $skip )
 					      continue;	// got a matched cart, skip to next one
 			      }
@@ -278,7 +278,7 @@
             if(RCS_AUTO_CHECK == 'true' && $checked) {
               $custids[] = $inrec['cid'];
             }
-            
+
             $this->infoBoxContents[] = array(
               'params' => 'bgcolor="' . $fcolor . '"',
               0 => array(
@@ -322,7 +322,7 @@
 			    $sprice = tep_get_products_special_price( $inrec['pid'] );
 			    if( $sprice < 1 )
 				    $sprice = $inrec2['price'];
-  				  
+
 			    // Some users may want to include taxes in the pricing, allow that. NOTE HOWEVER that we don't have a good way to get individual tax rates based on customer location yet!
 			    if( RCS_INCLUDE_TAX_IN_PRICES  == 'true' )
 				    $sprice += ($sprice * tep_get_tax_rate( $inrec2['taxclass'] ) / 100);
@@ -359,7 +359,7 @@
 					     $prodAttribs .= '<small><i> - ' . $attribrecs['poname'] . ' ' . $attribrecs['povname'] . '</i></small><br>';
 				    }
   			  }
-    			
+
 			    // END OF ATTRIBUTE DB CODE
 			    $tprice = $tprice + ($inrec['qty'] * $sprice);
 			    $pprice_formated  = $currencies->format($sprice);
@@ -387,7 +387,7 @@
               'text' => $tpprice_formated));
 	      }
       }
-      
+
       $totalAll_formated = $currencies->format($totalAll);
 
       $this->infoBoxContents[] = array(
@@ -397,17 +397,17 @@
 
       //Removed textbox...
       //echo "<hr size=1 color=000080><b>". PSMSG ."</b><br>". tep_draw_textarea_field('message', 'soft', '80', '5') ."<br>";
-      
+
       $this->infoBoxContents[] = array(
         0 => array(
           'params' => 'colspan="8"',
           'text' => tep_draw_selection_field('submit_button', 'submit', TEXT_SEND_EMAIL)));
 
       $this->infoBoxContents[] = array('text' => '</form>');
-      
+
       return $custids;
     }
-    
+
     /**
      *
      * \brief Sends an email for the incomplete sales for the given customer(id)s.
@@ -415,7 +415,7 @@
      */
     function processEmail($custids) {
       global $currencies, $languages_id;
-      
+
       //Clear any content
       $this->infoBoxHeading = array();
       $this->infoBoxContents = array();
@@ -463,7 +463,7 @@
 	    foreach ($custids as $cid)
 	    {
         unset($email);
-    	
+
 	      $query1 = tep_db_query("select cb.products_id pid,
                                         cb.customers_basket_quantity qty,
                                         cb.customers_basket_date_added bdate,
@@ -484,7 +484,7 @@
 		      // set new cline and curcus
 		      if ($lastcid != $cid) {
 			      if ($lastcid != "") {
-			      
+
               $this->infoBoxContents[] = array(
                 0 => array(
                   'params' => 'class="dataTableContent" align="right" colspan="6" nowrap',
@@ -495,7 +495,7 @@
                   'params' => 'align="right" colspan="6"',
                   'text' => '<a class="button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $this->basedays . "&sdate=" . $this->skipdays) . '">' .  IMAGE_DELETE . '</a>'));
 			      }
-    			  
+
             $this->infoBoxContents[] = array(
               0 => array(
                 'params' => 'class="dataTableContent" align="left" colspan="6" nowrap',
@@ -520,7 +520,7 @@
 		      $sprice = tep_get_products_special_price( $inrec['pid'] );
 		      if( $sprice < 1 )
 			      $sprice = $inrec2['price'];
-    		    
+
 		        // Some users may want to include taxes in the pricing, allow that. NOTE HOWEVER that we don't have a good way to get individual tax rates based on customer location yet!
 			      if( RCS_INCLUDE_TAX_IN_PRICES  == 'true' )
 				      $sprice += ($sprice * tep_get_tax_rate( $inrec2['taxclass'] ) / 100);
@@ -603,17 +603,17 @@
 		      else
 			      tep_db_query("update " . TABLE_SCART . " set datemodified = '" . $this->seadate('0') . "' where customers_id = " . $cid );
 	      }
-	      
+
         $this->infoBoxContents[] = array(
           0 => array(
             'params' => 'class="dataTableContent" align="right" colspan="8"',
             'text' => '<b>' . TABLE_CART_TOTAL . '</b>' . $currencies->format($tprice)));
-	      
+
         $this->infoBoxContents[] = array(
           0 => array(
             'params' => 'align="right" colspan="6"',
             'text' => '<a class="button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $this->basedays . "&sdate=" . $this->skipdays) . '">' . IMAGE_DELETE . '</a>'));
-	      
+
         $this->infoBoxContents[] = array(
           0 => array(
             'params' => 'align="center" colspan="6"',

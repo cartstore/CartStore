@@ -706,11 +706,11 @@ function newsdesk_draw_textarea_field($name, $wrap, $width, $height, $text = '',
 
 	$field = '
 
-<textarea class="ckeditor" name="' . newsdesk_parse_input_field_data($name, array('"' => '&quot;')) . '" wrap="' 
+<textarea class="ckeditor" name="' . newsdesk_parse_input_field_data($name, array('"' => '&quot;')) . '" wrap="'
 
-. newsdesk_parse_input_field_data($wrap, array('"' => '&quot;')) . '" cols="' 
+. newsdesk_parse_input_field_data($wrap, array('"' => '&quot;')) . '" cols="'
 
-. newsdesk_parse_input_field_data($width, array('"' => '&quot;')) . '" rows="' 
+. newsdesk_parse_input_field_data($width, array('"' => '&quot;')) . '" rows="'
 
 . newsdesk_parse_input_field_data($height, array('"' => '&quot;')) . '"
 
@@ -958,7 +958,7 @@ if ($sticky == '1') {
 
 function stripbr($str) {
 
-$str=eregi_replace('<BR[[:space:]]*/?[[:space:]]*>',"",$str);
+$str=preg_replace('/<BR[[:space:]]*\/?[[:space:]]*>/i',"",$str);
 
 return $str;
 
@@ -1102,7 +1102,7 @@ function tep_copy_uploaded_file($filename, $target) {
 
 	Please read the NOTE and INSTALL documents that are provided with this file for further information and installation notes.
 
-	
+
 
 	script name:			NewsDesk
 

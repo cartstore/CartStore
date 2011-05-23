@@ -30,9 +30,9 @@
         $module_type = 'sts';
         $module_directory = DIR_FS_CATALOG_MODULES . 'sts/';
         $module_key = 'MODULE_STS_INSTALLED';
-        define('HEADING_TITLE', HEADING_TITLE_MODULES_STS);	    
+        define('HEADING_TITLE', HEADING_TITLE_MODULES_STS);
 	    break;
-	  // END STS 4.1	
+	  // END STS 4.1
       case 'shipping':
         $module_type = 'shipping';
         $module_directory = DIR_FS_CATALOG_MODULES . 'shipping/';
@@ -61,11 +61,11 @@
   if (tep_not_null($action)) {
     switch ($action) {
        case 'save':
-      // ** GOOGLE CHECKOUT **      
+      // ** GOOGLE CHECKOUT **
         // fix configuration no saving -
       	reset($_POST['configuration']);
         // end fix
-      // ** END GOOGLE CHECKOUT **      
+      // ** END GOOGLE CHECKOUT **
 	    while (list($key, $value) = each($_POST['configuration'])) {
 		///////////////////////////////////////////////////////////////////////////////
 	  //
@@ -81,7 +81,7 @@
 	  ///////////////////////////////////////////////////////////////////////////////
 	  ///////////////////////////////////////////////////////////////////////////////
 	  //
-	  // Amazon code modifications 
+	  // Amazon code modifications
 	  //
 	  ///////////////////////////////////////////////////////////////////////////////
           // Make sure password does not get overwritten as we never pass them back to the UI
@@ -98,7 +98,7 @@
          //       fclose($fh);
 
          //       $encryptedValue = "";
- 
+
           //      for($i=0; $i<strlen($value); $i++) {
           //         $char = substr($value, $i, 1);
          //          $keychar = substr($encryptionKey, ($i % strlen($encryptionKey))-1, 1);
@@ -111,18 +111,18 @@
        //   }
 	  ///////////////////////////////////////////////////////////////////////////////
 	  //
-	  // End amazon code modifications 
+	  // End amazon code modifications
 	  //
 	  ///////////////////////////////////////////////////////////////////////////////
-        // ** GOOGLE CHECKOUT **    
-          // Checks if module is of type google checkout and also verfies if this configuration is 
-          // for the check boxes for the shipping options   				
+        // ** GOOGLE CHECKOUT **
+          // Checks if module is of type google checkout and also verfies if this configuration is
+          // for the check boxes for the shipping options
 	      if( is_array( $value ) ){
                 $value = implode( ", ", $value);
-                $value = ereg_replace (", --none--", "", $value);
+                $value = preg_replace ("/, --none--/", "", $value);
               }
         // ** END GOOGLE CHECKOUT **
-	
+
 		  tep_db_query("update " . TABLE_CONFIGURATION . " set configuration_value = " . gc_makeSqlString($value) . " where configuration_key = " . gc_makeSqlString($key));
 	    }
 	    tep_redirect(tep_href_link(FILENAME_MODULES, 'set=' . $set . '&module=' . $_GET['module']));
@@ -146,7 +146,7 @@
   }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -176,7 +176,7 @@
           </tr>
 		   <tr>
             <td  colspan="2"></td>
-            
+
           </tr>
         </table></td>
       </tr>
@@ -316,7 +316,7 @@
           $keys .= '<b>' . $value['title'] . '</b><br>';
           if ($value['use_function']) {
             $use_function = $value['use_function'];
-            if (ereg('->', $use_function)) {
+            if (preg_match('->', $use_function)) {
               $class_method = explode('->', $use_function);
               if (!is_object(${$class_method[0]})) {
                 include(DIR_WS_CLASSES . $class_method[0] . '.php');

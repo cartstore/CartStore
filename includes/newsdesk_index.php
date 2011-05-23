@@ -28,12 +28,12 @@ if (isset($newsPath_array)) {
 	$n = sizeof($newsPath_array);
 	for ($i = 0; $i < $n; $i++) {
 		$categories_query = tep_db_query(
-		"select categories_name from " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " where categories_id = '" . $newsPath_array[$i] 
+		"select categories_name from " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " where categories_id = '" . $newsPath_array[$i]
 		. "' and language_id='" . $languages_id . "'"
 		);
 		if (tep_db_num_rows($categories_query) > 0) {
 			$categories = tep_db_fetch_array($categories_query);
-			$breadcrumb->add($categories['categories_name'], tep_href_link(FILENAME_NEWSDESK_INDEX, 'newsPath=' 
+			$breadcrumb->add($categories['categories_name'], tep_href_link(FILENAME_NEWSDESK_INDEX, 'newsPath='
 			. implode('_', array_slice($newsPath_array, 0, ($i+1)))));
 		} else {
 			break;
@@ -87,7 +87,7 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_NEWSDESK_INDEX);
 <HTML <?php echo HTML_PARAMS; ?>>
 <HEAD>
     <TITLE><?php echo TITLE ?></TITLE>
-    <META http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>"> 
+    <META http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
 	<META name="KeyWords" content="">
 	<META name="Description" content="">
     <BASE href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
@@ -111,8 +111,8 @@ require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_NEWSDESK_INDEX);
 <?php
 if ($category_depth == 'nested') {
 	$category_query = tep_db_query(
-	"select cd.categories_name, c.categories_image from " . TABLE_NEWSDESK_CATEGORIES . " c, " .  newsdesk_categories_description . 
-	" cd where c.categories_id = '" . $current_category_id . "' and cd.categories_id = '" . $current_category_id . "' and cd.language_id = '" 
+	"select cd.categories_name, c.categories_image from " . TABLE_NEWSDESK_CATEGORIES . " c, " .  newsdesk_categories_description .
+	" cd where c.categories_id = '" . $current_category_id . "' and cd.categories_id = '" . $current_category_id . "' and cd.language_id = '"
 	. $languages_id . "'"
 	);
 
@@ -164,9 +164,9 @@ $info_box_contents = array();
 $info_box_contents[] = array(
 	'form'  => '<form name="quick_find_news" method="get" action="' . tep_href_link(FILENAME_NEWSDESK_SEARCH_RESULT, '', 'NONSSL', false) . '">',
 	'align' => 'center',
-	'text'  => 
-$hide . '<input type="text" name="keywords" size="20" maxlength="30" value="' 
-. htmlspecialchars(StripSlashes(@$_GET["keywords"])) 
+	'text'  =>
+$hide . '<input type="text" name="keywords" size="20" maxlength="30" value="'
+. htmlspecialchars(StripSlashes(@$_GET["keywords"]))
 . '" style="width: ' . (BOX_WIDTH-30) . 'px">&nbsp;' . tep_image_submit('button_quick_find.gif', BOX_HEADING_SEARCH)
 );
   new infoBox($info_box_contents);
@@ -202,13 +202,13 @@ echo tep_image(DIR_WS_IMAGES . $category['categories_image'], $category['categor
 	<tr>
 
 <?php
-if ($newsPath && ereg('_', $newsPath)) {
+if ($newsPath && preg_match('/_/', $newsPath)) {
 // check to see if there are deeper categories within the current category
 	$category_links = array_reverse($newsPath_array);
 	$size = sizeof($category_links);
 	for($i=0; $i<$size; $i++) {
-		$categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.categories_image, c.parent_id from " 
-		. TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.parent_id = '" . $category_links[$i] 
+		$categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.categories_image, c.parent_id from "
+		. TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.parent_id = '" . $category_links[$i]
 		. "' and c.categories_id = cd.categories_id and cd.language_id = '" . $languages_id . "' order by sort_order, cd.categories_name");
 		if (tep_db_num_rows($categories_query) < 1) {
 // do nothing, go through the loop
@@ -217,9 +217,9 @@ if ($newsPath && ereg('_', $newsPath)) {
 		}
 	}
 } else {
-$categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.categories_image, c.parent_id from " 
-. TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.parent_id = '" 
-. $current_category_id . "' and c.categories_id = cd.categories_id and cd.language_id = '" . $languages_id 
+$categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.categories_image, c.parent_id from "
+. TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.parent_id = '"
+. $current_category_id . "' and c.categories_id = cd.categories_id and cd.language_id = '" . $languages_id
 . "' order by sort_order, cd.categories_name");
 }
 
@@ -236,7 +236,7 @@ while ($categories = tep_db_fetch_array($categories_query)) {
 
 	echo '
 <td align="left" class="smallText" style="width: ' . $width . '" valign="top">
-<a href="' . tep_href_link(FILENAME_NEWSDESK_INDEX, $newsPath_new, 'NONSSL') . '">' .  $print_echo 
+<a href="' . tep_href_link(FILENAME_NEWSDESK_INDEX, $newsPath_new, 'NONSSL') . '">' .  $print_echo
 . '<br>' . $categories['categories_name'] . '</a></td>' . "\n";
 
 	if ((($rows / MAX_DISPLAY_CATEGORIES_PER_ROW) == floor($rows / MAX_DISPLAY_CATEGORIES_PER_ROW)) && ($rows != tep_db_num_rows($categories_query))) {
@@ -318,28 +318,28 @@ $define_list = array(
 		if ($_GET['filter_id']) {
 		} else {
 // We show them all
-$listing_sql = "select " . $select_column_list . "  p.newsdesk_id, p.newsdesk_status, p.newsdesk_date_added, pd.newsdesk_article_name, pd.newsdesk_article_shorttext, 
-pd.newsdesk_article_description, pd.newsdesk_article_url, pd.newsdesk_article_url_name, p.newsdesk_image, p.newsdesk_image_two, p.newsdesk_image_three, 
-IF(s.status, s.specials_new_products_price, NULL) as specials_new_products_price, 
-IF(s.status, s.specials_new_products_price, NULL) as final_price from " 
-. TABLE_NEWSDESK . " p, " 
-. TABLE_NEWSDESK_DESCRIPTION . " pd, " 
-. TABLE_MANUFACTURERS . 
-" m left join " 
-. TABLE_SPECIALS . " s 
-on p.newsdesk_id = s.products_id where p.newsdesk_status = '1' and pd.newsdesk_id = p.newsdesk_id 
-and pd.language_id = '" . $languages_id . "' and m.manufacturers_id = '" 
+$listing_sql = "select " . $select_column_list . "  p.newsdesk_id, p.newsdesk_status, p.newsdesk_date_added, pd.newsdesk_article_name, pd.newsdesk_article_shorttext,
+pd.newsdesk_article_description, pd.newsdesk_article_url, pd.newsdesk_article_url_name, p.newsdesk_image, p.newsdesk_image_two, p.newsdesk_image_three,
+IF(s.status, s.specials_new_products_price, NULL) as specials_new_products_price,
+IF(s.status, s.specials_new_products_price, NULL) as final_price from "
+. TABLE_NEWSDESK . " p, "
+. TABLE_NEWSDESK_DESCRIPTION . " pd, "
+. TABLE_MANUFACTURERS .
+" m left join "
+. TABLE_SPECIALS . " s
+on p.newsdesk_id = s.products_id where p.newsdesk_status = '1' and pd.newsdesk_id = p.newsdesk_id
+and pd.language_id = '" . $languages_id . "' and m.manufacturers_id = '"
 . $_GET['manufacturers_id'] . "'";
 
 		}
 
 // We build the categories-dropdown
-$filterlist_sql = "select distinct c.categories_id as id, cd.categories_name as name from " 
-. TABLE_NEWSDESK . " p, " 
-. TABLE_NEWSDESK_TO_CATEGORIES . " p2c, " 
-. TABLE_NEWSDESK_CATEGORIES . " c, " 
-. TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd 
-where p.newsdesk_status = '1' and p.newsdesk_id = p2c.newsdesk_id and p2c.categories_id = c.categories_id and p2c.categories_id = cd.categories_id 
+$filterlist_sql = "select distinct c.categories_id as id, cd.categories_name as name from "
+. TABLE_NEWSDESK . " p, "
+. TABLE_NEWSDESK_TO_CATEGORIES . " p2c, "
+. TABLE_NEWSDESK_CATEGORIES . " c, "
+. TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd
+where p.newsdesk_status = '1' and p.newsdesk_id = p2c.newsdesk_id and p2c.categories_id = c.categories_id and p2c.categories_id = cd.categories_id
 and cd.language_id = '" . $languages_id . "' order by cd.categories_name";
 
 		} else {
@@ -349,53 +349,53 @@ and cd.language_id = '" . $languages_id . "' order by cd.categories_name";
 		if ($_GET['filter_id']) {
 
 // We are asked to show only specific catgeory
-$listing_sql = "select " . $select_column_list . " p.newsdesk_id, p.newsdesk_status, p.newsdesk_date_added, pd.newsdesk_article_name, pd.newsdesk_article_shorttext, 
-pd.newsdesk_article_description, pd.newsdesk_article_url, pd.newsdesk_article_url_name, p.newsdesk_image, p.newsdesk_image_two, p.newsdesk_image_three, 
-IF(s.status, s.specials_new_products_price, NULL) as specials_new_products_price, 
-IF(s.status, s.specials_new_products_price, NULL) as final_price from " 
-. TABLE_NEWSDESK . " p, " 
-. TABLE_NEWSDESK_DESCRIPTION . " pd, " 
-. TABLE_MANUFACTURERS . " m, " 
-. TABLE_NEWSDESK_TO_CATEGORIES . 
-" p2c left join " 
-. TABLE_SPECIALS . " s 
-on p.newsdesk_id = s.products_id where 
-p.newsdesk_status = '1' and m.manufacturers_id = '" . $_GET['filter_id'] . 
-"' and p.newsdesk_id = p2c.newsdesk_id and pd.newsdesk_id = p2c.newsdesk_id and pd.language_id = '" . $languages_id . "' 
+$listing_sql = "select " . $select_column_list . " p.newsdesk_id, p.newsdesk_status, p.newsdesk_date_added, pd.newsdesk_article_name, pd.newsdesk_article_shorttext,
+pd.newsdesk_article_description, pd.newsdesk_article_url, pd.newsdesk_article_url_name, p.newsdesk_image, p.newsdesk_image_two, p.newsdesk_image_three,
+IF(s.status, s.specials_new_products_price, NULL) as specials_new_products_price,
+IF(s.status, s.specials_new_products_price, NULL) as final_price from "
+. TABLE_NEWSDESK . " p, "
+. TABLE_NEWSDESK_DESCRIPTION . " pd, "
+. TABLE_MANUFACTURERS . " m, "
+. TABLE_NEWSDESK_TO_CATEGORIES .
+" p2c left join "
+. TABLE_SPECIALS . " s
+on p.newsdesk_id = s.products_id where
+p.newsdesk_status = '1' and m.manufacturers_id = '" . $_GET['filter_id'] .
+"' and p.newsdesk_id = p2c.newsdesk_id and pd.newsdesk_id = p2c.newsdesk_id and pd.language_id = '" . $languages_id . "'
 and p2c.categories_id = '" . $current_category_id . "'";
 
 		} else {
 
 // We show them all
-$listing_sql = "select " . $select_column_list . " p.newsdesk_id, p.newsdesk_status, p.newsdesk_date_added, pd.newsdesk_article_name, pd.newsdesk_article_shorttext, 
-pd.newsdesk_article_description, pd.newsdesk_article_url, pd.newsdesk_article_url_name, p.newsdesk_image, p.newsdesk_image_two, p.newsdesk_image_three, 
-IF(s.status, s.specials_new_products_price, NULL) as specials_new_products_price, 
-IF(s.status, s.specials_new_products_price, NULL) as final_price from " 
-. TABLE_NEWSDESK_DESCRIPTION . " pd, " 
-. TABLE_NEWSDESK . 
-" p left join " 
-. TABLE_MANUFACTURERS . 
-" m on p.newsdesk_id = m.manufacturers_id, " 
-. TABLE_NEWSDESK_TO_CATEGORIES . " p2c 
-left join " 
-. TABLE_SPECIALS . " s on 
-p.newsdesk_id = s.products_id where p.newsdesk_status = '1' and p.newsdesk_id = p2c.newsdesk_id and pd.newsdesk_id = p2c.newsdesk_id 
+$listing_sql = "select " . $select_column_list . " p.newsdesk_id, p.newsdesk_status, p.newsdesk_date_added, pd.newsdesk_article_name, pd.newsdesk_article_shorttext,
+pd.newsdesk_article_description, pd.newsdesk_article_url, pd.newsdesk_article_url_name, p.newsdesk_image, p.newsdesk_image_two, p.newsdesk_image_three,
+IF(s.status, s.specials_new_products_price, NULL) as specials_new_products_price,
+IF(s.status, s.specials_new_products_price, NULL) as final_price from "
+. TABLE_NEWSDESK_DESCRIPTION . " pd, "
+. TABLE_NEWSDESK .
+" p left join "
+. TABLE_MANUFACTURERS .
+" m on p.newsdesk_id = m.manufacturers_id, "
+. TABLE_NEWSDESK_TO_CATEGORIES . " p2c
+left join "
+. TABLE_SPECIALS . " s on
+p.newsdesk_id = s.products_id where p.newsdesk_status = '1' and p.newsdesk_id = p2c.newsdesk_id and pd.newsdesk_id = p2c.newsdesk_id
 and pd.language_id = '" . $languages_id . "' and p2c.categories_id = '" . $current_category_id . "'";
 
 		}
 
 // We build the manufacturers Dropdown
-$filterlist_sql= "select distinct m.manufacturers_id as id, m.manufacturers_name as name from " 
-. TABLE_NEWSDESK . " p, " 
-. TABLE_NEWSDESK_TO_CATEGORIES . " p2c, " 
-. TABLE_MANUFACTURERS . " m 
-where p.newsdesk_status = '1' and p.newsdesk_id = m.manufacturers_id and p.newsdesk_id = p2c.newsdesk_id and p2c.categories_id = '" 
+$filterlist_sql= "select distinct m.manufacturers_id as id, m.manufacturers_name as name from "
+. TABLE_NEWSDESK . " p, "
+. TABLE_NEWSDESK_TO_CATEGORIES . " p2c, "
+. TABLE_MANUFACTURERS . " m
+where p.newsdesk_status = '1' and p.newsdesk_id = m.manufacturers_id and p.newsdesk_id = p2c.newsdesk_id and p2c.categories_id = '"
 . $current_category_id . "' order by m.manufacturers_name";
 
 	}
 
 	$cl_size = sizeof($column_list);
-	if ( (!$_GET['sort']) || (!ereg('[1-8][ad]', $_GET['sort'])) || (substr($_GET['sort'],0,1) > $cl_size) ) {
+	if ( (!$_GET['sort']) || (!preg_match('/[1-8][ad]/', $_GET['sort'])) || (substr($_GET['sort'],0,1) > $cl_size) ) {
 		for ($col=0; $col<$cl_size; $col++) {
 			if ($column_list[$col] == 'NEWSDESK_DATE_AVAILABLE') {
 				$_GET['sort'] = $col+1 . 'd';
@@ -477,9 +477,9 @@ $info_box_contents = array();
 $info_box_contents[] = array(
 	'form'  => '<form name="quick_find_news" method="get" action="' . tep_href_link(FILENAME_NEWSDESK_SEARCH_RESULT, '', 'NONSSL', false) . '">',
 	'align' => 'center',
-	'text'  => 
-$hide . '<input type="text" name="keywords" size="20" maxlength="30" value="' 
-. htmlspecialchars(StripSlashes(@$_GET["keywords"])) 
+	'text'  =>
+$hide . '<input type="text" name="keywords" size="20" maxlength="30" value="'
+. htmlspecialchars(StripSlashes(@$_GET["keywords"]))
 . '" style="width: ' . (BOX_WIDTH-30) . 'px">&nbsp;' . tep_image_submit('button_quick_find.gif', BOX_HEADING_SEARCH)
 );
   new infoBox($info_box_contents);
@@ -583,7 +583,7 @@ echo tep_image(DIR_WS_IMAGES . $image_three, HEADING_TITLE, HEADING_IMAGE_WIDTH,
 
 	This script is not part of the official osC distribution but an add-on contributed to the osC community.
 	Please read the NOTE and INSTALL documents that are provided with this file for further information and installation notes.
-	
+
 	script name:			NewsDesk
 	version:        		1.48.2
 	date:       			22-06-2004 (dd/mm/yyyy)

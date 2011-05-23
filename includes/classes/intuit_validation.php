@@ -11,19 +11,19 @@ class intuitvalidation {
 
 	function validate($number, $expiry_m, $expiry_y)
 	{
-		$this->card_number = ereg_replace('[^0-9]', '', $number);
+		$this->card_number = preg_replace('/[^0-9]/', '', $number);
 
-		if (ereg('^4[0-9]{12}([0-9]{3})?$', $this->card_number)) {
+		if (preg_match('/^4[0-9]{12}([0-9]{3})?$/', $this->card_number)) {
 		$this->cc_type = 'Visa';
-		} elseif (ereg('^5[1-5][0-9]{14}$', $this->card_number)) {
+		} elseif (preg_match('/^5[1-5][0-9]{14}$/', $this->card_number)) {
 		$this->cc_type = 'Master Card';
-		} elseif (ereg('^3[47][0-9]{13}$', $this->card_number)) {
+		} elseif (preg_match('/^3[47][0-9]{13}$/', $this->card_number)) {
 		$this->cc_type = 'American Express';
-		} elseif (ereg('^3(0[0-5]|[68][0-9])[0-9]{11}$', $this->card_number)) {
+		} elseif (preg_match('/^3(0[0-5]|[68][0-9])[0-9]{11}$/', $this->card_number)) {
 		$this->cc_type = 'Diners Club';
-		} elseif (ereg('^6011[0-9]{12}$', $this->card_number)) {
+		} elseif (preg_match('/^6011[0-9]{12}$/', $this->card_number)) {
 		$this->cc_type = 'Discover';
-		} elseif (ereg('^(3[0-9]{4}|2131|1800)[0-9]{11}$', $this->card_number)) {
+		} elseif (preg_match('/^(3[0-9]{4}|2131|1800)[0-9]{11}$/', $this->card_number)) {
 		$this->cc_type = 'JCB';
 		} else {
 		return -1;
@@ -40,7 +40,7 @@ class intuitvalidation {
 
 		$current_year = date('Y');
 		$expiry_y = substr($current_year, 0, 2) . $expiry_y;
-		
+
 		if (is_numeric($expiry_y) && ($expiry_y >= $current_year) && ($expiry_y <= ($current_year + 10)))
 		{
 			$this->cc_expiry_year = $expiry_y;

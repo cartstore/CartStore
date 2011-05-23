@@ -24,28 +24,28 @@ function CheckSettings()
   {
     if ($links_config['configuration_key'] == "LINKS_RECIPROCAL_REQUIRED" && $links_config['configuration_value'] == 'True')
      $reciprocal_required = true;
-    
+
     if ($links_config['configuration_key'] == "LINKS_CHECK_PHRASE" && $links_config['configuration_value'] == 'localhost')
      $reciprocal_phase = true;
   }
 
   if ($reciprocal_required && $reciprocal_phase)
-  { 
+  {
       $messageStack->add("The reciprocal check phase setting needs to be changed in admin->configuration->Links.");
 
-      //check if the link exchange information has been changed from the default     
+      //check if the link exchange information has been changed from the default
       $filename = DIR_FS_CATALOG. DIR_WS_LANGUAGES . $language . '/links_submit.php';
-      $fp = file($filename);  
-  
+      $fp = file($filename);
+
       for ($idx = 0; $idx < count($fp); ++$idx)
       {
         if (strpos($fp[$idx], "define('LINK_NAME', 'Link Name')") !== FALSE)
         {
           $messageStack->add("Link exchange information needs to be edited in " . $filename);
           break;
-        }    
+        }
       }
-  }    
+  }
 }
 
 function tep_get_category_id($cat_name)
@@ -113,12 +113,12 @@ function tep_link_info_image($image, $alt, $width = '', $height = '') {
 
   return $image;
 }
-  
+
 function GetLinksFileArray($path) //use curl if possible to read in site information
 {
   $lines = array();
-  
-  if (function_exists('curl_init')) 
+
+  if (function_exists('curl_init'))
   {
     $ch = curl_init();
     $timeout = 5; // set to zero for no timeout
@@ -127,58 +127,58 @@ function GetLinksFileArray($path) //use curl if possible to read in site informa
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     $file_contents = curl_exec($ch);
     curl_close($ch);
-    $lines = explode("\n", $file_contents); 
+    $lines = explode("\n", $file_contents);
   }
   else
   {
     $fd = fopen ($path, "r");
-    while (!feof ($fd)) 
+    while (!feof ($fd))
     {
       $buffer = fgets($fd, 4096);
       $lines[] = $buffer;
     }
-    fclose ($fd);   
+    fclose ($fd);
   }
-  return $lines;  
+  return $lines;
 }
-  
+
 function CheckSiteData($lines)
 {
-  $found = 0; 
+  $found = 0;
   $phases = explode(",", LINKS_CHECK_PHRASE);
 
   foreach ($lines as $line)
-  {         
+  {
     $page_line = trim($line);
 
     for ($i = 0; $i < count($phases); ++$i)
     {
-      if (@eregi($phases[$i], $page_line)) 
+      if (@preg_match("/".$phases[$i]."/i", $page_line))
       {
         $found = 1;
         break;
       }
-    }  
+    }
     if ($found)
       break;
   }
-  return $found;     
+  return $found;
 }
-      
+
 ////
-// Search the given page for the given phase(s)  
+// Search the given page for the given phase(s)
 function CheckURL($url, $links_id)
-{  
+{
   $lines = GetLinksFileArray($url);
 
   if (tep_not_null($lines))
   {
-    $found = CheckSiteData($lines);  
+    $found = CheckSiteData($lines);
 
-    if ($found == true) 
+    if ($found == true)
     {
       $link_check_status_text = TEXT_INFO_LINK_CHECK_FOUND;
-  
+
       $links_check_query = tep_db_query("SELECT links_id, date_last_checked, link_found FROM " .  TABLE_LINKS_CHECK . " where links_id = " . (int)$links_id );
       if (tep_db_num_rows($links_check_query) > 0)
         tep_db_query("update " . TABLE_LINKS_CHECK . " set link_found = '" . (int)$found  . "', date_last_checked = now() where links_id = '" . (int)$links_id  . "'");
@@ -187,9 +187,9 @@ function CheckURL($url, $links_id)
     }
     else
       $link_check_status_text = TEXT_INFO_LINK_CHECK_NOT_FOUND;
-  } else 
+  } else
     $link_check_status_text = TEXT_INFO_LINK_CHECK_ERROR;
-  
+
   return $link_check_status_text;
 }
 
@@ -200,7 +200,7 @@ function tep_generate_link_category_path($id, $from = 'category', $categories_ar
 
   if ($from == 'link') {
     $categories_query = tep_db_query("select link_categories_id from " . TABLE_LINKS_TO_LINK_CATEGORIES . " where links_id = '" . (int)$id . "'");
-    
+
     while ($categories = tep_db_fetch_array($categories_query)) {
       if ($categories['categories_id'] == '0') {
         $categories_array[$index][] = array('id' => '0', 'text' => TEXT_TOP);
@@ -237,7 +237,7 @@ function tep_output_generated_link_category_path($id, $from = 'category') {
   if (strlen($calculated_category_path_string) < 1) $calculated_category_path_string = TEXT_TOP;
 
   return $calculated_category_path_string;
-} 
+}
 
 function tep_get_links_title($link_id, $language_id = 0) {
   global $languages_id;
@@ -248,13 +248,13 @@ function tep_get_links_title($link_id, $language_id = 0) {
 
   return $link['links_title'];
 }
-  
+
 function tep_get_links_description($link_id, $language_id) {
   $link_query = tep_db_query("select links_description from " . TABLE_LINKS_DESCRIPTION . " where links_id = '" . (int)$link_id . "' and language_id = '" . (int)$language_id . "'");
   $link = tep_db_fetch_array($link_query);
 
   return $link['links_description'];
-}  
+}
 
 ////
 // Return the links url, based on whether click count is turned on/off
@@ -332,7 +332,7 @@ function tep_get_link_path($current_category_id = '') {
 
   return 'lPath=' . $lPath_new;
 }
-  
+
 function tep_get_link_category_tree($parent_id = '0', $spacing = '', $exclude = '', $category_tree_array = '', $include_itself = false) {
   global $languages_id;
 
@@ -353,7 +353,7 @@ function tep_get_link_category_tree($parent_id = '0', $spacing = '', $exclude = 
 
   return $category_tree_array;
 }
-    
+
 ////
 // Count how many links exist in a category
 // TABLES: links, links_to_link_categories, link_categories
@@ -391,7 +391,7 @@ function tep_childs_in_link_category_count($categories_id) {
     $categories_count += tep_childs_in_link_category_count($categories['link_categories_id']);
   }
   return $categories_count;
-}  
+}
 
 ////
 // Sets the status of a link
@@ -403,7 +403,7 @@ function tep_set_link_categories_status($cat_id, $status) {
   } else {
     return -1;
   }
-}   
+}
 ////
 // Sets the status of a link
 function tep_set_link_status($links_id, $status) {
@@ -413,7 +413,7 @@ function tep_set_link_status($links_id, $status) {
     return -1;
   }
 }
-    
+
 function tep_get_generated_link_category_path_ids($id, $from = 'category') {
   $calculated_category_path_string = '';
   $calculated_category_path = tep_generate_link_category_path($id, $from);
@@ -428,23 +428,23 @@ function tep_get_generated_link_category_path_ids($id, $from = 'category') {
   if (strlen($calculated_category_path_string) < 1) $calculated_category_path_string = TEXT_TOP;
 
   return $calculated_category_path_string;
-}  
+}
 
 function tep_get_generated_link_category_path_names($id, $from = 'category') {
  global $languages_id;
- 
- $path = '<br>';   
+
+ $path = '<br>';
  $ids = tep_get_generated_link_category_path_ids($id);
  $parts = explode("_", $ids);
- $parts = array_reverse($parts);  
-   
+ $parts = array_reverse($parts);
+
  for ($i = 0; $i < count($parts); ++$i)
  {
    $path .= tep_get_link_category_name($parts[$i], $languages_id);
    if ($i < count($parts) - 1)
     $path .= ' => ';
  }
-  
- return $path;  
+
+ return $path;
 }
 ?>

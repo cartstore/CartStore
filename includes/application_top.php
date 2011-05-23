@@ -68,7 +68,7 @@ if (file_exists ( 'includes/local/configure.php' ))
 
 	include ('includes/local/configure.php');
 
-	
+
 
 // include server parameters
 
@@ -247,7 +247,7 @@ if (SEARCH_ENGINE_FRIENDLY_URLS == 'true') {
 
 		}
 
-		
+
 
 		if (sizeof ( $GET_array ) > 0) {
 
@@ -293,7 +293,7 @@ if (USE_CACHE == 'true')
 
 	include (DIR_WS_FUNCTIONS . 'cache.php');
 
-	
+
 
 // include shopping cart class
 
@@ -337,7 +337,7 @@ if (! function_exists ( 'session_start' )) {
 
 	define ( 'PHP_SESSION_SAVE_PATH', SESSION_WRITE_DIRECTORY );
 
-	
+
 
 	include (DIR_WS_CLASSES . 'sessions.php');
 
@@ -399,7 +399,7 @@ if (SESSION_FORCE_COOKIE_USE == 'True') {
 
 	tep_setcookie ( 'cookie_test', 'please_accept_for_session', time () + 60 * 60 * 24 * 30, $cookie_path, $cookie_domain );
 
-	
+
 
 	if (isset ( $_COOKIE ['cookie_test'] )) {
 
@@ -415,13 +415,13 @@ if (SESSION_FORCE_COOKIE_USE == 'True') {
 
 	$spider_flag = false;
 
-	
+
 
 	if (tep_not_null ( $user_agent )) {
 
 		$spiders = file ( DIR_WS_INCLUDES . 'spiders.txt' );
 
-		
+
 
 		for($i = 0, $n = sizeof ( $spiders ); $i < $n; $i ++) {
 
@@ -441,7 +441,7 @@ if (SESSION_FORCE_COOKIE_USE == 'True') {
 
 	}
 
-	
+
 
 	if ($spider_flag == false) {
 
@@ -481,7 +481,7 @@ if (($request_type == 'SSL') && (SESSION_CHECK_SSL_SESSION_ID == 'True') && (ENA
 
 	}
 
-	
+
 
 	if ($SESSION_SSL_ID != $ssl_session_id) {
 
@@ -509,7 +509,7 @@ if (SESSION_CHECK_USER_AGENT == 'True') {
 
 	}
 
-	
+
 
 	if ($SESSION_USER_AGENT != $http_user_agent) {
 
@@ -537,7 +537,7 @@ if (SESSION_CHECK_IP_ADDRESS == 'True') {
 
 	}
 
-	
+
 
 	if ($SESSION_IP_ADDRESS != $ip_address) {
 
@@ -607,13 +607,13 @@ if (! tep_session_is_registered ( 'language' ) || isset ( $_GET ['language'] )) 
 
 	}
 
-	
+
 
 	include (DIR_WS_CLASSES . 'language.php');
 
 	$lng = new language ();
 
-	
+
 
 	if (isset ( $_GET ['language'] ) && tep_not_null ( $_GET ['language'] )) {
 
@@ -625,7 +625,7 @@ if (! tep_session_is_registered ( 'language' ) || isset ( $_GET ['language'] )) 
 
 	}
 
-	
+
 
 	$language = $lng->language ['directory'];
 
@@ -665,7 +665,7 @@ if (! tep_session_is_registered ( 'currency' ) || isset ( $_GET ['currency'] ) |
 
 		tep_session_register ( 'currency' );
 
-	
+
 
 	if (isset ( $_GET ['currency'] )) {
 
@@ -709,7 +709,7 @@ $navigation->add_current_page ();
 
 
 
-//BEGIN allprods modification  
+//BEGIN allprods modification
 
 if (ALL_PRODUCTS == 'false' and strstr ( $PHP_SELF, ALL_PRODUCTS_FILENAME )) {
 
@@ -791,7 +791,7 @@ if (isset ( $_GET ['action'] )) {
 
 	}
 
-	
+
 
 	if (DISPLAY_CART == 'true') {
 
@@ -841,7 +841,7 @@ if (isset ( $_GET ['action'] )) {
 
 								while ( list ( $key2, $value2 ) = each ( $value ) ) {
 
-									if (ereg ( "(.*)\]\[(.*)", $key2, $var )) {
+									if (preg_match ( "/(.*)\]\[(.*)/", $key2, $var )) {
 
 										$id2 [$var [1]] [$var [2]] = $value2;
 
@@ -909,9 +909,9 @@ if (isset ( $_GET ['action'] )) {
 
                                 $cart->add_cart($_POST['products_id'], $cart->get_quantity(tep_get_uprid($_POST['products_id'], $attributes))+ $_POST['cart_quantity'], $attributes);
 
-								
 
-								 
+
+
 
 //++++ QT Pro: End Changed Code
 
@@ -921,7 +921,7 @@ if (isset ( $_GET ['action'] )) {
 
                               break;*/
 
-		
+
 
 		case 'add_product' :
 
@@ -929,7 +929,7 @@ if (isset ( $_GET ['action'] )) {
 
 				// iii 030813 added: File uploading: save uploaded files with unique file names
 
-				
+
 
                                  $attributes = $_POST ['id'];
 
@@ -951,13 +951,13 @@ if (isset ( $_GET ['action'] )) {
 
 				}
 
-				
 
-			
+
+
 
 	if ($_POST ['number_of_uploads'] > 0) {
 
-						
+
 
 						require (DIR_WS_CLASSES . 'upload.php');
 
@@ -1009,17 +1009,17 @@ if (isset ( $_GET ['action'] )) {
 
 					}
 
-			
 
-				
 
-			
+
+
+
 
 				$cart->add_cart ( $_POST ['products_id'], $cart->get_quantity ( tep_get_uprid ( $_POST ['products_id'], $attributes ) ) + $_POST ['cart_quantity'], $attributes );
 
-				
 
-		
+
+
 
 			}
 
@@ -1027,13 +1027,13 @@ if (isset ( $_GET ['action'] )) {
 
 			break;
 
-		
+
 
 		// performed by the 'buy now' button in product listings and review page
 
 		case 'buy_now' :
 
-			
+
 
 			if (isset ( $_GET ['products_id'] )) {
 
@@ -1483,7 +1483,7 @@ require (DIR_WS_INCLUDES . 'add_ccgvdc_application_top.php'); // ICW CREDIT CLAS
 
 
 
-// Include 
+// Include
 
 require (DIR_WS_INCLUDES . 'affiliate_application_top.php');
 
@@ -1583,47 +1583,47 @@ if (isset ( $Year_selected_var ))
 
 if ($where != '') {
 
-	
+
 
 	$q = tep_db_query ( "SELECT DISTINCT products_id FROM products_ymm WHERE " . $where );
 
-	
+
 
 	$ids = '';
 
-	
+
 
 	if (mysql_num_rows ( $q ) > 0) {
 
-		
+
 
 		while ( $r = tep_db_fetch_array ( $q ) )
 
 			$ids .= ($ids != '' ? ',' : '') . $r ['products_id'];
 
-	
+
 
 	}
 
-	
+
 
 	$q = tep_db_query ( "SELECT products_id FROM " . TABLE_PRODUCTS . " WHERE products_id not in (SELECT DISTINCT products_id FROM products_ymm)  and products_status = 1" );
 
-	
+
 
 	if (mysql_num_rows ( $q ) > 0) {
 
-		
+
 
 		while ( $r = tep_db_fetch_array ( $q ) )
 
 			$ids .= ($ids != '' ? ',' : '') . $r ['products_id'];
 
-	
+
 
 	}
 
-	
+
 
 	$YMM_where .= " p.products_id in ($ids) and ";
 

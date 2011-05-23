@@ -103,7 +103,7 @@
 
 
       // replace all whitespace with a plus sign for the query string
-      $data = ereg_replace(" ", "+", $data);
+      $data = preg_replace("/ /", "+", $data);
 
       // post the data
       $cmd = MODULE_PAYMENT_INNOVATIVE_CURL . " -d \"$data\" " . MODULE_PAYMENT_INNOVATIVE_URL;

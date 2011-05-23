@@ -48,9 +48,9 @@
 
 <?php
 
-// Build the ebay url	
+// Build the ebay url
 
-$URL = 'http://cgi6.ebay.com/ws/eBayISAPI.dll?ViewListedItems&userid=' . EBAY_USERID . '&include=0&since=' . AUCTION_ENDED . '&sort=' . AUCTION_SORT . '&rows=0'; 
+$URL = 'http://cgi6.ebay.com/ws/eBayISAPI.dll?ViewListedItems&userid=' . EBAY_USERID . '&include=0&since=' . AUCTION_ENDED . '&sort=' . AUCTION_SORT . '&rows=0';
 
 
 
@@ -76,11 +76,11 @@ if (!function_exists('file_get_contents')) {
 
      $r = fread($file, 80000);
 
-} 
+}
 
 else {
 
-    $r = file_get_contents($URL);  
+    $r = file_get_contents($URL);
 
 }
 
@@ -90,7 +90,7 @@ else {
 
 // Grab just the contents we want
 
-$stuff = eregi("$GrabStart(.*)$GrabEnd", $r, $content);
+$stuff = preg_match("/$GrabStart(.*)$GrabEnd/i", $r, $content);
 
 
 
@@ -218,7 +218,7 @@ foreach ($items as $listing) {
 
     	$year = $seperate[2];
 
-    	$hour = $seperate[3] + AUCTION_TIMEZONE; 
+    	$hour = $seperate[3] + AUCTION_TIMEZONE;
 
     	$minute = $seperate[4];
 
@@ -226,27 +226,27 @@ foreach ($items as $listing) {
 
 
 
-	// mktime is the marked time, and time() is the current time. 
+	// mktime is the marked time, and time() is the current time.
 
-	$target = mktime($hour,$minute,$second,$month,$day,$year); 
+	$target = mktime($hour,$minute,$second,$month,$day,$year);
 
-	$diff = $target - time(); 
+	$diff = $target - time();
 
 
 
-	$days = ($diff - ($diff % 86400)) / 86400; 
+	$days = ($diff - ($diff % 86400)) / 86400;
 
-	$diff = $diff - ($days * 86400); 
+	$diff = $diff - ($days * 86400);
 
-	$hours = ($diff - ($diff % 3600)) / 3600; 
+	$hours = ($diff - ($diff % 3600)) / 3600;
 
-	$diff = $diff - ($hours * 3600); 
+	$diff = $diff - ($hours * 3600);
 
-	$minutes = ($diff - ($diff % 60)) / 60; 
+	$minutes = ($diff - ($diff % 60)) / 60;
 
-	$diff = $diff - ($minutes * 60); 
+	$diff = $diff - ($minutes * 60);
 
-	$seconds = ($diff - ($diff % 1)) / 1; 
+	$seconds = ($diff - ($diff % 1)) / 1;
 
 
 
@@ -254,7 +254,7 @@ foreach ($items as $listing) {
 
 	$Time_Left =  $days . "d" . " " . $hours . "h" . " " . $minutes . "m";
 
-	
+
 
 	// and last we want to print auction ended when the auction has ended
 
@@ -280,7 +280,7 @@ foreach ($items as $listing) {
 
 			$count++;
 
-	
+
 
 			$class = ( $class == "infoBoxContents" ) ? "smallText" : "infoBoxContents";
 
@@ -334,11 +334,11 @@ foreach ($items as $listing) {
 
                             }
 
-      
 
-		}    
 
-	
+		}
+
+
 
 	}
 
@@ -350,7 +350,7 @@ foreach ($items as $listing) {
 
         </tr>';
 
-}  
+}
 
 ?>
 

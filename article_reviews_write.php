@@ -34,12 +34,138 @@
   $articles_name = $article_info['articles_name'];
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_ARTICLE_REVIEWS_WRITE);
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params()));
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html <?php
+  echo HTML_PARAMS;
+?>>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php
+  echo CHARSET;
+?>">
+<?php
+  
+  
+  
   if (file_exists(DIR_WS_INCLUDES . 'article_header_tags.php')) {
       require(DIR_WS_INCLUDES . 'article_header_tags.php');
   } else {
+?>
+<title><?php
+      echo TITLE
+?></title>
+<?php
   }
+  
+?>
+<base href="<?php
+  echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG;
+?>">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script language="javascript"><!--
+
+function checkForm() {
+
+  var error = 0;
+
+  var error_message = "<?php
+  echo JS_ERROR;
+?>";
+
+
+
+  var review = document.article_reviews_write.review.value;
+
+
+
+  if (review.length < <?php
+  echo REVIEW_TEXT_MIN_LENGTH;
+?>) {
+
+    error_message = error_message + "<?php
+  echo JS_REVIEW_TEXT;
+?>";
+
+    error = 1;
+
+  }
+
+
+
+  if ((document.article_reviews_write.rating[0].checked) || (document.article_reviews_write.rating[1].checked) || (document.article_reviews_write.rating[2].checked) || (document.article_reviews_write.rating[3].checked) || (document.article_reviews_write.rating[4].checked)) {
+
+  } else {
+
+    error_message = error_message + "<?php
+  echo JS_REVIEW_RATING;
+?>";
+
+    error = 1;
+
+  }
+
+
+
+  if (error == 1) {
+
+    alert(error_message);
+
+    return false;
+
+  } else {
+
+    return true;
+
+  }
+
+}
+
+
+
+function popupWindow(url) {
+
+  window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,copyhistory=no,width=100,height=100,screenX=150,screenY=150,top=150,left=150')
+
+}
+
+//--></script>
+</head>
+
+<body>
+
+<!-- header //-->
+
+<?php
   require(DIR_WS_INCLUDES . 'header.php');
+?>
+
+<!-- header_eof //--> 
+
+<!-- body //-->
+
+<table border="0" width="100%" cellspacing="3" cellpadding="3">
+  <tr>
+    <td width="<?php
+  echo BOX_WIDTH;
+?>" valign="top"><table border="0" width="<?php
+  echo BOX_WIDTH;
+?>" cellspacing="0" cellpadding="2">
+        
+        <!-- left_navigation //-->
+        
+        <?php
   require(DIR_WS_INCLUDES . 'column_left.php');
+?>
+        
+        <!-- left_navigation_eof //-->
+        
+      </table></td>
+    
+    <!-- body_text //-->
+    
+    <td width="100%" valign="top"><?php
   echo tep_draw_form('article_reviews_write', tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, 'action=process&articles_id=' . $_GET['articles_id']), 'post', 'onSubmit="return checkForm();"');
 ?>
       <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -53,7 +179,9 @@
             </table></td>
         </tr>
         <tr>
-          <td></td>
+          <td><?php
+  echo tep_draw_separator('pixel_trans.gif', '100%', '10');
+?></td>
         </tr>
         <?php
   if ($messageStack->size('review') > 0) {
@@ -64,7 +192,9 @@
 ?></td>
         </tr>
         <tr>
-          <td></td>
+          <td><?php
+      echo tep_draw_separator('pixel_trans.gif', '100%', '10');
+?></td>
         </tr>
         <?php
   }
@@ -79,11 +209,9 @@
 ?></td>
                     </tr>
                     <tr>
-                      <td class="main"><b>
-                        <?php
+                      <td class="main"><b><?php
   echo SUB_TITLE_REVIEW;
-?>
-                        </b></td>
+?></b></td>
                       <td align="right" class="main"><?php
   echo TEXT_APPROVAL_WARNING;
 ?></td>
@@ -126,9 +254,40 @@
             </table></td>
         </tr>
       </table>
-      </form>
+      </form></td>
+    
+    <!-- body_text_eof //-->
+    
+    <td width="<?php
+  echo BOX_WIDTH;
+?>" valign="top"><table border="0" width="<?php
+  echo BOX_WIDTH;
+?>" cellspacing="0" cellpadding="2">
+        
+        <!-- right_navigation //-->
+        
         <?php
   require(DIR_WS_INCLUDES . 'column_right.php');
+?>
+        
+        <!-- right_navigation_eof //-->
+        
+      </table></td>
+  </tr>
+</table>
+
+<!-- body_eof //--> 
+
+<!-- footer //-->
+
+<?php
   require(DIR_WS_INCLUDES . 'footer.php');
+?>
+
+<!-- footer_eof //-->
+
+</body>
+</html>
+<?php
   require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>

@@ -682,7 +682,7 @@
 
   <tr>
 
-  
+
 
   <td width="<?php
 
@@ -712,7 +712,7 @@
 
   <td width="100%" valign="top">
 
-  
+
 
   <?php
 
@@ -978,7 +978,7 @@
 
   <label>
 
-  
+
 
   <?php
 
@@ -988,7 +988,7 @@
 
   </label>
 
-  
+
 
   <?php
 
@@ -1000,13 +1000,13 @@
 
   <label>
 
-  
 
-Street Address Line 2: 
+
+Street Address Line 2:
 
   </label>
 
-  
+
 
   <?php
 
@@ -1162,7 +1162,7 @@ Street Address Line 2:
 
 ?>
 
- 
+
 
   <?php
 
@@ -1238,7 +1238,7 @@ Street Address Line 2:
 
 
 
-  
+
 
    <b><?php
 
@@ -1248,7 +1248,7 @@ Street Address Line 2:
 
   <br>
 
- 
+
 
  <label>  <?php
 
@@ -1260,7 +1260,7 @@ Street Address Line 2:
 
   <?php
 
-      echo tep_draw_checkbox_field('newsletter', '1') . '' . (tep_not_null(ENTRY_NEWSLETTER_TEXT) ? '<span class="inputRequirement">' . ENTRY_NEWSLETTER_TEXT . '</span>' : '');
+      echo tep_draw_checkbox_field('newsletter', '1', (!$process || isset($_POST['newsletter']) ? ' checked="checked"' : '')) . '' . (tep_not_null(ENTRY_NEWSLETTER_TEXT) ? '<span class="inputRequirement">' . ENTRY_NEWSLETTER_TEXT . '</span>' : '');
 
 ?>
 
@@ -1272,7 +1272,7 @@ Street Address Line 2:
 
   <legend>
 
-  
+
 
   <b>
 
@@ -1436,11 +1436,11 @@ Street Address Line 2:
 
   </td>
 
-  
+
 
   </tr>
 
-  
+
 
 </table>
 

@@ -31,24 +31,24 @@
  $currencies = new currencies();
 
 // Delete Entry Begin
-if ($_GET['action']=='delete') { 
-   $reset_query_raw = "delete from " . TABLE_CUSTOMERS_BASKET . " where customers_id=" . $_GET[customer_id]; 
-   tep_db_query($reset_query_raw); 
+if ($_GET['action']=='delete') {
+   $reset_query_raw = "delete from " . TABLE_CUSTOMERS_BASKET . " where customers_id=" . $_GET[customer_id];
+   tep_db_query($reset_query_raw);
 
-   $reset_query_raw2 = "delete from " . TABLE_CUSTOMERS_BASKET_ATTRIBUTES . " where customers_id=" . $_GET[customer_id]; 
+   $reset_query_raw2 = "delete from " . TABLE_CUSTOMERS_BASKET_ATTRIBUTES . " where customers_id=" . $_GET[customer_id];
    tep_db_query($reset_query_raw2);
 
-   tep_redirect(tep_href_link(FILENAME_RECOVER_CART_SALES, 'delete=1&customer_id='. $_GET['customer_id'] . '&tdate=' . $_GET['tdate'])); 
-} 
+   tep_redirect(tep_href_link(FILENAME_RECOVER_CART_SALES, 'delete=1&customer_id='. $_GET['customer_id'] . '&tdate=' . $_GET['tdate']));
+}
 
-if ($_GET['delete']) { 
-   $messageStack->add(MESSAGE_STACK_CUSTOMER_ID . $_GET['customer_id'] . MESSAGE_STACK_DELETE_SUCCESS, 'success'); 
-} 
+if ($_GET['delete']) {
+   $messageStack->add(MESSAGE_STACK_CUSTOMER_ID . $_GET['customer_id'] . MESSAGE_STACK_DELETE_SUCCESS, 'success');
+}
 
 // Delete Entry End
 	$tdate = $_POST['tdate'];
 	if ($tdate == '') $tdate = RCS_BASE_DAYS;
-	
+
 	$sdate = $_POST['sdate'];
 	if( $sdate == '' ) $sdate = RCS_SKIP_DAYS;
 ?>
@@ -57,11 +57,11 @@ if ($_GET['delete']) {
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET;?>">
   <title><?php echo TITLE; ?></title>
-   
-  <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
-   
 
-	 	
+  <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
+
+
+
 
 </head>
 <body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" bgcolor="#FFFFFF">
@@ -91,7 +91,7 @@ if ($_GET['delete']) {
     if (@date('Y', mktime(0, 0, 0, $month, $day, $year)) == $year) {
       return date(DATE_FORMAT, mktime(0, 0, 0, $month, $day, $year));
     } else {
-      return ereg_replace('2037' . '$', $year, date(DATE_FORMAT, mktime(0, 0, 0, $month, $day, 2037)));
+      return preg_replace('/2037' . '$/', $year, date(DATE_FORMAT, mktime(0, 0, 0, $month, $day, 2037)));
     }
   }
 
@@ -100,16 +100,16 @@ if ($_GET['delete']) {
 	function _GetCustomerSessions()
 	{
 		$cust_ses_ids = array();
-		
+
 		if( RCS_CHECK_SESSIONS == 'true' )
 		{
 			if (STORE_SESSIONS == 'mysql')
 			{
-				// --- DB RECORDS --- 
+				// --- DB RECORDS ---
 				$sesquery = tep_db_query("select value from " . TABLE_SESSIONS . " where 1");
 				while ($ses = tep_db_fetch_array($sesquery))
 				{
-					if ( ereg( "customer_id[^\"]*\"([0-9]*)\"", $ses['value'], $custval ) )
+					if ( preg_match( "/customer_id[^\"]*\"([0-9]*)\"/", $ses['value'], $custval ) )
 						$cust_ses_ids[] = $custval[1];
 				}
 			}
@@ -126,8 +126,8 @@ if ($_GET['delete']) {
 							{
 								$val = fread( $fp, filesize( $file ) );
 								fclose( $fp );
-	
-								if ( ereg( "customer_id[^\"]*\"([0-9]*)\"", $val, $custval ) )
+
+								if ( preg_match( "/customer_id[^\"]*\"([0-9]*)\"/", $val, $custval ) )
 									$cust_ses_ids[] = $custval[1];
 							}
 						}
@@ -143,7 +143,7 @@ if ($_GET['delete']) {
 
 <!-- body_text //-->
 
-  
+
     <table border="0" width="100%" cellspacing="0" cellpadding="2">
 <?php // Are we doing an e-mail to some customers?
 if (count($custid) > 0 ) {  ?>
@@ -170,7 +170,7 @@ if (count($custid) > 0 ) {  ?>
 	foreach ($custid as $cid)
 	{
 	unset($email);
-	
+
 	  $query1 = tep_db_query("select cb.products_id pid,
                                     cb.customers_basket_quantity qty,
                                     cb.customers_basket_date_added bdate,
@@ -240,7 +240,7 @@ if (count($custid) > 0 ) {  ?>
                  </tr>";
 
 		$mline .= $inrec['qty'] . ' x ' . $inrec2['name'] . "\n";
-	
+
 		if( EMAIL_USE_HTML == 'true' )
 			$mline .= '   <blockquote><a href="' . tep_catalog_href_link(FILENAME_CATALOG_PRODUCT_INFO, 'products_id='. $inrec['pid']) . '">' . tep_catalog_href_link(FILENAME_CATALOG_PRODUCT_INFO, 'products_id='. $inrec['pid']) . "</a></blockquote>\n\n";
 		else
@@ -272,7 +272,7 @@ if (count($custid) > 0 ) {  ?>
 		 $email .= sprintf(EMAIL_TEXT_CURCUST_INTRO, $mline);
 
 	  $email .= EMAIL_TEXT_BODY_HEADER . $mline . EMAIL_TEXT_BODY_FOOTER;
-	
+
 		if( EMAIL_USE_HTML == 'true' )
 			$email .= '<a HREF="' . tep_catalog_href_link('', '') . '">' . STORE_OWNER . "\n" . tep_catalog_href_link('', '')  . '</a>';
 		else
@@ -387,7 +387,7 @@ else	 //we are NOT doing an e-mail to some customers
       if ($curcus != "")
 		{
 			$tprice = 0;
-	
+
 			// change the color on those we have contacted add customer tag to customers
 			$fcolor = RCS_UNCONTACTED_COLOR;
 			$checked = 1;	// assume we'll send an email
@@ -427,7 +427,7 @@ else	 //we are NOT doing an e-mail to some customers
 			{
 				// We have a matching order; assume current customer but not for this order
 				$customer = '<font color=' . RCS_CURCUST_COLOR . '><b>' . $customer . '</b></font>';
-			
+
 				// Now, look to see if one of the orders matches this current order's items
 				while( $orec = tep_db_fetch_array( $ccquery ) )
 				{
@@ -436,7 +436,7 @@ else	 //we are NOT doing an e-mail to some customers
 					{
 						if( $orec['orders_status'] > RCS_PENDING_SALE_STATUS )
 							$checked = 0;
-			
+
 						// OK, we have a matching order; see if we should just skip this or show the status
 						if( RCS_SKIP_MATCHED_CARTS == 'true' && !$checked )
 						{
@@ -448,7 +448,7 @@ else	 //we are NOT doing an e-mail to some customers
 							// It's rare for the same customer to order the same item twice, so we probably have a matching order, show it
 							$fcolor = RCS_MATCHED_ORDER_COLOR;
 							$ccquery = tep_db_query("select orders_status_name from " . TABLE_ORDERS_STATUS . " where language_id = " . (int)$languages_id . " AND orders_status_id = " . (int)$orec['orders_status'] );
-			
+
 							if( $srec = tep_db_fetch_array( $ccquery ) )
 								$status = ' [' . $srec['orders_status_name'] . ']';
 							else
@@ -463,7 +463,7 @@ else	 //we are NOT doing an e-mail to some customers
 
 			if ($sentdate != '')
 			$sentInfo = cart_date_short($sentdate);
-			
+
 			$cline = "
 				<tr bgcolor=" . $fcolor . ">
 				<td class='dataTableContent' align='center' width='1%'>" . tep_draw_checkbox_field('custid[]', $curcus, RCS_AUTO_CHECK == 'true' ? $checked : 0) . "</td>
@@ -563,7 +563,7 @@ else	 //we are NOT doing an e-mail to some customers
 ?>
           <!-- REPORT TABLE END //-->
       </table>
-    
+
 <!-- body_text_eof //-->
 
 <!-- body_eof //-->

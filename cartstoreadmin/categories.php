@@ -4,7 +4,7 @@
   require(DIR_WS_CLASSES . 'currencies.php');
   $currencies = new currencies();
   $action = (isset($_GET['action']) ? $_GET['action'] : '');
-  if (eregi("(insert|update|setflag)", $action))
+  if (preg_match("/(insert|update|setflag)/i", $action))
       include_once('includes/reset_seo_cache.php');
   if (tep_not_null($action)) {
       switch ($action) {
@@ -67,7 +67,7 @@
                       tep_db_perform(TABLE_CATEGORIES_DESCRIPTION, $sql_data_array, 'update', "categories_id = '" . (int)$categories_id . "' and language_id = '" . (int)$languages[$i]['id'] . "'");
                   }
               }
-              
+
               if (isset($categories_image) && $categories_image !== "") {
                   if($categories_image['name']=='' && is_file(DIR_FS_CATALOG_IMAGES.$_POST['existing_categories_image'])){
                       tep_db_query("update " . TABLE_CATEGORIES . " set categories_image = '" . $_POST['existing_categories_image'] . "' where categories_id = '" . (int)$categories_id . "'");
@@ -160,7 +160,7 @@
                           tep_reset_cache_block('categories');
                           tep_reset_cache_block('also_purchased');
                       }
-                      
+
                       tep_redirect(tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $new_parent_id . '&cID=' . $categories_id));
                   }
               }
@@ -469,45 +469,45 @@
                       $product_query = tep_db_query("select products_quantity, products_price1, products_price2, products_price3, products_price4, products_price5, products_price6, products_price7, products_price8, products_price1_qty, products_price2_qty, products_price3_qty, products_price4_qty, products_price5_qty, products_price6_qty, products_price7_qty, products_price8_qty, products_qty_blocks, products_model, vendors_prod_id, products_image, product_image_2,product_image_3,product_image_4,product_image_5,product_image_6, products_price, vendors_product_price,map_price,  msrp_price, vendors_prod_comments, products_date_added, products_date_available,pSortOrder, products_weight, products_status, products_tax_class_id, vendors_id, manufacturers_id from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
                       $product = tep_db_fetch_array($product_query);
                       tep_db_query("insert into " . TABLE_PRODUCTS . " (
-products_quantity, 
-products_model, 
-vendors_prod_id, 
-products_image, 
-products_price, 
-products_price1, 
-products_price2, 
-products_price3, 
-products_price4, 
-products_price5, 
-products_price6, 
-products_price7, 
-products_price8, 
-products_price1_qty, 
-products_price2_qty, 
-products_price3_qty, 
-products_price4_qty, 
-products_price5_qty, 
-products_price6_qty, 
-products_price7_qty, 
-products_price8_qty, 
-products_qty_blocks, 
+products_quantity,
+products_model,
+vendors_prod_id,
+products_image,
+products_price,
+products_price1,
+products_price2,
+products_price3,
+products_price4,
+products_price5,
+products_price6,
+products_price7,
+products_price8,
+products_price1_qty,
+products_price2_qty,
+products_price3_qty,
+products_price4_qty,
+products_price5_qty,
+products_price6_qty,
+products_price7_qty,
+products_price8_qty,
+products_qty_blocks,
 vendors_product_price,
-map_price,  
-msrp_price, 
-vendors_prod_comments, 
-products_date_added, 
+map_price,
+msrp_price,
+vendors_prod_comments,
+products_date_added,
 products_date_available,
-pSortOrder, 
-products_weight, 
-products_status, 
-products_tax_class_id, 
-vendors_id, 
-manufacturers_id, 
+pSortOrder,
+products_weight,
+products_status,
+products_tax_class_id,
+vendors_id,
+manufacturers_id,
 product_image_2,
 product_image_3,
 product_image_4,
 product_image_5,
-product_image_6) 
+product_image_6)
 
 values
 
@@ -537,7 +537,7 @@ values
 '" . tep_db_input($product['map_price']) . "',
 '" . tep_db_input($product['msrp_price']) . "',
 '" . tep_db_input($product['vendors_prod_comments']) . "',
-                          
+
 now(), '" . tep_db_input($product['products_date_available']) . "',
 '" . tep_db_input($product['pSortOrder']) . "',
 '" . tep_db_input($product['products_weight']) . "',
@@ -968,13 +968,13 @@ function updateNet() {
   href="javascript:animatedcollapse.show('general_opts')">+ </a></span> </strong> <a href="javascript:animatedcollapse.hide('general_opts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('general_opts')"><b>Show/Hide
-  
+
   General Options</b></a>
   <div class="add_productwrap" id="general_opts" style="display: none;">
     <label>Products
-    
-    
-    
+
+
+
     Sort Order:</label>
     <?php
       echo tep_draw_separator('pixel_trans.png', '0', '0') . '' . tep_draw_input_field('pSortOrder', $pInfo->pSortOrder, 'size=2');
@@ -1158,7 +1158,7 @@ function updateNet() {
   href="javascript:animatedcollapse.show('image_opts')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('image_opts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('image_opts')"><b>Show/Hide
-  
+
   Image Upload</b></a>
   <div class="add_productwrap" id="image_opts" style="display: none;"><br />
     Main Product Image<br />
@@ -1201,19 +1201,19 @@ function updateNet() {
   href="javascript:animatedcollapse.show('attr_opts')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('attr_opts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('attr_opts')"><b>Show/Hide
-  
+
   Attribute Options</b></a>
   <div class="add_productwrap" id="attr_opts" style="display: none;">Use
-    
+
     can use this tool to enter in attributes to your products. If you need
-    
+
     more advanced attribute options like file uploads or text input options
-    
+
     you must first create those attribute bases in the <a
   href="products_attributes.php">attribute manager.</a> This tool can
-    
+
     create new and insert drop down attributes and control quantities of
-    
+
     these and sort order of them as well.<br />
     <?php
       require_once('attributeManager/includes/attributeManagerPlaceHolder.inc.php')
@@ -1226,7 +1226,7 @@ function updateNet() {
   href="javascript:animatedcollapse.show('shipping_opts')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('shipping_opts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('shipping_opts')"><b>Show/Hide
-  
+
   Individual Shipping Price Details</b></a>
   <div class="add_productwrap" id="shipping_opts" style="display: none;">
     <label>
@@ -1276,7 +1276,7 @@ function updateNet() {
   href="javascript:animatedcollapse.show('price_opts')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('price_opts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('price_opts')"><b>Show/Hide
-  
+
   Default Pricing Options</b></a>
   <div class="add_productwrap" id="price_opts" style="display: none;">
     <label>
@@ -1359,7 +1359,7 @@ updateGross();
   href="javascript:animatedcollapse.show('quanity_pb')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('quanity_pb')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('quanity_pb')"><b>Show/Hide
-  
+
   Quantity Price Breaks and Multi Group Pricing</b></a>
   <div class="add_productwrap" id="quanity_pb" style="display: none;"> Help for quantity price breaks
     <div class="tooltip-wholesale"
@@ -1575,17 +1575,17 @@ updateGross();
       </tr>
       <tr>
         <td><i>Note that if the price field for the customer group is left
-          
+
           empty, <b>no</b> price and <b>no</b> price break levels and quantities
-          
+
           for that customer group will be inserted in the database. If a field
-          
+
           or fields is/are filled, but the checkbox is unchecked no price/price
-          
+
           break levels etc. will be inserted either. If a price and price break
-          
+
           levels are already inserted in the database, but the checkbox
-          
+
           unchecked they will be removed from the database.</i><br />
           <br />
         </td>
@@ -1638,7 +1638,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><label>
           <?php
@@ -1670,7 +1670,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><label>
           <?php
@@ -1702,7 +1702,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><label>
           <?php
@@ -1734,7 +1734,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><label>
           <?php
@@ -1766,7 +1766,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><?php
           echo TEXT_PRODUCTS_PRICE6;
@@ -1796,7 +1796,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><?php
           echo TEXT_PRODUCTS_PRICE7;
@@ -1826,7 +1826,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
       <tr>
         <td class="dataTableHeadingContent"><label>
           <?php
@@ -1858,7 +1858,7 @@ updateGross();
 ?></td>
       </tr>
       </tr>
-      
+
     </table>
     <?php
       }
@@ -1869,7 +1869,7 @@ updateGross();
   href="javascript:animatedcollapse.show('desc_opts')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('desc_opts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('desc_opts')"><b>Show/Hide
-  
+
   Product Description Options </b></a>
   <div class="add_productwrap" id="desc_opts" style="display: none;">
     <!-- EOF Separate Pricing Per Customer -->
@@ -1889,7 +1889,7 @@ updateGross();
   title="Product Description - Enter the text you want in the products description area. "
   width="16px" height="16px" border="0"></div>
     <A rel="lightbox-page" HREF="tabshowto.php">(How do I create tabs in my
-    
+
     product description? ) </a>
     <?php
           echo tep_image(DIR_WS_CATALOG_LANGUAGES . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']) . '' . tep_draw_textarea_field_ckeditor('products_description[' . $languages[$i]['id'] . ']', 'soft', '70', '15', (isset($products_description[$languages[$i]['id']]) ? stripslashes($products_description[$languages[$i]['id']]) : tep_get_products_description($pInfo->products_id, $languages[$i]['id'])));
@@ -1946,7 +1946,7 @@ updateGross();
   href="javascript:animatedcollapse.show('vendor')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('vendor')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('vendor')"><b>Show/Hide
-  
+
   Multiple Vendor Options </b></a>
   <div class="add_productwrap" id="vendor" style="display: none;">
     <label>
@@ -2025,7 +2025,7 @@ updateGross();
               echo TEXT_PRODUCTS_SEO_URL;
 ?>
     <label>
-    
+
     <?php
           echo tep_image(DIR_WS_CATALOG_LANGUAGES . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']) . '' . tep_draw_input_field('products_seo_url[' . $languages[$i]['id'] . ']', (isset($products_seo_url[$languages[$i]['id']]) ? $products_seo_url[$languages[$i]['id']] : tep_get_products_seo_url($pInfo->products_id, $languages[$i]['id'])));
 ?>
@@ -2099,7 +2099,7 @@ updateGross();
   href="javascript:animatedcollapse.show('extrafields')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('extrafields')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('extrafields')"><b>Show/Hide
-  
+
   Extra Field Entries</b></a>
   <div class="add_productwrap" id="extrafields" style="display: none;"> Product extra fields help
     <div id="tooltip-extraf" class="tooltip-toggler"
@@ -2140,7 +2140,7 @@ updateGross();
   href="javascript:animatedcollapse.show('auto_parts')">+</a> </span> </strong> <a href="javascript:animatedcollapse.hide('auto_parts')"> <strong><span
   style="font-size: 24px;">- </span></strong></a> <a
   href="javascript:animatedcollapse.toggle('auto_parts')"><b>Show/Hide
-  
+
   Auto Part Options</b></a>
   <div class="add_productwrap" id="auto_parts" style="display: none;">
     <table>
@@ -2172,7 +2172,7 @@ updateGross();
                   while ($r = tep_db_fetch_array($q)) {
                       echo '<tr>
 
-            <td class="dataTableContent"><input type="checkbox" name="delete_ymm_' . $i . '" value="' . $r['id'] . '" ' . (isset($_POST['delete_ymm_' . $i]) && $_POST['delete_ymm_' . $i] ? 'checked' : '') . '></td>        
+            <td class="dataTableContent"><input type="checkbox" name="delete_ymm_' . $i . '" value="' . $r['id'] . '" ' . (isset($_POST['delete_ymm_' . $i]) && $_POST['delete_ymm_' . $i] ? 'checked' : '') . '></td>
 
             <td class="dataTableContent">' . ($r['products_car_make'] != '' ? $r['products_car_make'] : 'all') . '</td>
 
@@ -2188,7 +2188,7 @@ updateGross();
               } else {
                   echo '<tr>
 
-            <td class="dataTableContent"></td>        
+            <td class="dataTableContent"></td>
 
             <td class="dataTableContent">all</td>
 
@@ -2412,7 +2412,7 @@ p.products_id = pd.products_id and p.products_id = '" . (int)$_GET['pID'] . "'")
   <?php
           echo TEXT_BUY_NOW;
 ?>
-  </a> 
+  </a>
   <?php
           echo TEXT_MORE_INFO;
 ?>
@@ -2551,9 +2551,9 @@ p.products_id = pd.products_id and p.products_id = '" . (int)$_GET['pID'] . "'")
 </div>
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
   <tr>
-  
+
   <td valign="top">
-  
+
   <table border="0" width="100%" cellspacing="0" cellpadding="2">
     <tr class="dataTableHeadingRow">
       <td class="dataTableHeadingContent"><?php
@@ -2665,11 +2665,11 @@ p.products_id = pd.products_id and p.products_id = '" . (int)$_GET['pID'] . "'")
 ?>
       </div>
     </td>
-    
+
     <?php
 ?>
     </tr>
-    
+
     <?php
               }
               $cPath_back = '';
@@ -2702,7 +2702,7 @@ p.products_id = pd.products_id and p.products_id = '" . (int)$_GET['pID'] . "'")
     </tr>
   </table>
   </td>
-  
+
   <?php
               $heading = array();
               $contents = array();
@@ -2728,8 +2728,8 @@ p.products_id = pd.products_id and p.products_id = '" . (int)$_GET['pID'] . "'")
                       $contents[] = array('text' => '<br>' . TEXT_CATEGORIES_IMAGE . '<br>' . tep_draw_file_field('categories_image'));
                       $contents[] = array('text' => '<br>' . TEXT_SORT_ORDER . '<br>' . tep_draw_input_field('sort_order', '', 'size="2"'));
                        $contents[] = array('text' => 'Use alternate Product listing display?' . tep_draw_checkbox_field('altProdDisplay', 1, ($cInfo->altProdDisplay == 1) ? true : false));
-										  
-                                      
+
+
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Title' . $category_htc_title_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Description' . $category_htc_desc_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Keywords' . $category_htc_keywords_string);
@@ -2759,7 +2759,7 @@ p.products_id = pd.products_id and p.products_id = '" . (int)$_GET['pID'] . "'")
                       $contents[] = array('text' => '<br>' . TEXT_EDIT_CATEGORIES_IMAGE . '<br>'.tep_draw_hidden_field('existing_categories_image',$cInfo->categories_image) . tep_draw_file_field('categories_image').$deleteBox);
                       $contents[] = array('text' => '<br>' . TEXT_EDIT_SORT_ORDER . '<br>' . tep_draw_input_field('sort_order', $cInfo->sort_order, 'size="2"'));
                                           $contents[] = array('text' => '<br>Use alternate Product listing display?<br>' . tep_draw_checkbox_field('altProdDisplay', 1, ($cInfo->altProdDisplay == 1) ? true : false));
-                                          
+
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Title' . $category_htc_title_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Description' . $category_htc_desc_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Keywords' . $category_htc_keywords_string);
@@ -2868,9 +2868,9 @@ products p where v.vendors_id=p.vendors_id and p.products_id='" . $pInfo->produc
               }
 ?>
   </td>
-  
+
   </tr>
-  
+
 </table>
 <?php
           }

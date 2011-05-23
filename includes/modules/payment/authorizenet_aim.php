@@ -2,7 +2,7 @@
 
 /* $Id: authorizenet_aim.php 23rd August, 2006 18:50:00 Brent O'Keeffe $
    GNU General Public License Compatible
-   
+
    CartStore eCommerce Software, for The Next Generation
    http://www.cartstore.com
 
@@ -275,14 +275,14 @@
 	  if(MODULE_PAYMENT_AUTHORIZENET_AIM_TESTMODE == 'Test') {
 	    $submit_data['x_test_request'] = 'TRUE';
 	  } else {
-		  
+
 	  $submit_data['x_test_request'] = 'FALSE';
-	  
+
       }
 
 	  // concatenate the submission data and put into variable $data
 	  while(list($key, $value) = each($submit_data)) {
-	    $data .= $key . '=' . urlencode(ereg_replace(',', '', $value)) . '&';
+	    $data .= $key . '=' . urlencode(preg_replace('/,/', '', $value)) . '&';
 	  }
 
 	  // Remove the last "&" from the string
@@ -295,7 +295,7 @@
 	  // Test or Live Server address set
 	  // using 'Test' or 'Live' mode in
 	  // osCommerce admin panel
-	  
+
 
 	  unset($response);
 
@@ -353,7 +353,7 @@
     }
 
     function check() {
-      
+
       if (!isset($this->_check)) {
         $check_query = tep_db_query("select configuration_value from " . TABLE_CONFIGURATION . " where configuration_key = 'MODULE_PAYMENT_AUTHORIZENET_AIM_STATUS'");
         $this->_check = tep_db_num_rows($check_query);
@@ -362,7 +362,7 @@
     }
 
     function install() {
-      
+
       tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Enable Authorize.net AIM Module', 'MODULE_PAYMENT_AUTHORIZENET_AIM_STATUS', 'True', 'Do you want to accept Authorize.net payments via the AIM Method?', '6', '0', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now())");
       tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Login Username', 'MODULE_PAYMENT_AUTHORIZENET_AIM_LOGIN', 'Your User Name', 'The login username used for the Authorize.net service', '6', '0', now())");
       tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('Transaction Key', 'MODULE_PAYMENT_AUTHORIZENET_AIM_TXNKEY', '16 digit key', 'Transaction Key used for encrypting TP data', '6', '0', now())");
@@ -378,7 +378,7 @@
     }
 
     function remove() {
-      
+
       tep_db_query("delete from " . TABLE_CONFIGURATION . " where configuration_key in ('" . implode("', '", $this->keys()) . "')");
     }
 

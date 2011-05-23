@@ -22,9 +22,9 @@ Data is reported as of order purchase date.
 If an order status is chosen, the report summarizes orders with that status.
 
 Version 2.0 introduces the capability to "drill down" on any month
-to report the daily summary for that month.  
+to report the daily summary for that month.
 
-Report rows are initially shown in newest to oldest, top to bottom, 
+Report rows are initially shown in newest to oldest, top to bottom,
 but this order may be inverted by clicking the "Invert" control button.
 
 Version 2.1 adds a popup display that lists the various types (and their
@@ -47,7 +47,7 @@ The nontaxed column is the subtotal for the row less the taxed column value.
   $currencies = new currencies();
 //
 // entry for help popup window
-if (isset($_GET['help'])){ 
+if (isset($_GET['help'])){
   echo TEXT_HELP;
   exit;
 };
@@ -74,7 +74,7 @@ exit;
 };
 //
 // entry for popup display of tax detail
-// show=ot_tax 
+// show=ot_tax
 if (isset($_GET['show'])) {
 	$ot_type = tep_db_prepare_input($_GET['show']);
 	$sel_month = tep_db_prepare_input($_GET['month']);
@@ -96,7 +96,7 @@ if (isset($_GET['show'])) {
 	if ($sel_day<>0) echo "/" . $sel_day;
 	if ($status<>'') echo "<br>" . HEADING_TITLE_STATUS . ":" . "&nbsp;" . $status;
 	echo "</caption>";
- 
+
 	while ($detail_line = tep_db_fetch_array($detail_query)) {
 	echo "<tr class=dataTableRow><td align=left width='75%'>" . $detail_line['description'] . "</td><td align=right>" . number_format($detail_line['amount'],2) . "</td></tr>";}
 	echo "</table></body>";
@@ -106,14 +106,14 @@ exit;
 // main entry for report display
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo TITLE; ?></title>
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
-   
-	 	
+
+
 </head>
 <body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" bgcolor="#FFFFFF">
 <?php
@@ -152,7 +152,7 @@ exit;
 		  <tr>
             <td class="pageHeading">
 			<h3><?php echo HEADING_TITLE; ?></h3></td>
-<?php 
+<?php
 // detect whether this is monthly detail request
 $sel_month = 0;
 	if ($_GET['month']&& $_GET['year']) {
@@ -175,7 +175,7 @@ if ($_GET['status']) {
   $orders_status_query = tep_db_query("select orders_status_name from " . TABLE_ORDERS_STATUS . " where language_id = '" . $languages_id . "' and orders_status_id =" . $status);
   while ($orders_status = tep_db_fetch_array($orders_status_query)) {
 	  $orders_status_text = $orders_status['orders_status_name'];}
-				};	
+				};
 if (!$print) { ?>
 			<td align="right">
 			<table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -193,7 +193,7 @@ if (!$print) { ?>
                 echo HEADING_TITLE_STATUS . ': ' . tep_draw_pull_down_menu('status', array_merge(array(array('id' => '', 'text' => TEXT_ALL_ORDERS)), $orders_statuses), '', 'onChange="this.form.submit();"'); ?>
 				<input type="hidden" name="selected_box" value="reports">
 				<?php
-					if ($sel_month<>0) 
+					if ($sel_month<>0)
 					echo "<input type='hidden' name='month' value='" . $sel_month . "'><input type='hidden' name='year' value='" . $sel_year . "'>";
 					if ($invert) echo "<input type='hidden' name='invert' value='yes'>";
 				?>
@@ -242,21 +242,21 @@ row for buttons to print, save, and help
 				};
 				?>
 				</td>
-				<td class="smallText"><a href="<?php  
+				<td class="smallText"><a href="<?php
 				echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING'] . "&print=yes";
 				?>" target="print" title="<?php echo TEXT_BUTTON_REPORT_PRINT_DESC . "\">" . TEXT_BUTTON_REPORT_PRINT; ?></a>&nbsp;|&nbsp;
 				</td>
-				<td class="smallText"><a href='<?php echo $_SERVER['PHP_SELF'] . "?" . ereg_replace('&invert=yes','',$_SERVER['QUERY_STRING']);
+				<td class="smallText"><a href='<?php echo $_SERVER['PHP_SELF'] . "?" . preg_replace('/&invert=yes/','',$_SERVER['QUERY_STRING']);
 				if (!$invert) echo "&invert=yes";
 				echo "' title= '" . TEXT_BUTTON_REPORT_INVERT_DESC . "'>" . TEXT_BUTTON_REPORT_INVERT; ?></a>&nbsp;|&nbsp;
 				</td>
-				<td class="smallText"><a href="#" onClick="window.open('<?php  
+				<td class="smallText"><a href="#" onClick="window.open('<?php
 				echo $_SERVER['PHP_SELF'] . "?&help=yes";	?>','help',config='height=400,width=600,scrollbars=1, resizable=1')" title="<?php echo TEXT_BUTTON_REPORT_HELP_DESC . "\">" . TEXT_BUTTON_REPORT_HELP; ?></a>
 				</td>
 				</tr></table>
 				</td>
 			</tr>
-<?php	};	
+<?php	};
 //
 // determine if loworder fee is enabled in configuration, include/omit the column
 $loworder_query_raw = "select configuration_value from " . TABLE_CONFIGURATION . " where configuration_key =" . "'MODULE_ORDER_TOTAL_LOWORDERFEE_LOW_ORDER_FEE'";
@@ -287,10 +287,10 @@ $csv_accum = '';
             <td valign="top">
 			<table border="0" width='100%' cellspacing="0" cellpadding="2">
 <tr class="dataTableHeadingRow">
-<td class="dataTableHeadingContent" width='45' align='left' valign="bottom"><?php 
+<td class="dataTableHeadingContent" width='45' align='left' valign="bottom"><?php
 if ($sel_month == 0) mirror_out(TABLE_HEADING_MONTH); else mirror_out(TABLE_HEADING_MONTH); ?>
 </td>
-<td class="dataTableHeadingContent" width='35' align='left' valign="bottom"><?php 
+<td class="dataTableHeadingContent" width='35' align='left' valign="bottom"><?php
 if ($sel_month == 0) mirror_out(TABLE_HEADING_YEAR); else mirror_out(TABLE_HEADING_DAY); ?></td>
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_INCOME); ?></td>
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_SALES); ?></td>
@@ -299,7 +299,7 @@ if ($sel_month == 0) mirror_out(TABLE_HEADING_YEAR); else mirror_out(TABLE_HEADI
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_TAX_COLL); ?></td>
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_SHIPHNDL); ?></td>
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_SHIP_TAX); ?></td>
-<?php 
+<?php
 if ($loworder) { ?>
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_LOWORDER); ?></td>
 <?php }; ?>
@@ -308,7 +308,7 @@ if ($extra_class) { ?>
 <td class="dataTableHeadingContent" width='70' align='right' valign="bottom"><?php mirror_out(TABLE_HEADING_OTHER); ?></td>
 <?php }; ?>
 </tr>
-<?php 
+<?php
 // clear footer totals
 	$footer_gross = 0;
 	$footer_sales = 0;
@@ -321,7 +321,7 @@ if ($extra_class) { ?>
 	$footer_other = 0;
 // new line for CSV
 $csv_accum .= "\n";
-// order totals, the driving force 
+// order totals, the driving force
 $status = '';
 $sales_query_raw = "select sum(ot.value) gross_sales, monthname(o.date_purchased) row_month, year(o.date_purchased) row_year, month(o.date_purchased) i_month, dayofmonth(o.date_purchased) row_day  from " . TABLE_ORDERS . " o left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id) where ";
 if ($_GET['status']) {
@@ -346,9 +346,9 @@ while ($sales = tep_db_fetch_array($sales_query)) {
 ?>
 <tr class="dataTableHeadingRow">
 <td class="dataTableHeadingContent" align="left">
-<?php 
-	if ($sales['row_year']==date("Y")) mirror_out(TABLE_FOOTER_YTD); 
-	else 
+<?php
+	if ($sales['row_year']==date("Y")) mirror_out(TABLE_FOOTER_YTD);
+	else
 		if ($sel_month==0) mirror_out(TABLE_FOOTER_YEAR);
 		else
 			mirror_out(strtoupper(substr($sales['row_month'],0,3)));
@@ -386,7 +386,7 @@ while ($sales = tep_db_fetch_array($sales_query)) {
 <td class="dataTableHeadingContent" width='70' align="right">
 <?php mirror_out(number_format($footer_other,2)); ?>
 </td>
-<?php }; 
+<?php };
 // clear footer totals
 $footer_gross = 0;
 $footer_sales = 0;
@@ -435,7 +435,7 @@ $tax_coll_query_raw .= "ot.class = " . $class_val_tax . " and month(o.date_purch
 if ($sel_month<>0) $tax_coll_query_raw .= " and dayofmonth(o.date_purchased) = '" . $sales['row_day'] . "'";
 $tax_coll_query = tep_db_query($tax_coll_query_raw);
 $tax_this_row = 0;
-if (tep_db_num_rows($tax_coll_query)>0)	
+if (tep_db_num_rows($tax_coll_query)>0)
 	$tax_this_row = tep_db_fetch_array($tax_coll_query);
 
 //
@@ -446,7 +446,7 @@ $shiphndl_query_raw .= "ot.class = " . $class_val_shiphndl . " and month(o.date_
 if ($sel_month<>0) $shiphndl_query_raw .= " and dayofmonth(o.date_purchased) = '" . $sales['row_day'] . "'";
 $shiphndl_query = tep_db_query($shiphndl_query_raw);
 $shiphndl_this_row = 0;
-if (tep_db_num_rows($shiphndl_query)>0)	
+if (tep_db_num_rows($shiphndl_query)>0)
 	$shiphndl_this_row = tep_db_fetch_array($shiphndl_query);
 //
 // low order fees for row
@@ -457,19 +457,19 @@ if ($loworder) {
 	$loworder_query_raw .= "ot.class = " . $class_val_loworder . " and month(o.date_purchased)= '" . $sales['i_month'] . "' and year(o.date_purchased)= '" . $sales['row_year'] . "'";
 	if ($sel_month<>0) $loworder_query_raw .= " and dayofmonth(o.date_purchased) = '" . $sales['row_day'] . "'";
 	$loworder_query = tep_db_query($loworder_query_raw);
-	if (tep_db_num_rows($loworder_query)>0)	
+	if (tep_db_num_rows($loworder_query)>0)
 	$loworder_this_row = tep_db_fetch_array($loworder_query);
 };
 //
 // additional column if extra class value in orders_total table
 $other_this_row = 0;
-if ($extra_class) { 
+if ($extra_class) {
 	$other_query_raw = "select sum(ot.value) other from " . TABLE_ORDERS . " o left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id) where ";
 	if ($status<>'') $other_query_raw .= "o.orders_status ='" . $status . "' and ";
 	$other_query_raw .= "ot.class <> " . $class_val_subtotal . " and class <> " . $class_val_tax . " and class <> " . $class_val_shiphndl . " and class <> " . $class_val_loworder . " and class <> " . $class_val_total . " and month(o.date_purchased)= '" . $sales['i_month'] . "' and year(o.date_purchased)= '" . $sales['row_year'] . "'";
 	if ($sel_month<>0) $other_query_raw .= " and dayofmonth(o.date_purchased) = '" . $sales['row_day'] . "'";
 	$other_query = tep_db_query($other_query_raw);
-	if (tep_db_num_rows($other_query)>0)	
+	if (tep_db_num_rows($other_query)>0)
 	$other_this_row = tep_db_fetch_array($other_query);
 	};
 
@@ -496,12 +496,12 @@ if ($extra_class) {
 if ($sel_month == 0	&& !$print) {
 	echo "<a href='" . $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING'] . "&month=" . $sales['i_month'] . "&year=" . $sales['row_year'] . "' title='" . TEXT_BUTTON_REPORT_GET_DETAIL . "'>";
 	}
-mirror_out(substr($sales['row_month'],0,3)); 
+mirror_out(substr($sales['row_month'],0,3));
 if ($sel_month == 0 && !$print) echo '</a>';
 ?>
 </td>
 <td class="dataTableContent" align="left">
-<?php 
+<?php
 if ($sel_month==0) mirror_out($sales['row_year']);
 else mirror_out($sales['row_day']);
 $last_row_year = $sales['row_year']; // save this row's year to check for annual footer
@@ -512,7 +512,7 @@ $last_row_year = $sales['row_year']; // save this row's year to check for annual
 <td class="dataTableContent" width='70' align="right"><?php mirror_out(number_format($zero_rated_sales_this_row['net_sales'],2)); ?></td>
 <td class="dataTableContent" width='70' align="right"><?php mirror_out(number_format($net_sales_this_row['net_sales'],2)); ?></td>
 <td class="dataTableContent" width='70' align="right">
-<?php 
+<?php
 	// make this a link to the detail popup if nonzero
 	if (!$print && ($net_sales_this_row['tax']>0)) {
 		echo "<a href=\"#\" onClick=\"window.open('" . $_SERVER['PHP_SELF'] . "?&show=ot_tax&year=" . $sales['row_year'] . "&month=" . $sales['i_month'];
@@ -520,7 +520,7 @@ $last_row_year = $sales['row_year']; // save this row's year to check for annual
 		if ($status<>'') echo "&status=" . $status;
 		echo "','detail',config='height=200,width=400,scrollbars=1, resizable=1')\" title=\"Show detail\">";
 	};
-	mirror_out(number_format($net_sales_this_row['tax'],2)); 
+	mirror_out(number_format($net_sales_this_row['tax'],2));
 	if (!$print && $net_sales_this_row['tax']>0) echo "</a>";
 ?></td>
 <td class="dataTableContent" width='70' align="right"><?php mirror_out(number_format($shiphndl_this_row['shiphndl'],2)); ?></td>
@@ -533,7 +533,7 @@ if ($extra_class) { ?>
 <td class="dataTableContent" width='70' align="right"><?php mirror_out(number_format($other_this_row['other'],2)); ?></td>
 <?php }; ?>
 </tr>
-<?php 
+<?php
 // new line for CSV
 $csv_accum .= "\n";
 //
@@ -543,11 +543,11 @@ if ($rows==$num_rows){
 ?>
 <tr class="dataTableHeadingRow">
 <td class="dataTableHeadingContent" align="left">
-<?php 
-	if ($sel_month<>0) 
+<?php
+	if ($sel_month<>0)
 	mirror_out(strtoupper(substr($sales['row_month'],0,3)));
 	else
-	{if ($sales['row_year']==date("Y")) mirror_out(TABLE_FOOTER_YTD); 
+	{if ($sales['row_year']==date("Y")) mirror_out(TABLE_FOOTER_YTD);
 	 else mirror_out(TABLE_FOOTER_YEAR);};
 ?>
 </td>
@@ -583,7 +583,7 @@ if ($rows==$num_rows){
 <td class="dataTableHeadingContent" width='70' align="right">
 <?php mirror_out(number_format($footer_other,2)); ?>
 </td>
-<?php }; 
+<?php };
 // clear footer totals
 $footer_gross = 0;
 $footer_sales = 0;
@@ -609,10 +609,10 @@ if ($num_rows>0 && !$print) {
 				<td class="smallText" colspan="4"><form action="<?php echo $_SERVER['PHP_SELF']; ?>" method=post><input type='hidden' name='csv' value='<?php echo $csv_accum; ?>'><input type='hidden' name='saveas' value='sales_report_<?php
 					//suggested file name for csv, include year and month if detail
 					//include status if selected, end with date and time of report
-				if ($sel_month<10) $sel_month_2 = "0" . $sel_month; 
+				if ($sel_month<10) $sel_month_2 = "0" . $sel_month;
 				else $sel_month_2 = $sel_month;
 				if ($sel_month<>0) echo $sel_year . $sel_month_2 . "_";
-				if (strpos($orders_status_text,' ')) echo substr($orders_status_text, 0, strpos($orders_status_text,' ')) . "_" . date("YmdHi"); else echo $orders_status_text . "_" . date("YmdHi"); 
+				if (strpos($orders_status_text,' ')) echo substr($orders_status_text, 0, strpos($orders_status_text,' ')) . "_" . date("YmdHi"); else echo $orders_status_text . "_" . date("YmdHi");
 				?>'><input type="submit" class="button" value="<?php echo TEXT_BUTTON_REPORT_SAVE ;?>"></form>
 				</td>
 </tr>
@@ -633,15 +633,15 @@ if ($num_rows>0 && !$print) {
 <!-- footer_eof //-->
 </body>
 </html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); 
+<?php require(DIR_WS_INCLUDES . 'application_bottom.php');
 
 function mirror_out ($field) {
 	global $csv_accum;
 	echo $field;
 	$field = strip_tags($field);
-	$field = ereg_replace (",","",$field);
-	if ($csv_accum=='') $csv_accum=$field; 
-	else 
+	$field = preg_replace ("/,/","",$field);
+	if ($csv_accum=='') $csv_accum=$field;
+	else
 	{if (strrpos($csv_accum,chr(10)) == (strlen($csv_accum)-1)) $csv_accum .= $field;
 		else $csv_accum .= "," . $field; };
 	return;

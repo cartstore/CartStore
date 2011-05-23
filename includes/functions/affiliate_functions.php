@@ -2,7 +2,7 @@
 /*
   $Id: affiliate_functions.php,v 2.00 2003/10/12
 
-  
+
 
   Contribution based on:
 
@@ -15,7 +15,7 @@
 */
 
   function affiliate_check_url($url) {
-    return eregi("^https?://[a-z0-9]([-_.]?[a-z0-9])+[.][a-z0-9][a-z0-9/=?.&\~_-]+$",$url);
+    return preg_match("/^https?:\/\/[a-z0-9]([-_.]?[a-z0-9])+[.][a-z0-9][a-z0-9\/=?.&\~_-]+$/i",$url);
   }
 
   function affiliate_insert ($sql_data_array, $affiliate_parent = 0) {
@@ -27,7 +27,7 @@
       if ($affiliate_root_array = tep_db_fetch_array($affiliate_root_query)) {
         tep_db_query("update " . TABLE_AFFILIATE . " SET affiliate_lft = affiliate_lft + 2 WHERE affiliate_root  =  '" . $affiliate_root_array['affiliate_root'] . "' and  affiliate_lft > "  . $affiliate_root_array['affiliate_rgt'] . "  AND affiliate_rgt >= " . $affiliate_root_array['affiliate_rgt'] . " ");
         tep_db_query("update " . TABLE_AFFILIATE . " SET affiliate_rgt = affiliate_rgt + 2 WHERE affiliate_root  =  '" . $affiliate_root_array['affiliate_root'] . "' and  affiliate_rgt >= "  . $affiliate_root_array['affiliate_rgt'] . "  ");
-      
+
 
         $sql_data_array['affiliate_root'] = $affiliate_root_array['affiliate_root'];
         $sql_data_array['affiliate_lft'] = $affiliate_root_array['affiliate_rgt'];
@@ -98,7 +98,7 @@
   }
 
 ////
-// This function makes a new password from a plaintext password. 
+// This function makes a new password from a plaintext password.
   if (!function_exists('tep_encrypt_password')) {
     function tep_encrypt_password($plain) {
       $password = '';

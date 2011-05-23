@@ -26,9 +26,9 @@
       $this->port = '';
       $this->timeout = '60';
       $this->items_qty = 0;
-			
-				 
-// To enable logging, create an empty "bax.log" file at the location you set below, 
+
+
+// To enable logging, create an empty "bax.log" file at the location you set below,
 //    give it write permissions (CHMOD 777) and uncomment the next line
 //      $this->logfile = '/full/filesystem/path/to/bax.log';
 
@@ -183,15 +183,15 @@
 
     function handling_charge($vendors_id='1') {
       $handling_charge = constant('MODULE_SHIPPING_BAX_HANDLING_' . $vendors_id);
-			
+
       if ($order->delivery['country'][iso_code_2] == 'CA') { //Add the Customs fee for Canada
         $handling_charge = $handling_charge + $this->customs_fee_canada($vendors_id);
       }
-			
+
       if ($order->delivery['country'][iso_code_2] == 'US') { //Add the Customs fee for USA
         $handling_charge = $handling_charge + $this->customs_fee_usa($vendors_id);
       }
-			
+
       return $handling_charge;
     }
 
@@ -203,10 +203,10 @@
     function zones($vendors_id='1') {
       if ( ($this->enabled($vendors_id) == true) && ((int)constant('MODULE_SHIPPING_BAX_ZONE_' . $vendors_id) > 0) ) {
         $check_flag = false;
-        $check_query = tep_db_query("select zone_id 
-                                     from " . TABLE_ZONES_TO_GEO_ZONES . " 
-                                     where geo_zone_id = '" . (int)constant('MODULE_SHIPPING_BAX_ZONE_' . $vendors_id) . "' 
-                                       and zone_country_id = '" . $order->delivery['country']['id'] . "' 
+        $check_query = tep_db_query("select zone_id
+                                     from " . TABLE_ZONES_TO_GEO_ZONES . "
+                                     where geo_zone_id = '" . (int)constant('MODULE_SHIPPING_BAX_ZONE_' . $vendors_id) . "'
+                                       and zone_country_id = '" . $order->delivery['country']['id'] . "'
                                      order by zone_id"
                                    );
         while ($check = tep_db_fetch_array($check_query)) {
@@ -221,8 +221,8 @@
       }//if
       return $check_flag;
     }//function
-		
-		
+
+
 //////////
 // class method for getting either a specific quote or all quotes
     function quote($method = '', $module = '', $vendors_id = '1') {
@@ -231,8 +231,8 @@
       //If method is properly set, extract the delivery special service and the shipping method from the encoded method
       if (strpos ($method, '-')) {
         $shipping_method = explode ('-', $method);
-        $delivery_service = ereg_replace('\+', ' ', $shipping_method[0]);
-        $shipping_method = ereg_replace('\+', ' ', $shipping_method[1]);
+        $delivery_service = preg_replace('/\+/', ' ', $shipping_method[0]);
+        $shipping_method = preg_replace('/\+/', ' ', $shipping_method[1]);
       } else {  //Otherwise no method is set
         $delivery_service = '';
         $shipping_method = '';
@@ -257,15 +257,15 @@
 
         foreach ($order->products as $products_data) {  // For each product
           $products_dimensions_query = tep_db_query("select vendors_id,
-                                                            products_length, 
-                                                            products_width, 
-                                                            products_height 
-                                                     from " . TABLE_PRODUCTS . " 
+                                                            products_length,
+                                                            products_width,
+                                                            products_height
+                                                     from " . TABLE_PRODUCTS . "
                                                      where products_id = '" .  $products_data['id'] . "'"
                                                     );
 
           //Check that the query actually returned a product
-          if (tep_db_num_rows($products_dimensions_query)) {  
+          if (tep_db_num_rows($products_dimensions_query)) {
             $products_dimensions = tep_db_fetch_array($products_dimensions_query);
 
             if ($products_dimensions['vendors_id'] == $vendors_id) {  //Only for products shipping from this vendor
@@ -274,8 +274,8 @@
               $this->declared_value += $products_data['final_price'];
 
               //Use the default calculation if one or more dimensions is missing (zero)
-              if ($products_dimensions['products_length'] == 0 || 
-                  $products_dimensions['products_width'] == 0 || 
+              if ($products_dimensions['products_length'] == 0 ||
+                  $products_dimensions['products_width'] == 0 ||
                   $products_dimensions['products_height'] == 0) {
                 $volume = $products_data['weight'] / $this->default_density($vendors_id);  //Volume of the container
                 $dimensions = ceil (pow ($volume, (1/3)));  //Assume the container is a cube
@@ -297,23 +297,23 @@
       }
       $this->total_weight = ceil ($this->total_weight); //Weight must be an integer
       $this->declared_value = ceil ($this->declared_value); //Declared Value must be an integer dollar amount
-				
+
 //Start building the output array
       $this->quotes = array('id' => $this->code,  //code for this module
                             'module' => $this->title);  //Title for this module
-			
+
 // Get the quotes (multiple quotes if more than one Delivery Service is selected)
       if (strlen($shipping_method) < 1) {   //Get all of the quotes
-        $domestic_services = explode (",", $this->domestic_services($vendors_id)); 
+        $domestic_services = explode (",", $this->domestic_services($vendors_id));
         $domestic_services = array_map ("trim", $domestic_services);
-			
+
         $delivery_services = $this->delivery_services($vendors_id);
         if ($delivery_services == '') {  //Just in case no services were selected
           $delivery_services = 'STANDARD';
         }
         $delivery_services = explode (',', $delivery_services);
         $delivery_services = array_map ("trim", $delivery_services);
-		
+
         foreach ($delivery_services as $delivery_service) {  //Each of the services selected in Admin
           $delivery_service_text = ucfirst (strtolower ($delivery_service)) . ' - ';  //The input is all uppercase
           if ($delivery_service_text == 'Standard - ') {  //We don't want to show this
@@ -324,24 +324,24 @@
 
           if (is_array ($bax_quotes) && (sizeof ($bax_quotes) > 0) ) {  //Build the array to output
             foreach ($bax_quotes as $bax_quote) {
-              $service_id = ereg_replace(' ', '+', ($delivery_service . '-' . $bax_quote['service']));
-    
+              $service_id = preg_replace('/ /', '+', ($delivery_service . '-' . $bax_quote['service']));
+
               if (isset ($bax_quote['error']) && strlen (trim ($bax_quote['error'])) > 1) {  //There was an error
-                $this->quotes['error'] = MODULE_SHIPPING_BAX_TEXT_COMM_UNKNOWN_ERROR . 
-//                                         '<br>' . $bax_quote['error'] . '<br>' . 
+                $this->quotes['error'] = MODULE_SHIPPING_BAX_TEXT_COMM_UNKNOWN_ERROR .
+//                                         '<br>' . $bax_quote['error'] . '<br>' .
                                          MODULE_SHIPPING_BAX_TEXT_IF_YOU_PREFER;
               }
-						
+
 						  //If this service is one we want to show (was selected in Admin)
               if (count($domestic_services) > 0 && in_array($bax_quote['service'], $domestic_services)) {
                 $cost = ($bax_quote['total_charges']) + $this->handling_charge($vendors_id);
-                $methods[] = array('id' => $service_id,  
+                $methods[] = array('id' => $service_id,
                                    'title' => ($delivery_service_text . $bax_quote['service']),
-                                   'cost' => $cost 
+                                   'cost' => $cost
                                   );
-              }  
-            }  
-          } 
+              }
+            }
+          }
         }
         if ($this->tax_class($vendors_id) > 0) {
           $this->quotes['tax'] = tep_get_tax_rate($this->tax_class($vendors_id), $order->delivery['country']['id'], $order->delivery['zone_id']);
@@ -356,17 +356,17 @@
         }
 
         $bax_quotes = $this->_baxGetQuote($delivery_service, $vendors_id);  //Get the quote
-  
+
         if ( (is_array($bax_quotes)) && (sizeof($bax_quotes) > 0) ) {  //Build the array to output
           foreach ($bax_quotes as $bax_quote) {
-            $service_id = ereg_replace(' ', '+', ($delivery_service . '-' . $bax_quote['service']));
+            $service_id = preg_replace('/ /', '+', ($delivery_service . '-' . $bax_quote['service']));
 
           if (isset ($bax_quote['error']) && strlen (trim ($bax_quote['error'])) > 1) {  //There was an error
-            $this->quotes['error'] = MODULE_SHIPPING_BAX_TEXT_COMM_UNKNOWN_ERROR . 
-                                     '<br>' . $bax_quote['error'] . '<br>' . 
+            $this->quotes['error'] = MODULE_SHIPPING_BAX_TEXT_COMM_UNKNOWN_ERROR .
+                                     '<br>' . $bax_quote['error'] . '<br>' .
                                      MODULE_SHIPPING_BAX_TEXT_IF_YOU_PREFER;
           }
-						
+
           //If this service is the one we want
           if ($bax_quote['service'] == $shipping_method) {
             $cost = ($bax_quote['total_charges']) + $this->handling_charge($vendors_id);
@@ -374,7 +374,7 @@
                                'title' => ($delivery_service_text . $bax_quote['service']),
                                'cost' => $cost );
           }
-        } 
+        }
       }
       if ($this->tax_class($vendors_id) > 0) {
         $this->quotes['tax'] = tep_get_tax_rate($this->tax_class($vendors_id), $order->delivery['country']['id'], $order->delivery['zone_id']);
@@ -404,7 +404,7 @@
       $special_services_string = 'array(\\\'' . implode("\',\'", $this->domestic_special_services_pickup) . "\'";
       $delivery_services_string = 'array(\\\'' . implode("\',\'", $this->domestic_special_services_delivery) . "\'";
       $domestic_services_string = 'array(\\\'' . implode("\',\'", $this->domestic_service_levels) . "\'";
-			
+
       tep_db_query("insert into " . TABLE_VENDOR_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added, vendors_id) values ('Enable BAX Shipping', 'MODULE_SHIPPING_BAX_STATUS_" . $vendors_id . "', 'True', 'Do you want to offer BAXGlobal shipping?', '6', '0', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now(), '" . $vendors_id . "')");
       tep_db_query("insert into " . TABLE_VENDOR_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, vendors_id) values ('Sort order of display.', 'MODULE_SHIPPING_BAX_SORT_ORDER_" . $vendors_id . "', '0', 'Sort order of display. Lowest is displayed first.', '6', '1', now(), '" . $vendors_id . "')");
       tep_db_query("insert into " . TABLE_VENDOR_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added, vendors_id) values ('Tax Class', 'MODULE_SHIPPING_BAX_TAX_CLASS_" . $vendors_id . "', '0', 'Use the following tax class on the shipping fee.', '6', '2', 'tep_get_tax_class_title', 'tep_cfg_pull_down_tax_classes(', now(), '" . $vendors_id . "')");
@@ -467,7 +467,7 @@
     $accessRequestHeader =   //Header and Login section
       "	<BAXRateQuoteRequest>\n" .
       "	<RateQuoteRequest>\n" .
-      "	<Login>\n" . 
+      "	<Login>\n" .
       "   <UserId>" . $this->access_username($vendors_id) . "</UserId>\n" .
       "   <Password>" . $this->access_password($vendors_id) . "</Password>\n" .
       "</Login>\n";
@@ -481,20 +481,20 @@
     $ratingServiceSelectionDeliveryInformation =   //Delivery information
       "	<DeliveryInformation>\n" .
       "<DestinationZipCode>". $this->destination_postcode . "</DestinationZipCode>\n";
-		
+
     if ($delivery_service != '' && $delivery_service != 'STANDARD') {  //Standard is the default
       switch ($delivery_service) {
         case 'LIFTGATE TRUCK DELIVERY':
-          $ratingServiceSelectionDeliveryInformation .=   
+          $ratingServiceSelectionDeliveryInformation .=
             "<SpecialService>LIFTGATE TRUCK DELIVERY</SpecialService>\n";
           break;
         case 'INSIDE DELIVERY':
-          $ratingServiceSelectionDeliveryInformation .=   
+          $ratingServiceSelectionDeliveryInformation .=
             "<SpecialService>LIFTGATE TRUCK DELIVERY</SpecialService>\n" .
             "<SpecialService>INSIDE DELIVERY</SpecialService>\n";
           break;
         case 'RESIDENTIAL DELIVERY':
-          $ratingServiceSelectionDeliveryInformation .=   
+          $ratingServiceSelectionDeliveryInformation .=
             "<SpecialService>LIFTGATE TRUCK DELIVERY</SpecialService>\n" .
 //            "<SpecialService>INSIDE DELIVERY</SpecialService>\n" .
             "<SpecialService>RESIDENTIAL DELIVERY</SpecialService>\n";
@@ -503,19 +503,19 @@
           break;
       }
     }
-		
+
     if ($this->special_services($vendors_id) != '') {
       $special_services = explode (',', $this->special_services($vendors_id));
 			if (count($special_services) > 0) {
         foreach ($special_services as $special_service) {  //Add the special services (selected in Admin)
 				  if ($special_service != '--none--') {
-            $ratingServiceSelectionDeliveryInformation .=   
+            $ratingServiceSelectionDeliveryInformation .=
               "<SpecialService>". $special_service . "</SpecialService>\n";
           }
 			  }
 			}
     }
-		
+
     $ratingServiceSelectionDeliveryInformation .=   //End delivery information
 		  "	</DeliveryInformation>\n";
 
@@ -527,14 +527,14 @@
       "<DeclaredValue>" . $this->declared_value . "</DeclaredValue>\n";
 // Add COD cost to the quote (not supported in this version)
 //      "<CODValue>". $this->cod_value ."</CODValue>\n";
-				
+
     $ratingServiceSelectionRequestDimensions =   //Dimensions of packages
       "	<Dimensions>\n" .
       "<DimensionUnitOfMeasure>" . $this->unit_dimension($vendors_id) . "</DimensionUnitOfMeasure>\n".
       "	<Packages>\n";
-				
+
     foreach ($this->products as $product) {    //Data on each package (by product)
-      $ratingServiceSelectionRequestDimensions .= 
+      $ratingServiceSelectionRequestDimensions .=
         "	<PackageDimensions>\n" .
         "<Pieces>" . (int)$product['qty'] . "</Pieces>\n".
         "<Length>" . (int)$product['products_length'] . "</Length>\n".
@@ -542,7 +542,7 @@
         "<Height>" . (int)$product['products_height'] . "</Height>\n".
         "</PackageDimensions>\n";
     }
-		
+
     $ratingServiceSelectionRequestDimensions .=   //Close the package information section
       "</Packages>\n" .
       "</Dimensions>\n" .
@@ -559,12 +559,12 @@
       "<ServiceLevel7>Yes</ServiceLevel7>\n" .
       "<ServiceLevel8>Yes</ServiceLevel8>\n" .
       "</SaveRateQuote>\n";
-						
+
     $ratingServiceSelectionRequestFooter =   //Close the request
       "</RateQuoteRequest>\n".
       "</BAXRateQuoteRequest>\n";
 
-    $xmlRequest = $accessRequestHeader .  
+    $xmlRequest = $accessRequestHeader .
     $ratingServiceSelectionRequestHeader .
     $ratingServiceSelectionDeliveryInformation .
     $ratingServiceSelectionRequestPackageInformation .
@@ -575,11 +575,11 @@
 //post the request to the BAX server and return the result
     $xmlResult = $this->_post($this->protocol, $this->host($vendors_id), $this->port, $this->path, $this->version, $this->timeout, $xmlRequest);
 
-//Uncomment the following lines if you want to see what is being returned from BAX		
-//  (This normally gets logged if logging is turned on)		
+//Uncomment the following lines if you want to see what is being returned from BAX
+//  (This normally gets logged if logging is turned on)
 //     print 'Result from BAX: <br>';
 //     print '<pre>';
-//		 print_r ($xmlResult);  
+//		 print_r ($xmlResult);
 //     print '</pre>';
 
     return $this->_parseResult($xmlResult);
@@ -590,13 +590,13 @@
   function _post($protocol, $host, $port, $path, $version, $timeout, $xmlRequest) {
     $url = $protocol . "://" . $host;
     $request_string = "XmlString=" . $xmlRequest;
-			
+
     if ($this->logfile) {  //Log header for the request
       error_log("\n------------------------------------------\n", 3, $this->logfile);
       error_log("DATE AND TIME: ".date('Y-m-d H:i:s')."\n", 3, $this->logfile);
       error_log("BAX URL: " . $url . "\n", 3, $this->logfile);
     }
-			
+
     if (function_exists('exec') && $this->use_exec == '1' ) {  //Only used if libcurl is not installed
       exec('which curl', $curl_output);
       if ($curl_output) {
@@ -604,11 +604,11 @@
       } else {
         $curl_path = 'curl'; // add the full path to cURL if necessary
       }
-				
+
       if ($this->logfile) {  //Write the request to the logfile
         error_log("BAX REQUEST using exec(): " . $xmlRequest . "\n", 3, $this->logfile);
       }
-				
+
       $command = "" . $curl_path . " -d \"" . $request_string . "\" " . $url . "";
 // If you get curl error 60: "error setting certificate verify locations" then
 //   comment out the previous line and uncomment the following line
@@ -621,12 +621,12 @@
       if ($this->logfile) {  //Write the response to the logfile
         error_log("BAX RESPONSE using exec(): " . $xmlResponse[0] . "\n", 3, $this->logfile);
       }
-				
+
     } elseif ($this->use_exec == '1') { //No curl at all; we're out of luck
       if ($this->logfile) {
         error_log("Sorry, exec() cannot be called\n", 3, $this->logfile);
       }
-				
+
     } else { // default behavior: cURL is assumed to be compiled in PHP
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
@@ -647,12 +647,12 @@
       }
       $xmlResponse = curl_exec ($ch);
       $xmlResponse = html_entity_decode ($xmlResponse);  //Needed to decode the htmlencoded response
-				
+
       if (curl_errno($ch) && $this->logfile) {  //Log errors
         $error_from_curl = sprintf('Error [%d]: %s', curl_errno($ch), curl_error($ch));
         error_log("Error from cURL: " . $error_from_curl . "\n", 3, $this->logfile);
       }
-				
+
       if ($this->logfile) {  //Write the response to the logfile
         error_log("BAX RESPONSE: " . $xmlResponse . "\n", 3, $this->logfile);
       }
@@ -664,7 +664,7 @@
                      "<Error>" . MODULE_SHIPPING_BAX_TEXT_COMM_UNKNOWN_ERROR . "</Error>\n" .
                      "</BaxRateQuoteResponse>\n";
     }
-			
+
     if ($this->use_exec == '1') {
       return $xmlResponse[0]; // $xmlResponse is an array in this case; we only need element 0
     } else {
@@ -676,29 +676,29 @@
 // Parse the XML message returned by the BAX post server
   function _parseResult($xmlResult) {
     $RateQuoteResultDetails = array();
-		
+
 // Check for errors
     $error_message = '';
-    ereg("(<BaxRateQuoteResponse>(.*)</BaxRateQuoteResponse>)", $xmlResult, $BaxRateQuoteResponse);
-		
+    preg_replace("/(<BaxRateQuoteResponse>(.*)</BaxRateQuoteResponse>)/", $xmlResult, $BaxRateQuoteResponse);
+
     if (strpos ($xmlResult, "Error") > 0) {  //Find error messages -- two types of fatal errors
-      ereg("<Error>(.*)</Error>", $xmlResult, $error_xml);
+      preg_match("/<Error>(.*)</Error>/", $xmlResult, $error_xml);
       $error_message = $error_xml[1];
-      ereg("<ErrorMessage>(.*)</ErrorMessage>", $RateQuoteResult, $error_message_xml);
+      preg_match("/<ErrorMessage>(.*)</ErrorMessage>/", $RateQuoteResult, $error_message_xml);
       $error_message .= $error_message_xml[1];
     }
-		
-// Warnings are sometimes useful when in test mode. If you want to see them then, 
+
+// Warnings are sometimes useful when in test mode. If you want to see them then,
 //    uncomment the next 4 lines
 //    if (strpos ($xmlResult, "Comments") > 0 && MODULE_SHIPPING_BAX_TEST_MODE) {  //Find warning messages
-//		  ereg("<Comments>(.*)</Comments>", $xmlResult, $comments_xml);
+//		  preg_match("/<Comments>(.*)</Comments>/", $xmlResult, $comments_xml);
 //		  $error_message .= $comments_xml[1];
 //    }
-		
-// Get the Response part of the quote (BAX echoes back the request, then the response)
-    ereg("(<RateQuoteResultDetails>(.*)</RateQuoteResultDetails>)", $xmlResult, $RateQuoteResultDetails);
 
-// Extract each quote section from the response	 
+// Get the Response part of the quote (BAX echoes back the request, then the response)
+    preg_match("/(<RateQuoteResultDetails>(.*)</RateQuoteResultDetails>)/", $xmlResult, $RateQuoteResultDetails);
+
+// Extract each quote section from the response
     $quotes = array();
     $length = strlen($RateQuoteResultDetails[2]);  //Start with the length of the entire string
     for ($index=0; $index < $length; $index++) {   //The end point is arbitrary
@@ -714,20 +714,20 @@
     $quotes_array = array();
 		$quote_number = 0;
     foreach ($quotes as $quote) {  // Quotes is the array of XML quote data, one per service
-      ereg("<Service>([^<]*)", $quote, $service);  //Name of the service
-      ereg("<FreightCharges>([^<]*)", $quote, $freight_charges);  //Basic freight charges
-      ereg("<AccessorialCharges>([^<]*)", $quote, $accessorial_charges);  //Additional charges (total)
-      ereg("<TotalCharges>([^<]*)", $quote, $total_charges);      //Total Charges
-      ereg("<LatestDeliveryDateTime>([^<]*)", $quote, $deliver_by);  //Deliver by (Date and time, in text)
-      ereg("<RateQuoteNumber>([^<]*)", $quote, $bax_quote_number);   //BAX issues a quote number for each service
-      ereg("<DimensionWeight>([^<]*)", $quote, $dimensional_weight); //Dimensional weight basis for the quote
+      preg_match("/<Service>([^<]*)/", $quote, $service);  //Name of the service
+      preg_match("/<FreightCharges>([^<]*)/", $quote, $freight_charges);  //Basic freight charges
+      preg_match("/<AccessorialCharges>([^<]*)/", $quote, $accessorial_charges);  //Additional charges (total)
+      preg_match("/<TotalCharges>([^<]*)/", $quote, $total_charges);      //Total Charges
+      preg_match("/<LatestDeliveryDateTime>([^<]*)/", $quote, $deliver_by);  //Deliver by (Date and time, in text)
+      preg_match("/<RateQuoteNumber>([^<]*)/", $quote, $bax_quote_number);   //BAX issues a quote number for each service
+      preg_match("/<DimensionWeight>([^<]*)/", $quote, $dimensional_weight); //Dimensional weight basis for the quote
 
       //Accessorial charges are also broken down by individual charge, so we loop through and get each one
-      ereg("(<AccessorialCharges>)(.*)", $quote, $acc_charges); //Chop starting at the accessorial charges total
-      ereg("(<AccessorialCharges>)(.*)", $acc_charges[2], $accessorial_charges_detail); //Then extract the accessorial charges details
-      $acc_quotes = array();           
+      preg_match("/(<AccessorialCharges>)(.*)/", $quote, $acc_charges); //Chop starting at the accessorial charges total
+      preg_match("/(<AccessorialCharges>)(.*)/", $acc_charges[2], $accessorial_charges_detail); //Then extract the accessorial charges details
+      $acc_quotes = array();
       $acc_length = strlen ($accessorial_charges_detail[2]);
-      for ($acc_index=0; $acc_index < $acc_length; $acc_index++) {   
+      for ($acc_index=0; $acc_index < $acc_length; $acc_index++) {
         $find = "</AccessorialFee>";       //The end of the first accessorial charge
         $location = strpos ($accessorial_charges_detail[2], $find) + strlen($find);  //Count to the end of the first match for $find
         $acc_quotes[] = substr ($accessorial_charges_detail[2], 0, $location);  //Add the string up to that point to an array
@@ -737,15 +737,15 @@
       }
       $accessorial_charges_detail = array();
       foreach ($acc_quotes as $acc_quote) {  // Acc_quotes is the array of accessorial charges
-        ereg('("[^"]*)', $acc_quote, $acc_fee_desc);  //Name of the accessorial charge
-        $acc_fee_description = ereg_replace ('"', '', $acc_fee_desc[0]); 
-			  $acc_fee_description = trim (ereg_replace ("([[:space:]]+)", ' ', $acc_fee_description)); // Remove excess spaces
-        ereg('(">[^<]*)', $acc_quote, $acc_fee_cst);  //Cost of the accessorial charge
-        $acc_fee_cost = ereg_replace ('"', '', $acc_fee_cst[0]); 
-			  $acc_fee_cost = trim (ereg_replace (">", '', $acc_fee_cost)); // Clean up the output
+        preg_match('/("[^"]*)/', $acc_quote, $acc_fee_desc);  //Name of the accessorial charge
+        $acc_fee_description = preg_replace ('/"/', '', $acc_fee_desc[0]);
+			  $acc_fee_description = trim (preg_replace ("/([[:space:]]+)/", ' ', $acc_fee_description)); // Remove excess spaces
+        preg_match('/(">[^<]*)/', $acc_quote, $acc_fee_cst);  //Cost of the accessorial charge
+        $acc_fee_cost = preg_replace ('/"/', '', $acc_fee_cst[0]);
+			  $acc_fee_cost = trim (preg_replace ("/>/", '', $acc_fee_cost)); // Clean up the output
         $accessorial_charges_detail[$acc_fee_description] = $acc_fee_cost; //Set an array with description => price
 			}
-			
+
       //Build the output array with all of the data from the quote
       $quotes_array[$quote_number]['service'] = $service[1];
       $quotes_array[$quote_number]['freight_charges'] = $freight_charges[1];
@@ -771,7 +771,7 @@
 //  (Note that most of this is not used by the standard module)
 //    print "<br>Quotes_array: ";
 //    print '<pre>';
-//    print_r ($quotes_array);  
+//    print_r ($quotes_array);
 //    print '</pre>';
 
       return $quotes_array;

@@ -25,7 +25,7 @@
 
     return $lPath;
   }
-  
+
   function tep_get_parent_category($catID = '0') {
     global $languages_id;
 
@@ -34,18 +34,18 @@
     if (tep_db_num_rows($categories_query) < 1)
      return 0;
     $categories = tep_db_fetch_array($categories_query);
-    return $categories['parent_id'];    
+    return $categories['parent_id'];
   }
-    
+
   function tep_get_sublink_categories($parent_id = '0', $exclude = '', $category_subcats = '') {
     global $languages_id;
-  
+
     $category_subcats = array();
-    
+
     $categories_query = tep_db_query("select c.link_categories_id, cd.link_categories_name, c.parent_id from " . TABLE_LINK_CATEGORIES . " c left join " . TABLE_LINK_CATEGORIES_DESCRIPTION . " cd on c.link_categories_id = cd.link_categories_id where cd.language_id = '" . (int)$languages_id . "' and c.parent_id = '" . (int)$parent_id . "' order by c.link_categories_sort_order, cd.link_categories_name");
     while ($categories = tep_db_fetch_array($categories_query)) {
       if ($exclude != $categories['link_categories_id'])
-      { 
+      {
         $category_subcats[$categories['link_categories_id']] =  $categories['link_categories_name'];
       }
     }
@@ -172,12 +172,12 @@
   function tep_update_links_click_count($links_id) {
     tep_db_query("update " . TABLE_LINKS . " set links_clicked = links_clicked + 1 where links_id = '" . (int)$links_id . "'");
   }
-  
+
 function GetLinksFileArray($path) //use curl if possible to read in site information
 {
   $lines = array();
-  
-  if (function_exists('curl_init')) 
+
+  if (function_exists('curl_init'))
   {
     $ch = curl_init();
     $timeout = 5; // set to zero for no timeout
@@ -186,61 +186,61 @@ function GetLinksFileArray($path) //use curl if possible to read in site informa
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     $file_contents = curl_exec($ch);
     curl_close($ch);
-    $lines = explode("\n", $file_contents); 
+    $lines = explode("\n", $file_contents);
   }
   else
   {
     $fd = fopen ($path, "r");
-    while (!feof ($fd)) 
+    while (!feof ($fd))
     {
       $buffer = fgets($fd, 4096);
       $lines[] = $buffer;
     }
-    fclose ($fd);   
+    fclose ($fd);
   }
-  return $lines;  
+  return $lines;
 }
-  
+
 function CheckSiteData($lines)
 {
-  $found = 0; 
+  $found = 0;
   $phases = explode(",", LINKS_CHECK_PHRASE);
 
   foreach ($lines as $line)
-  {         
+  {
     $page_line = trim($line);
 
     for ($i = 0; $i < count($phases); ++$i)
     {
-      if (@eregi($phases[$i], $page_line)) 
+      if (@preg_match("/".$phases[$i]."/i", $page_line))
       {
         $found = 1;
         break;
       }
-    }  
+    }
     if ($found)
       break;
   }
-  return $found;     
-}  
+  return $found;
+}
 ////
-// Search the given page for the given phase(s)  
+// Search the given page for the given phase(s)
 function CheckURL($url)
-{  
+{
   $lines = GetLinksFileArray($url);
 
   if (tep_not_null($lines))
-    return CheckSiteData($lines);  
+    return CheckSiteData($lines);
 
   return 0;
 }
-  
+
  function tep_get_child_categories($parentID) {
     global $languages_id;
     $categories_query = tep_db_query("select lc.link_categories_id, lcd.link_categories_name, lcd.link_categories_description, lc.link_categories_image, lc.parent_id from " . TABLE_LINK_CATEGORIES . " lc left join " . TABLE_LINK_CATEGORIES_DESCRIPTION . " lcd on lc.link_categories_id = lcd.link_categories_id where lc.link_categories_status = '1' and lc.parent_id = '" . $parentID  . "' and lcd.language_id = '" . (int)$languages_id . "' order by lc.link_categories_sort_order, lcd.link_categories_name");
     return $categories_query;
-  }  
-  
+  }
+
   ////
 // Count how many links exist in a category
 // TABLES: links, links_to_link_categories, link_categories
@@ -263,8 +263,8 @@ function CheckURL($url)
       }
     }
     return $links_count;
-  }  
- 
+  }
+
 ////
 // Count how many subcategories exist in a category
 // TABLES: categories
@@ -278,15 +278,15 @@ function CheckURL($url)
     }
 
     return $categories_count;
-  } 
-  
+  }
+
   function tep_get_link_category_description($link_category_id, $language_id) {
     $link_category_query = tep_db_query("select link_categories_description from " . TABLE_LINK_CATEGORIES_DESCRIPTION . " where link_categories_id = '" . (int)$link_category_id . "' and language_id = '" . (int)$language_id . "'");
     $link_category = tep_db_fetch_array($link_category_query);
 
     return $link_category['link_categories_description'];
   }
-  
+
   function tep_generate_link_category_path($id, $from = 'category', $categories_array = '', $index = 0) {
     global $languages_id;
 
@@ -294,7 +294,7 @@ function CheckURL($url)
 
     if ($from == 'link') {
       $categories_query = tep_db_query("select link_categories_id from " . TABLE_LINKS_TO_LINK_CATEGORIES . " where links_id = '" . (int)$id . "'");
-      
+
       while ($categories = tep_db_fetch_array($categories_query)) {
         if ($categories['categories_id'] == '0') {
           $categories_array[$index][] = array('id' => '0', 'text' => TEXT_TOP);
@@ -331,7 +331,7 @@ function CheckURL($url)
 
     return $calculated_category_path_string;
   }
-  
+
    function tep_get_category_id($cat_name)
   {
     if ($cat_name == "Top")
@@ -340,5 +340,5 @@ function CheckURL($url)
     $categories_query = tep_db_query("select link_categories_id from " . TABLE_LINK_CATEGORIES_DESCRIPTION . " where link_categories_name = '" . $cat_name . "' LIMIT 1 ");
     $categories = tep_db_fetch_array($categories_query);
     return ($categories['link_categories_id']);
-  }  
+  }
 ?>

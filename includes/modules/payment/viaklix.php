@@ -2,15 +2,15 @@
 /*
 
 Elavon | ViaKLIX | NOVA | Virtual Merchant - Payment Module for osCommerce & CRE Loaded
-  
+
  Copyright © (c) 2008 Black Table Media LLC
- 
+
  Last update: June 2008
- 
-Selling this script without purchasing a sellers license, or claiming it to be your own, 
-is breaching United States copyright laws and will result in appropriate action 
+
+Selling this script without purchasing a sellers license, or claiming it to be your own,
+is breaching United States copyright laws and will result in appropriate action
 being taken under US law. A sellers license can also be requested by using
-the form at http://www.blacktablemedia.com/contact/contact.php 
+the form at http://www.blacktablemedia.com/contact/contact.php
 
 */
 
@@ -33,7 +33,7 @@ the form at http://www.blacktablemedia.com/contact/contact.php
       }
 
       if (is_object($order)) $this->update_status();
-      
+
 /* Viaklix first version uses this: https://www.viaKLIX.com/process.asp - without the '2'
 -- The second version uses this -- https://www2.viaKLIX.com/process.asp, but since it's now virtual merchant use the one below
 
@@ -85,19 +85,19 @@ the form at http://www.blacktablemedia.com/contact/contact.php
 			'    if (cvv_number.match(numericTest)) {' . "\n" .
 			'      error = 0;' ."\n" .
 			'    }' . "\n".
-			'	 else {' . "\n" .	
+			'	 else {' . "\n" .
             '      error_message = error_message + "' . MODULE_PAYMENT_VIAKLIX_TEXT_JS_INVALID_CVV_NUMBER . '";' . "\n" .
             '      error = 1;' . "\n" .
             '    }' . "\n" .
-            '    if (cvv_number.length > ' . CVV_NUMBER_MAX_LENGTH . ') {' . "\n" . 
-            '      error_message = error_message + "' . MODULE_PAYMENT_VIAKLIX_TEXT_JS_MAX_CVV_NUMBER . '";' . "\n" . 
-            '      error = 1;' . "\n" . 
+            '    if (cvv_number.length > ' . CVV_NUMBER_MAX_LENGTH . ') {' . "\n" .
+            '      error_message = error_message + "' . MODULE_PAYMENT_VIAKLIX_TEXT_JS_MAX_CVV_NUMBER . '";' . "\n" .
+            '      error = 1;' . "\n" .
             '    }' . "\n" .
             '  }' . "\n";
 
       return $js;
     }
-	
+
  // below makes the input fields
     function selection() {
       global $order;
@@ -105,9 +105,9 @@ the form at http://www.blacktablemedia.com/contact/contact.php
       for ($i=1; $i < 13; $i++) {
         $expires_month[] = array('id' => sprintf('%02d', $i), 'text' => sprintf('%02d', $i) .' ' . strftime('%B',mktime(0,0,0,$i,1,2000))) ;
       }
-    
 
-      $today = getdate(); 
+
+      $today = getdate();
       for ($i=$today['year']; $i < $today['year']+10; $i++) {
         $expires_year[] = array('id' => strftime('%y',mktime(0,0,0,1,1,$i)), 'text' => strftime('%Y',mktime(0,0,0,1,1,$i)));
       }
@@ -165,19 +165,19 @@ the form at http://www.blacktablemedia.com/contact/contact.php
       $this->cc_card_number = $cc_validation->cc_number;
       $this->cc_expiry_month = $cc_validation->cc_expiry_month;
       $this->cc_expiry_year = $cc_validation->cc_expiry_year;
-      
+
     }
 
     function confirmation() {
       global $_POST;
       //detect if they put in a valid cvv and set indicator accoringly kps ;
-    
-    if (ereg ("(^[0-9][0-9][0-9]$|^[0-9][0-9][0-9][0-9]$)",$_POST['viaklix_cvv_number']) == 1){
+
+    if (preg_match ('/(^[0-9][0-9][0-9]$|^[0-9][0-9][0-9][0-9]$)/',$_POST['viaklix_cvv_number']) == 1){
       $_POST['viaklix_cvv_indicator'] = 'Present';
     }else{
       $_POST['viaklix_cvv_indicator'] = 'Present';
       $_POST['viaklix_cvv_number'] ='';
-    }   
+    }
 // end kps
       $confirmation = array('title' => $this->title . ': ' . $this->cc_card_type,
                             'fields' => array(array('title' => MODULE_PAYMENT_VIAKLIX_TEXT_CREDIT_CARD_OWNER,
@@ -196,7 +196,7 @@ the form at http://www.blacktablemedia.com/contact/contact.php
 
     function process_button() {
       global $_POST, $order, $currencies, $currency,$customer_id;
-    
+
 // MOD - select state abbreviation if available
     $country = $order->billing['country']['iso_code_2'];
     if (($country == 'US') || ($country == 'CA')) {
@@ -218,8 +218,8 @@ the form at http://www.blacktablemedia.com/contact/contact.php
 // EOM
 
 // **Changes for Virtual Merchant - transaction_type is now ccsale and cvv2 is now cvv2_cvc2_indicator (This is also labeled wrong in their developer guide)
-      
-   $process_button_string = 
+
+   $process_button_string =
     tep_draw_hidden_field('ssl_merchant_id', MODULE_PAYMENT_VIAKLIX_MERCHANT_ID) .
     tep_draw_hidden_field('ssl_user_id', MODULE_PAYMENT_VIAKLIX_USER_ID) .
     tep_draw_hidden_field('ssl_pin',MODULE_PAYMENT_VIAKLIX_PIN).
@@ -246,7 +246,7 @@ the form at http://www.blacktablemedia.com/contact/contact.php
     tep_draw_hidden_field('ssl_country', $order->billing['country']['title']['iso_code_2']) .
     tep_draw_hidden_field('ssl_phone', $order->customer['telephone']) .
     tep_draw_hidden_field('ssl_email', $order->customer['email_address']) .
-    
+
     tep_draw_hidden_field('ssl_ship_to_company', $order->delivery['company']) .
     tep_draw_hidden_field('ssl_ship_to_first_name', $order->delivery['firstname']) .
     tep_draw_hidden_field('ssl_ship_to_last_name', $order->delivery['lastname']) .
@@ -260,7 +260,7 @@ the form at http://www.blacktablemedia.com/contact/contact.php
     tep_draw_hidden_field('ssl_ship_to_avs_zip', $order->delivery['postcode']) .
     tep_draw_hidden_field('ssl_ship_to_country', $order->delivery['country']['title']['iso_code_2']) .
     tep_draw_hidden_field('ssl_description', "Customer's comment: ". substr($_POST['comments'],0,240)) .
-    
+
     tep_draw_hidden_field('ssl_result_format', 'HTML') .
     tep_draw_hidden_field('ssl_receipt_apprvl_method', 'REDG') .
     tep_draw_hidden_field('ssl_receipt_decl_method', 'REDG') .
@@ -271,7 +271,7 @@ the form at http://www.blacktablemedia.com/contact/contact.php
    //print_r ($test);
 
       if (MODULE_PAYMENT_VIAKLIX_TESTMODE == 'Test') $process_button_string .= tep_draw_hidden_field('ssl_test_mode', 'TRUE');
-	  
+
 	//below was commented out but shouldn't be
     $process_button_string .= tep_draw_hidden_field(tep_session_name(), tep_session_id());
       return $process_button_string;

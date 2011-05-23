@@ -114,7 +114,7 @@ function tep_check_cart($which, $customer_id, $session_id) {
         $products = $cart->get_products();
 		  }
 		}
-		
+
   $which_query = $session_data;
   $who_data =   tep_db_query("select time_entry, time_last_click
                                  from " . TABLE_WHOS_ONLINE . "
@@ -126,14 +126,14 @@ function tep_check_cart($which, $customer_id, $session_id) {
 
 	// Determine Bot active/inactive
   if( $customer_id < 0 ) {
-	// inactive 
+	// inactive
     if ($who_query['time_last_click'] < $xx_mins_ago_long) {
       return tep_image(DIR_WS_IMAGES . $status_inactive_bot, TEXT_STATUS_INACTIVE_BOT);
-	// active 
+	// active
     } else {
       return tep_image(DIR_WS_IMAGES . $status_active_bot, TEXT_STATUS_ACTIVE_BOT);
     }
-	}	
+	}
 
   // Determine active/inactive and cart/no cart status
   // no cart
@@ -169,8 +169,8 @@ function display_details() {
       echo '<b>' . TABLE_HEADING_CUSTOMER_ID . ':</b> ' . $whos_online['customer_id'];
       echo '<br clear="all">' . tep_draw_separator('pixel_trans.png', '10', '4') . '<br clear="all">';
    }
-	
-//  original code of 2.8      :  
+
+//  original code of 2.8      :
 echo '<b>' . TABLE_HEADING_IP_ADDRESS . ':</b> ' . $whos_online['ip_address'];  // commenter for whois by azer v1.9
 
 // Display IP Address modified by azer for 1.9, to be tested if it doesnt work comment the ligne using variable and uncomment the whois url hardcoded ligne
@@ -202,7 +202,7 @@ echo '<b>' . TABLE_HEADING_IP_ADDRESS . ':</b> ' . $whos_online['ip_address'];  
   tep_db_query("delete from " . TABLE_WHOS_ONLINE . " where time_last_click < '" . $xx_mins_ago . "'");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -470,7 +470,7 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
                 <td class="dataTableContent" valign="top">
                 <?php
                 $temp_url_link = $whos_online['last_page_url'];
-                if (eregi('^(.*)' . tep_session_name() . '=[a-f,0-9]+[&]*(.*)', $whos_online['last_page_url'], $array)) {
+                if (preg_match('/^(.*)' . tep_session_name() . '=[a-f,0-9]+[&]*(.*)/i', $whos_online['last_page_url'], $array)) {
                   $temp_url_display =  $array[1] . $array[2];
                 } else {
                   $temp_url_display = $whos_online['last_page_url'];
@@ -487,7 +487,7 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
                 $temp=str_replace('/?','',$temp);
                 $temp=str_replace('?','',$temp);
                 $parameters=split("&",$temp);
-                
+
                 $i=0;
     while($i < count($parameters)) {
         $a=split("=",$parameters[$i]);
@@ -495,8 +495,8 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
         $i++;
        }
       $product_query=tep_db_query("select products_name from products_description where products_id='" . $products_id . "' and language_id = '" . $languages_id . "'");
-      $product = tep_db_fetch_array($product_query);                           
-                
+      $product = tep_db_fetch_array($product_query);
+
                 $display_link = $product['products_name'].' <I>(Product)</I>';
                }elseif (strpos($temp_url_link,'?cPath=')) {
                 $temp=str_replace('index.php?','',$temp_url_link);
@@ -510,14 +510,14 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
         if ($a[0]=="cPath") { $cat=$a[1]; }
         $i++;
        }
-       
+
                 $parameters=split("_",$cat);
 
 		//$cat_list='';
                 $i=0;
     while($i < count($parameters)) {
      $category_query=tep_db_query("select categories_name from categories_description where categories_id='" . $parameters[$i] . "' and language_id = '" . $languages_id . "'");
-       $category = tep_db_fetch_array($category_query);                           
+       $category = tep_db_fetch_array($category_query);
      if ($i>0) { $cat_list.=' / '.$category['categories_name']; } else { $cat_list=$category['categories_name']; }
 
         $i++;

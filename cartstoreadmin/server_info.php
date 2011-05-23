@@ -32,7 +32,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-	
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -44,9 +44,9 @@
 
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 
-   
 
-	 	
+
+
 
 </head>
 
@@ -210,11 +210,11 @@
 
     $phpinfo = str_replace('border: 1px', '', $phpinfo);
 
-    ereg('<body>(.*)</body>', $phpinfo, $regs);
+    preg_match('/<body>(.*)<\/body>/', $phpinfo, $regs);
 
     echo '<table border="1" cellpadding="3" width="100%" style="border: 0px;">' .
 
-         '  <tr>' . 
+         '  <tr>' .
 
          '  </tr>' .
 

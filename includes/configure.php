@@ -1,11 +1,11 @@
 <?php
 
   
-  define('HTTP_SERVER', 'http://demo.cartstore.com');
-  define('HTTPS_SERVER', 'http://demo.cartstore.com');
+  define('HTTP_SERVER', 'http://dev.cartstore.com');
+  define('HTTPS_SERVER', 'http://dev.cartstore.com');
   define('ENABLE_SSL', false);
-  define('HTTP_COOKIE_DOMAIN', 'demo.cartstore.com');
-  define('HTTPS_COOKIE_DOMAIN', 'demo.cartstore.com');
+  define('HTTP_COOKIE_DOMAIN', 'dev.cartstore.com');
+  define('HTTPS_COOKIE_DOMAIN', 'dev.cartstore.com');
   define('HTTP_COOKIE_PATH', '/');
   define('HTTPS_COOKIE_PATH', '/');
   define('DIR_WS_HTTP_CATALOG', '/');
@@ -20,7 +20,7 @@
   define('DIR_WS_LANGUAGES', DIR_WS_INCLUDES . 'languages/');
 
   define('DIR_WS_DOWNLOAD_PUBLIC', 'pub/');
-  define('DIR_FS_CATALOG', '/home/democar/public_html/');
+  define('DIR_FS_CATALOG', '/home/devcarts/public_html/');
   define('DIR_FS_DOWNLOAD', DIR_FS_CATALOG . 'download/');
   define('DIR_FS_DOWNLOAD_PUBLIC', DIR_FS_CATALOG . 'pub/');
 

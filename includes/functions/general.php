@@ -1,6 +1,6 @@
 <?php
   include(DIR_WS_FUNCTIONS . 'register_globals.php');
-  
+
   function tepps_special_product($query)
   {
       $random_product = '';
@@ -13,42 +13,42 @@
       }
       return $random_product;
   }
-  
-  
+
+
   function tep_get_slot($slotid)
   {
       $tot_query = tep_db_query("select slot from sw_time_slots where slotid=$slotid");
       $tot_res = tep_db_fetch_array($tot_query);
       return $tot_res['slot'];
   }
-  
-  
-  
+
+
+
   function tep_exit()
   {
       tep_session_close();
       exit();
   }
-  
-  
+
+
   function tep_redirect($url)
   {
       if ((strstr($url, "\n") != false) || (strstr($url, "\r") != false)) {
           tep_redirect(tep_href_link(FILENAME_DEFAULT, '', 'NONSSL', false));
       }
       if ((ENABLE_SSL == true) && (getenv('HTTPS') == 'on')) {
-          
+
           if (substr($url, 0, strlen(HTTP_SERVER)) == HTTP_SERVER) {
-              
-              
+
+
               $url = HTTPS_SERVER . substr($url, strlen(HTTP_SERVER));
           }
       }
       header('Location: ' . $url);
       tep_exit();
   }
-  
-  
+
+
   function tep_parse_input_field_data($data, $parse)
   {
       return strtr(trim($data), $parse);
@@ -71,11 +71,11 @@
   }
   function tep_sanitize_string($string)
   {
-      $string = ereg_replace(' +', ' ', trim($string));
+      $string = preg_replace('/ +/', ' ', trim($string));
    return ($string);
   }
-  
-  
+
+
   function tep_random_select($query)
   {
       $random_product = '';
@@ -88,9 +88,9 @@
       }
       return $random_product;
   }
-  
-  
-  
+
+
+
   function tep_get_products_name($product_id, $language = '')
   {
       global $languages_id;
@@ -109,12 +109,12 @@
       $product = tep_db_fetch_array($product_query);
       return $product['products_short'];
   }
-  
-  
-  
+
+
+
   function tep_get_products_special_price($product_id)
   {
-      
+
       global $sppc_customer_group_id;
       if (!tep_session_is_registered('sppc_customer_group_id')) {
           $customer_group_id = '0';
@@ -122,21 +122,21 @@
           $customer_group_id = $sppc_customer_group_id;
       }
       $product_query = tep_db_query("select specials_new_products_price from " . TABLE_SPECIALS . " where products_id = '" . (int)$product_id . "' and status and customers_group_id = '" . (int)$customer_group_id . "'");
-      
+
       $product = tep_db_fetch_array($product_query);
       return $product['specials_new_products_price'];
   }
-  
-  
 
-  
-  
+
+
+
+
   function tep_get_products_stock($products_id, $attributes = array())
   {
       global $languages_id;
       $products_id = tep_get_prid($products_id);
-      
-      
+
+
       if (sizeof($attributes) > 0) {
           $all_nonstocked = true;
           $attr_list = '';
@@ -162,24 +162,24 @@
           $quantity = 0;
       }
       return $quantity;
-      
+
   }
-  
-  
-  
-  
+
+
+
+
   function tep_check_stock($products_id, $products_quantity, $attributes = array())
   {
       $stock_left = tep_get_products_stock($products_id, $attributes) - $products_quantity;
-      
+
       $out_of_stock = '';
       if ($stock_left < 0) {
           $out_of_stock = '<span class="markProductOutOfStock">' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . '</span>';
       }
       return $out_of_stock;
   }
-  
-  
+
+
   function tep_break_string($string, $len, $break_char = '-')
   {
       $l = 0;
@@ -199,8 +199,8 @@
       }
       return $output;
   }
-  
-  
+
+
   function tep_get_all_get_params($exclude_array = '')
   {
       global $_GET;
@@ -217,9 +217,9 @@
       }
       return $get_url;
   }
-  
-  
-  
+
+
+
   function tep_get_countries($countries_id = '', $with_iso_codes = false)
   {
       $countries_array = array();
@@ -241,14 +241,14 @@
       }
       return $countries_array;
   }
-  
-  
+
+
   function tep_get_countries_with_iso_codes($countries_id)
   {
       return tep_get_countries($countries_id, true);
   }
-  
-  
+
+
   function tep_get_path($current_category_id = '')
   {
       global $cPath_array;
@@ -281,24 +281,24 @@
       }
       return 'cPath=' . $cPath_new;
   }
-  
-  
+
+
   function tep_browser_detect($component)
   {
-      
-      
+
+
       return stristr($_SERVER['HTTP_USER_AGENT'], $component);
   }
-  
-  
+
+
   function tep_get_country_name($country_id)
   {
       $country_array = tep_get_countries($country_id);
       return $country_array['countries_name'];
   }
-  
-  
-  
+
+
+
   function tep_get_zone_name($country_id, $zone_id, $default_zone)
   {
       $zone_query = tep_db_query("select zone_name from " . TABLE_ZONES . " where zone_country_id = '" . (int)$country_id . "' and zone_id = '" . (int)$zone_id . "'");
@@ -309,9 +309,9 @@
           return $default_zone;
       }
   }
-  
-  
-  
+
+
+
   function tep_get_zone_code($country_id, $zone_id, $default_zone)
   {
       $zone_query = tep_db_query("select zone_code from " . TABLE_ZONES . " where zone_country_id = '" . (int)$country_id . "' and zone_id = '" . (int)$zone_id . "'");
@@ -322,8 +322,8 @@
           return $default_zone;
       }
   }
-  
-  
+
+
   function tep_round($number, $precision)
   {
       if (strpos($number, '.') && (strlen(substr($number, strpos($number, '.') + 1)) > $precision)) {
@@ -343,13 +343,13 @@
       }
       return $number;
   }
-  
-  
-  
+
+
+
   function tep_get_tax_rate($class_id, $country_id = -1, $zone_id = -1)
   {
-      
-      
+
+
       global $customer_zone_id, $customer_country_id, $sppc_customer_group_tax_exempt;
       if (!tep_session_is_registered('sppc_customer_group_tax_exempt')) {
           $customer_group_tax_exempt = '0';
@@ -359,7 +359,7 @@
       if ($customer_group_tax_exempt == '1') {
           return 0;
       }
-      
+
       if (($country_id == -1) && ($zone_id == -1)) {
           if (!tep_session_is_registered('customer_id')) {
               $country_id = STORE_COUNTRY;
@@ -380,9 +380,9 @@
           return 0;
       }
   }
-  
-  
-  
+
+
+
   function tep_get_tax_description($class_id, $country_id, $zone_id)
   {
       $tax_query = tep_db_query("select tax_description from " . TABLE_TAX_RATES . " tr left join " . TABLE_ZONES_TO_GEO_ZONES . " za on (tr.tax_zone_id = za.geo_zone_id) left join " . TABLE_GEO_ZONES . " tz on (tz.geo_zone_id = tr.tax_zone_id) where (za.zone_country_id is null or za.zone_country_id = '0' or za.zone_country_id = '" . (int)$country_id . "') and (za.zone_id is null or za.zone_id = '0' or za.zone_id = '" . (int)$zone_id . "') and tr.tax_class_id = '" . (int)$class_id . "' order by tr.tax_priority");
@@ -397,15 +397,15 @@
           return TEXT_UNKNOWN_TAX_RATE;
       }
   }
-  
-  
+
+
   function tep_add_tax($price, $tax)
   {
       global $currencies;
-      
-      
-      
-      
+
+
+
+
       global $sppc_customer_group_show_tax;
       global $sppc_customer_group_tax_exempt;
       if (!tep_session_is_registered('sppc_customer_group_show_tax')) {
@@ -413,24 +413,24 @@
       } else {
           $customer_group_show_tax = $sppc_customer_group_show_tax;
       }
-      
-      
+
+
       if ((DISPLAY_PRICE_WITH_TAX == 'true') && ($tax > 0) && ($customer_group_show_tax == '1')) {
-          
+
           return tep_round($price, $currencies->currencies[DEFAULT_CURRENCY]['decimal_places']) + tep_calculate_tax($price, $tax);
       } else {
           return tep_round($price, $currencies->currencies[DEFAULT_CURRENCY]['decimal_places']);
       }
   }
-  
+
   function tep_calculate_tax($price, $tax)
   {
       global $currencies;
       return tep_round($price * $tax / 100, $currencies->currencies[DEFAULT_CURRENCY]['decimal_places']);
   }
-  
-  
-  
+
+
+
   function tep_count_products_in_category($category_id, $include_inactive = false)
   {
       global $YMM_where;
@@ -450,9 +450,9 @@
       }
       return $products_count;
   }
-  
-  
-  
+
+
+
   function tep_has_category_subcategories($category_id)
   {
       $child_category_query = tep_db_query("select count(*) as count from " . TABLE_CATEGORIES . " where parent_id = '" . (int)$category_id . "'");
@@ -463,9 +463,9 @@
           return false;
       }
   }
-  
-  
-  
+
+
+
   function tep_get_address_format_id($country_id)
   {
       $address_format_query = tep_db_query("select address_format_id as format_id from " . TABLE_COUNTRIES . " where countries_id = '" . (int)$country_id . "'");
@@ -476,9 +476,9 @@
           return '1';
       }
   }
-  
-  
-  
+
+
+
   function tep_address_format($address_format_id, $address, $html, $boln, $eoln)
   {
       $address_format_query = tep_db_query("select address_format as format from " . TABLE_ADDRESS_FORMAT . " where address_format_id = '" . (int)$address_format_id . "'");
@@ -514,21 +514,21 @@
       $postcode = tep_output_string_protected($address['postcode']);
       $zip = $postcode;
       if ($html) {
-          
+
           $HR = '<hr>';
           $hr = '<hr>';
           if (($boln == '') && ($eoln == "\n")) {
-              
+
               $CR = '<br>';
               $cr = '<br>';
               $eoln = $cr;
           } else {
-              
+
               $CR = $eoln . $boln;
               $cr = $CR;
           }
       } else {
-          
+
           $CR = $eoln;
           $cr = $CR;
           $HR = '----------------------------------------';
@@ -552,12 +552,12 @@
       }
       return $address;
   }
-  
-  
-  
+
+
+
   function tep_address_label($customers_id, $address_id = 1, $html = false, $boln = '', $eoln = "\n")
   {
-      
+
       if ($customers_id == 0) {
           global $order;
           if ($address_id == 1) {
@@ -569,7 +569,7 @@
           $address_query = tep_db_query("select entry_firstname as firstname, entry_lastname as lastname, entry_company as company, entry_street_address as street_address,entry_street_address_2 as street_address_2,  entry_suburb as suburb, entry_city as city, entry_postcode as postcode, entry_state as state, entry_zone_id as zone_id, entry_country_id as country_id from " . TABLE_ADDRESS_BOOK . " where customers_id = '" . (int)$customers_id . "' and address_book_id = '" . (int)$address_id . "'");
           $address = tep_db_fetch_array($address_query);
       }
-      
+
       $format_id = tep_get_address_format_id($address['country_id']);
       return tep_address_format($format_id, $address, $html, $boln, $eoln);
   }
@@ -603,9 +603,9 @@
       }
       return $manufacturers_array;
   }
-  
-  
-  
+
+
+
   function tep_get_subcategories(&$subcategories_array, $parent_id = 0)
   {
       $subcategories_query = tep_db_query("select categories_id from " . TABLE_CATEGORIES . " where parent_id = '" . (int)$parent_id . "'");
@@ -616,8 +616,8 @@
           }
       }
   }
-  
-  
+
+
   function tep_date_long($raw_date)
   {
       if (($raw_date == '0000-00-00 00:00:00') || ($raw_date == ''))
@@ -630,10 +630,10 @@
       $second = (int)substr($raw_date, 17, 2);
       return strftime(DATE_FORMAT_LONG, mktime($hour, $minute, $second, $month, $day, $year));
   }
-  
-  
-  
-  
+
+
+
+
   function tep_date_short($raw_date)
   {
       if (($raw_date == '0000-00-00 00:00:00') || empty($raw_date))
@@ -647,15 +647,15 @@
       if (@date('Y', mktime($hour, $minute, $second, $month, $day, $year)) == $year) {
           return date(DATE_FORMAT, mktime($hour, $minute, $second, $month, $day, $year));
       } else {
-          return ereg_replace('2037' . '$', $year, date(DATE_FORMAT, mktime($hour, $minute, $second, $month, $day, 2037)));
+          return preg_replace('/2037' . '$/', $year, date(DATE_FORMAT, mktime($hour, $minute, $second, $month, $day, 2037)));
       }
   }
-  
-  
+
+
   function tep_parse_search_string($search_str = '', &$objects)
   {
       $search_str = trim(strtolower($search_str));
-      
+
       $pieces = split('[[:space:]]+', $search_str);
       $objects = array();
       $tmpstring = '';
@@ -678,32 +678,32 @@
                   $pieces[$k] = '';
               }
           }
-          
+
           if ((substr($pieces[$k], -1) != '"') && (substr($pieces[$k], 0, 1) != '"')) {
               $objects[] = trim($pieces[$k]);
               for ($j = 0; $j < count($post_objects); $j++) {
                   $objects[] = $post_objects[$j];
               }
           } else {
-              
-              $tmpstring = trim(ereg_replace('"', ' ', $pieces[$k]));
-              
+
+              $tmpstring = trim(preg_replace('/"/', ' ', $pieces[$k]));
+
               if (substr($pieces[$k], -1) == '"') {
-                  
+
                   $flag = 'off';
                   $objects[] = trim($pieces[$k]);
                   for ($j = 0; $j < count($post_objects); $j++) {
                       $objects[] = $post_objects[$j];
                   }
                   unset($tmpstring);
-                  
+
                   continue;
               }
-              
+
               $flag = 'on';
-              
+
               $k++;
-              
+
               while (($flag == 'on') && ($k < count($pieces))) {
                   while (substr($pieces[$k], -1) == ')') {
                       $post_objects[] = ')';
@@ -713,28 +713,28 @@
                           $pieces[$k] = '';
                       }
                   }
-                  
+
                   if (substr($pieces[$k], -1) != '"') {
-                      
+
                       $tmpstring .= ' ' . $pieces[$k];
-                      
+
                       $k++;
                       continue;
                   } else {
-                      $tmpstring .= ' ' . trim(ereg_replace('"', ' ', $pieces[$k]));
-                      
+                      $tmpstring .= ' ' . trim(preg_replace('/"/', ' ', $pieces[$k]));
+
                       $objects[] = trim($tmpstring);
                       for ($j = 0; $j < count($post_objects); $j++) {
                           $objects[] = $post_objects[$j];
                       }
                       unset($tmpstring);
-                      
+
                       $flag = 'off';
                   }
               }
           }
       }
-      
+
       $temp = array();
       for ($i = 0; $i < (count($objects) - 1); $i++) {
           $temp[] = $objects[$i];
@@ -764,8 +764,8 @@
           return false;
       }
   }
-  
-  
+
+
   function tep_checkdate($date_to_check, $format_string, &$date_array)
   {
       $separator_idx = -1;
@@ -854,8 +854,8 @@
       $date_array = array($year, $month, $day);
       return true;
   }
-  
-  
+
+
   function tep_is_leap_year($year)
   {
       if ($year % 100 == 0) {
@@ -867,8 +867,8 @@
       }
       return false;
   }
-  
-  
+
+
   function tep_create_sort_heading($sortby, $colnum, $heading)
   {
       global $PHP_SELF;
@@ -880,9 +880,9 @@
       }
       return $sort_prefix . $heading . $sort_suffix;
   }
-  
-  
-  
+
+
+
   function tep_get_parent_categories(&$categories, $categories_id)
   {
       $parent_categories_query = tep_db_query("select parent_id from " . TABLE_CATEGORIES . " where categories_id = '" . (int)$categories_id . "'");
@@ -895,9 +895,9 @@
           }
       }
   }
-  
-  
-  
+
+
+
   function tep_get_product_path($products_id)
   {
       $cPath = '';
@@ -914,17 +914,17 @@
       }
       return $cPath;
   }
-  
-  
+
+
   function tep_get_uprid($prid, $params)
   {
       $uprid = $prid;
       if ((is_array($params)) && (!strstr($prid, '{'))) {
           while (list($option, $value) = each($params)) {
-              
+
               $uprid = $uprid . '{' . $option . '}' . htmlspecialchars(stripslashes(trim($value)), ENT_QUOTES);
           }
-          
+
           } else
           {
               $uprid = htmlspecialchars(stripslashes($uprid), ENT_QUOTES);
@@ -936,15 +936,15 @@
           }
           return $uprid;
       }
-      
-      
+
+
       function tep_get_prid($uprid)
       {
           $pieces = explode('{', $uprid);
           return $pieces[0];
       }
-      
-      
+
+
       function tep_customer_greeting()
       {
           global $customer_id, $customer_first_name;
@@ -955,39 +955,39 @@
           }
           return $greeting_string;
       }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
       function tep_mail($to_name, $to_email_address, $email_subject, $email_text, $from_email_name, $from_email_address)
       {
           if (SEND_EMAILS != 'true')
               return false;
-          
+
           $message = new email(array('X-Mailer: CartStore Mailer'));
-          
+
           $text = strip_tags($email_text);
           if (EMAIL_USE_HTML == 'true') {
               $message->add_html($email_text, $text);
           } else {
               $message->add_text($text);
           }
-          
+
           $message->build_message();
           $result = $message->send($to_name, $to_email_address, $from_email_name, $from_email_address, $email_subject);
           return $result;
       }
-      
-      
+
+
       function tep_has_product_attributes($products_id)
       {
           $attributes_query = tep_db_query("select count(*) as count from " . TABLE_PRODUCTS_ATTRIBUTES . " where products_id = '" . (int)$products_id . "'");
@@ -998,8 +998,8 @@
               return false;
           }
       }
-      
-      
+
+
       function tep_word_count($string, $needle)
       {
           $temp_array = split($needle, $string);
@@ -1041,13 +1041,13 @@
                   $char = chr(tep_rand(0, 255));
               }
               if ($type == 'mixed') {
-                  if (eregi('^[a-z0-9]$', $char))
+                  if (preg_replace('/^[a-z0-9]$/i', $char))
                       $rand_value .= $char;
               } elseif ($type == 'chars') {
-                  if (eregi('^[a-z]$', $char))
+                  if (preg_replace('/^[a-z]$/i', $char))
                       $rand_value .= $char;
               } elseif ($type == 'digits') {
-                  if (ereg('^[0-9]$', $char))
+                  if (preg_match('/^[0-9]$/', $char))
                       $rand_value .= $char;
               }
           }
@@ -1085,8 +1085,8 @@
               }
           }
       }
-      
-      
+
+
       function tep_display_tax_value($value, $padding = TAX_DECIMAL_PLACES)
       {
           if (strpos($value, '.')) {
@@ -1117,9 +1117,9 @@
           }
           return $value;
       }
-      
-      
-      
+
+
+
       function tep_currency_exists($code)
       {
           $code = tep_db_prepare_input($code);
@@ -1134,13 +1134,13 @@
       {
           return(int)$string;
       }
-      
-      
+
+
       function tep_parse_category_path($cPath)
       {
-          
+
           $cPath_array = array_map('tep_string_to_int', explode('_', $cPath));
-          
+
           $tmp_array = array();
           $n = sizeof($cPath_array);
           for ($i = 0; $i < $n; $i++) {
@@ -1150,8 +1150,8 @@
           }
           return $tmp_array;
       }
-      
-      
+
+
       function tep_rand($min = null, $max = null)
       {
           static $seeded;
@@ -1232,16 +1232,16 @@
           $addresses = tep_db_fetch_array($addresses_query);
           return $addresses['total'];
       }
-      
+
       function tep_convert_linefeeds($from, $to, $string)
       {
           if ((PHP_VERSION < "4.0.5") && is_array($from)) {
-              return ereg_replace('(' . implode('|', $from) . ')', $to, $string);
+              return preg_replace('/(' . implode('|', $from) . ')/', $to, $string);
           } else {
               return str_replace($from, $to, $string);
           }
       }
-      
+
       function tep_paypal_wpp_enabled()
       {
           $paypal_wpp_check = tep_db_query("SELECT configuration_id FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = 'MODULE_PAYMENT_PAYPAL_DP_STATUS' AND configuration_value = 'True'");
@@ -1251,10 +1251,10 @@
               return false;
           }
       }
-      
-      
-      
-      
+
+
+
+
       function tep_decode_specialchars($string)
       {
           $string = str_replace('&gt;', '>', $string);
@@ -1265,7 +1265,7 @@
           return $string;
       }
       include('includes/functions/refund_functions.php');
-      
+
       function YMM_get_categories_where($id, $where)
       {
           global $languages_id;
@@ -1291,18 +1291,18 @@
           $ids = '';
           for ($i = 0; $i < sizeof($inc_cat); $i++) {
               if (isset($cat_info[$inc_cat[$i]['id']]['ind'])) {
-                  $q = tep_db_query("select 
-      c.categories_id 
-      FROM 
-      " . TABLE_PRODUCTS . " p, 
+                  $q = tep_db_query("select
+      c.categories_id
+      FROM
+      " . TABLE_PRODUCTS . " p,
       " . TABLE_PRODUCTS_TO_CATEGORIES . " pc,
-      " . TABLE_CATEGORIES . " c, 
-      " . TABLE_CATEGORIES_DESCRIPTION . " cd 
-      WHERE $where 
+      " . TABLE_CATEGORIES . " c,
+      " . TABLE_CATEGORIES_DESCRIPTION . " cd
+      WHERE $where
       p.products_id = pc.products_id AND c.categories_id = pc.categories_id AND
-      p.products_status = '1' AND 
-      c.categories_id = " . $cat_info[$inc_cat[$i]['id']]['path'][0] . " AND 
-      c.categories_id = cd.categories_id AND  
+      p.products_status = '1' AND
+      c.categories_id = " . $cat_info[$inc_cat[$i]['id']]['path'][0] . " AND
+      c.categories_id = cd.categories_id AND
       cd.language_id = '" . (int)$languages_id . "' LIMIT 1");
                   if (tep_db_num_rows($q) == 1)
                       $ids .= ($ids != '' ? ',' : '') . $cat_info[$inc_cat[$i]['id']]['path'][$cat_info[$inc_cat[$i]['id']]['ind']];

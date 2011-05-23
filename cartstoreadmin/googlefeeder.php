@@ -5,7 +5,7 @@
 //	Organization: Conceptual Networking
 //  Last Update: 07/15/09 by Jack_mcs at oscommerce-solution.com
 
- 
+
 /*************** BEGIN MASTER SETTINGS ******************/
 
 define('SEO_ENABLED','true');    //Change to 'false' to disable if Ultimate SEO URLs is not installed
@@ -34,7 +34,7 @@ define('OPTIONS_ENABLED_SHIPPING', 0);
 define('OPTIONS_ENABLED_UPC', 0);
 define('OPTIONS_ENABLED_WEIGHT', 0);
 
-//the following only matter if the matching option is enabled above. 
+//the following only matter if the matching option is enabled above.
 define('OPTIONS_AGE_RANGE', '0-9');
 define('OPTIONS_BRAND', '');
 define('OPTIONS_CONDITION', 'New');  //possible entries are New, Refurbished, Used
@@ -45,7 +45,7 @@ define('OPTIONS_MADE_IN', 'USA');
 define('OPTIONS_PAYMENT_ACCEPTED_METHODS', ''); //Acceptable values: cash, check, GoogleCheckout, Visa, MasterCard, AmericanExpress, Discover, wiretransfer
 define('OPTIONS_WEIGHT_ACCEPTED_METHODS', 'lb'); //Valid units include lb, pound, oz, ounce, g, gram, kg, kilogram.
 
-/*************** END MASTER SETTINGS ******************/ 
+/*************** END MASTER SETTINGS ******************/
 
 /*************** NO EDITS NEEDED BELOW THIS LINE *****************/
 
@@ -58,7 +58,7 @@ if(SEO_ENABLED=='true'){
   // Since the ultimate SEO was only installed on the public side, we will include our files from there.
   require_once('../includes/filenames.php');
   require_once('../includes/database_tables.php');
-  
+
   include_once('../' .DIR_WS_CLASSES . 'seo.class.php');
   $seo_urls = new SEO_URL(DEFAULT_LANGUAGE);
 
@@ -66,7 +66,7 @@ if(SEO_ENABLED=='true'){
      global $seo_urls;
      return $seo_urls->href_link($page, $parameters, $connection, $add_session_id);
   }
-  
+
 }
 
 //********************
@@ -77,8 +77,8 @@ $stimer = $stimer[1] + $stimer[0];
 //  -----------
 
 
-$OutFile = "../feeds/" . FEEDNAME; 
-$destination_file = FEEDNAME;   
+$OutFile = "../feeds/" . FEEDNAME;
+$destination_file = FEEDNAME;
 $source_file = $OutFile;
 $imageURL = 'http://' . DOMAIN_NAME . '/images/';
 if(SEO_ENABLED=='true'){
@@ -281,7 +281,7 @@ while( $row = mysql_fetch_object( $result ) )
 	{
 		if (CONVERT_CURRENCY)
 		{
-			$row->price = ereg_replace("[^.0-9]", "", $row->price);
+			$row->price = preg_replace("/[^.0-9]/", "", $row->price);
 			$row->price = $row->price *  $row3->curUSD;
 			$row->price = number_format($row->price, 2, '.', ',');
 		}
@@ -323,8 +323,8 @@ while( $row = mysql_fetch_object( $result ) )
 			$output .= " \t " . $row->prodModel;
 		if(OPTIONS_ENABLED_FEED_QUANTITY == 1)
 			$output .= " \t " . $row->quantity;
-		if(OPTIONS_ENABLED_MADE_IN == 1)    
-			$output .= " \t " . OPTIONS_MADE_IN; 
+		if(OPTIONS_ENABLED_MADE_IN == 1)
+			$output .= " \t " . OPTIONS_MADE_IN;
 		if(OPTIONS_ENABLED_MANUFACTURER == 1)
 			$output .= " \t " . $row->mfgName;
 		if(OPTIONS_ENABLED_PAYMENT_ACCEPTED == 1)
