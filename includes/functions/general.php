@@ -1,4 +1,6 @@
 <?php
+ 
+
   include(DIR_WS_FUNCTIONS . 'register_globals.php');
 
   function tepps_special_product($query)

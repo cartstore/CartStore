@@ -10,7 +10,7 @@
 </IfModule>
 
 RewriteEngine On 
-RewriteBase /installer
+RewriteBase /
 #Options +FollowSymLinks
 
 RewriteRule ^(.*)-p-(.*).html$ product_info.php?products_id=$2&%{QUERY_STRING}

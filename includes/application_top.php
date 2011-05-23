@@ -31,7 +31,7 @@
 // start the timer for the page parse time log
 
 
-
+ini_set('date.timezone', 'America/Vancouver'); 
 
 
 define ( 'PAGE_PARSE_START_TIME', microtime () );
