@@ -298,7 +298,7 @@ MM_reloadPage(true);
 
       <p class="smallText">
 
-      <?
+      <?php
 
 
 
@@ -1060,7 +1060,7 @@ if (strlen($v_categores3_name)>0){
 
                       </div>
 
-                      <?
+                      <?php
 
 if (is_uploaded_file($usrfl)) 
 
@@ -1200,13 +1200,13 @@ echo "Total Records inserted......".$Counter."<br>";
 
             <textarea cols="80" rows="20"><?=$CatList?></textarea>
 
-              <?
+              <?php
 
 			}else{?>
 
 			<a href="<?=$filename?>"><?=$filename?></a>
 
-			<?
+			<?php
 
 			}
 

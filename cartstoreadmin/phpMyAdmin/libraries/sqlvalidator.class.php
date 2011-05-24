@@ -125,7 +125,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
 
 
         /**
-         * Validator sytem call
+         * Validator system call
          *
          * @param  object  Service object
          * @param  object  Session object
@@ -148,7 +148,7 @@ if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
 
 
         /**
-         * Validator sytem call
+         * Validator system call
          *
          * @param  string  SQL Query to validate
          *

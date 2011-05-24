@@ -8,6 +8,6 @@ Your selected vehicle is <span>"<?=$_COOKIE['Make_selected']?> <?=$_COOKIE['Mode
 </div>
 </div>
 </div>
-<?
+<?php
 }
 ?>

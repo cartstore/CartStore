@@ -130,7 +130,7 @@ $products_status = $product_info['products_status'];
             <td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   
-<link href="templates/sytem/product_page.css" rel="stylesheet" type="text/css">
+<link href="templates/system/product_page.css" rel="stylesheet" type="text/css">
 
  <td valign="top" colspan="2"><!-- desc area -->
 <table width="100%" class="prodborder" border="0">
@@ -267,7 +267,7 @@ document.write('<?php echo '<a href="javascript:popupstsWindow(\\\'' . tep_href_
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			  <tr>
 					<td colspan="2">
-					<?
+					<?php
 								
 				//echo "select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'";
 				//die ('cool........') ; 
@@ -605,7 +605,7 @@ tp = new WebFXTabPane(document.getElementById("tabpane1"));
 			  <tr>
 			  <td>
 			<!--          Get iew fot    -->
-<?
+<?php
 if(!tep_session_is_registered('sppc_customer_group_id')) {
  $customer_group_id = '0';
 } else {
@@ -653,7 +653,7 @@ if (tep_session_is_registered('affiliate_id')) {
 	     ?></td>
               </tr>
 		  		</table>
-<?
+<?php
 }
 ?>
 			<!--          Get iew fot    -->

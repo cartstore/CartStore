@@ -1,4 +1,4 @@
-<?
+<?php
 
 // forum_application top
 // defines added for puddled forum script

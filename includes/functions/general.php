@@ -1,5 +1,5 @@
 <?php
- 
+
 
   include(DIR_WS_FUNCTIONS . 'register_globals.php');
 
@@ -658,7 +658,7 @@
   {
       $search_str = trim(strtolower($search_str));
 
-      $pieces = split('[[:space:]]+', $search_str);
+      $pieces = explode('[[:space:]]+', $search_str);
       $objects = array();
       $tmpstring = '';
       $flag = '';
@@ -1004,7 +1004,7 @@
 
       function tep_word_count($string, $needle)
       {
-          $temp_array = split($needle, $string);
+          $temp_array = explode($needle, $string);
           return sizeof($temp_array);
       }
       function tep_count_modules($modules = '')
@@ -1012,7 +1012,7 @@
           $count = 0;
           if (empty($modules))
               return $count;
-          $modules_array = split(';', $modules);
+          $modules_array = explode(';', $modules);
           for ($i = 0, $n = sizeof($modules_array); $i < $n; $i++) {
               $class = substr($modules_array[$i], 0, strrpos($modules_array[$i], '.'));
               if (is_object($GLOBALS[$class])) {

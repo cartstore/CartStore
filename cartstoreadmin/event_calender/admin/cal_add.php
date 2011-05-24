@@ -1,4 +1,4 @@
-<?
+<?php
 include 'includes/configure.php';
 include('check.php');
 include('dbconn.php');
@@ -100,7 +100,7 @@ if(!isset($_POST['new_event']) && !isset($_POST['add_event'])) {
 
 </form>
 
-<?
+<?php
 
 }
 
@@ -173,7 +173,7 @@ if(isset($_POST['new_event'])) {
 
 </form>
 
-<?
+<?php
 
 }
 

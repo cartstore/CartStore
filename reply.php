@@ -55,7 +55,7 @@
           <tr>
             <td class="main">
             <!-- insert forum here -->
-              <?
+              <?php
              $forumid = $_GET['forumid'];
   $threadid = $_GET['threadid'];
 

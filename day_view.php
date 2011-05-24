@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('admin/dbconn.php');
 include('functions/functions.php');

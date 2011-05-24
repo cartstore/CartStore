@@ -109,6 +109,9 @@ define('FILENAME_STATS_AD_RESULTS', 'stats_ad_results.php');
   define('FILENAME_ORDERS_VENDORS', 'orders_by_vendor.php');
   define('FILENAME_VENDORS_EMAIL_SEND', 'vendor_email_send.php');
   define('FILENAME_MOVE_VENDORS', 'move_vendor_prods.php');
+   define('FILENAME_STATS_VENDORS', 'stats_sales_report2.php');
+  
+  
 //MVS and vendors email End
   define('FILENAME_HEADER_TAGS_CONTROLLER', 'header_tags_controller.php');
 define('FILENAME_HEADER_TAGS_ENGLISH', 'header_tags_english.php');

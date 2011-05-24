@@ -1,4 +1,4 @@
-<?
+<?php
 
 /*
   $Id: new_attributes_functions.php 

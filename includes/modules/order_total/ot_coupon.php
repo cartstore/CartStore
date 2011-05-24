@@ -23,16 +23,16 @@
           global $PHP_SELF, $order, $currencies;
           $order_total = $this->get_order_total();
           $od_amount = $this->calculate_credit($order_total);
-          
+
           $tod_amount = 0.0;
           $this->deduction = $od_amount;
           if ($this->calculate_tax != 'None') {
-              
+
               $tod_amount = $this->calculate_tax_deduction($order_total, $this->deduction, $this->calculate_tax);
           } //if ($this->calculate_tax != 'None')
           if ($od_amount > 0) {
               $order->info['total'] = $order->info['total'] - $od_amount;
-              $this->output[] = array('title' => $this->title . ': ' . $this->coupon_code . ':', 'text' => '<b>-' . $currencies->format($od_amount) . '</b>', 
+              $this->output[] = array('title' => $this->title . ': ' . $this->coupon_code . ':', 'text' => '<b>-' . $currencies->format($od_amount) . '</b>',
               'value' => $od_amount);
           } //if ($od_amount > 0)
       } //function process()
@@ -52,7 +52,7 @@
       function credit_selection()
       {
           global $customer_id, $currencies, $language;
-          
+
           $selection_string = '';
           $selection_string .= tep_draw_form('checkout_payment_gift', tep_href_link(FILENAME_CHECKOUT_CONFIRMATION, '', 'SSL'), 'post');
           $selection_string .= ' ';
@@ -60,7 +60,7 @@
           $selection_string .= ' ';
           $selection_string .= tep_image_submit('button_redeem.gif', IMAGE_REDEEM_VOUCHER, '');
           $selection_string .= '</form>';
-          
+
           return $selection_string;
       } //function credit_selection()
       function collect_posts()
@@ -69,16 +69,17 @@
               if ($_POST['gv_redeem_code']) {
                   $coupon_query = tep_db_query("select coupon_id, coupon_amount, coupon_type, coupon_minimum_order,uses_per_coupon, uses_per_user, restrict_to_products,restrict_to_categories from " . TABLE_COUPONS . " where coupon_code='" . $_POST['gv_redeem_code'] . "' and coupon_active='Y'");
               $coupon_result = tep_db_fetch_array($coupon_query);
+
               if ($coupon_result['coupon_type'] != 'G') {
                   if (tep_db_num_rows($coupon_query) == 0) {
                       tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'payment_error=' . $this->code . '&error=' . urlencode(ERROR_NO_INVALID_REDEEM_COUPON), 'SSL'));
                   } //if (tep_db_num_rows($coupon_query) == 0)
-                      
+
                       $date_query = tep_db_query("select coupon_start_date from " . TABLE_COUPONS . " where coupon_start_date <= now() and coupon_code='" . $_POST['gv_redeem_code'] . "'");
                   if (tep_db_num_rows($date_query) == 0) {
                       tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'payment_error=' . $this->code . '&error=' . urlencode(ERROR_INVALID_STARTDATE_COUPON), 'SSL'));
                   } //if (tep_db_num_rows($date_query) == 0)
-                      
+
                       $date_query = tep_db_query("select coupon_expire_date from " . TABLE_COUPONS . " where coupon_expire_date >= now() and coupon_code='" . $_POST['gv_redeem_code'] . "'");
                   if (tep_db_num_rows($date_query) == 0) {
                       tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'payment_error=' . $this->code . '&error=' . urlencode(ERROR_INVALID_FINISDATE_COUPON), 'SSL'));
@@ -91,43 +92,44 @@
                   if (tep_db_num_rows($coupon_count_customer) >= $coupon_result['uses_per_user'] && $coupon_result['uses_per_user'] > 0) {
                       tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'payment_error=' . $this->code . '&error=' . urlencode(ERROR_INVALID_USES_USER_COUPON . $coupon_result['uses_per_user'] . TIMES), 'SSL'));
                   } //if (tep_db_num_rows($coupon_count_customer) >= $coupon_result['uses_per_user'] && $coupon_result['uses_per_user'] > 0)
-                  
+
                   global $order, $ot_coupon, $currency;
-                  
-                  
+
+
+                  $cc_id = $coupon_result['coupon_id'];
                   if (!tep_session_is_registered('cc_id'))
                       tep_session_register('cc_id');
-                  $cc_id = $coupon_result['coupon_id'];
-                  
-                  
+
+
                   $coupon_amount = tep_round($ot_coupon->pre_confirmation_check($order->info['subtotal']), $currencies->currencies[$currency]['decimal_places']);
                   $coupon_amount_out = $currencies->format($coupon_amount) . ' ';
                   if ($coupon_result['coupon_minimum_order'] > 0)
                       $coupon_amount_out .= 'on orders greater than ' . $currencies->format($coupon_result['coupon_minimum_order']);
+                  $cc_id = $coupon_result['coupon_id'];
                   if (!tep_session_is_registered('cc_id'))
                       tep_session_register('cc_id');
-                  $cc_id = $coupon_result['coupon_id'];
                   if (strlen($cc_id) > 0 && $coupon_amount == 0) {
                           $err_msg = ERROR_REDEEMED_AMOUNT_ZERO;
                       } //if (strlen($cc_id) > 0 && $coupon_amount == 0)
-                      
+
                   else {
                       $err_msg = ERROR_REDEEMED_AMOUNT . ': ' . $coupon_amount_out;
                   } //else
+
                   tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'payment_error=' . $this->code . '&error=' . urlencode($err_msg), 'SSL'));
-                  
-                  
+
+
               } //if ($coupon_result['coupon_type'] != 'G')
-              
+
               } //if ($_POST['gv_redeem_code'])
               if ($_POST['submit_redeem_coupon_x'])
                   tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'payment_error=' . $this->code . '&error=' . urlencode(ERROR_NO_REDEEM_CODE), 'SSL'));
           } //function collect_posts()
-              
+
           function calculate_credit($amount)
           {
               global $customer_id, $order, $cc_id;
-              
+
               $od_amount = 0;
               if (isset($cc_id)) {
                   $coupon_query = tep_db_query("select coupon_code from " . TABLE_COUPONS . " where coupon_id = '" . $cc_id . "'");
@@ -137,10 +139,10 @@
                       $coupon_get = tep_db_query("select coupon_amount, coupon_minimum_order, restrict_to_products, restrict_to_categories, coupon_type from " . TABLE_COUPONS . " where coupon_code = '" . $coupon_result['coupon_code'] . "'");
                       $get_result = tep_db_fetch_array($coupon_get);
                       $c_deduct = $get_result['coupon_amount'];
-                      
+
                       if ($get_result['coupon_type'] == 'S')
                           $c_deduct = $order->info['shipping_cost'];
-                      
+
                       if ($get_result['coupon_type'] == 'S' && $get_result['coupon_amount'] > 0)
                           $c_deduct = $order->info['shipping_cost'] + $get_result['coupon_amount'];
                       if ($get_result['coupon_minimum_order'] <= $this->get_order_total()) {
@@ -151,7 +153,7 @@
                                       for ($ii = 0; $ii < count($pr_ids); $ii++) {
                                           if ($pr_ids[$ii] == tep_get_prid($order->products[$i]['id'])) {
                                               if ($get_result['coupon_type'] == 'P') {
-                                                  
+
                                                   $pr_c = ($order->products[$i]['final_price'] * $order->products[$i]['qty']);
                                                   $pod_amount = round($pr_c * 10) / 10 * $c_deduct / 100;
                                                   $od_amount = $od_amount + $pod_amount;
@@ -171,20 +173,20 @@
                                               for ($ii = 0; $ii < count($cat_ids); $ii++) {
                                                   if ($sub_cat_ids[$iii] == $cat_ids[$ii]) {
                                                       if ($get_result['coupon_type'] == 'P') {
-                                                          
-                                                          
-                                                          
+
+
+
                                                           $pr_c = $this->product_price(tep_get_prid($order->products[$i]['id']));
-                                                          
+
                                                           $pr_c = $this->product_price($order->products[$i]['id']);
                                                           $pod_amount = round($pr_c * 10) / 10 * $c_deduct / 100;
                                                           $od_amount = $od_amount + $pod_amount;
-                                                          
+
                                                           continue 3;
                                                       } //if ($get_result['coupon_type'] == 'P')
                                                       else {
                                                           $od_amount = $c_deduct;
-                                                          
+
                                                           continue 3;
                                                       } //else
                                                   } //if ($sub_cat_ids[$iii] == $cat_ids[$ii])
@@ -212,24 +214,24 @@
           function calculate_tax_deduction($amount, $od_amount, $method)
           {
               global $customer_id, $order, $cc_id, $cart;
-              
+
               $coupon_query = tep_db_query("select coupon_code from " . TABLE_COUPONS . " where coupon_id = '" . $cc_id . "'");
               if (tep_db_num_rows($coupon_query) != 0) {
                   $coupon_result = tep_db_fetch_array($coupon_query);
                   $coupon_get = tep_db_query("select coupon_amount, coupon_minimum_order, restrict_to_products, restrict_to_categories, coupon_type from " . TABLE_COUPONS . " where coupon_code = '" . $coupon_result['coupon_code'] . "'");
                   $get_result = tep_db_fetch_array($coupon_get);
                   if ($get_result['coupon_type'] != 'S') {
-                      
+
                       if ($get_result['restrict_to_products'] || $get_result['restrict_to_categories']) {
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
+
+
+
+
+
+
+
+
+
                           $products = $cart->get_products();
                           $valid_product = false;
                           for ($i = 0; $i < sizeof($products); $i++) {
@@ -245,8 +247,8 @@
                                   } //for ($p = 0; $p < sizeof($pr_ids); $p++)
                               } //if ($get_result['restrict_to_products'])
                               if ($get_result['restrict_to_categories']) {
-                                  
-                                  
+
+
                                   $cat_ids = preg_split("/[,]/", $get_result['restrict_to_categories']);
                                   $my_path = tep_get_product_path($t_prid);
                                   $sub_cat_ids = preg_split("/[_]/", $my_path);
@@ -260,19 +262,19 @@
                                   } //for ($iii = 0; $iii < count($sub_cat_ids); $iii++)
                               } //if ($get_result['restrict_to_categories'])
                               if ($valid_product) {
-                                  
+
                                   $price_excl_vat = $products[$i]['final_price'] * $products[$i]['quantity'];
-                                  
+
                                   $price_incl_vat = $this->product_price($t_prid);
-                                  
+
                                   $valid_array[] = array('product_id' => $t_prid, 'products_price' => $price_excl_vat, 'products_tax_class' => $cc_result['products_tax_class_id']);
-                                  
-                                  
+
+
                                   $total_price += $price_excl_vat;
                               } //if ($valid_product)
                           } //for ($i = 0; $i < sizeof($products); $i++)
                           if (sizeof($valid_array) > 0) {
-                              
+
                               if ($get_result['coupon_type'] == 'P') {
                                   $ratio = $get_result['coupon_amount'] / 100;
                               } //if ($get_result['coupon_type'] == 'P')
@@ -291,9 +293,9 @@
                                       $tod_amount = $order->info['tax_groups'][$tax_desc] * $od_amount / 100;
                                   } //else
                                   $order->info['tax_groups'][$tax_desc] -= $tod_amount;
-                                  
+
                                   $order->info['total'] -= $tod_amount;
-                                  
+
                                   $order->info['tax'] -= $tod_amount;
                               } //if ($method == 'Credit Note')
                               else {
@@ -301,19 +303,19 @@
                                       $tax_rate = tep_get_tax_rate($valid_array[$p]['products_tax_class'], $order->delivery['country']['id'], $order->delivery['zone_id']);
                                       $tax_desc = tep_get_tax_description($valid_array[$p]['products_tax_class'], $order->delivery['country']['id'], $order->delivery['zone_id']);
                                       if ($tax_rate > 0) {
-                                          
-                                          
+
+
                                           $tod_amount = ($valid_array[$p]['products_price'] * $tax_rate) / 100 * $ratio;
                                           $order->info['tax_groups'][$tax_desc] -= ($valid_array[$p]['products_price'] * $tax_rate) / 100 * $ratio;
-                                          
+
                                           $order->info['total'] -= ($valid_array[$p]['products_price'] * $tax_rate) / 100 * $ratio;
-                                          
+
                                           $order->info['tax'] -= ($valid_array[$p]['products_price'] * $tax_rate) / 100 * $ratio;
                                       } //if ($tax_rate > 0)
                                   } //for ($p = 0; $p < sizeof($valid_array); $p++)
                               } //else
                           } //if (sizeof($valid_array) > 0)
-                          
+
                           } else
                           {
                               if ($get_result['coupon_type'] == 'F') {
@@ -325,10 +327,10 @@
                                       $order->info['tax_groups'][$tax_desc] -= $tod_amount;
                                   } //if ($method == 'Credit Note')
                                   else {
-                                      
+
                                       reset($order->info['tax_groups']);
                                       while (list($key, $value) = each($order->info['tax_groups'])) {
-                                          
+
                                           $ratio1 = $od_amount / ($amount - $order->info['tax_groups'][$key]);
                                           $tax_rate = tep_get_tax_rate_from_desc($key);
                                           $net = $tax_rate * $order->info['tax_groups'][$key];
@@ -339,9 +341,9 @@
                                           } //if ($net > 0)
                                       } //while (list($key, $value) = each($order->info['tax_groups']))
                                   } //else
-                                  
+
                                   $order->info['total'] -= $tod_amount;
-                                  
+
                                   $order->info['tax'] -= $tod_amount;
                               } //if ($get_result['coupon_type'] == 'F')
                               if ($get_result['coupon_type'] == 'P') {
@@ -364,7 +366,7 @@
                                           } //if ($net > 0)
                                       } //while (list($key, $value) = each($order->info['tax_groups']))
                                   } //else
-                                  
+
                                   $order->info['total'] -= $tod_amount;
                                   $order->info['tax'] -= $tod_amount;
                               } //if ($get_result['coupon_type'] == 'P')
@@ -373,7 +375,7 @@
                   } //if ($get_result['coupon_type'] != 'S')
                   return $tod_amount;
               } //if (tep_db_num_rows($coupon_query) != 0)
-              
+
               function update_credit_account($i, $order_id = 0)
               {
                   return false;
@@ -381,7 +383,7 @@
               function apply_credit()
               {
                   global $insert_id, $customer_id, $REMOTE_ADDR, $cc_id;
-                  
+
                   if ($this->deduction != 0) {
                       tep_db_query("insert into " . TABLE_COUPON_REDEEM_TRACK . " (coupon_id, redeem_date, redeem_ip, customer_id, order_id) values ('" . $cc_id . "', now(), '" . $REMOTE_ADDR . "', '" . $customer_id . "', '" . $insert_id . "')");
                   } //if ($this->deduction != 0)
@@ -390,9 +392,9 @@
               function get_order_total()
               {
                   global $order, $cart, $customer_id, $cc_id;
-                  
+
                   $order_total = $order->info['total'];
-                  
+
                   $products = $cart->get_products();
                   for ($i = 0; $i < sizeof($products); $i++) {
                       $t_prid = tep_get_prid($products[$i]['id']);
@@ -414,9 +416,9 @@
                       $order_total = $order_total - $order->info['tax'];
                   if ($this->include_shipping == 'false')
                       $order_total = $order_total - $order->info['shipping_cost'];
-                  
-                  
-                  
+
+
+
                   $coupon_query = tep_db_query("select coupon_code from " . TABLE_COUPONS . " where coupon_id='" . $cc_id . "'");
                   if (tep_db_num_rows($coupon_query) != 0) {
                       $coupon_result = tep_db_fetch_array($coupon_query);
@@ -461,7 +463,7 @@
               {
                   global $cart, $order;
                   $products_id = tep_get_prid($product_id);
-                  
+
                   $qty = $cart->contents[$product_id]['qty'];
                   $product_query = tep_db_query("select products_id, products_price, products_tax_class_id, products_weight from " . TABLE_PRODUCTS . " where products_id='" . $product_id . "'");
                   if ($product = tep_db_fetch_array($product_query)) {
@@ -475,12 +477,12 @@
                       } //if (tep_db_num_rows($specials_query))
                       if ($this->include_tax == 'true') {
                           $total_price += ($products_price + tep_calculate_tax($products_price, $products_tax)) * $qty;
-                          
+
                       } //if ($this->include_tax == 'true')
                       else {
                           $total_price += $products_price * $qty;
                       } //else
-                      
+
                       if (isset($cart->contents[$product_id]['attributes'])) {
                           reset($cart->contents[$product_id]['attributes']);
                           while (list($option, $value) = each($cart->contents[$product_id]['attributes'])) {
@@ -510,8 +512,8 @@
                   } //if ($this->include_shipping == 'true')
                   return $total_price;
               } //function get_product_price($product_id)
-              
-              
+
+
               function product_price($product_id)
               {
                   $total_price = $this->get_product_price($product_id);
@@ -519,15 +521,15 @@
                       $total_price -= $order->info['shipping_cost'];
                   return $total_price;
               } //function product_price($product_id)
-              
-              
+
+
               function get_error()
               {
                                                                                                                   global $_GET;
                                                                                                                   $error = array('title' => MODULE_ORDER_TOTAL_COUPON_TEXT_ERROR, 'error' => stripslashes(urldecode($_GET['error'])));
                   return $error;
               } //function get_error()
-              
+
               function check()
               {
                   if (!isset($this->check)) {

@@ -72,7 +72,7 @@ ChangeLog:
   <title>.htaccess .htpasswd pair for Google Checkout Basic authentication on CGI php installations</title>
 </head>
 <body>  
-<?
+<?php
 
 if(isset($_POST['submit'])) {
 

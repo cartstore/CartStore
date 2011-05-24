@@ -984,7 +984,7 @@ vendors_id = '" . (int)$vendor_id . "' and languages_id = '" . (int)$language_id
       global $_SERVER;
       $db_query = tep_db_query("select now() as datetime");
       $db = tep_db_fetch_array($db_query);
-      list($system, $host, $kernel) = preg_split('/[\s,]+/', @exec('uname -a'), 5);
+      list($system, $host, $kernel) = preg_split('/[\s,]+/', 5);
       return array('date' => tep_datetime_short(date('Y-m-d H:i:s')), 'system' => $system, 'kernel' => $kernel, 'host' => $host, 'ip' => gethostbyname($host), 'uptime' => @exec('uptime'), 'http_server' => $_SERVER['SERVER_SOFTWARE'], 'php' => PHP_VERSION, 'zend' => (function_exists('zend_version') ? zend_version() : ''), 'db_server' => DB_SERVER, 'db_ip' => gethostbyname(DB_SERVER), 'db_version' => 'MySQL ' . (function_exists('mysql_get_server_info') ? mysql_get_server_info() : ''), 'db_date' => tep_datetime_short($db['datetime']));
   }
   function tep_generate_category_path($id, $from = 'category', $categories_array = '', $index = 0)

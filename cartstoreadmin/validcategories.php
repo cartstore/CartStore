@@ -35,7 +35,7 @@ td {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: xx-small}
 <h4><?php echo TEXT_VALID_CATEGORIES_LIST; ?></h4>
 </td>
 </tr>
-<?
+<?php
     echo "<tr><th>" . TEXT_VALID_CATEGORIES_ID . "</th><th>" . TEXT_VALID_CATEGORIES_NAME . "</th></tr><tr>";
     $result = mysql_query("SELECT * FROM categories, categories_description WHERE categories.categories_id = categories_description.categories_id and categories_description.language_id = '" . $languages_id . "' ORDER BY categories.categories_id");
     if ($row = mysql_fetch_array($result)) {

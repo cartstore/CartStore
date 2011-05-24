@@ -1,4 +1,4 @@
-<?
+<?php
    
 /*
   $Id: new_attributes.php 
@@ -60,7 +60,7 @@
 <!-- body_text //-->
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
     
-<?
+<?php
 function findTitle( $current_product_id, $languageFilter )
 {
   $query = "SELECT * FROM products_description where language_id = '$languageFilter' AND products_id = '$current_product_id'";

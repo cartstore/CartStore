@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 $id author Puddled Internet - http://www.puddled.co.uk
   email support@puddled.co.uk

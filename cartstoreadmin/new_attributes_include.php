@@ -25,7 +25,7 @@
 <FORM ACTION="<?=$PHP_SELF?>" METHOD="POST" NAME="SUBMIT_ATTRIBUTES">
 <INPUT TYPE="HIDDEN" NAME="current_product_id" VALUE="<?=$current_product_id?>">
 <INPUT TYPE="HIDDEN" NAME="action" VALUE="change">
-<?
+<?php
 
 if ( $cPath ) echo "<INPUT TYPE=\"HIDDEN\" NAME=\"cPathID\" VALUE=\"" . $cPath . "\">";
 

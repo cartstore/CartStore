@@ -20,7 +20,7 @@ $id author Puddled Internet - http://www.puddled.co.uk
 
 
     
-          <?
+          <?php
 
          $account_query = tep_db_query("SELECT customers_firstname, customers_lastname, customers_email_address FROM " . TABLE_CUSTOMERS . " where customers_id = '" . $customer_id . "'");
          $account = tep_db_fetch_array($account_query);
@@ -51,7 +51,7 @@ echo '
 
 <b><?php echo TEXT_SUPPORT_BILLING_ADDRESS; ?></b><br />
 
-         <?
+         <?php
     echo '             ' . "\n" .
          '                ' . "\n" .
          '                ' . tep_address_format($order->billing['format_id'], $order->billing, 1, ' ', '<br>') . '' . "\n" .
@@ -61,7 +61,7 @@ echo '
 
 <b><?php echo TEXT_SUPPORT_DELIVERY_ADDRESS; ?></b><br />
 
-         <?
+         <?php
     echo '              ' . "\n" .
          '                ' . "\n" .
          '               ' . tep_address_format($order->delivery['format_id'], $order->delivery, 1, ' ', '<br>') . '' . "\n" .
@@ -71,7 +71,7 @@ echo '
 
 <b><?php echo TEXT_SUPPORT_USER_EMAIL; ?></b>
 
-         <?
+         <?php
     echo '              ' . "" .
          '                ' . "" .
          '               <br />
@@ -93,7 +93,7 @@ echo '
 
 <b><?php echo TEXT_SUPPORT_TEXT; ?></b><br />
 
-         <?
+         <?php
     echo '              ' . "\n" .
          '                ' . "\n" .
          '               ' . nl2br($returned_products['comments']) . '</td>' . "\n" .

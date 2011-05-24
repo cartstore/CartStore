@@ -195,7 +195,7 @@ Wishlist</a>'; ?>
 
 ?>
           
-          <?
+          <?php
 								
 				//echo "select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'";
 				//die ('cool........') ; 
@@ -492,7 +492,7 @@ if (tep_session_is_registered('affiliate_id')) {
 			  ?>
  
         <!--          Get iew fot    -->
-        <?
+        <?php
 if(!tep_session_is_registered('sppc_customer_group_id')) {
  $customer_group_id = '0';
 } else {
@@ -520,7 +520,7 @@ if ($num_products_xsell > 0) {
           <? include(DIR_WS_MODULES . 'product_reviews_info.php'); ?>
         </span>
         <span class="horzdot" ></span>
-        <?
+        <?php
 }
 ?>
         <?php }?>

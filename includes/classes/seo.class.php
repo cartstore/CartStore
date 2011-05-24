@@ -1,4 +1,4 @@
-<?
+<?php
 define('USE_SEO_REDIRECT_DEBUG', 'false');
 /**
  * Ultimate SEO URLs Contribution - CartStore MS-2.2

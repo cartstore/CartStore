@@ -6,7 +6,7 @@
   http://www.oscommerce.com
 
   Released under the GNU General Public License
-  
+
   Copyright © 2006 Kangaroo Partners
   http://kangaroopartners.com
   osc@kangaroopartners.com
@@ -43,20 +43,20 @@ if (AM_USE_MPW) {
 // END More Product Weight added by RusNN
 
 function &amGetAttributeManagerInstance($get) {
-	
+
 	if (!is_numeric($get['products_id']) || AM_ATOMIC_PRODUCT_UPDATES) {
 
 		// first time visiting the page - delete the session var and start again
-		if('new_product' == $get[AM_PAGE_ACTION_NAME] && !tep_not_null($get[AM_ACTION_GET_VARIABLE])) 
-			amSessionUnregister(AM_SESSION_VAR_NAME);	
-			
+		if('new_product' == $get[AM_PAGE_ACTION_NAME] && !tep_not_null($get[AM_ACTION_GET_VARIABLE]))
+			amSessionUnregister(AM_SESSION_VAR_NAME);
+
 			amSessionRegister(AM_SESSION_VAR_NAME, array());
-	
-		$attributeManager =& new attributeManagerAtomic(amGetSesssionVariable(AM_SESSION_VAR_NAME));
+
+		$attributeManager = new attributeManagerAtomic(amGetSesssionVariable(AM_SESSION_VAR_NAME));
 	}
 	else
-		$attributeManager =& new attributeManagerInstant($_GET['products_id']);
-		
+		$attributeManager = new attributeManagerInstant($_GET['products_id']);
+
 	return $attributeManager;
 }
 

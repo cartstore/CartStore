@@ -1,4 +1,4 @@
-<?
+<?php
 include 'includes/configure.php';
 include('admin/dbconn.php');
 include('functions/functions.php');
@@ -71,7 +71,7 @@ for($i=1; $i<= $day_count; $i++) { // Start of for $i
 	
 	$count = count_events($i,$month,$year);
 		
-	echo "<a href='templates/sytem/event_calender/day_view.php?day=$i&month=$month&year=$year' title='$i $month_name' rel='day_view'>";
+	echo "<a href='templates/system/event_calender/day_view.php?day=$i&month=$month&year=$year' title='$i $month_name' rel='day_view'>";
 	echo "<div class='cal_day'>"; // Calendar Day
 		
 		echo "<div class='day_heading'>" . $day_name . "</div>";

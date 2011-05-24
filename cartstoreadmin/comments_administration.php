@@ -1,6 +1,6 @@
 <?php
 
-	require_once '../templates/sytem/comments/classes/Comments.php';
+	require_once '../templates/system/comments/classes/Comments.php';
 
 	
 

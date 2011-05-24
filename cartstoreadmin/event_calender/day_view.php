@@ -1,4 +1,4 @@
-<?
+<?php
 // Works as of PHP 4.3.0
 include '../../includes/configure.php';
 include('admin/dbconn.php');

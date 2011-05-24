@@ -23,7 +23,7 @@
 </TR>
 <FORM ACTION="<?=$PHP_SELF?>" NAME="SELECT_PRODUCT" METHOD="POST">
 <INPUT TYPE="HIDDEN" NAME="action" VALUE="select">
-<?
+<?php
 echo "<TR>";
 echo "<TD class=\"main\"><BR><B>".HEADING_SELECT."<BR></TD>";
 echo "</TR>";

@@ -1,6 +1,6 @@
 <?php
   require('includes/application_top.php');
-  
+
   if ((!tep_session_is_registered('customer_id')) && (!tep_session_is_registered('pwa_array_customer'))) {
       $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
       tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
@@ -224,7 +224,7 @@ win = window.open(mypage,myname,settings)
     <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="0">
         <tr>
           <td>
-          
+
           <table border="0" width="100%" cellspacing="0" cellpadding="0">
               <tr>
                 <td class="pageHeading"><?php
@@ -237,8 +237,8 @@ win = window.open(mypage,myname,settings)
 
             <div id="module-product">
   <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?> 
-    <li><?php echo '<a href=" ' . tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>2.  ' . CHECKOUT_BAR_PAYMENT . '</span></a></li>';?> 
+	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?>
+    <li><?php echo '<a href=" ' . tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>2.  ' . CHECKOUT_BAR_PAYMENT . '</span></a></li>';?>
 
  <li><a href="javascript:;" class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all"><span>3. <?php
                                                                  echo CHECKOUT_BAR_CONFIRMATION;
@@ -248,8 +248,8 @@ win = window.open(mypage,myname,settings)
     <li>4. <?php  echo CHECKOUT_BAR_FINISHED; ?></span></li>
   </ul>
 </div>
-            
-            
+
+
             </td>
         </tr>
         <tr>
@@ -262,7 +262,7 @@ win = window.open(mypage,myname,settings)
               <tr class="infoBoxContents">
                 <?php
   $selected_time_slot = $_COOKIE['DelvTimeCookie'];
-  $del_temp = split("~", $selected_time_slot);
+  $del_temp = explode("~", $selected_time_slot);
   $del_date = $del_temp[0];
   $del_slotid = $del_temp[1];
   if ($sendto != false) {
@@ -541,9 +541,9 @@ win = window.open(mypage,myname,settings)
 ?>
                   <table width="100%" class="infobox" border="0" style="border-collapse: collapse">
                     <tr>
-                    
+
                     <td>
-                    
+
                     <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse">
                       <tr class="infoBoxContents">
                         <td align="right" border="0" colspan="2">
@@ -566,9 +566,9 @@ win = window.open(mypage,myname,settings)
 ?>
                           </u></a></td>
                       </td>
-                      
+
                       </tr>
-                      
+
                     </table>
                   </table></td>
               </tr>
@@ -585,22 +585,22 @@ win = window.open(mypage,myname,settings)
                     </tr>
                   </table></td>
               </tr>
-   
+
               </form>
-              
-              
-              
-              
+
+
+
+
             </table></td>
         </tr>
-        
+
         <tr>
         <td>
         <hr>
 <div id="module-product">
   <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?> 
-    <li><?php echo '<a href=" ' . tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>2.  ' . CHECKOUT_BAR_PAYMENT . '</span></a></li>';?> 
+	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?>
+    <li><?php echo '<a href=" ' . tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '" class="ui-state-default ui-corner-all"><span>2.  ' . CHECKOUT_BAR_PAYMENT . '</span></a></li>';?>
 
  <li><a href="javascript:;" class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all"><span>3. <?php
                                                                  echo CHECKOUT_BAR_CONFIRMATION;
@@ -615,12 +615,12 @@ win = window.open(mypage,myname,settings)
 
 </td>
 
-      
+
             </table>
-            
-            
-            
-            
+
+
+
+
             </td>
         </tr>
       </table></td>

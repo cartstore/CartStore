@@ -255,7 +255,7 @@ if(!isset($_GET['public_id'])) {
 ?>
 </table></form>
 
-<?
+<?php
 } else { // Nothing in the customers wishlist
 
 ?>

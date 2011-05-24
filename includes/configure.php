@@ -1,11 +1,11 @@
 <?php
 
   
-  define('HTTP_SERVER', 'http://dev.cartstore.com');
-  define('HTTPS_SERVER', 'http://dev.cartstore.com');
+  define('HTTP_SERVER', 'http://localhost');
+  define('HTTPS_SERVER', 'http://localhost');
   define('ENABLE_SSL', false);
-  define('HTTP_COOKIE_DOMAIN', 'dev.cartstore.com');
-  define('HTTPS_COOKIE_DOMAIN', 'dev.cartstore.com');
+  define('HTTP_COOKIE_DOMAIN', 'localhost');
+  define('HTTPS_COOKIE_DOMAIN', 'localhost');
   define('HTTP_COOKIE_PATH', '/');
   define('HTTPS_COOKIE_PATH', '/');
   define('DIR_WS_HTTP_CATALOG', '/');
@@ -20,14 +20,14 @@
   define('DIR_WS_LANGUAGES', DIR_WS_INCLUDES . 'languages/');
 
   define('DIR_WS_DOWNLOAD_PUBLIC', 'pub/');
-  define('DIR_FS_CATALOG', '/home/devcarts/public_html/');
+  define('DIR_FS_CATALOG', 'C:/wamp/www/');
   define('DIR_FS_DOWNLOAD', DIR_FS_CATALOG . 'download/');
   define('DIR_FS_DOWNLOAD_PUBLIC', DIR_FS_CATALOG . 'pub/');
 
   define('DB_SERVER', 'localhost');
-  define('DB_SERVER_USERNAME', 'devcarts_user');
-  define('DB_SERVER_PASSWORD', 'd{mZPs&t,*Jc');
-  define('DB_DATABASE', 'devcarts_user');
+  define('DB_SERVER_USERNAME', 'root');
+  define('DB_SERVER_PASSWORD', '');
+  define('DB_DATABASE', 'cartstore');
   define('USE_PCONNECT', 'false');
   define('STORE_SESSIONS', 'mysql');
   define('DIR_FS_CACHE_XSELL', 'cache/');
@@ -41,7 +41,6 @@
   define('PRODUCTS_OPTIONS_TYPE_FILE', 4);
   define('PRODUCTS_OPTIONS_TYPE_TEXTAREA', 5);
   define('PRODUCTS_OPTIONS_TYPE_CALENDER', 6); 
-  define('DIR_FS_UPLOADS', DIR_FS_CATALOG . DIR_WS_UPLOADS);
   define('DIR_FS_UPLOADS', DIR_FS_CATALOG . DIR_WS_UPLOADS);
    define('DIR_WS_TEMPLATES', DIR_FS_CATALOG . 'templates/');
 ?>

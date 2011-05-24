@@ -56,13 +56,7 @@ echo TITLE;
 
 
 
-<script language="javascript" type="text/javascript"
 
-	src="<?php
-
-	echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
-
-	?>tiny_mce/tiny_mce.js"></script>
 
 
 

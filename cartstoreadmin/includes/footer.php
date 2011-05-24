@@ -31,7 +31,6 @@
 		</div>
 	</div>
     
-       <script type="text/javascript" src="../templates/sytem/jquery.qtip-1.0.0-rc3.min.js"></script>
-
+ 
 </body>
 </html>

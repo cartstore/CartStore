@@ -1,4 +1,4 @@
-<?
+<?php
 include 'includes/configure.php';
 include('check.php');
 include('dbconn.php');
@@ -22,7 +22,7 @@ $date = $_POST['date'];
 
 </form>
 
-<?
+<?php
 
 $day = date('d');
 $month = date('m');
@@ -75,7 +75,7 @@ if($_GET['evid']) {
 
 <label>Date</label><input type="text" name="date" id="datepicker" value="<?=$row['day'].'/'.$row['month'].'/'.$row['year'];?>" /><br /><br />
 
-<?
+<?php
 
 $from = str_split($row['time_from']);
 $until = str_split($row['time_until']);
@@ -162,7 +162,7 @@ $until = str_split($row['time_until']);
 <input type="submit" class="button" value="Confirm" name="do_edit" />
 </form>
 
-<?
+<?php
 
 }
 

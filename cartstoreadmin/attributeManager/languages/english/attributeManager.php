@@ -1,4 +1,4 @@
-<?
+<?php
 /*
   $Id: attributeManager.php,v 1.0 21/02/06 Sam West$
 

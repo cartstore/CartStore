@@ -1,4 +1,4 @@
-<? 
+<?php 
 if($_SESSION['Make_selected']!="" && $_SESSION['Make_selected']!='all')
 {
 ?>
@@ -12,6 +12,6 @@ if($_SESSION['Make_selected']!="" && $_SESSION['Make_selected']!='all')
       ! </span> Click here to see <a href="allprods.php"><u>all products</u></a> or our <u><a href="featured.php">find more items</a></u> for this selected vehicle.</div>
   </div>
 </div>
-<?
+<?php
 }
 ?>

@@ -1,15 +1,15 @@
 <?php
 
   
-  define('HTTP_SERVER', 'http://dev.cartstore.com');
-  define('HTTP_CATALOG_SERVER', 'http://dev.cartstore.com');
-  define('HTTPS_CATALOG_SERVER', 'http://dev.cartstore.com');
+  define('HTTP_SERVER', 'http://localhost');
+  define('HTTP_CATALOG_SERVER', 'http://localhost');
+  define('HTTPS_CATALOG_SERVER', 'http://localhost');
   define('ENABLE_SSL_CATALOG', 'false');
-  define('DIR_FS_DOCUMENT_ROOT', '/home/devcarts/public_html/');
+  define('DIR_FS_DOCUMENT_ROOT', 'C:/wamp/www/');
   define('DIR_WS_ADMIN', '/cartstoreadmin/');
-  define('DIR_FS_ADMIN', '/home/devcarts/public_html/cartstoreadmin/');
+  define('DIR_FS_ADMIN', 'C:/wamp/www/cartstoreadmin/');
   define('DIR_WS_CATALOG', '/');
-  define('DIR_FS_CATALOG', '/home/devcarts/public_html/');
+  define('DIR_FS_CATALOG', 'C:/wamp/www/');
   define('DIR_WS_IMAGES', 'images/');
   define('DIR_WS_ICONS', DIR_WS_IMAGES . 'icons/');
   define('DIR_WS_CATALOG_IMAGES', DIR_WS_CATALOG . 'images/');
@@ -24,11 +24,13 @@
   define('DIR_FS_CATALOG_IMAGES', DIR_FS_CATALOG . 'images/');
   define('DIR_FS_CATALOG_MODULES', DIR_FS_CATALOG . 'includes/modules/');
   define('DIR_FS_BACKUP', DIR_FS_ADMIN . 'backups/');
+    define('DIR_FS_MAIL_DUMPS', DIR_FS_ADMIN . 'maildumps/');
+  
 
   define('DB_SERVER', 'localhost');
-  define('DB_SERVER_USERNAME', 'devcarts_user');
-  define('DB_SERVER_PASSWORD', 'd{mZPs&t,*Jc');
-  define('DB_DATABASE', 'devcarts_user');
+  define('DB_SERVER_USERNAME', 'root');
+  define('DB_SERVER_PASSWORD', '');
+  define('DB_DATABASE', 'cartstore');
   define('USE_PCONNECT', 'false');
   define('STORE_SESSIONS', 'mysql');
   define('PRODUCTS_OPTIONS_TYPE_TEXT', 1);

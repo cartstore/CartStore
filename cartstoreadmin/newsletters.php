@@ -103,28 +103,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo TITLE; ?></title>
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
-   <script type="text/javascript" src="templates/admin/js/mootools-release-1.11.js"></script>
-	<script type="text/javascript" src="templates/admin/js/mootools.bpngrame.js"></script>
-	<script type="text/javascript" src="templates/admin/js/rokmoomenu.js"></script>
-	<script type="text/javascript">
-	window.addEvent('domready', function() {
-    new Rokmoomenu($E('#menu'), {
-			bpngrame: false,
-			delay: 500,
-			animate: {
-				props: ['opacity', 'width', 'height'],
-				opts: {
-					duration:400,
-					fps: 100,
-					transition: Fx.Transitions.Expo.easeOut
-				}
-			}
-		});
-	});
-	</script> 	
+ 
 <script language="javascript" src="includes/general.js"></script>
-<script language="javascript" src="includes/general.js"></script>
-<link href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>ckfinder/sample.css" rel="stylesheet" type="text/css" />
+
 	<script type="text/javascript" src="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>ckfinder/ckfinder.js"></script>
 </head>

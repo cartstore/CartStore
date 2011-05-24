@@ -1,7 +1,5 @@
 <?php
-  if ($_GET['info'] == 'pi') {
-      die(phpinfo());
-  } //if ($_GET['info'] == 'pi')
+
   require('includes/application_top.php');
   require('includes/functions/categories_description.php');
   global $customer_group_id;

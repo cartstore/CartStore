@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$db = dbconn(DB_SERVER,DB_DATABASE,DB_SERVER_USERNAME,DB_SERVER_PASSWORD);
 	

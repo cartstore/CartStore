@@ -49,7 +49,7 @@ STS v4.1 by Rigadin (rigadin@osc-help.net)
 
 <!-- do not remove will void licence -->
 
-<?
+<?php
 $random_text = array("<div align=\"center\"><a href=\"http://www.cartstore.com\" target=\"_blank\">Powered by CartStore Shopping Cart Software</a></div>",
                       "<div align=\"center\"><a href=\"http://www.storecoders.com\" target=\"_blank\">osCommerce Design</a></div>",
 					  "<div align=\"center\"><a href=\"http://www.storecoders.com\" target=\"_blank\">osCommerce Developers</a></div>",
@@ -67,6 +67,5 @@ print("$random_text[$random]");
 
 <?php include(DIR_WS_BOXES . 'analytics.php');
       echo '</div>'; ?>
-             <script type="text/javascript" src="templates/sytem/jquery.qtip-1.0.0-rc3.min.js"></script>
-
+ 
 </div>

@@ -317,7 +317,7 @@ if ($_GET['action'] == 'sent'){
       </tr>
 
 
-          <?
+          <?php
 } else// if ($_GET['action'] == 'new')
 {
          $account_query = tep_db_query("SELECT customers_firstname, customers_lastname, customers_email_address FROM " . TABLE_CUSTOMERS . " where customers_id = '" . $customer_id . "'");
@@ -331,7 +331,7 @@ if ($_GET['action'] == 'sent'){
       </tr>
       <tr><form name="longsubmit" action="return_product.php?action=insert&oID=<? echo $_GET['order_id'] . '&products_id=' . $_GET['products_id']; ?>" method=post>
         <td><table border="0" cellspacing="0" cellpadding="2" width=100%>
-             <?
+             <?php
                   if (isset($error)=='yes') {
                    ?> <tr>
         <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
@@ -343,7 +343,7 @@ if ($_GET['action'] == 'sent'){
 
            </table></td>
             <td width="60%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
-         <?
+         <?php
     echo '              <tr>' . "\n" .
          '                <td class="main" align="left" width="100%">'. TEXT_ERROR_QUANTITY .'</td>' . "\n" .
 
@@ -357,7 +357,7 @@ if ($_GET['action'] == 'sent'){
       <tr>
             <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '15'); ?></td>
           </tr>
-              <?
+              <?php
               }
             ?>
 
@@ -438,7 +438,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
               </tr>
            </table></td>
             <td width="60%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
-         <?
+         <?php
     echo '              <tr>' . "\n" .
          '                <td class="main" align="left" width="5%">&nbsp;</td>' . "\n" .
          '                <td class="main" align="left" width=95%>' . tep_address_format($order->billing['format_id'], $order->billing, 1, ' ', '<br>') . '</td>' . "\n" .
@@ -463,7 +463,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
               </tr>
            </table></td>
             <td width="60%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
-         <?
+         <?php
     echo '              <tr>' . "\n" .
          '                <td class="main" align="left" width="5%">&nbsp;</td>' . "\n" .
          '                <td class="main" align="left" width=95%>' . tep_address_format($order->delivery['format_id'], $order->delivery, 1, ' ', '<br>') . '</td>' . "\n" .
@@ -487,7 +487,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
 
            </table></td>
             <td width="60%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
-         <?
+         <?php
     echo '              <tr>' . "\n" .
          '                <td class="main" align="left" width="5%">&nbsp;</td>' . "\n" .
          '                <td class="main" align="left" width=95%>' . $account['customers_email_address'] . tep_draw_hidden_field('support_user_email', $account['customers_email_address']) . '</td>' . "\n" .
@@ -513,7 +513,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
                 <tr>
             <td class=main width=5%>&nbsp;</td>
             <td class="main" width=95%><?php //echo tep_draw_input_field('link_url'); ?>
-          <?
+          <?php
             $priority_query = tep_db_query("select return_reason_id, return_reason_name from ". TABLE_RETURN_REASONS . " where language_id = '" . $languages_id . "' order by return_reason_id desc");
             $select_box = '<select name="support_priority"  size="' . MAX_MANUFACTURERS_LIST . '">';
              if (MAX_MANUFACTURERS_LIST < 2) {
@@ -552,7 +552,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
                 <tr>
             <td class=main width=5%>&nbsp;</td>
             <td class="main" width=95%><?php //echo tep_draw_input_field('link_url'); ?>
-          <?
+          <?php
             $refund_query = tep_db_query("select refund_method_id, refund_method_name from ". TABLE_REFUND_METHOD . " where language_id = '" . $languages_id . "' order by refund_method_id asc");
             $select_box = '<select name="refund_method"  size="' . MAX_MANUFACTURERS_LIST . '">';
              if (MAX_MANUFACTURERS_LIST < 2) {
@@ -567,7 +567,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
              echo $select_box;
           ?>
           <br><br>
-          <?
+          <?php
          $charge_query = tep_db_query("SELECT configuration_value FROM " . TABLE_CONFIGURATION . " where configuration_key = 'DEFAULT_RESTOCK_VALUE'");
          $charge = tep_db_fetch_array($charge_query);
 // Don't show re-stocking info if it's set to zero in Admin > Configuration > Stock
@@ -596,7 +596,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
               </tr>
            </table></td>
             <td width="60%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
-         <?
+         <?php
     echo '              <tr>' . "\n" .
          '                <td class="main" align="left" width="5%">&nbsp;</td>' . "\n" .
          '                <td class="main" align="left" width=95%>' . tep_draw_textarea_field('support_text', 'soft', '40', '7') . '</td>' . "\n" .

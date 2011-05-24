@@ -1,4 +1,6 @@
-<?php if($_SESSION['customer_first_name']!=""){ ?>
+<?php
+  if ($_SESSION['customer_first_name'] != "") {
+?>
 
 <div class="module">
   <div>
@@ -8,8 +10,8 @@
         <center>
           You are logged in as: <a href="account.php">
           <?php
-				print($_SESSION['customer_first_name']);
-				?>
+      print($_SESSION['customer_first_name']);
+?>
           </a>
         </center>
         <br />
@@ -19,27 +21,24 @@
     </div>
   </div>
 </div>
-<?php }else
-				{
-				?>
+<?php
+      }else
+      {
+?>
 <div class="module">
   <div>
     <div>
       <div>
         <h3>USER LOGIN</h3>
-        <? if($_SESSION['customers_email_address']!='')
-
-			  print '<center><span class="pad5">You are logged in as '.$_SESSION['customers_email_address'].'<br /><br />
+        <?php
+          if ($_SESSION['customers_email_address'] != '')
+              print '<center><span class="pad5">You are logged in as ' . $_SESSION['customers_email_address'] . '<br /><br />
 
 
 
  <a class="button" href="logoff.php">Logout.</a></span></center>';
-
-			  else
-
-			  {
-
-			  ?>
+          else {
+?>
         <div class="box">
           <form name="login" action="login.php?action=process" method="post">
             <label>eMail</label>
@@ -59,15 +58,13 @@
             <a href="create_account.php">New User? Click here</a>
           </form>
         </div>
-        <?
-
-			  }
-
-			  ?>
+        <?php
+          }
+?>
       </div>
     </div>
   </div>
 </div>
 <?php
-				}
+      }
 ?>

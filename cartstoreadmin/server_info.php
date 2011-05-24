@@ -144,7 +144,7 @@
 
                 <td class="smallText"><b><?php echo TITLE_SERVER_UP_TIME; ?></b></td>
 
-                <td colspan="3" class="smallText"><?php echo $system['uptime']; ?></td>
+                <td colspan="3" class="smallText">Server side execution disabled for security. -CartStore</td>
 
               </tr>
 

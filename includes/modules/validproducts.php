@@ -59,7 +59,7 @@ td {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: xx-small}
 		<th>Products Name</th>
 		<th>Products Model</th>
 	</tr>
-<?
+<?php
 if(!empty($search))
 {   $result = mysql_query("SELECT * FROM products p, products_description pd WHERE pd.products_name like '%" . tep_db_input($search) . "%' and p.products_status = '1' and p.products_id = pd.products_id and pd.language_id = '" . $languages_id . "' ORDER BY pd.products_name");
     if ($row = mysql_fetch_array($result)) {

@@ -47,7 +47,7 @@ error_reporting(E_ALL);
 <!-- left_navigation_eof //-->
     </table></td>
 <!-- body_text //-->
-<?
+<?php
    if(isset($_GET['forumid'])) 
    {
       $data = tep_db_query("select forumid, title FROM " . TABLE_FORUM ." WHERE forumid= '" . $_GET['forumid'] ."'");
@@ -78,7 +78,7 @@ error_reporting(E_ALL);
           <tr>
             <td class="main">
 <!-- insert forum here -->
-<?
+<?php
    if(isset($_GET['forumid']))
       $data = tep_db_query("select forumid, title FROM " . TABLE_FORUM ." WHERE forumid= '" . $_GET['forumid'] ."'");
 

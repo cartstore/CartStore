@@ -1,3 +1,11 @@
+<script language="javascript" type="text/javascript">
+<!--
+function popUp(url) {
+	newwindow=window.open(url,'name','height=600,width=900');
+}
+
+// -->
+</script>
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="includes/general.js"></script>
 <link href="<?php

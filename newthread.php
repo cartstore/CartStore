@@ -47,7 +47,7 @@
 <!-- left_navigation_eof //-->
     </table></td>
 <!-- body_text //-->
-<?
+<?php
    $forumid = $_GET['forumid'];
    $foruminfo_query = tep_db_query("SELECT title,description FROM forum WHERE forumid='$forumid'");
    $foruminfo = tep_db_fetch_array($foruminfo_query);
@@ -72,7 +72,7 @@
           <tr>
             <td class="main">
             <!-- insert forum here -->
-              <?
+              <?php
              if (isset($action)==0 or $action=="") {
   $action="newthread";
 }

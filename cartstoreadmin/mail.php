@@ -62,7 +62,7 @@
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 	 	
 <script language="javascript" src="includes/general.js"></script>
-<link href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>ckfinder/sample.css" rel="stylesheet" type="text/css" />
+
 	<script type="text/javascript" src="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>ckeditor/ckeditor.js"></script>
 	<script type="text/javascript" src="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>ckfinder/ckfinder.js"></script>
 </head>

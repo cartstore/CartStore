@@ -97,7 +97,7 @@
       $selected_box = $_GET['selected_box'];
   }
   $cache_blocks = array(array('title' => TEXT_CACHE_CATEGORIES, 'code' => 'categories', 'file' => 'categories_box-language.cache', 'multiple' => true), array('title' => TEXT_CACHE_MANUFACTURERS, 'code' => 'manufacturers', 'file' => 'manufacturers_box-language.cache', 'multiple' => true), array('title' => TEXT_CACHE_ALSO_PURCHASED, 'code' => 'also_purchased', 'file' => 'also_purchased-language.cache', 'multiple' => true));
-  $vendor_configuration_query = tep_db_query('select configuration_key as cfgKey, 
+  $vendor_configuration_query = tep_db_query('select configuration_key as cfgKey,
 
 
 
@@ -114,7 +114,7 @@ configuration_value as cfgValue from ' . TABLE_VENDOR_CONFIGURATION);
   if (function_exists('ini_get') && ((bool)ini_get('file_uploads') == false)) {
       $messageStack->add(WARNING_FILE_UPLOADS_DISABLED, 'warning');
   }
- 
+
   require(DIR_WS_INCLUDES . 'add_ccgvdc_application_top.php');
   require('includes/affiliate_application_top.php');
   define('TABLE_PRODUCTS_XSELL', 'products_xsell');
@@ -132,7 +132,7 @@ configuration_value as cfgValue from ' . TABLE_VENDOR_CONFIGURATION);
       $current_topic_id = 0;
   }
   if (basename($PHP_SELF) != FILENAME_LOGIN && basename($PHP_SELF) != FILENAME_PASSWORD_FORGOTTEN) {
-      tep_admin_check_login();
+    //  tep_admin_check_login();
   }
   if (count($_POST) > 0) {
       foreach ($_POST as $key => $value) {

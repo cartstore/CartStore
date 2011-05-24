@@ -539,7 +539,7 @@ if (is_dir ( DIR_FS_CATALOG_IMAGES )) {
 
 
 
-<?
+<?php
 
 if ($_GET ['action'] != 'article_preview') 
 
@@ -549,7 +549,7 @@ if ($_GET ['action'] != 'article_preview')
 
 
 
-<?
+<?php
 
 }
 

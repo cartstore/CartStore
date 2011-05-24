@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  $Id: category_tree.php,v1.0 2004/05/10 hpdl Exp $
 

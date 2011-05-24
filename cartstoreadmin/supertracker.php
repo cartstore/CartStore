@@ -72,27 +72,7 @@ define ('SUPERTRACKER_USE_PPC', false);
 </script>
  
 
-<script language="javascript" type="text/javascript" src="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN; ?>tiny_mce/tiny_mce.js"></script>
-<script language="javascript" type="text/javascript">
-tinyMCE.init({
-mode : "exact",
-elements : "products_description[1],products_short[1],categories_htc_description,products_info_desc[1]",
-theme : "advanced",
-plugins : "table,advhr,advimage,advlink,emotions,preview,flash,print,contextmenu",
-theme_advanced_buttons1_add : "fontselect,fontsizeselect",
-theme_advanced_buttons2_add : "separator,preview,separator,forecolor,backcolor",
-theme_advanced_buttons2_add_before: "cut,copy,paste,separator",
-theme_advanced_buttons3_add_before : "tablecontrols,separator",
-theme_advanced_buttons3_add : "emotions,flash,advhr,separator,print",
-theme_advanced_toolbar_location : "top",
-theme_advanced_toolbar_align : "left",
-theme_advanced_path_location : "bottom",
-extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
-external_link_list_url : "example_data/example_link_list.js",
-external_image_list_url : "example_data/example_image_list.js",
-flash_external_list_url : "example_data/example_flash_list.js"
-});
-</script>
+ 
 </head>
 <body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" bgcolor="#FFFFFF">
 <!-- header //-->

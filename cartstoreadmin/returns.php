@@ -417,7 +417,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
         <td class="main"><?php echo ENTRY_CREDIT_CARD_EXPIRES; ?></td>
         <td class="main"><?php echo $order->info['cc_expires']; ?></td>
       </tr>
-      <?
+      <?php
 }
 ?>
     </table></td>
@@ -550,7 +550,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
                 <td class="main" width=25% valign=top><b><?php echo ENTRY_PAYMENT_REFERENCE; ?></b></td>
                 <td width=65% class=main><? echo $order->info['payment_reference']; ?></td>
               </tr>
-              <?
+              <?php
                $price_new = $order->info['refund_amount'];
 
               ?>
@@ -562,7 +562,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
                 <td class="main" width=25%><b><? echo ENTRY_PAYMENT_DATE; ?></b></td>
                 <td width=65% class=main><? echo tep_date_short($order->info['refund_date']); ?></td>
               </tr>
-              <?
+              <?php
               $restock_query = tep_db_query("SELECT configuration_value from " . TABLE_CONFIGURATION . " where configuration_key = 'DEFAULT_RESTOCK_VALUE'");
               $restock = tep_db_fetch_array($restock_query);
               $tax = $restock['configuration_value'];
@@ -578,7 +578,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
   <?php
  // }
   ?>
-  <?
+  <?php
 } else {
 ?>
   <tr>
@@ -702,7 +702,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
         <td class="main"><?php echo ENTRY_CREDIT_CARD_EXPIRES; ?></td>
         <td class="main"><?php echo $order->info['cc_expires']; ?></td>
       </tr>
-      <?
+      <?php
     }
 ?>
     </table></td>
@@ -837,7 +837,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
             <td class="main" width=25% valign=top><b><?php echo ENTRY_PAYMENT_REFERENCE; ?></b></td>
             <td width=65% class=main><? echo tep_draw_input_field('refund_reference', $order->info['payment_reference']); ?></td>
           </tr>
-          <?
+          <?php
                $price_new = $order->info['refund_amount'];
 
               ?>
@@ -849,7 +849,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
             <td class="main" width=25%><b><? echo ENTRY_PAYMENT_DATE; ?></b></td>
             <td width=65% class=main><? echo tep_draw_input_field('refund_date', tep_date_short($order->info['refund_date'])); ?></td>
           </tr>
-          <?
+          <?php
               $restock_query = tep_db_query("SELECT configuration_value from " . TABLE_CONFIGURATION . " where configuration_key = 'DEFAULT_RESTOCK_VALUE'");
               $restock = tep_db_fetch_array($restock_query);
               $tax = $restock['configuration_value'];

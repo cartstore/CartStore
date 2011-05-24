@@ -1,4 +1,4 @@
-<?
+<?php
 
 function count_events($day,$month,$year) {
 

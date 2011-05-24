@@ -49,7 +49,7 @@
           <tr>
             <td class="main">
             <!-- insert forum here -->
-              <?
+              <?php
 
 $threadinfo_query= tep_db_query("SELECT title,forumid,lastpost,replycount+1 AS posts FROM " . TABLE_THREAD . " WHERE threadid='" . $_GET['threadid'] . "' AND forumid = '". $_GET['forumid'] . "'");
 $ti = tep_db_fetch_array($threadinfo_query);

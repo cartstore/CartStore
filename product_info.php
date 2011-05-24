@@ -8,85 +8,12 @@
   } else {
       $customer_group_id = $sppc_customer_group_id;
   }
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php
-  echo HTML_PARAMS;
-?>>
-<head>
-<meta http-equiv="Content-Type"
-  content="text/html; charset=<?php
-  echo CHARSET;
-?>">
-<title>
-<?php
-  echo TITLE;
-?>
-</title>
-<base
-  href="<?php
-  echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG;
-?>">
-<script language="javascript">
-
-function change(file)
-
-{
-
-
-
-document.cart_quantity.source.src=file;
-
-}
-
-</script>
-<script language="javascript"><!--
-
-function popupWindow(url) {
-
- window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,res
-
-izable=yes,copyhistory=no,width=100,height=100,screenX=150,screenY=150,top=150,l
-
-eft=150')
-
-}
-
-//--></script>
-<!-- Begin tab pane //-->
-<!-- End tab pane //-->
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0"
-  leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php
   require(DIR_WS_INCLUDES . 'header.php');
-?>
-<!-- header_eof //-->
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-  
-  <td width="<?php
-  echo BOX_WIDTH;
-?>" valign="top">
-  
-  <table border="0" width="<?php
-  echo BOX_WIDTH;
-?>"
-      cellspacing="0" cellpadding="2">
-    <!-- left_navigation //-->
-    <?php
   require(DIR_WS_INCLUDES . 'column_left.php');
 ?>
-    <!-- left_navigation_eof //-->
-    </tr>
-    
-    </td>
-    
-  </table>
-  </td>
-  
+
+
+
   <!-- body_text //-->
   <table width="100%" border="0">
     <tr>
@@ -131,13 +58,12 @@ eft=150')
         <?php
               tep_session_unregister('wishlist_id');
           }
-?>  <h1>
+?>
+        <h1>
           <?php
           echo $products_name;
 ?>
         </h1>
-       
-      
         <span class="breadcrumbs">
         <?php
           echo $breadcrumb->trail(' &raquo; ');
@@ -148,6 +74,7 @@ eft=150')
           if (tep_not_null($product_info['products_image'])) {
 ?>
         <script language="javascript"><!--
+
 
 document.write('<?php
               echo '<a href="imagemagic.php?img=images/' . $product_info['products_image'] . '&w=400&h=&page=popup" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['products_image'], addslashes($product_info['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, ' data-zoomsrc="images/' . $product_info['products_image'] . '" class="imageborder" name="source" ') . '<div class="clear"></div><center><b>Click here to enlarge</b></center></a><br>' . '';
@@ -254,7 +181,7 @@ document.write('<?php
 
 
 
-    
+
 
 <a class="button" href=' . $product_info['products_url'] . ' title="' . $product_info['products_url'] . '" >Buy From Partner </a></div>';
               } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
@@ -270,14 +197,15 @@ document.write('<?php
                   $products_price = "";
               } else
                   $products_price = $products_price;
-?> <?php
-          if ($_SERVER['HTTPS']) {
-              echo '';
-          } else {
-              echo '<br>
+?>
+        <?php
+              if ($_SERVER['HTTPS']) {
+                  echo '';
+              } else {
+                  echo '<br>
 <span > <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=d0747722-a27b-4a5e-808e-52268da6c4ad&amp;type=website"></script></span><br>
 ';
-          }
+              }
 ?>
         <span class="details">
         <?php
@@ -347,8 +275,6 @@ special pricing!</a>';
               }
 ?>
         </span>
-    
-  
         <?php
               if ((USE_POINTS_SYSTEM == 'true') && ($product_info['products_price'] > 0) && (DISPLAY_POINTS_INFO == 'true')) {
                   if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
@@ -360,14 +286,14 @@ special pricing!</a>';
                   $products_points_value = tep_calc_price_pvalue($products_points);
                   if (USE_POINTS_FOR_SPECIALS == 'true' || $new_price == false) {
                       echo '
- 
- 
- 
+
+
+
 
     <span class="producttext">' . sprintf(TEXT_PRODUCT_POINTS, number_format($products_points, POINTS_DECIMAL_PLACES), $currencies->format($products_points_value)) . '</span>';
                   } else {
                       echo '
- 
+
 
     <span class="producttext">' . TEXT_PRODUCT_NO_POINTS . '</span>
 
@@ -377,9 +303,8 @@ special pricing!</a>';
                   }
               }
 ?>
-         <?php
-              
-              list($products_id_clean) = split('{', $product_info['products_id']);
+        <?php
+              list($products_id_clean) = explode('{', $product_info['products_id']);
               $extra_fields_query = tep_db_query("
                       SELECT pef.products_extra_fields_name as name, ptf.products_extra_fields_value as value ,pef.products_extra_fields_status as status
                       FROM " . TABLE_PRODUCTS_EXTRA_FIELDS . " pef
@@ -389,7 +314,6 @@ special pricing!</a>';
             ORDER BY products_extra_fields_order");
               while ($extra_fields = tep_db_fetch_array($extra_fields_query)) {
                   if (!$extra_fields['status'])
-                      
                       continue;
                   echo '
      <br>
@@ -400,10 +324,7 @@ special pricing!</a>';
      </span>
     ';
               }
-              
 ?>
-
-
         <?php
               $extra_shipping_query = tep_db_query("select products_ship_price, products_ship_price_two from " . TABLE_PRODUCTS_SHIPPING . " where products_id = '" . (int)$product_info['products_id'] . "'");
               if (tep_db_num_rows($extra_shipping_query) > 0) {
@@ -428,14 +349,16 @@ special pricing!</a>';
               else
                   echo '<br><b><span class="markProductOutOfStock">This product is ordered directly from the manufacturer when your order is placed.  Your order may take additonal time to receive.</span></b><br>';
 ?>
-   <?php
-//affiliate build a link begin
-		if (tep_session_is_registered('affiliate_id')) {
-			?>
-	     <?php echo '<a class="button" href="' . tep_href_link(FILENAME_AFFILIATE_BANNERS_BUILD, 'individual_banner_id=' . $product_info['products_id']) .'" target="_self">Build Affiliate Link </a>'; ?><?php
-		}
-//affiliate build a link begin
-	     ?>     <br>
+        <?php
+              if (tep_session_is_registered('affiliate_id')) {
+?>
+        <?php
+                  echo '<a class="button" href="' . tep_href_link(FILENAME_AFFILIATE_BANNERS_BUILD, 'individual_banner_id=' . $product_info['products_id']) . '" target="_self">Build Affiliate Link </a>';
+?>
+        <?php
+              }
+?>
+        <br>
         <?=$newArea?>
         <?php
               $products_attributes_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'");
@@ -453,7 +376,9 @@ special pricing!</a>';
         <br>
         </span>
         <div class="clear"></div>
+
         <!-- begin tab pane //-->
+
         <div class="clear"></div>
         <br>
         <?php
@@ -484,13 +409,13 @@ special pricing!</a>';
                           }
                           echo '
 
-            
 
-            
 
-   
 
-    
+
+
+
+
 
  ';
                       }
@@ -500,7 +425,7 @@ special pricing!</a>';
                   if ($tab_array) {
 ?>
         </div>
-        <br> 
+        <br>
         <center>
           <?php
                       echo $product_info['products_info_desc'];
@@ -517,7 +442,9 @@ special pricing!</a>';
                       } else
                       {
 ?>
+
         <!-- End Tab Pane //-->
+
         <?php
                           if ($product_info['products_description']) {
 ?>
@@ -534,7 +461,8 @@ special pricing!</a>';
           <br>
           <br>
           <table width="100%" colspan="3">
-            <td class="dataTableHeading" nowrap><b>
+
+              <td class="dataTableHeading" nowrap><b>
                 <?php
                                   echo TEXT_PRODUCTS_CAR_HEADING;
 ?>
@@ -609,7 +537,9 @@ special pricing!</a>';
         <?php
                       }
 ?>
+
         <!--          Get iew fot    -->
+
         <?php
                       if (!tep_session_is_registered('sppc_customer_group_id')) {
                           $customer_group_id = '0';
@@ -647,32 +577,15 @@ special pricing!</a>';
                   include(DIR_WS_MODULES . 'product_reviews_info.php');
 ?>
         </span>
-        </form>
-      </td>
+        </form></td>
     </tr>
   </table>
   <!-- body_text_eof //-->
-  <td width="<?php
-                  echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-                  echo BOX_WIDTH;
-?>"
-      cellspacing="0" cellpadding="2">
-        <!-- right_navigation //-->
+
+
+
         <?php
                   require(DIR_WS_INCLUDES . 'column_right.php');
-?>
-        <!-- right_navigation_eof //-->
-      </table></td>
-  </tr>
-</table>
-<!-- body_eof //-->
-<!-- footer //-->
-<?php
                   require(DIR_WS_INCLUDES . 'footer.php');
-?>
-<!-- footer_eof //-->
-</body>
-<?php
                   require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>

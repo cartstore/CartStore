@@ -284,7 +284,7 @@
 
             </table>
 
-            <?
+            <?php
 
             }   // the end of -> if (!$add_related_article_ID)
 
