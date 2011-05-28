@@ -51,7 +51,7 @@
   if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
       $del_details = $_REQUEST['select_delv_time'];
       setcookie("DelvTimeCookie", $del_details, time() + 3600, "/");
-      $del_temp = split("~", $del_details);
+      $del_temp = explode("~", $del_details);
       $del_date = $del_temp[0];
       $del_slotid = $del_temp[1];
       $del_cost = $del_temp[2];
@@ -178,18 +178,18 @@
                 <td align="right">&nbsp;</td>
               </tr>
             </table>
-            
+
             <br>
 
             <div id="module-product">
   <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?> 
+	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?>
     <li><?php echo '<span>2.  ' . CHECKOUT_BAR_PAYMENT . '</span>';?><br>
 
 	<span>3. <?php
                                                                  echo CHECKOUT_BAR_CONFIRMATION;
 ?></span>
-	
+
 
 
 
@@ -198,7 +198,7 @@
     <li>4. <?php  echo CHECKOUT_BAR_FINISHED; ?></span></li>
   </ul>
 </div>
-            
+
             </td>
         </tr>
         <tr>
@@ -350,7 +350,7 @@
 ?></td>
                       <td colspan="2" width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="2">
                           <tr>
-                             
+
                             <td class="main"><b>
                               <?php
               echo FREE_SHIPPING_TITLE;
@@ -359,7 +359,7 @@
                               <?php
               echo $quotes[$i]['icon'];
 ?></td>
-                           
+
                           </tr>
                           <tr id="defaultSelected" class="ui-state-highlight ui-corner-all">
                             <td width="10"><?php
@@ -373,7 +373,7 @@
 ?></td>
                           </tr>
                         </table></td>
-                     
+
                     </tr>
                     <?php
               } else
@@ -382,16 +382,16 @@
                   for ($i = 0, $n = sizeof($quotes); $i < $n; $i++) {
 ?>
                     <tr>
-                  
+
                       <td  colspan="3">
-                      
-                      
-                      
-                      
-                      
+
+
+
+
+
                       <table border="0" width="100%" cellspacing="0" cellpadding="2">
                           <tr>
-                         
+
                             <td class="main"  colspan="3"><br><br>
 
 <h3 class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-transferthick-e-w" style="float:left";></span>
@@ -404,16 +404,16 @@
                           echo $quotes[$i]['icon'];
                       }
 ?></td>
-                          
+
                           </tr>
                           <?php
                       if (isset($quotes[$i]['error'])) {
 ?>
-                         
+
                             <td class="main" colspan="3"><?php
                           echo $quotes[$i]['error'];
 ?></td>
-                            
+
                           </tr>
                           <?php
                           } else
@@ -426,7 +426,7 @@
                                       echo '                  <tr class="moduleRow">' . "\n";
                                   }
 ?>
-                         
+
                             <td class="main" width="75%"><?php
                                   echo $quotes[$i]['methods'][$j]['title'];
 ?></td>
@@ -449,7 +449,7 @@
                             <?php
                                       }
 ?>
-                            
+
                           </tr>
                           <?php
                                       if ($quotes[$i]['id'] == "dly3datetime") {
@@ -465,7 +465,7 @@
                                   }
 ?>
                         </table></td>
-                      
+
                     </tr>
                     <?php
                               }
@@ -476,7 +476,7 @@
             </table></td>
         </tr>
         <tr>
-          
+
         </tr>
         <?php
                       }
@@ -540,17 +540,17 @@
 
              <tr>
              <td>
-             
+
                  <hr>
 <div id="module-product">
   <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?> 
+	<li><?php echo '<a href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '" class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all"><span>1. ' . CHECKOUT_BAR_DELIVERY . '</span></a></li>';?>
     <li><?php echo '<span>2.  ' . CHECKOUT_BAR_PAYMENT . '</span>';?><br>
 
 	<span>3. <?php
                                                                  echo CHECKOUT_BAR_CONFIRMATION;
 ?></span>
-	
+
 
 
 
@@ -560,12 +560,12 @@
   </ul>
 </div>
 
-             
+
              </td>
-             
-              
-              
-              
+
+
+
+
             </table></td>
         </tr>
       </table>

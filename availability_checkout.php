@@ -14,7 +14,7 @@
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
   <tr>
     <td width="87%" align="left" class="main"><b>Delivery Preferences: Availability
-      
+
       Calendar</b></td>
     <td width="13%" align="center" class="main">&nbsp;</td>
   </tr>
@@ -33,7 +33,7 @@
   $res_slots = tep_get_time_slots();
   while ($row_slots = tep_db_fetch_array($res_slots)) {
       $slt_temp = $row_slots['slot'];
-      $slot_mod = split("-", $slt_temp);
+      $slot_mod = explode("-", $slt_temp);
 ?>
                     <td  align="center" class="main" width="13px" nowrap="nowrap"><?php
       echo $slot_mod[0] . "-";
@@ -68,9 +68,9 @@
           $sp_det = tep_get_special_time(date('Y-m-d', $timestamps), $row_slots_inner_loop['slotid']);
           $booked_num = tep_get_total_count(date('Y-m-d', $timestamps), $row_slots_inner_loop['slotid']);
           if ($sp_det != 0) {
-              
+
               if ($sp_det['em_max_limit'] == 0) {
-                  
+
 ?>
                     <td align="center" bgcolor="<?php
                   echo FULLY_BLOCK_COLOR;
@@ -109,10 +109,10 @@
                     <?php
               }
           } else {
-              
+
               $default_det = tep_get_default_time($wkdayid, $row_slots_inner_loop['slotid']);
               if ($default_det['max_limit'] == 0) {
-                  
+
 ?>
                     <td align="center" bgcolor="<?php
                   echo FULLY_BLOCK_COLOR;
@@ -151,13 +151,13 @@
                     <?php
               }
           }
-          
+
       }
-      
+
 ?>
                   </tr>
                   <?php
-      } 
+      }
 ?>
                 </table></td>
             </tr>
@@ -166,7 +166,7 @@
     </table>
     <script language="javascript">
 
-  
+
 
    function setCheckedValue(radioObj, newValue) {
 

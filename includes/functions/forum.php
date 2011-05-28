@@ -35,37 +35,37 @@ if ($html==0) {
 htmlspecialchars();
 }
 
-  $message=eregi_replace(quotemeta("[b]"),quotemeta("<b>"),$message);
-  $message=eregi_replace(quotemeta("[/b]"),quotemeta("</b>"),$message);
-  $message=eregi_replace(quotemeta("[i]"),quotemeta("<i>"),$message);
-  $message=eregi_replace(quotemeta("[/i]"),quotemeta("</i>"),$message);
-  $message=eregi_replace(quotemeta("[u]"),quotemeta("<u>"),$message);
-  $message=eregi_replace(quotemeta("[/u]"),quotemeta("</u>"),$message);
+  $message=preg_replace("/".quotemeta("[b]")."/i",quotemeta("<b>"),$message);
+  $message=preg_replace("/".quotemeta("[/b]")."/i",quotemeta("</b>"),$message);
+  $message=preg_replace("/".quotemeta("[i]")."/i",quotemeta("<i>"),$message);
+  $message=preg_replace("/".quotemeta("[/i]")."/i",quotemeta("</i>"),$message);
+  $message=preg_replace("/".quotemeta("[u]")."/i",quotemeta("<u>"),$message);
+  $message=preg_replace("/".quotemeta("[/u]")."/i",quotemeta("</u>"),$message);
 
 
   // do [url]xxx[/url]
-  $message=eregi_replace("\\[url\\]www.([^\\[]*)\\[/url\\]","<a href=\"http://www.\\1\" target=_blank>\\1</a>",$message);
-  $message=eregi_replace("\\[url\\]([^\\[]*)\\[/url\\]","<a href=\"\\1\" target=_blank>\\1</a>",$message);
+  $message=preg_replace("/\[url\]www.([^\[]*)\[\/url\]/i","<a href=\"http:\/\/www.\\1\" target=_blank>\\1</a>",$message);
+  $message=preg_replace("/\[url\]([^\[]*)\[/url\]/i","<a href=\"\\1\" target=_blank>\\1</a>",$message);
 
   // do [email]xxx[/email]
-  $message=eregi_replace("\\[email\\]([^\\[]*)\\[/email\\]","<a href=\"mailto:\\1\">\\1</a>",$message);
+  $message=preg_replace("/\[email\]([^\[]*)\[\/email\]/i","<a href=\"mailto:\\1\">\\1</a>",$message);
 
   // do quotes
-  $message=eregi_replace("quote\\]","quote]",$message);  // make lower case
+  $message=preg_replace("/quote\]/i","quote]",$message);  // make lower case
   $message=str_replace("[quote]\r\n","<blockquote><smallfont>quote:</smallfont><hr>",$message);
   $message=str_replace("[quote]","<blockquote><smallfont>quote:</smallfont><hr>",$message);
   $message=str_replace("[/quote]\r\n","<hr></blockquote>",$message);
   $message=str_replace("[/quote]","<hr></blockquote>",$message);
 
   // do codes
-  $message=eregi_replace("code\\]","code]",$message);  // make lower case
+  $message=preg_replace("/code\]/i","code]",$message);  // make lower case
   $message=str_replace("[code]\r\n","<blockquote><smallfont>code:</smallfont><pre><hr>",$message);
   $message=str_replace("[code]","<blockquote><smallfont>code:</smallfont><hr><pre>\n",$message);
   $message=str_replace("[/code]\r\n","</pre><hr></blockquote>",$message);
   $message=str_replace("[/code]","</pre><hr></blockquote>",$message);
 
   // do [img]xxx[/img]
-  $message=eregi_replace("\\[img\\]([^\\[]*)\\[/img\\]","<img src=\"\\1\" border=0>",$message);
+  $message=preg_replace("/\[img\]([^\[]*)\[/img\]/i","<img src=\"\\1\" border=0>",$message);
 
 
 

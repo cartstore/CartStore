@@ -182,7 +182,7 @@ foreach ($items as $listing) {
 
 	//We first need to break apart End and convert the months to numbers
 
-	$seperate = split('[- :]', $End);
+	$seperate = preg_split('/[- :]/', $End);
 
 
 

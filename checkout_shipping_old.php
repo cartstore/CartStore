@@ -190,26 +190,26 @@
 
   //####################Input Delivery Details into the database#######################
 
-	$del_details=$_REQUEST['select_delv_time']; 
+	$del_details=$_REQUEST['select_delv_time'];
 
-	setcookie("DelvTimeCookie",$del_details, time()+3600,"/"); 
+	setcookie("DelvTimeCookie",$del_details, time()+3600,"/");
 
 
-	$del_temp=split("~",$del_details);  
+	$del_temp=explode("~",$del_details);
 
-	$del_date=$del_temp[0]; 
+	$del_date=$del_temp[0];
 
 	$del_slotid=$del_temp[1];
 
-	$del_cost=$del_temp[2]; 
+	$del_cost=$del_temp[2];
 
-	
+
 
 	//###############################################################################
 
 	//DELIVERY MODULE - END
 
-	
+
 
     if (!tep_session_is_registered('comments')) tep_session_register('comments');
 
@@ -933,7 +933,7 @@ function rowOutEffect(object) {
 
                   </tr>
 
-				  
+
 
 <?php
 
@@ -947,7 +947,7 @@ if($quotes[$i]['id']=="dly3datetime")
 
                     <td class="main" colspan="5"><?php include("availability_checkout.php"); ?></td>
 
-                    
+
 
                   </tr>
 

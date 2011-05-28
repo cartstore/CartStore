@@ -326,7 +326,7 @@
 
       curl_close ($ch);
 
-      $response = split('\,', $authorize);
+      $response = explode(',', $authorize);
 
 	  // Parse the response code and text for custom error display
 	  $response_code = explode(',', $response[0]);

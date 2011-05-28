@@ -566,7 +566,7 @@
                     </table></td>
                 </tr>
                 <tr>
-                
+
                 <td>
                 <?php
           echo tep_draw_form('coupon', 'coupon_admin.php', 'action=update_confirm&oldaction=' . $_GET['oldaction'] . '&cid=' . $_GET['cid']);
@@ -750,16 +750,16 @@
               echo tep_image_submit('button_back.png', IMAGE_BACK, 'name=back');
 ?></td>
                   </td>
-                  
+
                   </tr>
-                  
+
                   </td>
-                  
+
                 </table>
                 </form>
-                
+
                 </tr>
-                
+
               </table>
             </td>
             <?php
@@ -985,30 +985,30 @@
                       <tr>
                         <?php
                   if ($_GET['action'] == 'new' && !$_POST['coupon_startdate'] && !$_GET['oldaction'] == 'new') {
-                      $coupon_startdate = split("[-]", date('Y-m-d'));
+                      $coupon_startdate = explode("-", date('Y-m-d'));
                   } elseif (tep_not_null($_POST['coupon_startdate'])) {
-                      $coupon_startdate = split("[-]", $_POST['coupon_startdate']);
+                      $coupon_startdate = explode("-", $_POST['coupon_startdate']);
                   } elseif (!$_GET['oldaction'] == 'new') {
-                      $coupon_startdate = split("[-]", date('Y-m-d', strtotime($coupon['coupon_start_date'])));
+                      $coupon_startdate = explode("-", date('Y-m-d', strtotime($coupon['coupon_start_date'])));
                   } else {
-                      $coupon_startdate = split("[-]", date('Y-m-d', mktime(0, 0, 0, $_POST['coupon_startdate_month'], $_POST['coupon_startdate_day'], $_POST['coupon_startdate_year'])));
+                      $coupon_startdate = explode("-", date('Y-m-d', mktime(0, 0, 0, $_POST['coupon_startdate_month'], $_POST['coupon_startdate_day'], $_POST['coupon_startdate_year'])));
                   }
                   if ($_GET['action'] == 'new' && !$_POST['coupon_finishdate'] && !$_GET['oldaction'] == 'new') {
-                      $coupon_finishdate = split("[-]", date('Y-m-d'));
+                      $coupon_finishdate = explode("-", date('Y-m-d'));
                       $coupon_finishdate[0] = $coupon_finishdate[0] + 1;
                   } elseif (tep_not_null($_POST['coupon_finishdate'])) {
-                      $coupon_finishdate = split("[-]", $_POST['coupon_finishdate']);
+                      $coupon_finishdate = explode("-", $_POST['coupon_finishdate']);
                   } elseif (!$_GET['oldaction'] == 'new') {
-                      $coupon_finishdate = split("[-]", date('Y-m-d', strtotime($coupon['coupon_expire_date'])));
+                      $coupon_finishdate = explode("-", date('Y-m-d', strtotime($coupon['coupon_expire_date'])));
                   } else {
-                      $coupon_finishdate = split("[-]", date('Y-m-d', mktime(0, 0, 0, $_POST['coupon_finishdate_month'], $_POST['coupon_finishdate_day'], $_POST['coupon_finishdate_year'])));
+                      $coupon_finishdate = explode("-", date('Y-m-d', mktime(0, 0, 0, $_POST['coupon_finishdate_month'], $_POST['coupon_finishdate_day'], $_POST['coupon_finishdate_year'])));
                   }
 ?>
                         <td align="left" class="main"><?php
                   echo COUPON_STARTDATE;
 ?></td>
                         <td align="left"><?php
-                  echo tep_draw_date_selector('coupon_startdate', mktime(0, 0, 0, $coupon_startdate[1], $coupon_startdate[2], $coupon_startdate[0], 0));
+                  echo tep_draw_date_selector('coupon_startdate', mktime(0, 0, 0, $coupon_startdate[1], $coupon_startdate[2], $coupon_startdate[0]));
 ?></td>
                         <td align="left" class="main"><?php
                   echo COUPON_STARTDATE_HELP;
@@ -1019,7 +1019,7 @@
                   echo COUPON_FINISHDATE;
 ?></td>
                         <td align="left"><?php
-                  echo tep_draw_date_selector('coupon_finishdate', mktime(0, 0, 0, $coupon_finishdate[1], $coupon_finishdate[2], $coupon_finishdate[0], 0));
+                  echo tep_draw_date_selector('coupon_finishdate', mktime(0, 0, 0, $coupon_finishdate[1], $coupon_finishdate[2], $coupon_finishdate[0]));
 ?></td>
                         <td align="left" class="main"><?php
                   echo COUPON_FINISHDATE_HELP;
@@ -1042,7 +1042,7 @@
                           </a> </td>
                       </tr>
                       </td>
-                      
+
                     </table>
                     </form>
                   </tr>

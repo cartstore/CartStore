@@ -4,14 +4,14 @@ define('USE_SEO_REDIRECT_DEBUG', 'false');
  * Ultimate SEO URLs Contribution - CartStore MS-2.2
  *
  * Ultimate SEO URLs offers search engine optimized URLS for CartStore
- * based applications. Other features include optimized performance and 
+ * based applications. Other features include optimized performance and
  * automatic redirect script.
  * @package Ultimate-SEO-URLs
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @version 2.1
  * @link http://www.cartstore.com/ cartstore
- * @copyright Copyright 2005, Bobby Easland 
- * @author Bobby Easland 
+ * @copyright Copyright 2005, Bobby Easland
+ * @author Bobby Easland
  * @filesource
  */
 
@@ -25,8 +25,8 @@ define('USE_SEO_REDIRECT_DEBUG', 'false');
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @version 1.1
  * @link http://www.cartstore.com/ cartstore
- * @copyright Copyright 2005, Bobby Easland 
- * @author Bobby Easland 
+ * @copyright Copyright 2005, Bobby Easland
+ * @author Bobby Easland
  */
 class SEO_DataBase{
 	/**
@@ -56,118 +56,118 @@ class SEO_DataBase{
 	var $link_id;
 
 /**
- * MySQL_DataBase class constructor 
- * @author Bobby Easland 
+ * MySQL_DataBase class constructor
+ * @author Bobby Easland
  * @version 1.0
  * @param string $host
  * @param string $user
  * @param string $db
- * @param string $pass  
- */	
+ * @param string $pass
+ */
 	function SEO_DataBase($host, $user, $db, $pass){
 		$this->host = $host;
 		$this->user = $user;
 		$this->db = $db;
-		$this->pass = $pass;		
+		$this->pass = $pass;
 		$this->ConnectDB();
 		$this->SelectDB();
 	} # end function
 
 /**
- * Function to connect to MySQL 
- * @author Bobby Easland 
+ * Function to connect to MySQL
+ * @author Bobby Easland
  * @version 1.1
- */	
+ */
 	function ConnectDB(){
 		$this->link_id = mysql_connect($this->host, $this->user, $this->pass);
 	} # end function
-	
+
 /**
  * Function to select the database
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
- * @return resoource 
- */	
+ * @return resoource
+ */
 	function SelectDB(){
 		return mysql_select_db($this->db);
 	} # end function
-	
+
 /**
  * Function to perform queries
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param string $query SQL statement
- * @return resource 
- */	
+ * @return resource
+ */
 	function Query($query){
 		return @mysql_query($query, $this->link_id);
 	} # end function
-	
+
 /**
  * Function to fetch array
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param resource $resource_id
  * @param string $type MYSQL_BOTH or MYSQL_ASSOC
- * @return array 
- */	
+ * @return array
+ */
 	function FetchArray($resource_id, $type = MYSQL_BOTH){
 		return mysql_fetch_array($resource_id, $type);
 	} # end function
-	
+
 /**
  * Function to fetch the number of rows
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param resource $resource_id
- * @return mixed  
- */	
+ * @return mixed
+ */
 	function NumRows($resource_id){
 		return @mysql_num_rows($resource_id);
 	} # end function
 
 /**
  * Function to fetch the last insertID
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
- * @return integer  
- */	
+ * @return integer
+ */
 	function InsertID() {
 		return mysql_insert_id();
 	}
-	
+
 /**
  * Function to free the resource
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param resource $resource_id
  * @return boolean
- */	
+ */
 	function Free($resource_id){
 		return @mysql_free_result($resource_id);
 	} # end function
 
 /**
  * Function to add slashes
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param string $data
- * @return string 
- */	
+ * @return string
+ */
 	function Slashes($data){
 		return addslashes($data);
 	} # end function
 
 /**
  * Function to perform DB inserts and updates - abstracted from cartstore 2.0 project
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param string $table Database table
  * @param array $data Associative array of columns / values
  * @param string $action insert or update
  * @param string $parameters
  * @return resource
- */	
+ */
 	function DBPerform($table, $data, $action = 'insert', $parameters = '') {
 		reset($data);
 		if ($action == 'insert') {
@@ -209,24 +209,24 @@ class SEO_DataBase{
 		  $query = substr($query, 0, -2) . ' WHERE ' . $parameters;
 		}
 		return $this->Query($query);
-	} # end function	
+	} # end function
 } # end class
 
 /**
  * Ultimate SEO URLs Installer and Configuration Class
  *
- * Ultimate SEO URLs installer and configuration class offers a modular 
+ * Ultimate SEO URLs installer and configuration class offers a modular
  * and easy to manage method of configuration.  The class enables the base
- * class to be configured and installed on the fly without the hassle of 
+ * class to be configured and installed on the fly without the hassle of
  * calling additional scripts or executing SQL.
  * @package Ultimate-SEO-URLs
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @version 1.1
  * @link http://www.cartstore.com/ cartstore
- * @copyright Copyright 2005, Bobby Easland 
- * @author Bobby Easland 
+ * @copyright Copyright 2005, Bobby Easland
+ * @author Bobby Easland
  */
-class SEO_URL_INSTALLER{	
+class SEO_URL_INSTALLER{
 	/**
  	* The default_config array has all the default settings which should be all that is needed to make the base class work.
 	* @var array
@@ -242,16 +242,16 @@ class SEO_URL_INSTALLER{
 	* @var array
  	*/
 	var $attributes;
-	
+
 /**
- * SEO_URL_INSTALLER class constructor 
- * @author Bobby Easland 
+ * SEO_URL_INSTALLER class constructor
+ * @author Bobby Easland
  * @version 1.1
- */	
+ */
 	function SEO_URL_INSTALLER(){
-		
+
 		$this->attributes = array();
-		
+
 		$x = 0;
 		$this->default_config = array();
 		$this->default_config['SEO_ENABLED'] = array('DEFAULT' => 'true',
@@ -332,12 +332,12 @@ class SEO_URL_INSTALLER{
 
 		$this->init();
 	} # end class constructor
-	
+
 /**
- * Initializer - if there are settings not defined the default config will be used and database settings installed. 
- * @author Bobby Easland 
+ * Initializer - if there are settings not defined the default config will be used and database settings installed.
+ * @author Bobby Easland
  * @version 1.1
- */	
+ */
 	function init(){
 		foreach( $this->default_config as $key => $value ){
 			$container[] = defined($key) ? 'true' : 'false';
@@ -347,15 +347,15 @@ class SEO_URL_INSTALLER{
 			case ( !$this->attributes['IS_DEFINED'] ):
 				$this->eval_defaults();
 				$this->DB = new SEO_DataBase(DB_SERVER, DB_SERVER_USERNAME, DB_DATABASE, DB_SERVER_PASSWORD);
-				$sql = "SELECT configuration_key, configuration_value  
-						FROM " . TABLE_CONFIGURATION . " 
+				$sql = "SELECT configuration_key, configuration_value
+						FROM " . TABLE_CONFIGURATION . "
 						WHERE configuration_key LIKE '%SEO%'";
 				$result = $this->DB->Query($sql);
 				$num_rows = $this->DB->NumRows($result);
-				$this->DB->Free($result);		
+				$this->DB->Free($result);
 				$this->attributes['IS_INSTALLED'] = (sizeof($container) == $num_rows) ? true : false;
 				if ( !$this->attributes['IS_INSTALLED'] ){
-					$this->install_settings(); 
+					$this->install_settings();
 				}
 				break;
 			default:
@@ -363,34 +363,34 @@ class SEO_URL_INSTALLER{
 				break;
 		} # end switch
 	} # end function
-	
+
 /**
- * This function evaluates the default serrings into defined constants 
- * @author Bobby Easland 
+ * This function evaluates the default serrings into defined constants
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function eval_defaults(){
 		foreach( $this->default_config as $key => $value ){
 			define($key, $value['DEFAULT']);
 		} # end foreach
 	} # end function
-	
+
 /**
  * This function removes the database settings (configuration and cache)
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function uninstall_settings(){
 		$this->DB->Query("DELETE FROM `".TABLE_CONFIGURATION_GROUP."` WHERE `configuration_group_title` LIKE '%SEO%'");
 		$this->DB->Query("DELETE FROM `".TABLE_CONFIGURATION."` WHERE `configuration_key` LIKE '%SEO%'");
 	    $this->DB->Query("DROP TABLE IF EXISTS `cache`");
 	} # end function
-	
+
 /**
  * This function installs the database settings
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function install_settings(){
 		$this->uninstall_settings();
 		$sort_order_query = "SELECT MAX(sort_order) as max_sort FROM `".TABLE_CONFIGURATION_GROUP."`";
@@ -421,21 +421,21 @@ class SEO_URL_INSTALLER{
 		  KEY `cache_global` (`cache_global`)
 		) TYPE=MyISAM;";
 		$this->DB->Query($insert_cache_table);
-	} # end function	
+	} # end function
 } # end class
 
 /**
  * Ultimate SEO URLs Base Class
  *
  * Ultimate SEO URLs offers search engine optimized URLS for CartStore
- * based applications. Other features include optimized performance and 
+ * based applications. Other features include optimized performance and
  * automatic redirect script.
  * @package Ultimate-SEO-URLs
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @version 2.1
  * @link http://www.cartstore.com/ cartstore
- * @copyright Copyright 2005, Bobby Easland 
- * @author Bobby Easland 
+ * @copyright Copyright 2005, Bobby Easland
+ * @author Bobby Easland
  */
 class SEO_URL{
 	/**
@@ -533,32 +533,32 @@ class SEO_URL{
 	* @var object
  	*/
 	var $installer;
-	
+
 /**
- * SEO_URL class constructor 
- * @author Bobby Easland 
+ * SEO_URL class constructor
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $languages_id
- */	
+ */
 	function SEO_URL($languages_id){
     	global $session_started, $SID;
-				
+
 		$this->installer = new SEO_URL_INSTALLER;
-		
+
 		$this->DB = new SEO_DataBase(DB_SERVER, DB_SERVER_USERNAME, DB_DATABASE, DB_SERVER_PASSWORD);
-		
-		$this->languages_id = (int)$languages_id; 
-		
-		$this->data = array(); 
-		
-		$seo_pages = array(FILENAME_DEFAULT, 
-		                   FILENAME_PRODUCT_INFO, 
+
+		$this->languages_id = (int)$languages_id;
+
+		$this->data = array();
+
+		$seo_pages = array(FILENAME_DEFAULT,
+		                   FILENAME_PRODUCT_INFO,
 						   FILENAME_POPUP_IMAGE,
 						   FILENAME_PRODUCT_REVIEWS,
 						   FILENAME_PRODUCT_REVIEWS_INFO);
 		if ( defined('FILENAME_ARTICLES') ) $seo_pages[] = FILENAME_ARTICLES;
 		if ( defined('FILENAME_ARTICLE_INFO') ) $seo_pages[] = FILENAME_ARTICLE_INFO;
-		if ( defined('FILENAME_INFORMATION') ) $seo_pages[] = FILENAME_INFORMATION;		
+		if ( defined('FILENAME_INFORMATION') ) $seo_pages[] = FILENAME_INFORMATION;
             //if ( defined('pollbooth.php') ) $seo_pages[] = 'pollbooth.php';
 		//$seo_pages[] = 'pollbooth.php';
 		// BOF: Faqdesk support added by faaliyet
@@ -568,14 +568,14 @@ class SEO_URL{
 		if ( defined('FILENAME_FAQDESK_REVIEWS_ARTICLE') ) $seo_pages[] = FILENAME_FAQDESK_REVIEWS_ARTICLE;
 		// EOF: Faqdesk support added by faaliyet
 		// BOF: "Extra pages-info box w/ admin" support added by faaliyet
-		if ( defined('FILENAME_PAGES') ) $seo_pages[] = FILENAME_PAGES;		
+		if ( defined('FILENAME_PAGES') ) $seo_pages[] = FILENAME_PAGES;
 		// EOF: "Extra pages-info box w/ admin" support added by faaliyet
 		if ( defined('FILENAME_NEWSDESK_INFO') ) $seo_pages[] = FILENAME_NEWSDESK_INFO;
 	      if ( defined('FILENAME_NEWSDESK_INDEX') ) $seo_pages[] = FILENAME_NEWSDESK_INDEX;
 		if ( defined('FILENAME_NEWSDESK_REVIEWS_INFO') ) $seo_pages[] = FILENAME_NEWSDESK_REVIEWS_INFO;
-		if ( defined('FILENAME_NEWSDESK_REVIEWS_ARTICLE') ) $seo_pages[] = FILENAME_NEWSDESK_REVIEWS_ARTICLE;		
+		if ( defined('FILENAME_NEWSDESK_REVIEWS_ARTICLE') ) $seo_pages[] = FILENAME_NEWSDESK_REVIEWS_ARTICLE;
 		if ( defined('FILENAME_LINKS') ) $seo_pages[] = FILENAME_LINKS;
-		
+
 		$this->attributes = array('PHP_VERSION' => PHP_VERSION,
 		                          'SESSION_STARTED' => $session_started,
 								  'SID' => $SID,
@@ -598,14 +598,14 @@ class SEO_URL{
 								  'SEO_REMOVE_ALL_SPEC_CHARS' => defined('SEO_REMOVE_ALL_SPEC_CHARS') ? SEO_REMOVE_ALL_SPEC_CHARS : 'false',
 								  'SEO_PAGES' => $seo_pages,
 								  'SEO_INSTALLER' => $this->installer->attributes
-								  );		
-		
+								  );
+
 		$this->base_url = HTTP_SERVER . DIR_WS_HTTP_CATALOG;
-		$this->base_url_ssl = HTTPS_SERVER . DIR_WS_HTTPS_CATALOG;		
+		$this->base_url_ssl = HTTPS_SERVER . DIR_WS_HTTPS_CATALOG;
 		$this->cache = array();
 		$this->timestamp = 0;
-		
-//ojp lPath -links- definition		
+
+//ojp lPath -links- definition
 		$this->reg_anchors = array('products_id' => '-p-',
 								   'cPath' => '-c-',
 								   'manufacturers_id' => '-m-',
@@ -628,9 +628,9 @@ class SEO_URL{
 								   'newsdesk_article_id' => '-nra-',
 								   'lPath' => '-links-'
 								   );
-		
+
 		$this->performance = array('NUMBER_URLS_GENERATED' => 0,
-								   'NUMBER_QUERIES' => 0,								   
+								   'NUMBER_QUERIES' => 0,
 								   'CACHE_QUERY_SAVINGS' => 0,
 								   'NUMBER_STANDARD_URLS_GENERATED' => 0,
 								   'TOTAL_CACHED_PER_PAGE_RECORDS' => 0,
@@ -638,7 +638,7 @@ class SEO_URL{
 								   'TIME_PER_URL' => 0,
 								   'QUERIES' => array()
 								   );
-		
+
 		if ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true'){
 			$this->cache_file = 'seo_urls_v2_';
 			$this->cache_gc();
@@ -659,14 +659,14 @@ class SEO_URL{
 
 /**
  * Function to return SEO URL link SEO'd with stock generattion for error fallback
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
- * @param string $page Base script for URL 
+ * @param string $page Base script for URL
  * @param string $parameters URL parameters
  * @param string $connection NONSSL/SSL
  * @param boolean $add_session_id Switch to add osCsid
- * @return string Formed href link 
- */	
+ * @return string Formed href link
+ */
 	function href_link($page = '', $parameters = '', $connection = 'NONSSL', $add_session_id = true){
 		$this->start($this->timestamp);
 		$this->performance['NUMBER_URLS_GENERATED']++;
@@ -675,12 +675,12 @@ class SEO_URL{
 		}
 		$link = $connection == 'NONSSL' ? $this->base_url : $this->base_url_ssl;
 		$separator = '?';
-		if ($this->not_null($parameters)) { 
-			$link .= $this->parse_parameters($page, $parameters, $separator);	
+		if ($this->not_null($parameters)) {
+			$link .= $this->parse_parameters($page, $parameters, $separator);
 		} else {
 		  $link .= $page;
 		}
-		$link = $this->add_sid($link, $add_session_id, $connection, $separator); 
+		$link = $this->add_sid($link, $add_session_id, $connection, $separator);
 		$this->stop($this->timestamp, $time);
 		$this->performance['TOTAL_TIME'] += $time;
 		switch($this->attributes['SEO_URLS_USE_W3C_VALID']){
@@ -699,8 +699,8 @@ class SEO_URL{
 	} # end function
 
 /**
- * Stock function, fallback use 
- */	
+ * Stock function, fallback use
+ */
   function stock_href_link($page = '', $parameters = '', $connection = 'NONSSL', $add_session_id = true, $search_engine_safe = true) {
     global $request_type, $session_started, $SID;
     if (!$this->not_null($page)) {
@@ -772,15 +772,15 @@ class SEO_URL{
   } # end default tep_href function
 
 /**
- * Function to append session ID if needed 
- * @author Bobby Easland 
+ * Function to append session ID if needed
+ * @author Bobby Easland
  * @version 1.2
- * @param string $link 
+ * @param string $link
  * @param boolean $add_session_id
  * @param string $connection
  * @param string $separator
  * @return string
- */	
+ */
 	function add_sid( $link, $add_session_id, $connection, $separator ){
 		global $request_type; // global variable
 		if ( ($add_session_id) && ($this->attributes['SESSION_STARTED']) && (SESSION_FORCE_COOKIE_USE == 'False') ) {
@@ -791,13 +791,13 @@ class SEO_URL{
 			  $_sid = $this->SessionName() . '=' . $this->SessionID();
 			}
 		  }
-		} 
+		}
 		switch(true){
 			case (!isset($_SESSION['customer_id']) && defined('ENABLE_PAGE_CACHE') && ENABLE_PAGE_CACHE == 'true' && class_exists('page_cache')):
 				$return = $link . $separator . '<osCsid>';
 				break;
 			case ($this->not_null($_sid)):
-                                $return = $link . $separator . tep_output_string($_sid); 
+                                $return = $link . $separator . tep_output_string($_sid);
 				break;
 			default:
 				$return = $link;
@@ -805,23 +805,23 @@ class SEO_URL{
 		} # end switch
 		return $return;
 	} # end function
-	
+
 /**
- * SFunction to parse the parameters into an SEO URL 
- * @author Bobby Easland 
+ * SFunction to parse the parameters into an SEO URL
+ * @author Bobby Easland
  * @version 1.2
  * @param string $page
  * @param string $params
  * @param string $separator NOTE: passed by reference
- * @return string 
- */	
+ * @return string
+ */
 	function parse_parameters($page, $params, &$separator){
 		$p = @explode('&', $params);
 		krsort($p);
 		$container = array();
 		foreach ($p as $index => $valuepair){
-			$p2 = @explode('=', $valuepair); 
-			switch ($p2[0]){ 
+			$p2 = @explode('=', $valuepair);
+			switch ($p2[0]){
 				case 'products_id':
 
                     //BOF: Attribute Fix
@@ -844,7 +844,7 @@ class SEO_URL{
 							$url = $this->make_url($page, $this->get_product_name($p2[1]), 'products_id_review', $p2[1], '.html', $separator);
                             $this->ValidateName($url, "pr", $p2[1], $connection, $separator);
 							break;
-						case ( $page == FILENAME_PRODUCT_REVIEWS_INFO ):							
+						case ( $page == FILENAME_PRODUCT_REVIEWS_INFO ):
 							$url = $this->make_url($page, $this->get_product_name($p2[1]), 'products_id_review_info', $p2[1], '.html', $separator);
                             $this->ValidateName($url, "pw", $p2[1], $connection, $separator);
 							break;
@@ -879,7 +879,7 @@ class SEO_URL{
 							break;
 						default:
 							$container[$p2[0]] = $p2[1];
-							break;					
+							break;
 						} # end switch
 					break;
 				case 'pID':
@@ -893,19 +893,19 @@ class SEO_URL{
 						break;
 					} # end switch
 					break;
-//////---------BOFauthors							
+//////---------BOFauthors
 				case 'authors_id':
 					switch(true){
 						case ($page == FILENAME_ARTICLES):
 							$url = $this->make_url($page, $this->get_authors_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
                             $this->ValidateName($url, "au", $p2[1], $connection, $separator);
 							break;
-						default: 
+						default:
 							$container[$p2[0]] = $p2[1];
 							break;
 					} # end switch
 							break;
-							
+
 //////////--------EOF AUTHORS
 				case 'tPath':
 					switch(true){
@@ -937,7 +937,7 @@ class SEO_URL{
 							$url = $this->make_url($page, $this->get_article_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
                             $this->ValidateName($url, "a", $p2[1], $connection, $separator);
 							break;
-						default: 
+						default:
 							$container[$p2[0]] = $p2[1];
 							break;
 					} # end switch
@@ -948,7 +948,7 @@ class SEO_URL{
 							$url = $this->make_url($page, $this->get_information_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
                             $this->ValidateName($url, "i", $p2[1], $connection, $separator);
 							break;
-						default: 
+						default:
 							$container[$p2[0]] = $p2[1];
 							break;
 					} # end switch
@@ -966,7 +966,7 @@ class SEO_URL{
 												case ($page == FILENAME_FAQDESK_REVIEWS_ARTICLE):
                                                         $url = $this->make_url($page, $this->get_faqdesk_name($p2[1]), 'faqdesk_article_id', $p2[1], '.html', $separator);
                                                         break;
-                                                default: 
+                                                default:
                                                         $container[$p2[0]] = $p2[1];
                                                         break;
                                         } # end switch
@@ -976,7 +976,7 @@ class SEO_URL{
                                                 case ($page == FILENAME_FAQDESK_INDEX):
                                                         $url = $this->make_url($page, $this->get_faqdesk_categories_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
                                                         break;
-                                                default: 
+                                                default:
                                                         $container[$p2[0]] = $p2[1];
                                                         break;
                                         } # end switch
@@ -988,7 +988,7 @@ class SEO_URL{
 						case ($page == FILENAME_PAGES):
 							$url = $this->make_url($page, $this->get_pages_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
 							break;
-						default: 
+						default:
 							$container[$p2[0]] = $p2[1];
 							break;
 					} # end switch
@@ -1000,11 +1000,11 @@ case 'pollid':
                                                 case ($page == 'pollbooth.php'):
                                                         $url = $this->make_url($page, $this->get_polls_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
                                                         break;
-                                                default: 
+                                                default:
                                                         $container[$p2[0]] = $p2[1];
                                                         break;
                                         } # end switch
-                                        break; 
+                                        break;
 */
 				case 'newsdesk_id':
                                         switch(true){
@@ -1017,7 +1017,7 @@ case 'pollid':
 												case ($page == FILENAME_NEWSDESK_REVIEWS_ARTICLE):
                                                         $url = $this->make_url($page, $this->get_newsdesk_name($p2[1]), 'newsdesk_article_id', $p2[1], '.html', $separator);
                                                         break;
-                                                default: 
+                                                default:
                                                         $container[$p2[0]] = $p2[1];
                                                         break;
                                         } # end switch
@@ -1027,13 +1027,13 @@ case 'pollid':
                                                 case ($page == FILENAME_NEWSDESK_INDEX):
                                                         $url = $this->make_url($page, $this->get_newsdesk_categories_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
 							break;
-						default: 
+						default:
 							$container[$p2[0]] = $p2[1];
 							break;
 					} # end switch
 					break;
 				default:
-					$container[$p2[0]] = $p2[1]; 
+					$container[$p2[0]] = $p2[1];
 					break;
 			} # end switch
 		} # end foreach $p
@@ -1044,13 +1044,13 @@ case 'pollid':
 				$separator = '&';
 			}
 		}
-		
+
 		return $url;
 	} # end function
 
 /**
- * Function to return the generated SEO URL	 
- * @author Bobby Easland 
+ * Function to return the generated SEO URL
+ * @author Bobby Easland
  * @version 1.0
  * @param string $page
  * @param string $string Stripped, formed anchor
@@ -1059,7 +1059,7 @@ case 'pollid':
  * @param string $extension Default = .html
  * @param string $separator NOTE: passed by reference
  * @return string
- */	
+ */
 	function make_url($page, $string, $anchor_type, $id, $extension = '.html', &$separator){
 		// Right now there is but one rewrite method since cName was dropped
 		// In the future there will be additional methods here in the switch
@@ -1073,14 +1073,14 @@ case 'pollid':
 	} # end function
 
 /**
- * Function to get the product name. Use evaluated cache, per page cache, or database query in that order of precedent	
- * @author Bobby Easland 
+ * Function to get the product name. Use evaluated cache, per page cache, or database query in that order of precedent
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $pID
  * @return string Stripped anchor text
- */	
+ */
 	function get_product_name($pID){
-	
+
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('PRODUCT_NAME_' . $pID)):
 				$this->performance['CACHE_QUERY_SAVINGS']++;
@@ -1093,10 +1093,10 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT products_name as pName, products_seo_url as psu 
-						FROM ".TABLE_PRODUCTS_DESCRIPTION." 
-						WHERE products_id='".(int)$pID."' 
-						AND language_id='".(int)$this->languages_id."' 
+				$sql = "SELECT products_name as pName, products_seo_url as psu
+						FROM ".TABLE_PRODUCTS_DESCRIPTION."
+						WHERE products_id='".(int)$pID."'
+						AND language_id='".(int)$this->languages_id."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				if($result['psu'] != '')
@@ -1105,23 +1105,23 @@ case 'pollid':
 				  }
 				  else
 				  {
-				    $pName = $this->strip( $result['pName'] );				  
-				  }	
+				    $pName = $this->strip( $result['pName'] );
+				  }
 				$this->cache['PRODUCTS'][$pID] = $pName;
 				$this->performance['QUERIES']['PRODUCTS'][] = $sql;
 				$return = $pName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
-	
+
 /**
- * Function to get the category name. Use evaluated cache, per page cache, or database query in that order of precedent 
- * @author Bobby Easland 
+ * Function to get the category name. Use evaluated cache, per page cache, or database query in that order of precedent
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $cID NOTE: passed by reference
  * @return string Stripped anchor text
- */	
+ */
 	function get_category_name(&$cID){
 		$full_cPath = $this->get_full_cPath($cID, $single_cID); // full cPath needed for uniformity
 		switch(true){
@@ -1138,15 +1138,15 @@ case 'pollid':
 				$this->performance['NUMBER_QUERIES']++;
 				switch(true){
 					case ($this->attributes['SEO_ADD_CAT_PARENT'] == 'true'):
-						$sql = "SELECT cd.categories_seo_url, c.categories_id, c.parent_id, cd.categories_name as cName, cd2.categories_name as pName  
+						$sql = "SELECT cd.categories_seo_url, c.categories_id, c.parent_id, cd.categories_name as cName, cd2.categories_name as pName
 								FROM ".TABLE_CATEGORIES." c
-								JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd 
+								JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd
 								ON c.categories_id = cd.categories_id
-								LEFT JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd2 
-								ON c.parent_id=cd2.categories_id AND cd2.language_id='".(int)$this->languages_id."' 
-								WHERE c.categories_id='".(int)$single_cID."' 
-								AND cd.categories_id='".(int)$single_cID."' 
-								AND cd.language_id='".(int)$this->languages_id."' 
+								LEFT JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd2
+								ON c.parent_id=cd2.categories_id AND cd2.language_id='".(int)$this->languages_id."'
+								WHERE c.categories_id='".(int)$single_cID."'
+								AND cd.categories_id='".(int)$single_cID."'
+								AND cd.language_id='".(int)$this->languages_id."'
 								LIMIT 1";
 						$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 						if($result['categories_seo_url'] != '')
@@ -1155,14 +1155,14 @@ case 'pollid':
 						  }
 						  else
 						  {
-						    $cName = $this->not_null($result['pName']) ? $result['pName'] . ' ' . $result['cName'] : $result['cName'];						  
-						  }	
+						    $cName = $this->not_null($result['pName']) ? $result['pName'] . ' ' . $result['cName'] : $result['cName'];
+						  }
 						break;
 					default:
-						$sql = "SELECT categories_name as cName, categories_seo_url as csu 
-								FROM ".TABLE_CATEGORIES_DESCRIPTION." 
-								WHERE categories_id='".(int)$single_cID."' 
-								AND language_id='".(int)$this->languages_id."' 
+						$sql = "SELECT categories_name as cName, categories_seo_url as csu
+								FROM ".TABLE_CATEGORIES_DESCRIPTION."
+								WHERE categories_id='".(int)$single_cID."'
+								AND language_id='".(int)$this->languages_id."'
 								LIMIT 1";
 						$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 						if($result['csu'] != '')
@@ -1171,34 +1171,34 @@ case 'pollid':
 						  }
 						  else
 						  {
-						    $cName = $result['cName'];						  
+						    $cName = $result['cName'];
 						  }
 						break;
-				}										
+				}
 				$cName = $this->strip($cName);
 				$this->cache['CATEGORIES'][$full_cPath] = $cName;
 				$this->performance['QUERIES']['CATEGORIES'][] = $sql;
 				$return = $cName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		$cID = $full_cPath;
 		return $return;
 	} # end function
 
   function Validatename($url, $type, $realID, $connection, $separator)
-  { 
+  {
     $origUrl = strip_tags($this->requested_page());  //get the actual page requested
-    $parts = explode("-", $origUrl); 
- 
+    $parts = explode("-", $origUrl);
+
     if ($parts[count($parts) - 2] == $type)  //make sure it is the correct type for this link
     {
       if (($pos = strpos($parts[count($parts) - 1], ".html")) !== FALSE)
-       $id = substr($parts[count($parts) - 1], 0, $pos);       //strip .html 
-      
+       $id = substr($parts[count($parts) - 1], 0, $pos);       //strip .html
+
       $catalog = DIR_WS_HTTP_CATALOG;
       if ($catalog[0] == '/')
         $catalog = substr(DIR_WS_HTTP_CATALOG, 1);             //strip leading slash if present
-       
+
       if (strpos($origUrl, $catalog) !== FALSE)
         $origUrl = substr($origUrl, strlen($catalog));         //remove the catalog from the url string
 
@@ -1207,31 +1207,31 @@ case 'pollid':
          $url = $this->base_url . $url;
          $link = $this->add_sid($url, true, $connection, $separator); //build the correct link with SID
    			//header("HTTP/1.0 301 Moved Permanently");             //let the SE's know to not use this link
-  			 //header("Location: $link");                            //redirect to the real page 
-      } 
+  			 //header("Location: $link");                            //redirect to the real page
+      }
     }
-  }                  
+  }
 
-  function requested_page() 
-  { 
-    $protocol = ((int) $_SERVER['SERVER_PORT'] === 443)? 'https://' : 'http://'; 
-    $current_page = $protocol . $_SERVER['HTTP_HOST'] . ((!empty($_SERVER['REQUEST_URI']))? $_SERVER['REQUEST_URI'] : ''); 
+  function requested_page()
+  {
+    $protocol = ((int) $_SERVER['SERVER_PORT'] === 443)? 'https://' : 'http://';
+    $current_page = $protocol . $_SERVER['HTTP_HOST'] . ((!empty($_SERVER['REQUEST_URI']))? $_SERVER['REQUEST_URI'] : '');
     $current_page = substr($current_page, strlen(HTTP_SERVER));
     if (($pos = strpos($current_page, "?osCsid")) !== FALSE)
-      $current_page = substr($current_page, 0, $pos).'<br>'; 
+      $current_page = substr($current_page, 0, $pos).'<br>';
     if ($current_page[0] == "/")
-      $current_page = substr($current_page, 1);  
-      
-    return $current_page; 
-  }  
+      $current_page = substr($current_page, 1);
+
+    return $current_page;
+  }
 
 /**
  * Function to get the manufacturer name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $mID
  * @return string
- */	
+ */
 	function get_manufacturer_name($mID){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('MANUFACTURER_NAME_' . $mID)):
@@ -1245,27 +1245,27 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT manufacturers_name as mName 
-						FROM ".TABLE_MANUFACTURERS." 
-						WHERE manufacturers_id='".(int)$mID."' 
+				$sql = "SELECT manufacturers_name as mName
+						FROM ".TABLE_MANUFACTURERS."
+						WHERE manufacturers_id='".(int)$mID."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$mName = $this->strip( $result['mName'] );
 				$this->cache['MANUFACTURERS'][$mID] = $mName;
 				$this->performance['QUERIES']['MANUFACTURERS'][] = $sql;
 				$return = $mName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
 /**
  * Function to get the article name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param integer $aID
  * @return string
- */	
+ */
 	function get_article_name($aID){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('ARTICLE_NAME_' . $aID)):
@@ -1279,28 +1279,28 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT articles_name as aName 
-						FROM ".TABLE_ARTICLES_DESCRIPTION." 
-						WHERE articles_id='".(int)$aID."' 
-						AND language_id='".(int)$this->languages_id."' 
+				$sql = "SELECT articles_name as aName
+						FROM ".TABLE_ARTICLES_DESCRIPTION."
+						WHERE articles_id='".(int)$aID."'
+						AND language_id='".(int)$this->languages_id."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$aName = $this->strip( $result['aName'] );
 				$this->cache['ARTICLES'][$aID] = $aName;
 				$this->performance['QUERIES']['ARTICLES'][] = $sql;
 				$return = $aName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
 /**
  * Function to get the authors name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param integer $aID
  * @return string
- */	
+ */
 	function get_authors_name($auID){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('AUTHORS_NAME_' . $auID)):
@@ -1314,28 +1314,28 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT authors_name as auName 
-						FROM ".TABLE_AUTHORS." 
-						WHERE authors_id='".(int)$auID."' 
-						
+				$sql = "SELECT authors_name as auName
+						FROM ".TABLE_AUTHORS."
+						WHERE authors_id='".(int)$auID."'
+
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$auName = $this->strip( $result['auName'] );
 				$this->cache['AUTHORS'][$auID] = $auName;
 				$this->performance['QUERIES']['AUTHORS'][] = $sql;
 				$return = $auName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
 /**
  * Function to get the topic name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $tID
  * @return string
- */	
+ */
 	function get_topic_name($tID){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('TOPIC_NAME_' . $tID)):
@@ -1349,18 +1349,18 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT topics_name as tName 
-						FROM ".TABLE_TOPICS_DESCRIPTION." 
-						WHERE topics_id='".(int)$tID."' 
-						AND language_id='".(int)$this->languages_id."' 
+				$sql = "SELECT topics_name as tName
+						FROM ".TABLE_TOPICS_DESCRIPTION."
+						WHERE topics_id='".(int)$tID."'
+						AND language_id='".(int)$this->languages_id."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$tName = $this->strip( $result['tName'] );
 				$this->cache['ARTICLES'][$aID] = $tName;
 				$this->performance['QUERIES']['TOPICS'][] = $sql;
 				$return = $tName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
@@ -1370,7 +1370,7 @@ case 'pollid':
  * @version 1.0
  * @param integer $lPath
  * @return string
- */	
+ */
 	function get_link_name($lPath){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('LINK_NAME_' . $lPath)):
@@ -1384,28 +1384,28 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT link_categories_name as lName 
-						FROM ".TABLE_LINK_CATEGORIES_DESCRIPTION." 
-						WHERE link_categories_id='".(int)$lPath."' 
-						AND language_id='".(int)$this->languages_id."' 
+				$sql = "SELECT link_categories_name as lName
+						FROM ".TABLE_LINK_CATEGORIES_DESCRIPTION."
+						WHERE link_categories_id='".(int)$lPath."'
+						AND language_id='".(int)$this->languages_id."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$lName = $this->strip( $result['lName'] );
 				$this->cache['ARTICLES'][$aID] = $lName;
 				$this->performance['QUERIES']['TOPICS'][] = $sql;
 				$return = $lName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
 /**
  * Function to get the informatin name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $iID
  * @return string
- */	
+ */
 	function get_information_name($iID){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('INFO_NAME_' . $iID)):
@@ -1419,18 +1419,18 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT info_title as iName 
-						FROM ".TABLE_INFORMATION." 
-						WHERE information_id='".(int)$iID."' 
-						AND languages_id='".(int)$this->languages_id."' 
+				$sql = "SELECT info_title as iName
+						FROM ".TABLE_INFORMATION."
+						WHERE information_id='".(int)$iID."'
+						AND languages_id='".(int)$this->languages_id."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$iName = $this->strip( $result['iName'] );
 				$this->cache['INFO'][$iID] = $iName;
 				$this->performance['QUERIES']['INFO'][] = $sql;
 				$return = $iName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
@@ -1441,7 +1441,7 @@ case 'pollid':
  * @param integer $fID
  * @return string
  */
- 
+
 		function get_faqdesk_name($fID){
                 switch(true){
                         case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('FAQDESK_NAME_' . $fID)):
@@ -1455,10 +1455,10 @@ case 'pollid':
                                 break;
                         default:
                                 $this->performance['NUMBER_QUERIES']++;
-                                $sql = "SELECT faqdesk_question as fName 
-                                                FROM " . TABLE_FAQDESK_DESCRIPTION . " 
-                                                WHERE faqdesk_id='".(int)$fID."' 
-                                                AND language_id='".(int)$this->languages_id."' 
+                                $sql = "SELECT faqdesk_question as fName
+                                                FROM " . TABLE_FAQDESK_DESCRIPTION . "
+                                                WHERE faqdesk_id='".(int)$fID."'
+                                                AND language_id='".(int)$this->languages_id."'
                                                 LIMIT 1 ";
                                 $result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
                                 $fName = $this->strip( $result['fName'] );
@@ -1466,11 +1466,11 @@ case 'pollid':
                                 $this->performance['QUERIES']['FAQDESK'][] = $sql;
                                 $return = $fName;
 				break;
-								
+
                 } # end switch
                 return $return;
         } # end function
-		
+
 /**
  * Function to get the faqdesk name. Use evaluated cache, per page cache, or database query in that order of precedent.
  * @author faaliyet
@@ -1478,7 +1478,7 @@ case 'pollid':
  * @param integer $fID
  * @return string
  */
- 
+
 		function get_faqdesk_categories_name($fcID){
                 switch(true){
                         case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('FAQDESK_CATEGORIES_NAME_' . $fcID)):
@@ -1492,10 +1492,10 @@ case 'pollid':
                                 break;
                         default:
                                 $this->performance['NUMBER_QUERIES']++;
-                                $sql = "SELECT categories_name as fcName 
-                                                FROM " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " 
-                                                WHERE categories_id='".(int)$fcID."' 
-                                                AND language_id='".(int)$this->languages_id."' 
+                                $sql = "SELECT categories_name as fcName
+                                                FROM " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . "
+                                                WHERE categories_id='".(int)$fcID."'
+                                                AND language_id='".(int)$this->languages_id."'
                                                 LIMIT 1 ";
                                 $result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
                                 $fcName = $this->strip( $result['fcName'] );
@@ -1503,7 +1503,7 @@ case 'pollid':
                                 $this->performance['QUERIES']['FAQDESK_CATEGORIES'][] = $sql;
                                 $return = $fcName;
 				break;
-								
+
                 } # end switch
                 return $return;
         } # end function
@@ -1514,7 +1514,7 @@ case 'pollid':
  * @version 2.5
  * @param integer $iID
  * @return string
- */	
+ */
 	function get_pages_name($pmID){
 		switch(true){
 			case ($this->attributes['USE_SEO_CACHE_GLOBAL'] == 'true' && defined('PAGES_TITLE' . $pmID)):
@@ -1528,31 +1528,31 @@ case 'pollid':
 				break;
 			default:
 				$this->performance['NUMBER_QUERIES']++;
-				$sql = "SELECT pages_title as pmName 
-						FROM ".TABLE_PAGES_DESCRIPTION." 
-						WHERE pages_id='".(int)$pmID."' 
-						AND language_id='".(int)$this->languages_id."' 
+				$sql = "SELECT pages_title as pmName
+						FROM ".TABLE_PAGES_DESCRIPTION."
+						WHERE pages_id='".(int)$pmID."'
+						AND language_id='".(int)$this->languages_id."'
 						LIMIT 1";
 				$result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
 				$pmName = $this->strip( $result['pmName'] );
 				$this->cache['PAGES'][$pmID] = $pmName;
 				$this->performance['QUERIES']['PAGES'][] = $sql;
 				$return = $pmName;
-				break;								
-		} # end switch		
+				break;
+		} # end switch
 		return $return;
 	} # end function
 
 /**
- * Function to generate information cache entries 
+ * Function to generate information cache entries
  * @author faaliyet
  * @version 2.5
- */	
+ */
 	function generate_pages_cache(){
-		$this->is_cached($this->cache_file . 'pages', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'pages', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-			$sql = "SELECT pages_id as id, pages_title as name 
-					FROM ".TABLE_PAGES_DESCRIPTION." 
+			$sql = "SELECT pages_id as id, pages_title as name
+					FROM ".TABLE_PAGES_DESCRIPTION."
 					WHERE language_id='".(int)$this->languages_id."'";
 			$pages_query = $this->DB->Query( $sql );
 			$pages_cache = '';
@@ -1565,7 +1565,7 @@ case 'pollid':
 			$this->save_cache($this->cache_file . 'pages', $pages_cache, 'EVAL', 1 , 1);
 			unset($pages_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'pages');		
+			$this->get_cache($this->cache_file . 'pages');
 		}
 	} # end function
 
@@ -1573,7 +1573,7 @@ case 'pollid':
 /**
 
  * Function to get the polls name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Antonello Venturino 
+ * @author Antonello Venturino
  * @version 1.1
  * @param integer $poID
  * @return string
@@ -1591,10 +1591,10 @@ case 'pollid':
                                 break;
                         default:
                                 $this->performance['NUMBER_QUERIES']++;
-                                $sql = "SELECT optiontext as poName 
-                                                FROM " . TABLE_PHESIS_POLL_DATA . " 
-                                                WHERE pollid='".(int)$poID."' 
-                                                AND language_id='".(int)$this->languages_id."' 
+                                $sql = "SELECT optiontext as poName
+                                                FROM " . TABLE_PHESIS_POLL_DATA . "
+                                                WHERE pollid='".(int)$poID."'
+                                                AND language_id='".(int)$this->languages_id."'
                                                 LIMIT 1";
                                 $result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
                                 $poName = $this->strip( $result['poName'] );
@@ -1602,15 +1602,15 @@ case 'pollid':
                                 $this->performance['QUERIES']['POLLS'][] = $sql;
                                 $return = $poName;
                                 break;
-								
+
                 } # end switch
                 return $return;
-        } # end function	
-*/	
+        } # end function
+*/
 
 /**
  * Function to get the newsdesk name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Antonello Venturino 
+ * @author Antonello Venturino
  * @version 1.1
  * @param integer $nID
  * @return string
@@ -1628,24 +1628,24 @@ case 'pollid':
                                 break;
                         default:
                                 $this->performance['NUMBER_QUERIES']++;
-                                $sql = "SELECT newsdesk_article_name as nName 
-                                                FROM " . TABLE_NEWSDESK_DESCRIPTION . " 
-                                                WHERE newsdesk_id='".(int)$nID."' 
-                                                AND language_id='".(int)$this->languages_id."' 
+                                $sql = "SELECT newsdesk_article_name as nName
+                                                FROM " . TABLE_NEWSDESK_DESCRIPTION . "
+                                                WHERE newsdesk_id='".(int)$nID."'
+                                                AND language_id='".(int)$this->languages_id."'
                                                 LIMIT 1 ";
                                 $result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
                                 $nName = $this->strip( $result['nName'] );
                                 $this->cache['NEWSDESK'][$nID] = $nName;
                                 $this->performance['QUERIES']['NEWSDESK'][] = $sql;
                                 $return = $nName;
-								break;				
+								break;
                 } # end switch
                 return $return;
-        } # end function		
+        } # end function
 
 /**
  * Function to get the newsdesk name. Use evaluated cache, per page cache, or database query in that order of precedent.
- * @author Antonello Venturino 
+ * @author Antonello Venturino
  * @version 1.1
  * @param integer $ncID
  * @return string
@@ -1663,10 +1663,10 @@ case 'pollid':
                                 break;
                         default:
                                 $this->performance['NUMBER_QUERIES']++;
-                                $sql = "SELECT categories_name as ncName 
-                                                FROM " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " 
-                                                WHERE categories_id='".(int)$ncID."' 
-                                                AND language_id='".(int)$this->languages_id."' 
+                                $sql = "SELECT categories_name as ncName
+                                                FROM " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . "
+                                                WHERE categories_id='".(int)$ncID."'
+                                                AND language_id='".(int)$this->languages_id."'
                                                 LIMIT 1 ";
                                 $result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
                                 $ncName = $this->strip( $result['ncName'] );
@@ -1674,19 +1674,19 @@ case 'pollid':
                                 $this->performance['QUERIES']['NEWSDESK_CATEGORIES'][] = $sql;
                                 $return = $ncName;
 								break;
-								
+
                 } # end switch
                 return $return;
         } # end function
 
 /**
- * Function to retrieve full cPath from category ID 
- * @author Bobby Easland 
+ * Function to retrieve full cPath from category ID
+ * @author Bobby Easland
  * @version 1.1
  * @param mixed $cID Could contain cPath or single category_id
  * @param integer $original Single category_id passed back by reference
  * @return string Full cPath string
- */	
+ */
 	function get_full_cPath($cID, &$original){
 		if ( is_numeric(strpos($cID, '_')) ){
 			$temp = @explode('_', $cID);
@@ -1704,15 +1704,15 @@ case 'pollid':
 	} # end function
 
 /**
- * Recursion function to retrieve parent categories from category ID 
- * @author Bobby Easland 
+ * Recursion function to retrieve parent categories from category ID
+ * @author Bobby Easland
  * @version 1.0
  * @param mixed $categories Passed by reference
  * @param integer $categories_id
- */	
+ */
 	function GetParentCategories(&$categories, $categories_id) {
-		$sql = "SELECT parent_id 
-		        FROM " . TABLE_CATEGORIES . " 
+		$sql = "SELECT parent_id
+		        FROM " . TABLE_CATEGORIES . "
 				WHERE categories_id='" . (int)$categories_id . "'";
 		$parent_categories_query = $this->DB->Query($sql);
 		while ($parent_categories = $this->DB->FetchArray($parent_categories_query)) {
@@ -1725,12 +1725,12 @@ case 'pollid':
 	} # end function
 
 /**
- * Function to check if a value is NULL 
- * @author Bobby Easland as abstracted from CartStore 2.0 
+ * Function to check if a value is NULL
+ * @author Bobby Easland as abstracted from CartStore 2.0
  * @version 1.0
  * @param mixed $value
  * @return boolean
- */	
+ */
 	function not_null($value) {
 		if (is_array($value)) {
 			if (sizeof($value) > 0) {
@@ -1748,12 +1748,12 @@ case 'pollid':
 	} # end function
 
 /**
- * Function to check if the products_id contains an attribute 
- * @author Bobby Easland 
+ * Function to check if the products_id contains an attribute
+ * @author Bobby Easland
  * @version 1.1
  * @param integer $pID
  * @return boolean
- */	
+ */
 	function is_attribute_string($pID){
 		if ( is_numeric(strpos($pID, '{')) ){
 			return true;
@@ -1763,12 +1763,12 @@ case 'pollid':
 	} # end function
 
 /**
- * Function to check if the params contains a products_id 
- * @author Bobby Easland 
+ * Function to check if the params contains a products_id
+ * @author Bobby Easland
  * @version 1.1
  * @param string $params
  * @return boolean
- */	
+ */
 	function is_product_string($params){
 		if ( is_numeric(strpos('products_id', $params)) ){
 			return true;
@@ -1778,14 +1778,14 @@ case 'pollid':
 	} # end function
 
 /**
- * Function to check if cPath is in the parameter string  
- * @author Bobby Easland 
+ * Function to check if cPath is in the parameter string
+ * @author Bobby Easland
  * @version 1.0
  * @param string $params
  * @return boolean
- */	
+ */
 	function is_cPath_string($params){
-		if ( eregi('cPath', $params) ){
+		if ( preg_match('/cPath/i', $params) ){
 			return true;
 		} else {
 			return false;
@@ -1794,9 +1794,9 @@ case 'pollid':
 
 /**
  * Function used to output class profile
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function profile(){
 		$this->calculate_performance();
 		$this->PrintArray($this->attributes, 'Class Attributes');
@@ -1805,43 +1805,43 @@ case 'pollid':
 
 /**
  * Function used to calculate and output the performance metrics of the class
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @return mixed Output of performance data wrapped in HTML pre tags
- */	
+ */
 	function calculate_performance(){
 		foreach ($this->cache as $type){
-			$this->performance['TOTAL_CACHED_PER_PAGE_RECORDS'] += sizeof($type);			
+			$this->performance['TOTAL_CACHED_PER_PAGE_RECORDS'] += sizeof($type);
 		}
 		$this->performance['TIME_PER_URL'] = $this->performance['TOTAL_TIME'] / $this->performance['NUMBER_URLS_GENERATED'];
 		return $this->PrintArray($this->performance, 'Performance Data');
 	} # end function
-	
+
 /**
- * Function to strip the string of punctuation and white space 
- * @author Bobby Easland 
+ * Function to strip the string of punctuation and white space
+ * @author Bobby Easland
  * @version 1.1
  * @param string $string
  * @return string Stripped text. Removes all non-alphanumeric characters.
- */	
+ */
 	function strip($string){
 		if ( is_array($this->attributes['SEO_CHAR_CONVERT_SET']) ) $string = strtr($string, $this->attributes['SEO_CHAR_CONVERT_SET']);
 		$pattern = $this->attributes['SEO_REMOVE_ALL_SPEC_CHARS'] == 'true'
 						?	"([^[:alnum:]])+"
 						:	"([[:punct:]])+";
-		$anchor = ereg_replace($pattern, '', strtolower($string));
-		$pattern = "([[:space:]]|[[:blank:]])+"; 
-		$anchor = ereg_replace($pattern, '-', $anchor);
-		return $this->short_name($anchor); // return the short filtered name 
+		$anchor = preg_replace("/$pattern/", '', strtolower($string));
+		$pattern = "([[:space:]]|[[:blank:]])+";
+		$anchor = preg_replace("/$pattern/", '-', $anchor);
+		return $this->short_name($anchor); // return the short filtered name
 	} # end function
 
 /**
- * Function to expand the SEO_CONVERT_SET group 
- * @author Bobby Easland 
+ * Function to expand the SEO_CONVERT_SET group
+ * @author Bobby Easland
  * @version 1.0
  * @param string $set
  * @return mixed
- */	
+ */
 	function expand($set){
 		if ( $this->not_null($set) ){
 			if ( $data = @explode(',', $set) ){
@@ -1858,13 +1858,13 @@ case 'pollid':
 		}
 	} # end function
 /**
- * Function to return the short word filtered string 
- * @author Bobby Easland 
+ * Function to return the short word filtered string
+ * @author Bobby Easland
  * @version 1.0
  * @param string $str
  * @param integer $limit
  * @return string Short word filtered
- */	
+ */
 	function short_name($str, $limit=3){
 		if ( $this->attributes['SEO_URLS_FILTER_SHORT_WORDS'] != 'false' ) $limit = (int)$this->attributes['SEO_URLS_FILTER_SHORT_WORDS'];
 		$foo = @explode('-', $str);
@@ -1875,37 +1875,37 @@ case 'pollid':
 				default:
 					$container[] = $value;
 					break;
-			}		
+			}
 		} # end foreach
 		$container = ( sizeof($container) > 1 ? implode('-', $container) : $str );
 		return $container;
 	}
-	
+
 /**
- * Function to implode an associative array 
- * @author Bobby Easland 
+ * Function to implode an associative array
+ * @author Bobby Easland
  * @version 1.0
  * @param array $array Associative data array
  * @param string $inner_glue
  * @param string $outer_glue
  * @return string
- */	
+ */
 	function implode_assoc($array, $inner_glue='=', $outer_glue='&') {
 		$output = array();
 		foreach( $array as $key => $item ){
 			if ( $this->not_null($key) && $this->not_null($item) ){
 				$output[] = $key . $inner_glue . $item;
 			}
-		} # end foreach	
+		} # end foreach
 		return @implode($outer_glue, $output);
 	}
 
 /**
- * Function to print an array within pre tags, debug use 
- * @author Bobby Easland 
+ * Function to print an array within pre tags, debug use
+ * @author Bobby Easland
  * @version 1.0
  * @param mixed $array
- */	
+ */
 	function PrintArray($array, $heading = ''){
 		echo '<fieldset style="border-style:solid; border-width:1px;">' . "\n";
 		echo '<legend style="background-color:#FFFFCC; border-style:solid; border-width:1px;">' . $heading . '</legend>' . "\n";
@@ -1916,48 +1916,48 @@ case 'pollid':
 	} # end function
 
 /**
- * Function to start time for performance metric 
- * @author Bobby Easland 
+ * Function to start time for performance metric
+ * @author Bobby Easland
  * @version 1.0
  * @param float $start_time
- */	
+ */
 	function start(&$start_time){
 		$start_time = explode(' ', microtime());
 	}
-	
+
 /**
- * Function to stop time for performance metric 
- * @author Bobby Easland 
+ * Function to stop time for performance metric
+ * @author Bobby Easland
  * @version 1.0
  * @param float $start
  * @param float $time NOTE: passed by reference
- */	
+ */
 	function stop($start, &$time){
 		$end = explode(' ', microtime());
 		$time = number_format( array_sum($end) - array_sum($start), 8, '.', '' );
 	}
 
 /**
- * Function to translate a string 
- * @author Bobby Easland 
+ * Function to translate a string
+ * @author Bobby Easland
  * @version 1.0
  * @param string $data String to be translated
  * @param array $parse Array of tarnslation variables
  * @return string
- */	
+ */
 	function parse_input_field_data($data, $parse) {
 		return strtr(trim($data), $parse);
 	}
-	
+
 /**
- * Function to output a translated or sanitized string 
- * @author Bobby Easland 
+ * Function to output a translated or sanitized string
+ * @author Bobby Easland
  * @version 1.0
  * @param string $sting String to be output
  * @param mixed $translate Array of translation characters
  * @param boolean $protected Switch for htemlspecialchars processing
  * @return string
- */	
+ */
 	function output_string($string, $translate = false, $protected = false) {
 		if ($protected == true) {
 		  return htmlspecialchars($string);
@@ -1971,12 +1971,12 @@ case 'pollid':
 	}
 
 /**
- * Function to return the session ID 
- * @author Bobby Easland 
+ * Function to return the session ID
+ * @author Bobby Easland
  * @version 1.0
  * @param string $sessid
  * @return string
- */	
+ */
 	function SessionID($sessid = '') {
 		if (!empty($sessid)) {
 		  return session_id($sessid);
@@ -1984,14 +1984,14 @@ case 'pollid':
 		  return session_id();
 		}
 	}
-	
+
 /**
- * Function to return the session name 
- * @author Bobby Easland 
+ * Function to return the session name
+ * @author Bobby Easland
  * @version 1.0
  * @param string $name
  * @return string
- */	
+ */
 	function SessionName($name = '') {
 		if (!empty($name)) {
 		  return session_name($name);
@@ -2001,18 +2001,18 @@ case 'pollid':
 	}
 
 /**
- * Function to generate products cache entries 
- * @author Bobby Easland 
+ * Function to generate products cache entries
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function generate_products_cache(){
-		$this->is_cached($this->cache_file . 'products', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'products', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) {
-		$sql = "SELECT p.products_id as id, pd.products_name as name, pd.products_seo_url as psu 
-		        FROM ".TABLE_PRODUCTS." p 
-				LEFT JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd 
-				ON p.products_id=pd.products_id 
-				AND pd.language_id='".(int)$this->languages_id."' 
+		$sql = "SELECT p.products_id as id, pd.products_name as name, pd.products_seo_url as psu
+		        FROM ".TABLE_PRODUCTS." p
+				LEFT JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd
+				ON p.products_id=pd.products_id
+				AND pd.language_id='".(int)$this->languages_id."'
 				WHERE p.products_status='1'";
 		$product_query = $this->DB->Query( $sql );
 		$prod_cache = '';
@@ -2023,7 +2023,7 @@ case 'pollid':
 			}
 			else
 			{
-			  $define = 'define(\'PRODUCT_NAME_' . $product['id'] . '\', \'' . $this->strip($product['name']) . '\');';			
+			  $define = 'define(\'PRODUCT_NAME_' . $product['id'] . '\', \'' . $this->strip($product['name']) . '\');';
 			}
 			$prod_cache .= $define . "\n";
 			eval("$define");
@@ -2032,23 +2032,23 @@ case 'pollid':
 		$this->save_cache($this->cache_file . 'products', $prod_cache, 'EVAL', 1 , 1);
 		unset($prod_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'products');		
+			$this->get_cache($this->cache_file . 'products');
 		}
 	} # end function
-		
-/**
- * Function to generate manufacturers cache entries 
- * @author Bobby Easland 
- * @version 1.0
- */	
-	function generate_manufacturers_cache(){
-		$this->is_cached($this->cache_file . 'manufacturers', $is_cached, $is_expired);  	
-		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-		$sql = "SELECT m.manufacturers_id as id, m.manufacturers_name as name 
 
-		        FROM ".TABLE_MANUFACTURERS." m 
-				LEFT JOIN ".TABLE_MANUFACTURERS_INFO." md 
-				ON m.manufacturers_id=md.manufacturers_id 
+/**
+ * Function to generate manufacturers cache entries
+ * @author Bobby Easland
+ * @version 1.0
+ */
+	function generate_manufacturers_cache(){
+		$this->is_cached($this->cache_file . 'manufacturers', $is_cached, $is_expired);
+		if ( !$is_cached || $is_expired ) { // it's not cached so create it
+		$sql = "SELECT m.manufacturers_id as id, m.manufacturers_name as name
+
+		        FROM ".TABLE_MANUFACTURERS." m
+				LEFT JOIN ".TABLE_MANUFACTURERS_INFO." md
+				ON m.manufacturers_id=md.manufacturers_id
 				AND md.languages_id='".(int)$this->languages_id."'";
 		$manufacturers_query = $this->DB->Query( $sql );
 		$man_cache = '';
@@ -2061,46 +2061,46 @@ case 'pollid':
 		$this->save_cache($this->cache_file . 'manufacturers', $man_cache, 'EVAL', 1 , 1);
 		unset($man_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'manufacturers');		
+			$this->get_cache($this->cache_file . 'manufacturers');
 		}
 	} # end function
 
 /**
- * Function to generate categories cache entries 
- * @author Bobby Easland 
+ * Function to generate categories cache entries
+ * @author Bobby Easland
  * @version 1.1
- */	
+ */
 	function generate_categories_cache(){
-		$this->is_cached($this->cache_file . 'categories', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'categories', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
 			switch(true){
 				case ($this->attributes['SEO_ADD_CAT_PARENT'] == 'true'):
-					$sql = "SELECT c.categories_id as id, c.parent_id, cd.categories_name as cName, cd2.categories_name as pName, cd.categories_seo_url as csu  
+					$sql = "SELECT c.categories_id as id, c.parent_id, cd.categories_name as cName, cd2.categories_name as pName, cd.categories_seo_url as csu
 							FROM ".TABLE_CATEGORIES." c
-							JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd 
+							JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd
 							ON c.categories_id = cd.categories_id
-							LEFT JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd2 
-							ON c.parent_id=cd2.categories_id AND cd2.language_id='".(int)$this->languages_id."' 
-							WHERE c.categories_id=cd.categories_id 
+							LEFT JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd2
+							ON c.parent_id=cd2.categories_id AND cd2.language_id='".(int)$this->languages_id."'
+							WHERE c.categories_id=cd.categories_id
 							AND cd.language_id='".(int)$this->languages_id."'";
 					break;
 				default:
-					$sql = "SELECT categories_id as id, categories_name as cName, categories_seo_url as csu  
-							FROM ".TABLE_CATEGORIES_DESCRIPTION."  
+					$sql = "SELECT categories_id as id, categories_name as cName, categories_seo_url as csu
+							FROM ".TABLE_CATEGORIES_DESCRIPTION."
 							WHERE language_id='".(int)$this->languages_id."'";
 					break;
 			} # end switch
 		$category_query = $this->DB->Query( $sql );
 		$cat_cache = '';
-		while ($category = $this->DB->FetchArray($category_query)) {	
+		while ($category = $this->DB->FetchArray($category_query)) {
 			$id = $this->get_full_cPath($category['id'], $single_cID);
 			if($category['csu'] != '')
 			{
-			  $name = $this->not_null($category['pName']) ? $category['pName'] . ' ' . $category['csu'] : $category['csu']; 
+			  $name = $this->not_null($category['pName']) ? $category['pName'] . ' ' . $category['csu'] : $category['csu'];
 			}
 			else
 			{
-			  $name = $this->not_null($category['pName']) ? $category['pName'] . ' ' . $category['cName'] : $category['cName']; 			
+			  $name = $this->not_null($category['pName']) ? $category['pName'] . ' ' . $category['cName'] : $category['cName'];
 			}
 			$define = 'define(\'CATEGORY_NAME_' . $id . '\', \'' . $this->strip($name) . '\');';
 			$cat_cache .= $define . "\n";
@@ -2110,20 +2110,20 @@ case 'pollid':
 		$this->save_cache($this->cache_file . 'categories', $cat_cache, 'EVAL', 1 , 1);
 		unset($cat_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'categories');		
+			$this->get_cache($this->cache_file . 'categories');
 		}
 	} # end function
 
 /**
- * Function to generate articles cache entries 
- * @author Bobby Easland 
+ * Function to generate articles cache entries
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function generate_articles_cache(){
-		$this->is_cached($this->cache_file . 'articles', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'articles', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-			$sql = "SELECT articles_id as id, articles_name as name 
-					FROM ".TABLE_ARTICLES_DESCRIPTION." 
+			$sql = "SELECT articles_id as id, articles_name as name
+					FROM ".TABLE_ARTICLES_DESCRIPTION."
 					WHERE language_id = '".(int)$this->languages_id."'";
 			$article_query = $this->DB->Query( $sql );
 			$article_cache = '';
@@ -2136,21 +2136,21 @@ case 'pollid':
 			$this->save_cache($this->cache_file . 'articles', $article_cache, 'EVAL', 1 , 1);
 			unset($article_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'articles');		
+			$this->get_cache($this->cache_file . 'articles');
 		}
 	} # end function
 
 
 /**
-* Function to generate authors cache entries 
- * @author Bobby Easland 
+* Function to generate authors cache entries
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
  function generate_authors_cache(){
-		$this->is_cached($this->cache_file . 'authors', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'authors', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-			$sql = "SELECT authors_id as id, authors_name as name 
-					FROM ".TABLE_AUTHORS." 
+			$sql = "SELECT authors_id as id, authors_name as name
+					FROM ".TABLE_AUTHORS."
 					WHERE language_id='".(int)$this->languages_id."'";
 			$authors_query = $this->DB->Query( $sql );
 			$authors_cache = '';
@@ -2163,20 +2163,20 @@ case 'pollid':
 			$this->save_cache($this->cache_file . 'authors', $authors_cache, 'EVAL', 1 , 1);
 			unset($authors_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'authors');		
+			$this->get_cache($this->cache_file . 'authors');
 		}
 	} # end function
 
 /**
- * Function to generate topics cache entries 
- * @author Bobby Easland 
+ * Function to generate topics cache entries
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function generate_topics_cache(){
-		$this->is_cached($this->cache_file . 'topics', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'topics', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-			$sql = "SELECT topics_id as id, topics_name as name 
-					FROM ".TABLE_TOPICS_DESCRIPTION." 
+			$sql = "SELECT topics_id as id, topics_name as name
+					FROM ".TABLE_TOPICS_DESCRIPTION."
 					WHERE language_id='".(int)$this->languages_id."'";
 			$topic_query = $this->DB->Query( $sql );
 			$topic_cache = '';
@@ -2189,20 +2189,20 @@ case 'pollid':
 			$this->save_cache($this->cache_file . 'topics', $topic_cache, 'EVAL', 1 , 1);
 			unset($topic_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'topics');		
+			$this->get_cache($this->cache_file . 'topics');
 		}
 	} # end function
 
 /** ojp
- * Function to generate topics cache entries 
- * @author Bobby Easland 
+ * Function to generate topics cache entries
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function generate_links_cache(){
-		$this->is_cached($this->cache_file . 'links', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'links', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-			$sql = "SELECT link_categories_id as id, link_categories_name as name 
-					FROM ".TABLE_LINK_CATEGORIES_DESCRIPTION." 
+			$sql = "SELECT link_categories_id as id, link_categories_name as name
+					FROM ".TABLE_LINK_CATEGORIES_DESCRIPTION."
 					WHERE language_id='".(int)$this->languages_id."'";
 			$link_query = $this->DB->Query( $sql );
 			$link_cache = '';
@@ -2215,22 +2215,22 @@ case 'pollid':
 			$this->save_cache($this->cache_file . 'links', $link_cache, 'EVAL', 1 , 1);
 			unset($link_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'links');		
+			$this->get_cache($this->cache_file . 'links');
 		}
 	} # end function
 
 
 
 /**
- * Function to generate information cache entries 
- * @author Bobby Easland 
+ * Function to generate information cache entries
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function generate_information_cache(){
-		$this->is_cached($this->cache_file . 'information', $is_cached, $is_expired);  	
+		$this->is_cached($this->cache_file . 'information', $is_cached, $is_expired);
 		if ( !$is_cached || $is_expired ) { // it's not cached so create it
-		 $sql = "SELECT information_id as id, information_title as name 
-					FROM ".TABLE_INFORMATION." 
+		 $sql = "SELECT information_id as id, information_title as name
+					FROM ".TABLE_INFORMATION."
 					WHERE languages_id='".(int)$this->languages_id."'";
 			$information_query = $this->DB->Query( $sql );
 			$information_cache = '';
@@ -2243,13 +2243,13 @@ case 'pollid':
 			$this->save_cache($this->cache_file . 'information', $information_cache, 'EVAL', 1 , 1);
 			unset($information_cache);
 		} else {
-			$this->get_cache($this->cache_file . 'information');		
+			$this->get_cache($this->cache_file . 'information');
 		}
 	} # end function
 
 /**
- * Function to save the cache to database 
- * @author Bobby Easland 
+ * Function to save the cache to database
+ * @author Bobby Easland
  * @version 1.0
  * @param string $name Cache name
  * @param mixed $value Can be array, string, PHP code, or just about anything
@@ -2257,9 +2257,9 @@ case 'pollid':
  * @param integer $gzip Enables compression
  * @param integer $global Sets whether cache record is global is scope
  * @param string $expires Sets the expiration
- */	
+ */
 	function save_cache($name, $value, $method='RETURN', $gzip=1, $global=0, $expires = '30/days'){
-		$expires = $this->convert_time($expires);		
+		$expires = $this->convert_time($expires);
 		if ($method == 'ARRAY' ) $value = serialize($value);
 		$value = ( $gzip === 1 ? base64_encode(gzdeflate($value, 1)) : addslashes($value) );
 		$sql_data_array = array('cache_id' => md5($name),
@@ -2271,137 +2271,137 @@ case 'pollid':
 								'cache_method' => $method,
 								'cache_date' => date("Y-m-d H:i:s"),
 								'cache_expires' => $expires
-								);								
+								);
 		$this->is_cached($name, $is_cached, $is_expired);
 		$cache_check = ( $is_cached ? 'true' : 'false' );
 		switch ( $cache_check ) {
-			case 'true': 
+			case 'true':
 				$this->DB->DBPerform('cache', $sql_data_array, 'update', "cache_id='".md5($name)."'");
-				break;				
+				break;
 			case 'false':
 				$this->DB->DBPerform('cache', $sql_data_array, 'insert');
-				break;				
+				break;
 			default:
 				break;
-		} # end switch ($cache check)		
+		} # end switch ($cache check)
 		# unset the variables...clean as we go
-		unset($value, $expires, $sql_data_array);		
+		unset($value, $expires, $sql_data_array);
 	}# end function save_cache()
-	
+
 /**
- * Function to get cache entry 
- * @author Bobby Easland 
+ * Function to get cache entry
+ * @author Bobby Easland
  * @version 1.0
  * @param string $name
  * @param boolean $local_memory
  * @return mixed
- */	
+ */
 	function get_cache($name = 'GLOBAL', $local_memory = false){
 		$select_list = 'cache_id, cache_language_id, cache_name, cache_data, cache_global, cache_gzip, cache_method, cache_date, cache_expires';
 		$global = ( $name == 'GLOBAL' ? true : false ); // was GLOBAL passed or is using the default?
 		switch($name){
-			case 'GLOBAL': 
+			case 'GLOBAL':
 				$this->cache_query = $this->DB->Query("SELECT ".$select_list." FROM cache WHERE cache_language_id='".(int)$this->languages_id."' AND cache_global='1'");
 				break;
-			default: 
+			default:
 				$this->cache_query = $this->DB->Query("SELECT ".$select_list." FROM cache WHERE cache_id='".md5($name)."' AND cache_language_id='".(int)$this->languages_id."'");
 				break;
 		} # end switch ($name)
 		$num_rows = $this->DB->NumRows($this->cache_query);
-		if ( $num_rows ){ 
+		if ( $num_rows ){
 			$container = array();
 			while($cache = $this->DB->FetchArray($this->cache_query)){
-				$cache_name = $cache['cache_name']; 
-				if ( $cache['cache_expires'] > date("Y-m-d H:i:s") ) { 
+				$cache_name = $cache['cache_name'];
+				if ( $cache['cache_expires'] > date("Y-m-d H:i:s") ) {
 					$cache_data = ( $cache['cache_gzip'] == 1 ? gzinflate(base64_decode($cache['cache_data'])) : stripslashes($cache['cache_data']) );
 					switch($cache['cache_method']){
 						case 'EVAL': // must be PHP code
 							eval("$cache_data");
-							break;							
-						case 'ARRAY': 
-							$cache_data = unserialize($cache_data);							
-						case 'RETURN': 
+							break;
+						case 'ARRAY':
+							$cache_data = unserialize($cache_data);
+						case 'RETURN':
 						default:
 							break;
-					} # end switch ($cache['cache_method'])					
-					if ($global) $container['GLOBAL'][$cache_name] = $cache_data; 
-					else $container[$cache_name] = $cache_data; // not global				
+					} # end switch ($cache['cache_method'])
+					if ($global) $container['GLOBAL'][$cache_name] = $cache_data;
+					else $container[$cache_name] = $cache_data; // not global
 				} else { // cache is expired
-					if ($global) $container['GLOBAL'][$cache_name] = false; 
-					else $container[$cache_name] = false; 
-				}# end if ( $cache['cache_expires'] > date("Y-m-d H:i:s") )			
+					if ($global) $container['GLOBAL'][$cache_name] = false;
+					else $container[$cache_name] = false;
+				}# end if ( $cache['cache_expires'] > date("Y-m-d H:i:s") )
 				if ( $this->keep_in_memory || $local_memory ) {
-					if ($global) $this->data['GLOBAL'][$cache_name] = $container['GLOBAL'][$cache_name]; 
-					else $this->data[$cache_name] = $container[$cache_name]; 
-				}							
-			} # end while ($cache = $this->DB->FetchArray($this->cache_query))			
+					if ($global) $this->data['GLOBAL'][$cache_name] = $container['GLOBAL'][$cache_name];
+					else $this->data[$cache_name] = $container[$cache_name];
+				}
+			} # end while ($cache = $this->DB->FetchArray($this->cache_query))
 			unset($cache_data);
-			$this->DB->Free($this->cache_query);			
+			$this->DB->Free($this->cache_query);
 			switch (true) {
-				case ($num_rows == 1): 
+				case ($num_rows == 1):
 					if ($global){
 						if ($container['GLOBAL'][$cache_name] == false || !isset($container['GLOBAL'][$cache_name])) return false;
-						else return $container['GLOBAL'][$cache_name]; 
+						else return $container['GLOBAL'][$cache_name];
 					} else { // not global
 						if ($container[$cache_name] == false || !isset($container[$cache_name])) return false;
 						else return $container[$cache_name];
-					} # end if ($global)					
-				case ($num_rows > 1): 
-				default: 
-					return $container; 
+					} # end if ($global)
+				case ($num_rows > 1):
+				default:
+					return $container;
 					break;
-			}# end switch (true)			
-		} else { 
+			}# end switch (true)
+		} else {
 			return false;
-		}# end if ( $num_rows )		
+		}# end if ( $num_rows )
 	} # end function get_cache()
 
 /**
  * Function to get cache from memory
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.0
  * @param string $name
  * @param string $method
  * @return mixed
- */	
+ */
 	function get_cache_memory($name, $method = 'RETURN'){
 		$data = ( isset($this->data['GLOBAL'][$name]) ? $this->data['GLOBAL'][$name] : $this->data[$name] );
-		if ( isset($data) && !empty($data) && $data != false ){ 
+		if ( isset($data) && !empty($data) && $data != false ){
 			switch($method){
 				case 'EVAL': // data must be PHP
 					eval("$data");
 					return true;
 					break;
-				case 'ARRAY': 
+				case 'ARRAY':
 				case 'RETURN':
 				default:
 					return $data;
 					break;
 			} # end switch ($method)
-		} else { 
+		} else {
 			return false;
 		} # end if (isset($data) && !empty($data) && $data != false)
 	} # end function get_cache_memory()
 
 /**
- * Function to perform basic garbage collection for database cache system 
- * @author Bobby Easland 
+ * Function to perform basic garbage collection for database cache system
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function cache_gc(){
 		$this->DB->Query("DELETE FROM cache WHERE cache_expires <= '" . date("Y-m-d H:i:s") . "'" );
 	}
 
 /**
- * Function to convert time for cache methods 
- * @author Bobby Easland 
+ * Function to convert time for cache methods
+ * @author Bobby Easland
  * @version 1.0
  * @param string $expires
  * @return string
- */	
+ */
 	function convert_time($expires){ //expires date interval must be spelled out and NOT abbreviated !!
 		$expires = explode('/', $expires);
-		switch( strtolower($expires[1]) ){ 
+		switch( strtolower($expires[1]) ){
 			case 'seconds':
 				$expires = mktime( date("H"), date("i"), date("s")+(int)$expires[0], date("m"), date("d"), date("Y") );
 				break;
@@ -2428,17 +2428,17 @@ case 'pollid':
 	} # end function convert_time()
 
 /**
- * Function to check if the cache is in the database and expired  
- * @author Bobby Easland 
+ * Function to check if the cache is in the database and expired
+ * @author Bobby Easland
  * @version 1.0
  * @param string $name
  * @param boolean $is_cached NOTE: passed by reference
  * @param boolean $is_expired NOTE: passed by reference
- */	
+ */
 	function is_cached($name, &$is_cached, &$is_expired){ // NOTE: $is_cached and $is_expired is passed by reference !!
 		$this->cache_query = $this->DB->Query("SELECT cache_expires FROM cache WHERE cache_id='".md5($name)."' AND cache_language_id='".(int)$this->languages_id."' LIMIT 1");
 		$is_cached = ( $this->DB->NumRows($this->cache_query ) > 0 ? true : false );
-		if ($is_cached){ 
+		if ($is_cached){
 			$check = $this->DB->FetchArray($this->cache_query);
 			$is_expired = ( $check['cache_expires'] <= date("Y-m-d H:i:s") ? true : false );
 			unset($check);
@@ -2448,32 +2448,32 @@ case 'pollid':
 
 /**
  * Function to initialize the redirect logic
- * @author Bobby Easland 
+ * @author Bobby Easland
  * @version 1.1
- */	
+ */
 	function check_redirect(){
-		$this->need_redirect = false; 
+		$this->need_redirect = false;
 		$this->path_info = is_numeric(strpos(ltrim(getenv('PATH_INFO'), '/') , '/')) ? ltrim(getenv('PATH_INFO'), '/') : NULL;
 		$this->uri = ltrim( basename($_SERVER['REQUEST_URI']), '/' );
 		$this->real_uri = ltrim( basename($_SERVER['SCRIPT_NAME']) . '?' . $_SERVER['QUERY_STRING'], '/' );
 		$this->uri_parsed = $this->not_null( $this->path_info )
 								?	parse_url(basename($_SERVER['SCRIPT_NAME']) . '?' . $this->parse_path($this->path_info) )
-								:	parse_url(basename($_SERVER['REQUEST_URI']));			
-		$this->attributes['SEO_REDIRECT']['PATH_INFO'] = $this->path_info;			
+								:	parse_url(basename($_SERVER['REQUEST_URI']));
+		$this->attributes['SEO_REDIRECT']['PATH_INFO'] = $this->path_info;
 		$this->attributes['SEO_REDIRECT']['URI'] = $this->uri;
-		$this->attributes['SEO_REDIRECT']['REAL_URI'] = $this->real_uri;			
-		$this->attributes['SEO_REDIRECT']['URI_PARSED'] = $this->uri_parsed;			
-		$this->need_redirect(); 
-		$this->check_seo_page(); 		
-		if ( $this->need_redirect && $this->is_seopage && $this->attributes['USE_SEO_REDIRECT'] == 'true') $this->do_redirect();			
+		$this->attributes['SEO_REDIRECT']['REAL_URI'] = $this->real_uri;
+		$this->attributes['SEO_REDIRECT']['URI_PARSED'] = $this->uri_parsed;
+		$this->need_redirect();
+		$this->check_seo_page();
+		if ( $this->need_redirect && $this->is_seopage && $this->attributes['USE_SEO_REDIRECT'] == 'true') $this->do_redirect();
 	} # end function
-	
+
 /**
- * Function to check if the URL needs to be redirected 
- * @author Bobby Easland 
+ * Function to check if the URL needs to be redirected
+ * @author Bobby Easland
  * @version 1.2
- */	
-	function need_redirect(){		
+ */
+	function need_redirect(){
 		foreach( $this->reg_anchors as $param => $value){
 			$pattern[] = $param;
 		}
@@ -2487,23 +2487,23 @@ case 'pollid':
 			case (is_numeric(strpos($this->uri, '.htm'))):
 				$this->need_redirect = false;
 				break;
-			case (@eregi("(".@implode('|', $pattern).")", $this->uri)):
+			case (@preg_match("/(".@implode('|', $pattern).")/i", $this->uri)):
 				$this->need_redirect = true;
 				break;
-			case (@eregi("(".@implode('|', $pattern).")", $this->path_info)):
+			case (@preg_match("/(".@implode('|', $pattern).")/i", $this->path_info)):
 				$this->need_redirect = true;
 				break;
 			default:
-				break;			
+				break;
 		} # end switch
 		$this->attributes['SEO_REDIRECT']['NEED_REDIRECT'] = $this->need_redirect ? 'true' : 'false';
 	} # end function set_seopage
-	
+
 /**
- * Function to check if it's a valid redirect page 
- * @author Bobby Easland 
+ * Function to check if it's a valid redirect page
+ * @author Bobby Easland
  * @version 1.1
- */	
+ */
 	function check_seo_page(){
 		switch (true){
 			case (in_array($this->uri_parsed['path'], $this->attributes['SEO_PAGES'])):
@@ -2516,41 +2516,41 @@ case 'pollid':
 		} # end switch
 		$this->attributes['SEO_REDIRECT']['IS_SEOPAGE'] = $this->is_seopage ? 'true' : 'false';
 	} # end function check_seo_page
-	
+
 /**
- * Function to parse the path for old SEF URLs 
- * @author Bobby Easland 
+ * Function to parse the path for old SEF URLs
+ * @author Bobby Easland
  * @version 1.0
  * @param string $path_info
  * @return array
- */	
-	function parse_path($path_info){ 
-		$tmp = @explode('/', $path_info); 		
+ */
+	function parse_path($path_info){
+		$tmp = @explode('/', $path_info);
 		if ( sizeof($tmp) > 2 ){
-			$container = array();				
+			$container = array();
 			for ($i=0, $n=sizeof($tmp); $i<$n; $i++) {
-				$container[] = $tmp[$i] . '=' . $tmp[$i+1]; 
-				$i++; 
+				$container[] = $tmp[$i] . '=' . $tmp[$i+1];
+				$i++;
 			}
-			return @implode('&', $container);			
-		} else { 
+			return @implode('&', $container);
+		} else {
 			return @implode('=', $tmp);
-		}				
+		}
 	} # end function parse_path
-	
+
 /**
- * Function to perform redirect 
- * @author Bobby Easland 
+ * Function to perform redirect
+ * @author Bobby Easland
  * @version 1.0
- */	
+ */
 	function do_redirect(){
 		$p = @explode('&', $this->uri_parsed['query']);
-		foreach( $p as $index => $value ){							
+		foreach( $p as $index => $value ){
 			$tmp = @explode('=', $value);
 				switch($tmp[0]){
 					case 'products_id':
 						if ( $this->is_attribute_string($tmp[1]) ){
-							$pieces = @explode('{', $tmp[1]);							
+							$pieces = @explode('{', $tmp[1]);
 							$params[] = $tmp[0] . '=' . $pieces[0];
 						} else {
 							$params[] = $tmp[0] . '=' . $tmp[1];
@@ -2558,23 +2558,23 @@ case 'pollid':
 						break;
 					default:
 						$params[] = $tmp[0].'='.$tmp[1];
-						break;						
+						break;
 				}
 		} # end foreach( $params as $var => $value )
-		$params = ( sizeof($params) > 1 ? implode('&', $params) : $params[0] );		
+		$params = ( sizeof($params) > 1 ? implode('&', $params) : $params[0] );
 		$url = $this->href_link($this->uri_parsed['path'], $params, 'NONSSL', false);
 		switch(true){
 			case (defined('USE_SEO_REDIRECT_DEBUG') && USE_SEO_REDIRECT_DEBUG == 'true'):
 				$this->attributes['SEO_REDIRECT']['REDIRECT_URL'] = $url;
 				break;
 			case ($this->attributes['USE_SEO_REDIRECT'] == 'true'):
-				header("HTTP/1.0 301 Moved Permanently"); 
-				header("Location: $url"); // redirect...bye bye		
+				header("HTTP/1.0 301 Moved Permanently");
+				header("Location: $url"); // redirect...bye bye
 				break;
 			default:
 				$this->attributes['SEO_REDIRECT']['REDIRECT_URL'] = $url;
 				break;
 		} # end switch
-	} # end function do_redirect	
+	} # end function do_redirect
 } # end class
 ?>

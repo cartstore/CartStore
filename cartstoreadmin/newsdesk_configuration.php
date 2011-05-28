@@ -9,7 +9,7 @@ if ($_GET['action']) {
 		$cID = tep_db_prepare_input($_GET['cID']);
 
 		tep_db_query(
-		"update " . TABLE_NEWSDESK_CONFIGURATION . " set configuration_value = '" . tep_db_input($configuration_value) . 
+		"update " . TABLE_NEWSDESK_CONFIGURATION . " set configuration_value = '" . tep_db_input($configuration_value) .
 		"', last_modified = now() where configuration_id = '" . tep_db_input($cID) . "'"
 		);
 
@@ -26,14 +26,14 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo TITLE; ?></title>
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
-   
-	 	
+
+
 <script language="javascript" src="includes/menu.js"></script>
 <script language="javascript" src="includes/general.js"></script>
 </head>
@@ -80,7 +80,7 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 	</tr>
 
 <?php
- 
+
  $configuration_query = tep_db_query(
  "select configuration_id, configuration_title, configuration_value, use_function from " . TABLE_NEWSDESK_CONFIGURATION . " where configuration_group_id = '" . $_GET['gID'] . "' order by sort_order"
 );
@@ -88,7 +88,7 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 while ($configuration = tep_db_fetch_array($configuration_query)) {
 	if (tep_not_null($configuration['use_function'])) {
 		$use_function = $configuration['use_function'];
-		if (ereg('->', $use_function)) {
+		if (preg_match('/->/', $use_function)) {
 			$class_method = explode('->', $use_function);
 			if (!is_object(${$class_method[0]})) {
 				include(DIR_WS_CLASSES . $class_method[0] . '.php');
@@ -115,12 +115,12 @@ while ($configuration = tep_db_fetch_array($configuration_query)) {
 	}
 
 	if ( (is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->configuration_id) ) {
-		echo '<tr class="dataTableRowSelected" onmouseover="this.style.cursor=\'hand\'" onclick="document.location.href=\'' 
-		. tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id . '&action=edit') 
+		echo '<tr class="dataTableRowSelected" onmouseover="this.style.cursor=\'hand\'" onclick="document.location.href=\''
+		. tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id . '&action=edit')
 		. '\'">' . "\n";
 	} else {
-		echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'hand\'" 
-		onmouseout="this.className=\'dataTableRow\'" onclick="document.location.href=\'' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 
+		echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'hand\'"
+		onmouseout="this.className=\'dataTableRow\'" onclick="document.location.href=\'' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION,
 		'gID=' . $_GET['gID'] . '&cID=' . $configuration['configuration_id']) . '\'">' . "\n";
 	}
 ?>
@@ -132,7 +132,7 @@ while ($configuration = tep_db_fetch_array($configuration_query)) {
 if ( (is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->configuration_id) ) {
 	echo tep_image(DIR_WS_IMAGES . 'icon_arrow_right.png', '');
 } else {
-	echo '<a href="' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' 
+	echo '<a href="' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID='
 	. $configuration['configuration_id']) . '">' . tep_image(DIR_WS_IMAGES . 'icon_info.png', IMAGE_ICON_INFO) . '</a>';
 }
 ?>
@@ -160,7 +160,7 @@ case 'edit':
 	}
 
 	$contents = array(
-	'form' => tep_draw_form('configuration', FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id 
+	'form' => tep_draw_form('configuration', FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id
 	. '&action=save')
 	);
 
@@ -168,8 +168,8 @@ case 'edit':
 	$contents[] = array('text' => '<br><b>' . $cInfo->configuration_title . '</b><br>' . $cInfo->configuration_description . '<br>' . $value_field);
 	$contents[] = array(
 		'align' => 'center',
-		'text' => '<br>' . tep_image_submit('button_update.png', IMAGE_UPDATE) . '&nbsp;<a class="button" href="' 
-		. tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id) 
+		'text' => '<br>' . tep_image_submit('button_update.png', IMAGE_UPDATE) . '&nbsp;<a class="button" href="'
+		. tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id)
 		. '">' .  IMAGE_CANCEL . '</a>'
 		);
 	break;
@@ -180,7 +180,7 @@ if (is_object($cInfo)) {
 
 	$contents[] = array(
 		'align' => 'center',
-		'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] 
+		'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID']
 		. '&cID=' . $cInfo->configuration_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a>'
 		);
 
@@ -231,7 +231,7 @@ if ( (tep_not_null($heading)) && (tep_not_null($contents)) ) {
 
 	This script is not part of the official osC distribution but an add-on contributed to the osC community.
 	Please read the NOTE and INSTALL documents that are provided with this file for further information and installation notes.
-	
+
 	script name:			NewsDesk
 	version:        		1.48.2
 	date:       			22-06-2004 (dd/mm/yyyy)

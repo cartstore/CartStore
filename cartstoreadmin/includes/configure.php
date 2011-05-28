@@ -1,9 +1,9 @@
 <?php
 
   
-  define('HTTP_SERVER', 'http://localhost');
-  define('HTTP_CATALOG_SERVER', 'http://localhost');
-  define('HTTPS_CATALOG_SERVER', 'http://localhost');
+  define('HTTP_SERVER', 'http://localhost:777');
+  define('HTTP_CATALOG_SERVER', 'http://localhost:777');
+  define('HTTPS_CATALOG_SERVER', 'http://localhost:777');
   define('ENABLE_SSL_CATALOG', 'false');
   define('DIR_FS_DOCUMENT_ROOT', 'C:/wamp/www/');
   define('DIR_WS_ADMIN', '/cartstoreadmin/');
@@ -23,13 +23,21 @@
   define('DIR_FS_CATALOG_LANGUAGES', DIR_FS_CATALOG . 'includes/languages/');
   define('DIR_FS_CATALOG_IMAGES', DIR_FS_CATALOG . 'images/');
   define('DIR_FS_CATALOG_MODULES', DIR_FS_CATALOG . 'includes/modules/');
+  
   define('DIR_FS_BACKUP', DIR_FS_ADMIN . 'backups/');
-    define('DIR_FS_MAIL_DUMPS', DIR_FS_ADMIN . 'maildumps/');
+   
+  define('DIR_FS_MAIL_DUMPS', DIR_FS_ADMIN . 'maildumps/');
+ 
+  
+  
   
 
   define('DB_SERVER', 'localhost');
+  
   define('DB_SERVER_USERNAME', 'root');
+  
   define('DB_SERVER_PASSWORD', '');
+  
   define('DB_DATABASE', 'cartstore');
   define('USE_PCONNECT', 'false');
   define('STORE_SESSIONS', 'mysql');

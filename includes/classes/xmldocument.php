@@ -1,14 +1,14 @@
 <?php
 /*
     $Id: xmldocument.php,v 1.5 2003/06/27 01:03:03 torinwalker Exp $
-    
+
     Written by Torin Walker
     torinwalker@rogers.com
-    
+
     Generic XML Document support for when there is none.
-    
+
     Copyright(c) 2003 by Torin Walker, All rights reserved.
-    
+
     GNU General Public License Compatible
 */
 
@@ -54,7 +54,7 @@ class XMLDocument {
     }
 
     function getValueByPath($path) {
-        $pathArray = split("/", $path);
+        $pathArray = explode("/", $path);
         if ($pathArray[0] == $this->root->getName()) {
             //print_r("Looking for " . $pathArray[0] . "<br>");
             array_shift($pathArray);
@@ -130,7 +130,7 @@ class Node {
     }
 
     function getValueByPath($path) {
-        $pathArray = split('/', $path);
+        $pathArray = explode('/', $path);
         $node = $this;
         for ($i = 0; $i < count($pathArray); $i++) {
             //print_r("Looking for " . $pathArray[$i] ."<br>");
@@ -146,7 +146,7 @@ class Node {
             }
         }
         return $node->getValue();
-    } 
+    }
 
     function getText() {
         return $this->text();
@@ -190,8 +190,8 @@ class Node {
     }
 
     function toString() {
-        $string = NULL;    
-        //print_r("toString child count " . $this->name . " contains " . count($this->children) . "<br>");    
+        $string = NULL;
+        //print_r("toString child count " . $this->name . " contains " . count($this->children) . "<br>");
         if ($this->type == ELEMENT) {
             $string .= '{' . $this->name . '}';
             for ($i = 0; $i < count($this->children); $i++) {
@@ -289,7 +289,7 @@ class XMLParser {
             if(!@xml_set_character_data_handler($this->xp, 'dataHandler')) {
                 $this->error['description'] = 'Could not set xml character handler';
             }
-        } 
+        }
         xml_parser_set_option($this->xp, XML_OPTION_CASE_FOLDING, false);
         if (!$this->hasErrors()) {
             if(!@xml_parse($this->xp, $xmlString)) {

@@ -186,7 +186,7 @@
       $messageStack->add(ERROR_GRAPHS_DIRECTORY_DOES_NOT_EXIST, 'error');
     }
   }
-// Start Banner Rotator; 
+// Start Banner Rotator;
 // Build a language array for the pulldown
   $language_array = tep_get_languages();
   $languages_data = array();
@@ -196,16 +196,16 @@
       'text' => $language_info['name']
     );
   }
-// End Banner Rotator; 
+// End Banner Rotator;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo TITLE; ?></title>
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
-	 	
+
 <script language="javascript" src="includes/general.js"></script>
 <script language="javascript"><!--
 function popupImageWindow(url) {
@@ -241,7 +241,7 @@ function popupImageWindow(url) {
   if ($action == 'new') {
     $form_action = 'insert';
 
-// Banner Rotator; 
+// Banner Rotator;
     $parameters = array('expires_date' => '',
                         'date_scheduled' => '',
                         'language_id' => '',
@@ -259,7 +259,7 @@ function popupImageWindow(url) {
 
       $bID = tep_db_prepare_input($_GET['bID']);
 
-// Banner Rotator; 
+// Banner Rotator;
       $banner_query = tep_db_query("select language_id, banners_title, banners_url, banners_image, banners_group, banners_html_text, status, date_format(date_scheduled, '%d/%m/%Y') as date_scheduled, date_format(expires_date, '%d/%m/%Y') as expires_date, expires_impressions, date_status_change from " . TABLE_BANNERS . " where banners_id = '" . (int)$bID . "'");
       $banner = tep_db_fetch_array($banner_query);
 
@@ -434,19 +434,19 @@ function popupImageWindow(url) {
         $heading[] = array('text' => '<b>' . $bInfo->banners_title . '</b>');
 
         $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_BANNER_MANAGER, 'page=' . $_GET['page'] . '&bID=' . $bInfo->banners_id . '&action=new') . '">' .  IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_BANNER_MANAGER, 'page=' . $_GET['page'] . '&bID=' . $bInfo->banners_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
-        // Start Banner Rotator; 
+        // Start Banner Rotator;
         $language_query_raw = "
-          select 
-            name 
-          from 
-            " . TABLE_LANGUAGES . " 
+          select
+            name
+          from
+            " . TABLE_LANGUAGES . "
           where
             languages_id = '" . ( int )$bInfo->language_id . "'
         ";
         $language_query = tep_db_query( $language_query_raw );
         $language_data = tep_db_fetch_array( $language_query );
         $contents[] = array('text' => '' );
-// End Banner Rotator; 
+// End Banner Rotator;
 
 $contents[] = array('text' => '<br>' . TEXT_BANNERS_DATE_ADDED . ' ' . tep_date_short($bInfo->date_added));
 
@@ -459,7 +459,7 @@ $contents[] = array('text' => '<br>' . TEXT_BANNERS_DATE_ADDED . ' ' . tep_date_
           $contents[] = array('align' => 'center', 'text' => '<br>' . tep_banner_graph_infoBox($bInfo->banners_id, '3'));
         }
 
- 
+
         if ($bInfo->date_scheduled) $contents[] = array('text' => '<br>' . sprintf(TEXT_BANNERS_SCHEDULED_AT_DATE, tep_date_short($bInfo->date_scheduled)));
 
         if ($bInfo->expires_date) {

@@ -2,7 +2,7 @@
 /*
   $Id: affiliate_checkout_process.php,v 2.00 2003/10/12
 
-  
+
 
   Contribution based on:
 
@@ -30,7 +30,7 @@
   }
   if ($affiliate_percent < AFFILIATE_PERCENT) $affiliate_percent = AFFILIATE_PERCENT;
   $affiliate_payment = tep_round(($affiliate_total * $affiliate_percent / 100), 2);
-   
+
   if ($_SESSION['affiliate_ref']) {
     $sql_data_array = array('affiliate_id' => $affiliate_ref,
                             'affiliate_date' => $affiliate_clientdate,
@@ -47,13 +47,13 @@
     if (AFFILATE_USE_TIER == 'true') {
       $affiliate_tiers_query = tep_db_query ("SELECT aa2.affiliate_id, (aa2.affiliate_rgt - aa2.affiliate_lft) as height
                                                       FROM affiliate_affiliate AS aa1, affiliate_affiliate AS aa2
-                                                      WHERE  aa1.affiliate_root = aa2.affiliate_root 
+                                                      WHERE  aa1.affiliate_root = aa2.affiliate_root
                                                             AND aa1.affiliate_lft BETWEEN aa2.affiliate_lft AND aa2.affiliate_rgt
                                                             AND aa1.affiliate_rgt BETWEEN aa2.affiliate_lft AND aa2.affiliate_rgt
                                                             AND aa1.affiliate_id =  '" . $affiliate_ref . "'
-                                                      ORDER by height asc limit 1, " . AFFILIATE_TIER_LEVELS . " 
+                                                      ORDER by height asc limit 1, " . AFFILIATE_TIER_LEVELS . "
                                               ");
-      $affiliate_tier_percentage = split("[;]" , AFFILIATE_TIER_PERCENTAGE);
+      $affiliate_tier_percentage = explode(";" , AFFILIATE_TIER_PERCENTAGE);
       $i=0;
       while ($affiliate_tiers_array = tep_db_fetch_array($affiliate_tiers_query)) {
 

@@ -46,16 +46,16 @@ if ($select_column_list != '') {
 }
 
 // We show them all
-$listing_sql = "select " . $select_column_list . " p.faqdesk_id, p.faqdesk_date_added, pd.faqdesk_question, 
-pd.faqdesk_answer_long, pd.faqdesk_answer_short from " 
-. TABLE_FAQDESK_DESCRIPTION . " pd, " 
-. TABLE_FAQDESK . " p, " 
-. TABLE_FAQDESK_TO_CATEGORIES . " p2c 
-where p.faqdesk_status = '1' and p.faqdesk_id = p2c.faqdesk_id and pd.faqdesk_id = p2c.faqdesk_id 
+$listing_sql = "select " . $select_column_list . " p.faqdesk_id, p.faqdesk_date_added, pd.faqdesk_question,
+pd.faqdesk_answer_long, pd.faqdesk_answer_short from "
+. TABLE_FAQDESK_DESCRIPTION . " pd, "
+. TABLE_FAQDESK . " p, "
+. TABLE_FAQDESK_TO_CATEGORIES . " p2c
+where p.faqdesk_status = '1' and p.faqdesk_id = p2c.faqdesk_id and pd.faqdesk_id = p2c.faqdesk_id
 and pd.language_id = '" . $languages_id . "' and p2c.categories_id = '" . $current_category_id . "'";
 
 $cl_size = sizeof($column_list);
-if ( (!$_GET['sort']) || (!ereg('[1-8][ad]', $_GET['sort'])) || (substr($_GET['sort'],0,1) > $cl_size) ) {
+if ( (!$_GET['sort']) || (!preg_match('/[1-8][ad]/', $_GET['sort'])) || (substr($_GET['sort'],0,1) > $cl_size) ) {
 	for ($col=0; $col<$cl_size; $col++) {
 		if ($column_list[$col] == 'FAQDESK_QUESTION') {
 			$_GET['sort'] = $col+1 . 'a';

@@ -33,7 +33,7 @@ if (function_exists ( 'ini_get' )) {
 // Set the local configuration parameters - mainly for developers
 if (file_exists ( 'includes/local/configure.php' ))
 	include ('includes/local/configure.php');
-	
+
 // include server parameters
 require ('includes/configure.php');
 
@@ -116,7 +116,7 @@ if (SEARCH_ENGINE_FRIENDLY_URLS == 'true') {
 			}
 			$i ++;
 		}
-		
+
 		if (sizeof ( $GET_array ) > 0) {
 			while ( list ( $key, $value ) = each ( $GET_array ) ) {
 				$_GET [$key] = $value;
@@ -139,7 +139,7 @@ $cookie_path = (($request_type == 'NONSSL') ? HTTP_COOKIE_PATH : HTTPS_COOKIE_PA
 // include cache functions if enabled
 if (USE_CACHE == 'true')
 	include (DIR_WS_FUNCTIONS . 'cache.php');
-	
+
 // include shopping cart class
 require (DIR_WS_CLASSES . 'shopping_cart.php');
 
@@ -161,7 +161,7 @@ if (! function_exists ( 'session_start' )) {
 	define ( 'PHP_SESSION_PATH', $cookie_path );
 	define ( 'PHP_SESSION_DOMAIN', $cookie_domain );
 	define ( 'PHP_SESSION_SAVE_PATH', SESSION_WRITE_DIRECTORY );
-	
+
 	include (DIR_WS_CLASSES . 'sessions.php');
 }
 
@@ -192,7 +192,7 @@ if (isset ( $_POST [tep_session_name ()] )) {
 $session_started = false;
 if (SESSION_FORCE_COOKIE_USE == 'True') {
 	tep_setcookie ( 'cookie_test', 'please_accept_for_session', time () + 60 * 60 * 24 * 30, $cookie_path, $cookie_domain );
-	
+
 	if (isset ( $_COOKIE ['cookie_test'] )) {
 		tep_session_start ();
 		$session_started = true;
@@ -200,10 +200,10 @@ if (SESSION_FORCE_COOKIE_USE == 'True') {
 } elseif (SESSION_BLOCK_SPIDERS == 'True') {
 	$user_agent = strtolower ( getenv ( 'HTTP_USER_AGENT' ) );
 	$spider_flag = false;
-	
+
 	if (tep_not_null ( $user_agent )) {
 		$spiders = file ( DIR_WS_INCLUDES . 'spiders.txt' );
-		
+
 		for($i = 0, $n = sizeof ( $spiders ); $i < $n; $i ++) {
 			if (tep_not_null ( $spiders [$i] )) {
 				if (is_integer ( strpos ( $user_agent, trim ( $spiders [$i] ) ) )) {
@@ -213,7 +213,7 @@ if (SESSION_FORCE_COOKIE_USE == 'True') {
 			}
 		}
 	}
-	
+
 	if ($spider_flag == false) {
 		tep_session_start ();
 		$session_started = true;
@@ -233,7 +233,7 @@ if (($request_type == 'SSL') && (SESSION_CHECK_SSL_SESSION_ID == 'True') && (ENA
 		$SESSION_SSL_ID = $ssl_session_id;
 		tep_session_register ( 'SESSION_SSL_ID' );
 	}
-	
+
 	if ($SESSION_SSL_ID != $ssl_session_id) {
 		tep_session_destroy ();
 		tep_redirect ( tep_href_link ( FILENAME_SSL_CHECK ) );
@@ -247,7 +247,7 @@ if (SESSION_CHECK_USER_AGENT == 'True') {
 		$SESSION_USER_AGENT = $http_user_agent;
 		tep_session_register ( 'SESSION_USER_AGENT' );
 	}
-	
+
 	if ($SESSION_USER_AGENT != $http_user_agent) {
 		tep_session_destroy ();
 		tep_redirect ( tep_href_link ( FILENAME_LOGIN ) );
@@ -261,7 +261,7 @@ if (SESSION_CHECK_IP_ADDRESS == 'True') {
 		$SESSION_IP_ADDRESS = $ip_address;
 		tep_session_register ( 'SESSION_IP_ADDRESS' );
 	}
-	
+
 	if ($SESSION_IP_ADDRESS != $ip_address) {
 		tep_session_destroy ();
 		tep_redirect ( tep_href_link ( FILENAME_LOGIN ) );
@@ -296,16 +296,16 @@ if (! tep_session_is_registered ( 'language' ) || isset ( $_GET ['language'] )) 
 		tep_session_register ( 'language' );
 		tep_session_register ( 'languages_id' );
 	}
-	
+
 	include (DIR_WS_CLASSES . 'language.php');
 	$lng = new language ();
-	
+
 	if (isset ( $_GET ['language'] ) && tep_not_null ( $_GET ['language'] )) {
 		$lng->set_language ( $_GET ['language'] );
 	} else {
 		$lng->get_browser_language ();
 	}
-	
+
 	$language = $lng->language ['directory'];
 	$languages_id = $lng->language ['id'];
 }
@@ -325,7 +325,7 @@ if (! is_object ( $seo_urls )) {
 if (! tep_session_is_registered ( 'currency' ) || isset ( $_GET ['currency'] ) || ((USE_DEFAULT_LANGUAGE_CURRENCY == 'true') && (LANGUAGE_CURRENCY != $currency))) {
 	if (! tep_session_is_registered ( 'currency' ))
 		tep_session_register ( 'currency' );
-	
+
 	if (isset ( $_GET ['currency'] )) {
 		if (! $currency = tep_currency_exists ( $_GET ['currency'] ))
 			$currency = (USE_DEFAULT_LANGUAGE_CURRENCY == 'true') ? LANGUAGE_CURRENCY : DEFAULT_CURRENCY;
@@ -347,7 +347,7 @@ if (tep_session_is_registered ( 'navigation' )) {
 }
 $navigation->add_current_page ();
 
-//BEGIN allprods modification  
+//BEGIN allprods modification
 if (ALL_PRODUCTS == 'false' and strstr ( $PHP_SELF, ALL_PRODUCTS_FILENAME )) {
 	tep_redirect ( tep_href_link ( FILENAME_DEFAULT ) );
 }
@@ -388,7 +388,7 @@ if (isset ( $_GET ['action'] )) {
 	if ($session_started == false) {
 		tep_redirect ( tep_href_link ( FILENAME_COOKIE_USAGE ) );
 	}
-	
+
 	if (DISPLAY_CART == 'true') {
 		$goto = FILENAME_SHOPPING_CART;
 		$parameters = array ('action', 'cPath', 'products_id', 'pid' );
@@ -413,7 +413,7 @@ if (isset ( $_GET ['action'] )) {
 						while ( list ( $key, $value ) = each ( $_POST ) ) {
 							if (is_array ( $value )) {
 								while ( list ( $key2, $value2 ) = each ( $value ) ) {
-									if (ereg ( "(.*)\]\[(.*)", $key2, $var )) {
+									if (preg_match ( "/(.*)\]\[(.*)/", $key2, $var )) {
 										$id2 [$var [1]] [$var [2]] = $value2;
 									}
 								}
@@ -447,17 +447,17 @@ if (isset ( $_GET ['action'] )) {
                                   }
                                 }
                                 $cart->add_cart($_POST['products_id'], $cart->get_quantity(tep_get_uprid($_POST['products_id'], $attributes))+ $_POST['cart_quantity'], $attributes);
-								
-								 
+
+
 //++++ QT Pro: End Changed Code
                               }
                               tep_redirect(tep_href_link($goto, tep_get_all_get_params($parameters)));
                               break;*/
-		
+
 		case 'add_product' :
 			if (isset ( $_POST ['products_id'] ) && is_numeric ( $_POST ['products_id'] ) && ($_POST ['products_id'] == ( int ) $_POST ['products_id'])) {
 				// iii 030813 added: File uploading: save uploaded files with unique file names
-				
+
                                  $attributes = $_POST ['id'];
 				if (isset ( $_POST ['attrcomb'] ) && (preg_match ( "/^\d{1,10}-\d{1,10}(,\d{1,10}-\d{1,10})*$/", $_POST ['attrcomb'] ))) {
 					$attributes = array ();
@@ -468,10 +468,10 @@ if (isset ( $_GET ['action'] )) {
 							$attributes [$oid] = $oval;
 					}
 				}
-				
-			
+
+
 	if ($_POST ['number_of_uploads'] > 0) {
-						
+
 						require (DIR_WS_CLASSES . 'upload.php');
 						for($i = 1; $i <= $_POST ['number_of_uploads']; $i ++) {
 							if (tep_not_null ( $_FILES ['id'] ['tmp_name'] [TEXT_PREFIX . $_POST [UPLOAD_PREFIX . $i]] ) and ($_FILES ['id'] ['tmp_name'] [TEXT_PREFIX . $_POST [UPLOAD_PREFIX . $i]] != 'none')) {
@@ -497,19 +497,19 @@ if (isset ( $_GET ['action'] )) {
 							}
 						}
 					}
-			
-				
-			
+
+
+
 				$cart->add_cart ( $_POST ['products_id'], $cart->get_quantity ( tep_get_uprid ( $_POST ['products_id'], $attributes ) ) + $_POST ['cart_quantity'], $attributes );
-				
-		
+
+
 			}
 			tep_redirect ( tep_href_link ( $goto, tep_get_all_get_params ( $parameters ) ) );
 			break;
-		
+
 		// performed by the 'buy now' button in product listings and review page
 		case 'buy_now' :
-			
+
 			if (isset ( $_GET ['products_id'] )) {
 				$q = $_GET ['qty'];
 				if ($q < 1)
@@ -734,7 +734,7 @@ $sts->start_capture ();
 require (DIR_WS_INCLUDES . 'add_ccgvdc_application_top.php'); // ICW CREDIT CLASS Gift Voucher Addittion
 
 
-// Include 
+// Include
 require (DIR_WS_INCLUDES . 'affiliate_application_top.php');
 
 // PWA BOF
@@ -784,27 +784,27 @@ if (isset ( $Year_selected_var ))
 	$where .= ($where != '' ? ' and ' : '') . " ((products_car_year_bof <= '" . $Year_selected_var . "' and products_car_year_eof >= '" . $Year_selected_var . "')) ";
 
 if ($where != '') {
-	
+
 	$q = tep_db_query ( "SELECT DISTINCT products_id FROM products_ymm WHERE " . $where );
-	
+
 	$ids = '';
-	
+
 	if (mysql_num_rows ( $q ) > 0) {
-		
+
 		while ( $r = tep_db_fetch_array ( $q ) )
 			$ids .= ($ids != '' ? ',' : '') . $r ['products_id'];
-	
+
 	}
-	
+
 	$q = tep_db_query ( "SELECT products_id FROM " . TABLE_PRODUCTS . " WHERE products_id not in (SELECT DISTINCT products_id FROM products_ymm)  and products_status = 1" );
-	
+
 	if (mysql_num_rows ( $q ) > 0) {
-		
+
 		while ( $r = tep_db_fetch_array ( $q ) )
 			$ids .= ($ids != '' ? ',' : '') . $r ['products_id'];
-	
+
 	}
-	
+
 	$YMM_where .= " p.products_id in ($ids) and ";
 
 }

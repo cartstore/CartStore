@@ -49,19 +49,19 @@ eft=150')
 <!-- body //-->
 <table border="0" width="100%" cellspacing="3" cellpadding="3">
   <tr>
-  
+
   <td width="<?php echo BOX_WIDTH; ?>" valign="top">
-  
+
   <table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
     <!-- left_navigation //-->
     <?php require(DIR_WS_INCLUDES . 'column_left.php'); ?>
     <!-- left_navigation_eof //-->
     </tr>
     </td>
-    
+
   </table>
   </td>
-  
+
   <!-- body_text //-->
    <span class="clear"></span>
 <span><?php echo $messageStack->output('upload'); ?></span>
@@ -77,20 +77,20 @@ eft=150')
     $product_info_query = tep_db_query("select p.products_id,pd.products_info_title,p.products_status,pd.products_info_desc, pd.products_name, pd.products_description, pd.products_short, p.products_model, p.products_quantity, p.products_image, pd.products_url, p.products_price, NULL as specials_new_products_price, p.products_price1, p.products_price2, p.products_price3, p.products_price4, p.products_price5, p.products_price6, p.products_price7, p.products_price8, p.products_price1_qty, p.products_price2_qty, p.products_price3_qty, p.products_price4_qty, p.products_price5_qty, p.products_price6_qty, p.products_price7_qty, p.products_price8_qty, p.products_qty_blocks, p.products_tax_class_id, p.products_date_added, p.products_date_available, p.manufacturers_id from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = '" . (int)$_GET['products_id'] . "' and pd.products_id = p.products_id and pd.language_id = '" . (int)$languages_id . "'");
     $product_info = tep_db_fetch_array($product_info_query);
 // EOF Separate Price per Customer, Price Break mod
-  
-  
-  
+
+
+
     tep_db_query("update " . TABLE_PRODUCTS_DESCRIPTION . " set products_viewed = products_viewed+1 where products_id = '" . (int)$_GET['products_id'] . "' and language_id = '" . (int)$languages_id . "'");
 // BOF Separate Pricing per Customer, Price Break 1.11.3 mod
    $pf->loadProductSppc((int)$_GET['products_id'], (int)$languages_id, $product_info);
    $products_price = $pf->getPriceString();
-   
+
 // EOF Separate Pricing per Customer, Price Break 1.11.3 mod
 $products_status = $product_info['products_status'];
 
     if (tep_not_null($product_info['products_model'])) {
       $products_name = $product_info['products_name'];
-	  
+
     } else {
       $products_name = $product_info['products_name'];
     }
@@ -109,7 +109,7 @@ $products_status = $product_info['products_status'];
         <span id="product_page">
           <span class="breadcrumbs"><?php echo $breadcrumb->trail(' &raquo; '); ?></span>
           <span class="horzdot"></span>
-         
+
           <script language="javascript"><!--
 document.write('<?php echo '<span class="main_wrap"><span class="pimage"><a href="javascript:popupstsWindow(\\\'' . tep_href_link(FILENAME_POPUP_IMAGE, 'pID=' . $product_info['products_id']) . '\\\')" class="orange">' . tep_image(DIR_WS_IMAGES . $product_info['products_image'], addslashes($product_info['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, ' class="imageborder" name="source"') . '<br>Click here to enlarge</a>' . ''; ?>');
 //--></script>
@@ -117,27 +117,27 @@ document.write('<?php echo '<span class="main_wrap"><span class="pimage"><a href
             <?php $totproducts_extra_images_query = tep_db_query("SELECT products_extra_image, products_extra_images_id FROM " . TABLE_PRODUCTS_EXTRA_IMAGES . " WHERE products_id='" . $product_info['products_id'] . "'");
 		?>
             <?php  if (tep_db_num_rows($totproducts_extra_images_query) >= 1){	?>
-            <?php	
+            <?php
 						if (DISPLAY_EXTRA_IMAGES == 'true'){
 							 if ($product_check['total'] >= 1) {
 							   include (DIR_WS_INCLUDES . 'products_extra_images.php');
 							 }
-						} 
+						}
 					?>
           </span>
           <?php	} else	{ ?>
           <?php }?>
         </span>
-        <!--  BOF price-break-1.11.3  
-<?php // echo tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_in_cart.gif', IMAGE_BUTTON_IN_CART); 
+        <!--  BOF price-break-1.11.3
+<?php // echo tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_in_cart.gif', IMAGE_BUTTON_IN_CART);
  ?> -->
         </span>
         <span class="details">
           <span class="pmodel"><b>Item Number: <?php echo  $product_info['products_model'];?></b></span>
           <h1><?php echo $products_name; ?></h1><?php echo '<a class="linkup2" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')).'wishlist_x=true&products_id=' . $product_info['products_id']) . '" >Add to / </a>'; ?><?php echo '<a  class="linkup2" href="' . tep_href_link('wishlist.php', tep_get_all_get_params(array('action')).'') . '" >View
 Wishlist</a>'; ?>
-          <span class="price"> <?php echo $products_price; 
-					      echo '<br>'; 
+          <span class="price"> <?php echo $products_price;
+					      echo '<br>';
                      if ((STOCK_CHECK == 'true')&&($product_info['products_quantity'] < 1))
 					{
 					$status_p="<span class=\"orange\">Out of Stock</span>";
@@ -171,9 +171,9 @@ Wishlist</a>'; ?>
           <?php //echo tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_in_cart.gif', IMAGE_BUTTON_IN_CART); ?>
           <?php //echo tep_image_submit('button_wishlist.gif', 'Add to Wishlist', 'name="wishlist" value="wishlist"'); ?>
           <?php //echo '<a href="shopping_cart.php" class="orange" >Shopping Cart</a>';?>
-          <?php				
+          <?php
 // START: Extra Fields Contribution v2.0i  with fix
-  list($products_id_clean) = split('{', $product_info['products_id']);
+  list($products_id_clean) = explode('{', $product_info['products_id']);
   $extra_fields_query = tep_db_query("
                       SELECT pef.products_extra_fields_name as name, ptf.products_extra_fields_value as value ,pef.products_extra_fields_status as status
                       FROM ". TABLE_PRODUCTS_EXTRA_FIELDS ." pef
@@ -188,25 +188,25 @@ Wishlist</a>'; ?>
         echo '
 	  <span class="extra_fields">'.$extra_fields['name'].': </span>';
         echo '<span class="extra_fields2">' .$extra_fields['value'].'</span>
-	  '; 	
+	  ';
   }
 
 // END: Extra Fields Contribution
 
 ?>
-          
+
           <?php
-								
+
 				//echo "select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'";
-				//die ('cool........') ; 
+				//die ('cool........') ;
 				    $products_attributes_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'");
 
 	$products_attributes = tep_db_fetch_array($products_attributes_query);
-	
+
     if ($products_attributes['total'] > 0) {
 	/*
 //		if (OPTIONS_AS_IMAGES_ENABLED == 'false'){
-/////////////////////////////////////////////////////Option Images //////////////////////////////////////////////////	
+/////////////////////////////////////////////////////Option Images //////////////////////////////////////////////////
 ?>
 
           <table border="0" cellspacing="0" cellpadding="2">
@@ -238,18 +238,18 @@ Wishlist</a>'; ?>
             </tr>
 <?php
             break;
-			
+
           case PRODUCTS_OPTIONS_TYPE_TEXTAREA:
             //CLR 030714 Add logic for text option
             $products_attribs_query = tep_db_query("select distinct patrib.options_values_price, patrib.price_prefix from " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = '" . $products_options_name['products_options_id'] . "'");
             $products_attribs_array = tep_db_fetch_array($products_attribs_query);
-		$tmp_html = '<textarea onKeyDown="textCounter(this,\'progressbar' . $products_options_name['products_options_id'] . '\',' . $products_options_name['products_options_length'] . ')" 
-								   onKeyUp="textCounter(this,\'progressbar' . $products_options_name['products_options_id'] . '\',' . $products_options_name['products_options_length'] . ')" 
-								   onFocus="textCounter(this,\'progressbar' . $products_options_name['products_options_id'] . '\',' . $products_options_name['products_options_length'] . ')" 
-								   wrap="soft" 
-								   name="id[' . TEXT_PREFIX . $products_options_name['products_options_id'] . ']" 
-								   rows=5 
-								   id="id[' . TEXT_PREFIX . $products_options_name['products_options_id'] . ']" 
+		$tmp_html = '<textarea onKeyDown="textCounter(this,\'progressbar' . $products_options_name['products_options_id'] . '\',' . $products_options_name['products_options_length'] . ')"
+								   onKeyUp="textCounter(this,\'progressbar' . $products_options_name['products_options_id'] . '\',' . $products_options_name['products_options_length'] . ')"
+								   onFocus="textCounter(this,\'progressbar' . $products_options_name['products_options_id'] . '\',' . $products_options_name['products_options_length'] . ')"
+								   wrap="soft"
+								   name="id[' . TEXT_PREFIX . $products_options_name['products_options_id'] . ']"
+								   rows=5
+								   id="id[' . TEXT_PREFIX . $products_options_name['products_options_id'] . ']"
 								   value="' . $cart->contents[$_GET['products_id']]['attributes_values'][$products_options_name['products_options_id']] . '"></textarea>
 						<span id="progressbar' . $products_options_name['products_options_id'] . '" class="progress"></span>
 						<script>textCounter(document.getElementById("id[' . TEXT_PREFIX . $products_options_name['products_options_id'] . ']"),"progressbar' . $products_options_name['products_options_id'] . '",' . $products_options_name['products_options_length'] . ')</script>';?>	<!-- DDB - 041031 - Form Field Progress Bar //-->
@@ -267,7 +267,7 @@ Wishlist</a>'; ?>
             </tr>
 <?php
             break;
-			
+
           case PRODUCTS_OPTIONS_TYPE_RADIO:
             //CLR 030714 Add logic for radio buttons
             $tmp_html = '<table>';
@@ -293,10 +293,10 @@ Wishlist</a>'; ?>
 
 <?php
 //Options as Images. This whole php clause needs to be added
-//if (OPTIONS_AS_IMAGES_ENABLED == 'true') include ('options_images2.php'); 
+//if (OPTIONS_AS_IMAGES_ENABLED == 'true') include ('options_images2.php');
 
 /////////////////////////////////////////////////////Option Images //////////////////////////////////////////////////
-	
+
 ?>
 
 
@@ -357,7 +357,7 @@ Wishlist</a>'; ?>
 		  $products_id=(preg_match("/^\d{1,10}(\{\d{1,10}\}\d{1,10})*$/",$_GET['products_id']) ? $_GET['products_id'] : (int)$_GET['products_id']);
 		 require(DIR_WS_CLASSES . 'pad_' . PRODINFO_ATTRIBUTE_PLUGIN . '.php');
 		 $class = 'pad_' . PRODINFO_ATTRIBUTE_PLUGIN;
-	
+
 		  $pad = new $class($products_id);
 		  echo $pad->draw();
 	//++++ QT Pro: End Changed Code
@@ -367,21 +367,21 @@ Wishlist</a>'; ?>
 ?>
           <?php
 //Options as Images. This whole php clause needs to be added
-//if (OPTIONS_AS_IMAGES_ENABLED == 'true') { include ('options_images2.php'); } 
+//if (OPTIONS_AS_IMAGES_ENABLED == 'true') { include ('options_images2.php'); }
 
 /////////////////////////////////////////////////////Option Images //////////////////////////////////////////////////
-	
+
 ?>
           <span class="buy_quan"><?php echo TEXT_ENTER_QUANTITY . ": " . tep_draw_input_field('cart_quantity', $pf->adjustQty(1), 'size="6"'); ?>
             <div class="clear"></div>
             <?php echo tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_buy_now.gif', IMAGE_BUTTON_IN_CART); ?></span>
           <!-- EOF price-break-1.11.3 -->
-          <!-- 
-					<a class="orange" href="javascript:popupWindow('popup_shipping.php')">estimate shipping</a> | 
+          <!--
+					<a class="orange" href="javascript:popupWindow('popup_shipping.php')">estimate shipping</a> |
 					-->
           <?php
     }
-	
+
 ?>
           <!-- begin tab pane //-->
           <?php
@@ -396,13 +396,13 @@ tp = new WebFXTabPane(document.getElementById("tabpane1"));
             <?php
   for ($i=0, $n=sizeof($matches); $i<$n; $i++) {
     $this_tab_name = preg_match_all ("|#tabname#(.*)#/tabname#|Us", $matches[$i][1], $tabname, PREG_SET_ORDER);
-	
+
     if ($this_tab_name){
     echo '<span class="tab-page" id="tabPage' . $i . '" >' .
          '<h2 class="tab">' . $tabname[0][1] . '</h2>' .
          '<script type="text/javascript">tp.addTabPage(document.getElementById("tabPage' . $i . '"));</script>';
 
-   
+
       if (preg_match_all ("|#tabpage#(.*)#/tabpage#|Us", $matches[$i][1], $tabpage, PREG_SET_ORDER)){
          require($tabpage[0][1]);
       }elseif (preg_match_all ("|#tabtext#(.*)#/tabtext#|Us", $matches[$i][1], $tabtext, PREG_SET_ORDER)){
@@ -415,7 +415,7 @@ tp = new WebFXTabPane(document.getElementById("tabpane1"));
           </span>
           <?php
 }else{
-    
+
 ?>
           <!-- End Tab Pane //-->
         </span>
@@ -435,7 +435,7 @@ tp = new WebFXTabPane(document.getElementById("tabpane1"));
            <!-- <li><?php echo '<a  class="linkup2" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')).'wishlist_x=true&products_id=' . $product_info['products_id']) . '" >Add to / </a>'; ?><?php echo '<a  class="linkup2" href="' . tep_href_link('wishlist.php', tep_get_all_get_params(array('action')).'') . '" >View
 Wishlist</a>'; ?></li> -->
             <li><?php echo '<a  class="linkup2" href="' . tep_href_link("product_reviews_write.php", tep_get_all_get_params(array('action')).'products_id=' . $product_info['products_id']) . '" >Write a Review</a>'; ?></li>
-                 
+
           <?php
 //affiliate build a link begin
 if (tep_session_is_registered('affiliate_id')) {
@@ -454,7 +454,7 @@ if (tep_session_is_registered('affiliate_id')) {
 </div>
 </div>
 </div>
-         
+
 	</div> <div class="clear"></div>
         <?php
 }
@@ -462,9 +462,9 @@ if (tep_session_is_registered('affiliate_id')) {
 
         <?php /*
 <tr>
-                <td >			  <?php				
+                <td >			  <?php
 // START: Extra Fields Contribution v2.0i  with fix
-  list($products_id_clean) = split('{', $product_info['products_id']);
+  list($products_id_clean) = explode('{', $product_info['products_id']);
   $extra_fields_query = tep_db_query("
                       SELECT pef.products_extra_fields_name as name, ptf.products_extra_fields_value as value ,pef.products_extra_fields_status as status
                       FROM ". TABLE_PRODUCTS_EXTRA_FIELDS ." pef
@@ -481,7 +481,7 @@ if (tep_session_is_registered('affiliate_id')) {
      <td class="main" align="left" vallign="middle"><b><span class="extrafields">'.$extra_fields['name'].': </b></span>';
         echo '<i>' .$extra_fields['value'].'<BR></i> </tr>
       </table>
-	  '; 	
+	  ';
   }
 
 // END: Extra Fields Contribution
@@ -490,7 +490,7 @@ if (tep_session_is_registered('affiliate_id')) {
               </tr>
 			  */
 			  ?>
- 
+
         <!--          Get iew fot    -->
         <?php
 if(!tep_session_is_registered('sppc_customer_group_id')) {

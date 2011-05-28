@@ -1,4 +1,5 @@
 <?php
+
 /*
   $Id: banner_infobox.php,v 1.3 2003/07/11 18:15:42 project3000 Exp $
 
@@ -19,7 +20,7 @@
 
   if (sizeof($stats) < 1) $stats = array(array(date('j'), 0, 0));
 
-  $graph = new PHPlot(200, 220, 'images/graphs/banner_infobox-' . $banner_id . '.' . $banner_extension);
+  $graph = new PHPlot(200, 220, 'images/graphs/banner_infobox-test-' . $banner_id . '.' . $banner_extension);
 
   $graph->SetFileFormat($banner_extension);
   $graph->SetIsInline(1);

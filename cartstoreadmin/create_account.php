@@ -16,7 +16,7 @@
 
   GNU General Public License Compatible
 
-   
+
 
  THIS IS BETA - Use at your own risk!
 
@@ -40,7 +40,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-	
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -52,9 +52,9 @@
 
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 
-   
 
-	 	
+
+
 
 <?php require('includes/form_check.js.php'); ?>
 

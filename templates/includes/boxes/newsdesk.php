@@ -1,18 +1,18 @@
 <?php
-  
-  
+
+
   $configuration_query = tep_db_query("select configuration_key as cfgKey, configuration_value as cfgValue from " . TABLE_NEWSDESK_CONFIGURATION . "");
   while ($configuration = tep_db_fetch_array($configuration_query)) {
       define($configuration['cfgKey'], $configuration['cfgValue']);
   }
   if (DISPLAY_NEWS_CATAGORY_BOX) {
-      $do_we_have_categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "' 
+      $do_we_have_categories_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "'
 and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "' order by sort_order, cd.categories_name");
       $newsdesk_check = tep_db_num_rows($do_we_have_categories_query);
       if ($newsdesk_check > 0) {
-          
-          
-          
+
+
+
           function newsedsk_box_has_category_subcategories($category_id)
           {
               $child_newsdesk_category_query = tep_db_query("select count(*) as count from " . TABLE_NEWSDESK_CATEGORIES . " where parent_id = '" . $category_id . "'");
@@ -23,9 +23,9 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
                   return false;
               }
           }
-          
-          
-          
+
+
+
           function newsedsk_box_count_products_in_category($category_id, $include_inactive = false)
           {
               $products_newsdesk_count = 0;
@@ -47,10 +47,10 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
               }
               return $products_newsdesk_count;
           }
-          
+
           function newsedsk_show_category($counter)
           {
-              
+
               global $foo_newdesk, $categories_newsdesk_string, $id;
               for ($a = 0; $a < $foo_newdesk[$counter]['level']; $a++) {
                   $categories_newsdesk_string .= "&nbsp;&nbsp;";
@@ -66,7 +66,7 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
               if (($id) && (in_array($counter, $id))) {
                   $categories_newsdesk_string .= '<b>';
               }
-              
+
               $categories_newsdesk_string .= $foo_newdesk[$counter]['name'];
               if (($id) && (in_array($counter, $id))) {
                   $categories_newsdesk_string .= '</b>';
@@ -86,7 +86,7 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
                   newsedsk_show_category($foo_newdesk[$counter]['next_id']);
               }
           }
-          
+
 ?>
 <!-- categories //-->
 
@@ -95,7 +95,7 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
           $newsdesk_box_contents[] = array('align' => 'right', 'text' => BOX_HEADING_NEWSDESK_CATEGORIES);
           new infoBoxHeading($newsdesk_box_contents, false, false);
           $categories_newsdesk_string = '';
-          $categories_newsdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd 
+          $categories_newsdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd
 where c.catagory_status = '1' and c.parent_id = '0' and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "' order by sort_order, cd.categories_name");
           while ($categories_newsdesk = tep_db_fetch_array($categories_newsdesk_query)) {
               $foo_newdesk[$categories_newsdesk['categories_id']] = array('name' => $categories_newsdesk['categories_name'], 'parent' => $categories_newsdesk['parent_id'], 'level' => 0, 'path' => $categories_newsdesk['categories_id'], 'next_id' => false);
@@ -107,15 +107,15 @@ where c.catagory_status = '1' and c.parent_id = '0' and c.categories_id = cd.cat
                   $counter = $categories_newsdesk['categories_id'];
               }
           }
-          
+
           if ($newsPath) {
               $new_path = '';
-              $id = split('_', $newsPath);
+              $id = explode('_', $newsPath);
               reset($id);
               while (list($key, $value) = each($id)) {
                   unset($prev_id);
                   unset($first_id);
-                  $categories_newsdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "' 
+                  $categories_newsdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "'
     and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "' order by sort_order, cd.categories_name");
                   $category_newsdesk_check = tep_db_num_rows($categories_newsdesk_query);
                   if ($category_newsdesk_check > 0) {

@@ -26,7 +26,7 @@
 
 // TABLES: tax_rates;
 
-  
+
 
 
 
@@ -56,7 +56,7 @@ function tep_admin_check_login() {
 
       $db_file_query = tep_db_query("select admin_files_name from " . TABLE_ADMIN_FILES . " where FIND_IN_SET( '" . $login_groups_id . "', admin_groups_id) or FIND_IN_SET( '" . $login_id . "', admin_id) and admin_files_name = '" . $filename . "'");
 
-	
+
 
       if (!tep_db_num_rows($db_file_query)) {
 
@@ -164,7 +164,7 @@ function tep_admin_files_boxes($filename, $sub_box_name) {
 
   $dbquery = tep_db_query("select admin_files_name from " . TABLE_ADMIN_FILES . " where FIND_IN_SET( '" . $login_groups_id . "', admin_groups_id) or FIND_IN_SET( '" . $login_id . "', admin_id) and admin_files_is_boxes = '0' and admin_files_name = '" . $filename . "'");
 
-   
+
 
   if (tep_db_num_rows($dbquery)) {
 
@@ -200,7 +200,7 @@ function tep_selected_file($filename) {
 
     $randomize_query = tep_db_query("select admin_files_name from " . TABLE_ADMIN_FILES . " where FIND_IN_SET( '" . $login_groups_id . "', admin_groups_id) or FIND_IN_SET( '" . $login_id . "', admin_id) and admin_files_is_boxes = '0' and admin_files_to_boxes = '" . $boxes_id['boxes_id'] . "'");
 
-	
+
 
     if (tep_db_num_rows($randomize_query)) {
 
@@ -278,7 +278,7 @@ function tep_selected_file($filename) {
 
   }
 
-  
+
 
 
 
@@ -328,7 +328,7 @@ function tep_get_tax_description($class_id, $country_id, $zone_id) {
 
 
 
-//// MVS start  
+//// MVS start
 
 // Sets the Vendor Send Order Emails
 
@@ -336,7 +336,7 @@ function tep_get_tax_description($class_id, $country_id, $zone_id) {
 
     if ($vendors_send_email == '1') {
 
-      return tep_db_query("update " . TABLE_VENDORS . " set vendors_send_email = '1' where 
+      return tep_db_query("update " . TABLE_VENDORS . " set vendors_send_email = '1' where
 
 
 
@@ -344,7 +344,7 @@ vendors_id = '" . (int)$vendors_id . "'");
 
     } elseif ($vendors_send_email == '0') {
 
-      return tep_db_query("update " . TABLE_VENDORS . " set vendors_send_email = '0' where 
+      return tep_db_query("update " . TABLE_VENDORS . " set vendors_send_email = '0' where
 
 
 
@@ -368,11 +368,11 @@ vendors_id = '" . (int)$vendors_id . "'");
 
     if ($language_id == 0) $language_id = $languages_id;
 
-    $product_query = tep_db_query("select * from " . TABLE_VENDORS . " where " . 
+    $product_query = tep_db_query("select * from " . TABLE_VENDORS . " where " .
 
 
 
-TABLE_VENDORS . " .vendors_id = " . TABLE_PRODUCTS . " .vendors_id and products_id = '" . 
+TABLE_VENDORS . " .vendors_id = " . TABLE_PRODUCTS . " .vendors_id and products_id = '" .
 
 
 
@@ -390,7 +390,7 @@ TABLE_VENDORS . " .vendors_id = " . TABLE_PRODUCTS . " .vendors_id and products_
 
   function tep_get_vendors_prod_comments($product_id) {
 
-    $product_query = tep_db_query("select vendors_prod_comments from " . TABLE_PRODUCTS . " 
+    $product_query = tep_db_query("select vendors_prod_comments from " . TABLE_PRODUCTS . "
 
 
 
@@ -408,7 +408,7 @@ where products_id = '" . (int)$product_id . "'");
 
   function tep_get_vendor_url($vendor_id, $language_id) {
 
-    $vendor_query = tep_db_query("select vendors_url from " . TABLE_VENDORS_INFO . " where 
+    $vendor_query = tep_db_query("select vendors_url from " . TABLE_VENDORS_INFO . " where
 
 
 
@@ -432,7 +432,7 @@ vendors_id = '" . (int)$vendor_id . "' and languages_id = '" . (int)$language_id
 
     if (SEND_EXTRA_ORDER_EMAILS_TO != '') {
 
-      $message->send('', SEND_EXTRA_ORDER_EMAILS_TO, $from_email_name, $from_email_address, 
+      $message->send('', SEND_EXTRA_ORDER_EMAILS_TO, $from_email_name, $from_email_address,
 
 
 
@@ -444,7 +444,7 @@ $email_subject);
 
   // Alias function for array of configuration values in the Administration Tool
 
-  
+
 
 //MVS End
 
@@ -534,7 +534,7 @@ $email_subject);
 
   function tep_sanitize_string($string) {
 
-    $string = ereg_replace(' +', ' ', $string);
+    $string = preg_replace('/ +/', ' ', $string);
 
 
 
@@ -728,7 +728,7 @@ $email_subject);
 
     } else {
 
-      return ereg_replace('2037' . '$', $year, date(DATE_FORMAT, mktime($hour, $minute, $second, $month, $day, 2037)));
+      return preg_replace('/2037' . '$/', $year, date(DATE_FORMAT, mktime($hour, $minute, $second, $month, $day, 2037)));
 
     }
 
@@ -2136,7 +2136,7 @@ $email_subject);
 
     $product = tep_db_fetch_array($product_query);
 
-  
+
 
     return $product['specials_new_products_price'];
 
@@ -2664,9 +2664,9 @@ $email_subject);
 
               for ($j=0, $k=sizeof($languages); $j<$k; $j++) {
 
-                $cached_file_unlink = ereg_replace('-language', '-' . $languages[$j]['directory'], $cached_file);
+                $cached_file_unlink = preg_replace('/-language/', '-' . $languages[$j]['directory'], $cached_file);
 
-                if (ereg('^' . $cached_file_unlink, $cache_file)) {
+                if (preg_match('/^' . $cached_file_unlink.'/', $cache_file)) {
 
                   @unlink(DIR_FS_CACHE . $cache_file);
 
@@ -2688,7 +2688,7 @@ $email_subject);
 
           for ($i=0, $n=sizeof($languages); $i<$n; $i++) {
 
-            $cached_file = ereg_replace('-language', '-' . $languages[$i]['directory'], $cached_file);
+            $cached_file = preg_replace('/-language/', '-' . $languages[$i]['directory'], $cached_file);
 
             @unlink(DIR_FS_CACHE . $cached_file);
 
@@ -3348,7 +3348,7 @@ $email_subject);
 
     if ((PHP_VERSION < "4.0.5") && is_array($from)) {
 
-      return ereg_replace('(' . implode('|', $from) . ')', $to, $string);
+      return preg_replace('/(' . implode('|', $from) . ')/', $to, $string);
 
     } else {
 
@@ -3834,11 +3834,11 @@ function rdel($path, $deldir = true) {
 
 
 
-// ** GOOGLE CHECKOUT** 
+// ** GOOGLE CHECKOUT**
 
-// Function to store configuration values(shipping options) using 
+// Function to store configuration values(shipping options) using
 
-// checkboxes in the Administration Tool 
+// checkboxes in the Administration Tool
 
 
 
@@ -3854,17 +3854,17 @@ function rdel($path, $deldir = true) {
 
     global $PHP_SELF,$language,$module_type;
 
-    
+
 
     require_once (DIR_FS_CATALOG . 'includes/modules/payment/googlecheckout.php');
 
     $googlepayment = new googlecheckout();
 
-    
+
 
     $javascript = "<script language='javascript'>
 
-            
+
 
           function CCS_blur(valor, code, hid_id, pos){
 
@@ -3874,7 +3874,7 @@ function rdel($path, $deldir = true) {
 
             valor.value = isNaN(parseFloat(valor.value))?'':parseFloat(valor.value);
 
-            if(valor.value != ''){ 
+            if(valor.value != ''){
 
               temp[pos] = valor.value;
 
@@ -3882,7 +3882,7 @@ function rdel($path, $deldir = true) {
 
               temp[pos] = 0;
 
-              valor.value = '0';      
+              valor.value = '0';
 
             }
 
@@ -3890,7 +3890,7 @@ function rdel($path, $deldir = true) {
 
           }
 
-      
+
 
           function CCS_focus(valor, code, hid_id, pos){
 
@@ -3900,9 +3900,9 @@ function rdel($path, $deldir = true) {
 
           //  valor.value = valor.value.substr((code  + '_CCS:').length, hid.value.length);
 
-            temp[pos] = valor.value;        
+            temp[pos] = valor.value;
 
-            hid.value = code + '_CCS:' + temp[0] + '|'+ temp[1] + '|'+ temp[2];        
+            hid.value = code + '_CCS:' + temp[0] + '|'+ temp[1] + '|'+ temp[2];
 
 
 
@@ -3910,21 +3910,21 @@ function rdel($path, $deldir = true) {
 
           </script>";
 
-  
 
-  
+
+
 
     $string .= $javascript;
 
-    
+
 
     $key_values = explode( ", ", $key_value);
 
-    
+
 
     foreach($googlepayment->cc_shipping_methods_names as $CCSCode => $CCSName){
 
-      
+
 
       $name = (($key) ? 'configuration[' . $key . '][]' : 'configuration_value');
 
@@ -3934,7 +3934,7 @@ function rdel($path, $deldir = true) {
 
         if (is_array($methods) && !empty($methods)) {
 
-          $string .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>'. $type .'</b><br />';            
+          $string .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>'. $type .'</b><br />';
 
             $string .= 'Def. Value | Fix Charge | Variable | Method Name';
 
@@ -3942,9 +3942,9 @@ function rdel($path, $deldir = true) {
 
             $string .= '<br>';
 
-            
 
-            // default value 
+
+            // default value
 
             $value = gc_compare($CCSCode . $method. $type , $key_values, "_CCS:", '1.00|0|0');
 
@@ -3954,7 +3954,7 @@ function rdel($path, $deldir = true) {
 
                         $CCSCode . $method . $type . '\', 0);" onFocus="CCS_focus(this, \'' . $CCSCode . $method .
 
-                        $type . '\' , \'hid_' . $CCSCode . $method . $type .'\', 0);" type="text" name="no_use' . $method . 
+                        $type . '\' , \'hid_' . $CCSCode . $method . $type .'\', 0);" type="text" name="no_use' . $method .
 
                         '" value="' . $values[0] . '"> ';
 
@@ -3964,7 +3964,7 @@ function rdel($path, $deldir = true) {
 
                         $CCSCode . $method . $type . '\', 1 );" onFocus="CCS_focus(this, \'' . $CCSCode . $method .
 
-                        $type . '\' , \'hid_' . $CCSCode . $method . $type .'\', 1);" type="text" name="no_use' . $method . 
+                        $type . '\' , \'hid_' . $CCSCode . $method . $type .'\', 1);" type="text" name="no_use' . $method .
 
                         '" value="' . $values[1] . '"> ';
 
@@ -3974,15 +3974,15 @@ function rdel($path, $deldir = true) {
 
                         $CCSCode . $method . $type . '\', 2 );" onFocus="CCS_focus(this, \'' . $CCSCode . $method .
 
-                        $type . '\' , \'hid_' . $CCSCode . $method . $type .'\', 2);" type="text" name="no_use' . $method . 
+                        $type . '\' , \'hid_' . $CCSCode . $method . $type .'\', 2);" type="text" name="no_use' . $method .
 
                         '" value="' . $values[2] . '">% ';
 
 
 
-            $string .= '<input size="10" id="hid_' . $CCSCode . $method . $type . '" type="hidden" name="' . $name . 
+            $string .= '<input size="10" id="hid_' . $CCSCode . $method . $type . '" type="hidden" name="' . $name .
 
-                        '" value="' . $CCSCode . $method . $type . '_CCS:' . $value . '">'."\n";      
+                        '" value="' . $CCSCode . $method . $type . '_CCS:' . $value . '">'."\n";
 
 
 
@@ -4030,9 +4030,9 @@ function rdel($path, $deldir = true) {
 
 
 
-	
 
-// Custom Function to store configuration values (shipping default values)  
+
+// Custom Function to store configuration values (shipping default values)
 
 	function gc_compare($key, $data, $sep="_VD:", $def_ret='1')
 
@@ -4042,7 +4042,7 @@ function rdel($path, $deldir = true) {
 
       list($key2, $valor) = explode($sep, $value);
 
-      if($key == $key2)   
+      if($key == $key2)
 
         return $valor;
 
@@ -4064,11 +4064,11 @@ function rdel($path, $deldir = true) {
 
 	global $PHP_SELF,$language,$module_type;
 
-	
+
 
 	$module_directory = DIR_FS_CATALOG_MODULES . 'shipping/';
 
-	
+
 
 	$file_extension = substr($PHP_SELF, strrpos($PHP_SELF, '.'));
 
@@ -4078,7 +4078,7 @@ function rdel($path, $deldir = true) {
 
 	  while ($file = $dir->read()) {
 
-	  	
+
 
 	    if (!is_dir($module_directory . $file)) {
 
@@ -4098,7 +4098,7 @@ function rdel($path, $deldir = true) {
 
 	}
 
-	
+
 
 	  $installed_modules = array();
 
@@ -4109,13 +4109,13 @@ function rdel($path, $deldir = true) {
 
 	    $file = $directory_array[$i];
 
-	
+
 
 	    include_once(DIR_FS_CATALOG_LANGUAGES . $language . '/modules/shipping/' . $file);
 
 	    include_once($module_directory . $file);
 
-	
+
 
 	    $class = substr($file, 0, strrpos($file, '.'));
 
@@ -4147,7 +4147,7 @@ function rdel($path, $deldir = true) {
 
 	$googlepayment = new googlecheckout();
 
-	
+
 
 	$ship_calcualtion_mode = (count(array_keys($select_array)) > count(array_intersect($googlepayment->shipping_support, array_keys($select_array)))) ? true : false;
 
@@ -4161,7 +4161,7 @@ function rdel($path, $deldir = true) {
 
     $javascript = "<script language='javascript'>
 
-              
+
 
             function VD_blur(valor, code, hid_id){
 
@@ -4169,55 +4169,55 @@ function rdel($path, $deldir = true) {
 
               valor.value = isNaN(parseFloat(valor.value))?'':parseFloat(valor.value);
 
-              if(valor.value != ''){ 
+              if(valor.value != ''){
 
                 hid.value = code + '_VD:' + valor.value;
 
-            //    valor.value = valor.value;  
+            //    valor.value = valor.value;
 
             //    hid.disabled = false;
 
-              }else {   
+              }else {
 
                 hid.value = code + '_VD:0';
 
-                valor.value = '0';      
+                valor.value = '0';
 
               }
 
-        
 
-        
+
+
 
             }
 
-        
+
 
             function VD_focus(valor, code, hid_id){
 
-              var hid = document.getElementById(hid_id);    
+              var hid = document.getElementById(hid_id);
 
 //              valor.value = valor.value.substr((code  + '_VD:').length, valor.value.length);
 
-              hid.value = valor.value.substr((code  + '_VD:').length, valor.value.length);        
+              hid.value = valor.value.substr((code  + '_VD:').length, valor.value.length);
 
             }
 
-    
+
 
             </script>";
 
-	
 
-	
+
+
 
   	$string .= $javascript;
 
-  	
+
 
   	$key_values = explode( ", ", $key_value);
 
-    
+
 
     foreach($select_array as $i => $value){
 
@@ -4233,15 +4233,15 @@ function rdel($path, $deldir = true) {
 
             if (is_array($methods) && !empty($methods)) {
 
-              $string .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>'. $type .'</b>';            
+              $string .= '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>'. $type .'</b>';
 
   		        foreach($methods as $method => $method_name) {
 
     			      $string .= '<br>';
 
-    			      
 
-    			      // default value 
+
+    			      // default value
 
     			      $value = gc_compare($select_array[$i]['code'] . $method. $type , $key_values, 1);
 
@@ -4249,7 +4249,7 @@ function rdel($path, $deldir = true) {
 
     			      $string .= '>';
 
-    				  $string .= '<input size="10" id="hid_' . $select_array[$i]['code'] . $method . $type . '" type="hidden" name="' . $name . '" value="' . $select_array[$i]['code'] . $method . $type . '_VD:' . $value . '"';		  
+    				  $string .= '<input size="10" id="hid_' . $select_array[$i]['code'] . $method . $type . '" type="hidden" name="' . $name . '" value="' . $select_array[$i]['code'] . $method . $type . '_VD:' . $value . '"';
 
     		      	  $string .= '>'."\n";
 
@@ -4279,7 +4279,7 @@ function rdel($path, $deldir = true) {
 
 
 
-// ** END GOOGLE CHECKOUT **  
+// ** END GOOGLE CHECKOUT **
 
 
 
@@ -4341,7 +4341,7 @@ function rdel($path, $deldir = true) {
 
   }
 
-  
+
 
   function link_files_variable($var_name)
 
@@ -4359,7 +4359,7 @@ function rdel($path, $deldir = true) {
 
   }
 
-  
+
 
   function link_files_variable_2($var_name)
 
@@ -4383,7 +4383,7 @@ function rdel($path, $deldir = true) {
 
   }
 
-  
+
 
   function tep_add_base_ref($string) {
 
@@ -4403,7 +4403,7 @@ function rdel($path, $deldir = true) {
 
 			else {
 
-       $output .= $char; 
+       $output .= $char;
 
   }		}
 

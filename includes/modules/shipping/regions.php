@@ -10,8 +10,8 @@
 
   -----------------------------------------------------------------------------
   REGIONS -  Rates Based on State or Regions (group of States) module for osC 2.2-CVS (new checkout)
-   
-  This module allows you create shipping regions by dividing states of the USA (or other country) in different groups. Each group will then have it's own shipping price which you can based on price or weight. 
+
+  This module allows you create shipping regions by dividing states of the USA (or other country) in different groups. Each group will then have it's own shipping price which you can based on price or weight.
 
   This module is perfect when for those of you need to charge different when shipping to different parts of the country.
 
@@ -22,9 +22,9 @@
   4..Handling fee can be added.
 
   Jorge
-  
+
   Set the number of regions you need with
-  $this->regions = xx;  
+  $this->regions = xx;
 
   Please note that any country / state that is not in one of the groups
   will not be able to checkout if this the only shipping you provide.
@@ -55,10 +55,10 @@
 // class methods
     function quote($method = '') {
       global $order, $shipping_weight, $cart, $total_count;
-      
+
       if (MODULE_SHIPPING_REGIONS_MODE == 'price') {
         $order_total_price = $cart->show_total();
-      } 
+      }
       if (MODULE_SHIPPING_REGIONS_MODE == 'weight') {
         $order_total_price = $shipping_weight;
       }
@@ -67,17 +67,17 @@
       }
       if (MODULE_SHIPPING_REGIONS_MODE == 'percentage') {
         $order_total_price = $cart->show_total();
-      }     
+      }
 
       $dest_state = $order->delivery['state'];
       $dest_country = $order->delivery['country']['title'];
-      
+
       $dest_region = 0;
       $error = false;
 
       for ($i=1; $i<=$this->regions; $i++) {
         $regions_table = constant('MODULE_SHIPPING_REGIONS' . $i);
-        $country_states_or_countries = split("[,]", $regions_table);
+        $country_states_or_countries = preg_split("/[,]/", $regions_table);
         if (in_array($dest_state, $country_states_or_countries)) {
           $dest_region = $i;
           break;
@@ -86,7 +86,7 @@
       if ($dest_region == 0) {
 	      for ($i=1; $i<=$this->regions; $i++) {
 	        $regions_table = constant('MODULE_SHIPPING_REGIONS' . $i);
-	        $country_states_or_countries = split("[,]", $regions_table);
+	        $country_states_or_countries = preg_split("/[,]/", $regions_table);
 	        if (in_array($dest_country, $country_states_or_countries)) {
 	          $dest_region = $i;
 	          break;
@@ -100,7 +100,7 @@
         $shipping = -1;
         $region_cost = constant('MODULE_SHIPPING_REGIONS_COST' . $i);
 
-        $regions_table = split("[:,]" , $region_cost);
+        $regions_table = preg_split("/[:,]/" , $region_cost);
 
         if (MODULE_SHIPPING_REGIONS_MODE == 'price') {
 	        for ($i=0; $i<sizeof($regions_table); $i+=2) {
@@ -137,9 +137,9 @@
 	            break;
 	          }
 	        }
-        }       
-        
-        
+        }
+
+
         if ($shipping == -1) {
           $shipping_cost = 0;
           $shipping_method = MODULE_SHIPPING_REGIONS_UNDEFINED_RATE;
@@ -153,10 +153,10 @@
                             'methods' => array(array('id' => $this->code,
                                                      'title' => $shipping_method,
                                                      'cost' => $shipping_cost)));
-                                                     
+
       if ($this->tax_class > 0) {
       	$this->quotes['tax'] = tep_get_tax_rate($this->tax_class, $order->delivery['country']['id'], $order->delivery['zone_id']);
-      }                                                     
+      }
 
       if (tep_not_null($this->icon)) $this->quotes['icon'] = tep_image($this->icon, $this->title);
 

@@ -16,7 +16,7 @@
 
   GNU General Public License Compatible
 
-   
+
 
   Step-By-Step Manual Order Entry Verion 1.0
 
@@ -28,7 +28,7 @@
 
   require('includes/application_top.php');
 
-  
+
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CREATE_ACCOUNT_PROCESS);
 
@@ -38,7 +38,7 @@
 
     $valid_address = true;
 
-    
+
 
     $mail_pat = '^(.+)@(.+)$';
 
@@ -56,11 +56,11 @@
 
     $domain_pat = "^$atom(\.$atom)*$";
 
-    
 
-    if (eregi($mail_pat, $email, $components)) {
 
-    
+    if (preg_match("/$mail_pat/i", $email, $components)) {
+
+
 
       $user = $components[1];
 
@@ -68,13 +68,13 @@
 
 
 
-      // validate user  
+      // validate user
 
-      if (eregi($user_pat, $user)) {
+      if (preg_match("/$user_pat/i", $user)) {
 
         // validate domain
 
-        if (eregi($ip_domain_pat, $domain, $ip_components)) {
+        if (preg_match("/$ip_domain_pat/i", $domain, $ip_components)) {
 
           // this is an IP address
 
@@ -96,23 +96,23 @@
 
           // Domain is symbolic name
 
-          if (eregi($domain_pat, $domain)) {
+          if (preg_match("/$domain_pat/i", $domain)) {
 
-  
+
 
             // domain name seems valid, but now make sure that it ends in a
 
             //  three-letter word (like com, net, org, gov, edu, int) or a two-letter word,
 
-            //   representing country (ca, uk, nl), and that there's a hostname preceding 
+            //   representing country (ca, uk, nl), and that there's a hostname preceding
 
-            //   the domain or country. 
+            //   the domain or country.
 
-  
 
-            $domain_components = explode(".", $domain);          
 
-  
+            $domain_components = explode(".", $domain);
+
+
 
             // Make sure there's a host name preceding the domain.
 
@@ -208,7 +208,7 @@
 
     }
 
-    
+
 
     return $valid_address;
 
@@ -262,33 +262,33 @@ if (!@$_POST['action']) {
 
 
 
-    
+
 
   /////////////////      RAMDOMIZING SCRIPT BY PATRIC VEVERKA       \\\\\\\\\\\\\\\\\\
 
 
 
-$t1 = date("mdy"); 
+$t1 = date("mdy");
 
-srand ((float) microtime() * 10000000); 
+srand ((float) microtime() * 10000000);
 
-$input = array ("A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"); 
+$input = array ("A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z");
 
-$rand_keys = array_rand ($input, 3); 
+$rand_keys = array_rand ($input, 3);
 
 $l1 = $input[$rand_keys[0]];
 
-$r1 = rand(0,9); 
+$r1 = rand(0,9);
 
 $l2 = $input[$rand_keys[1]];
 
-$l3 = $input[$rand_keys[2]]; 
+$l3 = $input[$rand_keys[2]];
 
-$r2 = rand(0,9); 
+$r2 = rand(0,9);
 
 
 
-$password = $l1.$r1.$l2.$l3.$r2; 
+$password = $l1.$r1.$l2.$l3.$r2;
 
 
 
@@ -296,9 +296,9 @@ $password = $l1.$r1.$l2.$l3.$r2;
 
 
 
-  
 
-  
+
+
 
   $error = false; // reset error flag
 
@@ -558,7 +558,7 @@ $password = $l1.$r1.$l2.$l3.$r2;
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-	
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -570,9 +570,9 @@ $password = $l1.$r1.$l2.$l3.$r2;
 
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 
-   
 
-	 	
+
+
 
 <?php require('includes/form_check.js.php'); ?>
 
@@ -746,7 +746,7 @@ $password = $l1.$r1.$l2.$l3.$r2;
 
                            //change line below to suit your version
 
-                           //'address_book_id' => 1,  //pre 
+                           //'address_book_id' => 1,  //pre
 
                            'entry_firstname' => $firstname,
 

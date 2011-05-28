@@ -31,7 +31,7 @@
 // start the timer for the page parse time log
 
 
-ini_set('date.timezone', 'America/Vancouver'); 
+ini_set('date.timezone', 'America/Vancouver');
 
 
 define ( 'PAGE_PARSE_START_TIME', microtime () );
@@ -74,6 +74,9 @@ if (file_exists ( 'includes/local/configure.php' ))
 
 require ('includes/configure.php');
 
+
+// set default timezone
+date_default_timezone_set(STORE_TIMEZONE);
 
 
 if (strlen ( DB_SERVER ) < 1) {

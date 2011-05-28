@@ -40,14 +40,14 @@
 
     return $points['customers_shopping_points'];
   }
-  
+
 // calculate the shopping points value for the customer
   function tep_calc_shopping_pvalue($points) {
-	  
+
 	return((float)$points * (float)REDEEM_POINT_VALUE);
   }
 
-// calculate the products shopping points tax value if any  
+// calculate the products shopping points tax value if any
     function tep_display_points($products_price, $products_tax, $quantity = 1) {
     if ((DISPLAY_PRICE_WITH_TAX == 'true') && (USE_POINTS_FOR_TAX == 'true')) {
       $products_price_points_query = tep_add_tax($products_price, $products_tax) * $quantity;
@@ -56,80 +56,80 @@
       }
       return $products_price_points_query;
     }
-    
-// calculate the shopping points for any products price  
+
+// calculate the shopping points for any products price
   function tep_calc_products_price_points($products_price_points_query) {
     $products_points_total = $products_price_points_query * POINTS_PER_AMOUNT_PURCHASE;
-	  
+
 	return $products_points_total;
   }
-  
-// calculate the shopping points value for any products price  
+
+// calculate the shopping points value for any products price
   function tep_calc_price_pvalue($products_points_total) {
     $products_points_value = tep_calc_shopping_pvalue($products_points_total);
-	  
+
 	return($products_points_value);
   }
 
 // products restriction by model.
     function get_redemption_rules($order) {
-      
-	  if (tep_not_null(RESTRICTION_MODEL)||tep_not_null(RESTRICTION_PID)||tep_not_null(RESTRICTION_PATH)) { 
-		     
- 	    if (tep_not_null(RESTRICTION_MODEL))   
+
+	  if (tep_not_null(RESTRICTION_MODEL)||tep_not_null(RESTRICTION_PID)||tep_not_null(RESTRICTION_PATH)) {
+
+ 	    if (tep_not_null(RESTRICTION_MODEL))
           for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
 		     if (!(substr($order->products[$i]['model'], 0, 10) == RESTRICTION_MODEL)) {
-			       
+
 			   return false;
 		     }
           return true;
         }
- 	    if (tep_not_null(RESTRICTION_PID))   
+ 	    if (tep_not_null(RESTRICTION_PID))
 		  for ($i=0; $i<sizeof($order->products); $i++) {
-			 $p_ids = split("[,]", RESTRICTION_PID);
+			 $p_ids = explode(",", RESTRICTION_PID);
 			 for ($ii = 0; $ii < count($p_ids); $ii++) {
 				if ($order->products[$i]['id'] == $p_ids[$ii]) {
-			       
+
 			      return true;
 		        }
             }
  	    }
- 	    if (tep_not_null(RESTRICTION_PATH))   
+ 	    if (tep_not_null(RESTRICTION_PATH))
 		  for ($i=0; $i<sizeof($order->products); $i++) {
-			 $cat_ids = split("[,]", RESTRICTION_PATH);
-			 $sub_cat_ids = split("[_]", tep_get_product_path($order->products[$i]['id']));
+			 $cat_ids = explode(",", RESTRICTION_PATH);
+			 $sub_cat_ids = explode("_", tep_get_product_path($order->products[$i]['id']));
 			   for ($iii = 0; $iii < count($sub_cat_ids); $iii++) {
 				  for ($ii = 0; $ii < count($cat_ids); $ii++) {
 					 if ($sub_cat_ids[$iii] == $cat_ids[$ii]) {
-			       
+
 			           return true;
 		          }
 	           }
             }
  	    }
         return false;
-          
+
 	  } else {
-	        
+
         return true;
       }
     }
-    
+
 // check to see if to add pending points for specials.
     function get_award_discounted($order) {
-		     
-     if (USE_POINTS_FOR_SPECIALS == 'false') {  
-      
+
+     if (USE_POINTS_FOR_SPECIALS == 'false') {
+
 		    for ($i=0; $i<sizeof($order->products); $i++) {
                $id = $order->products[$i]['id'];
                $product_query = tep_db_query("SELECT products_price FROM " . TABLE_PRODUCTS . " WHERE products_id = '" . $id . "' and products_status = 1");
                $product = tep_db_fetch_array($product_query);
-		       $cart_pri = split("[,]", $order->products[$i]['price']);
-               $p_pri = split("[,]", $product['products_price']);
+		       $cart_pri = explode(",", $order->products[$i]['price']);
+               $p_pri = explode(",", $product['products_price']);
 			   for ($iii = 0; $iii < count($p_pri); $iii++) {
 				  for ($ii = 0; $ii < count($cart_pri); $ii++) {
 					 if ($p_pri[$iii] == $cart_pri[$ii]) {
-						 
+
 			         return true;
 		             }
 	              }
@@ -137,15 +137,15 @@
  	         }
 
         return false;
-        
+
       } else {
         return true;
     }
   }
-  
+
 // products pending points to add.
   function get_points_toadd($order) {
-		     
+
     if ($order->info['total'] > 0) {
       if ((USE_POINTS_FOR_SHIPPING == 'false') && (USE_POINTS_FOR_TAX == 'false'))
         $points_toadd = $order->info['total'] - $order->info['shipping_cost'] - $order->info['tax'];
@@ -157,32 +157,32 @@
     }
     return $points_toadd;
   }
-  
+
 // sets the customers Pending points
   function tep_add_pending_points($customer_id, $insert_id, $points_toadd, $points_comment, $points_type) {
-	
+
     $points_awarded = $points_toadd * POINTS_PER_AMOUNT_PURCHASE;
-      
+
     if (POINTS_AUTO_ON == '0'){
       $sql_data_array = array('unique_id' => '',
                               'customer_id' => $customer_id,
                               'orders_id' => $insert_id,
                               'points_pending' => $points_awarded,
-                              'date_added' => 'now()', 
-                              'points_comment' => $points_comment, 
+                              'date_added' => 'now()',
+                              'points_comment' => $points_comment,
                               'points_type' => $points_type,
                               'points_status' => 2);
       tep_db_perform(TABLE_CUSTOMERS_POINTS_PENDING, $sql_data_array);
-      
-	  tep_db_query("UPDATE " . TABLE_CUSTOMERS . " SET customers_shopping_points = customers_shopping_points + '". $points_awarded ."' WHERE customers_id = '". (int)$customer_id ."'");          
-    
+
+	  tep_db_query("UPDATE " . TABLE_CUSTOMERS . " SET customers_shopping_points = customers_shopping_points + '". $points_awarded ."' WHERE customers_id = '". (int)$customer_id ."'");
+
     } else {
       $sql_data_array = array('unique_id' => '',
                               'customer_id' => $customer_id,
                               'orders_id' => $insert_id,
                               'points_pending' => $points_awarded,
-                              'date_added' => 'now()', 
-                              'points_comment' => $points_comment, 
+                              'date_added' => 'now()',
+                              'points_comment' => $points_comment,
                               'points_type' => $points_type,
                               'points_status' => 1);
       tep_db_perform(TABLE_CUSTOMERS_POINTS_PENDING, $sql_data_array);
@@ -191,21 +191,21 @@
 
 // balance customer points account & record the customers redeemed_points
   function tep_redeemed_points($customer_id, $insert_id, $customer_shopping_points_spending) {
-	  
+
     if ((tep_get_shopping_points($customer_id) - $customer_shopping_points_spending) > 0){
-	  tep_db_query("UPDATE " . TABLE_CUSTOMERS . " SET customers_shopping_points = customers_shopping_points - '". $customer_shopping_points_spending ."' WHERE customers_id = '". (int)$customer_id ."'");          
+	  tep_db_query("UPDATE " . TABLE_CUSTOMERS . " SET customers_shopping_points = customers_shopping_points - '". $customer_shopping_points_spending ."' WHERE customers_id = '". (int)$customer_id ."'");
     } else {
-	  tep_db_query("UPDATE " . TABLE_CUSTOMERS . " SET customers_shopping_points = 'NULL', customers_points_expires = 'NULL' WHERE customers_id = '". (int)$customer_id ."'");          
+	  tep_db_query("UPDATE " . TABLE_CUSTOMERS . " SET customers_shopping_points = 'NULL', customers_points_expires = 'NULL' WHERE customers_id = '". (int)$customer_id ."'");
     }
-	
+
     if (DISPLAY_POINTS_REDEEMED == 'true') {
-	    
+
       $sql_data_array = array('unique_id' => '',
                               'customer_id' => $customer_id,
                               'orders_id' => $insert_id,
                               'points_pending' => - $customer_shopping_points_spending,
-                              'date_added' => 'now()', 
-                              'points_comment' => 'TEXT_DEFAULT_REDEEMED', 
+                              'date_added' => 'now()',
+                              'points_comment' => 'TEXT_DEFAULT_REDEEMED',
                               'points_type' => 'SP',
                               'points_status' => 4);
       tep_db_perform(TABLE_CUSTOMERS_POINTS_PENDING, $sql_data_array);
@@ -214,7 +214,7 @@
 
 // sets the new signup customers welcome points
   function tep_add_welcome_points($customer_id) {
-	
+
     $welcome_points = NEW_SIGNUP_POINT_AMOUNT;
 
     if (tep_not_null(POINTS_AUTO_EXPIRES)){
@@ -226,19 +226,19 @@
 
 // get the last update value for any key
   function tep_get_last_date($key) {
-	  
+
     $key_date_query = tep_db_query("SELECT last_modified FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = '". $key ."'");
     $key_date = tep_db_fetch_array($key_date_query);
 
     return tep_date_long($key_date['last_modified']);
   }
-  
-  
+
+
 // products discounted restriction if enabled.
     function get_points_rules_discounted($order) {
-		     
-     if (REDEMPTION_DISCOUNTED == 'true') {  
-      
+
+     if (REDEMPTION_DISCOUNTED == 'true') {
+
       for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
            $id = $order->products[$i]['id'];
            $product_query = tep_db_query("SELECT products_price FROM " . TABLE_PRODUCTS . " WHERE products_id = '" . $id . "' AND products_status = 1");
@@ -249,32 +249,32 @@
 	  }
 
         return true;
-        
+
       } else {
         return true;
       }
     }
-      
+
 // awards restriction if enabled.
     function get_redemption_awards($customer_shopping_points_spending) {
-      
-	   if (USE_POINTS_FOR_REDEEMED == 'false') {  
+
+	   if (USE_POINTS_FOR_REDEEMED == 'false') {
          if (!$customer_shopping_points_spending) {
 		   return true;
 		 }
 
          return false;
-        
+
        } else {
-	       
+
         return true;
        }
     }
-    
+
 
  function points_selection() {
    global $cart, $currencies, $order;
-     
+
    if (($customer_shopping_points = tep_get_shopping_points()) && $customer_shopping_points > 0){
      if ((get_redemption_rules($order) == true) && (get_points_rules_discounted($order) == true)){
        if ($customer_shopping_points >= POINTS_LIMIT_VALUE){
@@ -316,7 +316,7 @@
           </tr>
         </table></td>
       </tr>
-<?php 
+<?php
          }
        }
      }
@@ -325,7 +325,7 @@
 
 
  function referral_input() {
-     
+
    if (tep_not_null(USE_REFERRAL_SYSTEM)) {
 ?>
         <tr>
@@ -351,7 +351,7 @@
           </table></td>
         </tr>
 <?php
-   } 
+   }
  }
-    
+
 ?>

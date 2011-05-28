@@ -1,18 +1,18 @@
 <?php
 
 // PHP Calendar Class Version 1.4 (5th March 2001)
-//  
+//
 // Copyright David Wilkinson 2000 - 2001. All Rights reserved.
-// 
+//
 // This software may be used, modified and distributed freely
-// providing this copyright notice remains intact at the head 
+// providing this copyright notice remains intact at the head
 // of the file.
 //
 // This software is freeware. The author accepts no liability for
-// any loss or damages whatsoever incurred directly or indirectly 
-// from the use of this script. The author of this software makes 
-// no claims as to its fitness for any purpose whatsoever. If you 
-// wish to use this software you should first satisfy yourself that 
+// any loss or damages whatsoever incurred directly or indirectly
+// from the use of this script. The author of this software makes
+// no claims as to its fitness for any purpose whatsoever. If you
+// wish to use this software you should first satisfy yourself that
 // it meets your requirements.
 //
 // URL:   http://www.cascade.org.uk/software/php/calendar/
@@ -26,19 +26,19 @@ class Calendar
     function Calendar()
     {
     }
-    
+
     /*
-        Get the array of strings used to label the days of the week. This array contains seven 
-        elements, one for each day of the week. The first entry in this array represents Sunday. 
+        Get the array of strings used to label the days of the week. This array contains seven
+        elements, one for each day of the week. The first entry in this array represents Sunday.
     */
     function getDayNames()
     {
         return $this->dayNames;
     }
-    
+
     /*
-        Set the array of strings used to label the days of the week. This array must contain seven 
-        elements, one for each day of the week. The first entry in this array represents Sunday. 
+        Set the array of strings used to label the days of the week. This array must contain seven
+        elements, one for each day of the week. The first entry in this array represents Sunday.
     */
     function setDayNames($names)
     {
@@ -63,8 +63,8 @@ class Calendar
     {
          $this->monthNames = $names;
     }
-    
-    /* 
+
+    /*
         Gets the start day of the week. This is the day that appears in the first column
         of the calendar. Sunday = 0.
     */
@@ -72,8 +72,8 @@ class Calendar
     {
         return $this->startDay;
     }
-    
-    /* 
+
+    /*
         Sets the start day of the week. This is the day that appears in the first column
         of the calendar. Sunday = 0.
     */
@@ -81,9 +81,9 @@ class Calendar
     {
         $this->startDay = $day;
     }
-    
-    
-    /* 
+
+
+    /*
         Gets the start month of the year. This is the month that appears first in the year
         view. January = 1.
     */
@@ -91,8 +91,8 @@ class Calendar
     {
         return $this->startMonth;
     }
-    
-    /* 
+
+    /*
         Sets the start month of the year. This is the month that appears first in the year
         view. January = 1.
     */
@@ -100,16 +100,16 @@ class Calendar
     {
         $this->startMonth = $month;
     }
-    
-    
+
+
     /*
         Return the URL to link to in order to display a calendar for a given month/year.
-        You must override this method if you want to activate the "forward" and "back" 
+        You must override this method if you want to activate the "forward" and "back"
         feature of the calendar.
-        
+
         Note: If you return an empty string from this function, no navigation link will
         be displayed. This is the default behaviour.
-        
+
         If the calendar is being displayed in "year" view, $month will be set to 1.
     */
 
@@ -134,19 +134,19 @@ class Calendar
     }
 
     function getDbLink($day, $month, $year)
-    {	
-		$dateString = $this->getFileName($day, $month, $year);    	
-    	
+    {
+		$dateString = $this->getFileName($day, $month, $year);
+
     	//get all events that have the provided date in their duration.
-    	$request = tep_db_query("select start_date from " . TABLE_EVENTS_CALENDAR 
+    	$request = tep_db_query("select start_date from " . TABLE_EVENTS_CALENDAR
     		. " where '" . $dateString . "' between start_date and end_date");
-    	if(tep_db_num_rows($request) > 0) 
+    	if(tep_db_num_rows($request) > 0)
     	{
 			while($event = tep_db_fetch_array($request))
         	{	//get the first event for this day's start date for the link
-        		list($year_start, $month_start, $day_start) = split ('[/.-]', $event['start_date']);
+        		list($year_start, $month_start, $day_start) = preg_split('/[/.-]/', $event['start_date']);
         		break;
-        	}   
+        	}
         	$bname = FILENAME_EVENTS_CALENDAR;
     		return "$bname?_day=$day_start&_month=$month_start&_year=$year_start";
       	}
@@ -160,7 +160,7 @@ class Calendar
         $d = getdate(time());
         return $this->getMonthView($d["mon"], $d["year"]);
     }
-    
+
 
     /*
         Return the HTML for the current year
@@ -170,8 +170,8 @@ class Calendar
         $d = getdate(time());
         return $this->getYearView($d["year"]);
     }
-    
-    
+
+
     /*
         Return the HTML for a specified month
     */
@@ -187,13 +187,13 @@ class Calendar
     {
         return $this->getYearHTML($year);
     }
-    
+
     /********************************************************************************
-    
+
         The rest are private methods. No user-servicable parts inside.
-        
+
         You shouldn't need to call any of these functions directly.
-        
+
     *********************************************************************************/
 
     /*
@@ -205,9 +205,9 @@ class Calendar
         {
             return 0;
         }
-   
+
         $d = $this->daysInMonth[$month - 1];
-   
+
         if ($month == 2)
         {
             // Check for leap year
@@ -228,33 +228,33 @@ class Calendar
         }
         return $d;
     }
-    
+
     /*
         Generate the HTML for a given month
     */
     function getMonthHTML($m, $y, $show = 1)
     {
         $s = "";
-        
+
         $a = $this->adjustDate($m, $y);
         $month = $a[0];
         $year  = $a[1];
-        
+
     	$daysInMonth = $this->getDaysInMonth($month, $year);
     	$date = getdate(mktime(12, 0, 0, $month, 1, $year));
-    	
+
     	$first = $date["wday"];
         $monthName = $this->monthNames[$month - 1];
-    	
+
     	$prev = $this->adjustDate($month - 1, $year);
     	$next = $this->adjustDate($month + 1, $year);
-    	
+
     	$this_month = date('m');
         $this_year = date('Y');
     	$header = $monthName . (($show > 0) ? " " . $year : "");
     	$D = $this->monthNames[11].'&nbsp;';
     	$J = $this->monthNames[0].'&nbsp;';
-    	
+
     	if ($show == 1)
     	{
          $prevMonth = '<a rel="lightbox-page" href='. FILENAME_EVENTS_CALENDAR_CONTENT . $this->getCalendarLink($prev[0], $prev[1]).'  title='. $this->monthNames[$month - 2] . (($month-2 < 1) ? $D.($year-1) : '&nbsp;'. $year) .' >&lt;</a>';
@@ -265,7 +265,7 @@ class Calendar
     	    $prevMonth = "";
     	    $nextMonth = "";
     	}
-    	
+
     	$s .= "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n";
     	$s .= "<tr class=\"calendarHeader\">\n";
     	$linkHeader = tep_href_link(FILENAME_EVENTS_CALENDAR, "_month=$month&_year=$year");
@@ -289,7 +289,7 @@ class Calendar
     	$s .= "<td align=\"center\" valign=\"middle\">" . $this->dayNames[($this->startDay+5)%7] . "</td>\n";
     	$s .= "<td align=\"center\" valign=\"middle\">" . $this->dayNames[($this->startDay+6)%7] . "</td>\n";
     	$s .= "</tr>\n";
-    	
+
     	// We need to work out what date to start at so that the first appears in the correct column
     	$d = $this->startDay + 1 - $first;
     	while ($d > 1)
@@ -321,14 +321,14 @@ class Calendar
     	        {
     	            $s .= "<td class=\"empty\">&nbsp;";
     	        }
-      	        $s .= "</td>\n";       
+      	        $s .= "</td>\n";
         	    $d++;
     	    }
-    	    $s .= "</tr>\n";    
+    	    $s .= "</tr>\n";
     	}
     	$s .= "</table>\n";
     	$s .= "</td></tr></table>\n";
-        return $s;  	
+        return $s;
     }
 
     /*
@@ -344,13 +344,13 @@ class Calendar
 
         $s .= "<table align=\"center\" cellspacing=\"2\" cellpadding=\"0\" border=\"0\" style=\"cursor: default\">\n";
         $s .= "<tr>";
-        
+
         if($year > $this_year){
         $s .= "<td class=\"yearHeader\" align=\"center\" align=\"left\">" . (($prev == "") ? "&nbsp;" : "<a href=\"$prev\">&lt;&lt;</a>")  . "</td>\n";
         }else{
         $s .= "<td class=\"yearHeader\" align=\"center\" align=\"left\">&nbsp;</td>\n";
         }
-        
+
         $s .= "<td height=\"20\" class=\"yearHeader\" align=\"center\">" . (($this->startMonth > 1) ? $year . " - " . ($year + 1) : $year) ."</td>\n";
     	$s .= "<td class=\"yearHeader\" align=\"center\" align=\"right\">" . (($next == "") ? "&nbsp;" : "<a href=\"$next\">&gt;&gt;</a>")  . "</td>\n";
         $s .= "</tr>\n";
@@ -384,7 +384,7 @@ class Calendar
     */
     function adjustDate($month, $year)
     {
-        $a = array();  
+        $a = array();
         $a[0] = $month;
         $a[1] = $year;
         while ($a[0] > 12)
@@ -399,7 +399,7 @@ class Calendar
         }
         return $a;
     }
-    
+
     /*
         The start day of the week. This is the day that appears in the first column
         of the calendar. Sunday = 0.

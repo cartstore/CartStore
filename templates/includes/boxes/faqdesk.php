@@ -1,18 +1,18 @@
 <?php
-  
-  
+
+
   $configuration_query = tep_db_query("select configuration_key as cfgKey, configuration_value as cfgValue from " . TABLE_FAQDESK_CONFIGURATION . "");
   while ($configuration = tep_db_fetch_array($configuration_query)) {
       define($configuration['cfgKey'], $configuration['cfgValue']);
   }
   if (DISPLAY_FAQS_CATAGORY_BOX) {
-      $do_we_have_categories_faq_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_FAQDESK_CATEGORIES . " c, " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "' 
+      $do_we_have_categories_faq_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_FAQDESK_CATEGORIES . " c, " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "'
 and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "' order by sort_order, cd.categories_name");
       $faqdesk_check = tep_db_num_rows($do_we_have_categories_faq_query);
       if ($faqdesk_check > 0) {
-          
-          
-          
+
+
+
           function FAQDesk_box_has_category_subcategories($category_id)
           {
               $child_faqdesk_category_query = tep_db_query("select count(*) as count from " . TABLE_FAQDESK_CATEGORIES . " where parent_id = '" . $category_id . "'");
@@ -23,10 +23,10 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
                   return false;
               }
           }
-          
-          
-          
-          
+
+
+
+
           function FAQDesk_box_count_products_in_category($category_id, $include_inactive = false)
           {
               $products_faqdesk_count = 0;
@@ -48,11 +48,11 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
               }
               return $products_faqdesk_count;
           }
-          
-          
+
+
           function FAQDesk_show_category($counter)
           {
-              
+
               global $foo_faqdesk, $categories_faqdesk_string, $id;
               for ($a = 0; $a < $foo_faqdesk[$counter]['level']; $a++) {
                   $categories_faqdesk_string .= "&nbsp;&nbsp;";
@@ -68,7 +68,7 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
               if (($id) && (in_array($counter, $id))) {
                   $categories_faqdesk_string .= '<b>';
               }
-              
+
               $categories_faqdesk_string .= $foo_faqdesk[$counter]['name'];
               if (($id) && (in_array($counter, $id))) {
                   $categories_faqdesk_string .= '</b>';
@@ -88,7 +88,7 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
                   FAQDesk_show_category($foo_faqdesk[$counter]['next_id']);
               }
           }
-          
+
 ?>
 <!-- categories //-->
 
@@ -98,7 +98,7 @@ and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "
           new infoBoxHeading($faqdesk_box_contents, false, false);
           $categories_faqdesk_string = '';
           $counter = 0;
-          $categories_faqdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_FAQDESK_CATEGORIES . " c, " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " cd 
+          $categories_faqdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_FAQDESK_CATEGORIES . " c, " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " cd
 where c.catagory_status = '1' and c.parent_id = '0' and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "' order by sort_order, cd.categories_name");
           while ($categories_faqdesk = tep_db_fetch_array($categories_faqdesk_query)) {
               $foo_faqdesk[$categories_faqdesk['categories_id']] = array('name' => $categories_faqdesk['categories_name'], 'parent' => $categories_faqdesk['parent_id'], 'level' => 0, 'path' => $categories_faqdesk['categories_id'], 'next_id' => false);
@@ -110,15 +110,15 @@ where c.catagory_status = '1' and c.parent_id = '0' and c.categories_id = cd.cat
                   $counter = $categories_faqdesk['categories_id'];
               }
           }
-          
+
           if ($faqPath) {
               $new_path = '';
-              $id = split('_', $faqPath);
+              $id = explode('_', $faqPath);
               reset($id);
               while (list($key, $value) = each($id)) {
                   unset($prev_id);
                   unset($first_id);
-                  $categories_faqdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_FAQDESK_CATEGORIES . " c, " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "' 
+                  $categories_faqdesk_query = tep_db_query("select c.categories_id, cd.categories_name, c.parent_id from " . TABLE_FAQDESK_CATEGORIES . " c, " . TABLE_FAQDESK_CATEGORIES_DESCRIPTION . " cd where c.catagory_status = '1' and c.parent_id = '" . $value . "'
     and c.categories_id = cd.categories_id and cd.language_id='" . $languages_id . "' order by sort_order, cd.categories_name");
                   $category_faqdesk_check = tep_db_num_rows($categories_faqdesk_query);
                   if ($category_faqdesk_check > 0) {

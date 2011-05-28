@@ -4,6 +4,8 @@
   if (ACCOUNT_VALIDATION == 'true' && CONTACT_US_VALIDATION == 'true') {
       require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_ACCOUNT_VALIDATION);
       include_once('includes/functions/' . FILENAME_ACCOUNT_VALIDATION);
+  } else {
+      require('ext/recaptchalib.php');
   }
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CONTACT_US);
@@ -43,6 +45,15 @@
           }
           if ($entry_antirobotreg_error == true)
               $messageStack->add('contact', $text_antirobotreg_error);
+      } else {
+          $resp = recaptcha_check_answer (RECAPTCHA_PRIVATE_KEY,
+                                          $_SERVER["REMOTE_ADDR"],
+                                          $_POST["recaptcha_challenge_field"],
+                                          $_POST["recaptcha_response_field"]);
+          if (!$resp->is_valid) {
+              $error = $entry_antirobotreg_error = true;
+              $messageStack->add('contact', RECAPTCHA_ERROR_MSG . "(" . $resp->error . ")");
+          }
       }
 
       $name = tep_db_prepare_input($_POST['name']);
@@ -67,9 +78,6 @@
               tep_mail(preg_replace('/\<[^*]*/', '', $send_to_array[$send_to]), $send_to_email, $emailsubject, $enquiry, $name, $email_address);
               tep_redirect(tep_href_link(FILENAME_CONTACT_US, 'action=success'));
           }
-      } else {
-          $error = true;
-          $messageStack->add('contact', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
       }
   }
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_CONTACT_US));
@@ -490,9 +498,10 @@
       </tr>
 
 <?php
-          }
-
+          } else {
 ?>
+          <tr><td><?php echo recaptcha_get_html(RECAPTCHA_PUBLIC_KEY); ?></td></tr>
+<?php     } ?>
 
 
 

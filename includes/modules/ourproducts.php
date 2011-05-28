@@ -31,7 +31,7 @@
       }
     }
   }
-  
+
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_DEFAULT);
 ?>
@@ -70,7 +70,7 @@
         <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr>
             <td>
-			
+
 			<table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
 <?php
@@ -104,23 +104,23 @@
 	  //  echo '              <tr>' . "\n";
 
 	echo '<td align="center" class="smallText" width="' . $width . '" valign="top">';
-	
+
 	echo '<table width="148" height="30" border="0" cellpadding="0" cellspacing="0">';
 	echo '<tr>';
-	
+
 	echo '<td align="center">';
-	
+
 	echo '<table width="152" border="0" cellspacing="0" cellpadding="0">';
 	echo '<tr>';
 	echo '<td>';
-	
+
 	echo '<table width="152" border="0" cellspacing="0" cellpadding="0" align="center" >';
 	echo '<tr>';
 	echo '<td width="15"><img src="left_up.gif" width="15" height="39" /></td>';
 	echo '<td width="124" align="center" background="center_up.gif"><b>'.$categories['categories_name'].'</b></td>';
 	echo '<td width="13" background="right_up.gif">&nbsp;</td>';
 	echo '</tr>';
-	
+
 	echo '<tr>';
 	echo '<td width="15" height="170" background="center_left.gif">&nbsp;</td>';
 	echo '<td>';
@@ -128,19 +128,19 @@
 	echo '</td>';
 	echo '<td background="center_right.gif">&nbsp;</td>';
 	echo '</tr>';
-	
+
 	echo '<tr>';
 	echo '<td background="left_done.gif">&nbsp;</td>';
 	echo '<td background="center_center1.gif"><img src="center_center1.gif" width="124"></td>';
 	echo '<td background="right_down.gif">&nbsp;</td>';
 	echo '</tr>';
-		  
+
 	echo '</table>';
-	
+
 	echo '</td>';
 	echo '</tr>';
 	echo '</table>';
-	
+
 	//echo '<a href="' . tep_href_link(FILENAME_DEFAULT, $cPath_new) . '">' . tep_image(DIR_WS_IMAGES . $categories['categories_image'], $categories['categories_name'],138,65);
 
 	 $category_header  ="";
@@ -167,18 +167,18 @@
 
 	//   <!-- Tom 002: End -->
 	echo '</a>';
-	
+
 	echo '</td>';
-	
+
 	echo '</tr>';
 	echo '<tr>';
 	echo '<td align="center" class="border">';
-	
+
 
 	echo '</td>';
 	echo '</tr>';
 	echo '</table><br>';
-	
+
 	echo '</td>' . "\n";
     if ((($rows / MAX_DISPLAY_CATEGORIES_PER_ROW) == floor($rows / MAX_DISPLAY_CATEGORIES_PER_ROW)) && ($rows != $number_of_categories)) {
        echo '</tr>' . "\n";
@@ -190,7 +190,7 @@
 ?>
               </tr>
             </table>
-			
+
 			</td>
           </tr>
 
@@ -272,7 +272,7 @@
       }
     }
 
-    if ( (!isset($_GET['sort'])) || (!ereg('[1-8][ad]', $_GET['sort'])) || (substr($_GET['sort'], 0, 1) > sizeof($column_list)) ) {
+    if ( (!isset($_GET['sort'])) || (!preg_match('/[1-8][ad]/', $_GET['sort'])) || (substr($_GET['sort'], 0, 1) > sizeof($column_list)) ) {
       for ($i=0, $n=sizeof($column_list); $i<$n; $i++) {
         if ($column_list[$i] == 'PRODUCT_LIST_NAME') {
           $_GET['sort'] = $i+1 . 'a';
@@ -318,7 +318,7 @@
         <td><?php include(DIR_WS_MODULES . FILENAME_PRODUCT_LISTING); ?></td>
       </tr>
     </table>
-	
+
 	</td>
 <?php
   } else { // default page
@@ -328,7 +328,7 @@
 
       <tr>
         <td>
-		
+
 		<table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="main"></td>
@@ -348,7 +348,7 @@
 		</td>
       </tr>
     </table>
-	
+
 	</td>
 <?php
   }

@@ -23,9 +23,9 @@
  * It uses phpGCheckout library so it can work with PHP4 and PHP5
  * Generates the cart xml, shipping and tax options and adds them as hidden fields
  * along with the Checkout button
- 
+
  * A disabled button is displayed in the following cases:
- * 1. If merchant id or merchant key is not set 
+ * 1. If merchant id or merchant key is not set
  * 2. If there are multiple shipping options selected and they use different shipping tax tables
  *  or some dont use tax tables
  */
@@ -61,12 +61,12 @@ function gc_makeSqlFloat($val) {
 	return ((settype($val, 'float')) ? ($val) : 0);
 }
 
-// Custom Function to store configuration values (shipping default values)  
+// Custom Function to store configuration values (shipping default values)
 function gc_compare($key, $data, $sep="_VD:", $def_ret='1')
 {
   foreach($data as $value) {
     list($key2, $valor) = explode($sep, $value);
-    if($key == $key2)   
+    if($key == $key2)
       return $valor;
   }
   return $def_ret;
@@ -82,7 +82,7 @@ require('googlecheckout/library/googleshipping.php');
 require('googlecheckout/library/googletax.php');
 
 $Gcart = new googlecart($googlepayment->merchantid,
-                        $googlepayment->merchantkey,  
+                        $googlepayment->merchantkey,
                         MODULE_PAYMENT_GOOGLECHECKOUT_MODE==
                           'https://sandbox.google.com/checkout/'
                           ?"sandbox":"production",
@@ -94,8 +94,8 @@ if(MODULE_PAYMENT_GOOGLECHECKOUT_MODE=='https://sandbox.google.com/checkout/'){
 // Check installed Version
 if(MODULE_PAYMENT_GOOGLECHECKOUT_VERSION != GOOGLECHECKOUT_FILES_VERSION) {
   $Gcart->SetButtonVariant(false);
-  $Gwarnings[] = sprintf(GOOGLECHECKOUT_STRING_WARN_MIX_VERSIONS, 
-                          MODULE_PAYMENT_GOOGLECHECKOUT_VERSION, 
+  $Gwarnings[] = sprintf(GOOGLECHECKOUT_STRING_WARN_MIX_VERSIONS,
+                          MODULE_PAYMENT_GOOGLECHECKOUT_VERSION,
                           GOOGLECHECKOUT_FILES_VERSION);
 }
 
@@ -109,11 +109,11 @@ require_once(DIR_WS_CLASSES . 'order.php');
 $order = new order;
 $order_items = $order->products;
 
-if(MODULE_PAYMENT_GOOGLECHECKOUT_VIRTUAL_GOODS == 'True' 
+if(MODULE_PAYMENT_GOOGLECHECKOUT_VIRTUAL_GOODS == 'True'
               && $cart->get_content_type() != 'physical' ) {
   $Gcart->SetButtonVariant(false);
   $Gwarnings[] = GOOGLECHECKOUT_STRING_WARN_VIRTUAL;
-} 
+}
 
 if (sizeof($products) == 0) {
   $Gcart->SetButtonVariant(false);
@@ -124,9 +124,9 @@ $tax_array = array();
 $tax_name_array = array();
 $flagAnyOutOfStock = false;
 $product_list = '';
-$resticted_categories = split('([ ]?[,][ ]?)',MODULE_PAYMENT_GOOGLECHECKOUT_RESTRICTED_CATEGORIES);
+$resticted_categories = preg_split('/([ ]?[,][ ]?)/',MODULE_PAYMENT_GOOGLECHECKOUT_RESTRICTED_CATEGORIES);
 for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
-  $product_virtual = false;  
+  $product_virtual = false;
 	if (isset($products[$i]['attributes']) && is_array($products[$i]['attributes'])) {
 		while (list($option, $value) = each($products[$i]['attributes'])) {
 			$attributes = tep_db_query("select popt.products_options_name, poval.products_options_values_name, "
@@ -136,7 +136,7 @@ for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
 									              ."and pa.options_id = '" . gc_makeSqlString($option) . "' and pa.options_id = "
                                 ."popt.products_options_id and pa.options_values_id = '" . gc_makeSqlString($value) . "' "
 									              ."and pa.options_values_id = poval.products_options_values_id and "
-                                ."popt.language_id = '" . $languages_id . "' and poval.language_id = '" 
+                                ."popt.language_id = '" . $languages_id . "' and poval.language_id = '"
                                 . $languages_id . "'");
 			$attributes_values = tep_db_fetch_array($attributes);
 			$attr_value = $attributes_values['products_options_values_name'];
@@ -146,11 +146,11 @@ for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
 			$products[$i][$option]['options_values_price'] = $attributes_values['options_values_price'];
 			$products[$i][$option]['price_prefix'] = $attributes_values['price_prefix'];
       if(DOWNLOAD_ENABLED == 'true') {
-        $virtual_check_query = tep_db_query("select count(*) as total from " . 
-                                 TABLE_PRODUCTS_ATTRIBUTES . " pa, " . 
-                                 TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD . 
-                                 " pad where pa.products_id = '" . (int)$products[$i]['id'] . 
-                                 "' and pa.options_values_id = '" . (int)$value . 
+        $virtual_check_query = tep_db_query("select count(*) as total from " .
+                                 TABLE_PRODUCTS_ATTRIBUTES . " pa, " .
+                                 TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD .
+                                 " pad where pa.products_id = '" . (int)$products[$i]['id'] .
+                                 "' and pa.options_values_id = '" . (int)$value .
                                  "' and pa.products_attributes_id = pad.products_attributes_id");
         $virtual_check = tep_db_fetch_array($virtual_check_query);
         if ($virtual_check['total'] > 0){
@@ -164,7 +164,7 @@ for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
 	                          . TABLE_PRODUCTS_DESCRIPTION . " where products_id = '" . $products[$i]['id']
                              ."' and language_id = '" . $languages_id . "'"));
 	$products_description = $products_description['products_description'];
-	$tax_result = tep_db_query("select tax_class_title from ". TABLE_TAX_CLASS 
+	$tax_result = tep_db_query("select tax_class_title from ". TABLE_TAX_CLASS
                             ." where tax_class_id = ". gc_makeSqlInteger($products[$i]['tax_class_id']));
 	$tax = tep_db_fetch_array($tax_result);
 	$tt = $tax['tax_class_title'];
@@ -182,9 +182,9 @@ for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
   // refactor
   $Gitem = new GoogleItem($products_name,
                           $products_description,
-                          $products[$i]['quantity'], 
+                          $products[$i]['quantity'],
                           $currencies->get_value(DEFAULT_CURRENCY) * $products[$i]['final_price'],
-                                       'LB', $products[$i]['weight']);                          
+                                       'LB', $products[$i]['weight']);
 //                          $currencies->get_value(DEFAULT_CURRENCY) * $products[$i]['final_price']);
   $Gitem->SetMerchantPrivateItemData(
           new MerchantPrivateItemData(array(
@@ -198,7 +198,7 @@ for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
     $Gitem->SetTaxTableSelector($tt);
   }
   if($product_virtual) {
-    $digital_url = str_replace("&amp;", "&", 
+    $digital_url = str_replace("&amp;", "&",
                                tep_href_link('checkout_success.php'));
     $Gitem->SetURLDigitalContent($digital_url, '', $products_name . " " .
                                                    $products_description . "<br />".
@@ -211,11 +211,11 @@ for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
       $flagAnyOutOfStock = true;
     }
   }
-  $product_list .= ";".(int)$products[$i]['id'];  
-  $category_id = tep_db_fetch_array(tep_db_query("select categories_id from " . 
-                           TABLE_PRODUCTS_TO_CATEGORIES . 
+  $product_list .= ";".(int)$products[$i]['id'];
+  $category_id = tep_db_fetch_array(tep_db_query("select categories_id from " .
+                           TABLE_PRODUCTS_TO_CATEGORIES .
                            " where products_id = '" . (int)$products[$i]['id']  ."'"));
-                           
+
   if(in_array($category_id['categories_id'], $resticted_categories)) {
     $Gcart->SetButtonVariant(false);
     $Gwarnings[] = GOOGLECHECKOUT_STRING_WARN_RESTRICTED_CATEGORY;
@@ -234,9 +234,9 @@ foreach($order_totals as $order_total){
 
 // Cant used this since the OT is passed as an item, and tax cant be calculated
     $tax_class_id = @constant("MODULE_ORDER_TOTAL_" . substr(strtoupper($order_total['code']), 3) . "_TAX_CLASS");
-    $tax =  tep_db_fetch_array(tep_db_query("select tax_class_title 
-                         from " . TABLE_TAX_CLASS . " 
-                         where tax_class_id = " . 
+    $tax =  tep_db_fetch_array(tep_db_query("select tax_class_title
+                         from " . TABLE_TAX_CLASS . "
+                         where tax_class_id = " .
                          (int)$tax_class_id ));
     $tt = @$tax['tax_class_title'];
     if(!empty($tt) && !in_array($tax_class_id, $tax_array)) {
@@ -246,9 +246,9 @@ foreach($order_totals as $order_total){
     $ot_value = $order_total['value'] * (strrpos($order_total['text'], '-')===false?1:-1);//($order_total['text']{0}=='-'?-1:1);
     $Gitem = new GoogleItem($order_total['title'],
                             '',
-                            '1', 
+                            '1',
                             $currencies->get_value(DEFAULT_CURRENCY) * $products[$i]['final_price'],
-                            'LB', 0);                          
+                            'LB', 0);
 
 ////                            number_format(($amount) * $currencies->get_value($my_currency), $currencies->get_decimal_places($my_currency))
 //                            $currencies->get_value(DEFAULT_CURRENCY) * $ot_value);
@@ -276,7 +276,7 @@ foreach($order_totals as $order_total){
 //  $GAtaxRule = new GoogleAlternateTaxRule('0');
 //  $GAtaxRule->SetWorldArea();
 //  $GAtaxTable_OT->AddAlternateTaxRules($GAtaxRule);
-//  $Gcart->AddAlternateTaxTables($GAtaxTable_OT);  
+//  $Gcart->AddAlternateTaxTables($GAtaxTable_OT);
 //}
 // Out of Stock
 if ( (STOCK_ALLOW_CHECKOUT != 'true') && ($flagAnyOutOfStock == true) ) {
@@ -287,10 +287,10 @@ if ( (STOCK_ALLOW_CHECKOUT != 'true') && ($flagAnyOutOfStock == true) ) {
 $private_data = tep_session_id() .';'. tep_session_name();
 $Gcart->SetMerchantPrivateData(
                new MerchantPrivateData(array('session-data' => $private_data)));
-$Gcart->AddRoundingPolicy(MODULE_PAYMENT_GOOGLECHECKOUT_TAXMODE, 
+$Gcart->AddRoundingPolicy(MODULE_PAYMENT_GOOGLECHECKOUT_TAXMODE,
                           MODULE_PAYMENT_GOOGLECHECKOUT_TAXRULE);
 $continue_shopping_url = ($googlepayment->continue_url=='gc_return.php')?
-                      $googlepayment->continue_url . '?products_id=' . 
+                      $googlepayment->continue_url . '?products_id=' .
                       implode(',', explode(';', !empty($product_list)?
                       trim($product_list,';'):'-1')):$googlepayment->continue_url;
 $Gcart->SetEditCartUrl(tep_href_link('shopping_cart.php'));
@@ -299,7 +299,7 @@ $Gcart->SetRequestBuyerPhone('true');
 
 if(MODULE_PAYMENT_GOOGLECHECKOUT_EXPIRATION != 'NONE') {
 //  2007-12-31T11:59:59-05:00
-  $Gcart->SetCartExpiration(date('Y-m-d\TH:i:s\Z', time() 
+  $Gcart->SetCartExpiration(date('Y-m-d\TH:i:s\Z', time()
             + MODULE_PAYMENT_GOOGLECHECKOUT_EXPIRATION*60 - date('Z', time())));
 }
 //Shipping options
@@ -314,8 +314,8 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
   if(!file_exists($module_directory)) {
     $Gcart->SetButtonVariant(false);
     $Gwarnings[] = sprintf(GOOGLECHECKOUT_STRING_WARN_WRONG_SHIPPING_CONFIG, $module_directory);
-  }  
-  
+  }
+
   $file_extension = substr($PHP_SELF, strrpos($PHP_SELF, '.'));
   $directory_array = array();
   if ($dir = @ dir($module_directory)) {
@@ -329,37 +329,37 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
   	sort($directory_array);
   	$dir->close();
   }
-  
-  $check_query = tep_db_fetch_array(tep_db_query("select countries_iso_code_2 
-                               from " . TABLE_COUNTRIES . " 
-                               where countries_id = 
+
+  $check_query = tep_db_fetch_array(tep_db_query("select countries_iso_code_2
+                               from " . TABLE_COUNTRIES . "
+                               where countries_id =
                                '" . SHIPPING_ORIGIN_COUNTRY . "'"));
   $shipping_origin_iso_code_2 = $check_query['countries_iso_code_2'];
-  
+
   $module_info = array();
   $module_info_enabled = array();
   for ($i = 0, $n = sizeof($directory_array); $i < $n; $i++) {
   	$file = $directory_array[$i];
-  
+
   	include_once (DIR_FS_CATALOG .DIR_WS_LANGUAGES . $language . '/modules/shipping/' . $file);
   	include_once ($module_directory . $file);
-  
+
   	$class = substr($file, 0, strrpos($file, '.'));
   	$module = new $class;
     $curr_ship = strtoupper($module->code);
     switch($curr_ship){
       case 'FEDEXGROUND':
         $curr_ship = 'FEDEX_GROUND';
-        break; 
+        break;
       case 'FEDEXEXPRESS':
         $curr_ship = 'FEDEX_EXPRESS';
-        break; 
+        break;
       case 'UPSXML':
         $curr_ship = 'UPSXML_RATES';
-        break; 
+        break;
       case 'DHLAIRBORNE':
         $curr_ship = 'AIRBORNE';
-        break; 
+        break;
       default:
         break;
     }
@@ -374,15 +374,15 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
   			'status' => $module->check());
   	}
   }
-  
+
 // check if there is a shipping module activated that is not flat rate
   // to enable Merchan Calculations
   // if there are flat and MC, both will be MC
   $ship_calculation_mode = MODULE_PAYMENT_GOOGLECHECKOUT_CARRIER_CALCULATED_ENABLED=='True'?false:
-                          (count(array_keys($module_info_enabled)) 
+                          (count(array_keys($module_info_enabled))
                           > count(array_intersect($googlepayment->shipping_support
                           , array_keys($module_info_enabled)))) ? true : false;
-                               
+
   $key_values = explode(", ", MODULE_PAYMENT_GOOGLECHECKOUT_SHIPPING);
   $shipping_config_errors = '';
   $free_shipping = false;
@@ -393,20 +393,20 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
     switch($curr_ship){
       case 'FEDEXGROUND':
         $curr_ship = 'FEDEX_GROUND';
-        break; 
+        break;
       case 'FEDEXEXPRESS':
         $curr_ship = 'FEDEX_EXPRESS';
-        break; 
+        break;
       case 'UPSXML':
         $curr_ship = 'UPSXML_RATES';
-        break; 
+        break;
       case 'DHLAIRBORNE':
         $curr_ship = 'AIRBORNE';
-        break; 
+        break;
       default:
         break;
     }
-    
+
     $common_string = "MODULE_SHIPPING_" . $curr_ship . "_";
     @$zone =  constant($common_string . "ZONE");
     @$enable =  constant($common_string . "STATUS");
@@ -414,10 +414,10 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
     @$price =  constant($common_string . "COST");
     @$handling =  constant($common_string . "HANDLING");
     @$table_mode =  constant($common_string . "MODE");
-    
+
     $allowed_restriction_state = $allowed_restriction_country = array();
     // Exception for enabling shipping modules
-    if(defined('MODULE_SHIPPING_FREESHIPPER_STATUS') 
+    if(defined('MODULE_SHIPPING_FREESHIPPER_STATUS')
         && MODULE_SHIPPING_FREESHIPPER_STATUS == "True"){
       switch ($curr_ship) {
         case 'FREESHIPPER':
@@ -438,7 +438,7 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
           break;
       }
     }
-    
+
     //    Disable any merchant-calculation module if Carrier calculated is enabled
   //    This will allow only flat-rate shippings
     if(MODULE_PAYMENT_GOOGLECHECKOUT_CARRIER_CALCULATED_ENABLED == 'True'
@@ -454,8 +454,8 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
                                       inner join ". TABLE_COUNTRIES ." AS c on ztgz.zone_country_id = c.countries_id
                                       left join ". TABLE_ZONES ." AS z on ztgz.zone_id = z.zone_id
                                       WHERE gz.geo_zone_id = '". $zone ."'");
-                                     
-                                   
+
+
     		$allowed_restriction_state = $allowed_restriction_country = array();
     		// Get all the allowed shipping zones.
     		while($zone_answer = tep_db_fetch_array($zone_result)) {
@@ -463,7 +463,7 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
     			$allowed_restriction_country[] = array($zone_answer['countries_name'], $zone_answer['countries_iso_code_2']);
     		}
     	}
-    	
+
     	if ($curr_tax_class != 0 && $curr_tax_class != '') {
     		$tax_class[] = $curr_tax_class;
     		if (!in_array($curr_tax_class, $tax_class_unique))
@@ -507,7 +507,7 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
                     // now just the country
                     $Gfilter->AddAllowedPostalArea($allowed_restriction_country[$state_key][1]);
                   }
-                }      
+                }
             }
             else {
               switch($type) {
@@ -533,13 +533,13 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
               }
             }
     				if ($ship_calculation_mode == 'True') {
-              if($default_value != 0) {    				  
+              if($default_value != 0) {
                 $Gshipping = new GoogleMerchantCalculatedShipping($shipping_name, $shipping_price);
                 $Gshipping->AddShippingRestrictions($Gfilter);
                 $Gshipping->AddAddressFilters($Gfilter);
                 $Gcart->AddShipping($Gshipping);
               }
-            } 
+            }
     				else {
               $Gshipping = new GoogleFlatRateShipping($shipping_name, $shipping_price);
               $Gshipping->AddShippingRestrictions($Gfilter);
@@ -569,7 +569,7 @@ if(DOWNLOAD_ENABLED != 'true' || $cart->get_content_type() != 'virtual') {
 //    print_r($googlepayment->cc_shipping_methods);die;
     foreach($googlepayment->cc_shipping_methods_names as $CCSCode => $CCSName){
       foreach($googlepayment->cc_shipping_methods[$CCSCode] as $type => $methods) {
-        foreach($methods as $method => $method_name) {        
+        foreach($methods as $method => $method_name) {
           $values = explode('|', gc_compare($CCSCode . $method. $type , $carriers_config, "_CCS:", '0|0|0'));
           if($values[0] != '0') {
             $CCSoption = new GoogleCarrierCalculatedShippingOption($values[0], $CCSName, $method,$values[1], $values[2], 'REGULAR_PICKUP');
@@ -595,7 +595,7 @@ if($ship_calculation_mode == 'True') {
 }
 
 if(MODULE_PAYMENT_GOOGLECHECKOUT_3RD_PARTY_TRACKING != 'NONE') {
-// Third party tracking 
+// Third party tracking
   $tracking_attr_types = array(
                               'buyer-id' => 'buyer-id',
                               'order-id' => 'order-id',
@@ -619,7 +619,7 @@ if(MODULE_PAYMENT_GOOGLECHECKOUT_3RD_PARTY_TRACKING != 'NONE') {
   $Gcart->AddThirdPartyTracking(MODULE_PAYMENT_GOOGLECHECKOUT_3RD_PARTY_TRACKING,
                                                           $tracking_attr_types);
 }
-//Tax options	
+//Tax options
 if (sizeof($tax_class_unique) == 1 && sizeof($module_info_enabled) == sizeof($tax_class)) {
   $tax_rates_result = tep_db_query("select countries_name, coalesce(zone_code, 'All Areas') zone_code, tax_rate, countries_iso_code_2
                                  from " . TABLE_TAX_RATES . " as tr " .
@@ -643,7 +643,7 @@ if (sizeof($tax_class_unique) == 1 && sizeof($module_info_enabled) == sizeof($ta
     }
     else {
       $GDtaxRule->AddPostalArea($tax_result['countries_iso_code_2']);
-    }           
+    }
     $Gcart->AddDefaultTaxRules($GDtaxRule);
 	}
 }
@@ -653,7 +653,7 @@ else {
   $Gcart->AddDefaultTaxRules($GDtaxRule);
 }
 
-if(sizeof($tax_class_unique) > 1 || (sizeof($tax_class_unique) == 1 && 
+if(sizeof($tax_class_unique) > 1 || (sizeof($tax_class_unique) == 1 &&
    sizeof($module_info_enabled) != sizeof($tax_class) ))  {
   $Gcart->SetButtonVariant(false);
   $Gwarnings[] = GOOGLECHECKOUT_STRING_WARN_MULTIPLE_SHIP_TAX;
@@ -668,14 +668,14 @@ foreach ($tax_array as $tax_table) {
                                  " left join " . TABLE_ZONES . " as z on ztgz.zone_id=z.zone_id
                                  where tr.tax_class_id= '" . $tax_array[$i] ."'");
 	$num_rows = tep_db_num_rows($tax_rates_result);
-	
+
 	$tax_rule = array ();
   $GAtaxTable = new GoogleAlternateTaxTable((!empty($tax_name_array[$i])?$tax_name_array[$i]:'none'), 'false');
-  
+
 	for ($j = 0; $j < $num_rows; $j++) {
 		$tax_result = tep_db_fetch_array($tax_rates_result);
 		$rate = ((double) ($tax_result['tax_rate'])) / 100.0;
-  
+
     $GAtaxRule = new GoogleAlternateTaxRule($rate);
     if($tax_result['countries_iso_code_2'] == 'US') {
 
@@ -693,7 +693,7 @@ foreach ($tax_array as $tax_table) {
     $GAtaxTable->AddAlternateTaxRules($GAtaxRule);
 	}
 	$i++;
-  $Gcart->AddAlternateTaxTables($GAtaxTable);  
+  $Gcart->AddAlternateTaxTables($GAtaxTable);
 }
 
 if(!(MODULE_PAYMENT_GOOGLECHECKOUT_ANALYTICS == 'NONE')) {
@@ -701,7 +701,7 @@ if(!(MODULE_PAYMENT_GOOGLECHECKOUT_ANALYTICS == 'NONE')) {
 }
 ?>
 <div align="right">
-<?php 
+<?php
   echo '<div style="width: 180px; text-align: center;"><b>' . MODULE_PAYMENT_GOOGLECHECKOUT_TEXT_OPTION . '</b></div>';
 ?>
 </div>

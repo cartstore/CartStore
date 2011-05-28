@@ -425,13 +425,13 @@ define('ENTRY_COMPANY_TAX_ID_TEXT', '');
   define('BOX_CATALOG_PRODUCTS_WITH_IMAGES_FULL', 'view full printable catalog');
   define('IMAGE_BUTTON_UPSORT', 'Sort Asending');
   define('IMAGE_BUTTON_DOWNSORT', 'Sort Desending');
-  
-//BEGIN allprods modification  
+
+//BEGIN allprods modification
 define('BOX_INFORMATION_ALLPRODS', 'View All Products');
 define('BOX_SPECIALS_ALLPRODS', 'View all Discount Products');
 define('BOX_WHATSNEW_ALLPRODS', 'View Latest Additions');
 define('HEADER_TITLE_ALLPRODS', 'All Products');
-//END allprods modification  
+//END allprods modification
 //begin add receipt
 define ('IMAGE_BUTTON_PRINT_ORDER', 'Print order');
 //end add receipt
@@ -450,7 +450,7 @@ define('ERROR_DESTINATION_DOES_NOT_EXIST', 'Error: destination does not exist.')
  // rss_news box text in includes/boxes/rss_news.php
 define('BOX_HEADING_RSS_NEWS', 'RSS News');
 
-			
+
 // year make model
 define('BOX_HEADING_MAKE_MODEL_YEAR', 'Select Vehicle');
 
@@ -458,4 +458,5 @@ define('BOX_HEADING_MAKE_MODEL_YEAR', 'Select Vehicle');
 define('ENTRY_STREET_ADDRESS_2', 'Street Address Line 2:');
 define('ENTRY_STREET_ADDRESS_TEXT_2', '');
 // :Second Address Field mod
+define('RECAPTCHA_ERROR_MSG',"The reCAPTCHA wasn't entered correctly. Try it again.");
 ?>

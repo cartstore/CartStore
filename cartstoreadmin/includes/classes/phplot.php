@@ -40,7 +40,8 @@ class PHPlot{
 //Fonts
 	var $use_ttf  = 0;		  //Use TTF fonts (1) or not (0)
 	var $font_path = './';  //To be added
-	var $font = './benjamingothic.ttf';
+    //var $font = './benjamingothic.ttf';
+    var $font = 2;
 
 	///////////Fonts: Small/Generic
 	var $small_ttffont_size = 12; //
@@ -50,14 +51,16 @@ class PHPlot{
 	var $small_font_height = 8.0; // height in pixels (2=8,3=10,4=12)
 
 	//////////   Fonts:Title
-	var $title_ttffont = './benjamingothic.ttf';
+    //var $title_ttffont = './benjamingothic.ttf';
+    var $title_ttffont = 2;
 	var $title_ttffont_size = 14;
 	var $title_angle= 0;
 	//non-ttf
 	var $title_font = '4'; // fonts = 1,2,3,4,5
 
 	//////////////  Fonts:Axis
-	var $axis_ttffont = './benjamingothic.ttf';
+    //var $axis_ttffont = './benjamingothic.ttf';
+    var $axis_ttffont = 2;
 	var $axis_ttffont_size = 8;
 	var $x_datalabel_angle = 0;
 	//non-ttf
@@ -67,11 +70,13 @@ class PHPlot{
 	var $datalabel_font = '2';
 
 	//////////////// Fonts:Labels (Axis Titles)
-	var $x_label_ttffont = './benjamingothic.ttf';
+    //var $x_label_ttffont = './benjamingothic.ttf';
+    var $x_label_ttffont = 2;
 	var $x_label_ttffont_size = '12';
 	var $x_label_angle = '0';
 
-	var $y_label_ttffont = './benjamingothic.ttf';
+    //var $y_label_ttffont = './benjamingothic.ttf';
+    var $y_label_ttffont = 2;
 	var $y_label_ttffont_size = '12';
 	var $y_label_angle = 90;
 	var $y_label_width = '';
@@ -675,7 +680,7 @@ class PHPlot{
 				$which_ypos = $which_ypos - ImageFontHeight($which_font);
 			}
 			$which_text = preg_replace("/\r/","",$which_text);
-			$str = split("\n",$which_text); //multiple lines submitted by Remi Ricard
+			$str = explode("\n",$which_text); //multiple lines submitted by Remi Ricard
 			$height = ImageFontHeight($which_font);
 			$width = ImageFontWidth($which_font);
 			if ($which_angle == 90) {  //Vertical Code Submitted by Marlin Viss
@@ -779,7 +784,7 @@ class PHPlot{
 	function SetPlotType($which_pt) {
 		$accepted = "bars,lines,linepoints,area,points,pie,thinbarline";
 		$asked = trim($which_pt);
-		if (preg_replace("/$asked/i", $accepted)) {
+		if (preg_match("/$asked/i", $accepted)) {
 			$this->plot_type = $which_pt;
 			return true;
 		} else {
@@ -936,7 +941,7 @@ class PHPlot{
 		// It thus depends on the current character size, set by SetCharacterHeight().
 		/////////////////////////////////////////////////////////////////
 
-		$str = split("\n",$this->title_txt);
+		$str = explode("\n",$this->title_txt);
 		$nbLines = count($str);
 
 		if ($this->use_ttf == 1) {

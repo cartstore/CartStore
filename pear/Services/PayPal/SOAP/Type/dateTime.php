@@ -32,7 +32,7 @@ class SOAP_Type_dateTime
         #"(Z|[+\-][0-9]{4}|[+\-][0-9]{2}:[0-9]{2})?"; // Z to indicate UTC, -/+HH:MM:SS.SS... for local tz's
         # if no 8th reg (Z) assumes UTC
     var $timestamp = -1;
-    
+
     function SOAP_Type_dateTime($date = -1)
     {
         if ($date == -1) $date = time();
@@ -43,12 +43,12 @@ class SOAP_Type_dateTime
             $this->timestamp = $this->toUnixtime($date);
         }
     }
-    
+
     function toSOAP($date = NULL)
     {
         return $this->toUTC($date);
     }
-    
+
     function toString($timestamp = 0)
     {
         if (!$timestamp) $timestamp = $this->timestamp;
@@ -56,15 +56,15 @@ class SOAP_Type_dateTime
 
         return date('Y-m-d\TH:i:sO',$timestamp);
     }
-    
+
     function _split($datestr)
     {
         if (!$datestr)
             $datestr = $this->toString();
         else if (gettype($datestr) == 'integer')
             $datestr = $this->toString($datestr);
-            
-        if (ereg($this->ereg_iso8601,$datestr,$regs)) {
+
+        if (preg_match("/".$this->ereg_iso8601."/",$datestr,$regs)) {
             if ($regs[8] != '' && $regs[8] != 'Z') {
                 $op = substr($regs[8],0,1);
                 $h = substr($regs[8],1,2);
@@ -89,7 +89,7 @@ class SOAP_Type_dateTime
         }
         return FALSE;
     }
-    
+
     function toUTC($datestr = NULL)
     {
         $regs = $this->_split($datestr);
@@ -123,7 +123,7 @@ class SOAP_Type_dateTime
         if ($date1 != -1 && $date2 != -1) return $date1 - $date2;
         return -1;
     }
-    
+
     function _test($orig = '2001-04-25T09:31:41-0700')
     {
         $utc = $this->toUTC($orig);

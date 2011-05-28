@@ -68,7 +68,7 @@
         while ($attributes = tep_db_fetch_array($attributes_query)) {
           $this->contents[$products['products_id']]['attributes'][$attributes['products_options_id']] = $attributes['products_options_value_id'];
           //CLR 020606 if text attribute, then set additional information
-		  
+
           if ($attributes['products_options_value_id'] == PRODUCTS_OPTIONS_VALUE_TEXT_ID) {
             $this->contents[$products['products_id']]['attributes_values'][$attributes['products_options_id']] = $attributes['products_options_value_text'];
           }
@@ -102,7 +102,7 @@
       $pf = new PriceFormatter;
       $pf->loadProduct($products_id, $languages_id);
       $qty = $pf->adjustQty($qty);
-      
+
       // EOF Separate Pricing Per Customer, Price Break 1.11.3 modification
 
       $products_id = tep_get_uprid($products_id, $attributes);
@@ -294,7 +294,7 @@ function calculate() {
     //    $product_query = tep_db_query("select products_id, products_price, products_tax_class_id, products_weight from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
 
     //    if ($product = tep_db_fetch_array($product_query)) {
-        if ($product = $pf->loadProduct($products_id, $languages_id)){	    
+        if ($product = $pf->loadProduct($products_id, $languages_id)){
           $prid = $product['products_id'];
          $products_tax = tep_get_tax_rate($product['products_tax_class_id']);
   //        $products_price = $product['products_price'];
@@ -317,12 +317,12 @@ function calculate() {
           reset($this->contents[$products_id]['attributes']);
           while (list($option, $value) = each($this->contents[$products_id]['attributes'])) {
 		   if ($value == 0) {
-		  
+
             $attribute_price_query = tep_db_query("select options_values_price, price_prefix from " . TABLE_PRODUCTS_ATTRIBUTES . " where products_id = '" . (int)$prid . "' and options_id = '" . (int)$option . "'");
 			}
 			else
 			{
-			
+
 			 $attribute_price_query = tep_db_query("select options_values_price, price_prefix from " . TABLE_PRODUCTS_ATTRIBUTES . " where products_id = '" . (int)$prid . "' and options_id = '" . (int)$option . "' and options_values_id = '" . (int)$value . "'");
 			}
             $attribute_price = tep_db_fetch_array($attribute_price_query);
@@ -416,8 +416,8 @@ function calculate() {
         if (isset($this->contents[$products_id]['attributes'])) {
           reset($this->contents[$products_id]['attributes']);
           foreach ($this->contents[$products_id]['attributes'] as $option => $value) {
-		  
-		  
+
+
             $attribute_price_query = tep_db_query("select options_values_price,
                                                           price_prefix
                                                    from " . TABLE_PRODUCTS_ATTRIBUTES . "
@@ -452,7 +452,7 @@ function calculate() {
 		{
 		 $attribute_price_query = tep_db_query("select options_values_price, price_prefix from " . TABLE_PRODUCTS_ATTRIBUTES . " where products_id = '" . (int)$products_id . "' and options_id = '" . (int)$option . "' and options_values_id = '" . (int)$value . "'");
 		}
-         
+
           $attribute_price = tep_db_fetch_array($attribute_price_query);
           if ($attribute_price['price_prefix'] == '+') {
             $attributes_price += $attribute_price['options_values_price'];
@@ -470,7 +470,7 @@ function get_products() {
 // BOF Separate Pricing Per Customer v4, Price Break 1.11.3 modification
       if (!is_array($this->contents)) return false;
       $pf = new PriceFormatter;
-      
+
       $products_array = array();
       reset($this->contents);
       while (list($products_id, ) = each($this->contents)) {
@@ -487,7 +487,7 @@ function get_products() {
 
 	  if ($products = $pf->loadProduct($products_id, $languages_id)) {
           $products_price = $pf->computePrice($this->contents[$products_id]['qty']);
-// EOF Separate Pricing Per Customer v4, Price Break 1.11.3 modification	  
+// EOF Separate Pricing Per Customer v4, Price Break 1.11.3 modification
           $products_array[] = array('id' => $products_id,
                                     'name' => $products['products_name'],
                                     'model' => $products['products_model'],
@@ -562,7 +562,7 @@ function get_products() {
                 }
               }
             }
-			
+
 			// ############ Added CCGV Contribution ##########
           } elseif ($this->show_weight() == 0) {
             reset($this->contents);
@@ -655,7 +655,7 @@ function get_products() {
           $no_count = false;
           $gv_query = tep_db_query("select products_model from " . TABLE_PRODUCTS . " where products_id = '" . $products_id . "'");
           $gv_result = tep_db_fetch_array($gv_query);
-          if (ereg('^GIFT', $gv_result['products_model'])) {
+          if (preg_match('/^GIFT/', $gv_result['products_model'])) {
             $no_count=true;
           }
           if (NO_COUNT_ZERO_WEIGHT == 1) {

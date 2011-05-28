@@ -16,24 +16,24 @@
 
 	Version 1.2b Patch
 	Changes/Fixes
-	----------------	
+	----------------
   1. More filtering on XML data. A line like richmond µ + &, Virginia 123455 µ + will work after filtering.
 
 	Extended by Jared De Blander and James Ballenger of IOFAST.com
 	Version 1.2a Patch
 	Changes/Fixes
-	----------------	
+	----------------
 	1.  Changed SALE transaction to POSTAUTH. SALE / PREAUTH creates 2 sets of 'charges' on a credit card even though the first charge (PREAUTH) is not actually completed. When speaking with LinkPoint initially they did not state that this methodology would create two seperate charges.
-	2.  Mail outbound data w/ vital CC details removed to store owner for debugging. 
-	3.  RFC Time/Date stamp subject lines for inbound and outbound data emails 
+	2.  Mail outbound data w/ vital CC details removed to store owner for debugging.
+	3.  RFC Time/Date stamp subject lines for inbound and outbound data emails
 
 	Extended by Jared De Blander and James Ballenger of IOFAST.com
 	Version 1.2 Patch
 	Changes/Fixes
-	----------------	
+	----------------
 	1.  Most of the bulk code changes occur around lines 289-355.
 	2.  Preauth verifictaion is now FORCED and CHECKED before a SALE is processed. If preauth passes, sale will be automatically processed. The linkpoint panel will show your preauth and sale events.
-	3.  If preauth fails detailed error descriptions are given to the user based on the AVS/CVV & Expiration return code from the preauth. 
+	3.  If preauth fails detailed error descriptions are given to the user based on the AVS/CVV & Expiration return code from the preauth.
 	4.  Name is still pulled from BILLING info and is therefore pointless to have a card holder name so the text box was removed.
 	5.  Commented out line 254 to prevent linkpoint from sending unecessary automated receipts to customers
 	6.  Commented out line 71 and 74-77. The JavaScript to handle card name is not needed as it was never used.
@@ -41,7 +41,7 @@
 	8.  Store owner email address receives an email containing the preauth response values. See line 302 to change this.
 	9.  Added a spot for you to put a CVV helper popup. Feel free to use the images from iofast.com. See line 108.
 	10. Filter & symbol in company name as it is not allowed by linkpoint. They claimed to be getting us a full list of disallowed symbols but never heard back from them.
-	11. Cleaned up and properly formatted most of the code using tab spacing.	
+	11. Cleaned up and properly formatted most of the code using tab spacing.
 */
   class linkpoint_api {
     var $code, $title, $description, $enabled, $cc_type, $transtype, $transmode, $zipcode, $states, $bstate, $sstate;
@@ -64,8 +64,8 @@
 		function filterLinkPoint($strToFilter){
 			$strToFilter=str_replace("&", " and ", $strToFilter);
 			$strToFilter=str_replace("µ", "u", $strToFilter);
-			
-			return $strToFilter; 
+
+			return $strToFilter;
 		}
 
     function update_status() {
@@ -112,7 +112,7 @@
         $expires_month[] = array('id' => sprintf('%02d', $i), 'text' => strftime('%m - %B',mktime(0,0,0,$i,1,2000)));
       }
 
-      $today = getdate(); 
+      $today = getdate();
       for ($i=$today['year']; $i < $today['year']+10; $i++) {
         $expires_year[] = array('id' => strftime('%y',mktime(0,0,0,1,1,$i)), 'text' => strftime('%Y',mktime(0,0,0,1,1,$i)));
       }
@@ -190,7 +190,7 @@
 			tep_draw_hidden_field('userid', $customer_id) .
 			tep_draw_hidden_field('cc_cvv', $this->cc_cvm);
 			//                               tep_draw_hidden_field('cc_cvv', $_POST['cc_cvmvalue']);
-			
+
 			if ($order->billing['country']['iso_code_2'] == 'US') {
 				$this->bstate = $this->states[strtoupper($order->billing['state'])];
 				if ($this->bstate == '') {
@@ -199,8 +199,8 @@
 				$process_button_string .= tep_draw_hidden_field('bstate', $this->bstate);
 			} else {
 				$process_button_string .= tep_draw_hidden_field('bstate', $order->billing[state]);
-			}	
-			
+			}
+
 			if ($order->delivery['country']['iso_code_2'] == 'US') {
 				$this->sstate = $this->states[strtoupper($order->delivery['state'])];
 				if ($this->sstate == '') {
@@ -209,43 +209,43 @@
 				$process_button_string .= tep_draw_hidden_field('sstate', $this->sstate);
 			} else {
 				$process_button_string .= tep_draw_hidden_field('sstate', $order->delivery[state]);
-			}			
+			}
 			return $process_button_string;
 		}
 
 		function before_process() {
 			global $_POST, $_SERVER, $order, $cart, $db, $lp_response_array, $lp_order_id;
-			
+
 			require(DIR_FS_CATALOG . DIR_WS_MODULES . 'payment/linkpoint_api/lphp.php');
-			
+
 			$order->info['cc_type'] = $_POST['cc_type'];
 			$order->info['cc_owner'] = $_POST['cc_owner'];
 			$order->info['cc_cvv'] = $_POST['cc_cvv'];
-			
+
 			$mylphp = new lphp;
-			
+
 			// Build Info to send to Gateway
-			
+
 			$myorder["host"]       = MODULE_PAYMENT_LINKPOINT_API_SERVER;
 			$myorder["port"]       = "1129";
 			$myorder["keyfile"]=(DIR_FS_CATALOG. DIR_WS_MODULES . 'payment/linkpoint_api/' . MODULE_PAYMENT_LINKPOINT_API_LOGIN . '.pem');
 			$myorder["configfile"] = MODULE_PAYMENT_LINKPOINT_API_LOGIN;        // Store number
-			
+
 			$myorder["ordertype"]  = strtoupper(MODULE_PAYMENT_LINKPOINT_API_AUTHORIZATION_MODE);
-			
+
 			switch (MODULE_PAYMENT_LINKPOINT_API_TRANSACTION_MODE_RESPONSE) {
 				case "Live": $myorder["result"] = "LIVE"; break;
 				case "Test": $myorder["result"] = "GOOD"; break;
 				case "Decline": $myorder["result"] = "DECLINE"; break;
 			}
-	
+
 			$myorder["transactionorigin"] = "ECI";           // For credit card retail txns, set to RETAIL, for Mail order/telephone order, set to MOTO, for e-commerce, leave out or set to ECI
 			//	$myorder["oid"]               = "";  // Order ID number must be unique. If not set, gateway will assign one.
 			$myorder["ponumber"]          = "1002";  // Needed for business credit cards
 			$myorder["taxexempt"]         = "Y";  // Needed for business credit cards
 			$myorder["terminaltype"]      = "UNSPECIFIED";    // Set terminaltype to POS for an electronic cash register or integrated POS system, STANDALONE for a point-of-sale credit card terminal, UNATTENDED for a self-service station, or UNSPECIFIED for e-commerce or other applications
 			$myorder["ip"]                = $_SERVER['REMOTE_ADDR'];
-			
+
 			//	$myorder["subtotal"]    = $order->info['subtotal'];
 			//	$myorder["tax"]         = $order->info['tax'];
 			//	$myorder["shipping"]    = $order->info['shipping_cost'];
@@ -263,7 +263,7 @@
 				$myorder["cvmindicator"] = "provided";
 			}
 			$myorder["cvmvalue"]  = $_POST['cc_cvv'];
-			
+
 			// BILLING INFO
 			$myorder["userid"]   = $_POST['userid'];
 			$myorder["name"]     = $this->filterLinkPoint($order->billing['firstname'] . ' ' . $order->billing['lastname']);
@@ -277,7 +277,7 @@
 			//	$myorder["email"]    = $order->customer['email_address'];  //Prevents email address from being sent to linkpoint because they will use it to send an automated receipt to the customer that is uncessary based on the osCommerce system
 			$myorder["addrnum"]  = $this->filterLinkPoint($order->billing['street_address']);   // Required for AVS. If not provided, transactions will downgrade.
 			$myorder["zip"]      = $this->filterLinkPoint($order->billing['postcode']);  // Required for AVS. If not provided, transactions will downgrade.
-			
+
 			// SHIPPING INFO
 			$myorder["sname"]     = $this->filterLinkPoint($order->delivery['firstname'] . ' ' . $order->delivery['lastname']);
 			$myorder["saddress1"] = $this->filterLinkPoint($order->delivery['street_address']);
@@ -286,9 +286,9 @@
 			$myorder["sstate"]    = $this->filterLinkPoint($_POST['sstate']);
 			$myorder["szip"]      = $this->filterLinkPoint($order->delivery['postcode']);
 			$myorder["scountry"]  = $this->filterLinkPoint($order->delivery['country']['iso_code_2']);
-			
+
 			// description needs to be limited to 100 chars
-			for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {    
+			for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
 				$api = htmlentities($this->filterLinkPoint($order->products[$i]['name']), ENT_QUOTES, 'UTF-8');
 				if (strlen($api) > '100') {
 					$descrip = substr($api, 0, 100);
@@ -300,11 +300,11 @@
 					'id' 			=> $order->products[$i]['id'],
 					'description' 	=> $descrip,
 					'quantity' 		=> $order->products[$i]['qty'],
-					'price'		=> str_replace(",", "", $iprice) 
+					'price'		=> str_replace(",", "", $iprice)
 				);
 				$myorder["items"][$i] = $items;
 			}
-			
+
 			// MISC
 			//	$myorder["comments"] = "Repeat customer. Ship immediately.";
 			$myorder["debugging"] = strtolower(MODULE_PAYMENT_LINKPOINT_API_DEBUG);  // for development only - not intended for production use
@@ -315,7 +315,7 @@
 
 			//BEGIN MAIL OUTBOUND DATA change for 1.2a
 			$debugoutputorder=$myorder;
-			
+
 			$debugoutputorder["cardnumber"] =    "REMOVED";
 			$debugoutputorder["cvmvalue"] =      "REMOVED";
 			$debugoutputorder["cardexpmonth"] =  "REMOVED";
@@ -326,7 +326,7 @@
 				$myoutput .= "$key = $value\n";
 			}
 			$myoutput .= "\n\nItems\n--------\n\n";
-			
+
 			for ($i=0, $n=sizeof($debugoutputorder["items"]); $i<$n; $i++) {
 				while (list($key, $value) = each($debugoutputorder["items"][$i]))
 				{
@@ -334,21 +334,21 @@
 				}
 				$myoutput .= "\n";
 			}
-			mail(STORE_OWNER_EMAIL_ADDRESS, "CC DEBUG OUTBOUND ".date('r'), $myoutput);   
+			mail(STORE_OWNER_EMAIL_ADDRESS, "CC DEBUG OUTBOUND ".date('r'), $myoutput);
 			//END MAIL OUTBOUND DATA
-			
-			
+
+
 			// Send PREAUTH transaction.
 			$result = $mylphp->curl_process($myorder);  // use curl methods
-		
-		
+
+
 			$myresult='';
 			while (list($key, $value) = each($result))
 			{
 				$myresult .= "$key = $value\n";
 			}
-			mail(STORE_OWNER_EMAIL_ADDRESS, "CC DEBUG INBOUND ".date('r'), $myresult);   
-			
+			mail(STORE_OWNER_EMAIL_ADDRESS, "CC DEBUG INBOUND ".date('r'), $myresult);
+
 			//perform verification work
 			if($result["r_avs"][1]=="N" || $result["r_avs"][3]=="N" || $result["r_approved"] == "DECLINED")
 			//if ($result["r_approved"] == "DECLINED")
@@ -356,20 +356,20 @@
 				$myerrdisplay='';
 				if($result["r_approved"] == "DECLINED")
 				{
-					$newerr=split(":",$result["r_error"]);
-					
+					$newerr=explode(":",$result["r_error"]);
+
 					//what happened w/ Address
 					if($newerr[3][0]=="N")
 						$myerrdisplay.='Address did not match. ';
 					else
 						$myerrdisplay.='Address verified. ';
-			
+
 					//what happened w/ Zip
 					if($newerr[3][1]=="N")
 						$myerrdisplay.='Zip did not match. ';
 					else
 						$myerrdisplay.='Zip verified. ';
-						
+
 					//what happened w/ CVV
 					if($newerr[3][3]=="N")
 						$myerrdisplay.='CVV or Expiration did not match. ';
@@ -381,38 +381,38 @@
 						$myerrdisplay.='Address did not match. ';
 					else
 						$myerrdisplay.='Address verified. ';
-			
+
 					//what happened w/ Zip
 					if($result["r_avs"][1]=="N")
 						$myerrdisplay.='Zip did not match. ';
 					else
 						$myerrdisplay.='Zip verified. ';
-						
+
 					//what happened w/ CVV
 					if($result["r_avs"][3]=="N")
 						$myerrdisplay.='CVV or Expiration did not match. ';
 					else
 						$myerrdisplay.='CVV and Expiration verified. ';
 				}
-		
-				tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, 'error_message=PREAUTHORIZATION FAILED - ' . urlencode($myerrdisplay. ' Please contact us by phone to process this order.'), 'SSL', true, false));	
+
+				tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, 'error_message=PREAUTHORIZATION FAILED - ' . urlencode($myerrdisplay. ' Please contact us by phone to process this order.'), 'SSL', true, false));
 			}
-			
+
 			//if OK do this stuff
 			$realorder["ordertype"] = "POSTAUTH";					//CHANGE FOR 1.2a
 			$realorder["oid"]  = $result["r_ordernum"];		//CHANGE FOR 1.2a
-			
+
 			// Send the SALE transaction.
 			$result = $mylphp->curl_process($realorder);  // use curl methods
 
 			// - SGS-000001: D:Declined:P:
 			//- SGS-005005: Duplicate transaction.
 			//	Begin Transaction Status does not = APPROVED
-			
+
 			if ($myorder['debugging'] == 'true') {
 				exit;
 			}
-			
+
 			if ($result["r_approved"] != "APPROVED" && strstr($result['r_error'], 'D:Declined')) {
 				tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, 'error_message=' . ' - ' . urlencode(MODULE_PAYMENT_LINKPOINT_API_TEXT_DECLINED_MESSAGE), 'SSL', true, false));
 			}
@@ -421,7 +421,7 @@
 			}
 			if ($result["r_approved"] != "APPROVED" && strstr($result['r_error'], 'Duplicate transaction')) {
 				tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, 'error_message=' . ' - ' . urlencode(MODULE_PAYMENT_LINKPOINT_API_TEXT_DUPLICATE_MESSAGE), 'SSL', true, false));
-			} 
+			}
 			if ($result["r_approved"] != "APPROVED" && strstr($result['r_error'], 'SGS')) {
 				tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, 'error_message=' . ' - ' . urlencode($result["r_error"]), 'SSL', true, false));
 			}
@@ -434,7 +434,7 @@
 		function after_process() {
 			return false;
 		}
-    
+
 		function get_error() {
 			global $_GET;
 			$error = array('title' => MODULE_PAYMENT_LINKPOINT_API_TEXT_ERROR,
@@ -461,7 +461,7 @@
 			tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, use_function, set_function, date_added) values ('Payment Zone', 'MODULE_PAYMENT_LINKPOINT_API_ZONE', '0', 'If a zone is selected, only enable this payment method for that zone.', '6', '2', 'tep_get_zone_class_title', 'tep_cfg_pull_down_zone_classes(', now())");
 			tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, use_function, date_added) values ('Set Order Status', 'MODULE_PAYMENT_LINKPOINT_API_ORDER_STATUS_ID', '0', 'Set the status of orders made with this payment module to this value', '6', '0', 'tep_cfg_pull_down_order_statuses(', 'tep_get_order_status_name', now())");
 		}
-    
+
 		function remove() {
 			tep_db_query("delete from " . TABLE_CONFIGURATION . " where configuration_key in ('" . implode("', '", $this->keys()) . "')");
 		}

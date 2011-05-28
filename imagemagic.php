@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
   if (file_exists('includes/local/configure.php')) {
 
       include_once('includes/local/configure.php');
@@ -11,6 +7,8 @@
 
       require_once('includes/configure.php');
   }
+
+
   require('includes/imagemagic/imagemagic.functions.php');
   chdir(DIR_FS_CATALOG);
 
@@ -42,6 +40,7 @@
       $cache_update = true;
   }
 
+  $page_prefix = '';
   if ($_GET['w'] == SMALL_IMAGE_WIDTH || $_GET['h'] == SMALL_IMAGE_HEIGHT)
       $thumbnail_size = 1;
   elseif ($_GET['w'] == HEADING_IMAGE_WIDTH || $_GET['h'] == HEADING_IMAGE_HEIGHT)

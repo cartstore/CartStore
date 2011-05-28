@@ -20,9 +20,9 @@ function popUp(url) {
 <link rel="stylesheet" type="text/css" href="<?php
   echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
 ?>../templates/system/fancybox/jquery.fancybox.css" media="screen" />
-<link href="<?php
+<!--<link href="<?php
   echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
-?>ckfinder/sample.css" rel="stylesheet" type="text/css" />
+?>ckfinder/sample.css" rel="stylesheet" type="text/css" />-->
 <script type="text/javascript" src="<?php
   echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
 ?>includes/animatedcollapse.js"></script>
@@ -1084,5 +1084,5 @@ function popUp(url) {
   if ($messageStack->size > 0) {
       echo $messageStack->output();
   }
-  
+
 ?>

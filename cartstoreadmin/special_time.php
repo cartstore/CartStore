@@ -21,7 +21,7 @@
         $slotid = tep_db_prepare_input($_POST['slotid']);
         $cost = tep_db_prepare_input($_POST['cost']);
         $max_limit = tep_db_prepare_input($_POST['max_limit']);
-        
+
         tep_db_query("insert into sw_emargengency_delivery_time (delv_date, slotid, em_cost, em_max_limit) values ('" . tep_db_input($delv_date) . "', '" . tep_db_input($slotid) . "', '" . tep_db_input($cost) . "', '" . (int)$max_limit . "')");
 
         tep_redirect(tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME));
@@ -30,7 +30,7 @@
         $id = tep_db_prepare_input($_GET['cID']);
         $cost = tep_db_prepare_input($_POST['em_cost']);
         $max = tep_db_prepare_input($_POST['em_max_limit']);
-       
+
 	      tep_db_query("update sw_emargengency_delivery_time set em_cost = '" . tep_db_input($cost) . "', em_max_limit = '" . tep_db_input($max) . "' where id = '" . (int)$id . "'");
 
         tep_redirect(tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'].'&cID=' . $id));
@@ -41,14 +41,14 @@
         tep_db_query("delete from sw_emargengency_delivery_time where id = '" . (int)$id . "'");
 		 tep_redirect(tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page']));
         break;
-		
-      
+
+
     }
   }
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,7 +69,7 @@
     </table></td>
 <!-- body_text //-->
     <td width="100%" valign="top">
-   
+
 
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
       <tr>
@@ -87,7 +87,7 @@
               <tr class="dataTableHeadingRow">
 			  	 <td width="151" class="dataTableHeadingContent"><?php echo TABLE_HEADING_DATE; ?></td>
                 <td width="122" class="dataTableHeadingContent"><?php echo TABLE_HEADING_SLOT; ?></td>
-               
+
                 <td class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_MAX_LIMIT; ?></td>
                 <td width="227" align="right" class="dataTableHeadingContent"><?php echo TABLE_HEADING_ACTION; ?>&nbsp;</td>
               </tr>
@@ -108,10 +108,10 @@
       echo '                  <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'].'&cID=' . $delivery_time['id']) . '\'">' . "\n";
     }
 ?>
-				
+
 				 <td class="dataTableContent"><?php echo $delivery_time['delv_date']; ?></td>
                 <td class="dataTableContent"><?php echo $delivery_time['slot']; ?></td>
-               
+
                 <td class="dataTableContent" align="center" width="156"><?php echo $delivery_time['em_max_limit']; ?></td>
                 <td class="dataTableContent" align="right"><?php if (isset($cInfo) && is_object($cInfo) && ($delivery_time['id'] == $cInfo->id) ) { echo tep_image(DIR_WS_IMAGES . 'icon_arrow_right.gif', ''); } else { echo '<a href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'].'&cID=' . $delivery_time['id']) . '">' . tep_image(DIR_WS_IMAGES . 'icon_info.gif', IMAGE_ICON_INFO) . '</a>'; } ?>&nbsp;</td>
               </tr>
@@ -135,7 +135,7 @@
 ?>
                 </table></td>
               </tr>
-           
+
             </table></td>
 <?php
   $heading = array();
@@ -152,19 +152,19 @@
       $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_UPDATE) . '&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id) . '">' .  IMAGE_CANCEL. '</a>');
       break;
   	  case 'new':
-	   $d_date = split("[-]", date('Y-m-d'));
+	   $d_date = explode("[-]", date('Y-m-d'));
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_NEW_EMERGENCY_TIME . '</b>');
 
       $contents = array('form' => tep_draw_form('countries', FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&action=insert'));
-     
-      $contents[] = array('text' => '<br>' . TABLE_HEADING_DATE . '<br>'.tep_draw_date_selector('d_date', mktime(0,0,0, $d_date[1], $d_date[2], $d_date[0], 0)));
+
+      $contents[] = array('text' => '<br>' . TABLE_HEADING_DATE . '<br>'.tep_draw_date_selector('d_date', mktime(0,0,0, $d_date[1], $d_date[2], $d_date[0])));
       $contents[] = array('text' => '<br>' . TABLE_HEADING_SLOT . '<br>' . tep_draw_pull_down_menu('slotid', tep_get_time_slots()));
     $costs = array();
     $costs[0] = array('id' => 0, 'text' =>'FREE');
 	$costs[1] = array('id' => 1, 'text' =>'1');
 	$costs[2] = array('id' => 3, 'text' =>'3');
 	$costs[3] = array('id' => 5, 'text' =>'5');
-  	 
+
       $contents[] = array('text' => '<br>' . TABLE_HEADING_MAX_LIMIT . '<br>' . tep_draw_input_field('max_limit'));
       $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . '&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page']) . '">' . IMAGE_CANCEL . '</a>');
       break;
@@ -172,7 +172,7 @@
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_EDIT_DELIVERY . '</b>');
 
       $contents = array('form' => tep_draw_form('delivery', FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'].'&cID=' . $cInfo->id . '&action=save'));
-     
+
       $contents[] = array('text' => '<br>' . TABLE_HEADING_DATE . '<br>' . $cInfo->delv_date);
 	 $contents[] = array('text' => '<br>' . TABLE_HEADING_SLOT . '<br>' . $cInfo->slot);
 	  $costs = array();
@@ -180,8 +180,8 @@
 	$costs[1] = array('id' => 1, 'text' =>'1');
 	$costs[2] = array('id' => 3, 'text' =>'3');
 	$costs[3] = array('id' => 5, 'text' =>'5');
-   
-	  
+
+
       $contents[] = array('text' => '<br>' . TEXT_INFO_EDIT_MAX_LIMIT . '<br>' . tep_draw_input_field('em_max_limit', $cInfo->em_max_limit));
           $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_update.gif', IMAGE_UPDATE) . '&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
@@ -190,9 +190,9 @@
         $heading[] = array('text' => '<b>' .$cInfo->delv_date.'('.$cInfo->slot . ')</b>');
 
         $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'] . '&cID=' . $cInfo->id . '&action=edit') . '">' .IMAGE_EDIT . '</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
-              
+
       }
-      break; 
+      break;
   }
 
  if ( (tep_not_null($heading)) && (tep_not_null($contents)) ) {
@@ -202,7 +202,7 @@
     echo $box->infoBox($heading, $contents);
 
     echo '            </td>' . "\n";
-  } 
+  }
 ?>
           </tr>
         </table></td>

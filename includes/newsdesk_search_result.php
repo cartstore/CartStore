@@ -93,9 +93,9 @@ if ($error == 1) {
 } else {
 
 	$breadcrumb->add(NAVBAR_HOME, tep_href_link(FILENAME_NEWSDESK_INDEX, '', 'NONSSL'));
-	$breadcrumb->add(NAVBAR_TITLE2, tep_href_link(FILENAME_NEWSDESK_SEARCH_RESULT, 'keywords=' . $_GET['keywords'] 
-	. '&search_in_description=' . $_GET['search_in_description'] . '&categories_id=' . $_GET['categories_id'] 
-	. '&inc_subcat=' . $_GET['inc_subcat'] . '&pfrom=' 
+	$breadcrumb->add(NAVBAR_TITLE2, tep_href_link(FILENAME_NEWSDESK_SEARCH_RESULT, 'keywords=' . $_GET['keywords']
+	. '&search_in_description=' . $_GET['search_in_description'] . '&categories_id=' . $_GET['categories_id']
+	. '&inc_subcat=' . $_GET['inc_subcat'] . '&pfrom='
 	. $_GET['pfrom'] . '&pto=' . $_GET['pto'] . '&dfrom=' . $_GET['dfrom'] . '&dto=' . $_GET['dto']));
 ?>
 
@@ -199,20 +199,20 @@ if ($select_column_list != '') {
 	$select_column_list .= ', ';
 }
 
-$select_str = "select distinct " . $select_column_list . " p.newsdesk_id, p.newsdesk_date_added, pd.newsdesk_article_name, 
+$select_str = "select distinct " . $select_column_list . " p.newsdesk_id, p.newsdesk_date_added, pd.newsdesk_article_name,
 pd.newsdesk_article_description, pd.newsdesk_article_shorttext ";
 
-$from_str = "from " . TABLE_NEWSDESK . " p, " . TABLE_NEWSDESK_DESCRIPTION . " pd, " 
+$from_str = "from " . TABLE_NEWSDESK . " p, " . TABLE_NEWSDESK_DESCRIPTION . " pd, "
 . TABLE_NEWSDESK_CATEGORIES . " c, " . TABLE_NEWSDESK_TO_CATEGORIES . " p2c";
 
-$where_str = " where p.newsdesk_status = '1' and p.newsdesk_id = pd.newsdesk_id and pd.language_id = '" . $languages_id . "' and 
+$where_str = " where p.newsdesk_status = '1' and p.newsdesk_id = pd.newsdesk_id and pd.language_id = '" . $languages_id . "' and
 p.newsdesk_id = p2c.newsdesk_id and p2c.categories_id = c.categories_id ";
 
 if ($_GET['categories_id']) {
 	if ($_GET['inc_subcat'] == "1") {
 		$subcategories_array = array();
 		newsdesk_get_subcategories($subcategories_array, $_GET['categories_id']);
-		$where_str .= " and p2c.newsdesk_id = p.newsdesk_id and p2c.newsdesk_id = pd.newsdesk_id and (p2c.categories_id = '" 
+		$where_str .= " and p2c.newsdesk_id = p.newsdesk_id and p2c.newsdesk_id = pd.newsdesk_id and (p2c.categories_id = '"
 		. $_GET['categories_id'] . "'";
 
 		for ($i=0; $i<sizeof($subcategories_array); $i++ ) {
@@ -220,7 +220,7 @@ if ($_GET['categories_id']) {
 		}
 		$where_str .= ")";
 	} else {
-		$where_str .= " and p2c.newsdesk_id = p.newsdesk_id and p2c.newsdesk_id = pd.newsdesk_id and pd.language_id = '" 
+		$where_str .= " and p2c.newsdesk_id = p.newsdesk_id and p2c.newsdesk_id = pd.newsdesk_id and pd.language_id = '"
 		. $languages_id . "' and p2c.categories_id = '" . $_GET['categories_id'] . "'";
 	}
 }
@@ -238,10 +238,10 @@ if ($_GET['keywords']) {
 			break;
 			default:
 $where_str .= "
-(pd.newsdesk_article_name like '%" . AddSlashes($search_keywords[$i]) . "%' or 
-pd.newsdesk_article_shorttext like '%" . AddSlashes($search_keywords[$i]) . "%' or 
+(pd.newsdesk_article_name like '%" . AddSlashes($search_keywords[$i]) . "%' or
+pd.newsdesk_article_shorttext like '%" . AddSlashes($search_keywords[$i]) . "%' or
 pd.newsdesk_article_description like '%" . AddSlashes($search_keywords[$i]) . "%'";
-				if ($_GET['search_in_description']) $where_str .= " 
+				if ($_GET['search_in_description']) $where_str .= "
 				or pd.newsdesk_article_description like '%" . AddSlashes($search_keywords[$i]) . "%'";
 				$where_str .= ')';
 			break;
@@ -260,7 +260,7 @@ if ($_GET['dto'] && $_GET['dto'] != DOB_FORMAT_STRING) {
 }
 
 
-if ( (!$_GET['sort']) || (!ereg('[1-8][ad]', $_GET['sort'])) || (substr($_GET['sort'],0,1) > sizeof($column_list)) ) {
+if ( (!$_GET['sort']) || (!preg_match('/[1-8][ad]/', $_GET['sort'])) || (substr($_GET['sort'],0,1) > sizeof($column_list)) ) {
 	for ($col=0; $col<sizeof($column_list); $col++) {
 		if ($column_list[$col] == 'NEWSDESK_ARTICLE_NAME') {
 			$_GET['sort'] = $col+1 . 'a';
@@ -299,7 +299,7 @@ require(DIR_WS_MODULES . FILENAME_NEWSDESK_LISTING);
 	<!--	<td class="main">
 <?php
 //FILENAME_NEWSDESK_SEARCH
-echo '<a href="' . tep_href_link(FILENAME_NEWSDESK_INDEX, tep_get_all_get_params(array('sort', 'page', 'x', 'y')), 'NONSSL', true, false) 
+echo '<a href="' . tep_href_link(FILENAME_NEWSDESK_INDEX, tep_get_all_get_params(array('sort', 'page', 'x', 'y')), 'NONSSL', true, false)
 . '">' . tep_image_button('button_back.gif', IMAGE_BUTTON_BACK) . '</a>';
 ?>
 		</td>-->

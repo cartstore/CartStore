@@ -20,7 +20,7 @@ if ($_GET['action']) {
 
 		tep_db_query(
 
-		"update " . TABLE_FAQDESK_CONFIGURATION . " set configuration_value = '" . tep_db_input($configuration_value) . 
+		"update " . TABLE_FAQDESK_CONFIGURATION . " set configuration_value = '" . tep_db_input($configuration_value) .
 
 		"', last_modified = now() where configuration_id = '" . tep_db_input($cID) . "'"
 
@@ -54,7 +54,7 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-	
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -66,9 +66,9 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 
-   
 
-	 	
+
+
 
 <script language="javascript" src="includes/menu.js"></script>
 
@@ -162,7 +162,7 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 
 <?php
 
- 
+
 
  $configuration_query = tep_db_query(
 
@@ -178,7 +178,7 @@ while ($configuration = tep_db_fetch_array($configuration_query)) {
 
 		$use_function = $configuration['use_function'];
 
-		if (ereg('->', $use_function)) {
+		if (preg_match('/->/', $use_function)) {
 
 			$class_method = explode('->', $use_function);
 
@@ -232,17 +232,17 @@ while ($configuration = tep_db_fetch_array($configuration_query)) {
 
 	if ( (is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->configuration_id) ) {
 
-		echo '<tr class="dataTableRowSelected" onmouseover="this.style.cursor=\'hand\'" onclick="document.location.href=\'' 
+		echo '<tr class="dataTableRowSelected" onmouseover="this.style.cursor=\'hand\'" onclick="document.location.href=\''
 
-		. tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id . '&action=edit') 
+		. tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id . '&action=edit')
 
 		. '\'">' . "\n";
 
 	} else {
 
-		echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'hand\'" 
+		echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'hand\'"
 
-		onmouseout="this.className=\'dataTableRow\'" onclick="document.location.href=\'' . tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 
+		onmouseout="this.className=\'dataTableRow\'" onclick="document.location.href=\'' . tep_href_link(FILENAME_FAQDESK_CONFIGURATION,
 
 		'gID=' . $_GET['gID'] . '&cID=' . $configuration['configuration_id']) . '\'">' . "\n";
 
@@ -266,7 +266,7 @@ if ( (is_object($cInfo)) && ($configuration['configuration_id'] == $cInfo->confi
 
 } else {
 
-	echo '<a href="' . tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' 
+	echo '<a href="' . tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID='
 
 	. $configuration['configuration_id']) . '">' . tep_image(DIR_WS_IMAGES . 'icon_info.png', IMAGE_ICON_INFO) . '</a>';
 
@@ -322,7 +322,7 @@ case 'edit':
 
 	$contents = array(
 
-	'form' => tep_draw_form('configuration', FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id 
+	'form' => tep_draw_form('configuration', FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id
 
 	. '&action=save')
 
@@ -338,9 +338,9 @@ case 'edit':
 
 		'align' => 'center',
 
-		'text' => '<br>' . tep_image_submit('button_update.png', IMAGE_UPDATE) . '&nbsp;<a href="' 
+		'text' => '<br>' . tep_image_submit('button_update.png', IMAGE_UPDATE) . '&nbsp;<a href="'
 
-		. tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id) 
+		. tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id)
 
 		. '">' . tep_image_button('button_cancel.png', IMAGE_CANCEL) . '</a>'
 
@@ -362,7 +362,7 @@ if (is_object($cInfo)) {
 
 		'align' => 'center',
 
-		'text' => '<a href="' . tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID'] 
+		'text' => '<a href="' . tep_href_link(FILENAME_FAQDESK_CONFIGURATION, 'gID=' . $_GET['gID']
 
 		. '&cID=' . $cInfo->configuration_id . '&action=edit') . '">' . tep_image_button('button_edit.png', IMAGE_EDIT) . '</a>'
 

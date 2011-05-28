@@ -706,11 +706,11 @@ function faqdesk_draw_textarea_field($name, $wrap, $width, $height, $text = '', 
 
 	$field = '
 
-<textarea name="' . faqdesk_parse_input_field_data($name, array('"' => '&quot;')) . '" wrap="' 
+<textarea name="' . faqdesk_parse_input_field_data($name, array('"' => '&quot;')) . '" wrap="'
 
-. faqdesk_parse_input_field_data($wrap, array('"' => '&quot;')) . '" cols="' 
+. faqdesk_parse_input_field_data($wrap, array('"' => '&quot;')) . '" cols="'
 
-. faqdesk_parse_input_field_data($width, array('"' => '&quot;')) . '" rows="' 
+. faqdesk_parse_input_field_data($width, array('"' => '&quot;')) . '" rows="'
 
 . faqdesk_parse_input_field_data($height, array('"' => '&quot;')) . '"
 
@@ -956,7 +956,7 @@ if ($sticky == '1') {
 
 function stripbr($str) {
 
-$str=eregi_replace('<BR[[:space:]]*/?[[:space:]]*>',"",$str);
+$str=preg_replace('/<BR[[:space:]]*/?[[:space:]]*>/',"",$str);
 
 return $str;
 

@@ -29,8 +29,8 @@
      If you define more zone, keep in mind that this is the lastest zone that will be used for country not listed
 
  Alane #################
- I have added the option to figure shipping by percent of the order total. 
- In the Zone X Shipping table just write the percentage of the order total 
+ I have added the option to figure shipping by percent of the order total.
+ In the Zone X Shipping table just write the percentage of the order total
  you wish to use (ie 25% would be written as 0.25)
  #######################
 
@@ -150,7 +150,7 @@
 
      for ($i=1; $i<=$this->num_zones; $i++) {
        $countries_table = constant('MODULE_SHIPPING_WORLDZONES_COUNTRIES_' . $i);
-       $country_zones = split("[,]", $countries_table);
+       $country_zones = preg_split("/[,]/", $countries_table);
        if (in_array($dest_country, $country_zones)) {
          $dest_zone = $i;
          break;
@@ -167,18 +167,18 @@
      } else {
        $shipping = -1;
        $zones_cost = constant('MODULE_SHIPPING_WORLDZONES_COST_' . $dest_zone);
-	   
-// Alane - Begin percent mod   
+
+// Alane - Begin percent mod
 	if (MODULE_SHIPPING_WORLDZONES_MODE == 'percent'){
 	   $shipping = $order_total * $zones_cost ;
 	   $shipping_method = MODULE_SHIPPING_WORLDZONES_TEXT_WAY . ' ' . $order->delivery['country']['title'] . ': ' .MODULE_SHIPPING_WORLDZONES_TEXT_MODE ;
 	   if ($shipping_num_boxes > 1) {
              $shipping_method .= $shipping_num_boxes . 'x ';
            }
-		   
+
 	}  else {
 // Alane - End percent mod
-       $zones_table = split("[:,]" , $zones_cost);
+       $zones_table = preg_split("/[:,]/" , $zones_cost);
        $size = sizeof($zones_table);
        for ($i=0; $i<$size; $i+=2) {
          if ($order_total <= $zones_table[$i]) {
@@ -191,7 +191,7 @@
            break;
          }
        }
-	}	 
+	}
 
        if ($shipping == -1) {
          $shipping_cost = 0;

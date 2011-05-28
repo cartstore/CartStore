@@ -352,7 +352,7 @@
 
 // If our only resource is the global symbol_table, then check it.
 // If track_vars are enabled, we prefer these, because they are more
-// reliable, and we always know whether the user has accepted the 
+// reliable, and we always know whether the user has accepted the
 // cookie.
     if ( (isset($GLOBALS[$session->name])) && (!empty($GLOBALS[$session->name])) && (!$track_vars) ) {
       $session->id = $GLOBALS[$session->name];
@@ -360,7 +360,7 @@
     }
 
 // Now check the track_vars. Cookies are preferred, because initially
-// cookie and get variables will be available. 
+// cookie and get variables will be available.
     if ( (empty($session->id)) && ($track_vars) ) {
       if (isset($_COOKIE[$session->name])) {
         $session->id = $_COOKIE[$session->name];
@@ -380,9 +380,9 @@
 /*
 // Check the REQUEST_URI symbol for a string of the form
 // '<session-name>=<session-id>' to allow URLs of the form
-// http://yoursite/<session-name>=<session-id>/script.php 
+// http://yoursite/<session-name>=<session-id>/script.php
     if (empty($session->id)) {
-      eregi($session->name . '=([^/]+)', $GLOBALS['REQUEST_URI'], $regs);
+      preg_match("/$session->name . '=([^\/]+)/i', $GLOBALS['REQUEST_URI'], $regs);
       $regs[1] = trim($regs[1]);
       if (!empty($regs[1])) {
         $session->id = $regs[1];

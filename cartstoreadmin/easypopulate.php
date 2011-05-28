@@ -54,7 +54,7 @@
 
 
 
-  Copyright (c) 2007 Todd Holforty mtholforty(at)surfalot(dot)com 
+  Copyright (c) 2007 Todd Holforty mtholforty(at)surfalot(dot)com
 
 
 
@@ -342,7 +342,7 @@ $system = tep_get_system_information();
 
 
 
-// use this to debug your settings. Copy the settings 
+// use this to debug your settings. Copy the settings
 
 
 
@@ -390,7 +390,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-// **** Temp directory **** 
+// **** Temp directory ****
 
 
 
@@ -414,7 +414,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-// *IF* you changed your directory structure from stock and do not 
+// *IF* you changed your directory structure from stock and do not
 
 
 
@@ -494,7 +494,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   If your shop is in the root of your public site ( /home/myaccount/public_html/index.php ), 
+   If your shop is in the root of your public site ( /home/myaccount/public_html/index.php ),
 
 
 
@@ -518,7 +518,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   
+
 
 
 
@@ -582,7 +582,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   if it looks like this (recommended, but doesn't always work): 
+   if it looks like this (recommended, but doesn't always work):
 
 
 
@@ -614,7 +614,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   then leave it alone. If it looks like this: 
+   then leave it alone. If it looks like this:
 
 
 
@@ -630,7 +630,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-       define ('DIR_FS_DOCUMENT_ROOT', '/home/myaccount/public_html'); 
+       define ('DIR_FS_DOCUMENT_ROOT', '/home/myaccount/public_html');
 
 
 
@@ -662,7 +662,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   path or not doesn't matter to this contrib, as long as you make the 
+   path or not doesn't matter to this contrib, as long as you make the
 
 
 
@@ -726,7 +726,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   
+
 
 
 
@@ -742,7 +742,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   They may look like this if your shop is in the root of your web space. 
+   They may look like this if your shop is in the root of your web space.
 
 
 
@@ -750,7 +750,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   If you have something different, don't just change it to this. 
+   If you have something different, don't just change it to this.
 
 
 
@@ -758,7 +758,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   There is probably a good reason. I'm providing this as a reference 
+   There is probably a good reason. I'm providing this as a reference
 
 
 
@@ -766,7 +766,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   to you-all. The DIR_FS_DOCUMENT_ROOT, the DIR_WS_CATALOG, and the 
+   to you-all. The DIR_FS_DOCUMENT_ROOT, the DIR_WS_CATALOG, and the
 
 
 
@@ -782,7 +782,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   
+
 
 
 
@@ -854,7 +854,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   plus this following setting makes a correct full path to your temporary 
+   plus this following setting makes a correct full path to your temporary
 
 
 
@@ -886,7 +886,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-   location, then: 
+   location, then:
 
 
 
@@ -942,7 +942,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-// **** Temp directory **** 
+// **** Temp directory ****
 
 
 
@@ -950,7 +950,7 @@ define ('EP_SHOW_EP_SETTINGS', true); // default is: false
 
 
 
-define ('EP_TEMP_DIRECTORY', DIR_FS_ADMIN . 'temp/'); 
+define ('EP_TEMP_DIRECTORY', DIR_FS_ADMIN . 'temp/');
 
 
 
@@ -1086,7 +1086,7 @@ define ('EP_SPLIT_MAX_RECORDS', 300);  // default, seems to work for most people
 
 
 
-//define ('EP_DEFAULT_IMAGE_MANUFACTURER', 'no_image_manufacturer.png'); 
+//define ('EP_DEFAULT_IMAGE_MANUFACTURER', 'no_image_manufacturer.png');
 
 
 
@@ -1094,7 +1094,7 @@ define ('EP_SPLIT_MAX_RECORDS', 300);  // default, seems to work for most people
 
 
 
-//define ('EP_DEFAULT_IMAGE_PRODUCT', 'no_image_product.png'); 
+//define ('EP_DEFAULT_IMAGE_PRODUCT', 'no_image_product.png');
 
 
 
@@ -1102,7 +1102,7 @@ define ('EP_SPLIT_MAX_RECORDS', 300);  // default, seems to work for most people
 
 
 
-//define ('EP_DEFAULT_IMAGE_CATEGORY', 'no_image_category.png'); 
+//define ('EP_DEFAULT_IMAGE_CATEGORY', 'no_image_category.png');
 
 
 
@@ -1126,7 +1126,7 @@ define ('EP_SPLIT_MAX_RECORDS', 300);  // default, seems to work for most people
 
 
 
-define ('EP_DEFAULT_IMAGE_MANUFACTURER', ''); 
+define ('EP_DEFAULT_IMAGE_MANUFACTURER', '');
 
 
 
@@ -1134,7 +1134,7 @@ define ('EP_DEFAULT_IMAGE_MANUFACTURER', '');
 
 
 
-define ('EP_DEFAULT_IMAGE_PRODUCT', ''); 
+define ('EP_DEFAULT_IMAGE_PRODUCT', '');
 
 
 
@@ -1142,7 +1142,7 @@ define ('EP_DEFAULT_IMAGE_PRODUCT', '');
 
 
 
-define ('EP_DEFAULT_IMAGE_CATEGORY', ''); 
+define ('EP_DEFAULT_IMAGE_CATEGORY', '');
 
 
 
@@ -1182,7 +1182,7 @@ define ('EP_DEFAULT_IMAGE_CATEGORY', '');
 
 
 
-define ('EP_TEXT_ACTIVE', 'Active'); 
+define ('EP_TEXT_ACTIVE', 'Active');
 
 
 
@@ -1190,7 +1190,7 @@ define ('EP_TEXT_ACTIVE', 'Active');
 
 
 
-define ('EP_TEXT_INACTIVE', 'Inactive'); 
+define ('EP_TEXT_INACTIVE', 'Inactive');
 
 
 
@@ -1278,7 +1278,7 @@ define ('EP_INACTIVATE_ZERO_QUANTITIES', false);  // default is false
 
 
 
-// set this to the size of your model number field in the db.  We check to make 
+// set this to the size of your model number field in the db.  We check to make
 
 
 
@@ -1286,7 +1286,7 @@ define ('EP_INACTIVATE_ZERO_QUANTITIES', false);  // default is false
 
 
 
-// sure all models are no longer than this value. this prevents the database from 
+// sure all models are no longer than this value. this prevents the database from
 
 
 
@@ -1646,7 +1646,7 @@ define ('EP_EXCEL_SAFE_OUTPUT', false); // default is: true
 
 
 
-if (EP_EXCEL_SAFE_OUTPUT == true) { 
+if (EP_EXCEL_SAFE_OUTPUT == true) {
 
 
 
@@ -1654,7 +1654,7 @@ if (EP_EXCEL_SAFE_OUTPUT == true) {
 
 
 
-  if ($language == 'english') { 
+  if ($language == 'english') {
 
 
 
@@ -1758,7 +1758,7 @@ if (EP_EXCEL_SAFE_OUTPUT == true) {
 
 
 
-// recently reported in which characters with a german "Umlaute" like ÄäÖöÜü at the Beginning 
+// recently reported in which characters with a german "Umlaute" like ÄäÖöÜü at the Beginning
 
 
 
@@ -1806,7 +1806,7 @@ define ('EP_EXCEL_SAFE_OUTPUT_ALT_PARCE', false); // default is: false
 
 
 
-// this setting will preserve the special chars that can cause problems in 
+// this setting will preserve the special chars that can cause problems in
 
 
 
@@ -1974,7 +1974,7 @@ define ('EP_PRODUCTS_ATTRIBUTES_STOCK', true); // default is false
 
 
 
-// If you have a lot of product options, and your output file exceeds 256 columns, 
+// If you have a lot of product options, and your output file exceeds 256 columns,
 
 
 
@@ -2086,7 +2086,7 @@ $custom_fields = array();
 
 
 
-// The following setup will allow you to define any additional 
+// The following setup will allow you to define any additional
 
 
 
@@ -2286,7 +2286,7 @@ $custom_fields = array();
 
 
 
-// "v_products_short_description_3" for Spanish. Other languages will vary. Be sure to use the 
+// "v_products_short_description_3" for Spanish. Other languages will vary. Be sure to use the
 
 
 
@@ -2406,7 +2406,7 @@ $custom_fields = array();
 
 
 
-// the array key ('table_field_name') is always the exact name of the 
+// the array key ('table_field_name') is always the exact name of the
 
 
 
@@ -2678,7 +2678,7 @@ $custom_fields[TABLE_SPECIALS] = array(); // this line is used if you have no cu
 
 
 
-// We can't use the tep functions to create the link, because the links will point to the 
+// We can't use the tep functions to create the link, because the links will point to the
 
 
 
@@ -2830,7 +2830,7 @@ define ('EP_FROOGLE_CURRENCY', 'USD');  // default is 'USD'
 
 
 
-// 
+//
 
 
 
@@ -3682,7 +3682,7 @@ if (EP_PRODUCTS_WITH_ATTRIBUTES == true) {
 
 
 
-// these are the fields that will be defaulted to the current values in 
+// these are the fields that will be defaulted to the current values in
 
 
 
@@ -3738,7 +3738,7 @@ foreach ($languages as $key => $lang){
 
 
 
-  foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+  foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -3818,7 +3818,7 @@ $default_these[] = 'v_products_image';
 
 
 
-foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -3842,7 +3842,7 @@ foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
-foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) { 
+foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
@@ -3866,7 +3866,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-if (EP_MORE_PICS_6_SUPPORT == true) { 
+if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
@@ -3930,7 +3930,7 @@ if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
-if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) { 
+if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) {
 
 
 
@@ -4850,7 +4850,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-        
+
 
 
 
@@ -5130,7 +5130,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-            foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+            foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -5242,7 +5242,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-		
+
 
 
 
@@ -5354,7 +5354,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-				$sql3 = "SELECT parent_id, 
+				$sql3 = "SELECT parent_id,
 
 
 
@@ -5378,7 +5378,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-						 WHERE    
+						 WHERE
 
 
 
@@ -5458,7 +5458,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-							 WHERE    
+							 WHERE
 
 
 
@@ -5642,7 +5642,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
- 
+
 
 
 
@@ -6010,7 +6010,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-		
+
 
 
 
@@ -6434,7 +6434,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-    //// attributes stock add start        
+    //// attributes stock add start
 
 
 
@@ -6442,7 +6442,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-    if ( EP_PRODUCTS_ATTRIBUTES_STOCK    == true ) {   
+    if ( EP_PRODUCTS_ATTRIBUTES_STOCK    == true ) {
 
 
 
@@ -6458,7 +6458,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-           
+
 
 
 
@@ -6482,7 +6482,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-           
+
 
 
 
@@ -6506,7 +6506,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-    //// attributes stock add end  
+    //// attributes stock add end
 
 
 
@@ -6514,7 +6514,6 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-                    
 
 
 
@@ -6522,7 +6521,8 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-                    
+
+
 
 
 
@@ -6678,7 +6678,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-		
+
 
 
 
@@ -6686,7 +6686,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-		
+
 
 
 
@@ -6734,7 +6734,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-		
+
 
 
 
@@ -7770,7 +7770,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-} 
+}
 
 
 
@@ -7874,7 +7874,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-	
+
 
 
 
@@ -7922,7 +7922,6 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-   
 
 
 
@@ -7930,7 +7929,8 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-	 	
+
+
 
 
 
@@ -7978,7 +7978,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-        
+
 
 
 
@@ -8002,7 +8002,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-      if(field.options[field.selectedIndex].text == 'Complete' || field.options[field.selectedIndex].text == 'Froogle') 
+      if(field.options[field.selectedIndex].text == 'Complete' || field.options[field.selectedIndex].text == 'Froogle')
 
 
 
@@ -8122,7 +8122,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-      } 
+      }
 
 
 
@@ -8130,7 +8130,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-      else if(field.options[field.selectedIndex].text == 'Price/Qty' || field.options[field.selectedIndex].text == 'Categories' || field.options[field.selectedIndex].text == 'Attributes' ) 
+      else if(field.options[field.selectedIndex].text == 'Price/Qty' || field.options[field.selectedIndex].text == 'Categories' || field.options[field.selectedIndex].text == 'Attributes' )
 
 
 
@@ -8258,7 +8258,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-                } 
+                }
 
 
 
@@ -8298,7 +8298,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-                } 
+                }
 
 
 
@@ -8338,7 +8338,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-                } 
+                }
 
 
 
@@ -8346,7 +8346,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-                else 
+                else
 
 
 
@@ -8394,7 +8394,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-      } 
+      }
 
 
 
@@ -8402,7 +8402,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-      else 
+      else
 
 
 
@@ -8410,7 +8410,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-      { 
+      {
 
 
 
@@ -8514,7 +8514,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
 
 
-//--></script> 
+//--></script>
 
 
 
@@ -8626,7 +8626,7 @@ if ( !empty($_GET['download']) && ($_GET['download'] == 'stream' or $_GET['downl
 
           <h3>Warning for advanced users only.</h3>
 
-          For professional use only. 
+          For professional use only.
 
 <br />
 
@@ -9004,7 +9004,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-    
+
 
 
 
@@ -9020,7 +9020,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-    
+
 
 
 
@@ -9108,7 +9108,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-        fclose($fp); 
+        fclose($fp);
 
 
 
@@ -9132,7 +9132,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            
+
 
 
 
@@ -9236,7 +9236,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-        
+
 
 
 
@@ -9268,7 +9268,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            
+
 
 
 
@@ -9364,7 +9364,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            unset($readed[sizeof($readed)-1]);    
+            unset($readed[sizeof($readed)-1]);
 
 
 
@@ -9452,7 +9452,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                        // we've got to find the next " that isn't ""    
+                        // we've got to find the next " that isn't ""
 
 
 
@@ -9476,7 +9476,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                            $ppp2 = strpos($remains, '""', $ppp2+2); // use ppp2 because then """ will get properly understood                
+                            $ppp2 = strpos($remains, '""', $ppp2+2); // use ppp2 because then """ will get properly understood
 
 
 
@@ -9500,7 +9500,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                        // we are pulling out the determined chunk and 
+                        // we are pulling out the determined chunk and
 
 
 
@@ -9508,7 +9508,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                        // replacing any double quotes with single quotes 
+                        // replacing any double quotes with single quotes
 
 
 
@@ -9548,7 +9548,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                        $remains = ($ppp1 !== false) ? substr($remains,$ppp1+1) : '';             
+                        $remains = ($ppp1 !== false) ? substr($remains,$ppp1+1) : '';
 
 
 
@@ -9588,7 +9588,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                        $remains = ($ppp1 !== false) ? substr($remains,$ppp1+1) : '';                        
+                        $remains = ($ppp1 !== false) ? substr($remains,$ppp1+1) : '';
 
 
 
@@ -9636,7 +9636,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            $theheaders_array = $readed[0];     // pull out header line    
+            $theheaders_array = $readed[0];     // pull out header line
 
 
 
@@ -9644,7 +9644,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            // EOF Maynard's CSV Fix ###################################################      
+            // EOF Maynard's CSV Fix ###################################################
 
 
 
@@ -9796,7 +9796,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-    
+
 
 
 
@@ -10492,7 +10492,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
- 
+
 
 
 
@@ -10516,7 +10516,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-              
+
 
 
 
@@ -10588,7 +10588,6 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            
 
 
 
@@ -10596,7 +10595,8 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-              
+
+
 
 
 
@@ -10644,7 +10644,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-       
+
 
 
 
@@ -10708,7 +10708,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                           $namearr = split('\.',$file);
+                           $namearr = explode('.',$file);
 
 
 
@@ -10756,7 +10756,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-                        
+
 
 
 
@@ -10908,7 +10908,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-            
+
 
 
 
@@ -10980,7 +10980,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-    
+
 
 
 
@@ -10996,7 +10996,6 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-       
 
 
 
@@ -11004,7 +11003,8 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-    
+
+
 
 
 
@@ -11032,7 +11032,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-  
+
 
 
 
@@ -11104,7 +11104,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-   
+
 
 
 
@@ -11176,11 +11176,11 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-   
 
 
 
-          
+
+
 
 
 
@@ -11204,11 +11204,11 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-       
 
 
 
-          
+
+
 
 
 
@@ -11648,7 +11648,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-   
+
 
 
 
@@ -11836,7 +11836,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-// 
+//
 
 
 
@@ -11852,7 +11852,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
 
 
 
-// 
+//
 
 
 
@@ -12108,7 +12108,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    
+
 
 
 
@@ -12148,7 +12148,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    
+
 
 
 
@@ -12164,7 +12164,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-        foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+        foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -12220,7 +12220,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
- foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) { 
+ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
@@ -12260,7 +12260,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    if (EP_MORE_PICS_6_SUPPORT == true) { 
+    if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
@@ -12324,7 +12324,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    }    
+    }
 
 
 
@@ -12332,7 +12332,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    if (EP_MORE_PICS_6_SUPPORT == true) { 
+    if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
@@ -12348,7 +12348,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    }    
+    }
 
 
 
@@ -12364,7 +12364,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) { 
+    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) {
 
 
 
@@ -12452,7 +12452,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) { 
+    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) {
 
 
 
@@ -12476,7 +12476,6 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    
 
 
 
@@ -12484,7 +12483,8 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    if (EP_SPPC_SUPPORT == true) { 
+
+    if (EP_SPPC_SUPPORT == true) {
 
 
 
@@ -12572,7 +12572,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-    
+
 
 
 
@@ -12788,7 +12788,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-            foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+            foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -12836,7 +12836,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-			
+
 
 
 
@@ -13228,7 +13228,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-                //// attributes stock add start        
+                //// attributes stock add start
 
 
 
@@ -13236,7 +13236,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-                if ( EP_PRODUCTS_ATTRIBUTES_STOCK == true ) { 
+                if ( EP_PRODUCTS_ATTRIBUTES_STOCK == true ) {
 
 
 
@@ -13252,7 +13252,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-                }                
+                }
 
 
 
@@ -13260,7 +13260,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-                //// attributes stock add end         
+                //// attributes stock add end
 
 
 
@@ -13304,11 +13304,11 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-		
 
 
 
-		
+
+
 
 
 
@@ -13320,7 +13320,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-		
+
 
 
 
@@ -13328,7 +13328,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-		
+
 
 
 
@@ -13644,7 +13644,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-        
+
 
 
 
@@ -13868,7 +13868,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-            foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+            foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -13924,7 +13924,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-          
+
 
 
 
@@ -13964,7 +13964,6 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
- 
 
 
 
@@ -13972,7 +13971,8 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-        foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+
+        foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -14020,7 +14020,7 @@ function ep_create_filelayout($dltype, $attribute_options_array, $languages, $cu
 
 
 
-foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) { 
+foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
@@ -14108,7 +14108,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-		
+
 
 
 
@@ -14124,7 +14124,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-		  // build the categories name section of the array based on the number 
+		  // build the categories name section of the array based on the number
 
 
 
@@ -14372,7 +14372,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                //// attributes stock add start        
+                //// attributes stock add start
 
 
 
@@ -14380,7 +14380,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                if ( EP_PRODUCTS_ATTRIBUTES_STOCK == true ) { 
+                if ( EP_PRODUCTS_ATTRIBUTES_STOCK == true ) {
 
 
 
@@ -14396,7 +14396,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                }                
+                }
 
 
 
@@ -14404,7 +14404,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                //// attributes stock add end         
+                //// attributes stock add end
 
 
 
@@ -14704,7 +14704,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-        
+
 
 
 
@@ -14840,7 +14840,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-            ".TABLE_PRODUCTS_TO_CATEGORIES." as ptoc            
+            ".TABLE_PRODUCTS_TO_CATEGORIES." as ptoc
 
 
 
@@ -14904,7 +14904,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-    // start EP for product extra field ============================= DEVSOFTVN - 10/20/2005     
+    // start EP for product extra field ============================= DEVSOFTVN - 10/20/2005
 
 
 
@@ -14936,7 +14936,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-            'v_products_extra_fields_name'        => $iii++, 
+            'v_products_extra_fields_name'        => $iii++,
 
 
 
@@ -14976,7 +14976,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-    
+
 
 
 
@@ -15088,7 +15088,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                        ";    
+                        ";
 
 
 
@@ -15096,7 +15096,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-    // end of EP for extra field code ======= DEVSOFTVN================       
+    // end of EP for extra field code ======= DEVSOFTVN================
 
 
 
@@ -15784,7 +15784,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                //// attributes stock add start        
+                //// attributes stock add start
 
 
 
@@ -15792,7 +15792,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                if ( EP_PRODUCTS_ATTRIBUTES_STOCK    == true ) { 
+                if ( EP_PRODUCTS_ATTRIBUTES_STOCK    == true ) {
 
 
 
@@ -15808,7 +15808,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                }                
+                }
 
 
 
@@ -15816,7 +15816,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-                //// attributes stock add end         
+                //// attributes stock add end
 
 
 
@@ -16064,7 +16064,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-// 
+//
 
 
 
@@ -16096,7 +16096,7 @@ foreach ($custom_fields[TABLE_SPECIALS] as $key => $name) {
 
 
 
-// 
+//
 
 
 
@@ -16192,7 +16192,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-    
+
 
 
 
@@ -16544,7 +16544,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-						
+
 
 
 
@@ -16660,7 +16660,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-    if (isset($items[$filelayout['v_products_extra_fields_id']]) ){    
+    if (isset($items[$filelayout['v_products_extra_fields_id']]) ){
 
 
 
@@ -16668,7 +16668,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-    
+
 
 
 
@@ -16708,7 +16708,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -16836,7 +16836,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -16860,7 +16860,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -17044,7 +17044,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -17076,7 +17076,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-  
+
 
 
 
@@ -17180,7 +17180,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        if (EP_MORE_PICS_6_SUPPORT == true) { 
+        if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
@@ -17196,7 +17196,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        }    
+        }
 
 
 
@@ -17212,7 +17212,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) { 
+        if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) {
 
 
 
@@ -17244,7 +17244,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+        foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -17308,7 +17308,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-    
 
 
 
@@ -17316,7 +17315,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-    
+
+
 
 
 
@@ -17660,7 +17660,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                // Let's get all the data we need and fill in all the fields that need to be defaulted 
+                // Let's get all the data we need and fill in all the fields that need to be defaulted
 
 
 
@@ -17692,7 +17692,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    $sql2 = "SELECT * 
+                    $sql2 = "SELECT *
 
 
 
@@ -17796,7 +17796,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+                    foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -17884,7 +17884,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -17948,7 +17948,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-		
 
 
 
@@ -17956,7 +17955,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-						$sql3 = "SELECT parent_id, 
+
+						$sql3 = "SELECT parent_id,
 
 
 
@@ -17980,7 +17980,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-							     WHERE    
+							     WHERE
 
 
 
@@ -18028,7 +18028,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-		
+
 
 
 
@@ -18060,7 +18060,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-								     WHERE    
+								     WHERE
 
 
 
@@ -18124,7 +18124,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-		
+
 
 
 
@@ -18204,7 +18204,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-		 
+
 
 
 
@@ -18436,7 +18436,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-				// default the manufacturer        
+				// default the manufacturer
 
 
 
@@ -18644,7 +18644,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -18668,7 +18668,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -18676,7 +18675,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            // this is an important loop.  What it does is go thru all the fields in the incoming 
+
+            // this is an important loop.  What it does is go thru all the fields in the incoming
 
 
 
@@ -18684,7 +18684,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            // file and set the internal vars. Internal vars not set here are either set in the 
+            // file and set the internal vars. Internal vars not set here are either set in the
 
 
 
@@ -18692,7 +18692,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            // loop above for existing records, or not set at all (null values) the array values 
+            // loop above for existing records, or not set at all (null values) the array values
 
 
 
@@ -18732,7 +18732,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -18796,7 +18796,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -18852,7 +18852,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19140,7 +19140,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19172,7 +19172,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19220,7 +19220,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19268,7 +19268,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19364,7 +19364,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            }    
+            }
 
 
 
@@ -19372,7 +19372,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19412,7 +19412,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19444,7 +19444,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19476,7 +19476,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19556,7 +19556,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-		
 
 
 
@@ -19564,7 +19563,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
+
 
 
 
@@ -19748,7 +19748,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19852,7 +19852,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -19988,7 +19988,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -20092,7 +20092,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            
+
 
 
 
@@ -20220,7 +20220,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                            FROM ".TABLE_CATEGORIES." as cat, 
+                            FROM ".TABLE_CATEGORIES." as cat,
 
 
 
@@ -20348,7 +20348,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                      SET 
+                                      SET
 
 
 
@@ -20356,7 +20356,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                        categories_image='".tep_db_input($v_categories_image[$categorylevel])."', 
+                                        categories_image='".tep_db_input($v_categories_image[$categorylevel])."',
 
 
 
@@ -20372,7 +20372,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                      WHERE 
+                                      WHERE
 
 
 
@@ -20396,7 +20396,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                
+
 
 
 
@@ -20612,7 +20612,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                            
+
 
 
 
@@ -20716,7 +20716,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                            
+
 
 
 
@@ -20804,7 +20804,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-              
+
 
 
 
@@ -20852,7 +20852,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -20876,7 +20876,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -20900,7 +20900,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                
+
 
 
 
@@ -20924,7 +20924,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -20996,7 +20996,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+                    foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -21028,7 +21028,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+                    foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -21068,7 +21068,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    if (EP_MORE_PICS_6_SUPPORT == true) { 
+                    if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
@@ -21092,7 +21092,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    }    
+                    }
 
 
 
@@ -21100,7 +21100,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -21108,7 +21107,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) { 
+
+                    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) {
 
 
 
@@ -21164,7 +21164,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    
+
 
 
 
@@ -21404,7 +21404,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    
+
 
 
 
@@ -21420,7 +21420,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -21436,7 +21436,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -21468,7 +21468,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -21492,7 +21492,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    
+
 
 
 
@@ -21556,7 +21556,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) { 
+                    foreach ($custom_fields[TABLE_PRODUCTS] as $key => $name) {
 
 
 
@@ -21596,7 +21596,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    if (EP_MORE_PICS_6_SUPPORT == true) { 
+                    if (EP_MORE_PICS_6_SUPPORT == true) {
 
 
 
@@ -21612,7 +21612,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    }    
+                    }
 
 
 
@@ -21628,7 +21628,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) { 
+                    if (EP_UNKNOWN_ADD_IMAGES_SUPPORT == true) {
 
 
 
@@ -21708,7 +21708,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_price='$v_products_price', 
+                                products_price='$v_products_price',
 
 
 
@@ -21716,7 +21716,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_image=".(!empty($v_products_image)?"'".$v_products_image."'":'NULL').", 
+                                products_image=".(!empty($v_products_image)?"'".$v_products_image."'":'NULL').",
 
 
 
@@ -21732,7 +21732,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_weight='$v_products_weight', 
+                                products_weight='$v_products_weight',
 
 
 
@@ -21740,7 +21740,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_tax_class_id='$v_tax_class_id', 
+                                products_tax_class_id='$v_tax_class_id',
 
 
 
@@ -21748,7 +21748,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_date_available=".$v_date_avail.", 
+                                products_date_available=".$v_date_avail.",
 
 
 
@@ -21756,7 +21756,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_date_added=".$v_date_added.", 
+                                products_date_added=".$v_date_added.",
 
 
 
@@ -21764,7 +21764,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_last_modified='".date("Y-m-d H:i:s")."', 
+                                products_last_modified='".date("Y-m-d H:i:s")."',
 
 
 
@@ -21772,7 +21772,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                products_quantity = $v_products_quantity, 
+                                products_quantity = $v_products_quantity,
 
 
 
@@ -21780,7 +21780,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                manufacturers_id = ".(!empty($v_manufacturer_id)?$v_manufacturer_id:'NULL').", 
+                                manufacturers_id = ".(!empty($v_manufacturer_id)?$v_manufacturer_id:'NULL').",
 
 
 
@@ -21820,7 +21820,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -21852,7 +21852,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -21860,7 +21859,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-       
 
 
 
@@ -21868,7 +21866,9 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-			
+
+
+
 
 
 
@@ -21932,7 +21932,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-						
+
 
 
 
@@ -21972,7 +21972,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-						
+
 
 
 
@@ -21996,7 +21996,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-		 
+
 
 
 
@@ -22044,7 +22044,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+                    foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -22084,7 +22084,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -22124,7 +22124,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -22236,7 +22236,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                        foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) { 
+                        foreach ($custom_fields[TABLE_PRODUCTS_DESCRIPTION] as $key => $name) {
 
 
 
@@ -22332,7 +22332,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -22380,7 +22380,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                        
+
 
 
 
@@ -22412,7 +22412,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -22420,7 +22419,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                        
+
+
 
 
 
@@ -22460,7 +22460,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                "UPDATE ".TABLE_PRODUCTS_DESCRIPTION." 
+                                "UPDATE ".TABLE_PRODUCTS_DESCRIPTION."
 
 
 
@@ -22548,7 +22548,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -22564,7 +22564,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -22756,7 +22756,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -22764,7 +22763,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -22772,7 +22770,9 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
+
+
 
 
 
@@ -22860,7 +22860,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -22932,7 +22932,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            
 
 
 
@@ -22940,7 +22939,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
+
 
 
 
@@ -22972,7 +22972,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    
+
 
 
 
@@ -23472,7 +23472,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23496,7 +23496,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -23504,7 +23503,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
+
 
 
 
@@ -23536,7 +23536,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23568,7 +23568,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23608,7 +23608,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23624,7 +23624,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23640,7 +23640,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23656,7 +23656,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23712,7 +23712,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23728,7 +23728,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23752,7 +23752,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23808,7 +23808,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23824,7 +23824,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23848,7 +23848,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23864,7 +23864,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23896,7 +23896,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23928,7 +23928,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -23992,7 +23992,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24024,7 +24024,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24048,7 +24048,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24064,7 +24064,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24120,7 +24120,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24136,7 +24136,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24160,7 +24160,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24192,7 +24192,6 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
 
 
 
@@ -24200,7 +24199,8 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
+
 
 
 
@@ -24224,7 +24224,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24264,7 +24264,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24280,7 +24280,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24304,7 +24304,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24320,7 +24320,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24352,7 +24352,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24384,7 +24384,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24448,7 +24448,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24472,7 +24472,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24496,7 +24496,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24512,7 +24512,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24544,7 +24544,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24584,7 +24584,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24616,7 +24616,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24656,7 +24656,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24680,7 +24680,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                        
+
 
 
 
@@ -24696,7 +24696,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                
+
 
 
 
@@ -24712,7 +24712,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                $attribute_stock_query = tep_db_query("select products_stock_quantity from " . TABLE_PRODUCTS_STOCK . " where products_id = '" . (int)$v_products_id . "' and products_stock_attributes ='" . $stock_attributes . "'");        
+                                $attribute_stock_query = tep_db_query("select products_stock_quantity from " . TABLE_PRODUCTS_STOCK . " where products_id = '" . (int)$v_products_id . "' and products_stock_attributes ='" . $stock_attributes . "'");
 
 
 
@@ -24720,7 +24720,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                
+
 
 
 
@@ -24752,7 +24752,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                        
+
 
 
 
@@ -24776,7 +24776,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                                
+
 
 
 
@@ -24800,7 +24800,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                                
+
 
 
 
@@ -24824,7 +24824,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                            //////// attributes stock add end                    
+                            //////// attributes stock add end
 
 
 
@@ -24832,7 +24832,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                            
+
 
 
 
@@ -24864,7 +24864,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24896,7 +24896,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -24924,7 +24924,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-				
+
 
 
 
@@ -24936,7 +24936,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-                    $ymm_rows = 1; 
+                    $ymm_rows = 1;
 
 
 
@@ -24988,7 +24988,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-						$ymm_rows ++; 
+						$ymm_rows ++;
 
 
 
@@ -25012,7 +25012,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-					
+
 
 
 
@@ -25028,7 +25028,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-        
+
 
 
 
@@ -25108,7 +25108,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-            
+
 
 
 
@@ -25184,7 +25184,7 @@ function process_row( $item1, $filelayout, $filelayout_count, $default_these, $e
 
 
 
-require(DIR_WS_INCLUDES . 'application_bottom.php'); 
+require(DIR_WS_INCLUDES . 'application_bottom.php');
 
 
 

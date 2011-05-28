@@ -1,11 +1,11 @@
-<?php 
+<?php
 /*
   SEO_Assistant for OSC 2.2 2.0 v2.0  08.03.2004
   Originally Created by: Jack York
   GNU General Public License Compatible
   CartStore eCommerce Software, for The Next Generation
   Copyright (c) 2008 Adoovo Inc. USA
-*/ 
+*/
 	define('GMAG', 0xE6359A60);
 
 //unsigned shift right
@@ -24,20 +24,20 @@ function zeroFill($a, $b)
             $a = ($a>>$b);
         }
         return $a;
-} 
+}
 
 
 function mix($a,$b,$c) {
-  $a -= $b; $a -= $c; $a ^= (zeroFill($c,13)); 
-  $b -= $c; $b -= $a; $b ^= ($a<<8); 
+  $a -= $b; $a -= $c; $a ^= (zeroFill($c,13));
+  $b -= $c; $b -= $a; $b ^= ($a<<8);
   $c -= $a; $c -= $b; $c ^= (zeroFill($b,13));
   $a -= $b; $a -= $c; $a ^= (zeroFill($c,12));
   $b -= $c; $b -= $a; $b ^= ($a<<16);
-  $c -= $a; $c -= $b; $c ^= (zeroFill($b,5)); 
-  $a -= $b; $a -= $c; $a ^= (zeroFill($c,3));  
-  $b -= $c; $b -= $a; $b ^= ($a<<10); 
+  $c -= $a; $c -= $b; $c ^= (zeroFill($b,5));
+  $a -= $b; $a -= $c; $a ^= (zeroFill($c,3));
+  $b -= $c; $b -= $a; $b ^= ($a<<10);
   $c -= $a; $c -= $b; $c ^= (zeroFill($b,15));
-  
+
   return array($a,$b,$c);
 }
 
@@ -55,7 +55,7 @@ function GCH($url, $length=null, $init=GMAG) {
         $c += ($url[$k+8] +($url[$k+9]<<8) +($url[$k+10]<<16)+($url[$k+11]<<24));
         $mix = mix($a,$b,$c);
         $a = $mix[0]; $b = $mix[1]; $c = $mix[2];
-        $k += 12; 
+        $k += 12;
         $len -= 12;
     }
 
@@ -121,7 +121,7 @@ function getLinkPopularity($link_url) {
  }
 }
 
-//http://search.yahoo.com/search?p=link%3Ahttp%3A%2F%2Fwww.cre8asiteforums.com%2Findex.php&ei=UTF-8&fr=FP-tab-web-t&n=20&fl=0&x=wrt 
+//http://search.yahoo.com/search?p=link%3Ahttp%3A%2F%2Fwww.cre8asiteforums.com%2Findex.php&ei=UTF-8&fr=FP-tab-web-t&n=20&fl=0&x=wrt
 function get_yahoo_links($domain) {
  $lines = array();
  $host = "search.yahoo.com";
@@ -146,60 +146,60 @@ function get_yahoo_links($domain) {
 }
 
   function ListFiles()
-  {  
-     $files = array();  
-     $dir = opendir('.');  
-     while(($file = readdir($dir)) !== false)  
-     {  
-        if($file !== '.' && $file !== '..' && !is_dir($file))  
-        {  
-            $files[] = $file;  
-        }  
-     }  
-     closedir($dir);  
-     sort($files);  
-     return $files;    
+  {
+     $files = array();
+     $dir = opendir('.');
+     while(($file = readdir($dir)) !== false)
+     {
+        if($file !== '.' && $file !== '..' && !is_dir($file))
+        {
+            $files[] = $file;
+        }
+     }
+     closedir($dir);
+     sort($files);
+     return $files;
   }
-  
+
   function checkLinks($url, $idx)
   {
     global $badLinks, $totalLinks;
     $file = @fopen($url,'r');
 
-    if (! $file) 
-    {  
+    if (! $file)
+    {
        $badLinks[$idx] = $url;
        // echo 'add bad link MAIN '. $url . ' at pos '. $idx . ' result = ' .$badLinks[$idx].'<br>';
        $idx++;
        $totalLinks++;
-    }  
+    }
     else
     {
        $totalLinks++;
 
-       while (!feof($file)) 
+       while (!feof($file))
        {
           $page_line = trim(fgets($file, 4096));
 
-          if (eregi('http:', $page_line)) 
+          if (preg_match('/http:/i', $page_line))
           {
             $link = stristr($page_line, 'http:');
             if ($link !== FALSE)
             {
-               $pos = strpos($link, '"');   
-               if ($pos !== FALSE) 
-                  $link = substr($link, 0, $pos);  
-            
-               $pos = strpos($link, '?osCsid'); 
-               if ($pos !== FALSE)    
-                  $link = substr($link, 0, $pos);   
+               $pos = strpos($link, '"');
+               if ($pos !== FALSE)
+                  $link = substr($link, 0, $pos);
+
+               $pos = strpos($link, '?osCsid');
+               if ($pos !== FALSE)
+                  $link = substr($link, 0, $pos);
                else
                {
-                  $pos = strpos($link, '&osCsid'); 
-                  if ($pos !== FALSE)    
-                     $link = substr($link, 0, $pos); 
-               }           
-                       
+                  $pos = strpos($link, '&osCsid');
+                  if ($pos !== FALSE)
+                     $link = substr($link, 0, $pos);
+               }
+
                $actual_link = @fopen($link,'r');
                $totalLinks++;
 
@@ -207,15 +207,15 @@ function get_yahoo_links($domain) {
                {
                   $badLinks[$idx] = $link;
                  // echo 'add bad link SUB '. $link . ' at pos '. $idx . ' result = ' .$badLinks[$idx].'<br>';
-                  $idx++;                         
+                  $idx++;
                }
                else
                {
                    fclose($actual_link);
-               }  
-            }        
+               }
+            }
           }
-       }   
+       }
        fclose($file);
     }
   }

@@ -11,8 +11,8 @@
 */
 
   require('includes/application_top.php');
-
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_WHOLESALE);
+  require('ext/recaptchalib.php');
 
   $error = false;
   if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
@@ -24,14 +24,21 @@
     $store_address = tep_db_prepare_input($_POST['store_address']);
     $store_tax_id = tep_db_prepare_input($_POST['store_tax_id']);
 
-    if (tep_validate_email($email_address)) {
-      tep_mail(STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, EMAIL_SUBJECT, 'Store Name:  ' . $store_name . "\r\n\r\n" . 'Name:  ' . $name . "\r\n\r\n" . 'Phone:  ' . $store_phone . "\r\n\r\n" . 'Address:  ' . $store_address . "\r\n\r\n" . 'Tax ID: ' . $store_tax_id . "\r\n\r\n" . 'Comments / Special Instructions:  ' . $enquiry, $name, $email_address);
-
-      tep_redirect(tep_href_link(FILENAME_WHOLESALE, 'action=success'));
-    } else {
+    if (!tep_validate_email($email_address)) {
       $error = true;
-
       $messageStack->add('contact', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
+    } else {
+      $resp = recaptcha_check_answer (RECAPTCHA_PRIVATE_KEY,
+                                      $_SERVER["REMOTE_ADDR"],
+                                      $_POST["recaptcha_challenge_field"],
+                                      $_POST["recaptcha_response_field"]);
+      if (!$resp->is_valid) {
+        $error = true;
+        $messageStack->add('contact', RECAPTCHA_ERROR_MSG . "(" . $resp->error . ")");
+      } else {
+        tep_mail(STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, EMAIL_SUBJECT, 'Store Name:  ' . $store_name . "\r\n\r\n" . 'Name:  ' . $name . "\r\n\r\n" . 'Phone:  ' . $store_phone . "\r\n\r\n" . 'Address:  ' . $store_address . "\r\n\r\n" . 'Tax ID: ' . $store_tax_id . "\r\n\r\n" . 'Comments / Special Instructions:  ' . $enquiry, $name, $email_address);
+        tep_redirect(tep_href_link(FILENAME_WHOLESALE, 'action=success'));
+      }
     }
   }
 
@@ -130,7 +137,7 @@
                 <td class="main" colspan="2"><?php echo tep_draw_input_field('store_name'); ?>
                 </td>
                 </tr>
-             
+
                 <tr>
                 <td class="main" colspan="2"><?php echo ENTRY_STORE_PHONE; ?></td>
                 </tr>
@@ -147,18 +154,21 @@
                 <td class="main" width="40%"><?php echo tep_draw_textarea_field('store_address', 'soft', 20, 4); ?></td>
                 <td> </td>
                 </tr>
-            
+
              <tr>
                 <td class="main" colspan="2"><?php echo ENTRY_STORE_TAX_ID; ?></td>
               </tr>
               <tr>
                 <td class="main" colspan="2"><?php echo tep_draw_input_field('store_tax_id'); ?></td>
-              </tr>                                          
+              </tr>
               <tr>
                 <td class="main" colspan="2"><?php echo ENTRY_ENQUIRY; ?></td>
               </tr>
               <tr>
-                <td class="main" colspan="2"><?php echo tep_draw_textarea_field('enquiry', 'soft', 50, 15); ?></td>
+                <td class="main" colspan="2"><?php echo tep_draw_textarea_field2('enquiry', 'soft', 50, 15); ?></td>
+              </tr>
+              <tr>
+                <td class="main" colspan="2"><?php   echo recaptcha_get_html(RECAPTCHA_PUBLIC_KEY); ?></td>
               </tr>
             </table></td>
           </tr>

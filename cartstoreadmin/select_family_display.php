@@ -33,7 +33,7 @@
   $cfg_group = tep_db_fetch_array($cfg_group_query);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -75,7 +75,7 @@
   while ($configuration = tep_db_fetch_array($configuration_query)) {
     if (tep_not_null($configuration['use_function'])) {
       $use_function = $configuration['use_function'];
-      if (ereg('->', $use_function)) {
+      if (preg_match('/->/', $use_function)) {
         $class_method = explode('->', $use_function);
         if (!is_object(${$class_method[0]})) {
           include(DIR_WS_CLASSES . $class_method[0] . '.php');

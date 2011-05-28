@@ -6,8 +6,8 @@ $stimer = explode( ' ', microtime() );
 $stimer = $stimer[1] + $stimer[0];
 //  -----------
 
-	
-$OutFile = DIR_FS_DOCUMENT_ROOT."feeds/".FROOGLE_FTP_FILENAME; 
+
+$OutFile = DIR_FS_DOCUMENT_ROOT."feeds/".FROOGLE_FTP_FILENAME;
 $destination_file = FROOGLE_FTP_FILENAME;  //"CHANGEME-filename-to-upload-to-froogle.txt" ;
 $source_file = $OutFile;
 $imageURL = HTTP_SERVER.'/images/';
@@ -237,7 +237,7 @@ while( $row = mysql_fetch_object( $result ) )
 
 		if($convertCur)
 		{
-			$row->price = ereg_replace("[^.0-9]", "", $row->price);
+			$row->price = preg_replace("/[^.0-9]/", "", $row->price);
 			$row->price = $row->price *  $row3->curUSD;
 			$row->price = number_format($row->price, 2, '.', ',');
 		}

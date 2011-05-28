@@ -81,8 +81,8 @@ Please note, we reserve the right to make changes to the above rate at any time 
 // FAQ4
 define('TEXT_FAQ_4', 'If you have a balance in your Shopping Points Account, you can use those points to pay for purchases made at ' . STORE_NAME . '.
 <br />During the checkout proccess, on the same page that you select a payment method, there will be a box to enter the amount of points you wish to redeem.  Enter the amount of points you would like to spend or tick the box to use all available points.
-Please note, you will still have to select another payment method if there 
-is not enough in your Shopping Points Account to cover the cost of your purchase. 
+Please note, you will still have to select another payment method if there
+is not enough in your Shopping Points Account to cover the cost of your purchase.
 <br />Continue the checkout procedure and at the confirmation page you\'ll notice that the value of the points redeemed will have been credited towards your order.  Once you confirm your order, your Shopping Points account will be updated and the points used deducted from your balance.
 <br />Note that any purchase made by redeeming points will only be rewarded with additional points for the amount spent other then points.');
 
@@ -119,7 +119,7 @@ if(USE_POINTS_FOR_SHIPPING == 'false')  {
 	define('TEXT_FAQ_8', 'No. When calculating the amount of points earned, the shipping fees are excluded.
 	<p align="right"><small>Last updated ' . tep_get_last_date('USE_POINTS_FOR_SHIPPING') . '</small></p>');
 } else {
-#---------------------- DO NOT EDIT  EOF ----------------------------  
+#---------------------- DO NOT EDIT  EOF ----------------------------
  	define('TEXT_FAQ_8', 'Yes. When calculating the amount of points earned, the shipping fees are included.
 	<br /><br />We strongly advise you to check this page often as we may make changes to this policy.
 	<p align="right"><small>Last updated ' . tep_get_last_date('USE_POINTS_FOR_SHIPPING') . '</small></p>');
@@ -134,7 +134,7 @@ if(USE_POINTS_FOR_TAX == 'false')  {
 	define('TEXT_FAQ_9', 'Yes. When calculating the amount of points earned, the taxes are included.
 	<br /><br />We strongly advise you to check this page often as we may make changes to this policy.
 	<p align="right"><small>Last updated ' . tep_get_last_date('USE_POINTS_FOR_TAX') . '</small></p>');
-}	 
+}
 
 // FAQ10 - conditionnal depending on value set in admin for giving point on specials
 if(USE_POINTS_FOR_SPECIALS == 'false')  {
@@ -201,21 +201,21 @@ if (tep_not_null(RESTRICTION_MODEL)) {
 	<br /><br />We strongly advise you to check this page often as we may make changes to this policy.
 	<p align="right"><small>Last updated ' . tep_get_last_date('RESTRICTION_MODEL') . '</small></p>');
 }
-if (tep_not_null(RESTRICTION_PID)) { 
-	$p_ids = split("[,]", RESTRICTION_PID);
+if (tep_not_null(RESTRICTION_PID)) {
+	$p_ids = explode(",", RESTRICTION_PID);
 	for ($i = 0; $i < count($p_ids); $i++) {
 		$prods_query = tep_db_query("SELECT * FROM products, products_description WHERE products.products_id = products_description.products_id and products_description.language_id = '" . $languages_id . "'and products.products_id = '" . $p_ids[$i] . "'");
 		if ($list = tep_db_fetch_array($prods_query)) {
 			$prods .= '<li>' . $list['products_name'] .'</li>';
 		}
 	}
-	
+
 	define('TEXT_FAQ_14', 'Currently, only  the following items can be purchased using your points balance.<ul>' . $prods . '</ul>
 	<br />Nous vous suggérons de vérifier cette page régulierement car nous pouvons venir à changer nos conditions.
 	<p align="right"><small>Dernière mise à jour: ' . tep_get_last_date('RESTRICTION_PID') . '</small></p>');
 }
 if (tep_not_null(RESTRICTION_PATH)) {
-	$cat_path = split("[,]", RESTRICTION_PATH);
+	$cat_path = explode(",", RESTRICTION_PATH);
         for ($i = 0; $i < count($cat_path); $i++) {
         	$cat_path_query = tep_db_query("select * from " . TABLE_CATEGORIES . ", " . TABLE_CATEGORIES_DESCRIPTION . " WHERE categories.categories_id = categories_description.categories_id and categories_description.language_id = '" . $languages_id . "' and categories.categories_id='" . $cat_path[$i] . "'");
         	if ($list = tep_db_fetch_array($cat_path_query)) {
@@ -263,7 +263,7 @@ define('TEXT_INFORMATION', '<a name="Top"></a><font color="FF0000"><b>Please cho
 <ol>
 <li><a class="general_link" href="javascript:show(\'answer_q1\');">'. POINTS_FAQ_1 .'</a><br />
 	<div id="answer_q1" style="'.$style.'">'.
-		TEXT_FAQ_1	
+		TEXT_FAQ_1
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q2\');">'. POINTS_FAQ_2 .'</a><br />
 	<div id="answer_q2" style="'.$style.'">'.
@@ -271,62 +271,62 @@ define('TEXT_INFORMATION', '<a name="Top"></a><font color="FF0000"><b>Please cho
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q3\');">'. POINTS_FAQ_3 .'</a><br />
 	<div id="answer_q3" style="'.$style.'">'.
-		TEXT_FAQ_3	
+		TEXT_FAQ_3
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q4\');">'. POINTS_FAQ_4 .'</a><br />
 	<div id="answer_q4" style="'.$style.'">'.
-		TEXT_FAQ_4	
+		TEXT_FAQ_4
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q5\');">'. POINTS_FAQ_5 .'</a><br />
 	<div id="answer_q5" style="'.$style.'">'.
-		TEXT_FAQ_5	
+		TEXT_FAQ_5
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q6\');">'. POINTS_FAQ_6 .'</a><br />
 	<div id="answer_q6" style="'.$style.'">'.
-		TEXT_FAQ_6	
+		TEXT_FAQ_6
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q7\');">'. POINTS_FAQ_7 .'</a><br />
 	<div id="answer_q7" style="'.$style.'">'.
-		TEXT_FAQ_7	
+		TEXT_FAQ_7
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q8\');">'. POINTS_FAQ_8 .'</a><br />
 	<div id="answer_q8" style="'.$style.'">'.
-		TEXT_FAQ_8	
+		TEXT_FAQ_8
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q9\');">'. POINTS_FAQ_9 .'</a><br />
 	<div id="answer_q9" style="'.$style.'">'.
-		TEXT_FAQ_9	
+		TEXT_FAQ_9
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q10\');">'. POINTS_FAQ_10 .'</a><br />
 	<div id="answer_q10" style="'.$style.'">'.
-		TEXT_FAQ_10	
+		TEXT_FAQ_10
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q11\');">'. POINTS_FAQ_11 .'</a><br />
 	<div id="answer_q11" style="'.$style.'">'.
-		TEXT_FAQ_11	
+		TEXT_FAQ_11
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q12\');">'. POINTS_FAQ_12 .'</a><br />
 	<div id="answer_q12" style="'.$style.'">'.
-		TEXT_FAQ_12	
+		TEXT_FAQ_12
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q13\');">'. POINTS_FAQ_13 .'</a><br />
 	<div id="answer_q13" style="'.$style.'">'.
-		TEXT_FAQ_13	
+		TEXT_FAQ_13
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q14\');">'. POINTS_FAQ_14 .'</a><br />
 	<div id="answer_q14" style="'.$style.'">'.
-		TEXT_FAQ_14	
+		TEXT_FAQ_14
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q15\');">'. POINTS_FAQ_15 .'</a><br />
 	<div id="answer_q15" style="'.$style.'">'.
-		TEXT_FAQ_15	
+		TEXT_FAQ_15
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q16\');">'. POINTS_FAQ_16 .'</a><br />
 	<div id="answer_q16" style="'.$style.'">'.
-		TEXT_FAQ_16	
+		TEXT_FAQ_16
 	.'</div>
 <li><a class="general_link" href="javascript:show(\'answer_q17\');">'. POINTS_FAQ_17 .'</a><br />
 	<div id="answer_q17" style="'.$style.'">'.
-		TEXT_FAQ_17	
+		TEXT_FAQ_17
 	.'</div></ol>');
 ?>

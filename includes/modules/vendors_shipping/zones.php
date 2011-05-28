@@ -159,7 +159,7 @@
 
       for ($i=1; $i<=$this->num_zones($vendors_id); $i++) {
         $countries_table = constant('MODULE_SHIPPING_ZONES_COUNTRIES_' . $vendors_id . '_' . $i);
-        $country_zones = split("[,]", $countries_table);
+        $country_zones = preg_split("/[,]/", $countries_table);
         if (in_array($dest_country, $country_zones)) {
           $dest_zone = $i;
           break;
@@ -172,7 +172,7 @@
         $shipping = -1;
         $zones_cost = constant('MODULE_SHIPPING_ZONES_COST_' . $vendors_id . '_' . $dest_zone);
 
-        $zones_table = split("[:,]" , $zones_cost);
+        $zones_table = preg_split("/[:,]/" , $zones_cost);
         $size = sizeof($zones_table);
         for ($i=0; $i<$size; $i+=2) {
           if ($shipping_weight <= $zones_table[$i]) {

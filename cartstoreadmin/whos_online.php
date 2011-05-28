@@ -486,11 +486,11 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
                 $temp=str_replace('product_info.php','',$temp_url_link);
                 $temp=str_replace('/?','',$temp);
                 $temp=str_replace('?','',$temp);
-                $parameters=split("&",$temp);
+                $parameters=explode("&",$temp);
 
                 $i=0;
     while($i < count($parameters)) {
-        $a=split("=",$parameters[$i]);
+        $a=explode("=",$parameters[$i]);
         if ($a[0]="products_id") { $products_id=$a[1]; }
         $i++;
        }
@@ -502,16 +502,16 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
                 $temp=str_replace('index.php?','',$temp_url_link);
                 $temp=str_replace('?','',$temp);
                 $temp=str_replace('/','',$temp);
-                $parameters=split("&",$temp);
+                $parameters=explode("&",$temp);
 
                 $i=0;
     while($i < count($parameters)) {
-        $a=split("=",$parameters[$i]);
+        $a=explode("=",$parameters[$i]);
         if ($a[0]=="cPath") { $cat=$a[1]; }
         $i++;
        }
 
-                $parameters=split("_",$cat);
+                $parameters=explode("_",$cat);
 
 		//$cat_list='';
                 $i=0;

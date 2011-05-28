@@ -430,7 +430,7 @@ function XML_RPC_ee($parser_resource, $name)
         } else {
             // we have an I4, INT or a DOUBLE
             // we must check that only 0123456789-.<space> are characters here
-            if (!ereg("^[+-]?[0123456789 \t\.]+$", $XML_RPC_xh[$parser]['ac'])) {
+            if (!preg_match("/^[+-]?[0123456789 \t\.]+$/", $XML_RPC_xh[$parser]['ac'])) {
                 XML_RPC_Base::raiseError('Non-numeric value received in INT or DOUBLE',
                                          XML_RPC_ERROR_NON_NUMERIC_FOUND);
                 $XML_RPC_xh[$parser]['value'] = XML_RPC_ERROR_NON_NUMERIC_FOUND;
@@ -494,7 +494,7 @@ function XML_RPC_ee($parser_resource, $name)
 
     case 'METHODNAME':
     case 'RPCMETHODNAME':
-        $XML_RPC_xh[$parser]['method'] = ereg_replace("^[\n\r\t ]+", '',
+        $XML_RPC_xh[$parser]['method'] = preg_replace("/^[\n\r\t ]+/", '',
                                                       $XML_RPC_xh[$parser]['ac']);
         break;
     }
@@ -1202,7 +1202,7 @@ class XML_RPC_Message extends XML_RPC_Base
         }
         $this->payload .= "</params>\n";
         $this->payload .= $this->xml_footer();
-        $this->payload = ereg_replace("[\r\n]+", "\r\n", $this->payload);
+        $this->payload = preg_replace("/[\r\n]+/", "\r\n", $this->payload);
     }
 
     /**
@@ -1363,8 +1363,8 @@ class XML_RPC_Message extends XML_RPC_Base
 
         // See if response is a 200 or a 100 then a 200, else raise error.
         // But only do this if we're using the HTTP protocol.
-        if (ereg('^HTTP', $data) &&
-            !ereg('^HTTP/[0-9\.]+ 200 ', $data) &&
+        if (preg_match('/^HTTP/', $data) &&
+            !preg_match('/^HTTP/[0-9\.]+ 200 /', $data) &&
             !preg_match('@^HTTP/[0-9\.]+ 10[0-9]([A-Za-z ]+)?[\r\n]+HTTP/[0-9\.]+ 200@', $data))
         {
                 $errstr = substr($data, 0, strpos($data, "\n") - 1);
@@ -1435,7 +1435,7 @@ class XML_RPC_Message extends XML_RPC_Base
                 $r = new XML_RPC_Response($v);
             }
         }
-        $r->hdrs = split("\r?\n", $XML_RPC_xh[$parser]['ha'][1]);
+        $r->hdrs = preg_split("/\r?\n/", $XML_RPC_xh[$parser]['ha'][1]);
         return $r;
     }
 }
@@ -1834,7 +1834,7 @@ function XML_RPC_iso8601_encode($timet, $utc = 0)
 function XML_RPC_iso8601_decode($idate, $utc = 0)
 {
     $t = 0;
-    if (ereg('([0-9]{4})([0-9]{2})([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})', $idate, $regs)) {
+    if (preg-match('/([0-9]{4})([0-9]{2})([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})/', $idate, $regs)) {
         if ($utc) {
             $t = gmmktime($regs[4], $regs[5], $regs[6], $regs[2], $regs[3], $regs[1]);
         } else {
@@ -1926,7 +1926,7 @@ function XML_RPC_encode($php_val)
 
     case 'string':
     case 'NULL':
-        if(ereg('^[0-9]{8}\T{1}[0-9]{2}\:[0-9]{2}\:[0-9]{2}$', $php_val)) {
+        if(preg_match('/^[0-9]{8}\T{1}[0-9]{2}\:[0-9]{2}\:[0-9]{2}$/', $php_val)) {
             $XML_RPC_val->addScalar($php_val, $XML_RPC_DateTime);
         } else {
             $XML_RPC_val->addScalar($php_val, $XML_RPC_String);

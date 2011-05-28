@@ -1,7 +1,7 @@
 <?php
 /**
  * Event Calendar Listing.
- *  Input: 
+ *  Input:
  *      $events_query_raw
  *      $listingTitle
  *      $displayPagingSuffix
@@ -16,22 +16,22 @@ $events_split = new splitPageResults($events_query_raw, MAX_DISPLAY_NUMBER_EVENT
 $events_query = tep_db_query($events_query_raw);
 
 //Show Paging Header ?
-if (($events_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3'))) 
+if (($events_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3')))
 {
 ?>
-   
-           
+
+
            <div id="module-product">
            <div class="sort">
             <table border="0" width="100%" cellspacing="0" cellpadding="2">
                 <tr>
                     <td class="smallText">
-                        <?php 
+                        <?php
                             if(isset($displayPagingSuffix))
                             {
                                 $displayPagingSuffix = ' : ' . $displayPagingSuffix;
                             }
-                            echo $events_split->display_count(TEXT_DISPLAY_NUMBER_OF_PAGES . $displayPagingSuffix); 
+                            echo $events_split->display_count(TEXT_DISPLAY_NUMBER_OF_PAGES . $displayPagingSuffix);
                         ?>
                     </td>
                     <td align="right" class="smallText">
@@ -40,9 +40,9 @@ if (($events_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (
                 </tr>
             </table>
             </div></div>
-        
+
 <?php
-} 
+}
 
 $row = 0;
 $list_box_contents = array();
@@ -59,19 +59,19 @@ $list_box_contents[$row][] = array('align' => '',
                                 'text' => '&nbsp;' . TEXT_EVENT_TITLE . '<br />
 ');
 
-//Add listing rows ...    
+//Add listing rows ...
 $events_query = tep_db_query($events_split->sql_query);
 while($events = tep_db_fetch_array($events_query))
 {
     $row++;
-    list($year, $month, $day) = split ('[/.-]', $events['start_date']);        
+    list($year, $month, $day) = preg_split ('/[\/\.-]/', $events['start_date']);
     $list_box_contents[$row][] = array('align'  => '',
                                        'params' => '',
                                        'text'   => date("F j, Y", mktime(0, 0, 0, $month, $day, $year)));
     $endDate = '-';
     if(isset($events['end_date']) && trim($events['end_date']) != '')
     {
-        list($year, $month, $day) = split ('[/.-]', $events['end_date']);
+        list($year, $month, $day) = preg_split ('/[\/\.-]/', $events['end_date']);
         $endDate = date("F j, Y", mktime(0, 0, 0, $month, $day, $year));
     }
     $list_box_contents[$row][] = array('align'  => '',
@@ -80,30 +80,30 @@ while($events = tep_db_fetch_array($events_query))
     $list_box_contents[$row][] = array('align' => '',
                                        'params' => '',
                                        'text'  =>  '
-<a href="' 
-                                          . FILENAME_EVENTS_CALENDAR . '?select_event=' . $events['event_id'] . '">' 
+<a href="'
+                                          . FILENAME_EVENTS_CALENDAR . '?select_event=' . $events['event_id'] . '">'
                                           . $events['title'] . '</a><br />
 ');
 }
 
-//Show listing 
+//Show listing
 new productListingBox($list_box_contents);
-    
-if (($events_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3'))) 
+
+if (($events_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3')))
 {
 ?>
-   
+
              <div id="module-product">
            <div class="sort">
            <table border="0" width="100%" cellspacing="0" cellpadding="2">
                 <tr>
                     <td class="smallText">
-                        <?php 
+                        <?php
                             if(isset($displayPagingSuffix))
                             {
                                 $displayPagingSuffix = ' : ' . $displayPagingSuffix;
                             }
-                            echo $events_split->display_count(TEXT_DISPLAY_NUMBER_OF_PAGES . $displayPagingSuffix); 
+                            echo $events_split->display_count(TEXT_DISPLAY_NUMBER_OF_PAGES . $displayPagingSuffix);
                         ?>
                     </td>
                     <td align="right" class="smallText">
@@ -113,15 +113,15 @@ if (($events_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (
             </table>
             </div>
             </div>
-       
-       
+
+
 <?php
 }
 else
 {
 ?>
             <b><?php echo TEXT_NO_EVENTS; ?></b>
-               
+
 <?php
 }
 ?>

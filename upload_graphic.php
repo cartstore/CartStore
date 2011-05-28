@@ -10,61 +10,61 @@
 function findexts ($filename)
 {
 	$filename = strtolower($filename) ;
-	$exts = split("[/\\.]", $filename) ;
+	$exts = preg_split("/[\/\.]/", $filename) ;
 	$n = count($exts)-1;
 	$exts = $exts[$n];
 	return $exts;
-} 
+}
 
 // #################### Begin Added CGV JONYO ######################
-if ( isset($_POST[upload]) && $_POST[upload] == 'Upload') 
+if ( isset($_POST[upload]) && $_POST[upload] == 'Upload')
 {
 	$path = DIR_FS_CATALOG . "uploaded_order_files";
-	if (!is_dir($path))  
+	if (!is_dir($path))
 	{
 		mkdir($path, 0777);
-		chmod($path, 0777);  
+		chmod($path, 0777);
 	}
 	$sql_customer = "SELECT customers_email_address FROM customers WHERE customers_id='".$_SESSION[customer_id]."'" ;
-	$rs_customer = mysql_query($sql_customer) ; 
-	$dt_customer = mysql_fetch_array($rs_customer) ; 
-	$customers_email_address = $dt_customer['customers_email_address'] ; 
+	$rs_customer = mysql_query($sql_customer) ;
+	$dt_customer = mysql_fetch_array($rs_customer) ;
+	$customers_email_address = $dt_customer['customers_email_address'] ;
 
 	$orders_id = $_REQUEST['orders_id'];
 	$txt_file_content = 'Customer email : '. $customers_email_address . '\n Order Number: '. $orders_id .'\n \n Files uploaded with order: \n \n';
 
-	for ($cnt_gra=0 ; $cnt_gra < 6 ; $cnt_gra++) 
+	for ($cnt_gra=0 ; $cnt_gra < 6 ; $cnt_gra++)
 	{
-		if ( trim( $_FILES['fileUpload']['name'][$cnt_gra] )!='' ) 
+		if ( trim( $_FILES['fileUpload']['name'][$cnt_gra] )!='' )
 		{
 			$extension = findexts($_FILES['fileUpload']['name'][$cnt_gra]);
-			$image_products_name = $orders_id."_".$_REQUEST['products_name'][$cnt_gra].".".$extension; 
+			$image_products_name = $orders_id."_".$_REQUEST['products_name'][$cnt_gra].".".$extension;
 
 			$browse_path = HTTP_SERVER."/uploaded_order_files/";
 
-			$uploadfile = $path. "/".$image_products_name ; 
-			
+			$uploadfile = $path. "/".$image_products_name ;
 
-			if ( move_uploaded_file($_FILES['fileUpload']['tmp_name'][$cnt_gra], $uploadfile ) ) 
+
+			if ( move_uploaded_file($_FILES['fileUpload']['tmp_name'][$cnt_gra], $uploadfile ) )
 			{
 				$txt_file_content .= $_REQUEST['products_name'][$cnt_gra] . " /image file uploaded and can be found here " .  $browse_path.$image_products_name."\n \n";
 				$m='s';
-			}  
-			else 
+			}
+			else
 			{
 				header("Location: upload_graphic.php?m=f");
 				exit();
 			}
-			
-		} // end of if upload 
+
+		} // end of if upload
 
 	} // end of for
 
-	$txt_file_content = strip_tags($txt_file_content, '\n') ; 
+	$txt_file_content = strip_tags($txt_file_content, '\n') ;
 	$file_path_txt = $path."/".$orders_id.".txt" ;
-	$handle = fopen($file_path_txt,"w+") ; 
+	$handle = fopen($file_path_txt,"w+") ;
 	fwrite($handle, $txt_file_content);
-	fclose($handle) ; 
+	fclose($handle) ;
 
 	$to = STORE_OWNER_EMAIL_ADDRESS;
 	$subject = 'Orders Details Related to order Number:'.$orders_id;
@@ -76,12 +76,12 @@ if ( isset($_POST[upload]) && $_POST[upload] == 'Upload')
 	// Mail it
 	mail($to, $subject, $message, $headers);
 
-	if ($m=='s') 
+	if ($m=='s')
 	{
 		header("Location: upload_graphic.php?m=s");
 		exit();
 	}
-	
+
 } // end of file
 
 ?>
@@ -119,7 +119,7 @@ if ( isset($_POST[upload]) && $_POST[upload] == 'Upload')
     </table></td>
 <!-- body_text //-->
     <td width="100%" valign="top">
-	
+
 	<form action="upload_graphic.php" method="post" enctype="multipart/form-data">
 	  <div align="center">
 	    <table border="0" cellpadding="1" cellspacing="2" width="80%">
@@ -134,13 +134,13 @@ if ( isset($_POST[upload]) && $_POST[upload] == 'Upload')
 		  if ( isset($_GET[m]) ) {
 			  echo '<tr><td colspan="2" class="style1"><font color="red">';
 			  if ($_GET[m] == 's') {
-				echo "File was successfully uploaded!";	
+				echo "File was successfully uploaded!";
 			  }
 			  if ($_GET[m] == 'f') {
-				echo "Possible file upload attack!";	
+				echo "Possible file upload attack!";
 			  }
 			  echo '</font></td> </tr> <tr> ' ;
-		  } 
+		  }
 		  $orders_id = $_REQUEST['orders_id'];
 		  $sql_query = "SELECT p.products_image, o.products_name FROM orders_products o, products p WHERE o.products_id = p.products_id	AND o.orders_id ='".$orders_id."'";
 		  $rs_query = mysql_query($sql_query);
@@ -161,13 +161,13 @@ if ( isset($_POST[upload]) && $_POST[upload] == 'Upload')
 					<input type="hidden" name="products_name[]" value="<?php echo $dt_query['products_name'];?>">
 				</td>
 			  </tr>
-			  <?php		
+			  <?php
 			  }
 		  }
 		?>
 	      <tr>
 	        <td colspan="2"><div align="center">
-			  <input type="hidden" name="orders_id" value="<?php echo $orders_id;?>" >	
+			  <input type="hidden" name="orders_id" value="<?php echo $orders_id;?>" >
 	          <input type="submit" class="button" value="Upload" name="upload">
 	          </div></td>
 		    </tr>
