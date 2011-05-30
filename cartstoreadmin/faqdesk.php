@@ -790,7 +790,6 @@ if (is_dir(DIR_FS_CATALOG_IMAGES)) {
 
 	 	
 
-<script language="javascript" src="includes/menu.js"></script>
 
 <script language="javascript" src="includes/general.js"></script>
 

@@ -34,7 +34,6 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 
 
-<script language="javascript" src="includes/menu.js"></script>
 <script language="javascript" src="includes/general.js"></script>
 </head>
 <body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" bgcolor="#FFFFFF" onLoad="SetFocus();">

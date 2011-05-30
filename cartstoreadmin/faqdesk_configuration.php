@@ -70,7 +70,6 @@ $cfg_group = tep_db_fetch_array($cfg_group_query);
 
 
 
-<script language="javascript" src="includes/menu.js"></script>
 
 <script language="javascript" src="includes/general.js"></script>
 

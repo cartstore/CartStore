@@ -515,49 +515,24 @@
 
       </tr>
 
-      <tr>
-
-        <td></td>
-
-      </tr>
 
 
 
 
 
-      <tr>
 
-        <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
-
-          <tr class="infoBoxContents">
-
-            <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
-
-              <tr>
-
-                <td width="10"></td>
-
-                <td align="right"><?php
-          echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE);
-?></td>
-
-                <td width="10"></td>
-
-              </tr>
-
-            </table></td>
-
-          </tr>
-
-        </table></td>
-
-      </tr>
+    
 
 <?php
       }
 ?>
 
-    </table></form></td>
+    </table>
+    <?php
+          echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE);
+?>
+    
+    </form></td>
 
 <!-- body_text_eof //-->
 

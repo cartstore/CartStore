@@ -42,9 +42,7 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
 		  <title><?php echo TITLE; ?></title>
 		  <?php
 		}
-		if (DISPLAY_DHTML_MENU == 'CoolMenu') {
-			  echo '<SCRIPT LANGUAGE="JavaScript1.2" SRC="includes/coolMenu.js"></SCRIPT>';
-			}
+
 			// EOF: WebMakers.com Changed: Header Tag Controller v1.0
 			?>
 		

@@ -1,7 +1,33 @@
 <?php
+ini_set('error_reporting', E_ALL ^ E_NOTICE);
+/* 
+Team Do not remove comments in this file.
+
+Turn off all error reporting
+//error_reporting(0);
+
+// Report simple running errors
+//error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+// Reporting E_NOTICE can be good too (to report uninitialized
+// variables or catch variable name misspellings ...)
+//error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+// Report all errors except E_NOTICE
+// This is the default value set in php.ini
+//error_reporting(E_ALL ^ E_NOTICE);
+
+// Report all PHP errors (see changelog)
+//error_reporting(E_ALL);
+
+// Report all PHP errors
+//error_reporting(-1);
+
+// Same as error_reporting(E_ALL);
+*/
+  date_default_timezone_set('UTC');
   define('PAGE_PARSE_START_TIME', microtime());
-  error_reporting(E_ALL & ~E_NOTICE);
-  if (function_exists('ini_get')) {
+   if (function_exists('ini_get')) {
       (!ini_get('register_globals')) or exit('FATAL ERROR: register_globals is enabled in php.ini, please disable it!');
   }
   if (file_exists('includes/local/configure.php'))

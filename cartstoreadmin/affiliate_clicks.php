@@ -106,7 +106,7 @@
                 <td class="dataTableContent" colspan="3"><?php  echo $affiliate_clickthroughs['affiliate_clientreferer']; ?></td>
               </tr>
               <tr>
-                <td class="dataTableContent" colspan="4"><?php echo tep_draw_separator('pixel_black.png', '100%', '1'); ?></td>
+                <td class="dataTableContent" colspan="4"></td>
               </tr>
 <?php
     }

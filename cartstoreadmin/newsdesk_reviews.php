@@ -102,7 +102,6 @@ if ($_GET['action']) {
 
 	 	
 
-<script language="javascript" src="includes/menu.js"></script>
 
 <script language="javascript" src="includes/general.js"></script>
 

@@ -1,4 +1,5 @@
 <?php
+ 
   if (!tep_session_is_registered('sppc_customer_group_id')) {
       $customer_group_id = '0';
   } else {

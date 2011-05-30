@@ -209,7 +209,7 @@
         </td>
           </tr>
           <tr>
-            <td colspan = 2><?php echo tep_draw_separator('pixel_black.png', '1', '10') .  tep_black_line() . tep_draw_separator('pixel_black.png', '1', '10'); ?></td>
+            <td colspan = 2></td>
           </tr>
 <?php
               } //end for-language-loop

@@ -33,7 +33,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
 <title><?php echo TITLE; ?></title>
- <script language="javascript" src="includes/menu.js"></script>
 <link href="templates/admin/css/template_css.css" rel="stylesheet" type="text/css" />
 
 	 	

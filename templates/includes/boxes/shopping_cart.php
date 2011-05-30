@@ -1,2 +1,2 @@
-<?=$cart->count_contents()?>
+<?php echo $cart->count_contents();?>
 

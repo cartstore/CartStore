@@ -707,7 +707,6 @@ document.write('&nbsp;' + Hours + ":" + Mins + Time + '</font>');
         }
 
         if (sizeof($products) > 0) {
-         $contents[] = array('text' => tep_draw_separator('pixel_black.png', '100%', '1'));
          $contents[] = array('align' => 'right', 'text'  => TEXT_SHOPPING_CART_SUBTOTAL . ' ' . $currencies->format($cart->show_total(), true, $currency));
         } else {
          $contents[] = array('text' => TEXT_EMPTY); // by azer for v2.9

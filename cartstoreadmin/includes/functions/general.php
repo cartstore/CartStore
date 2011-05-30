@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('UTC');
+
 
   function tep_admin_check_login()
   {

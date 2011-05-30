@@ -333,7 +333,7 @@
                 <td class="dataTableContent" align="right"><?php echo number_format($affiliate_newsletters['content_length']) . ' bytes'; ?></td>
                 <td class="dataTableContent" align="right"><?php echo $affiliate_newsletters['module']; ?></td>
                 <td class="dataTableContent" align="center"><?php if ($affiliate_newsletters['status'] == '1') { echo tep_image(DIR_WS_ICONS . 'tick.gif', ICON_TICK); } else { echo tep_image(DIR_WS_ICONS . 'cross.gif', ICON_CROSS); } ?></td>
-                <td class="dataTableContent" align="center"><?php if ($affiliate_newsletters['locked'] > 0) { echo tep_image(DIR_WS_ICONS . 'locked.png', ICON_LOCKED); } else { echo tep_image(DIR_WS_ICONS . 'unlocked.png', ICON_UNLOCKED); } ?></td>
+                <td class="dataTableContent" align="center"><?php if ($affiliate_newsletters['locked'] > 0) { echo tep_image(DIR_WS_ICONS . 'locked.gif', ICON_LOCKED); } else { echo tep_image(DIR_WS_ICONS . 'unlocked.png', ICON_UNLOCKED); } ?></td>
                 <td class="dataTableContent" align="right"><?php if (isset($nInfo) && is_object($nInfo) && ($affiliate_newsletters['affiliate_newsletters_id'] == $nInfo->affiliate_newsletters_id) ) { echo tep_image(DIR_WS_IMAGES . 'icon_arrow_right.png', ''); } else { echo '<a href="' . tep_href_link(FILENAME_AFFILIATE_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $affiliate_newsletters['affiliate_newsletters_id']) . '">' . tep_image(DIR_WS_IMAGES . 'icon_info.png', IMAGE_ICON_INFO) . '</a>'; } ?>&nbsp;</td>
               </tr>
 <?php

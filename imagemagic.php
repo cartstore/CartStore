@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
   if (file_exists('includes/local/configure.php')) {
 
