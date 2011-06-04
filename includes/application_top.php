@@ -1,6 +1,6 @@
-<?php 
+<?php
 ini_set('error_reporting', E_ALL ^ E_NOTICE);
-/* 
+/*
 Team Do not remove comments in this file.
 
 Turn off all error reporting
@@ -27,49 +27,49 @@ Turn off all error reporting
 */
   date_default_timezone_set('UTC');
   define('PAGE_PARSE_START_TIME', microtime());
-  
+
   if (function_exists('ini_get')) {
       (!ini_get('register_globals')) or exit('FATAL ERROR: register_globals is enabled in php.ini, please disable it!');
   }
-  
+
   if (file_exists('includes/local/configure.php'))
       include('includes/local/configure.php');
-  
+
   require('includes/configure.php');
   if (strlen(DB_SERVER) < 1) {
       if (is_dir('install')) {
           header('Location: install/index.php');
       }
   }
-  
+
   define('PROJECT_VERSION', 'CartStore 2.0');
-  
+
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';
-  
+
   if (!isset($PHP_SELF))
       $PHP_SELF = $_SERVER['PHP_SELF'];
-  
+
   include_once DIR_WS_MODULES . 'fwr_media_security_pro.php';
   $security_pro = new Fwr_Media_Security_Pro;
-  
-  
+
+
   $security_pro->cleanse($PHP_SELF);
-  
+
   if ($request_type == 'NONSSL') {
       define('DIR_WS_CATALOG', DIR_WS_HTTP_CATALOG);
   } else {
       define('DIR_WS_CATALOG', DIR_WS_HTTPS_CATALOG);
   }
-  
+
   require(DIR_WS_INCLUDES . 'filenames.php');
-  
+
   require(DIR_WS_INCLUDES . 'database_tables.php');
-  
-  
+
+
   define('BOX_WIDTH', 125);
-  
+
   require(DIR_WS_FUNCTIONS . 'database.php');
-  
+
   function tep_get_configuration_key_value($lookup)
   {
       $configuration_query_raw = tep_db_query("select configuration_value from " . TABLE_CONFIGURATION . " where configuration_key='" . $lookup . "'");
@@ -77,22 +77,22 @@ Turn off all error reporting
       $lookup_value = $configuration_query['configuration_value'];
       return $lookup_value;
   }
-  
-  
+
+
   tep_db_connect() or die('Unable to connect to database server!');
-  
+
   $configuration_query = tep_db_query('select configuration_key as cfgKey, configuration_value as cfgValue from ' . TABLE_CONFIGURATION);
   while ($configuration = tep_db_fetch_array($configuration_query)) {
       define($configuration['cfgKey'], $configuration['cfgValue']);
   }
-  
-  
+
+
   $vendor_configuration_query = tep_db_query('select configuration_key as cfgKey, configuration_value as cfgValue from ' . TABLE_VENDOR_CONFIGURATION);
   while ($vendor_configuration = tep_db_fetch_array($vendor_configuration_query)) {
       define($vendor_configuration['cfgKey'], $vendor_configuration['cfgValue']);
   }
-  
-  
+
+
   if ((GZIP_COMPRESSION == 'true') && ($ext_zlib_loaded = extension_loaded('zlib')) && (PHP_VERSION >= '4')) {
       if (($ini_zlib_output_compression = (int)ini_get('zlib.output_compression')) < 1) {
           if (PHP_VERSION >= '4.0.4') {
@@ -106,7 +106,7 @@ Turn off all error reporting
           ini_set('zlib.output_compression_level', GZIP_LEVEL);
       }
   }
-  
+
   if (SEARCH_ENGINE_FRIENDLY_URLS == 'true') {
       if (strlen(getenv('PATH_INFO')) > 1) {
           $GET_array = array();
@@ -127,28 +127,28 @@ Turn off all error reporting
           }
       }
   }
-  
+
   require(DIR_WS_FUNCTIONS . 'general.php');
   require(DIR_WS_FUNCTIONS . 'html_output.php');
-  
+
   require(DIR_WS_CLASSES . 'calendar.php');
-  
+
   $cookie_domain = (($request_type == 'NONSSL') ? HTTP_COOKIE_DOMAIN : HTTPS_COOKIE_DOMAIN);
   $cookie_path = (($request_type == 'NONSSL') ? HTTP_COOKIE_PATH : HTTPS_COOKIE_PATH);
-  
+
   if (USE_CACHE == 'true')
       include(DIR_WS_FUNCTIONS . 'cache.php');
-  
+
   require(DIR_WS_CLASSES . 'shopping_cart.php');
-  
+
   require(DIR_WS_CLASSES . 'viewed_products.php');
-  
+
   require(DIR_WS_CLASSES . 'wishlist.php');
-  
+
   require(DIR_WS_CLASSES . 'navigation_history.php');
-  
+
   require(DIR_WS_FUNCTIONS . 'compatibility.php');
-  
+
   if (!function_exists('session_start')) {
       define('PHP_SESSION_NAME', 'osCsid');
       define('PHP_SESSION_PATH', $cookie_path);
@@ -156,12 +156,12 @@ Turn off all error reporting
       define('PHP_SESSION_SAVE_PATH', SESSION_WRITE_DIRECTORY);
       include(DIR_WS_CLASSES . 'sessions.php');
   }
-  
+
   require(DIR_WS_FUNCTIONS . 'sessions.php');
-  
+
   tep_session_name('osCsid');
   tep_session_save_path(SESSION_WRITE_DIRECTORY);
-  
+
   if (function_exists('session_set_cookie_params')) {
       session_set_cookie_params(0, $cookie_path, $cookie_domain);
   } elseif (function_exists('ini_set')) {
@@ -169,13 +169,13 @@ Turn off all error reporting
       ini_set('session.cookie_path', $cookie_path);
       ini_set('session.cookie_domain', $cookie_domain);
   }
-  
+
   if (isset($_POST[tep_session_name()])) {
       tep_session_id($_POST[tep_session_name()]);
   } elseif (($request_type == 'SSL') && isset($_GET[tep_session_name()])) {
       tep_session_id($_GET[tep_session_name()]);
   }
-  
+
   $session_started = false;
   if (SESSION_FORCE_COOKIE_USE == 'True') {
       tep_setcookie('cookie_test', 'please_accept_for_session', time() + 60 * 60 * 24 * 30, $cookie_path, $cookie_domain);
@@ -205,9 +205,9 @@ Turn off all error reporting
       tep_session_start();
       $session_started = true;
   }
-  
+
   $SID = (defined('SID') ? SID : '');
-  
+
   if (($request_type == 'SSL') && (SESSION_CHECK_SSL_SESSION_ID == 'True') && (ENABLE_SSL == true) && ($session_started == true)) {
       $ssl_session_id = getenv('SSL_SESSION_ID');
       if (!tep_session_is_registered('SSL_SESSION_ID')) {
@@ -219,7 +219,7 @@ Turn off all error reporting
           tep_redirect(tep_href_link(FILENAME_SSL_CHECK));
       }
   }
-  
+
   if (SESSION_CHECK_USER_AGENT == 'True') {
       $http_user_agent = getenv('HTTP_USER_AGENT');
       if (!tep_session_is_registered('SESSION_USER_AGENT')) {
@@ -231,7 +231,7 @@ Turn off all error reporting
           tep_redirect(tep_href_link(FILENAME_LOGIN));
       }
   }
-  
+
   if (SESSION_CHECK_IP_ADDRESS == 'True') {
       $ip_address = tep_get_ip_address();
       if (!tep_session_is_registered('SESSION_IP_ADDRESS')) {
@@ -243,7 +243,7 @@ Turn off all error reporting
           tep_redirect(tep_href_link(FILENAME_LOGIN));
       }
   }
-  
+
   if (tep_session_is_registered('cart') && is_object($cart)) {
       if (PHP_VERSION < 4) {
           $broken_cart = $cart;
@@ -254,16 +254,16 @@ Turn off all error reporting
       tep_session_register('cart');
       $cart = new shoppingCart();
   }
-  
+
   require(DIR_WS_CLASSES . 'currencies.php');
   $currencies = new currencies();
-  
+
   require(DIR_WS_CLASSES . 'PriceFormatter.php');
   $pf = new PriceFormatter();
-  
+
   require(DIR_WS_CLASSES . 'mime.php');
   require(DIR_WS_CLASSES . 'email.php');
-  
+
   if (!tep_session_is_registered('language') || isset($_GET['language'])) {
       if (!tep_session_is_registered('language')) {
           tep_session_register('language');
@@ -279,15 +279,15 @@ Turn off all error reporting
       $language = $lng->language['directory'];
       $languages_id = $lng->language['id'];
   }
-  
+
   require(DIR_WS_LANGUAGES . $language . '.php');
-  
+
   include_once(DIR_WS_CLASSES . 'seo.class.php');
   if (!is_object($seo_urls)) {
       $seo_urls = new SEO_URL($languages_id);
   }
-  
-  
+
+
   if (!tep_session_is_registered('currency') || isset($_GET['currency']) || ((USE_DEFAULT_LANGUAGE_CURRENCY == 'true') && (LANGUAGE_CURRENCY != $currency))) {
       if (!tep_session_is_registered('currency'))
           tep_session_register('currency');
@@ -298,7 +298,7 @@ Turn off all error reporting
           $currency = (USE_DEFAULT_LANGUAGE_CURRENCY == 'true') ? LANGUAGE_CURRENCY : DEFAULT_CURRENCY;
       }
   }
-  
+
   if (tep_session_is_registered('navigation')) {
       if (PHP_VERSION < 4) {
           $broken_navigation = $navigation;
@@ -310,23 +310,23 @@ Turn off all error reporting
       $navigation = new navigationHistory();
   }
   $navigation->add_current_page();
-  
+
   if (ALL_PRODUCTS == 'false' and strstr($PHP_SELF, ALL_PRODUCTS_FILENAME)) {
       tep_redirect(tep_href_link(FILENAME_DEFAULT));
   }
-  
-  
+
+
   require(DIR_WS_CLASSES . 'boxes.php');
-  
+
   require(DIR_WS_CLASSES . 'message_stack.php');
   $messageStack = new messageStack();
-  
-  
+
+
   if (!tep_session_is_registered('wishList')) {
       tep_session_register('wishList');
       $wishList = new wishlist();
   }
-  
+
   if (isset($_GET['wishlist_x'])) {
       if (isset($_GET['products_id'])) {
           if (isset($_POST['id'])) {
@@ -339,7 +339,7 @@ Turn off all error reporting
       tep_redirect(tep_href_link(FILENAME_WISHLIST));
   }
   if (isset($_GET['action'])) {
-      
+
       if ($session_started == false) {
           tep_redirect(tep_href_link(FILENAME_COOKIE_USAGE));
       }
@@ -355,14 +355,14 @@ Turn off all error reporting
           }
       }
       switch ($_GET['action']) {
-          
+
           case 'update_product':
               for ($i = 0, $n = sizeof($_POST['products_id']); $i < $n; $i++) {
                   if (in_array($_POST['products_id'][$i], (is_array($_POST['cart_delete']) ? $_POST['cart_delete'] : array()))) {
                       $cart->remove($_POST['products_id'][$i]);
                   } else {
                       if (PHP_VERSION < 4) {
-                          
+
                           reset($_POST);
                           while (list($key, $value) = each($_POST)) {
                               if (is_array($value)) {
@@ -382,10 +382,10 @@ Turn off all error reporting
               }
               tep_redirect(tep_href_link($goto, tep_get_all_get_params($parameters)));
               break;
-              
+
           case 'add_product':
               if (isset($_POST['products_id']) && is_numeric($_POST['products_id']) && ($_POST['products_id'] == (int)$_POST['products_id'])) {
-                  
+
                   $attributes = $_POST['id'];
                   if (isset($_POST['attrcomb']) && (preg_match("/^\d{1,10}-\d{1,10}(,\d{1,10}-\d{1,10})*$/", $_POST['attrcomb']))) {
                       $attributes = array();
@@ -418,7 +418,7 @@ Turn off all error reporting
                                   break 2;
                               }
                           } else {
-                              
+
                               $attributes[TEXT_PREFIX . $_POST[UPLOAD_PREFIX . $i]] = $_POST[TEXT_PREFIX . UPLOAD_PREFIX . $i];
                           }
                       }
@@ -427,7 +427,7 @@ Turn off all error reporting
               }
               tep_redirect(tep_href_link($goto, tep_get_all_get_params($parameters)));
               break;
-              
+
           case 'buy_now':
               if (isset($_GET['products_id'])) {
                   $q = $_GET['qty'];
@@ -439,7 +439,7 @@ Turn off all error reporting
                       $cart->add_cart($_GET['products_id'], $cart->get_quantity($_GET['products_id']) + $q);
                   }
               }
-              
+
               tep_redirect(tep_href_link($goto, tep_get_all_get_params($parameters)));
               break;
           case 'notify':
@@ -493,32 +493,32 @@ Turn off all error reporting
               break;
       }
   }
-  
+
   if (basename($PHP_SELF) != FILENAME_EVENTS_CALENDAR_CONTENT) {
       require(DIR_WS_FUNCTIONS . 'whos_online.php');
       tep_update_whos_online();
   }
-  
+
   require(DIR_WS_FUNCTIONS . 'password_funcs.php');
-  
+
   require(DIR_WS_FUNCTIONS . 'validations.php');
-  
+
   require(DIR_WS_CLASSES . 'split_page_results.php');
-  
-  
-  
+
+
+
   require(DIR_WS_FUNCTIONS . 'redemptions.php');
-  
+
   require(DIR_WS_FUNCTIONS . 'banner.php');
   tep_activate_banners();
   tep_expire_banners();
-  
+
   require(DIR_WS_FUNCTIONS . 'specials.php');
   tep_expire_specials();
-  
+
   require(DIR_WS_FUNCTIONS . 'featured.php');
   tep_expire_featured();
-  
+
   if (isset($_GET['cPath'])) {
       $cPath = $_GET['cPath'];
   } elseif (isset($_GET['products_id']) && !isset($_GET['manufacturers_id'])) {
@@ -533,12 +533,12 @@ Turn off all error reporting
   } else {
       $current_category_id = 0;
   }
-  
+
   require(DIR_WS_CLASSES . 'breadcrumb.php');
   $breadcrumb = new breadcrumb();
   $breadcrumb->add(HEADER_TITLE_TOP, HTTP_SERVER);
   $breadcrumb->add(HEADER_TITLE_CATALOG, tep_href_link(FILENAME_DEFAULT));
-  
+
   if (isset($cPath_array)) {
       for ($i = 0, $n = sizeof($cPath_array); $i < $n; $i++) {
           $categories_query = tep_db_query("select categories_name from " . TABLE_CATEGORIES_DESCRIPTION . " where categories_id = '" . (int)$cPath_array[$i] . "' and language_id = '" . (int)$languages_id . "'");
@@ -556,7 +556,7 @@ Turn off all error reporting
           $breadcrumb->add($manufacturers['manufacturers_name'], tep_href_link(FILENAME_DEFAULT, 'manufacturers_id=' . $_GET['manufacturers_id']));
       }
   }
-  
+
   if (isset($_GET['products_id'])) {
       $model_query = tep_db_query("select products_name from " . TABLE_PRODUCTS_DESCRIPTION . " where products_id = '" . (int)$_GET['products_id'] . "'");
       if (tep_db_num_rows($model_query)) {
@@ -564,10 +564,10 @@ Turn off all error reporting
           $breadcrumb->add($model['products_name'], tep_href_link(FILENAME_PRODUCT_INFO, 'cPath=' . $cPath . '&products_id=' . $_GET['products_id']));
       }
   }
-  
+
   require(DIR_WS_FUNCTIONS . 'articles.php');
   require(DIR_WS_FUNCTIONS . 'article_header_tags.php');
-  
+
   if (isset($_GET['tPath'])) {
       $tPath = $_GET['tPath'];
   } elseif (isset($_GET['articles_id']) && !isset($_GET['authors_id'])) {
@@ -582,7 +582,7 @@ Turn off all error reporting
   } else {
       $current_topic_id = 0;
   }
-  
+
   if (isset($tPath_array)) {
       for ($i = 0, $n = sizeof($tPath_array); $i < $n; $i++) {
           $topics_query = tep_db_query("select topics_name from " . TABLE_TOPICS_DESCRIPTION . " where topics_id = '" . (int)$tPath_array[$i] . "' and language_id = '" . (int)$languages_id . "'");
@@ -600,7 +600,7 @@ Turn off all error reporting
           $breadcrumb->add('Articles by ' . $authors['authors_name'], tep_href_link(FILENAME_ARTICLES, 'authors_id=' . $_GET['authors_id']));
       }
   }
-  
+
   if (isset($_GET['articles_id'])) {
       $article_query = tep_db_query("select articles_name from " . TABLE_ARTICLES_DESCRIPTION . " where articles_id = '" . (int)$_GET['articles_id'] . "'");
       if (tep_db_num_rows($article_query)) {
@@ -612,35 +612,35 @@ Turn off all error reporting
           }
       }
   }
-  
-  
-  
-  
+
+
+
+
   define('WARN_INSTALL_EXISTENCE', 'true');
   define('WARN_CONFIG_WRITEABLE', 'true');
   define('WARN_SESSION_DIRECTORY_NOT_WRITEABLE', 'true');
   define('WARN_SESSION_AUTO_START', 'true');
   define('WARN_DOWNLOAD_DIRECTORY_NOT_READABLE', 'true');
-  
+
   require(DIR_WS_CLASSES . 'sts.php');
   $sts = new sts();
   $sts->start_capture();
-  
-  
+
+
   require(DIR_WS_INCLUDES . 'add_ccgvdc_application_top.php');
-  
+
   require(DIR_WS_INCLUDES . 'affiliate_application_top.php');
-  
+
   if (tep_session_is_registered('customer_id') && $customer_id == 0 && substr(basename($PHP_SELF), 0, 7) == 'account')
       tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
-  
+
   define('DIR_WS_RSS', DIR_WS_INCLUDES . 'modules/faqdesk/rss/');
   require_once('includes/functions/clean_html_comments.php');
-  
+
   require(DIR_WS_CLASSES . 'supertracker.php');
   $tracker = new supertracker();
   $tracker->update();
-  
+
   $expire = time() + 60 * 60 * 24 * 90;
   $where = "";
   $YMM_where = "";

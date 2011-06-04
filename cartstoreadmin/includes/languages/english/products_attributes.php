@@ -37,5 +37,26 @@ define('TEXT_OPTION_NAME', 'Option Name');
 define('TABLE_HEADING_OPT_TYPE', 'Option Type'); //CLR 031203 add option type column
 define('TABLE_HEADING_OPT_LENGTH', 'Length'); //CLR 031203 add option length column
 define('TABLE_HEADING_OPT_COMMENT', 'Comment'); //CLR 031203 add option comment column
-
+define('HEADING_TITLE_FILEGROUP', 'File Groups');
+define('HEADING_TITLE_FILEGROUP_FILES', 'Files In Group');
+define('HEADING_TITLE_MASSIVE_FILES', 'Add Multiple Files To Group');
+define('HEADING_TITLE_DELETE_FILE', 'Delete File');
+define('TABLE_HEADING_FILEGROUP_NAME', 'File Group Name');
+define('TABLE_HEADING_GROUPFILE_DESCRIPTION', 'File Decription');
+define('TABLE_HEADING_GROUPFILE_NAME', 'File Name');
+define('TABLE_TEXT_FILEGROUP', 'File Group:');
+define('TEXT_OPTION_FILEGROUP', 'Group Name');
+define('TEXT_TEMP_DESC', 'Download File');
+define('TEXT_SELECT_INPUT', 'Select from list or input filename');
+define('TEXT_MASSIVE_INPUT', 'Add mutiple files to this group');
+define('TEXT_CREATE_GROUP_FIRST', 'Please create file group first.');
+define('TEXT_DELETE_FROM_GROUP', 'Delete this file from group:');
+define('TEXT_DELETE_FROM_ALL_GROUPS', 'Delete this file from <b>All Groups!</b><br><span class="smallText">Delete from all groups will clean up file description as well.</span>');
+define('TEXT_FILE_IN_OTHER_GROUPS', 'This file is also in these groups:');
+define('TEXT_FILE_IN_GROUP', 'files still in this group.<br><span class="smallText">If the files are not in any other groups, deleting this group will also clean up the descriptions of the files.</span>');
+define('TEXT_DELETE_NO_OTHER_GROUP', 'This file is not in any other group.<br><span class="smallText">Delete this file will also clean up file description as well.</span>');
+define('TEXT_UP_ONE_LEVEL', 'Up one level');
+define('TEXT_NO_FILE_IN_FOLDER', 'No file found in this folder.');
+define('ERROR_NO_FILENAME', 'You didn\'t assign a filename.');
+define('ERROR_FILE_DOES_NOT_EXIST', 'The file %s doesn\'t exist.');
 ?>

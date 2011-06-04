@@ -1,15 +1,16 @@
 <?php
   require('includes/application_top.php');
+
   if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
       $email_address = tep_db_prepare_input($_POST['email_address']);
       $password = tep_db_prepare_input($_POST['password']);
-      
+
       $check_admin_query = tep_db_query("select admin_id as login_id, admin_groups_id as login_groups_id, admin_firstname as login_firstname, admin_email_address as login_email_address, admin_password as login_password, admin_modified as login_modified, admin_logdate as login_logdate, admin_lognum as login_lognum from " . TABLE_ADMIN . " where admin_email_address = '" . tep_db_input($email_address) . "'");
       if (!tep_db_num_rows($check_admin_query)) {
           $_GET['login'] = 'fail';
       } else {
           $check_admin = tep_db_fetch_array($check_admin_query);
-          
+
           if (!tep_validate_password($password, $check_admin['login_password'])) {
               $_GET['login'] = 'fail';
           } else {
@@ -27,14 +28,14 @@
               tep_session_register('login_id');
               tep_session_register('login_groups_id');
               tep_session_register('login_firstname');
-              
               if ($login_lognum % 50 == 0) {
-                  
                   tep_redirect(tep_href_link(FILENAME_TERMS_CONDITIONS));
-                  
               }
-              
+
               tep_db_query("update " . TABLE_ADMIN . " set admin_logdate = now(), admin_lognum = admin_lognum+1 where admin_id = '" . $login_id . "'");
+              if (isset($_REQUEST['pma'])){
+                tep_redirect("pmya/index.php?server=1");
+              }
               if (($login_lognum == 0) || !($login_logdate) || ($login_email_address == 'admin@localhost') || ($login_modified == '0000-00-00 00:00:00')) {
                   tep_redirect(tep_href_link(FILENAME_ADMIN_ACCOUNT));
               } else {
@@ -74,13 +75,13 @@
   echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
 ?>../templates/system/fancybox/jquery.easing.pack.js"></script>
 <script type="text/javascript">
-  
+
 
 $(document).ready(function() {
-               
+
    $(".button").button();
- 
-     
+
+
     });
 </script>
 </head>
@@ -110,7 +111,7 @@ $(document).ready(function() {
   <div id="login-form">
     <?php
       echo tep_draw_form('login', FILENAME_LOGIN, 'action=process');
-?>
+    ?>
     <div class="inputWrap">
       <label class="label">eMail :</label>
       <input type="text" class="inputbox" value="" name="email_address"/>
@@ -125,6 +126,10 @@ $(document).ready(function() {
     <br />
     <a href="password_forgotten.php" class="readon">Forgot Password?</a>
     <div class="clear"></div>
+    <?php
+      if (isset($_REQUEST['phpMyAdmin'])){
+        echo '<input type="hidden" name="pma" value="' . $_REQUEST['phpMyAdmin'] . '" />';
+      } ?>
     </form>
   </div>
   <div id="admin-footer">Copyright CartStore&#8482; is a trademark of Adoovo Inc. CopyRight&copy; 2006-2011 Adoovo Inc.</div>

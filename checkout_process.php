@@ -306,8 +306,28 @@
               $sql_data_array = array('orders_id' => $insert_id, 'orders_products_id' => $order_products_id, 'products_options' => $attributes_values['products_options_name'], 'products_options_values' => $order->products[$i]['attributes'][$j]['value'], 'options_values_price' => $attributes_values['options_values_price'], 'price_prefix' => $attributes_values['price_prefix']);
               tep_db_perform(TABLE_ORDERS_PRODUCTS_ATTRIBUTES, $sql_data_array);
               if ((DOWNLOAD_ENABLED == 'true') && isset($attributes_values['products_attributes_filename']) && tep_not_null($attributes_values['products_attributes_filename'])) {
-                  $sql_data_array = array('orders_id' => $insert_id, 'orders_products_id' => $order_products_id, 'orders_products_filename' => $attributes_values['products_attributes_filename'], 'download_maxdays' => $attributes_values['products_attributes_maxdays'], 'download_count' => $attributes_values['products_attributes_maxcount']);
+                if (DOWNLOADS_CONTROLLER_FILEGROUP_STATUS != 'Yes' || !strstr($attributes_values['products_attributes_filename'], 'Group_Files-')) {
+                  $sql_data_array = array('orders_id' => $insert_id,
+                                    'orders_products_id' => $order_products_id,
+                                    'orders_products_filename' => $attributes_values['products_attributes_filename'],
+                                    'download_maxdays' => $attributes_values['products_attributes_maxdays'],
+                                    'download_count' => $attributes_values['products_attributes_maxcount']);
                   tep_db_perform(TABLE_ORDERS_PRODUCTS_DOWNLOAD, $sql_data_array);
+                } else {
+                  $filegroup_array = explode('Group_Files-', $attributes_values['products_attributes_filename']);
+                  $filegroup_id = $filegroup_array[1];
+                  $groupfiles_query = tep_db_query("select download_group_filename
+                                              from " . TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_FILES . "
+                                              where download_group_id = '" . (int)$filegroup_id . "'");
+                  while ($groupfile_array = tep_db_fetch_array($groupfiles_query)) {
+                      $sql_data_array = array('orders_id' => $insert_id,
+                                      'orders_products_id' => $order_products_id,
+                                      'orders_products_filename' => $groupfile_array['download_group_filename'],
+                                      'download_maxdays' => $attributes_values['products_attributes_maxdays'],
+                                      'download_count' => $attributes_values['products_attributes_maxcount']);
+                      tep_db_perform(TABLE_ORDERS_PRODUCTS_DOWNLOAD, $sql_data_array);
+                  }
+               }
               }
 
               $products_ordered_attributes .= "\n\t" . $attributes_values['products_options_name'] . ' ' . tep_decode_specialchars($order->products[$i]['attributes'][$j]['value']);

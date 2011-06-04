@@ -1,9 +1,9 @@
 <?php
 
   
-  define('HTTP_SERVER', 'http://localhost');
-  define('HTTP_CATALOG_SERVER', 'http://localhost');
-  define('HTTPS_CATALOG_SERVER', 'http://localhost');
+  define('HTTP_SERVER', 'http://localhost:777');
+  define('HTTP_CATALOG_SERVER', 'http://localhost:777');
+  define('HTTPS_CATALOG_SERVER', 'http://localhost:777');
   define('ENABLE_SSL_CATALOG', 'false');
   define('DIR_FS_DOCUMENT_ROOT', 'C:/wamp/www/');
   define('DIR_WS_ADMIN', '/cartstoreadmin/');

@@ -18,9 +18,9 @@
   if ((isset($_GET['order']) && !is_numeric($_GET['order'])) || (isset($_GET['id']) && !is_numeric($_GET['id'])) ) {
     die;
   }
-  
+
 // Check that order_id, customer_id and filename match
-  $downloads_query = tep_db_query("select date_format(o.date_purchased, '%Y-%m-%d') as date_purchased_day, opd.download_maxdays, opd.download_count, opd.download_maxdays, opd.orders_products_filename from " . TABLE_ORDERS . " o, " . TABLE_ORDERS_PRODUCTS . " op, " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " opd where o.customers_id = '" . $customer_id . "' and o.orders_id = '" . (int)$_GET['order'] . "' and o.orders_id = op.orders_id and op.orders_products_id = opd.orders_products_id and opd.orders_products_download_id = '" . (int)$_GET['id'] . "' and opd.orders_products_filename != ''");
+  $downloads_query = tep_db_query("select date_format(o.last_modified, '%Y-%m-%d') as date_purchased_day, o.orders_status, opd.download_maxdays, opd.download_count, opd.download_maxdays, opd.orders_products_filename from " . TABLE_ORDERS . " o, " . TABLE_ORDERS_PRODUCTS . " op, " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " opd where o.customers_id = '" . $customer_id . "' and o.orders_id = '" . (int)$HTTP_GET_VARS['order'] . "' and o.orders_status >= " . DOWNLOADS_CONTROLLER_ORDERS_STATUS . " and o.orders_id = op.orders_id and op.orders_products_id = opd.orders_products_id and opd.orders_products_download_id = '" . (int)$HTTP_GET_VARS['id'] . "' and opd.orders_products_filename != ''");
   if (!tep_db_num_rows($downloads_query)) die;
   $downloads = tep_db_fetch_array($downloads_query);
 // MySQL 3.22 does not have INTERVAL
@@ -33,7 +33,22 @@
   if ($downloads['download_count'] <= 0) die;
 // Die if file is not there
   if (!file_exists(DIR_FS_DOWNLOAD . $downloads['orders_products_filename'])) die;
-  
+  else {
+    $file_name = '';
+    if (strstr($downloads['orders_products_filename'], '/')) { // file in a subfolder
+      $file_dir = DIR_FS_DOWNLOAD;
+      $file_array = explode('/', $downloads['orders_products_filename']);
+      for ($i = 0; $i < count($file_array); $i++) {
+        if (is_dir($file_dir . $file_array[$i])) {
+          $file_dir .= $file_array[$i] . '/';
+        } else if (is_file($file_dir . $file_array[$i])) {
+          $file_name = $file_array[$i];
+        }
+      }
+    } else {
+      $file_name = $downloads['orders_products_filename'];
+    }
+  }
 // Now decrement counter
   tep_db_query("update " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " set download_count = download_count-1 where orders_products_download_id = '" . (int)$_GET['id'] . "'");
 
@@ -68,20 +83,35 @@ function tep_unlink_temp_dir($dir)
       if ($file == '.' || $file == '..') continue;
       @unlink($dir . $subdir . '/' . $file);
     }
-    closedir($h2); 
+    closedir($h2);
     @rmdir($dir . $subdir);
   }
   closedir($h1);
 }
-
-
+function tep_download_buffered($filename)
+{
+  $buffersize = 1*(1024*1024); // how many bytes per chunk
+  $buffer = '';
+  $handle = fopen($filename, 'rb');
+  if ($handle === false) {
+    return false;
+  }
+  while (!feof($handle)) {
+    $buffer = fread($handle, $buffersize);
+    echo $buffer;
+    flush();
+  }
+  $status = fclose($handle);
+  return $status;
+}
 // Now send the file with header() magic
   header("Expires: Mon, 26 Nov 1962 00:00:00 GMT");
   header("Last-Modified: " . gmdate("D,d M Y H:i:s") . " GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   header("Content-Type: Application/octet-stream");
-  header("Content-disposition: attachment; filename=" . $downloads['orders_products_filename']);
+  header("Content-disposition: attachment; filename=\"" . $file_name . "\"");
+
 
   if (DOWNLOAD_BY_REDIRECT == 'true') {
 // This will work only on Unix/Linux hosts
@@ -89,11 +119,12 @@ function tep_unlink_temp_dir($dir)
     $tempdir = tep_random_name();
     umask(0000);
     mkdir(DIR_FS_DOWNLOAD_PUBLIC . $tempdir, 0777);
-    symlink(DIR_FS_DOWNLOAD . $downloads['orders_products_filename'], DIR_FS_DOWNLOAD_PUBLIC . $tempdir . '/' . $downloads['orders_products_filename']);
-    tep_redirect(DIR_WS_DOWNLOAD_PUBLIC . $tempdir . '/' . $downloads['orders_products_filename']);
+    symlink(DIR_FS_DOWNLOAD . $downloads['orders_products_filename'], DIR_FS_DOWNLOAD_PUBLIC . $tempdir . '/' . $file_name);
+    tep_redirect(DIR_WS_DOWNLOAD_PUBLIC . $tempdir . '/' . $file_name);
   } else {
 // This will work on all systems, but will need considerable resources
 // We could also loop with fread($fp, 4096) to save memory
-    readfile(DIR_FS_DOWNLOAD . $downloads['orders_products_filename']);
+    set_time_limit(0); // Prevent the script from timing out for large files
+    tep_download_buffered(DIR_FS_DOWNLOAD . $downloads['orders_products_filename']);
   }
 ?>

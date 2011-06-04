@@ -1,6 +1,6 @@
 <?php
 ini_set('error_reporting', E_ALL ^ E_NOTICE);
-/* 
+/*
 Team Do not remove comments in this file.
 
 Turn off all error reporting
@@ -158,7 +158,7 @@ configuration_value as cfgValue from ' . TABLE_VENDOR_CONFIGURATION);
       $current_topic_id = 0;
   }
   if (basename($PHP_SELF) != FILENAME_LOGIN && basename($PHP_SELF) != FILENAME_PASSWORD_FORGOTTEN) {
-    //  tep_admin_check_login();
+      tep_admin_check_login();
   }
   if (count($_POST) > 0) {
       foreach ($_POST as $key => $value) {

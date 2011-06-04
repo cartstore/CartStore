@@ -60,7 +60,7 @@ define('defualtcatimage', 'default.gif');
   define('FILENAME_LOGIN', 'login.php');
   define('FILENAME_LOGOFF', 'logoff.php');
   define('FILENAME_CURRENT_AUCTIONS', 'current_auctions.php');
-  
+
   define('FILENAME_MY_POINTS', 'my_points.php');//Points/Rewards Module V2.00
   define('FILENAME_MY_POINTS_HELP', 'my_points_help.php');//Points/Rewards Module V2.00
   define('FILENAME_NEW_PRODUCTS', 'new_products.php');
@@ -118,7 +118,7 @@ define('FILENAME_ARTICLE_REVIEWS_INFO', 'article_reviews_info.php');
 define('FILENAME_ARTICLE_REVIEWS_WRITE', 'article_reviews_write.php');
 define('FILENAME_ARTICLES', 'articles.php');
 define('FILENAME_ARTICLES_NEW', 'articles_new.php');
-define('FILENAME_ARTICLES_UPCOMING', 'articles_upcoming.php'); 
+define('FILENAME_ARTICLES_UPCOMING', 'articles_upcoming.php');
 define('FILENAME_ARTICLES_XSELL', 'articles_xsell.php');
 define('FILENAME_ARTICLES_PXSELL', 'articles_pxsell.php'); //  New since v1.5
 define('FILENAME_NEW_ARTICLES', 'new_articles.php');
@@ -178,15 +178,12 @@ define('FILENAME_ASK_QUESTION2', 'ask_a_question2.php');
 // CATALOG_PRODUCTS_WITH_IMAGES_mod
 define('FILENAME_CATALOG_PRODUCTS_WITH_IMAGES', 'catalog_products_with_images.php');
 define('FILENAME_CATALOG_PRODUCTS_WITH_IMAGES_FULL', 'catalog_products_with_images_full.php');
-// BOF Anti Robot Validation v2.6
-  define('FILENAME_ACCOUNT_VALIDATION', 'account_validation.php');
-// EOF Anti Robot Registration v2.6
 
 //BEGIN allprods modification
   define('FILENAME_ALLPRODS', 'allprods.php');
 //END allprods modification
 //begin add receipt//
-define('FILENAME_ORDERS_PRINTABLE', 'print_order.php');	
+define('FILENAME_ORDERS_PRINTABLE', 'print_order.php');
 define('FILENAME_ORDERS_PRINTABLE2', 'print_order2.php');
 define('FILENAME_ORDERS_PRINTABLE_INFO', 'print_order.php');
 //end add receipt//
@@ -207,7 +204,7 @@ define('FILENAME_SHOP_BY_PRICE','shop_by_price.php');
 define('FILENAME_EVENTS_CALENDAR_CONTENT','calendar_content.php');
 define('FILENAME_EVENTS_CALENDAR','events_calendar.php');
 
-define( 'FILENAME_BANNER_ROTATOR', 'banner_rotator.php' ); 
+define( 'FILENAME_BANNER_ROTATOR', 'banner_rotator.php' );
 
 
 ?>

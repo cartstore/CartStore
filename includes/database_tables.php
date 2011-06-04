@@ -107,7 +107,7 @@ define('TABLE_TOPICS_DESCRIPTION', 'topics_description');
   define('TABLE_PRODUCTS_EXTRA_FIELDS', 'products_extra_fields');
   define('TABLE_PRODUCTS_TO_PRODUCTS_EXTRA_FIELDS', 'products_to_products_extra_fields');
   // END: Product Extra Fields
-  
+
   define('TABLE_FAQDESK', 'faqdesk');
   define('TABLE_FAQDESK_DESCRIPTION', 'faqdesk_description');
   define('TABLE_FAQDESK_TO_CATEGORIES', 'faqdesk_to_categories');
@@ -153,11 +153,8 @@ define('TABLE_WISHLIST_ATTRIBUTES', 'customers_wishlist_attributes');
   define('MAXIMUM_DELAY_UPDATE_PG_PRICES_TABLE', '15');
   // EOF Separate Pricing per Customer
 
-// BOF Anti Robot Validation v2.6
-  define('TABLE_ANTI_ROBOT_REGISTRATION', 'anti_robotreg');
-// EOF Anti Robot Registration v2.6
   define('TABLE_ADMINISTRATORS', 'admin');
-  
+
   //events_calendar
 define('TABLE_EVENTS_CALENDAR', 'events_calendar');
 
@@ -174,5 +171,7 @@ define('TABLE_EVENTS_CALENDAR', 'events_calendar');
   define('TABLE_DHL_TRACK_NUM', 'dhl_track_num');
   define('TABLE_DHL_TRACK_NUM', 'dhl_track_num2');
 //Package Tracking Plus END
-  
+  define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS', 'products_attributes_download_groups');
+  define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_FILES', 'products_attributes_download_groups_files');
+  define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_TO_FILES', 'products_attributes_download_groups_to_files');
 ?>

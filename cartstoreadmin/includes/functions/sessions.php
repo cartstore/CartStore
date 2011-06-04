@@ -19,6 +19,7 @@
       {
           $qid = tep_db_query("select value from " . TABLE_SESSIONS . " where sesskey = '" . tep_db_input($key) . "' and expiry > '" . time() . "'");
           $value = tep_db_fetch_array($qid);
+
           if ($value['value']) {
               return $value['value'];
           }

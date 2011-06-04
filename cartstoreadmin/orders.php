@@ -1,6 +1,7 @@
 <?php
   require('includes/configure.php');
   require('includes/application_top.php');
+
   function vendors_email($vendors_id, $oID, $status, $vendor_order_sent)
   {
       $vendor_order_sent = false;
@@ -220,7 +221,7 @@
               $oID = tep_db_prepare_input($_GET['oID']);
               $status = tep_db_prepare_input($_POST['status']);
               $comments = tep_db_prepare_input($_POST['comments']);
-              
+
               $usps_track_num = tep_db_prepare_input($_POST['usps_track_num']);
               $usps_track_num2 = tep_db_prepare_input($_POST['usps_track_num2']);
               $ups_track_num = tep_db_prepare_input($_POST['ups_track_num']);
@@ -229,7 +230,7 @@
               $fedex_track_num2 = tep_db_prepare_input($_POST['fedex_track_num2']);
               $dhl_track_num = tep_db_prepare_input($_POST['dhl_track_num']);
               $dhl_track_num2 = tep_db_prepare_input($_POST['dhl_track_num2']);
-              
+
               $delv_date = $_POST['d_date_year'] . "-" . $_POST['d_date_month'] . "-" . $_POST['d_date_day'];
               $slotid = tep_db_prepare_input($_POST['slotid']);
               tep_db_query("update " . TABLE_ORDERS . " set delivery_date = '" . tep_db_input($delv_date) . "', delivery_time_slotid = '" . $slotid . "' where orders_id = '" . (int)$oID . "'");
@@ -259,7 +260,7 @@
                           if ($comments == null)
                               $notify_comments = '';
                       } //if ($HTTP_POST_VARS['notify_comments'] == 'on')
-                      
+
                       if ($num_rows == 0) {
                           $email = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . tep_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') . "\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
                           tep_mail($check_status['customers_name'], $check_status['customers_email_address'], EMAIL_TEXT_SUBJECT, $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
@@ -404,8 +405,8 @@
                       $email = 'Dear ' . $check_status['customers_name'] . ',' . "\n\n" . STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . (int)$oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . "<a HREF='" . tep_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . (int)$oID, 'SSL') . "'>" . 'order_id=' . (int)$oID . "</a>\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_TRACKING_NUMBER . "\n" . $usps_text . $usps_track . $usps_text2 . $usps_track2 . $ups_text . $ups_track . $ups_text2 . $ups_track2 . $fedex_text . $fedex_track . $fedex_text2 . $fedex_track2 . $dhl_text . $dhl_track . $dhl_text2 . $dhl_track2 . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
                       tep_mail($check_status['customers_name'], $check_status['customers_email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . (int)$oID . EMAIL_TEXT_SUBJECT_2 . $orders_status_array[$status], $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
                       $customer_notified = '1';
-                      
-                      
+
+
                       $customer_notified = '1';
                   } //elseif ($HTTP_POST_VARS['notify'] == 'on' & (tep_not_null($usps_track_num) & tep_not_null($usps_track_num2) & tep_not_null($ups_track_num) & tep_not_null($ups_track_num2) & tep_not_null($fedex_track_num) & tep_not_null($fedex_track_num2) & tep_not_null($dhl_track_num) & tep_not_null($dhl_track_num2)))
                   else {
@@ -436,7 +437,7 @@
               } //if ((isset($_POST['confirm_points']) && ($_POST['confirm_points'] == 'on')) || (isset($_POST['delete_points']) && ($_POST['delete_points'] == 'on')))
               if (!$isAmazonOrder || $amazonProcessingTransactionId == null) {
                   tep_db_query("insert into " . TABLE_ORDERS_STATUS_HISTORY . " (orders_id, orders_status_id, date_added, customer_notified, comments) values ('" . (int)$oID . "', '" . tep_db_input($status) . "', now(), '" . tep_db_input($customer_notified) . "', '" . tep_db_input($comments) . "')");
-                  
+
                   tep_db_query("update " . TABLE_ORDERS . " set usps_track_num = '" . tep_db_input($usps_track_num) . "' where orders_id = '" . tep_db_input($oID) . "'");
                   tep_db_query("update " . TABLE_ORDERS . " set usps_track_num2 = '" . tep_db_input($usps_track_num2) . "' where orders_id = '" . tep_db_input($oID) . "'");
                   tep_db_query("update " . TABLE_ORDERS . " set ups_track_num = '" . tep_db_input($ups_track_num) . "' where orders_id = '" . tep_db_input($oID) . "'");
@@ -446,7 +447,7 @@
                   tep_db_query("update " . TABLE_ORDERS . " set dhl_track_num = '" . tep_db_input($dhl_track_num) . "' where orders_id = '" . tep_db_input($oID) . "'");
                   tep_db_query("update " . TABLE_ORDERS . " set dhl_track_num2 = '" . tep_db_input($dhl_track_num2) . "' where orders_id = '" . tep_db_input($oID) . "'");
                   $order_updated = true;
-                  
+
               } //if (!$isAmazonOrder || $amazonProcessingTransactionId == null)
               else {
                   $customer_notified = '1';
@@ -507,7 +508,7 @@
   require(DIR_WS_INCLUDES . 'header.php');
 ?>
 
-<!-- header_eof //--> 
+<!-- header_eof //-->
 
 <!-- body //-->
 
@@ -518,19 +519,19 @@
 ?>" valign="top"><table border="0" width="<?php
   echo BOX_WIDTH;
 ?>" cellspacing="1" cellpadding="1" class="columnLeft">
-        
+
         <!-- left_navigation //-->
-        
+
         <?php
   require(DIR_WS_INCLUDES . 'column_left.php');
 ?>
-        
+
         <!-- left_navigation_eof //-->
-        
+
       </table></td>
-    
+
     <!-- body_text //-->
-    
+
     <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
         <?php
   if (($action == 'edit') && ($order_exists == true)) {
@@ -538,23 +539,23 @@
 ?>
         <tr>
           <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
-              <tr> 
-                
+              <tr>
+
                 <!-- PWA BOF -->
-                
+
                 <td class="pageHeading"><?php
       echo HEADING_TITLE . (($order->customer['id'] == 0) ? ' <b>no account!</b>' : '');
 ?></td>
-                
-                <!-- PWA EOF --> 
-                
+
+                <!-- PWA EOF -->
+
                 <!--            <td class="pageHeading"><h3><?php
       echo HEADING_TITLE;
 ?></h3></td> -->
-                
+
                 <td class="pageHeading2" align="right"><?php
 ?></td>
-                
+
                 <!--
 
 
@@ -570,7 +571,7 @@
 
 
       -->
-                
+
                 <td class="pageHeading" align="right"><?php
       echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $_GET['oID']) . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> ';
 ?></td>
@@ -742,9 +743,9 @@
         <tr>
           <?php
 ?>
-          
+
           <!--       <tr> -->
-          
+
           <?php
       if (tep_not_null($order->orders_shipping_id)) {
           require('vendor_order_info.php');
@@ -803,22 +804,22 @@
               echo '          </tr>' . "\n";
           } //for ($i = 0, $n = sizeof($order->products); $i < $n; $i++)
 ?>
-              
+
               <!--          <tr>-->
-              
+
               <?php
       } //else
       for ($i = 0, $n = sizeof($order->totals); $i < $n; $i++) {
           echo '              <tr>' . "\n" . '                <td colspan="7" align="right" class="smallText">' . $order->totals[$i]['title'] . '</td>' . "\n" . '                <td align="right" class="smallText">' . $order->totals[$i]['text'] . '</td>' . "\n" . '              </tr>' . "\n";
       } //for ($i = 0, $n = sizeof($order->totals); $i < $n; $i++)
 ?>
-              
+
               <!--            </table></td>
 
 
 
           </tr>-->
-              
+
             </table></td>
         </tr>
         <tr>
@@ -896,7 +897,7 @@
       echo tep_draw_separator('pixel_trans.png', '1', '10');
 ?></td>
         </tr>
-        
+
         <!-- Package Tracking Plus BEGIN -->
         <tr>
           <td><table border="0" cellspacing="0" cellpadding="2">
@@ -991,13 +992,13 @@
             </table></td>
         </tr>
         <!-- Package Tracking Plus END -->
-        
+
         <tr>
           <td><table border="0" cellspacing="0" cellpadding="2">
               <tr>
                 <td><table border="0" cellspacing="0" cellpadding="2">
                     <?php
-      
+
       $filtered_orders_statuses = $orders_statuses;
       for ($i = 0; $i < sizeof($filtered_orders_statuses); $i++) {
           $status = $filtered_orders_statuses[$i];
@@ -1007,11 +1008,11 @@
               break;
           } //if ($status['id'] == ORDERS_STATUS_SYSTEM_ERROR)
       } //for ($i = 0; $i < sizeof($filtered_orders_statuses); $i++)
-      
-      
-      
-      
-      
+
+
+
+
+
 ?>
                     <tr>
                       <td class="main"><b>
@@ -1046,18 +1047,18 @@
       echo tep_image_submit('button_update.png', IMAGE_UPDATE);
 ?></td>
               </tr>
-              
+
               <!-- // Points/Rewards Module V2.00 check_box_bof //-->
-              
+
               <?php
       $p_status_query = tep_db_query("SELECT points_status FROM " . TABLE_CUSTOMERS_POINTS_PENDING . " WHERE points_status = 1 AND points_type = 'SP' AND orders_id = '" . $oID . "'");
       if (tep_db_num_rows($p_status_query)) {
           echo '<tr><td class="main"><b>' . ENTRY_NOTIFY_POINTS . '</b>&nbsp;' . ENTRY_QUE_POINTS . tep_draw_checkbox_field('confirm_points', '', false) . '&nbsp;' . ENTRY_QUE_DEL_POINTS . tep_draw_checkbox_field('delete_points', '', false) . '&nbsp;&nbsp;</td></tr>';
       } //if (tep_db_num_rows($p_status_query))
 ?>
-              
+
               <!-- // Points/Rewards Module V2.00 check_box_eof //-->
-              
+
             </table></td>
             </form>
         </tr>
@@ -1142,7 +1143,7 @@
                   echo '              <tr class="dataTableRow" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID')) . 'oID=' . $orders['orders_id']) . '\'">' . "\n";
               } //else
 ?>
-                    
+
                       <td class="dataTableContent"><?php
               echo '<a href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $orders['orders_id'] . '&action=edit') . '">' . tep_image(DIR_WS_ICONS . 'preview.png', ICON_PREVIEW) . '</a>&nbsp;' . $orders['customers_name'];
 ?></td>
@@ -1222,13 +1223,13 @@
       }
 ?>
       </table></td>
-    
-    <!-- body_text_eof //--> 
-    
+
+    <!-- body_text_eof //-->
+
   </tr>
 </table>
 
-<!-- body_eof //--> 
+<!-- body_eof //-->
 
 <!-- footer //-->
 
@@ -1236,7 +1237,7 @@
       require(DIR_WS_INCLUDES . 'footer.php');
 ?>
 
-<!-- footer_eof //--> 
+<!-- footer_eof //-->
 
 <br>
 </body>

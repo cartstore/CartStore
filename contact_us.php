@@ -1,60 +1,17 @@
 <?php
   require('includes/application_top.php');
-
-  if (ACCOUNT_VALIDATION == 'true' && CONTACT_US_VALIDATION == 'true') {
-      require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_ACCOUNT_VALIDATION);
-      include_once('includes/functions/' . FILENAME_ACCOUNT_VALIDATION);
-  } else {
-      require('ext/recaptchalib.php');
-  }
-
+  require('ext/recaptchalib.php');
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CONTACT_US);
   $error = false;
   if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
-
-      if (ACCOUNT_VALIDATION == 'true' && CONTACT_US_VALIDATION == 'true') {
-          $sql = "SELECT * FROM " . TABLE_ANTI_ROBOT_REGISTRATION . " WHERE session_id = '" . tep_session_id() . "' LIMIT 1";
-          if (!$result = tep_db_query($sql)) {
-              $error = true;
-              $entry_antirobotreg_error = true;
-              $text_antirobotreg_error = ERROR_VALIDATION_1;
-          } else {
-              $entry_antirobotreg_error = false;
-              $anti_robot_row = tep_db_fetch_array($result);
-              if ((strtoupper($_POST['antirobotreg']) != $anti_robot_row['reg_key']) || ($anti_robot_row['reg_key'] == '') || (strlen($_POST['antirobotreg']) != ENTRY_VALIDATION_LENGTH)) {
-                  $error = true;
-                  $entry_antirobotreg_error = true;
-                  $text_antirobotreg_error = ERROR_VALIDATION_2;
-              } else {
-                  $sql = "DELETE FROM " . TABLE_ANTI_ROBOT_REGISTRATION . " WHERE session_id = '" . tep_session_id() . "'";
-                  if (!$result = tep_db_query($sql)) {
-                      $error = true;
-                      $entry_antirobotreg_error = true;
-                      $text_antirobotreg_error = ERROR_VALIDATION_3;
-                  } else {
-                      $sql = "OPTIMIZE TABLE " . TABLE_ANTI_ROBOT_REGISTRATION . "";
-                      if (!$result = tep_db_query($sql)) {
-                          $error = true;
-                          $entry_antirobotreg_error = true;
-                          $text_antirobotreg_error = ERROR_VALIDATION_4;
-                      } else {
-                          $entry_antirobotreg_error = false;
-                      }
-                  }
-              }
-          }
-          if ($entry_antirobotreg_error == true)
-              $messageStack->add('contact', $text_antirobotreg_error);
-      } else {
           $resp = recaptcha_check_answer (RECAPTCHA_PRIVATE_KEY,
                                           $_SERVER["REMOTE_ADDR"],
                                           $_POST["recaptcha_challenge_field"],
                                           $_POST["recaptcha_response_field"]);
           if (!$resp->is_valid) {
-              $error = $entry_antirobotreg_error = true;
+              $error = true;
               $messageStack->add('contact', RECAPTCHA_ERROR_MSG . "(" . $resp->error . ")");
           }
-      }
 
       $name = tep_db_prepare_input($_POST['name']);
       $email_address = tep_db_prepare_input($_POST['email']);
@@ -68,7 +25,7 @@
       if (!tep_validate_email($email_address)) {
           $error = true;
           $messageStack->add('contact', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
-      } elseif (!$entry_antirobotreg_error == true) {
+      } elseif (!$error == true) {
           tep_mail(STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, $emailsubject, $enquiry, $name, $email_address);
           if (CONTACT_US_LIST != '') {
               $send_to_array = explode(",", CONTACT_US_LIST);
@@ -382,197 +339,41 @@
 ?></td>
 
               </tr>
-
-
-
-              <?php
-
-          if (ACCOUNT_VALIDATION == 'true' && strstr($PHP_SELF, 'contact_us') && CONTACT_US_VALIDATION == 'true') {
-?>
-
-      <tr>
-
-        <td class="main"><b><?php
-              echo CATEGORY_ANTIROBOTREG;
-?></b></td>
-
-      </tr>
-
-      <tr>
-
-        <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
-
-          <tr class="infoBoxContents">
-
-            <td><table border="0" cellspacing="2" cellpadding="2">
-
-              <tr>
-
-<?php
-              if (ACCOUNT_VALIDATION == 'true' && strstr($PHP_SELF, 'contact_us') && CONTACT_US_VALIDATION == 'true') {
-                  if ($is_read_only == false || (strstr($PHP_SELF, 'contact_us'))) {
-                      $sql = "DELETE FROM " . TABLE_ANTI_ROBOT_REGISTRATION . " WHERE timestamp < '" . (time() - 3600) . "' OR session_id = '" . tep_session_id() . "'";
-                      if (!$result = tep_db_query($sql)) {
-                          die('Could not delete validation key');
-                      }
-                      $reg_key = gen_reg_key();
-                      $sql = "INSERT INTO " . TABLE_ANTI_ROBOT_REGISTRATION . " VALUES ('" . tep_session_id() . "', '" . $reg_key . "', '" . time() . "')";
-                      if (!$result = tep_db_query($sql)) {
-                          die('Could not check registration information');
-                      }
-?>
-
-                <tr>
-
-                  <td class="main"><table border="0" width="100%" cellspacing="0" cellpadding="2">
-
-                    <tr>
-
-                      <td class="main"><table border="0" cellspacing="0" cellpadding="2">
-
-                        <tr>
-
-                          <td class="main" width="100%" NOWRAP><span class="main"> <?php
-                      echo ENTRY_ANTIROBOTREG;
-?></span></td>
-
-                        </tr>
-
-                        <tr>
-
-                          <td class="main" width="100%">
-
-<?php
-                      $check_anti_robotreg_query = tep_db_query("select session_id, reg_key, timestamp from anti_robotreg where session_id = '" . tep_session_id() . "'");
-                      $new_guery_anti_robotreg = tep_db_fetch_array($check_anti_robotreg_query);
-                      $validation_images = tep_image('validation_png.php?rsid=' . $new_guery_anti_robotreg['session_id']);
-                      if ($entry_antirobotreg_error == true) {
-?>
-
-<span>
-
-<?php
-                          echo '<img src="validation_png.php?rsid=' . $new_guery_anti_robotreg['session_id'] . '" /> <br> ';
-                          echo tep_draw_input_field('antirobotreg') . '';
-                      } else {
-?>
-
-<span>
-
-<?php
-                          echo '<img src="validation_png.php?rsid=' . $new_guery_anti_robotreg['session_id'] . '" /> <br> ';
-                          echo tep_draw_input_field('antirobotreg', $account['entry_antirobotreg']) . ' ' . ENTRY_ANTIROBOTREG_TEXT;
-                      }
-                  }
-              }
-?>
-
-</span>
-
-                </td>
-
-              </tr>
-
+              <tr><td><?php echo recaptcha_get_html(RECAPTCHA_PUBLIC_KEY); ?></td></tr>
             </table></td>
-
           </tr>
-
         </table></td>
-
       </tr>
-
-              </tr>
-
-            </table></td>
-
-          </tr>
-
-        </table></td>
-
-      </tr>
-
-      <tr>
-
-        <td></td>
-
-      </tr>
-
-<?php
-          } else {
-?>
-          <tr><td><?php echo recaptcha_get_html(RECAPTCHA_PUBLIC_KEY); ?></td></tr>
-<?php     } ?>
-
-
-
-
-
-            </table></td>
-
-          </tr>
-
-        </table></td>
-
-      </tr>
-
-
-
-
-
-
-
-    
-
 <?php
       }
 ?>
-
     </table>
     <?php
           echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE);
 ?>
-    
     </form></td>
-
 <!-- body_text_eof //-->
-
     <td width="<?php
       echo BOX_WIDTH;
 ?>" valign="top"><table border="0" width="<?php
       echo BOX_WIDTH;
 ?>" cellspacing="0" cellpadding="2">
-
 <!-- right_navigation //-->
-
 <?php
       require(DIR_WS_INCLUDES . 'column_right.php');
 ?>
-
 <!-- right_navigation_eof //-->
-
     </table></td>
-
   </tr>
-
 </table>
-
 <!-- body_eof //-->
-
-
-
 <!-- footer //-->
-
 <?php
       require(DIR_WS_INCLUDES . 'footer.php');
 ?>
-
 <!-- footer_eof //-->
-
 </body>
-
 </html>
-
 <?php
       require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>
-

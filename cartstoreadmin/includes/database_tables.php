@@ -105,7 +105,7 @@ define('TABLE_ARTICLE_REVIEWS', 'article_reviews');
   define('TABLE_AUTHORS_INFO', 'authors_info');
   define('TABLE_TOPICS', 'topics');
   define('TABLE_TOPICS_DESCRIPTION', 'topics_description');
-  
+
   // START: Product Extra Fields
   define('TABLE_PRODUCTS_EXTRA_FIELDS', 'products_extra_fields');
   define('TABLE_PRODUCTS_TO_PRODUCTS_EXTRA_FIELDS', 'products_to_products_extra_fields');
@@ -136,7 +136,7 @@ define('TABLE_NEWSDESK_REVIEWS_DESCRIPTION', 'newsdesk_reviews_description');
 
 define('TABLE_WISHLIST', 'customers_wishlist');
 define('TABLE_WISHLIST_ATTRIBUTES', 'customers_wishlist_attributes');
-  
+
 // VJ Links Manager v1.00 begin
   define('TABLE_LINK_CATEGORIES', 'link_categories');
   define('TABLE_LINK_CATEGORIES_DESCRIPTION', 'link_categories_description');
@@ -144,7 +144,7 @@ define('TABLE_WISHLIST_ATTRIBUTES', 'customers_wishlist_attributes');
   define('TABLE_LINKS_DESCRIPTION', 'links_description');
   define('TABLE_LINKS_TO_LINK_CATEGORIES', 'links_to_link_categories');
   define('TABLE_LINKS_STATUS', 'links_status');
-  define('TABLE_LINKS_CHECK', 'links_check'); 
+  define('TABLE_LINKS_CHECK', 'links_check');
   define('TABLE_LINKS_FEATURED', 'links_featured');
 // VJ Links Manager v1.00 end
 
@@ -169,16 +169,17 @@ define('TABLE_WISHLIST_ATTRIBUTES', 'customers_wishlist_attributes');
   define('TABLE_QBI_PAYOSC', 'qbi_payosc');
   define('TABLE_QBI_PAYOSC_PAYQB', 'qbi_payosc_payqb');
   define('TABLE_QBI_PAYQB', 'qbi_payqb');
-  define('TABLE_QBI_PRODUCTS_ITEMS', 'qbi_products_items');  
+  define('TABLE_QBI_PRODUCTS_ITEMS', 'qbi_products_items');
   define('TABLE_QBI_SHIPOSC', 'qbi_shiposc');
   define('TABLE_QBI_SHIPQB', 'qbi_shipqb');
   define('TABLE_QBI_SHIPOSC_SHIPQB', 'qbi_shiposc_shipqb');
   define('TABLE_QBI_TAXES', 'qbi_taxes');
-    define('TABLE_SCART', 'scart');
-	
-	 define('TABLE_EVENTS_CALENDAR', 'events_calendar');
-
+  define('TABLE_SCART', 'scart');
+  define('TABLE_EVENTS_CALENDAR', 'events_calendar');
 // start indvship
   define('TABLE_PRODUCTS_SHIPPING', 'products_shipping');
-  // end indvship	
+  // end indvship
+  define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS', 'products_attributes_download_groups');
+  define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_FILES', 'products_attributes_download_groups_files');
+  define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_TO_FILES', 'products_attributes_download_groups_to_files');
 ?>

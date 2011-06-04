@@ -1061,6 +1061,8 @@ function popUp(url) {
 <div id="messageWrap">
   <div class="latestMgs"><b>Latest Message:</b>
     <?php
+	
+	//include "error_log";
  // $URL = "http://storecoders.com/cart_feed/welcome.php";
  // $handle = fopen($URL, "r");
 //  print(fread($handle, 1000000));

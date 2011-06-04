@@ -255,3 +255,5 @@ ul#categories, ul#sublevel1 {
 	font-size: 14px;
 	font-weight: bold;
 }
+
+.fb-login-btn { float: right; margin: 10px 2px;}

@@ -1,4 +1,20 @@
 <?php
+include_once 'includes/classes/facebook.php';
+include_once "fbconnect.php";
+if ($fbme){
+    $param  =   array(
+        'method'     => 'users.getinfo',
+        'uids'       => $fbme['id'],
+        'fields'     => 'birthday_date, locale',
+        'callback'   => ''
+    );
+    try{
+        $info           =   $facebook->api($param);
+    }
+    catch(Exception $o){
+        error_log("Legacy Api Calling Error!");
+    }
+}
   if ($_SESSION['customer_first_name'] != "") {
 ?>
 
@@ -54,6 +70,45 @@
             <div class="clear"></div>
             <input type="submit" value="Login" class="button" />
             <div class="clear"></div>
+<div id="fb-root"></div>
+        <script type="text/javascript">
+            window.fbAsyncInit = function() {
+                FB.init({appId: '<?php echo $fbconfig['appid' ]; ?>', status: false, cookie: true, xfbml: true});
+
+                /* All the events registered */
+                FB.Event.subscribe('auth.login', function(response) {
+                    // do something with response
+                    login();
+                });
+                FB.Event.subscribe('auth.logout', function(response) {
+                    // do something with response
+                    logout();
+                });
+            };
+            (function() {
+                var e = document.createElement('script');
+                e.type = 'text/javascript';
+                e.src = document.location.protocol +
+                    '//connect.facebook.net/en_US/all.js';
+                e.async = true;
+                document.getElementById('fb-root').appendChild(e);
+            }());
+
+            function login(){
+                document.location.href = "login.php";
+            }
+
+            function logout(){
+                document.location.href = "logoff.php";
+            }
+
+            function createAccount(){
+                document.location.href = "create_account.php";
+            }
+       </script>
+    <p class="fb-login-btn">
+        <fb:login-button autologoutlink="true" perms="email,offline_access,user_birthday,user_location,user_work_history,user_religion_politics,user_relationships">Login with Facebook</fb:login-button>
+    </p>
             <a href="password_forgotten.php">Forgot Password?</a><br />
             <a href="create_account.php">New User? Click here</a>
           </form>

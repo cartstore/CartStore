@@ -122,7 +122,7 @@ $order_id = substr($cart_PayPal_Standard_ID, strpos($cart_PayPal_Standard_ID, '-
 */
  if (tep_session_is_registered('cart_PayPal_Standard_ID')) {
     $order_id = substr($cart_PayPal_Standard_ID, strpos($cart_PayPal_Standard_ID, '-')+1);
-          
+
 $curr_check = tep_db_query("select currency from " . TABLE_ORDERS . " where orders_id = '" . (int)$order_id . "'");
 $curr = tep_db_fetch_array($curr_check);
 
@@ -330,13 +330,28 @@ tep_db_perform(TABLE_ORDERS_PRODUCTS_ATTRIBUTES, $sql_data_array);
                 tep_db_perform(TABLE_ORDERS_PRODUCTS_ATTRIBUTES, $sql_data_array);
 
                 if ((DOWNLOAD_ENABLED == 'true') && isset($attributes_values['products_attributes_filename']) && tep_not_null($attributes_values['products_attributes_filename'])) {
+                if (DOWNLOADS_CONTROLLER_FILEGROUP_STATUS != 'Yes' || !strstr($attributes_values['products_attributes_filename'], 'Group_Files-')) {
                   $sql_data_array = array('orders_id' => $insert_id,
-                                          'orders_products_id' => $order_products_id,
-                                          'orders_products_filename' => $attributes_values['products_attributes_filename'],
-                                          'download_maxdays' => $attributes_values['products_attributes_maxdays'],
-                                          'download_count' => $attributes_values['products_attributes_maxcount']);
-
+                                    'orders_products_id' => $order_products_id,
+                                    'orders_products_filename' => $attributes_values['products_attributes_filename'],
+                                    'download_maxdays' => $attributes_values['products_attributes_maxdays'],
+                                    'download_count' => $attributes_values['products_attributes_maxcount']);
                   tep_db_perform(TABLE_ORDERS_PRODUCTS_DOWNLOAD, $sql_data_array);
+                } else {
+                  $filegroup_array = explode('Group_Files-', $attributes_values['products_attributes_filename']);
+                  $filegroup_id = $filegroup_array[1];
+                  $groupfiles_query = tep_db_query("select download_group_filename
+                                              from " . TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_FILES . "
+                                              where download_group_id = '" . (int)$filegroup_id . "'");
+                  while ($groupfile_array = tep_db_fetch_array($groupfiles_query)) {
+                      $sql_data_array = array('orders_id' => $insert_id,
+                                      'orders_products_id' => $order_products_id,
+                                      'orders_products_filename' => $groupfile_array['download_group_filename'],
+                                      'download_maxdays' => $attributes_values['products_attributes_maxdays'],
+                                      'download_count' => $attributes_values['products_attributes_maxcount']);
+                      tep_db_perform(TABLE_ORDERS_PRODUCTS_DOWNLOAD, $sql_data_array);
+                  }
+               }
                 }
               }
              }
@@ -360,7 +375,7 @@ tep_db_perform(TABLE_ORDERS_PRODUCTS_DOWNLOAD, $sql_data_array);
 $cart_PayPal_Standard_ID = $cartID . '-' . $insert_id; */
 // FS start
           $GLOBALS['cart_PayPal_Standard_ID'] = $cartID . '-' . $insert_id;
-          // FS stop          
+          // FS stop
           tep_session_register('cart_PayPal_Standard_ID');
           // FS start
           // Terra register globals fix
