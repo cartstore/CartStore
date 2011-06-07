@@ -1,5 +1,5 @@
 <?php
- 
+
   if (!tep_session_is_registered('sppc_customer_group_id')) {
       $customer_group_id = '0';
   } else {
@@ -22,11 +22,11 @@
           $info_box_contents[] = array('align' => '', 'text' => '
                   <div class="box">
           <h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '"><h4>' . $random_product['products_name'] . '</a></h4>
-          
+
           <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product["products_id"]) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
          Desc: ' . $random_product['products_short'] . '
         <a href="#" class="readon">More Info</a>
-        
+
            <h4> <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '"><h4>' . $random_product['products_name'] . '</a></h4>Desc: ' . $random_product['products_short'] . '<br />
 <div class="bottom">
 <div class="cart">
@@ -112,7 +112,7 @@ Original Price :<span>' . $currencies->display_price($random_product['products_p
                   $whats_new_price = $whats_new_price;
               $info_box_contents[] = array('align' => '', 'text' => '<div class="box">
 
- 
+
 
 <h4><a class="special_title" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">' . $random_product['products_name'] . '</a></h4>
 

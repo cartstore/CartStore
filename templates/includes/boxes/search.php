@@ -1,5 +1,5 @@
 <?php
-  require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_ADVANCED_SEARCH);  ?>
+//  require_once(DIR_WS_LANGUAGES . $language . '/' . FILENAME_ADVANCED_SEARCH);  ?>
 
 <div class="module multisearch">
   <div>

@@ -28,6 +28,7 @@
   {
       global $idname_for_menu, $cPath_array, $show_full_tree, $languages_id, $YMM_where, $current_category_id;
       $a = 0;
+      $output = '';
       $limitCat = MAX_CATEGORY_ITEM;
       if (!$show_full_tree) {
           $parent_query = 'AND (c.parent_id = "0"';
@@ -60,6 +61,7 @@
       if (tep_count_products_in_category((int)$parcat)) {
           global $cPath_array, $classname_for_selected, $classname_for_parent;
           $list = $table[$parcat];
+          $output = '';
           while (list($key, $val) = each($list)) {
               if ($GLOBALS['this_level'] != $level) {
                   if ($GLOBALS['this_level'] < $level) {

@@ -20,7 +20,7 @@ $search#
 
 $articles#
 
-$bestsellersbox_only# 
+$bestsellersbox_only#
 
 $tellafriendbox#
 
@@ -28,8 +28,6 @@ $reviewsbox#
 
 $newsdesk_latest# <br />
 
- $calendar#
-
-
+$calendar#
 
 $rss2#

@@ -161,15 +161,6 @@ define('TABLE_EVENTS_CALENDAR', 'events_calendar');
 // start indvship
   define('TABLE_PRODUCTS_SHIPPING', 'products_shipping');
   // end indvship
-  //Package Tracking Plus BEGIN
-  define('TABLE_USPS_TRACK_NUM', 'usps_track_num');
-  define('TABLE_USPS_TRACK_NUM', 'usps_track_num2');
-  define('TABLE_UPS_TRACK_NUM', 'ups_track_num');
-  define('TABLE_UPS_TRACK_NUM', 'ups_track_num2');
-  define('TABLE_FEDEX_TRACK_NUM', 'fedex_track_num');
-  define('TABLE_FEDEX_TRACK_NUM', 'fedex_track_num2');
-  define('TABLE_DHL_TRACK_NUM', 'dhl_track_num');
-  define('TABLE_DHL_TRACK_NUM', 'dhl_track_num2');
 //Package Tracking Plus END
   define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS', 'products_attributes_download_groups');
   define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_FILES', 'products_attributes_download_groups_files');

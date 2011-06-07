@@ -7,12 +7,12 @@
   http://www.cartstore.com
 
   GNU General Public License Compatible
- 
+
 STS PLUS v4.1 by Rigadin (rigadin@osc-help.net)
 Based on: Simple Template System (STS) - Copyright (c) 2004 Brian Gallagher - brian@diamondsea.com
 
  */
- 
+
 // STRIP_UNWANTED_TAGS() - Remove leading and trailing <tr><td> from strings
 function sts_strip_unwanted_tags($tmpstr, $commentlabel) {
   // Now lets remove the <tr><td> that the require puts in front of the tableBox
@@ -41,6 +41,7 @@ function sts_strip_content_tags($tmpstr, $commentlabel) {
   // Now lets remove the <tr><td> that the require puts in front of the tableBox
   $tablestart = strpos($tmpstr, "<table");
   $formstart = strpos($tmpstr, "<form");
+  $formfirst = false;
 
   // If there is a <form> tag before the <table> tag, keep it
   if ($formstart !== false and $formstart < $tablestart) {
@@ -52,7 +53,7 @@ function sts_strip_content_tags($tmpstr, $commentlabel) {
   if ($tablestart < 1) {
         return  "\n<!-- start $commentlabel //-->\n$tmpstr\n<!-- end $commentlabel //-->\n";
   }
-  
+
   $tmpstr = substr($tmpstr, $tablestart); // strip off stuff before <table>
 
   // Now lets remove the </td></tr> at the end of the tableBox output
@@ -63,7 +64,7 @@ function sts_strip_content_tags($tmpstr, $commentlabel) {
     $tableend = strpos($tmpstr, strrev("</form>"), 1);
   } else {
     $tableend = strpos($tmpstr, strrev("</table>"), 1);
-  } 
+  }
 
   $tmpstr = substr($tmpstr, $tableend);  // strip off stuff after <!-- body_text_eof //-->
 
@@ -146,5 +147,5 @@ function str_between($tmpstr, $startstr, $endstr) {
   if ($alen > $blen) $r = -1;
   return $r;
 }
-  
+
 ?>

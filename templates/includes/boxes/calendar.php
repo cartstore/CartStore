@@ -21,8 +21,8 @@
 <h3>CALENDER</h3>';
 ?>
       <?php
-  
-  
+
+
 ?>
       <!-- events_calendar //-->
       <SCRIPT LANGUAGE="JavaScript">
@@ -47,7 +47,7 @@
 
 </SCRIPT>
       <?php
-  
+
   $cal = new Calendar;
   $cal->setStartDay(FIRST_DAY_OF_WEEK);
   $this_month = date('m');
@@ -146,11 +146,11 @@
             >
               <input type="button" class="yearHeaderButton" title="<?php
   echo BOX_GO_BUTTON_TITLE;
-?>" 
+?>"
 
                 value="<?php
   echo BOX_GO_BUTTON;
-?>"  
+?>"
 
                 onclick="top.window.location=jump(0,'<?php
   echo FILENAME_EVENTS_CALENDAR;
@@ -159,11 +159,11 @@
             />
               <input type="button" class="yearHeaderButton" title="<?php
   echo BOX_YEAR_VIEW_BUTTON_TITLE;
-?>" 
+?>"
 
                 value="<?php
   echo BOX_YEAR_VIEW_BUTTON;
-?>" 
+?>"
 
                 onclick="top.window.location=jump(1,'<?php
   echo FILENAME_EVENTS_CALENDAR;
@@ -172,17 +172,17 @@
             />
               <input class="yearHeaderButton" title="<?php
   echo BOX_TODAY_BUTTON_TITLE;
-?>" 
+?>"
 
                 value="<?php
   echo BOX_TODAY_BUTTON;
-?>" 
+?>"
 
                 onclick='top.calendar.location="<?php
   echo FILENAME_EVENTS_CALENDAR_CONTENT;
 ?>?_month=<?php
   echo $this_month . '&_year=' . $this_year
-?>"' 
+?>"'
 
             <?php
   if (($month != $this_month) || ($month_ != $this_month)) {

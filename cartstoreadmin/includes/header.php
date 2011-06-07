@@ -275,7 +275,7 @@ function popUp(url) {
   echo HTTP_CATALOG_SERVER;
 ?><?php
   echo DIR_WS_ADMIN;
-?>configuration.php?gID=736">Anti Robot Reg</a></li>
+?>configuration.php?gID=73">Terms &amp; Conditions</a></li>
                 <li><a href="<?php
   echo HTTP_CATALOG_SERVER;
 ?><?php
@@ -1061,7 +1061,7 @@ function popUp(url) {
 <div id="messageWrap">
   <div class="latestMgs"><b>Latest Message:</b>
     <?php
-	
+
 	//include "error_log";
  // $URL = "http://storecoders.com/cart_feed/welcome.php";
  // $handle = fopen($URL, "r");

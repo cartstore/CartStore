@@ -11,15 +11,15 @@
 Based on: Simple Template System (STS) - Copyright (c) 2004 Brian Gallagher - brian@diamondsea.com
 STS v4.1 by Rigadin (rigadin@osc-help.net)
 */
-	
+
 	$products_id=intval($_GET['products_id']);
-// Create variables for product ID, added in v4.0.6	
+// Create variables for product ID, added in v4.0.6
 $template['productsid'] = $product_info['products_id']; // Just for consistende with osC names
 $template['product_popup_url'] = FILENAME_POPUP_IMAGE . "?pID=" . $product_info['products_id'];
 
 
 
-	
+
 // Start the "Add to Cart" form
     $template_pinfo['startform'] = tep_draw_form('cart_quantity', tep_href_link(FILENAME_PRODUCT_INFO, tep_get_all_get_params(array('action')) . 'action=add_product'));
 // Add the hidden form variable for the Product_ID
@@ -54,10 +54,10 @@ if (tep_not_null($product_info['products_image'])) {
 } else {
   $template_pinfo['imagesmall'] ='';
   $template_pinfo['imagelarge'] ='';
-  $template_pinfo['product_popup']='';	
+  $template_pinfo['product_popup']='';
 }
 
-$template_pinfo['productdesc'] = stripslashes($product_info['products_description']); 
+$template_pinfo['productdesc'] = stripslashes($product_info['products_description']);
 
 // Get the number of product attributes (the select list options)
 $products_attributes_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'");
@@ -84,7 +84,7 @@ if ($products_attributes['total'] > 0) {
       }
 
     }
- 
+
     // If we should select a default attribute (option), do it here
     if (isset($cart->contents[$_GET['products_id']]['attributes'][$products_options_name['products_options_id']])) {
       $selected_attribute = $cart->contents[$_GET['products_id']]['attributes'][$products_options_name['products_options_id']];
@@ -92,8 +92,8 @@ if ($products_attributes['total'] > 0) {
       $selected_attribute = false;
     }
 
-    $template_pinfo['optionnames'] .= $products_options_name['products_options_name'] . ':<br>'; 
-    $template_pinfo['optionchoices'] .=  tep_draw_pull_down_menu('id[' . $products_options_name['products_options_id'] . ']', $products_options_array, $selected_attribute) . "<br>"; 
+    $template_pinfo['optionnames'] .= $products_options_name['products_options_name'] . ':<br>';
+    $template_pinfo['optionchoices'] .=  tep_draw_pull_down_menu('id[' . $products_options_name['products_options_id'] . ']', $products_options_array, $selected_attribute) . "<br>";
   }
 } else {
   // No options, blank out the template variables for them
@@ -106,7 +106,7 @@ if ($products_attributes['total'] > 0) {
 $reviews_query = tep_db_query("select count(*) as count from " . TABLE_REVIEWS . " where products_id = '" . (int)$_GET['products_id'] . "'");
 $reviews = tep_db_fetch_array($reviews_query);
 if ($reviews['count'] > 0) {
-  $template_pinfo['reviews'] = TEXT_CURRENT_REVIEWS . ' ' . $reviews['count']; 
+  $template_pinfo['reviews'] = TEXT_CURRENT_REVIEWS . ' ' . $reviews['count'];
 } else {
   $template_pinfo['reviews'] = '';
 }
@@ -114,7 +114,7 @@ if ($reviews['count'] > 0) {
 // See if there is a product URL
 if (tep_not_null($product_info['products_url'])) {
   $template_pinfo['moreinfolabel'] = TEXT_MORE_INFORMATION;
-  $template_pinfo['moreinfourl'] = tep_href_link(FILENAME_REDIRECT, 'action=url&goto=' . urlencode($product_info['products_url']), 'NONSSL', true, false); 
+  $template_pinfo['moreinfourl'] = tep_href_link(FILENAME_REDIRECT, 'action=url&goto=' . urlencode($product_info['products_url']), 'NONSSL', true, false);
 } else {
   $template_pinfo['moreinfolabel'] = '';
   $template_pinfo['moreinfourl'] = '';
@@ -128,7 +128,7 @@ if ($product_info['products_date_available'] > date('Y-m-d H:i:s')) {
   $template_pinfo['productdate'] = tep_date_long($product_info['products_date_available']);
 } else {
   $template_pinfo['productdatelabel'] = TEXT_DATE_ADDED;
-  $template_pinfo['productdate'] = tep_date_long($product_info['products_date_added']); 
+  $template_pinfo['productdate'] = tep_date_long($product_info['products_date_added']);
 }
 
 // Strip out %s values

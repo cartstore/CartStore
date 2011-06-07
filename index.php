@@ -1,5 +1,4 @@
 <?php
-
   require('includes/application_top.php');
   require('includes/functions/categories_description.php');
   global $customer_group_id;
@@ -33,7 +32,6 @@
   require(DIR_WS_INCLUDES . 'header.php');
 ?>
 <!-- body //-->
-
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 <tr>
   <td><?php
@@ -163,6 +161,7 @@
       <?php
   } //if ($category_depth == "s_22")
   elseif ($category_depth == 'products' || isset($_GET['manufacturers_id'])) {
+
       $define_list = array('PRODUCT_LIST_MODEL' => PRODUCT_LIST_MODEL, 'PRODUCT_LIST_NAME' => PRODUCT_LIST_NAME, 'PRODUCT_LIST_MANUFACTURER' => PRODUCT_LIST_MANUFACTURER, 'PRODUCT_LIST_PRICE' => PRODUCT_LIST_PRICE, 'PRODUCT_LIST_QUANTITY' => PRODUCT_LIST_QUANTITY, 'PRODUCT_LIST_WEIGHT' => PRODUCT_LIST_WEIGHT, 'PRODUCT_LIST_IMAGE' => PRODUCT_LIST_IMAGE, 'PRODUCT_LIST_MULTIPLE' => PRODUCT_LIST_MULTIPLE, 'PRODUCT_LIST_BUY_NOW_MULTIPLE' => PRODUCT_LIST_BUY_NOW_MULTIPLE, 'PRODUCT_LIST_BUY_NOW' => PRODUCT_LIST_BUY_NOW);
       asort($define_list);
       $column_list = array();
@@ -279,6 +278,7 @@
               $listing_sql .= "p.pSortOrder ";
               break;
       } //switch ($sort_col)
+
 ?>
       <?php
       if (ALLOW_CATEGORY_DESCRIPTIONS == 'true') {

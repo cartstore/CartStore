@@ -1,9 +1,9 @@
 <?php
   require(DIR_WS_LANGUAGES . $language . '/' . 'header_tags.php');
   $tags_array = array();
-  
+
   switch (true) {
-      
+
       case (strstr($_SERVER['PHP_SELF'], 'newsdesk_index.php') or strstr($PHP_SELF, 'newsdesk_index.php') or strstr($_SERVER['PHP_SELF'], 'newsdesk_info.php') or strstr($PHP_SELF, 'newsdesk_info.php')):
           $the_newsdesk_query = tep_db_query("
 
@@ -13,11 +13,11 @@
 
     FROM
 
-      " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . " 
+      " . TABLE_NEWSDESK_CATEGORIES_DESCRIPTION . "
 
-    WHERE 
+    WHERE
 
-      categories_id = '" . $_GET['newsPath'] . "' 
+      categories_id = '" . $_GET['newsPath'] . "'
 
     AND language_id='" . $languages_id . "'");
           $the_newsdesk_category = tep_db_fetch_array($the_newsdesk_query);
@@ -31,18 +31,18 @@
 
       FROM
 
-        " . TABLE_NEWSDESK_DESCRIPTION . " 
+        " . TABLE_NEWSDESK_DESCRIPTION . "
 
-      WHERE 
+      WHERE
 
-        newsdesk_id = '" . $_GET['newsdesk_id'] . "' 
+        newsdesk_id = '" . $_GET['newsdesk_id'] . "'
 
       AND language_id='" . $languages_id . "'");
               $the_newsdesk_article = tep_db_fetch_array($the_newsdesk_id_query);
               $the_title = $the_newsdesk_article['newsdesk_article_name'] . ' ' . $the_title;
           }
           break;
-          
+
       case (strstr($_SERVER['PHP_SELF'], FILENAME_ALLPRODS) or strstr($PHP_SELF, FILENAME_ALLPRODS)):
           $the_category_query = tep_db_query("select cd.categories_name from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.categories_id = '" . $current_category_id . "' and cd.categories_id = '" . $current_category_id . "' and cd.language_id = '" . $languages_id . "'");
           $the_category = tep_db_fetch_array($the_category_query);
@@ -64,8 +64,8 @@
               $tags_array['title'] = HEAD_TITLE_TAG_ALLPRODS;
           }
           break;
-          
-      case (strstr($_SERVER['PHP_SELF'], FILENAME_PRODUCTS_ALL) or strstr($PHP_SELF, FILENAME_PRODUCTS_ALL)):
+
+      case (strstr($_SERVER['PHP_SELF'], FILENAME_ALLPRODS) or strstr($PHP_SELF, FILENAME_ALLPRODS)):
           $the_category_query = tep_db_query("select cd.categories_name from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.categories_id = '" . $current_category_id . "' and cd.categories_id = '" . $current_category_id . "' and cd.language_id = '" . $languages_id . "'");
           $the_category = tep_db_fetch_array($the_category_query);
           $the_manufacturers_query = tep_db_query("select manufacturers_name from " . TABLE_MANUFACTURERS . " where manufacturers_id = '" . $_GET['manufacturers_id'] . "'");
@@ -86,7 +86,7 @@
               $tags_array['title'] = HEAD_TITLE_TAG_PRODUCTS_ALL;
           }
           break;
-          
+
       case (strstr($_SERVER['PHP_SELF'], FILENAME_DEFAULT) or strstr($PHP_SELF, FILENAME_DEFAULT)):
           $showCatTags = false;
           if ($category_depth == 'nested' || $category_depth == 'products') {
@@ -144,12 +144,12 @@
           if (HTTA_DEFAULT_ON == '1') {
               if ($showCatTags == true) {
                   if (HTTA_CAT_DEFAULT_ON == '1') {
-                      $tags_array['title'] = $the_category['htc_title_tag'] . ' ' . HEAD_TITLE_TAG_DEFAULT . " " . $the_manufacturers['manufacturers_name'] . '  ' . HEAD_TITLE_TAG_ALL;
+                      $tags_array['title'] = $the_category['htc_title_tag'] . ' ' . HEAD_TITLE_TAG_DEFAULT . " " . $the_category['name'] . '  ' . HEAD_TITLE_TAG_ALL;
                   } else {
-                      $tags_array['title'] = $the_category['htc_title_tag'] . ' ' . $the_manufacturers['manufacturers_htc_title_tag'] . '  ' . HEAD_TITLE_TAG_ALL;
+                      $tags_array['title'] = $the_category['htc_title_tag'] . HEAD_TITLE_TAG_ALL;
                   }
               } else {
-                  $tags_array['title'] = HEAD_TITLE_TAG_DEFAULT . " " . $the_category['name'] . $the_manufacturers['manufacturers_htc_title_tag'] . '  ' . HEAD_TITLE_TAG_ALL;
+                  $tags_array['title'] = HEAD_TITLE_TAG_DEFAULT . " " . $the_category['name'] . $the_category['htc_title_tag'] . '  ' . HEAD_TITLE_TAG_ALL;
               }
           } else {
               if ($showCatTags == true) {
@@ -163,9 +163,9 @@
               }
           }
           break;
-          
+
       case (strstr($_SERVER['PHP_SELF'], FILENAME_PRODUCT_INFO) or strstr($PHP_SELF, FILENAME_PRODUCT_INFO)):
-          
+
           $the_product_info_query = tep_db_query("select pd.language_id, p.products_id, pd.products_name, pd.products_description, pd.products_head_title_tag, pd.products_head_keywords_tag, pd.products_head_desc_tag, p.products_model, p.products_quantity, p.products_image, pd.products_url, p.products_price, p.products_tax_class_id, p.products_date_added, p.products_date_available, p.manufacturers_id from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_id = '" . $_GET['products_id'] . "' and pd.products_id = '" . $_GET['products_id'] . "'" . " and pd.language_id ='" . $languages_id . "'");
           $the_product_info = tep_db_fetch_array($the_product_info_query);
           if (empty($the_product_info['products_head_desc_tag'])) {
@@ -201,15 +201,15 @@
               }
           }
           if (empty($the_product_info['products_head_title_tag'])) {
-              
+
               if (HTTA_CAT_PRODUCT_DEFAULT_ON == '1') {
-                  
-                  
+
+
                   $tags_array['title'] = HEAD_TITLE_TAG_PRODUCT_INFO;
               }
               if (HTTA_PRODUCT_INFO_ON == '1' || empty($tags_array['title'])) {
-                  
-                  
+
+
                   $tags_array['title'] .= HEAD_TITLE_TAG_ALL;
               }
           } else {
@@ -222,7 +222,7 @@
               }
           }
           break;
-          
+
       case (strstr($_SERVER['PHP_SELF'], FILENAME_PRODUCTS_NEW) or strstr($PHP_SELF, FILENAME_PRODUCTS_NEW)):
           if (HEAD_DESC_TAG_WHATS_NEW != '') {
               if (HTDA_WHATS_NEW_ON == '1') {
@@ -252,7 +252,7 @@
               $tags_array['title'] = HEAD_TITLE_TAG_ALL;
           }
           break;
-          
+
       case (strstr($_SERVER['PHP_SELF'], FILENAME_SPECIALS) or strstr($PHP_SELF, FILENAME_SPECIALS)):
           if (HEAD_DESC_TAG_SPECIALS != '') {
               if (HTDA_SPECIALS_ON == '1') {
@@ -264,7 +264,7 @@
               $tags_array['desc'] = HEAD_DESC_TAG_ALL;
           }
           if (HEAD_KEY_TAG_SPECIALS == '') {
-              
+
               $new = tep_db_query("select p.products_id, pd.products_name, p.products_price, p.products_tax_class_id, p.products_image, s.specials_new_products_price from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd, " . TABLE_SPECIALS . " s where p.products_status = '1' and s.products_id = p.products_id and p.products_id = pd.products_id and pd.language_id = '" . $languages_id . "' and s.status = '1' order by s.specials_date_added DESC ");
               $row = 0;
               $the_specials = '';
@@ -289,7 +289,7 @@
               $tags_array['title'] = HEAD_TITLE_TAG_ALL;
           }
           break;
-          
+
       case ((basename($PHP_SELF) == FILENAME_PRODUCT_REVIEWS) or (basename($PHP_SELF) == FILENAME_PRODUCT_REVIEWS_INFO)):
           if (HEAD_DESC_TAG_PRODUCT_REVIEWS_INFO == '') {
               if (HTDA_PRODUCT_REVIEWS_INFO_ON == '1') {
@@ -319,7 +319,7 @@
               $tags_array['title'] = HEAD_TITLE_TAG_PRODUCT_REVIEWS_INFO;
           }
           break;
-          
+
       case ((basename($PHP_SELF) == FILENAME_PRODUCT_REVIEWS_WRITE)):
           if (HEAD_DESC_TAG_PRODUCT_REVIEWS_WRITE == '') {
               if (HTDA_PRODUCT_REVIEWS_WRITE_ON == '1') {
@@ -349,23 +349,11 @@
               $tags_array['title'] = HEAD_TITLE_TAG_PRODUCT_REVIEWS_WRITE;
           }
           break;
-          
-      case (strstr($_SERVER['PHP_SELF'], FILENAME_ABOUT_US) or strstr($PHP_SELF, FILENAME_ABOUT_US)):
-          $tags_array = tep_header_tag_page(HTTA_ABOUTUS_ON, HEAD_TITLE_TAG_ABOUTUS, HTDA_ABOUTUS_ON, HEAD_DESC_TAG_ABOUTUS, HTKA_ABOUTUS_ON, HEAD_KEY_TAG_ABOUTUS);
-          break;
-          
+
           case(strstr($_SERVER['PHP_SELF'], FILENAME_PRODUCT_REVIEWS_WRITE) or strstr($PHP_SELF, FILENAME_PRODUCT_REVIEWS_WRITE));
           $tags_array = tep_header_tag_page(HTTA_PRODUCT_REVIEWS_WRITE_ON, HEAD_TITLE_TAG_PRODUCT_REVIEWS_WRITE, HTDA_PRODUCT_REVIEWS_WRITE_ON, HEAD_DESC_TAG_PRODUCT_REVIEWS_WRITE, HTKA_PRODUCT_REVIEWS_WRITE_ON, HEAD_KEY_TAG_PRODUCT_REVIEWS_WRITE);
           break;
-          
-          case(strstr($_SERVER['PHP_SELF'], FILENAME_ABOUTUS) or strstr($PHP_SELF, FILENAME_ABOUTUS));
-          $tags_array = tep_header_tag_page(HTTA_ABOUTUS_ON, HEAD_TITLE_TAG_ABOUTUS, HTDA_ABOUTUS_ON, HEAD_DESC_TAG_ABOUTUS, HTKA_ABOUTUS_ON, HEAD_KEY_TAG_ABOUTUS);
-          break;
-          
-          case(strstr($_SERVER['PHP_SELF'], FILENAME_TEST) or strstr($PHP_SELF, FILENAME_TEST));
-          $tags_array = tep_header_tag_page(HTTA_TEST_ON, HEAD_TITLE_TAG_TEST, HTDA_TEST_ON, HEAD_DESC_TAG_TEST, HTKA_TEST_ON, HEAD_KEY_TAG_TEST);
-          break;
-          
+
           case(strstr($_SERVER['PHP_SELF'], FILENAME_ARTICLE_INFO) or strstr($PHP_SELF, FILENAME_ARTICLE_INFO));
           $the_article_info_query = tep_db_query("select a.articles_id, ad.articles_name, ad.articles_description, ad.articles_head_title_tag, ad.articles_head_keywords_tag, ad.articles_head_desc_tag, ad.articles_url, a.articles_date_added, a.articles_date_available, a.authors_id from " . TABLE_ARTICLES . " a, " . TABLE_ARTICLES_DESCRIPTION . " ad where a.articles_id = '" . $_GET['articles_id'] . "' and ad.articles_id = '" . $_GET['articles_id'] . "'");
           $the_article_info_query = tep_db_query("select ad.language_id, a.articles_id, ad.articles_name, ad.articles_description, ad.articles_head_title_tag, ad.articles_head_keywords_tag, ad.articles_head_desc_tag, ad.articles_url, a.articles_date_added, a.articles_date_available, a.authors_id from " . TABLE_ARTICLES . " a, " . TABLE_ARTICLES_DESCRIPTION . " ad where a.articles_id = '" . (int)$_GET['articles_id'] . "' and ad.articles_id = '" . (int)$_GET['articles_id'] . "'" . " and ad.language_id ='" . (int)$languages_id . "'");
@@ -397,7 +385,7 @@
                   $tags_array['title'] = clean_html_comments($the_article_info['articles_head_title_tag']);
               }
           }
-          
+
       case (strstr($_SERVER['PHP_SELF'], FILENAME_ALLPRODS) or strstr($PHP_SELF, FILENAME_ALLPRODS)):
           $the_category_query = tep_db_query("select cd.categories_name from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.categories_id = '" . $current_category_id . "' and cd.categories_id = '" . $current_category_id . "' and cd.language_id = '" . $languages_id . "'");
           $the_category = tep_db_fetch_array($the_category_query);
@@ -420,7 +408,7 @@
           }
           break;
           break;
-          
+
       default:
           $tags_array['desc'] = HEAD_DESC_TAG_ALL;
           $tags_array['keywords'] = HEAD_KEY_TAG_ALL;
@@ -434,9 +422,9 @@
       echo '  <meta name="Keywords" content="' . $tags_array['keywords'] . '">' . "\n";
   }
   echo '  <meta name="Description" content="' . $tags_array['desc'] . '">' . "\n";
- 
-  
-  
-  
+
+
+
+
   echo '<!-- EOF: Generated Meta Tags -->' . "\n";
 ?>

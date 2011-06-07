@@ -41,27 +41,27 @@
               print('
 <div class="productWrap">
 
-<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $featured_products_array[$i]['id']) . '" title="' . $featured_products_array[$i]['shortdescription'] . '">' . $featured_products_array[$i]['name'] . '</a></h4>  
+<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $featured_products_array[$i]['id']) . '" title="' . $featured_products_array[$i]['shortdescription'] . '">' . $featured_products_array[$i]['name'] . '</a></h4>
 
 <center>' . $z_image . '</center>');
               if ($featured_products_array[$i]['map_price'] != "0.00") {
-                  if ($_SESSION['customers_email_address'] != '') {
+                  if (isset($_SESSION['customers_email_address'])) {
                       $whats_new_price = $products_price;
-                      $whats_new_price .= '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($featured_products_array[$i]['msrp_price'], tep_get_tax_rate($featured_products_array[$i]['products_tax_class_id'])) . '</span>
+                      $whats_new_price .= '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($featured_products_array[$i]['msrp_price'], tep_get_tax_rate($featured_products_array[$i]['tax_class_id'])) . '</span>
 
-<span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($featured_products_array[$i]['map_price'], tep_get_tax_rate($featured_products_array[$i]['products_tax_class_id'])) . '</span>';
+<span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($featured_products_array[$i]['map_price'], tep_get_tax_rate($featured_products_array[$i]['tax_class_id'])) . '</span>';
                   } else {
-                      $whats_new_price = '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($featured_products_array[$i]['msrp_price'], tep_get_tax_rate($featured_products_array[$i]['products_tax_class_id'])) . '</span>
+                      $whats_new_price = '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($featured_products_array[$i]['msrp_price'], tep_get_tax_rate($featured_products_array[$i]['tax_class_id'])) . '</span>
 
-<span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($featured_products_array[$i]['map_price'], tep_get_tax_rate($featured_products_array[$i]['products_tax_class_id'])) . '</span>';
+<span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($featured_products_array[$i]['map_price'], tep_get_tax_rate($featured_products_array[$i]['tax_class_id'])) . '</span>';
                   }
-                  if ($_SESSION['customers_email_address'] == '') {
+                  if (empty($_SESSION['customers_email_address'])) {
                       $whats_new_price .= '
 
 <span class="ourprice_name">Our Price:</span> <span class="our_price_price"><a href="login.php">Login for Price</a></span>';
                   }
               } elseif ($featured_products_array[$i]['msrp_price'] != "0.00") {
-                  $whats_new_price = $products_price . '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($featured_products_array[$i]['msrp_price'], tep_get_tax_rate($featured_products_array[$i]['products_tax_class_id'])) . '</span>';
+                  $whats_new_price = $products_price . '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($featured_products_array[$i]['msrp_price'], tep_get_tax_rate($featured_products_array[$i]['tax_class_id'])) . '</span>';
               } else
                   $whats_new_price = $products_price;
               if ($featured_products_array[$i]['products_url'] != "") {
@@ -84,9 +84,9 @@
               print($newArea . '<div class="hidden">
 <span class="model"> ' . $featured_products_array[$i]['products_model'] . '</span>
 
-      
+
 Desc:' . $featured_products_array[$i]['shortdescription'] . '
-                
+
 <a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $featured_products_array[$i]['id']) . '">More Info</a>
 <form method="post" action="">
 <input class="button" type="submit" value="Add to Cart" /></form>

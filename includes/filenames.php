@@ -9,23 +9,15 @@
 
   GNU General Public License Compatible
 */
-
-// Google site maps
-define('FILENAME_GOOGLE_SITEMAPS', 'sitemaps.index.php');
-//Fine
-// Begin: RMA Returns System
+  define('FILENAME_GOOGLE_SITEMAPS', 'sitemaps.index.php');
   define('FILENAME_RETURN', 'return_product.php');
   define('FILENAME_RETURN_EMAILS', 'return_emails.php');
   define('FILENAME_RETURNS_TRACK', 'returns_track.php');
-// End: RMA Returns System
-// Featured products mod.
   define('FILENAME_FEATURED', 'featured.php');
   define('FILENAME_HOMEPAGE', 'homepage.php');
   define('FILENAME_FEATURED_PRODUCTS', 'featured_products.php');
-	// Modify this layout as you wish
 
 // define the filenames used in the project
-
 define('defualtcatimage', 'default.gif');
 
   define('FILENAME_ACCOUNT', 'account.php');
@@ -181,6 +173,7 @@ define('FILENAME_CATALOG_PRODUCTS_WITH_IMAGES_FULL', 'catalog_products_with_imag
 
 //BEGIN allprods modification
   define('FILENAME_ALLPRODS', 'allprods.php');
+  define('FILENAME_ALLCATS', 'all_categories.php');
 //END allprods modification
 //begin add receipt//
 define('FILENAME_ORDERS_PRINTABLE', 'print_order.php');

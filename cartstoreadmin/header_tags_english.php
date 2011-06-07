@@ -28,9 +28,8 @@
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_HEADER_TAGS_CONTROLLER);
 
-  $filename = DIR_FS_CATALOG. DIR_WS_LANGUAGES . $language . '/header_tags.php';
+  $filename = DIR_FS_CATALOG. 'templates/includes/languages/' . $language . '/header_tags.php';
 
-  
 
   $formActive = false;
 

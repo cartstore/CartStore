@@ -64,11 +64,11 @@
 <table border="0" width="100%" cellspacing="0" cellpadding="1">
   <tr class="headerNavigation">
     <td class="headerNavigation">&nbsp;&nbsp;<?php echo $breadcrumb->trail(' &raquo; '); ?></td>
-	
-	
-	
+
+
+
 <? //---PayPal WPP Modification START ---// ?>
-<?php 
+<?php
   if (tep_session_is_registered('customer_id')) {
     $show_user_options = true;
     if (tep_paypal_wpp_enabled() && tep_session_is_registered('paypal_ec_temp')) {
@@ -79,16 +79,16 @@
     }
   } else {
     $show_user_options = false;
-  }  
-?>  
+  }
+?>
     <td align="right" class="headerNavigation"><?php if ($show_user_options) { ?><a href="<?php echo tep_href_link(FILENAME_LOGOFF, '', 'SSL'); ?>" class="headerNavigation"><?php echo HEADER_TITLE_LOGOFF; ?></a> &nbsp;|&nbsp; <?php } ?><a href="<?php echo tep_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?>" class="headerNavigation"><?php echo HEADER_TITLE_MY_ACCOUNT; ?></a> &nbsp;|&nbsp; <a href="<?php echo tep_href_link(FILENAME_SHOPPING_CART); ?>" class="headerNavigation"><?php echo HEADER_TITLE_CART_CONTENTS; ?></a> &nbsp;|&nbsp; <a href="<?php echo tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'); ?>" class="headerNavigation"><?php echo HEADER_TITLE_CHECKOUT; ?></a> &nbsp;&nbsp;</td>
 <? //---PayPal WPP Modification END ---// ?>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   </tr>
 </table>
 <?php
@@ -97,7 +97,7 @@
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
   <tr class="headerError">
     <td class="headerError"><?php echo htmlspecialchars(urldecode($_GET['error_message'])); ?></td>
-  
+
   </tr>
 </table>
 <?php

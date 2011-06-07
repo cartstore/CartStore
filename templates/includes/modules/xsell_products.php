@@ -2,7 +2,7 @@
   <div class="module-product">
     <div class="mbottom">
       <div class="mTop">
-        <h3>You Might Also Be Interested In r</h3>
+        <h3>You Might Also Be Interested In</h3>
         <?php
   if (!tep_session_is_registered('sppc_customer_group_id')) {
       $customer_group_id = '0';
@@ -20,12 +20,12 @@
       $row = 0;
       $col = 0;
       $count = 1;
-      
+
       $rowcount_value = 3;
       $rowcount = 1;
 ?>
         <?php
-      
+
       while ($extra_images = tep_db_fetch_array($products_extra_images_query)) {
           if ($extra_images['map_price'] != "0.00") {
               if ($_SESSION['customers_email_address'] != '') {
@@ -81,9 +81,9 @@
           if ($extra_images['products_image'] != "" && file_exists(DIR_WS_IMAGES . '/' . $extra_images['products_image'])) {
               print('<div class="productWrap">
 
-   
 
-   
+
+
 
    <h4><a  class="pname" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . $extra_images['products_name'] . '</a>
 
@@ -95,11 +95,11 @@
 
    <a class="details" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">Details</a>
 
-   
+
 
    </center>
 
-   
+
 
    <div class="price">' . $products_price . '
 
@@ -109,7 +109,7 @@
 
    </div>
 
-   
+
 
 ');
           } else {

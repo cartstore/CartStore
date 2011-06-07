@@ -32,6 +32,9 @@ function tep_image($src, $alt = '', $width = '', $height = '', $params = '') {
   //Allow for a new intermediate sized thumbnail size to be set
   //without any changes having to be made to the product_info page itself.
   //(see the lengths I go to to make your life easier :-)
+  $page = '';
+  $fix_png = false;
+  $over_ride = false;
   if (strstr($_SERVER['PHP_SELF'],"product_info.php")) {
 
         if (isset($product_info['products_image'])
@@ -73,7 +76,7 @@ function tep_image($src, $alt = '', $width = '', $height = '', $params = '') {
 
   // Decide whether or not we want to process this image
   if (($width == '' && $height == '' && $page != 'popup' ) || ($width == $image_size[0] && $height == $image_size[0] && $page != 'popup')) {
-        if (CFG_PROCESS_GRAPHICS=="False") $calculate = false; //looks like this is a store graphic rather than product image
+        if (defined("CFG_PROCESS_GRAPHICS") && CFG_PROCESS_GRAPHICS=="False") $calculate = false; //looks like this is a store graphic rather than product image
   }
   // Is this image good to go?
   if (CONFIG_CALCULATE_IMAGE_SIZE && $calculate) {
@@ -184,7 +187,7 @@ function tep_image_r_path($src, $alt = '', $width = '', $height = '', $params = 
 
   // Decide whether or not we want to process this image
   if (($width == '' && $height == '' && $page != 'popup' ) || ($width == $image_size[0] && $height == $image_size[0] && $page != 'popup')) {
-        if (CFG_PROCESS_GRAPHICS=="False") $calculate = false; //looks like this is a store graphic rather than product image
+        if (defined("CFG_PROCESS_GRAPHICS") && CFG_PROCESS_GRAPHICS=="False") $calculate = false; //looks like this is a store graphic rather than product image
   }
   // Is this image good to go?
   if (CONFIG_CALCULATE_IMAGE_SIZE && $calculate) {

@@ -20,7 +20,7 @@
       if (isset($tPath_array) && in_array($counter, $tPath_array)) {
           $topics_string .= '<b>';
       }
-      
+
       $topics_string .= $tree[$counter]['name'];
       if (isset($tPath_array) && in_array($counter, $tPath_array)) {
           $topics_string .= '</b>';
@@ -60,7 +60,7 @@
           $first_topic_element = $topics['topics_id'];
       }
   }
-  
+
   if (tep_not_null($tPath)) {
       $new_path = '';
       reset($tPath_array);
@@ -93,12 +93,13 @@
   $info_box_contents = array();
   $new_articles_string = '';
   $all_articles_string = '';
+  $articles_all_count = '';
   if (DISPLAY_NEW_ARTICLES == 'true') {
 
       if (SHOW_ARTICLE_COUNTS == 'true') {
-          
-          
-          
+
+
+
           $articles_new_query = tep_db_query("SELECT a.articles_id from " . TABLE_ARTICLES . " a, " . TABLE_ARTICLES_TO_TOPICS . " a2t, " . TABLE_TOPICS_DESCRIPTION . " td, " . TABLE_AUTHORS . " au, " . TABLE_ARTICLES_DESCRIPTION . " ad where a.authors_id = au.authors_id and a2t.topics_id = td.topics_id and (a.articles_date_available IS NULL or to_days(a.articles_date_available) <= to_days(now())) and a.articles_id = a2t.articles_id and a.articles_status = '1' and a.articles_id = ad.articles_id and ad.language_id = '" . (int)$languages_id . "' and td.language_id = '" . (int)$languages_id . "' and a.articles_date_added > SUBDATE(now( ), INTERVAL '" . NEW_ARTICLES_DAYS_DISPLAY . "' DAY)");
           $articles_new_count = '';
       }
@@ -112,15 +113,15 @@
   }
   if (DISPLAY_ALL_ARTICLES == 'true') {
       if (SHOW_ARTICLE_COUNTS == 'true') {
-          
+
           $articles_new_query = tep_db_query("SELECT a.articles_id from " . TABLE_ARTICLES . " a, " . TABLE_ARTICLES_TO_TOPICS . " a2t, " . TABLE_TOPICS_DESCRIPTION . " td, " . TABLE_AUTHORS . " au, " . TABLE_ARTICLES_DESCRIPTION . " ad where a.authors_id = au.authors_id and a2t.topics_id = td.topics_id and (a.articles_date_available IS NULL or to_days(a.articles_date_available) <= to_days(now())) and a.articles_id = a2t.articles_id and a.articles_status = '1' and a.articles_id = ad.articles_id and ad.language_id = '" . (int)$languages_id . "' and td.language_id = '" . (int)$languages_id . "'");
       } else {
           $articles_all_count = '';
       }
-      if ($topic_depth == 'top') {
+      if (isset($topic_depth) && $topic_depth == 'top') {
           $all_articles_string = '<b>';
       }
-      if ($topic_depth == 'top') {
+      if (isset($topic_depth) && $topic_depth == 'top') {
           $all_articles_string .= '</b>';
       }
       $all_articles_string .= $articles_all_count . '';

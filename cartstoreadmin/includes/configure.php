@@ -5,11 +5,11 @@
   define('HTTP_CATALOG_SERVER', 'http://localhost:777');
   define('HTTPS_CATALOG_SERVER', 'http://localhost:777');
   define('ENABLE_SSL_CATALOG', 'false');
-  define('DIR_FS_DOCUMENT_ROOT', 'C:/wamp/www/');
-  define('DIR_WS_ADMIN', '/cartstoreadmin/');
-  define('DIR_FS_ADMIN', 'C:/wamp/www/cartstoreadmin/');
-  define('DIR_WS_CATALOG', '/');
-  define('DIR_FS_CATALOG', 'C:/wamp/www/');
+  define('DIR_FS_DOCUMENT_ROOT', 'C:/wamp/www/dev.cartstore.com/');
+  define('DIR_WS_ADMIN', '/dev.cartstore.com/cartstoreadmin/');
+  define('DIR_FS_ADMIN', 'C:/wamp/www/dev.cartstore.com/cartstoreadmin/');
+  define('DIR_WS_CATALOG', '/dev.cartstore.com/');
+  define('DIR_FS_CATALOG', 'C:/wamp/www/dev.cartstore.com/');
   define('DIR_WS_IMAGES', 'images/');
   define('DIR_WS_ICONS', DIR_WS_IMAGES . 'icons/');
   define('DIR_WS_CATALOG_IMAGES', DIR_WS_CATALOG . 'images/');

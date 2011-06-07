@@ -76,6 +76,10 @@ if($fbme){
       $password = tep_db_prepare_input($_POST['password']);
       $confirmation = tep_db_prepare_input($_POST['confirmation']);
       $error = false;
+    if (tep_db_prepare_input($HTTP_POST_VARS['TermsAgree']) != 'true' and MATC_AT_REGISTER != 'false') {
+        $error = true;
+        $messageStack->add('create_account', MATC_ERROR);
+    }
       if (ACCOUNT_GENDER == 'true') {
           if (($gender != 'm') && ($gender != 'f')) {
               $error = true;
@@ -677,15 +681,15 @@ Street Address Line 2:
   <?php
       } else
       {
-?>
-  <?php
           echo tep_draw_hidden_field('guest', 'guest');
-?>
-  <?php
+      }
+
+      if(MATC_AT_REGISTER != 'false'){
+          require(DIR_WS_MODULES . 'matc.php');
       }
 ?>
   <?php
-      echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE);
+      echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE,'id="TheSubmitButton"');
 ?>
   </td>
   </tr>

@@ -92,7 +92,7 @@
         $value_price = tep_db_prepare_input($_POST['value_price']);
         $price_prefix = tep_db_prepare_input($_POST['price_prefix']);
 
-        tep_db_query("insert into " . TABLE_PRODUCTS_ATTRIBUTES . " values ('', '" . (int)$products_id . "', '" . (int)$options_id . "', '" . (int)$values_id . "', '" . tep_db_input($value_price) . "', '" . tep_db_input($price_prefix) . "')");
+        tep_db_query("insert into " . TABLE_PRODUCTS_ATTRIBUTES . " values ('', '" . (int)$products_id . "', '" . (int)$options_id . "', '" . (int)$values_id . "', '" . tep_db_input($value_price) . "', '" . tep_db_input($price_prefix) . "','','','')");
 
         if (DOWNLOAD_ENABLED == 'true') {
           $products_attributes_id = tep_db_insert_id();
@@ -729,7 +729,7 @@ function go_option() {
 
 				<td align="center" class="smallText">&nbsp;<?php echo $next_id; ?>&nbsp;</td>
                 <td class="smallText" colspan="2"><?php echo $inputs; ?></td>
-				<td class="smallText"><?php echo TABLE_HEADING_OPT_LENGTH . ' <input type="text" name="option_length" size="4" value="' . $option_name['products_options_length'] . '">'; ?></td>	<!-- CLR 030212 - Add column for option length //-->
+				<td class="smallText"><?php echo TABLE_HEADING_OPT_LENGTH . ' <input type="text" name="option_length" size="4" value="">'; ?></td>	<!-- CLR 030212 - Add column for option length //-->
 				<td class="smallText"><?php echo draw_optiontype_pulldown('option_type'); ?></td>	<!-- CLR 030212 - Add column for option type //-->
 				<td align="center" ><input type=checkbox name=track_stock></td>
                 <td align="center" class="smallText">&nbsp;<?php echo tep_image_submit('button_insert.png', IMAGE_INSERT); ?>&nbsp;</td>
@@ -1009,14 +1009,13 @@ function go_option() {
   $prev_attribute_page = $attribute_page - 1;
   $next_attribute_page = $attribute_page + 1;
 ?>
-        <td><div class="hide"><form name="attributes" action="<?php echo tep_href_link(FILENAME_PRODUCTS_ATTRIBUTES, 'action=' . $form_action . '&option_page=' . $option_page . '&value_page=' . $value_page . '&attribute_page=' . $attribute_page); ?>" method="post"><table border="0" width="100%" cellspacing="0" cellpadding="2">
+        <td><div class="nohide"><form name="attributes" action="<?php echo tep_href_link(FILENAME_PRODUCTS_ATTRIBUTES, 'action=' . $form_action . '&option_page=' . $option_page . '&value_page=' . $value_page . '&attribute_page=' . $attribute_page); ?>" method="post"><table border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr>
             <td colspan="7" class="smallText">
 <?php
   $per_page = MAX_ROW_LISTS_OPTIONS;
   $attributes = "select pa.* from " . TABLE_PRODUCTS_ATTRIBUTES . " pa left join " . TABLE_PRODUCTS_DESCRIPTION . " pd on pa.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "' order by pd.products_name";
   $attribute_query = tep_db_query($attributes);
-
   $attribute_page_start = ($per_page * $attribute_page) - $per_page;
   $num_rows = tep_db_num_rows($attribute_query);
 
@@ -1254,6 +1253,7 @@ function go_option() {
       if (DOWNLOAD_ENABLED == 'true') {
         $products_attributes_maxdays  = DOWNLOAD_MAX_DAYS;
         $products_attributes_maxcount = DOWNLOAD_MAX_COUNT;
+        $products_attributes_filename = '';
 ?>
           <tr class="<?php echo (!($rows % 2)? 'attributes-even' : 'attributes-odd');?>">
             <td>&nbsp;</td>

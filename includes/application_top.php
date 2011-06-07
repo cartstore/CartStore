@@ -1,5 +1,6 @@
 <?php
 ini_set('error_reporting', E_ALL ^ E_NOTICE);
+//ini_set('error_reporting', E_ALL);
 /*
 Team Do not remove comments in this file.
 
@@ -104,27 +105,6 @@ Turn off all error reporting
           }
       } else {
           ini_set('zlib.output_compression_level', GZIP_LEVEL);
-      }
-  }
-
-  if (SEARCH_ENGINE_FRIENDLY_URLS == 'true') {
-      if (strlen(getenv('PATH_INFO')) > 1) {
-          $GET_array = array();
-          $PHP_SELF = str_replace(getenv('PATH_INFO'), '', $PHP_SELF);
-          $vars = explode('/', substr(getenv('PATH_INFO'), 1));
-          for ($i = 0, $n = sizeof($vars); $i < $n; $i++) {
-              if (strpos($vars[$i], '[]')) {
-                  $GET_array[substr($vars[$i], 0, -2)][] = $vars[$i + 1];
-              } else {
-                  $_GET[$vars[$i]] = $vars[$i + 1];
-              }
-              $i++;
-          }
-          if (sizeof($GET_array) > 0) {
-              while (list($key, $value) = each($GET_array)) {
-                  $_GET[$key] = $value;
-              }
-          }
       }
   }
 

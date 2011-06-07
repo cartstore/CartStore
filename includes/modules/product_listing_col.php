@@ -43,16 +43,16 @@
               $manufacture = "";
               $options = array(array('id' => '', 'text' => TEXT_ALL_MANUFACTURERS));
           }
-          if ($_GET['search_in_description'] == 1)
+          if (isset($_GET['search_in_description']) && $_GET['search_in_description'] == 1)
               $searchDes = '&search_in_description=1';
           else
               $searchDes = '';
-          echo tep_draw_hidden_field('sort_by', $_GET['sort_by']);
+          echo tep_draw_hidden_field('sort_by', isset($_GET['sort_by']) ? $_GET['sort_by'] : '');
           $options_sort[] = array('id' => 'sortorder', 'text' => 'Sort By');
           $options_sort[] = array('id' => 'title', 'text' => 'Title');
           $options_sort[] = array('id' => 'low', 'text' => 'Price Low To High');
           $options_sort[] = array('id' => 'high', 'text' => 'Price High To Low');
-          echo tep_draw_pull_down_menu('sort_id', $options_sort, (isset($_GET['sort_id']) ? $_GET['sort_id'] : ''), 'onchange="sortBy(\'' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('sort_id', 'page', 'keywords', 'manufacturers_id', 'search_in_description'))) . '?keywords=' . $_GET['keywords'] . $manufacture . $searchDes . '&page=\')"');
+          echo tep_draw_pull_down_menu('sort_id', $options_sort, (isset($_GET['sort_id']) ? $_GET['sort_id'] : ''), 'onchange="sortBy(\'' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('sort_id', 'page', 'keywords', 'manufacturers_id', 'search_in_description'))) . '?keywords=' . (isset($_GET['keywords']) ? $_GET['keywords'] : '') . $manufacture . $searchDes . '&page=\')"');
           echo tep_hide_session_id() . '</form>' . "\n";
 ?>
         </ul>
@@ -183,7 +183,7 @@
               }
               $cur_row = sizeof($list_box_contents) - 1;
               for ($col = 0, $n = sizeof($column_list); $col < $n; $col++) {
-                  $lc_align = '';
+                  $lc_align = $lc_valign = $lc_text = '';
                   switch ($column_list[$col]) {
                       case 'PRODUCT_LIST_MODEL':
                           $lc_align = '';
@@ -194,7 +194,7 @@
                           if (isset($_GET['manufacturers_id'])) {
                               $prod_name = '<a class="price" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'manufacturers_id=' . $_GET['manufacturers_id'] . '&products_id=' . $listing[$x]['products_id']) . '">' . $listing[$x]['products_name'] . '</a>';
                           } else {
-                              $prod_name = '<a class="price" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'manufacturers_id=' . $_GET['manufacturers_id'] . '&products_id=' . $listing[$x]['products_id']) . '">' . $listing[$x]['products_name'] . '</a>';
+                              $prod_name = '<a class="price" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $listing[$x]['products_id']) . '">' . $listing[$x]['products_name'] . '</a>';
                           }
                           break;
                       case 'PRODUCT_LIST_MANUFACTURER':
@@ -246,8 +246,8 @@
                   }
                   $product_contents[] = $lc_text;
               }
-              if ($listing[$x]['map_price'] != "0.00") {
-                  if ($_SESSION['customers_email_address'] != '') {
+              if (!empty($listing[$x]['map_price']) && $listing[$x]['map_price'] != "0.00") {
+                  if (isset($_SESSION['customers_email_address'])) {
                       $whats_new_price = $prod_price . '<br>';
                       $whats_new_price .= '<span class="msrp_name">MSRP:</span> <span class="msrp_price">' . $currencies->display_price($listing[$x]['msrp_price'], tep_get_tax_rate($listing[$x]['products_tax_class_id'])) . '</span><br />
 
@@ -263,12 +263,12 @@
 
 <span class="ourprice_name">Our Price:</span> <span class="our_price_price"><a href="login.php">Login to See Price</a></span>';
                   }
-              } elseif ($listing[$x]['msrp_price'] != "0.00") {
+              } elseif (isset($listing[$x]['msrp_price']) && $listing[$x]['msrp_price'] != "0.00") {
                   $whats_new_price = $prod_price . '<br />
-<span class="msrp_name">MSRP:</span> <span class="msrp_price">' . $currencies->display_price($listing[$x]['msrp_price'], tep_get_tax_rate($listing[$x]['products_tax_class_id'])) . '</span>';
+                  <span class="msrp_name">MSRP:</span> <span class="msrp_price">' . $currencies->display_price($listing[$x]['msrp_price'], tep_get_tax_rate($listing[$x]['products_tax_class_id'])) . '</span>';
               } else
                   $whats_new_price = $prod_price;
-              if ($listing[$x]['products_url'] != "" && $_SESSION['customers_email_address'] == '') {
+              if (!empty($listing[$x]['products_url']) && isset($_SESSION['customers_email_address'])) {
                   $newArea = '<div align="left"><span class="alternate_buy" ><a class="button" href="' . $listing[$x]['products_url'] . '" title="' . $listing[$x]['products_url'] . '"  >Partner Buy </a></div>';
               } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $newArea = '';
@@ -297,8 +297,8 @@
                   } else {
                       $imag_var = tep_image(DIR_WS_IMAGES . $listing[$x]['products_image'], $listing[$x]['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);
                   }
-                  print('' . tep_draw_form('frm' . $listing[$x]['products_id'], tep_href_link(basename($PHP_SELF)), 'get') . tep_draw_hidden_field("products_id", $listing[$x]['products_id']) . tep_draw_hidden_field("action", "buy_now") . tep_draw_hidden_field("sort", $_GET['sort']) . tep_draw_hidden_field(tep_session_name(), tep_session_id()) . '');
-                  if ($_GET['cPath'] != "")
+                  print('' . tep_draw_form('frm' . $listing[$x]['products_id'], tep_href_link(basename($PHP_SELF)), 'get') . tep_draw_hidden_field("products_id", $listing[$x]['products_id']) . tep_draw_hidden_field("action", "buy_now") . tep_draw_hidden_field("sort", (isset($_GET['sort']) ? $_GET['sort'] : '')) . tep_draw_hidden_field(tep_session_name(), tep_session_id()) . '');
+                  if (!empty($_GET['cPath']))
                       print tep_draw_hidden_field("cPath", $_GET['cPath']);
                   if ($listing[$x]['products_model'])
                       $model = '<div class="item">SKU: ' . $listing[$x]['products_model'] . ' </div>';
@@ -328,30 +328,30 @@
 
 <div class="productitem ui-widget ui-widget-content ui-corner-all">
      <div class="productimage">
-         <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing[$x]['products_id']) . '">' . $imag_var . '</a> 
+         <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing[$x]['products_id']) . '">' . $imag_var . '</a>
            ' . $model . '
      </div>
      <div class="productdes">
           <h4>' . $prod_name . '</h4>
-      <p>' . $listing[$x]['products_short'] . '</p>
+      ' . (!empty($listing[$x]['products_short']) ? '<p>' . $listing[$x]['products_short'] . '</p>' : '') . '
       ' . $extraField . '<div class="prize">' . $whats_new_price . '</div>
-           
+
       ' . $newArea . '
            <div class="clear"/></div>');
-                  if ($listing[$x]['products_info_title'] != "") {
+                  if (!empty($listing[$x]['products_info_title'])) {
                       print('
             ' . $listing[$x]['products_info_title']);
                   }
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
+
+
+
+
+
+
+
+
+
+
                   if ($listing[$x]['manufacturers_name'] != "") {
                       print('
              <div class="clear"></div>Manufacturer : <a href="' . tep_href_link(FILENAME_DEFAULT, 'manufacturers_id=' . $listing[$x]['manufacturers_id']) . '">' . $listing[$x]['manufacturers_name'] . '</a>');
@@ -362,14 +362,14 @@
                       print('<div class="rating">
                    <label>Average Rating:</label>
              ' . tep_image(DIR_WS_IMAGES . 'stars_' . $star_rating . '.gif', sprintf(BOX_REVIEWS_TEXT_OF_5_STARS, $star_rating)) . '
-           
+
                     <div class="clear"/></div>
        </div>');
                   }
                   print('</div>
         <div class="clear"/></div>
       </div>
-   </form>  
+   </form>
 ');
               } else {
                   print('' . tep_draw_form('frm' . $listing[$x]['products_id'], tep_href_link(basename($PHP_SELF)), 'get') . tep_draw_hidden_field("products_id", $listing[$x]['products_id']) . tep_draw_hidden_field("action", "buy_now") . tep_draw_hidden_field("sort", $_GET['sort']) . tep_draw_hidden_field(tep_session_name(), tep_session_id()) . '');
@@ -380,14 +380,14 @@
                   print('
 <div class="productitem ui-widget ui-widget-content ui-corner-all">
      <div class="productimage">
-        <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing[$x]['products_id']) . '"><img src=imagemagic.php?img=images/noimage.jpg&w=' . SMALL_IMAGE_WIDTH . '&h=' . SMALL_IMAGE_WIDTH . '&page=/></a> 
+        <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing[$x]['products_id']) . '"><img src=imagemagic.php?img=images/noimage.jpg&w=' . SMALL_IMAGE_WIDTH . '&h=' . SMALL_IMAGE_WIDTH . '&page=/></a>
           ' . $model . '
      </div>
      <div class="productdes">
           <h4>' . $prod_name . '</h4>
       <p>' . $listing[$x]['products_short'] . '</p>
            <div class="prize">' . $whats_new_price . '</div>
-           
+
         ' . $newArea . '
            <div class="clear"/></div>');
                   if ($listing[$x]['products_info_title'] != "") {
@@ -404,12 +404,12 @@
                       print('<div class="rating">
                    <label>Average Rating:</label>
              ' . tep_image(DIR_WS_IMAGES . 'stars_' . $star_rating . '.gif', sprintf(BOX_REVIEWS_TEXT_OF_5_STARS, $star_rating)) . '
-           
+
                     <div class="clear"/></div>
        </div>');
                   }
                   print('</div>
-    
+
         <div class="clear"/></div>
       </div>
      </form>
@@ -422,7 +422,7 @@
                       print('');
                   }
                   print('
-               
+
               ');
                   $row++;
                   $col1 = 0;
@@ -449,7 +449,7 @@
 ?>
         </p>
         <?php
-          if ($add_multiple == "1") {
+          if (isset($add_multiple) && $add_multiple == "1") {
 ?>
         <?php
           }

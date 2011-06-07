@@ -71,7 +71,7 @@
 
       return $tableBox_string;
     }
-	
+
 	function infoBoxHeaderTemplate($headertext,$right_arrow)
 	{
 		$btrace=debug_backtrace();
@@ -86,7 +86,7 @@
 		{
 			$template=sts_read_template_file (STS_TEMPLATE_DIR."boxes/infobox_header.php.html");
 		}
-		
+
 		$template = str_replace('$headertext', $headertext, $template);
 		$template = str_replace('$right_arrow', $right_arrow, $template);
 		echo $template;
@@ -104,7 +104,7 @@
 		{
 			$template=sts_read_template_file (STS_TEMPLATE_DIR."boxes/infobox.php.html");
 		}
-		
+
 		$template = str_replace('$content', $content, $template);
 		echo $template;
 	}
@@ -118,7 +118,7 @@
       $this->table_cellpadding = '0';
       $this->table_parameters = 'class="infoBox"';
 
-	  
+
 	  // START  STS
 	  require_once(DIR_WS_MODULES."sts/sts_infobox.php");
 	  $sts_infobox=new sts_infobox();
@@ -138,20 +138,21 @@
       $this->table_cellpadding = '0';
       $this->table_parameters = '';
       $info_box_contents = array();
-     
+
       for ($i=0, $n=sizeof($contents); $i<$n; $i++) {
         $info_box_contents[] = array(array('align' => (isset($contents[$i]['align']) ? $contents[$i]['align'] : ''),
                                            'form' => (isset($contents[$i]['form']) ? $contents[$i]['form'] : ''),
-                                          
+
                                            'text' => (isset($contents[$i]['text']) ? $contents[$i]['text'] : '')));
       }
-     
+
       return $this->tableBox($info_box_contents);
     }
   }
 
   class infoBoxHeading extends tableBox {
     function infoBoxHeading($contents, $left_corner = true, $right_corner = true, $right_arrow = false) {
+      global $language;
       $this->table_cellpadding = '0';
 
       if ($left_corner == true) {
@@ -170,8 +171,9 @@
         $right_corner = $right_arrow . tep_draw_separator('pixel_trans.gif', '11', '14');
       }
 
-	  
+
 	  // START  STS
+      require_once(DIR_WS_LANGUAGES . $language . '/modules/sts/sts_infobox.php');
 	  require_once(DIR_WS_MODULES."sts/sts_infobox.php");
 	  $sts_infobox=new sts_infobox();
 	  if ($sts_infobox->enabled)
@@ -207,7 +209,7 @@
 	  {
 		$this->infoBoxTemplate($this->tableBox($contents));
 	  }
-	  else	  
+	  else
 	  {
       $info_box_contents = array();
       $info_box_contents[] = array('text' => $this->contentBoxContents($contents));
@@ -220,14 +222,14 @@
     function contentBoxContents($contents) {
       $this->table_cellpadding = '4';
       $this->table_parameters = '';
-	  
+
       return $this->tableBox($contents);
     }
   }
 
   class contentBoxHeading extends tableBox {
     function contentBoxHeading($contents) {
-
+      $right_arrow = '';
 
   	  // START  STS
 	  require_once(DIR_WS_MODULES."sts/sts_infobox.php");
@@ -237,7 +239,7 @@
       $info_box_contents = array();
       $info_box_contents[] = array(array('params' => '',
                                          'text' => $contents[0]['text']));
-	  
+
 	  $this->infoBoxHeaderTemplate($this->tablebox($info_box_contents),$right_arrow);
 	  }
 	  else
@@ -262,8 +264,8 @@
   class errorBox extends tableBox {
     function errorBox($contents) {
       $this->table_data_parameters = 'class="errorBox"';
-	  
-	  
+
+
   	  // START  STS
 	  require_once(DIR_WS_MODULES."sts/sts_infobox.php");
 	  $sts_infobox=new sts_infobox();
@@ -282,7 +284,7 @@
   class productListingBox extends tableBox {
     function productListingBox($contents) {
       $this->table_parameters = '';
-	  
+
   	  // START  STS
 	  require_once(DIR_WS_MODULES."sts/sts_infobox.php");
 	  $sts_infobox=new sts_infobox();
@@ -292,7 +294,7 @@
 		$this->infoBoxTemplate($this->tablebox($contents));
 	  }
 	  else
-	  {	
+	  {
 		$this->tableBox($contents, true);
 	  }
   	  // END STS
@@ -332,7 +334,7 @@ class estimatedshippingBoxHeading extends tableBox { // START CLASS
 	function estimatedshippingBoxHeading($contents, $left_corner = true, $right_corner = true, $right_arrow = false) {
 		$this->table_cellpadding = '';
 
-	
+
 
 		if ($left_corner == true) {
 			$left_corner = tep_image(DIR_WS_IMAGES . 'estimatedshippingBox/corner_left.gif');
@@ -358,7 +360,7 @@ class estimatedshippingBoxHeading extends tableBox { // START CLASS
 		array('params' => '',
 		'text' => $right_corner));
 		$this->tableBox($info_box_contents, true);
-	}  // END OF FUNCTION 
+	}  // END OF FUNCTION
 } // END OF CLASS
 
 ?>

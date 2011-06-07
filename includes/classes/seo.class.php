@@ -113,6 +113,7 @@ class SEO_DataBase{
  */
 	function FetchArray($resource_id, $type = MYSQL_BOTH){
 		return mysql_fetch_array($resource_id, $type);
+        var_dump(debug_backtrace());
 	} # end function
 
 /**
@@ -648,7 +649,7 @@ class SEO_URL{
 			if ( $this->attributes['USE_SEO_CACHE_ARTICLES'] == 'true' && defined('TABLE_ARTICLES_DESCRIPTION')) $this->generate_articles_cache();
 			if ( $this->attributes['USE_SEO_CACHE_TOPICS'] == 'true' && defined('TABLE_TOPICS_DESCRIPTION')) $this->generate_topics_cache();
 			if ( $this->attributes['USE_SEO_CACHE_INFO_PAGES'] == 'true' && defined('TABLE_INFORMATION')) $this->generate_information_cache();
-			if ( $this->attributes['USE_SEO_CACHE_LINK_PAGES'] == 'true' && defined('TABLE_LINK_CATEGORIES')) $this->generate_links_cache();
+			if ( $this->attributes['USE_SEO_CACHE_LINKS'] == 'true' && defined('TABLE_LINK_CATEGORIES')) $this->generate_links_cache();
 
 		} # end if
 
@@ -676,7 +677,7 @@ class SEO_URL{
 		$link = $connection == 'NONSSL' ? $this->base_url : $this->base_url_ssl;
 		$separator = '?';
 		if ($this->not_null($parameters)) {
-			$link .= $this->parse_parameters($page, $parameters, $separator);
+			$link .= $this->parse_parameters($page, $parameters, $separator, $connection);
 		} else {
 		  $link .= $page;
 		}
@@ -735,13 +736,6 @@ class SEO_URL{
         }
       }
     }
-    if ( (SEARCH_ENGINE_FRIENDLY_URLS == 'true') && ($search_engine_safe == true) ) {
-      while (strstr($link, '&&')) $link = str_replace('&&', '&', $link);
-      $link = str_replace('?', '/', $link);
-      $link = str_replace('&', '/', $link);
-      $link = str_replace('=', '/', $link);
-      $separator = '?';
-    }
 	switch(true){
 		case (!isset($_SESSION['customer_id']) && defined('ENABLE_PAGE_CACHE') && ENABLE_PAGE_CACHE == 'true' && class_exists('page_cache')):
 			$page_cache = true;
@@ -799,7 +793,7 @@ class SEO_URL{
 			case (!isset($_SESSION['customer_id']) && defined('ENABLE_PAGE_CACHE') && ENABLE_PAGE_CACHE == 'true' && class_exists('page_cache')):
 				$return = $link . $separator . '<osCsid>';
 				break;
-			case ($this->not_null($_sid)):
+            case (isset($_sid) && $this->not_null($_sid)):
                                 $return = $link . $separator . tep_output_string($_sid);
 				break;
 			default:
@@ -818,7 +812,7 @@ class SEO_URL{
  * @param string $separator NOTE: passed by reference
  * @return string
  */
-	function parse_parameters($page, $params, &$separator){
+	function parse_parameters($page, $params, &$separator, $connection){
 		$p = @explode('&', $params);
 		krsort($p);
 		$container = array();
@@ -860,7 +854,7 @@ class SEO_URL{
 					switch(true){
 						case ($page == FILENAME_DEFAULT):
 							$url = $this->make_url($page, $this->get_category_name($p2[1]), $p2[0], $p2[1], '.html', $separator);
-                            $this->ValidateName($url, "c", $p2[1], $connection, $separator);
+                            // $this->ValidateName($url, "c", $p2[1], $connection, $separator);
 							break;
 						case ( !$this->is_product_string($params) ):
 							if ( $this->attributes['SEO_ADD_CPATH_TO_PRODUCT_URLS'] == 'true' ){
@@ -1193,7 +1187,7 @@ case 'pollid':
     $origUrl = strip_tags($this->requested_page());  //get the actual page requested
     $parts = explode("-", $origUrl);
 
-    if ($parts[count($parts) - 2] == $type)  //make sure it is the correct type for this link
+    if (count($parts) > 2 && $parts[count($parts) - 2] == $type)  //make sure it is the correct type for this link
     {
       if (($pos = strpos($parts[count($parts) - 1], ".html")) !== FALSE)
        $id = substr($parts[count($parts) - 1], 0, $pos);       //strip .html
@@ -1871,6 +1865,7 @@ case 'pollid':
 	function short_name($str, $limit=3){
 		if ( $this->attributes['SEO_URLS_FILTER_SHORT_WORDS'] != 'false' ) $limit = (int)$this->attributes['SEO_URLS_FILTER_SHORT_WORDS'];
 		$foo = @explode('-', $str);
+        if (empty($str)) return $str;
 		foreach($foo as $index => $value){
 			switch (true){
 				case ( strlen($value) <= $limit ):
@@ -2333,7 +2328,7 @@ case 'pollid':
 					if ($global) $container['GLOBAL'][$cache_name] = false;
 					else $container[$cache_name] = false;
 				}# end if ( $cache['cache_expires'] > date("Y-m-d H:i:s") )
-				if ( $this->keep_in_memory || $local_memory ) {
+				if ( $local_memory ) {
 					if ($global) $this->data['GLOBAL'][$cache_name] = $container['GLOBAL'][$cache_name];
 					else $this->data[$cache_name] = $container[$cache_name];
 				}

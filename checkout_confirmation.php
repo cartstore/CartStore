@@ -95,6 +95,9 @@
           tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
       } //if ((STOCK_ALLOW_CHECKOUT != 'true') && ($any_out_of_stock == true))
   } //if (STOCK_CHECK == 'true')
+  if (tep_db_prepare_input($HTTP_POST_VARS['TermsAgree']) != 'true' and MATC_AT_CHECKOUT != 'false') {
+      tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'matcerror=true', 'SSL'));
+  }
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_CONFIRMATION);
   $breadcrumb->add(NAVBAR_TITLE_1, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
   $breadcrumb->add(NAVBAR_TITLE_2);
@@ -162,25 +165,6 @@ function checkboxRowEffect(object) {
 
 }
 
-
-
-function check_agree(TheForm) {
-
-  if (TheForm.agree.checked) {
-
-    return true;
-
-  } else {
-
-    alert(unescape('<?php
-  echo CONDITION_AGREEMENT_ERROR;
-?>'));
-
-    return false;
-
-  }
-
-}
 
 var win = null;
 
@@ -534,42 +518,12 @@ win = window.open(mypage,myname,settings)
       else {
           $form_action_url = tep_href_link(FILENAME_CHECKOUT_PROCESS, '', 'SSL');
       } //else
-      echo tep_draw_form('checkout_confirmation', $form_action_url, 'post', 'onsubmit="return check_agree(this);"');
+      echo tep_draw_form('checkout_confirmation', $form_action_url, 'post');
       if (is_array($payment_modules->modules)) {
           echo $payment_modules->process_button();
       } //if (is_array($payment_modules->modules))
 ?>
-                  <table width="100%" class="infobox" border="0" style="border-collapse: collapse">
-                    <tr>
-
-                    <td>
-
-                    <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse">
-                      <tr class="infoBoxContents">
-                        <td align="right" border="0" colspan="2">
-                      <tr class="infoBoxContents"><b>
-                        <td align="right" class="main"><b>
-                          <?php
-      echo CONDITION_AGREEMENT;
-?>
-                          </b></td>
-                        <td onClick="window.document.checkout_confirmation.agree.checked = !window.document.checkout_confirmation.agree.checked;" align="right" width="20px"><?php
-      echo tep_draw_checkbox_field('agree', 'true', false, 'onclick="window.document.checkout_confirmation.agree.checked = !window.document.checkout_confirmation.agree.checked;"');
-?></td>
-                      </tr>
-                      <tr class="infoBoxContents">
-                        <td align="right" colspan="2"><a class="general_link" href="javascript:void(0);" onClick="NewWindow('<?php
-      echo tep_href_link('article_info.php?articles_id=129');
-?>','tech','800','600','yes');return false"><u style="main"><u style="main">
-                          <?php
-      echo CONDITIONS;
-?>
-                          </u></a></td>
-                      </td>
-
-                      </tr>
-
-                    </table>
+                    </td></tr>
                   </table></td>
               </tr>
               <td><?php

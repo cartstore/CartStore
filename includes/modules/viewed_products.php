@@ -51,9 +51,9 @@
     if ($_GET['action'] == 'viewed_remove') {
       $viewed->remove();
     } elseif ($_GET['action'] == 'viewed_switch') {
-        if ($viewed_switch == 'true') { 
+        if ($viewed_switch == 'true') {
           $viewed_switch = 'false';
-        } else { 
+        } else {
             $viewed_switch = 'true';
           }
       }
@@ -90,19 +90,19 @@
     /* determine the first and last record we want to display*/
     $first = sizeof($items)- HIST_MAX_ROWS;
     $last  = sizeof($items)-1;
-    if (($last+1) < HIST_MAX_ROWS) {$disp = ($last+1);} else {$disp = HIST_MAX_ROWS;}
+    if (sizeof($items) < HIST_MAX_ROWS) {$disp = sizeof($items);} else {$disp = HIST_MAX_ROWS;}
     if ($first < 0) {$first = 0;}
 
     /* only fetch the info for products on display */
 //    $items_ids_on_display = array();			// shift to line 67
     for ($i=$last, $n=$first; $i>=$n; $i--) {
-        $viewed_query = tep_db_query("select pd.products_name, 
+        $viewed_query = tep_db_query("select pd.products_name,
                                              p.products_image ,
 											  pd.products_short
-                                      from " . TABLE_PRODUCTS . " p, 
-                                           " . TABLE_PRODUCTS_DESCRIPTION . " pd 
-                                      where p.products_id = '" . $items[$i] . "' and 
-                                            pd.language_id = '" . $languages_id . "' and 
+                                      from " . TABLE_PRODUCTS . " p,
+                                           " . TABLE_PRODUCTS_DESCRIPTION . " pd
+                                      where p.products_id = '" . $items[$i] . "' and
+                                            pd.language_id = '" . $languages_id . "' and
                                             pd.products_id = p.products_id");
         if ($viewed_info = tep_db_fetch_array($viewed_query)) {
          $items_on_display[$i] = array('id' => $items[$i],
@@ -112,7 +112,7 @@
          $items_ids_on_display[]= $items[$i];
         }
     }
- 
+
     echo '<div class="module">
 <div>
 <div>
@@ -122,11 +122,11 @@
           ';
     echo '';
     echo '<ul>';
-
     for ($i=$last, $n=$first; $i>=$n; $i--) {
       echo '';
-      echo '<li><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$i]['id']) . '">' . $items_on_display[$i]['name'] . '</a></li>';
-    
+      if (isset($items_on_display[$i]))
+        echo '<li><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$i]['id']) . '">' . $items_on_display[$i]['name'] . '</a></li>';
+
       $row ++;
       $index++;
       if ($row > HIST_ROWS - 1) {
@@ -143,32 +143,39 @@
 </div>
 </div>
 </div>';
-    
+
     /* find random product in displayed list */
-    $random_number = rand($first,$last);
-    $selected_product1 = $items_on_display[$random_number]['id'];
+    $selected_product1 = '';
+    while (empty($selected_product1)){
+      $random_number = rand($first,$last);
+      if (isset($items_on_display[$random_number])){
+        $selected_product1 = $items_on_display[$random_number]['id'];
+        $selected_product1_offset = $random_number;
+        break;
+      }
+    }
 
     /* do the also purchased query */
 
-    $orders_query = tep_db_query("select p.products_id, 
+    $orders_query = tep_db_query("select p.products_id,
                                          p.products_image,
 										 pd.products_short,
-                                        pd.products_name 
-                                  from " . TABLE_ORDERS_PRODUCTS . " opa, 
-                                       " . TABLE_ORDERS_PRODUCTS . " opb, 
-                                       " . TABLE_ORDERS . " o, 
+                                        pd.products_name
+                                  from " . TABLE_ORDERS_PRODUCTS . " opa,
+                                       " . TABLE_ORDERS_PRODUCTS . " opb,
+                                       " . TABLE_ORDERS . " o,
                                        " . TABLE_PRODUCTS . " p,
-                                       " . TABLE_PRODUCTS_DESCRIPTION . " pd 
+                                       " . TABLE_PRODUCTS_DESCRIPTION . " pd
                                   where opa.products_id = '" . $selected_product1 . "' and
-                                        opa.orders_id = opb.orders_id and 
+                                        opa.orders_id = opb.orders_id and
                                         opb.products_id = p.products_id and
                                         opb.products_id != '" . $selected_product1 . "' and
                                         opb.orders_id = o.orders_id and
                                           p.products_id = pd.products_id and
                                          pd.language_id = '" . $languages_id . "' and
-                                        p.products_status = '1' 
-                                  group by p.products_id 
-                                  order by o.date_purchased desc 
+                                        p.products_status = '1'
+                                  group by p.products_id
+                                  order by o.date_purchased desc
                                   limit 1");
 
 
@@ -180,15 +187,15 @@
 <div>
 <h3>CUSTOMERS ALSO ORDERED</h3>
 <div class="box">';
-   
+
     echo '<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $orders['products_id']) . '">' . $orders['products_name'] . '</a></h4>
-	
+
 	<a class="imagebox" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $orders['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $orders['products_image'], $orders['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
-	
+
 	<span class="short_desc">Desc: ' . $orders['products_short'] . '</span>
-	
+
 	<div class="clear"></div>
-	
+
 	<a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $orders['products_id']) . '">More Info</a>
 <div class="clear"></div>
 
@@ -205,7 +212,7 @@
   } elseif (sizeof($items) > HIST_MEM_TRIGGER) {
 
     /* select a random record after the memory trigger threshold */
-    $random_number = rand($first,$last-HIST_MEM_TRIGGER);
+    // $random_number = rand($first,$last-HIST_MEM_TRIGGER);
 
     if (isset($_GET['products_id'])) {
       if ($items_on_display[$random_number]['id'] != $_GET['products_id']) {
@@ -216,23 +223,23 @@
 <div>
 <h3>RECENTLY VIEWED</h3>
 <div class="box">';
-        echo $items_on_display[$selected_product1]['name']; 
-        
+        echo $items_on_display[$selected_product1]['name'];
+
         echo '<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$random_number]['id']) . '">' . $items_on_display[$random_number]['name'] . '</a></h4>';
 		echo '<a class="imagebox" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$random_number]['id']) . '">' . tep_image(DIR_WS_IMAGES . $items_on_display[$random_number]['image'], $items_on_display[$random_number]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
-		
+
 		<span class="short_desc">Desc: ' . $items_on_display[$random_number]['short'] . '</span>
-	
+
 	<div class="clear"></div>
-	
+
 	<a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$random_number]['id']) . '">More Info</a>
 <div class="clear"></div>
-		
+
 		';
-        
-		
-		
-		
+
+
+
+
 		echo '</div></div>
 </div>
 </div>
@@ -248,15 +255,15 @@
 <div>
 <h3>OF INTEREST</h3>
 <div class="box">';
-        echo $items_on_display[$selected_product1]['name']; 
-       
+//        echo $items_on_display[$random_number]['name'];
+
         echo '<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$random_number]['id']) . '">' . $items_on_display[$random_number]['name'] . '</a></h4>';
 		 echo '<a class="imagebox" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$random_number]['id']) . '">' . tep_image(DIR_WS_IMAGES . $items_on_display[$random_number]['image'], $items_on_display[$random_number]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
-		 
+
 		 <span class="short_desc">Desc: ' . $items_on_display[$random_number]['short'] . '</span>
-	
+
 	<div class="clear"></div>
-	
+
 	<a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $items_on_display[$random_number]['id']) . '">More Info</a>
 <div class="clear"></div>
 

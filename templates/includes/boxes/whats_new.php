@@ -32,7 +32,7 @@
           $whats_new_price = $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id']));
       }
       if ($random_product['map_price'] != "0.00") {
-          if ($_SESSION['customers_email_address'] != '') {
+          if (isset($_SESSION['customers_email_address'])) {
               $whats_new_price = $whats_new_price;
               $whats_new_price .= '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($random_product['msrp_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
 
@@ -42,7 +42,7 @@
 
 <span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($random_product['map_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>';
           }
-          if ($_SESSION['customers_email_address'] == '') {
+          if (isset($_SESSION['customers_email_address'])) {
               $whats_new_price .= '<br>
 
 <span class="ourprice_name">Our Price:</span> <span class="our_price_price"><a href="login.php">Login to See Price</a></span>';
@@ -69,7 +69,7 @@
       $info_box_contents[] = array('align' => '', 'text' => '
 <div class="box"><h4><a class="special_title" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">' . $random_product['products_name'] . '</a></h4>
 
- <a class="imagebox" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], 89, SMALL_IMAGE_HEIGHT) . '</a> 
+ <a class="imagebox" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], 89, SMALL_IMAGE_HEIGHT) . '</a>
 <span class="short_desc">' . $random_product['products_short'] . '</span> <div class="clear"/></div>
 
 <a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">More Info</a>

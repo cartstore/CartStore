@@ -204,10 +204,17 @@
       <?php
   } //if (isset($_GET["s_71"]))
 ?>
-      <?php
+<?php
+if($HTTP_GET_VARS['matcerror'] == 'true'){
 ?>
-      <?php
-?>
+      <div class="ui-widget">
+        <div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-error ui-corner-all">
+          <p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span> <strong> Alert:</strong> There was a payment error. This could be a problem with your address information or the card number entered incorrectly. If you think this is incorrect, then please return to the shopping cart and re-enter your information. If your attempt is declined again, please contact your card issuer and try another card.
+            <?php echo tep_output_string_protected(MATC_ERROR); ?>
+          </p>
+        </div>
+      </div>
+<?php } ?>
       <h3><b>
         <?php
   echo HEADING_PRODUCTS;
@@ -436,10 +443,15 @@
       echo tep_draw_textarea_field2('comments', 'soft', '40', '5');
 ?>
           </div>
+<?php
+if(MATC_AT_CHECKOUT != 'false'){
+   require(DIR_WS_MODULES . 'matc.php');
+}
+?>
           <br>
           <br>
           <?php
-      echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE);
+      echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE,'id="TheSubmitButton"');
 ?>
           <hr>
           <div id="module-product">

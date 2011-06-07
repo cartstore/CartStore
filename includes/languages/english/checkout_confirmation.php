@@ -38,8 +38,4 @@ define('TEXT_DELIVERY_HEADING', 'Delivery Details:');
 define('TEXT_DELIVERY_DATE', 'Date:');
 define('TEXT_DELIVERY_TIME', 'Time:');
 //DELIVERY MODULE - END
-
-define('CONDITION_AGREEMENT', 'I have read the conditions of use and I agree to them.');
-define('CONDITIONS', 'Terms & Conditions');
-define('CONDITION_AGREEMENT_ERROR', "Please read our conditions of use and agree to them. If you do not do so, your order will not be processed.");
 ?>

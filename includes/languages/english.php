@@ -320,16 +320,7 @@ define('TABLE_HEADING_PRICE', 'Price');
 define('TEXT_MORE_INFO', 'More information');
 define('TABLE_HEADING_BUY_NOW', 'Buy Now');
 define('TEXT_NO_FEATURED_PRODUCTS', 'There are no featured products');
-define('TEXT_MORE_INFO', 'More information');
-
-// Featured products mod.
-  define('FILENAME_FEATURED', 'featured.php');
-  define('FILENAME_FEATURED_PRODUCTS', 'featured_products.php');
-	// Modify this layout as you wish
-
-
 define('TEXT_REQUIRED', '<span class="errorText">Required</span>');
-
 //MVS Start
 define('MULTIPLE_SHIP_METHODS_TITLE', 'Combined Shipping');
 //MVS End
@@ -367,9 +358,7 @@ define('TABLE_HEADING_MODEL', 'Model');
 define('TABLE_HEADING_PRODUCTS', 'Product Name');
 define('TABLE_HEADING_MANUFACTURER', 'Manufacturer');
 define('TABLE_HEADING_QUANTITY', 'Quantity');
-define('TABLE_HEADING_PRICE', 'Price');
 define('TABLE_HEADING_WEIGHT', 'Weight');
-define('TABLE_HEADING_BUY_NOW', 'Buy Now');
 
 //Family: End Changed code
 
@@ -387,7 +376,6 @@ define('TABLE_HEADING_AUTHOR', 'Author');
 define('TABLE_HEADING_ABSTRACT', 'Abstract');
 define('BOX_HEADING_AUTHORS', 'Articles by Author');
 define('NAVBAR_TITLE_DEFAULT', 'Articles');
-
 // BEGIN -- faqdesk
 define('TABLE_HEADING_FAQDESK', 'FAQ Information');
 define('TEXT_NO_FAQDESK_NEWS', 'Sorry but there are no FAQs');
@@ -395,24 +383,19 @@ define('TEXT_FAQDESK_READMORE', 'Read More');
 define('TEXT_FAQDESK_VIEWED', 'Viewed:');
 define('BOX_HEADING_FAQDESK_CATEGORIES', 'FAQs Catagories');
 define('BOX_HEADING_FAQDESK_LATEST', 'Latest FAQs');
-define('TEXT_DISPLAY_NUMBER_OF_ARTICLES', 'Displaying <b>%d</b> to <b>%d</b> (of <b>%d</b> FAQs)');
 //END -- faqdesk
 // newsdesk box text in includes/boxes/newsdesk.php
 define('TABLE_HEADING_NEWSDESK', 'News and Information');
 define('TEXT_NO_NEWSDESK_NEWS', 'Sorry but there is no News');
 define('TEXT_NEWSDESK_READMORE', 'Read More');
 define('TEXT_NEWSDESK_VIEWED', 'Viewed:');
-
 define('BOX_HEADING_NEWSDESK_CATEGORIES', 'News Categories');
 define('BOX_HEADING_NEWSDESK_LATEST', 'Latest News');
-
-define('TEXT_DISPLAY_NUMBER_OF_ARTICLES', 'Displaying <b>%d</b> to <b>%d</b> (of <b>%d</b> articles)');
 //END -- newsdesk
 
 // VJ Links Manager v1.00 begin
 define('BOX_INFORMATION_LINKS', 'Links');
 define('BOX_HEADING_LINKS', 'Featured Links');
-define('BOX_INFORMATION_LINKS', 'Links');
 // VJ Links Manager v1.00 end
 
 // BOF Separate Pricing Per Customer
@@ -450,6 +433,8 @@ define('ERROR_DESTINATION_DOES_NOT_EXIST', 'Error: destination does not exist.')
  // rss_news box text in includes/boxes/rss_news.php
 define('BOX_HEADING_RSS_NEWS', 'RSS News');
 
+  define('TEXT_ALL_CATEGORIES', 'All Categories');
+  define('TEXT_ALL_MANUFACTURERS', 'All Manufacturers');
 
 // year make model
 define('BOX_HEADING_MAKE_MODEL_YEAR', 'Select Vehicle');
@@ -459,4 +444,7 @@ define('ENTRY_STREET_ADDRESS_2', 'Street Address Line 2:');
 define('ENTRY_STREET_ADDRESS_TEXT_2', '');
 // :Second Address Field mod
 define('RECAPTCHA_ERROR_MSG',"The reCAPTCHA wasn't entered correctly. Try it again.");
+define('MATC_CONDITION_AGREEMENT', 'I have read the <a href="%s" target="_blank"><strong><u>Terms &amp; Conditions</u></strong></a> and I agree to them: ');
+define('MATC_HEADING_CONDITIONS', 'Terms and Conditions Agreement');
+define('MATC_ERROR', 'You must agree to our terms and conditions in order to continue.');
 ?>

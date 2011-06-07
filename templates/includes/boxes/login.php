@@ -15,7 +15,7 @@ if ($fbme){
         error_log("Legacy Api Calling Error!");
     }
 }
-  if ($_SESSION['customer_first_name'] != "") {
+  if (isset($_SESSION['customer_first_name'])) {
 ?>
 
 <div class="module">
@@ -47,7 +47,7 @@ if ($fbme){
       <div>
         <h3>USER LOGIN</h3>
         <?php
-          if ($_SESSION['customers_email_address'] != '')
+          if (isset($_SESSION['customers_email_address']))
               print '<center><span class="pad5">You are logged in as ' . $_SESSION['customers_email_address'] . '<br /><br />
 
 

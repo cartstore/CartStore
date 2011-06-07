@@ -1,8 +1,8 @@
 <!-- shop by price //-->
 <?php
-  require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_SHOP_BY_PRICE);
+  require_once(DIR_WS_LANGUAGES . $language . '/' . FILENAME_SHOP_BY_PRICE);
   $info_box_contents = array();
-  if ($shop_price_type == 'dropdown') {
+  if (!empty($shop_price_type) && $shop_price_type == 'dropdown') {
       $price_range_list = '';
       $price_range_list[] = array('id' => '0', 'text' => BOX_HEADING_SHOP_BY_PRICE);
       for ($range = 0; $range < sizeof($price_ranges); $range++) {

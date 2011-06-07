@@ -211,6 +211,15 @@
       $orders_status_array[$orders_status['orders_status_id']] = $orders_status['orders_status_name'];
   } //while ($orders_status = tep_db_fetch_array($orders_status_query))
   $action = (isset($_GET['action']) ? $_GET['action'] : '');
+if($HTTP_GET_VARS['listing']=="customers") { $sort_by = "o.customers_name"; }
+elseif($HTTP_GET_VARS['listing']=="customers-desc") { $sort_by = "o.customers_name DESC"; }
+elseif($HTTP_GET_VARS['listing']=="ottotal") { $sort_by = "order_total"; }
+elseif($HTTP_GET_VARS['listing']=="ottotal-desc") { $sort_by = "order_total DESC"; }
+elseif($HTTP_GET_VARS['listing']=="id-asc") { $sort_by = "o.orders_id"; }
+elseif($HTTP_GET_VARS['listing']=="id-desc") { $sort_by = "o.orders_id DESC"; }
+elseif($HTTP_GET_VARS['listing']=="status-asc") { $sort_by = "o.orders_status"; }
+elseif($HTTP_GET_VARS['listing']=="status-desc") { $sort_by = "o.orders_status DESC"; }
+else { $sort_by = "o.orders_id DESC"; }
   if (tep_not_null($action)) {
       switch ($action) {
           case 'sync_amazon_order':
@@ -237,8 +246,14 @@
               $order_updated = false;
               $check_status_query = tep_db_query("select customers_name, customers_email_address, orders_status,usps_track_num, usps_track_num2, ups_track_num, ups_track_num2, fedex_track_num, fedex_track_num2, dhl_track_num, dhl_track_num2, date_purchased from " . TABLE_ORDERS . " where orders_id = '" . (int)$oID . "'");
               $check_status = tep_db_fetch_array($check_status_query);
-              if (($check_status['orders_status'] != $status) || tep_not_null($comments)) {
+              // always update date and time on order_status
+              if ( ($check_status['orders_status'] != $status) || $comments != '' || ($status == DOWNLOADS_ORDERS_STATUS_UPDATED_VALUE) ) {
                   tep_db_query("update " . TABLE_ORDERS . " set orders_status = '" . tep_db_input($status) . "', last_modified = now() where orders_id = '" . (int)$oID . "'");
+                  $check_status_query2 = tep_db_query("select customers_name, customers_email_address, orders_status, date_purchased from " . TABLE_ORDERS . " where orders_id = '" . (int)$oID . "'");
+                  $check_status2 = tep_db_fetch_array($check_status_query2);
+                  if ( $check_status2['orders_status'] == DOWNLOADS_ORDERS_STATUS_UPDATED_VALUE ) {
+                      tep_db_query("update " . TABLE_ORDERS_PRODUCTS_DOWNLOAD . " set download_maxdays = '" . DOWNLOAD_MAX_DAYS . "', download_count = '" . DOWNLOAD_MAX_COUNT . "' where orders_id = '" . (int)$oID . "'");
+                  }
                   if (SELECT_VENDOR_EMAIL_WHEN == 'Admin' || SELECT_VENDOR_EMAIL_WHEN == 'Both') {
                       if (isset($status)) {
                           $order_sent_query = tep_db_query("select vendor_order_sent, vendors_id from " . TABLE_ORDERS_SHIPPING . " where orders_id = '" . $oID . "'");

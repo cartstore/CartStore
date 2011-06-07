@@ -10,18 +10,18 @@
   $classname_for_parent = 'mainlevel';
   $before_nobox_html = '';
   $after_nobox_html = '';
-  
+
   $GLOBALS['this_level'] = 0;
-  
+
   if ($show_ulcats_as_box) {
       echo '';
       $info_box_contents = array();
       $info_box_contents[] = array('text' => BOX_HEADING_CATEGORIES);
       new infoBoxHeading($info_box_contents, true, false);
   }
-  
+
   $categories_string = tep_make_cat_ullist();
-  
+
   if ($show_ulcats_as_box) {
       $info_box_contents = array();
       $info_box_contents[] = array('text' => $categories_string);
@@ -32,12 +32,12 @@
       echo $categories_string;
       echo $after_nobox_html;
   }
-  
+
   function tep_make_cat_ullist($rootcatid = 0, $maxlevel = 0)
   {
       global $idname_for_menu, $cPath_array, $show_full_tree, $languages_id;
-      print $parent_query;
-      
+      // print $parent_query;
+
       if (!$show_full_tree) {
           $parent_query = 'AND (c.parent_id = "0"';
           if (isset($cPath_array)) {
@@ -51,23 +51,25 @@
       } else {
           $parent_query = '';
       }
+      $output = '';
       $result = tep_db_query('select c.categories_id, cd.categories_name, c.parent_id from ' . TABLE_CATEGORIES . ' c, ' . TABLE_CATEGORIES_DESCRIPTION . ' cd where c.categories_id = cd.categories_id and cd.language_id="' . (int)$languages_id . '" ' . $parent_query . ' order by sort_order, cd.categories_name');
       while ($row = tep_db_fetch_array($result)) {
           $table[$row['parent_id']][$row['categories_id']] = $row['categories_name'];
       }
       $output .= '<ul id="' . $idname_for_menu . '">';
       $output .= tep_make_cat_ulbranch($rootcatid, $table, 0, $maxlevel);
-      
+
       for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
           $output .= '</ul>';
       }
       return $output;
   }
-  
+
   function tep_make_cat_ulbranch($parcat, $table, $level, $maxlevel)
   {
       global $cPath_array, $classname_for_selected, $classname_for_parent, $YMM_where;
       $list = $table[$parcat];
+      $output = '';
       while (list($key, $val) = each($list)) {
           if ($GLOBALS['this_level'] != $level) {
               if ($GLOBALS['this_level'] < $level) {
@@ -84,7 +86,7 @@
           } else {
               $this_cat_class = '';
           }
-          
+
           if (tep_count_products_in_category((int)$key) <= 0 && $YMM_where != "") {
           } else {
               global $current_category_id;
@@ -121,7 +123,7 @@
               }
           }
       }
-      
+
       return $output;
   }
 ?>

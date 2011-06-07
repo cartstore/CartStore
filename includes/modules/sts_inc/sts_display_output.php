@@ -22,7 +22,7 @@ if (!empty($sts_modules_inc)) {
 	$sts_modules_str.= $sts_mod .' - '; // Added in v4.0.7 for debug
   }
 }
-  
+
 // If we use a template, replace placeholders and display the page
   if ($sts->display_template_output == 1) {
     $sts->replace();  // Read file and replace placeholders with variables content
@@ -30,7 +30,7 @@ if (!empty($sts_modules_inc)) {
   }
 
 // Display debug information if we are in template debug mode
- if ($sts->display_debug_output) {
+ if (isset($sts->display_debug_output)) {
   // Print Debugging Info
   print "\n<pre><hr>\n";
   print "STS_VERSION=[" . $sts->version . "]<br>\n";
@@ -45,8 +45,8 @@ if (!empty($sts_modules_inc)) {
   }
 
  }
- 
 
- 
- 
+
+
+
 ?>

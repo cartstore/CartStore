@@ -19,9 +19,9 @@
         </p>
         <?php
           $info_box_contents = array();
-          $info_box_contents[] = array('text' => '<font color="' . $font_color . '">' . BOX_HEADING_MAKE_MODEL_YEAR . '</font>');
+          $info_box_contents[] = array('text' => '' . BOX_HEADING_MAKE_MODEL_YEAR . '');
           new infoBoxHeading($info_box_contents, false, false);
-          
+
           $Make_array[] = array('id' => 'all', 'text' => 'Choose Vehicle');
           $Model_array[] = array('id' => 'all', 'text' => 'Choose Model');
           $Year_array[] = array('id' => 0, 'text' => 'Choose Year');
@@ -83,9 +83,9 @@ var c = new Array();';
 
 function pop_model(){
 
-  
 
-  var o ="<select name=\"Model\" onChange=\"pop_year();\" style=\"width: 100%\"><option value=\"all\">Choose Model</option>";  
+
+  var o ="<select name=\"Model\" onChange=\"pop_year();\" style=\"width: 100%\"><option value=\"all\">Choose Model</option>";
 
   var sv = document.make_model_year.Make.value;
 
@@ -111,7 +111,7 @@ function pop_model(){
 
 function pop_year(){
 
-  
+
 
   var o ="<select name=\"Year\" style=\"width: 100%\" onChange=\"document.make_model_year.submit();\"><option value=\"0\">Choose Year</option>";
 
@@ -129,7 +129,7 @@ function pop_year(){
 
         var v2 = b[v].length;
 
-        while(v2--) if(sv2 == b[v][v2]) break;  
+        while(v2--) if(sv2 == b[v][v2]) break;
 
         for(var i = 0; i < c[v][v2].length; i++)
 

@@ -88,6 +88,10 @@
           case 'delete_category_confirm':
               if (isset($_POST['categories_id'])) {
                   $categories_id = tep_db_prepare_input($_POST['categories_id']);
+                  if($categories_id == 0) {
+                    tep_redirect(tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $categories_id));
+                    break;
+                  }
                   $categories = tep_get_category_tree($categories_id, '', '0', '', true);
                   $products = array();
                   $products_delete = array();

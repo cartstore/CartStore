@@ -14,8 +14,8 @@
         <?php
       $info_box_contents = array();
       $info_box_contents[] = array('text' => BOX_HEADING_MANUFACTURERS);
-      
-      
+
+
       $manufacturers_array = array();
       $manufacturers_array[] = array('id' => '', 'text' => 'Select Brand');
       while ($manufacturers = tep_db_fetch_array($manufacturers_query)) {
@@ -52,11 +52,9 @@
   $info_box_contents = array();
   $info_box_contents[] = array('align' => '', 'text' => BOX_HEADING_CATEGORIES);
   new infoBoxHeading($info_box_contents, true, false);
-  $mID = $_GET['manufacturers_id'];
+  $cat_list = '';
+  $mID = (isset($_GET['manufacturers_id']) ? $_GET['manufacturers_id'] : '');
   if ($mID != "") {
-      $cPath_array = tep_parse_category_path($_GET['cPath']);
-      $cPath = implode('_', $cPath_array);
-      $current_category_id = $cPath_array[(sizeof($cPath_array) - 1)];
       $categories_query = tep_db_query("SELECT distinct cd.categories_name, cd.categories_id FROM `products` p, categories_description cd, products_to_categories pc WHERE cd.categories_id = pc.categories_id AND p.products_id = pc.products_id AND p.manufacturers_id =$mID");
       if ($number_of_rows = tep_db_num_rows($categories_query)) {
 ?>
@@ -64,8 +62,8 @@
         <?php
           $info_box_contents = array();
           $info_box_contents[] = array('text' => BOX_HEADING_MANUFACTURERS);
-          
-          
+
+
           $categories_array = array();
           $categories_array[] = array('id' => '', 'text' => 'Select Category');
           while ($categories = tep_db_fetch_array($categories_query)) {
@@ -77,8 +75,8 @@
   }
   $info_box_contents = array();
   $info_box_contents[] = array('align' => '', 'text' => '<div id="cat">' . $cat_list . '</div></form>');
-  
-  
+
+
   new infoBox($info_box_contents);
 ?>
         <!-- categories_eof //-->

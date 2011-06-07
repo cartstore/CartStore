@@ -8,37 +8,37 @@ http://www.cartstore.com
 Copyright (c) 2008 Adoovo Inc. USA
 
 GNU General Public License Compatible
-* 
+*
 STS PLUS v4 module for index.php by Rigadin (rigadin@osc-help.net)
 */
 
 class sts_infobox {
 
   var $template_file;
-  
+
   function sts_infobox (){
     $this->code = 'sts_infobox';
     $this->title = MODULE_STS_INFOBOX_TITLE;
     $this->description = MODULE_STS_INFOBOX_DESCRIPTION.' (v1.0.3)';
 	$this->sort_order=7;
-	$this->enabled = ((MODULE_STS_INFOBOX_STATUS == 'true') ? true : false);  
+	$this->enabled = ((MODULE_STS_INFOBOX_STATUS == 'true') ? true : false);
   }
 
   function find_template (){
   // Private function to check if there is a content template for products.
 
-	$check_file= STS_TEMPLATE_DIR . "content/infobox.php.html"; 
+	$check_file= STS_TEMPLATE_DIR . "content/infobox.php.html";
 	if (file_exists($check_file)) return $check_file;
-	  
+
 	// If no content template found, return empty string
-	return '';	
+	return '';
   } // End function
 
   function capture_fields () {
   // Returns list of files to include from folder sts_inc in order to build the $template fields
     return MODULE_STS_INFOBOX_NORMAL;
   }
-  
+
   function replace (&$template) {
     $template['content']=sts_strip_content_tags($template['content'], 'Index content');
   }
@@ -46,7 +46,7 @@ class sts_infobox {
 //======================================
 // Functions needed for admin
 //======================================
-  
+
     function check() {
       if (!isset($this->_check)) {
         $check_query = tep_db_query("select configuration_value from " . TABLE_CONFIGURATION . " where configuration_key = 'MODULE_STS_INFOBOX_STATUS'");
@@ -67,7 +67,7 @@ class sts_infobox {
 
     function remove() {
       tep_db_query("delete from " . TABLE_CONFIGURATION . " where configuration_key in ('" . implode("', '", $this->keys()) . "')");
-    }  
+    }
 
 }// end class
 ?>

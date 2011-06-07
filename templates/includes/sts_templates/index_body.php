@@ -1,7 +1,7 @@
 
 <div class="modulelist">
   <?php
-          echo tep_display_banner('dynamic', specials);
+          echo tep_display_banner('dynamic', 'specials');
 ?>
   <div id="news_sticky">
     <?php

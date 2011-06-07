@@ -1,6 +1,6 @@
 <?php
   define('STS_END_CHAR', '#');
-  
+
    require(DIR_FS_CATALOG . 'templates/includes/sts_templates/head.php');
 ?>
 
@@ -12,7 +12,7 @@
     <div class="logo">
       <?php
   echo '<a  href="' . tep_href_link('index.php') . '">
-    
+
 <img src="templates/includes/sts_templates/default/images/logo.jpg" /></a>'
 ?>
     </div>
@@ -79,7 +79,7 @@
                       }
 ?>>
           <?php
-                      if ($_SESSION['customers_email_address'] != '') {
+                      if (isset($_SESSION['customers_email_address'])) {
 ?>
           <a href="logoff.php"><span>Logout</span></a>
           <?php
@@ -111,14 +111,14 @@
 ?>
     </div>
     <div id="contentCol">$selected_vehicle# $banner_only#
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+
+
+
+
+
+
       $content# </div>
     <div id="rightCol">
       <?php
