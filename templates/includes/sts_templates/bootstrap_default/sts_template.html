@@ -1,0 +1,193 @@
+<?php
+define('STS_END_CHAR', '#');
+
+require(DIR_FS_CATALOG . 'templates/includes/sts_templates/head.php');
+?>
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="logo">
+				<?php
+				echo '<a  href="' . tep_href_link('index.php') . '"> <img src="templates/includes/sts_templates/default/images/logo.jpg" alt="' . STORE_NAME .'" /></a>'
+				?>
+			</div>
+			<div class="top">
+				<ul>
+					<li class="chat">
+						<a href="contact_us.php"> Have Questions? </a>
+					</li>
+					<li class="call">
+						<a href="contact_us.php">(800) 123 - 4567</a>
+					</li>
+					<li class="cart">
+						<a href="shopping_cart.php">$cartbox# Item(s)</a>
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="topWrapnav">
+			<div class="topnav">
+				<ul>
+					<li
+					<?php
+					if ($_SERVER['REQUEST_URI'] == '/account.php' || $_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == 'account.php') {
+					?>
+					class="active" <?php
+					} else
+					{
+					?> <?php
+					}
+					?>>
+						<a href="account.php"><span>My Account</span></a>
+					</li>
+					<li
+					<?php
+					if ($_SERVER['REQUEST_URI'] == '/wishlist.php' || $_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == 'wishlist.php') {
+					?>
+					class="active" <?php
+					} else
+					{
+					?> <?php
+					}
+					?>>
+						<a href="wishlist.php"><span>My Wishlist</span></a>
+					</li>
+					<li
+					<?php
+					if ($_SERVER['REQUEST_URI'] == '/shopping_cart.php' || $_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == 'shopping_cart.php') {
+					?>
+					class="active" <?php
+					} else
+					{
+					?> <?php
+					}
+					?>>
+						<a href="shopping_cart.php"><span>My Cart</span></a>
+					</li>
+					<li
+					<?php
+					if ($_SERVER['REQUEST_URI'] == '/checkout_shipping.php' || $_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == 'checkout_shipping.php') {
+					?>
+					class="active" <?php
+					} else
+					{
+					?> <?php
+					}
+					?>>
+						<a href="checkout_shipping.php"><span>Checkout</span></a>
+					</li>
+					<li
+					<?php
+					if ($_SERVER['REQUEST_URI'] == '/login.php' || $_SERVER['REQUEST_URI'] == '' || $_SERVER['REQUEST_URI'] == 'login.php') {
+					?>
+					class="active" <?php
+					} else
+					{
+					?> <?php
+					}
+					?>>
+						<?php
+						if (isset($_SESSION['customers_email_address'])) {
+						?> <a href="logoff.php"><span>Logout</span></a>
+						<?php
+						} else
+						{
+						?> <a href="login.php"><span>Login</span></a>
+						<?php
+						}
+						?>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="menu">
+			<?php
+			include(DIR_WS_MODULES . 'static_menu1.php');
+			?>
+			$categorybox6#
+			<ul>
+				<li>
+					<a href="all_categories.php"><span>More Categories</span></a>
+				</li>
+			</ul>
+		</div>
+		<div id="container">
+			<div id="leftCol">
+				<?php
+				include(DIR_WS_MODULES . 'left_col.php');
+				?>
+			</div>
+			<div id="contentCol">
+				$selected_vehicle# $banner_only#
+
+				$content#
+			</div>
+			<div id="rightCol">
+				<?php
+				include(DIR_WS_MODULES . 'right_col.php');
+				?>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer">
+			<div class="moduletable-fnav">
+				<ul>
+					<li>
+						<a href="affiliate_summary.php">Affiliates</a>
+					</li>
+					<li>
+						<a href="allprods.php">All Products</a>
+					</li>
+					<li>
+						<a href="specials.php">Specials </a>
+					</li>
+					<li>
+						<a href="sitemap.php">Sitemap</a>
+					</li>
+					<li>
+						<a href="links.php">Links</a>
+					</li>
+					<li>
+						<a href="login.php">Login</a>
+					</li>
+					<li>
+						<a href="my_points.php">Points &amp; Rewards</a>
+					</li>
+					<li>
+						<a href="news-t-15.html">News</a>
+					</li>
+					<li>
+						<a href="reviews.php">Product Reviews</a>
+					</li>
+					<li>
+						<a href="products_new.php">Whats New</a>
+					</li>
+					<li>
+						<a href="current_auctions.php">Auctions</a>
+					</li>
+					<li>
+						<a href="returns_track.php">Track Return</a>
+					</li>
+				</ul>
+			</div>
+			<div class="moduletable-copy">
+				<p>
+					CopyRight 2006- 2013 All Rights Reserved. <a
+					href="http://www.cartstore.com" target="_blank">CartStore</a>.
+				</p>
+			</div>
+			<div class="moduletable-fbnav">
+				<ul>
+					<li>
+						<a href="privacy-policy-a-137.html">Privacy Policy</a>
+					</li>
+					<li>
+						<a href="terms-service-a-138.html">Terms of Service</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="jQuerybanner_rotator"></div>

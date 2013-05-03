@@ -1,0 +1,175 @@
+@import url("reset.css");
+
+body {
+	background-color: #f7f2ea;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+	color: #333333;
+	font-size: 11px;
+}
+
+.clear {clear: both;}	
+
+a:link, a:visited, a:active {
+	color: #333333;
+	text-decoration: none;
+	outline-color: invert;
+	outline-style: none;
+	outline-width: medium;	
+}
+
+a:hover {
+	text-decoration: underline;
+}
+#login-form a.button { color: white; }
+blockquote {
+	padding: 10px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #333333;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+h1 {
+	font-size:20px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+h4 {
+	font-size: 15px;
+}
+
+h5 {
+	font-size: 14px;
+}
+
+h6 {
+	font-size: 13px;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+#admin-wrapper {
+	background: url(../images/wrapper_bg.jpg) no-repeat center center;
+	width: 813px;
+	height: 485px;
+	margin: 0px auto 0 auto;
+	position: relative;
+}
+#admin-wrapper_pf {
+	background: url(../images/wrapper_bg_pf.jpg) no-repeat center center;
+	width: 813px;
+	height: 485px;
+	margin: 0px auto 0 auto;
+	position: relative;
+}
+#admin-header {
+	height: 104px;
+	position: relative;
+}
+
+#admin-header .admin-logo {
+	width: 307px;
+	height: 104px;
+	position: absolute;
+	top: 55px;
+	left: 60px;
+	float: left;
+	cursor: pointer;
+}
+
+#admin-title {
+	width: 38px;
+	height: 275px;
+	position: absolute;
+	left: 0px;
+	top: 192px;
+}
+
+#login-form {
+	width: 270px;
+	position: absolute;
+	top: 250px;
+	left: 240px;
+}
+
+#login-form form {
+	width: 270px;	
+}
+
+#login-form form .inputWrap {
+	width: 265px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+#login-form form .inputWrap .inputbox {
+	float: right;
+	width: 174px;
+	padding: 2px 3px;
+	border: 1px solid #ccc;
+}
+
+#login-form form .inputWrap .label {
+	float: left;
+	width: 77px;
+	color: #333333;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+#login-form form .login-button {
+	background: url(../images/login_button.jpg) no-repeat left top;
+	width: 73px;
+	height: 23px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	margin: 0 0 4px 82px;
+	float: left;
+}
+
+#login-form form a.readon:link,
+#login-form form a.readon:visited,
+#login-form form a.readon:active {
+	color: #000;
+	width: 120px;
+	height: 20px;
+	float: left;
+	font-size: 11px;
+	text-decoration: underline;
+	font-weight: bold;
+	margin-left: 82px;
+}
+
+#login-form form a.readon:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#admin-footer {
+	background: url(../images/login_footer_bg.jpg) no-repeat left top; 
+	width: 522px;
+	height: 25px;
+	color: #010101;
+	position: absolute;
+	bottom: -15px;
+	right: 20px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+
+
+

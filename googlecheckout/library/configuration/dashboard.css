@@ -1,0 +1,86 @@
+/**
+ * CSS for the Google Checkout configuration dashboard.
+ */
+
+body {
+  font-family: Verdana, Sans-serif;
+}
+
+/* Override OSC's somewhat annoying link styling. */
+a.google {  
+  color: blue !important;
+  font-size: 100% !important;
+  text-decoration: underline !important;
+}
+
+.copypaste {
+	color: darkgreen;
+}
+
+.pagedescription {
+  font-size: 100%;
+}
+  
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+table.config {
+  border-collapse: collapse;
+  margin: 10px;
+}
+
+table.config .title {
+  font-weight: bold;
+}
+
+table.config .description {
+}
+
+table.config tr.section td {
+  text-align: center;
+  font-weight: bold;
+  background-color: #F0F1F1;  
+  vertical-align: middle;
+  padding: 5px;
+}
+
+table.config tr td {
+  font-size: 80%;
+  border-top: 1px solid #616060;
+  border-bottom: 1px solid #616060;
+  border-collapse: collapse;
+  text-align: left;
+  vertical-align: top;
+  padding: 10px;
+}
+
+table.config tr td.control {
+  vertical-align: middle;
+}
+
+table.config tr.section td {
+  vertical-align: middle;
+} 
+
+table.ccs, table.mcs {
+  border-collapse: collapse;
+}
+  
+table.ccs tr td, table.mcs tr td {
+  border: 1px solid #aaa;
+  padding: 3px;
+  white-space: nowrap;
+}
+
+table.ccs tr.head td, table.mcs tr.head td {
+  font-weight: bold;  
+  text-align: center;
+}
+
+table.ccs tr.subhead td, table.mcs tr.subhead td {
+  font-style: italic;
+  text-align: center;
+}

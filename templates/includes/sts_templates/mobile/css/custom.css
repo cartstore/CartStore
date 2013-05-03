@@ -1,0 +1,228 @@
+.ui-page .ui-li-has-arrow .ui-btn-inner a.ui-link-inherit, .ui-page .ui-li-static.ui-li-has-arrow {
+	padding-right: 40px;
+}
+
+.ui-page .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-page .ui-li-static.ui-li-has-thumb {
+	min-height: 82px;
+	padding-left: 5px;
+}
+
+.imageWrapper {
+	width: 82px;
+	float: left;
+	margin-right: 5px;
+}
+ul.ui-listview .t10, ul.ui-listview .special_word, ul.ui-listview .t9, ul.ui-listview .small, ul.ui-listview .msrp_name, ul.ui-listview .msrp_price {
+	display: none;
+}
+
+ul.ui-listview  .sprice {
+}
+
+body  table, tr, td, body tbody {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
+	background: url("../../../system/jquery/css/defualt/images/ui-bg_glass_95_fef1ec_1x400.png") repeat-x scroll 50% 50% #FEF1EC;
+	border: 1px solid #CD0A0A;
+	color: #CD0A0A;
+	padding: 0 0.7em;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+.inputRequirement {
+	display: none;
+}
+
+li.ui-li-has-thumb .special_word, li.ui-li-has-thumb .t9, li.ui-li-has-thumb .t10 {
+	display: none;
+}
+
+.cat_desc img, .flexslider img, .cat_image_wrap img {
+	display: block;
+	max-width: 100%;
+}
+
+.flexslider, .cat_image_wrap {
+
+	margin-left: -15px;
+	margin-right: -15px;
+	display: block;
+}
+
+ul.slides {
+	margin: 0px;
+	padding: 0px;
+}
+ul.slides li {
+	margin: 0px;
+	padding: 0px;
+}
+
+.margin_reset {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.box_class {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+body table {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+#introContent {
+	margin-top: -15px;
+}
+
+ul#gallery {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul#gallery li {
+	margin-right: 2px;
+	float: left;
+}
+ul#gallery li img {
+	border: solid #000000 1px;
+}
+h1#productTitle {
+	clear: both;
+}
+
+.allprodsnav, .breadcrumb, .breadcrumbs, .cs_footer_php {
+	display: none;
+}
+
+.ui-tabs-nav .ui-li-heading {
+
+	white-space: normal;
+}
+
+.ui-listview  .ui-li-heading {
+
+	white-space: normal;
+}
+
+h1.product_listing {
+	margin-bottom: 5px;
+}
+
+ 
+.price_product {
+	display: block;
+	font-size: 200%;
+}
+
+span.price_product ul.product_price_page {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	margin-bottom: 10px;
+}
+span.price_product ul.product_price_page li, .quanity_price {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-size: 50%;
+	font-weight: bold;
+}
+
+.quanity_price {
+	font-size: 50%;
+	display: block;
+}
+
+#tabs ul li {
+	display: none;
+}
+
+.ui-btn-up-c {
+	text-indent: -9999px;
+	float: left;
+}
+.ui-state-highlight {
+	margin: 5px;
+	font-size: 60%;
+}
+h4 a {
+	text-decoration: none;
+}
+
+.ui-li-has-thumb .product_price_page {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.ui-li-has-thumb .quanity_price {
+	display: none;
+}
+
+.ui-content div.ui-select {
+
+ }
+
+.ui-content  table.fixwidthshipping {
+
+	width: 94%;
+}
+
+.ui-content .qty_wrap input.ui-input-text {
+    width: 48%;
+}
+
+body .ui-tabs-panel ul li {
+	list-style: none;
+	background: url("none");
+}
+
+.ui-content .ratingBox, #div_Comments , form#estShipForm {
+	display: none;
+}
+
+table#extra-search , .quick-search-wrap, table.ui-datepicker-calendar .ui-icon-circle-plus, table.ui-datepicker-calendar .ui-icon-minus{
+	display: none;
+}
+
+ul.ui-login li {margin-top:15px;margin-bottom:15px;list-style:none;}
+
+.ui-state-highlight {padding:3px;margin:3px;} 
+
+
+table.ui-datepicker-calendar a.ui-link img {width:60px;height:60px;}
+
+
+#CAparagraph div.ui-checkbox { float: none; display: inline;}
+#CAparagraph div.ui-checkbox input { position: relative; left: 5px; top: auto; }
+
+
+.payment_module_output {display:block;}
+ 
+
+body .ui-checkbox input, body .ui-radio input {
+    height: 10px;
+    left: 0px;
+    margin-right: 5px;;
+    outline: 0 none !important;
+    position: relative;
+     width: 10px;
+     float:left;
+ }

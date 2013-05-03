@@ -1,0 +1,219 @@
+/*
+$Id: qbi_styles.php,v 2.10 2005/05/08 al Exp $
+
+Quickbooks Import QBI
+contribution for CartStore
+ver 2.10 May 8, 2005
+(c) 2005 Adam Liberman
+www.libermansound.com
+info@libermansound.com
+Please use the osC forum for support.
+GNU General Public License Compatible
+
+    This file is part of Quickbooks Import QBI.
+
+    Quickbooks Import QBI is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    Quickbooks Import QBI is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Quickbooks Import QBI; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+table.lists th.counter {
+font-weight:bold;
+text-align:left;
+color:#c00;
+background-color:#FFF;
+font-size:smaller;
+}
+
+table.lists th.colhead {
+font-weight:bold;
+text-align:left;
+color:#c00;
+background-color:#FFF;
+}
+
+table.lists td.pagelist {
+font-weight:bold;
+text-align:left;
+color:#c00;
+background-color:#FFF;
+}
+
+table.lists td.oscmodel {
+text-align:left;
+color:#000;
+background-color:#FFF;
+}
+
+table.lists td.oscname {
+text-align:left;
+color:#000;
+background-color:#FFF;
+}
+
+table.lists td.qbname {
+text-align:left;
+color:#000;
+background-color:#FFF;
+}
+
+table.lists td.dropqblist select {
+text-align:left;
+color:#900;
+background-color:#FFF;
+}
+
+td.configsec {
+font-weight:bold;
+text-align:left;
+color:#c00;
+background-color:#FFF;
+}
+
+.createhead {
+	font-weight:bold;
+	text-align:left;
+	color:#FFFFFF;
+	background-color:#009ACB;
+	margin-top:0.25em;
+	margin-bottom:0.1em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.createlabel {
+	font-weight:bold;
+	text-align:left;
+	color:#000;
+	background-color:#F1F1F1
+;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/* Menus */
+
+/* Menu (Submenu) general */
+div#nav ul.level1 {
+position:relative;
+width:100%;
+height:1.05em;
+margin:0;
+padding:0;
+border-bottom:3px solid #f63;
+white-space:nowrap;
+}
+
+/* Menu (Submenu) Tab appearance */
+div#nav ul.level1 li {
+	float:left;
+	margin:0 0 0 2px;
+	list-style-type:none;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-color: #aaa;
+	border-right-color: #555;
+	border-bottom-color: #f63;
+	border-left-color: #999;
+}
+
+/* Menu general */
+div#nav ul.level1 li a {
+	position:relative;
+	width:auto;
+	display:block;
+	margin:0;
+	padding:1px 0.4em;
+	font:bold 0.7em/120% Verdana, Arial, Helvetica, sans-serif;
+	text-align:center;
+	text-decoration:none;
+	border: 0px none #FFFFFF;
+}
+
+/* Menu Inactive Link */
+div#nav ul.level1 li.inactive a {
+	background-color:`;
+	color:#000000;
+}
+
+/* Menu Inactive Link hover */
+div#nav ul.level1 li.inactive a:hover {
+	color:#FF0F00;
+	text-decoration:none;
+}
+
+/* Menu Active Link */
+div#nav ul.level1 li.active a {
+	font-weight:bold;
+	background-color:#FF0F00;
+	color:#fff;
+	border-color:#f96 #c30 #f63 #f96;
+}
+
+/* Menu Active Link Hover */
+div#nav ul.level1 li.active a:hover {
+color:#ff0;
+}
+
+/* Submenu general */
+div#nav ul.level1 ul.level2 {
+position:absolute;
+left:0;
+top:1.25em;
+height:0.75em;
+margin:0;
+padding:0;
+white-space:nowrap;
+}
+
+/* Submenu Tab appearance  */
+div#nav ul.level1 ul.level2 li {
+float:left;
+margin:0 0 0 2px;
+border-width:0 1px 1px 1px;
+border-style:solid;
+border-color:#f63 #555 #aaa #999;
+list-style-type:none;
+}
+
+/* Submenu Inactive Link */
+div#nav ul.level1 ul.level2 li.subinactive a {
+border-width:1px 1px 0 1px;
+border-style:solid;
+border-color:#ccc;
+background-color:#eee;
+color:#666;
+}
+
+/* Submenu Inactive Link hover */
+div#nav ul.level1 ul.level2 li.subinactive a:hover {
+color:#00c;
+}
+
+/* Submenu Active Link */
+div#nav ul.level1 ul.level2 li.subactive a {
+background-color:#f63;
+color:#fff;
+}
+
+/* Submenu Active Link Hover */
+div#nav ul.level1 ul.level2 li.subactive a:hover {
+background-color:#f63;
+color:#ff0;
+}

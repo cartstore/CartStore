@@ -1,0 +1,171 @@
+<?php
+define('STS_END_CHAR', '#');
+
+require(DIR_FS_CATALOG . 'templates/includes/sts_templates/head_mobile.php');
+?>
+<body>
+
+	<div id="indexPage" data-role="page" data-theme="a">
+		<div data-id="globalHeader" data-position="fixed" data-role="header">
+			<h1>CartStore</h1>
+			<a id="menu" href="#nav" data-transition="slidedown" data-role="button" data-rel="page" class="ui-btn-right">Menu</a>
+		</div><!-- /header -->
+
+		<?php
+
+		if ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI']=='' || $_SERVER['REQUEST_URI']=='/') {
+		?>
+
+		<script src="templates/includes/sts_templates/mobile/js/jquery.flexislider.js" type="text/javascript"></script>
+		<script type="text/javascript" charset="utf-8">
+			$('#indexPage').live('pageshow', function(event) {
+				$('.flexslider').flexslider({
+					animation : "slide",
+					slideDirection : "horizontal",
+					slideshow : true,
+					slideshowSpeed : 6000,
+					animationDuration : 300,
+					directionNav : false,
+					controlNav : false,
+					keyboardNav : true,
+					mousewheel : false,
+					randomize : false
+				});
+			});
+		</script>
+		<div class="flexslider">
+			<ul class="slides">
+
+				<li>
+
+					<a href="#" title="Learn more"> <img src="images/cartstore_oscommerce_left.jpg" width="100%" alt="Learn More"/> </a>
+
+				</li>
+
+				<li>
+
+					<a href="#" title="Learn more"> <img src="images/iStock_000003553750XSmall.jpg" width="100%" alt="Learn More"/> </a>
+
+				</li>
+
+			</ul>
+		</div><!-- flexslider -->
+
+		<?php
+		} else  {
+		?>
+		<?php
+		}
+		?>
+
+		<div data-role="content">
+			$content#
+
+		</div><!-- content -->
+
+		<div data-id="globalFooter" data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+
+
+<?php 
+
+if ($_SERVER['REQUEST_URI'] == '/index.php' || $_SERVER['REQUEST_URI']=='' || $_SERVER['REQUEST_URI']=='/') { 
+?>
+	<li>
+						<a data-transition="fade" class="ui-state-persist ui-btn-active" data-icon="home" href="index.php">Home</a>
+					</li>
+
+<?php
+} else  { 
+?>
+
+	<li>
+						<a data-transition="fade"  data-icon="home" href="index.php">Home</a>
+					</li>
+
+<?php
+}
+?>
+
+
+
+				
+
+
+
+
+
+
+					<li>
+						<a data-transition="fade" data-icon="info" href="articles.php">News</a>
+					</li>
+
+					<li>
+						<a data-transition="fade" data-icon="search" href="advanced_search.php">Search</a>
+					</li>
+
+					<li>
+						<a data-transition="fade" data-icon="check" href="shopping_cart.php">Cart</a>
+					</li>
+
+					<li>
+						<a data-transition="fade" data-icon="gear" href="account.php">Account</a>
+					</li>
+
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- footer -->
+
+	</div><!-- page -->
+
+	<!-- Below brings in menu to every page -->
+	<div data-role="page" id="nav" data-dom-cache="true" data-theme="b">
+		<div data-position="fixed" data-role="header">
+			<a data-rel="back"  data-icon="delete" data-iconpos="notext" data-direction="reverse" href="#">Close</a>
+			<h1>Menu</h1>
+		</div><!-- /header -->
+		<div data-role="content">
+			<ul data-role="listview">
+
+				<li>
+					<a href="index.php">Home</a>
+				</li>
+				<li>
+					<a href="checkout_shipping.php">Checkout</a>
+				</li>
+				<li>
+					<a href="allprods.php">All Products</a>
+				</li>
+
+				<li>
+					<a href="all_categories_mobile.php">All Catagories</a>
+				</li>
+
+				<li>
+					<a href="allmanufacturers.php">All Manufacturers</a>
+				</li>
+
+				<li>
+					<a href="products_new_mobile.php">New Products</a>
+				</li>
+
+				<li>
+					<a href="specials_mobile.php">Specials</a>
+				</li>
+
+				<li>
+					<a href="contact_us.php">Contact Us</a>
+				</li>
+
+				<li>
+					<a href="articles.php">Terms of Service</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<ul id="gallery"><li><a href="#"></a></li></ul>
+</body>
+
+</html>

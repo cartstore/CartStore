@@ -1,0 +1,5 @@
+<?php
+define('MODULE_SHIPPING_ITEM2_TEXT_TITLE', 'Per Item 2');
+define('MODULE_SHIPPING_ITEM2_TEXT_DESCRIPTION', 'Per Item 2');
+define('MODULE_SHIPPING_ITEM2_TEXT_WAY', 'Best Way');
+?>

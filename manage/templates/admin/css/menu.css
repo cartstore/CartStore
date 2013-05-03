@@ -1,0 +1,226 @@
+@import url("reset.css");
+
+#menu {
+	background: url(../images/menu_bg.jpg) repeat-x left top;
+	height: 32px;
+	margin-bottom: 2px;
+	height: 32px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+	min-width: 1100px;
+  } 
+
+#menu ul  {
+	z-index: 100;
+	white-space: nowrap;
+ }
+
+#menu li {
+	background: url(../images/menu_seperator.jpg) no-repeat left top;
+	float: left;
+	height: 32px;
+	position: relative;
+	padding-left: 1px;
+	white-space: nowrap;
+	display: inline;
+ }
+
+#menu li a:link,
+#menu li a:active,
+#menu li a:visited {
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;
+	line-height: 32px;
+	display: block;
+	padding: 0 12px;
+	cursor: pointer;	
+}
+
+#menu li.active a:link,
+#menu li.active a:active,
+#menu li.active a:visited,
+#menu li.sfHover a:link,
+#menu li.sfHover a:active,
+#menu li.sfHover a:visited,
+#menu li a:hover {
+	background: url(../images/menu_active_bg.jpg) repeat-x left top;
+	cursor: pointer;
+}
+
+#menu li ul { 
+	width: 184px;
+	top:28px;
+	position: absolute;	
+	left: -9999em;
+	background: #1a4c82 url(../images/border_top.jpg) no-repeat right top;
+	border-top: none;
+	border-left: 1px solid #738ca7;
+	border-right: 1px solid #738ca7;
+	border-bottom: 1px solid #738ca7;			
+	z-index: 1000;
+	padding-left: 0px;
+}
+
+#menu li li {
+	float: left;
+	display: block;
+	height: auto;
+	width: 184px;
+	border-bottom: 1px dashed #6889ad;
+	background-image: none;
+	padding-left: 0;
+}
+
+#menu li.sfHover li a:link,
+#menu li.sfHover li a:active,
+#menu li.sfHover li a:visited,
+#menu li li a:link,
+#menu li li a:active,
+#menu li li a:visited {
+	font-size: 11px;
+	text-decoration: none;
+	color:#fff;
+	padding: 5px 12px;
+	height: auto;
+	line-height: normal;
+	width: 159px;
+	display: block;
+	background-image: none;
+}
+
+#menu li li.sfHover a:link,
+#menu li li.sfHover a:active,
+#menu li li.sfHover a:visited,
+#menu li li a:hover,
+#menu li li.active a:link,
+#menu li li.active a:active,
+#menu li li.active a:visited {
+	color: #fff;
+	background-color: #12355c;
+}
+
+#menu li li.parent a:link,
+#menu li li.parent a:active,
+#menu li li.parent a:visited,
+#menu li li.parent li.parent a:link,
+#menu li li.parent li.parent a:active,
+#menu li li.parent li.parent a:visited {
+	background: url(../images/menu_arrow1.gif) no-repeat right center;
+	background-color: #1a4c82;
+}
+#menu li li.parent a:hover {
+	background-color: #12355c;
+}
+
+#menu li li.parent li.parent li a:link,
+#menu li li.parent li.parent li a:active,
+#menu li li.parent li.parent li a:visited {
+	background-image: none;
+	background-color: #1a4c82;
+}
+
+#menu li li.parent li.parent li a:hover {
+	background-color: #12355c;
+}
+
+#menu li ul ul { 
+	top: -1px;
+   margin-bottom: 0px;
+   margin-left: 184px !important;
+	margin-left: 184px;
+	border: 1px solid #88959c;	
+	padding-left: 0;
+	background-color: #1a4c82;
+	
+}
+
+#menu li ul ul ul { 
+	top: -1px;
+   margin-bottom: 0px;
+   margin-left: 184px !important;
+	margin-left: 184px;
+	z-index: 100000;
+}
+
+
+#menu li li.sfHover li a:link,
+#menu li li.sfHover li a:active,
+#menu li li.sfHover li a:visited,
+#menu li li li a:link,
+#menu li li li a:active,
+#menu li li li a:visited {
+	color:#fff;
+	background-color: #1a4c82;	
+	background: none;
+}
+
+#menu li li li.sfHover a:link,
+#menu li li li.sfHover a:active,
+#menu li li li.sfHover a:visited,
+#menu li li li a:hover,
+#menu li li li.active a:link,
+#menu li li li.active a:active,
+#menu li li li.active a:visited  {
+	color: #fff;
+	background-color: #12355c;
+}
+
+#menu li li li.sfHover li a:link,
+#menu li li li.sfHover li a:active,
+#menu li li li.sfHover li a:visited,
+#menu li li li li a:link,
+#menu li li li li a:active,
+#menu li li li li a:visited {
+	color:#fff;
+	background-color: #1a4c82;
+	background: none;
+}
+
+#menu li li li li.sfHover a:link,
+#menu li li li li.sfHover a:active,
+#menu li li li li.sfHover a:visited,
+#menu li li li li a:hover,
+#menu li li li li.active a:link,
+#menu li li li li.active a:active,
+#menu li li li li.active a:visited {
+	color: #fff;
+	background-color: #12355c;
+}
+
+
+#menu li:hover ul ul, #menu li:hover ul ul ul, #menu li.sfHover ul ul, #menu li.sfHover ul ul ul {
+   left: -999em;
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li li li:hover ul, #menu li.sfHover ul, #menu li li.sfHover ul, #menu li li li.sfHover ul {
+	left: 0px;
+	
+}
+
+#menu li:hover ul ul, #menu li:hover ul ul ul, #menu li:hover ul ul ul ul, #menu li.sfHover ul ul, #menu li.sfHover ul ul ul, #menu li.sfHover ul ul ul ul {
+   left: -999em;
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li li li:hover ul, #menu li li li li:hover ul, #menu li.sfHover ul, #menu li li.sfHover ul, #menu li li li.sfHover ul, #menu li li li li.sfHover ul {
+   left: 0px;
+}
+
+
+#menu li li.parent li a:link, #menu li li.parent li a:visited {
+	background-attachment: scroll;
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-color: #1A4C82;
+}#menu li li.parent li a:hover {
+	background-color: #12355C;
+}
+body #menu ul#config_menu {
+	width: 375px;
+}
+body #menu ul#config_menu li {
+	float: left;
+}

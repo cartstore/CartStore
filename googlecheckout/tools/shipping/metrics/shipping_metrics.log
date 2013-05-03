@@ -1,0 +1,85 @@
+
+----------------------------------
+Iteration: 1
+Date: Tue Apr 24 11:17:57 ART 2007
+Rate Time(sec):
+Content-type: text/html
+X-Powered-By: PHP/4.3.9
+Set-Cookie: osCsid=0c8573c7735cda0c4fdb80d24220d35d; path=/~brovagnati/osc_demo2/catalog/; domain=200.69.205.154
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+
+fedex1 took 1.12027 Secs
+All quotes took 1.18049 Secs
+----------------------------------
+----------------------------------
+Iteration: 1
+Date: Tue Apr 24 11:19:07 ART 2007
+Rate Time(sec):
+Content-type: text/html
+X-Powered-By: PHP/4.3.9
+Set-Cookie: osCsid=982228e087294d594c6ab8db6fb0d37d; path=/~brovagnati/osc_demo2/catalog/; domain=200.69.205.154
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+
+fedex1 took 1.06136 Secs
+All quotes took 1.19254 Secs
+----------------------------------
+----------------------------------
+Iteration: 2
+Date: Tue Apr 24 11:19:15 ART 2007
+Rate Time(sec):
+Content-type: text/html
+X-Powered-By: PHP/4.3.9
+Set-Cookie: osCsid=26098607aaf01c9e20c04ed0b30861ad; path=/~brovagnati/osc_demo2/catalog/; domain=200.69.205.154
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+
+fedex1 took 1.13775 Secs
+All quotes took 4.17987 Secs
+----------------------------------
+----------------------------------
+Iteration: 3
+Date: Tue Apr 24 11:19:27 ART 2007
+Rate Time(sec):
+Content-type: text/html
+X-Powered-By: PHP/4.3.9
+Set-Cookie: osCsid=383d4aa372cd8227c50dc8713fcefcaf; path=/~brovagnati/osc_demo2/catalog/; domain=200.69.205.154
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+
+fedex1 took 1.12737 Secs
+All quotes took 1.10845 Secs
+----------------------------------
+----------------------------------
+Iteration: 1
+Date: Tue May 29 17:20:07 ART 2007
+Rate Time(sec):
+Content-type: text/html
+X-Powered-By: PHP/4.3.9
+Set-Cookie: osCsid=d0f8236bc4de7cce51242fd2e36d4427; path=/~brovagnati/osc_demo2/catalog/; domain=200.69.205.154
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+
+fedex1 took 3.40321 Secs
+All quotes took 1.03745 Secs
+----------------------------------
+----------------------------------
+Iteration: 1
+Date: Tue May 29 17:21:01 ART 2007
+Rate Time(sec):
+Content-type: text/html
+X-Powered-By: PHP/4.3.9
+Set-Cookie: osCsid=31a8daf1e5e323754a27378a7171b3a1; path=/~brovagnati/osc_demo2/catalog/; domain=200.69.205.154
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+
+fedex1 took 1.08098 Secs
+All quotes took 1.18822 Secs
+----------------------------------

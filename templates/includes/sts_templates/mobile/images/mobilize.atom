@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:s="http://jadedpixel.com/-/spec/shopify">
+  <id>http://mobilize-hybrid.myshopify.com/blogs/news.atom</id>
+  <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/blogs/news"/>
+  <link rel="self" type="application/atom+xml" href="http://mobilize-hybrid.myshopify.com/blogs/news/tagged/mobilize.atom"/>
+  <title>Mobilize Hybrid - News</title>
+  <updated>2012-07-16T00:44:57-04:00</updated>
+  <author>
+    <name>Mobilize Hybrid</name>
+  </author>
+  <entry>
+    <id>http://mobilize-hybrid.myshopify.com/blogs/news/6285994-shopify-mobile-theme</id>
+    <published>2012-07-16T00:44:57-04:00</published>
+    <updated>2012-07-16T00:44:57-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/blogs/news/6285994-shopify-mobile-theme"/>
+    <title>Shopify Mobile Theme</title>
+    <author>
+      <name>Andrew Johnson</name>
+    </author>
+    <summary type="html">
+      <![CDATA[<p>Welcome to the best mobile Shopify available for sale. Mobilize works on more browsers and has more features than any other theme available.&nbsp;</p>
+]]>
+    </summary>
+  </entry>
+  <entry>
+    <id>http://mobilize-hybrid.myshopify.com/blogs/news/6285986-featured-packed</id>
+    <published>2012-07-16T00:37:46-04:00</published>
+    <updated>2012-07-16T00:44:25-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/blogs/news/6285986-featured-packed"/>
+    <title>Featured-packed</title>
+    <author>
+      <name>Shopify</name>
+    </author>
+    <summary type="html">
+      <![CDATA[<div>Mobilize has the most features we could fit into it. We've added unlimited colors, Disqus commenting, a built-in contact form and so much more. Test it out!</div>
+]]>
+    </summary>
+  </entry>
+</feed>

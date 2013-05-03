@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:s="http://jadedpixel.com/-/spec/shopify">
+  <id>http://mobilize-hybrid.myshopify.com/collections/all.atom</id>
+  <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/collections/all"/>
+  <link rel="self" type="application/atom+xml" href="http://mobilize-hybrid.myshopify.com/collections/all.atom"/>
+  <title>Mobilize Hybrid</title>
+  <updated>2012-07-16T00:40:16-04:00</updated>
+  <author>
+    <name>Mobilize Hybrid</name>
+  </author>
+  <entry>
+    <id>products-96837922</id>
+    <published>2012-07-16T00:40:16-04:00</published>
+    <updated>2012-07-16T00:40:16-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/products/huge-lighting-rig"/>
+    <title>Huge lighting rig</title>
+    <s:type>Flash</s:type>
+    <s:vendor>Shopaholla</s:vendor>
+    <summary type="html">
+      <![CDATA[
+    <table border="0">
+      <tr>
+        <td width="200"><img width="200" src="http://cdn.shopify.com/s/files/1/0169/3886/products/istock_000009555518xsmall.jpeg?0" /></td>
+        <td valign="bottom">
+          <p>
+            <strong>Vendor: </strong>Shopaholla<br />
+            <strong>Type: </strong>Flash<br />
+            <strong>Price: </strong>
+              299.00 - 499.00 <a href="http://mobilize-hybrid.myshopify.com/products/huge-lighting-rig">(3 variants)</a>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><p>This lighting rig will light up the scene for sure. Available to three different sizes...all super bright!</p>
+</td>
+      </tr>
+    </table>
+
+]]>
+    </summary>
+    <s:tag>flash</s:tag>
+    <s:tag>movable</s:tag>
+    <s:variant>
+      <id>product_variants-226565102</id>
+      <title>44&apos;&apos; x 24&apos;&apos;</title>
+      <s:price currency="USD">299.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>4536</s:grams>
+    </s:variant>
+    <s:variant>
+      <id>product_variants-226565104</id>
+      <title>64&apos;&apos; x 34&apos;&apos;</title>
+      <s:price currency="USD">399.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>4536</s:grams>
+    </s:variant>
+    <s:variant>
+      <id>product_variants-226565106</id>
+      <title>84&apos;&apos; x 44&apos;&apos;</title>
+      <s:price currency="USD">499.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>4536</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products-96837916</id>
+    <published>2012-07-16T00:40:15-04:00</published>
+    <updated>2012-07-16T00:40:15-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/products/handy-cam"/>
+    <title>Handy-cam</title>
+    <s:type>Camera</s:type>
+    <s:vendor>Shopaholla</s:vendor>
+    <summary type="html">
+      <![CDATA[
+    <table border="0">
+      <tr>
+        <td width="200"><img width="200" src="http://cdn.shopify.com/s/files/1/0169/3886/products/istock_000003373500xsmall.jpeg?0" /></td>
+        <td valign="bottom">
+          <p>
+            <strong>Vendor: </strong>Shopaholla<br />
+            <strong>Type: </strong>Camera<br />
+            <strong>Price: </strong>
+              249.00 - 329.00 <a href="http://mobilize-hybrid.myshopify.com/products/handy-cam">(4 variants)</a>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><p>This handy video camera will give you the ability to quickly capture any video on the go. Shoot 1080p with several onboard storage amounts available. Also has a great digital screen to watch while you are capturing.&nbsp;</p>
+</td>
+      </tr>
+    </table>
+
+]]>
+    </summary>
+    <s:tag>camera</s:tag>
+    <s:tag>digital</s:tag>
+    <s:tag>video</s:tag>
+    <s:variant>
+      <id>product_variants-226565090</id>
+      <title>4GB</title>
+      <s:price currency="USD">249.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+    <s:variant>
+      <id>product_variants-226565092</id>
+      <title>8GB</title>
+      <s:price currency="USD">269.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+    <s:variant>
+      <id>product_variants-226565094</id>
+      <title>16GB</title>
+      <s:price currency="USD">299.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+    <s:variant>
+      <id>product_variants-226565096</id>
+      <title>32GB</title>
+      <s:price currency="USD">329.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>0</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products-96837908</id>
+    <published>2012-07-16T00:40:12-04:00</published>
+    <updated>2012-07-16T00:40:12-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/products/flexible-flash"/>
+    <title>Flexible Flash</title>
+    <s:type>Flash</s:type>
+    <s:vendor>Shopaholla</s:vendor>
+    <summary type="html">
+      <![CDATA[
+    <table border="0">
+      <tr>
+        <td width="200"><img width="200" src="http://cdn.shopify.com/s/files/1/0169/3886/products/istock_000015696981xsmall.jpeg?0" /></td>
+        <td valign="bottom">
+          <p>
+            <strong>Vendor: </strong>Shopaholla<br />
+            <strong>Type: </strong>Flash<br />
+            <strong>Price: </strong>
+              199.00
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Using this flexible, mounted flash you'll be able to capture the moment in any light!
+</td>
+      </tr>
+    </table>
+
+]]>
+    </summary>
+    <s:tag>flash</s:tag>
+    <s:tag>mounted</s:tag>
+    <s:variant>
+      <id>product_variants-226565082</id>
+      <title>Default Title</title>
+      <s:price currency="USD">199.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>454</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products-96837886</id>
+    <published>2012-07-16T00:40:03-04:00</published>
+    <updated>2012-07-16T00:40:03-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/products/extendable-tripod"/>
+    <title>Extendable Tripod</title>
+    <s:type>Flash</s:type>
+    <s:vendor>Shopaholla</s:vendor>
+    <summary type="html">
+      <![CDATA[
+    <table border="0">
+      <tr>
+        <td width="200"><img width="200" src="http://cdn.shopify.com/s/files/1/0169/3886/products/istock_000015662058xsmall.jpeg?0" /></td>
+        <td valign="bottom">
+          <p>
+            <strong>Vendor: </strong>Shopaholla<br />
+            <strong>Type: </strong>Flash<br />
+            <strong>Price: </strong>
+              199.00
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><p>This bad boy can do it all. It will handle virtually any camera you can throw at it. With heights ranging from 36" to 96", you can get in the position for almost any shot and grab it. Camera not included.</p>
+</td>
+      </tr>
+    </table>
+
+]]>
+    </summary>
+    <s:tag>camera</s:tag>
+    <s:tag>movable</s:tag>
+    <s:tag>tripod</s:tag>
+    <s:variant>
+      <id>product_variants-226565056</id>
+      <title>Default Title</title>
+      <s:price currency="USD">199.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>454</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products-96837870</id>
+    <published>2012-07-16T00:39:58-04:00</published>
+    <updated>2012-07-16T00:39:58-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/products/dsrl-with-lens"/>
+    <title>DSRL with Lens</title>
+    <s:type>Camera</s:type>
+    <s:vendor>Shopaholla</s:vendor>
+    <summary type="html">
+      <![CDATA[
+    <table border="0">
+      <tr>
+        <td width="200"><img width="200" src="http://cdn.shopify.com/s/files/1/0169/3886/products/istock_000014029376xsmall.jpeg?0" /></td>
+        <td valign="bottom">
+          <p>
+            <strong>Vendor: </strong>Shopaholla<br />
+            <strong>Type: </strong>Camera<br />
+            <strong>Price: </strong>
+              1200.00
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><p>This is a great combo for the budding photographer that needs a great body and lens to get started with. A very durable body and flexible lens give you free range to capture great photos.</p>
+</td>
+      </tr>
+    </table>
+
+]]>
+    </summary>
+    <s:tag>camera</s:tag>
+    <s:tag>DSLR</s:tag>
+    <s:tag>lens</s:tag>
+    <s:variant>
+      <id>product_variants-226565034</id>
+      <title>Default Title</title>
+      <s:price currency="USD">1200.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>4536</s:grams>
+    </s:variant>
+  </entry>
+  <entry>
+    <id>products-96837860</id>
+    <published>2012-07-16T00:39:54-04:00</published>
+    <updated>2012-07-16T00:39:54-04:00</updated>
+    <link rel="alternate" type="text/html" href="http://mobilize-hybrid.myshopify.com/products/digital-point-and-shoot"/>
+    <title>Digital Point-and-shoot</title>
+    <s:type>Camera</s:type>
+    <s:vendor>Shopaholla</s:vendor>
+    <summary type="html">
+      <![CDATA[
+    <table border="0">
+      <tr>
+        <td width="200"><img width="200" src="http://cdn.shopify.com/s/files/1/0169/3886/products/istock_000012207132xsmall.jpeg?0" /></td>
+        <td valign="bottom">
+          <p>
+            <strong>Vendor: </strong>Shopaholla<br />
+            <strong>Type: </strong>Camera<br />
+            <strong>Price: </strong>
+              269.00
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><p>Need a great camera to through in your purse or backpack? This is it. Durable and flexible in it's capabilities this digital camera will work in almost any environment and always grab the perfect picture.&nbsp;</p>
+</td>
+      </tr>
+    </table>
+
+]]>
+    </summary>
+    <s:tag>camera</s:tag>
+    <s:tag>digital</s:tag>
+    <s:variant>
+      <id>product_variants-226565022</id>
+      <title>Default Title</title>
+      <s:price currency="USD">269.00</s:price>
+      <s:sku></s:sku>
+      <s:grams>4536</s:grams>
+    </s:variant>
+  </entry>
+</feed>

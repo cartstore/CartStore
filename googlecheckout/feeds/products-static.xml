@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>CartStore</title>
+    <link>http://dev.cartstore.comDIR_WS_HTTP_CATALOG</link>
+    <description>CartStore</description>
+    <item>
+      <title>Product with average ship to / processingdays defined</title>
+      <link>http://dev.cartstore.com/manage/product_info.php?products_id=1006</link>
+      <g:brand>CustomGrafixTireCovers &acirc;„&cent;</g:brand>
+      <g:id>1006</g:id>
+      <g:image_link>http://dev.cartstore.comDIR_WS_HTTP_CATALOGimages/little-red-wagon.jpg</g:image_link>
+      <g:weight>0.00</g:weight>
+      <g:payment_notes>Google Checkout</g:payment_notes>
+      <g:product_type>Category with Alt Layout</g:product_type>
+      <g:quantity>1111</g:quantity>
+    </item>
+    <item>
+      <title>Product with attributes (no stock control on attr.)</title>
+      <link>http://dev.cartstore.com/manage/product_info.php?products_id=997</link>
+      <description>
+	#newtab#
+	#tabname#Description#/tabname#
+	#tabtext#This is the text that will appear in the tab named description#/tabtext#
+	#/newtab#
+
+	#newtab#
+	#tabname#Specs#/tabname#
+	#tabtext#This is the text that will appear in the tab named Specs#/tabtext#
+	#/newtab#</description>
+      <g:brand>BSI Products</g:brand>
+      <g:id>997</g:id>
+      <g:price>99</g:price>
+      <g:image_link>http://dev.cartstore.comDIR_WS_HTTP_CATALOGimages/560000061ext3.jpg</g:image_link>
+      <g:weight>0.50</g:weight>
+      <g:model_number>XXXBC18473</g:model_number>
+      <g:payment_notes>Google Checkout</g:payment_notes>
+      <g:product_type>Category with Alt Layout</g:product_type>
+      <g:quantity>1110</g:quantity>
+    </item>
+    <item>
+      <title>Product with average ship to / processingdays defined</title>
+      <link>http://dev.cartstore.com/manage/product_info.php?products_id=1006</link>
+      <g:brand>CustomGrafixTireCovers &acirc;„&cent;</g:brand>
+      <g:id>1006</g:id>
+      <g:image_link>http://dev.cartstore.comDIR_WS_HTTP_CATALOGimages/little-red-wagon.jpg</g:image_link>
+      <g:weight>0.00</g:weight>
+      <g:payment_notes>Google Checkout</g:payment_notes>
+      <g:product_type>Sample Category &gt; Sub Category 1 &gt; Wagons</g:product_type>
+      <g:quantity>1111</g:quantity>
+    </item>
+    <item>
+      <title>Product with attributes (no stock control on attr.)</title>
+      <link>http://dev.cartstore.com/manage/product_info.php?products_id=997</link>
+      <description>
+	#newtab#
+	#tabname#Description#/tabname#
+	#tabtext#This is the text that will appear in the tab named description#/tabtext#
+	#/newtab#
+
+	#newtab#
+	#tabname#Specs#/tabname#
+	#tabtext#This is the text that will appear in the tab named Specs#/tabtext#
+	#/newtab#</description>
+      <g:brand>BSI Products</g:brand>
+      <g:id>997</g:id>
+      <g:price>99</g:price>
+      <g:image_link>http://dev.cartstore.comDIR_WS_HTTP_CATALOGimages/560000061ext3.jpg</g:image_link>
+      <g:weight>0.50</g:weight>
+      <g:model_number>XXXBC18473</g:model_number>
+      <g:payment_notes>Google Checkout</g:payment_notes>
+      <g:product_type>Sample Category &gt; Sub Category 1 &gt; Wagons</g:product_type>
+      <g:quantity>1110</g:quantity>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,8 @@
+#
+# This file is used by Apache web servers.
+#
+# It instructs the server to interpret .xml files in this directory as .php
+# files. This allows RSS feeds to be generated dynamically but still have a
+# .xml file extension (which Google Base requires).
+
+AddType application/x-httpd-php .xml

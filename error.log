@@ -1,0 +1,51 @@
+Constant Contact Exception -- April 22, 2012, 11:59:14am
+Constant Contact HTTP Request Exception: 
+Stack Trace: #0 /home/devcarts/public_html/includes/ConstantContact/Collections.php(156): CTCTRequest->makeRequest('https://api.con...', 'GET')
+#1 /home/devcarts/public_html/includes/ConstantContact/ConstantContact.php(114): ContactsCollection->getContacts(1)
+#2 /home/devcarts/public_html/create_account.php(259): ConstantContact->getContacts(1)
+#3 {main}
+
+Constant Contact Exception -- April 22, 2012, 12:04:56pm
+Constant Contact HTTP Request Exception: 
+Stack Trace: #0 /home/devcarts/public_html/includes/ConstantContact/Collections.php(156): CTCTRequest->makeRequest('https://api.con...', 'GET')
+#1 /home/devcarts/public_html/includes/ConstantContact/ConstantContact.php(114): ContactsCollection->getContacts(1)
+#2 /home/devcarts/public_html/create_account.php(61): ConstantContact->getContacts(1)
+#3 {main}
+
+Constant Contact Exception -- April 22, 2012, 12:05:19pm
+Constant Contact HTTP Request Exception: 
+Stack Trace: #0 /home/devcarts/public_html/includes/ConstantContact/Collections.php(156): CTCTRequest->makeRequest('https://api.con...', 'GET')
+#1 /home/devcarts/public_html/includes/ConstantContact/ConstantContact.php(114): ContactsCollection->getContacts(1)
+#2 /home/devcarts/public_html/create_account.php(61): ConstantContact->getContacts(1)
+#3 {main}
+
+Constant Contact Exception -- April 22, 2012, 12:26:09pm
+Constant Contact HTTP Request Exception: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>403 Forbidden</title>
+</head><body>
+<h1>Forbidden</h1>
+<p>You don't have permission to access /
+on this server.</p>
+</body></html>
+
+Stack Trace: #0 /home/devcarts/public_html/includes/ConstantContact/Collections.php(171): CTCTRequest->makeRequest('https://api.con...', 'GET')
+#1 /home/devcarts/public_html/includes/ConstantContact/ConstantContact.php(124): ContactsCollection->getContactDetails('https://api.con...')
+#2 /home/devcarts/public_html/create_account.php(70): ConstantContact->getContactDetails(Object(Contact))
+#3 {main}
+
+Constant Contact Exception -- April 22, 2012, 12:26:52pm
+Constant Contact HTTP Request Exception: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>403 Forbidden</title>
+</head><body>
+<h1>Forbidden</h1>
+<p>You don't have permission to access /
+on this server.</p>
+</body></html>
+
+Stack Trace: #0 /home/devcarts/public_html/includes/ConstantContact/Collections.php(171): CTCTRequest->makeRequest('https://api.con...', 'GET')
+#1 /home/devcarts/public_html/includes/ConstantContact/ConstantContact.php(124): ContactsCollection->getContactDetails('https://api.con...')
+#2 /home/devcarts/public_html/create_account.php(75): ConstantContact->getContactDetails(Object(Contact))
+#3 {main}
+
