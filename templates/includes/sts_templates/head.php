@@ -25,6 +25,7 @@
 
 $headertags#
  <link href="templates/includes/sts_templates/default/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="templates/includes/sts_templates/default/css/font-awesome.min.css">
 <link href="templates/includes/sts_templates/default/css/template_css.css" rel="stylesheet" type="text/css" />
 <!--<link href="templates/includes/sts_templates/default/css/reset.css" rel="stylesheet" type="text/css" />-->
 <link href="templates/system/cartstore.css" rel="stylesheet" type="text/css" />
