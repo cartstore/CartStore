@@ -532,7 +532,7 @@ cellpadding="1" class="columnLeft">
                     </select></td>
                 </tr>
                 <tr>
-                  <td colspan="5" class="menuBoxHeading" align="right"><input type="submit" class="button" value="<?php
+                  <td colspan="5" class="menuBoxHeading" align="right"><input type="submit" class="btn button" value="<?php
               echo REPORT_SEND;
 ?>"></td>
               </table>

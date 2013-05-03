@@ -76,7 +76,7 @@ include('header.php');
 <br />
 <label>Password</label><input type="password" name="password" size="20">
 <br />
-<input type="submit" class="button" value="Submit" name="login">
+<input type="submit" class="btn button" value="Submit" name="login">
 </form>
 
 <?php include('footer.php'); ?>

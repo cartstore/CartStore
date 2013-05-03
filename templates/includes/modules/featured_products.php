@@ -65,13 +65,13 @@
               } else
                   $whats_new_price = $products_price;
               if ($featured_products_array[$i]['products_url'] != "") {
-                  $newArea = '<div align="center"><span class="alternate_buy" ><a class="button" href=' . $featured_products_array[$i]['products_url'] . '" title="' . $featured_products_array[$i]['products_url'] . '" >Partner Buy </a></div>';
+                  $newArea = '<div align="center"><span class="alternate_buy" ><a class="btn button" href=' . $featured_products_array[$i]['products_url'] . '" title="' . $featured_products_array[$i]['products_url'] . '" >Partner Buy </a></div>';
               } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $newArea = '';
               } elseif ($featured_products_array[$i]['products_price'] > 0) {
-                  $newArea = '<a class="button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $featured_products_array[$i]['id']) . '">Add to Cart</a>';
+                  $newArea = '<a class="btn button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $featured_products_array[$i]['id']) . '">Add to Cart</a>';
               } else {
-                  $newArea = '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $featured_products_array[$i]['id']) . '">Read More</a>';
+                  $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $featured_products_array[$i]['id']) . '">Read More</a>';
               }
               if (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $whats_new_price = "";
@@ -89,7 +89,7 @@ Desc:' . $featured_products_array[$i]['shortdescription'] . '
 
 <a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $featured_products_array[$i]['id']) . '">More Info</a>
 <form method="post" action="">
-<input class="button" type="submit" value="Add to Cart" /></form>
+<input class="btn button" type="submit" value="Add to Cart" /></form>
 </div>
 </div>
         ');

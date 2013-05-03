@@ -191,7 +191,7 @@
             $this->infoBoxContents[] = array(
               0 => array(
                 'params' => 'class="dataTableContent" align="right" colspan="6"',
-                'text' => '<a class="button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, 'action=delete&customer_id=' . $curcus . '&tdate=' . $this->basedays . '&sdate=' . $this->skipdays) . '">' .  IMAGE_DELETE . '</a>'));
+                'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, 'action=delete&customer_id=' . $curcus . '&tdate=' . $this->basedays . '&sdate=' . $this->skipdays) . '">' .  IMAGE_DELETE . '</a>'));
           }
 
           // set new cline and curcus
@@ -493,7 +493,7 @@
               $this->infoBoxContents[] = array(
                 0 => array(
                   'params' => 'align="right" colspan="6"',
-                  'text' => '<a class="button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $this->basedays . "&sdate=" . $this->skipdays) . '">' .  IMAGE_DELETE . '</a>'));
+                  'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $this->basedays . "&sdate=" . $this->skipdays) . '">' .  IMAGE_DELETE . '</a>'));
 			      }
 
             $this->infoBoxContents[] = array(
@@ -612,7 +612,7 @@
         $this->infoBoxContents[] = array(
           0 => array(
             'params' => 'align="right" colspan="6"',
-            'text' => '<a class="button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $this->basedays . "&sdate=" . $this->skipdays) . '">' . IMAGE_DELETE . '</a>'));
+            'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $this->basedays . "&sdate=" . $this->skipdays) . '">' . IMAGE_DELETE . '</a>'));
 
         $this->infoBoxContents[] = array(
           0 => array(

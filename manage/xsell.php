@@ -216,7 +216,7 @@ if(document.getElementById||(document.all && !(document.getElementById)))
            </tr>
            <tr class="dataTableHeadingRow">
             <td align="right"><?php echo tep_image(DIR_WS_CATALOG_IMAGES . '/'.$products_name['products_image'], "", SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);?></td>
-            <td align="right" valign="bottom"><?php echo tep_image_submit('button_preview.png', IMAGE_UPDATE) . '<br><br><a class="button" href="'.tep_href_link(FILENAME_XSELL_PRODUCTS, 'men_id=catalog').'">Cancel</a>';?></td>
+            <td align="right" valign="bottom"><?php echo tep_image_submit('button_preview.png', IMAGE_UPDATE) . '<br><br><a class="btn button" href="'.tep_href_link(FILENAME_XSELL_PRODUCTS, 'men_id=catalog').'">Cancel</a>';?></td>
            </tr>
           </table></td>
          </tr>
@@ -272,7 +272,7 @@ if(document.getElementById||(document.all && !(document.getElementById)))
            </tr>
            <tr class="dataTableHeadingRow">
             <td align="right"><?php echo tep_image(DIR_WS_CATALOG_IMAGES . '/'.$products_name['products_image'], "", SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT);?></td>
-            <td align="right" valign="bottom"><?php echo tep_image_submit('button_update.png') . '<br><br><a class="button" href="'.tep_href_link(FILENAME_XSELL_PRODUCTS, 'men_id=catalog').'">Cancel</a>';?></td>
+            <td align="right" valign="bottom"><?php echo tep_image_submit('button_update.png') . '<br><br><a class="btn button" href="'.tep_href_link(FILENAME_XSELL_PRODUCTS, 'men_id=catalog').'">Cancel</a>';?></td>
            </tr>
           </table></td>
          </tr>

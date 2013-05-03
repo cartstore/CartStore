@@ -12,7 +12,7 @@ if ($product_check['total'] < 1) {
 new infoBox( array( array('text'=>TEXT_PRODUCT_NOT_FOUND)));
 		?>
 		<?php
-echo '<a class="button" href="'.tep_href_link(FILENAME_DEFAULT).'">'.IMAGE_BUTTON_CONTINUE.'</a>';
+echo '<a class="btn button" href="'.tep_href_link(FILENAME_DEFAULT).'">'.IMAGE_BUTTON_CONTINUE.'</a>';
 		?>
 		<?php
 } else
@@ -137,7 +137,7 @@ if ($product_info['map_price'] != "0.00") {
 
 if ($product_info['products_url'] != "") {
 $newArea = '<div align="right">
-<a class="button" href=' . $product_info['products_url'] . ' title="' . $product_info['products_url'] . '" >Buy From Partner </a></div>';
+<a class="btn button" href=' . $product_info['products_url'] . ' title="' . $product_info['products_url'] . '" >Buy From Partner </a></div>';
 } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
 $newArea = '';
 } elseif ($product_info['products_price'] > 0) {
@@ -287,7 +287,7 @@ echo '<p><span class="markProductOutOfStock">This product is ordered directly fr
 		if (tep_session_is_registered('affiliate_id')) {
 		?>
 		<?php
-echo '<a class="button" href="'.tep_href_link(FILENAME_AFFILIATE_BANNERS_BUILD,'individual_banner_id='.$product_info['products_id']).'" target="_self">Build Affiliate Link </a>';
+echo '<a class="btn button" href="'.tep_href_link(FILENAME_AFFILIATE_BANNERS_BUILD,'individual_banner_id='.$product_info['products_id']).'" target="_self">Build Affiliate Link </a>';
 		?>
 		<?php
 }

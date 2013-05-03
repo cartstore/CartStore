@@ -215,7 +215,7 @@ require('includes/form_check.js.php');
    <table>
           
               <tr>
-                 <td><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . '">' . IMAGE_BUTTON_BACK. '</a>'; ?></td>
+                 <td><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . '">' . IMAGE_BUTTON_BACK. '</a>'; ?></td>
                 <td align="right"><?php echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE); ?></td>
                </tr>
               

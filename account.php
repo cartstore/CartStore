@@ -75,7 +75,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
 					<td class="main"><?php echo tep_output_string_protected($order_name) . ', ' . $order_country; ?></td>
 					<td class="main"><?php echo $orders['orders_status_name']; ?></td>
 					<td align="right"><?php echo $orders['order_total']; ?></td>
-					<td class="main" align="right"><?php echo '<li><a class="button" href="' . tep_href_link(FILENAME_ACCOUNT_HISTORY_INFO, 'order_id=' . $orders['orders_id'], 'SSL') . '">' . SMALL_IMAGE_BUTTON_VIEW . '</a></li>'; ?></td>
+					<td class="main" align="right"><?php echo '<li><a class="btn button" href="' . tep_href_link(FILENAME_ACCOUNT_HISTORY_INFO, 'order_id=' . $orders['orders_id'], 'SSL') . '">' . SMALL_IMAGE_BUTTON_VIEW . '</a></li>'; ?></td>
 				</tr>
 
 		</table>

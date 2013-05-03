@@ -98,7 +98,7 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
                         '<div class="model">Model: <span> ' . $extra_images['products_model'] . '</span></div>
                          <div class="make">Make: <span>' . $extra_images['manufacturers_name'] . '</span></div>
                          <a class="readon_p" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">More Info</a>' .
-                         ((HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])) ? '<a class="button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>' : '') .
+                         ((HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])) ? '<a class="btn button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>' : '') .
                          '</div>');
                   $col++;
                   if ($col > 2) {

@@ -167,7 +167,7 @@ case 'edit':
 	$contents[] = array('text' => '<br><b>' . $cInfo->configuration_title . '</b><br>' . $cInfo->configuration_description . '<br>' . $value_field);
 	$contents[] = array(
 		'align' => 'center',
-		'text' => '<br>' . tep_image_submit('button_update.png', IMAGE_UPDATE) . '&nbsp;<a class="button" href="'
+		'text' => '<br>' . tep_image_submit('button_update.png', IMAGE_UPDATE) . '&nbsp;<a class="btn button" href="'
 		. tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID'] . '&cID=' . $cInfo->configuration_id)
 		. '">' .  IMAGE_CANCEL . '</a>'
 		);
@@ -179,7 +179,7 @@ if (is_object($cInfo)) {
 
 	$contents[] = array(
 		'align' => 'center',
-		'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID']
+		'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK_CONFIGURATION, 'gID=' . $_GET['gID']
 		. '&cID=' . $cInfo->configuration_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a>'
 		);
 

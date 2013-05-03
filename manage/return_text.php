@@ -83,7 +83,7 @@ editor_generate('aboutus');
   <td colspan="2">&nbsp;</td>
 </tr>
 <tr>
-  <td align="right"><input type="submit" class="button" name="Save" value="Save" style="width: 70px" /></td>
+  <td align="right"><input type="submit" class="btn button" name="Save" value="Save" style="width: 70px" /></td>
   <td>&nbsp;</td>
 </tr>
 <tr>

@@ -111,7 +111,7 @@
                                   } //else
 
                                   if ($new_products[$i]['products_url'] != "") {
-                                      $newArea = '<div align="center"><span class="alternate_buy" ><a class="button" href=' . $new_products[$x]['products_url'] . '" title="' . $new_products[$x]['products_name'] . '" >Partner Buy </a></div>';
+                                      $newArea = '<div align="center"><span class="alternate_buy" ><a class="btn button" href=' . $new_products[$x]['products_url'] . '" title="' . $new_products[$x]['products_name'] . '" >Partner Buy </a></div>';
                                   } //if ($new_products[$i]['products_url'] != "")
 
                                   elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
@@ -119,11 +119,11 @@
                                   } //elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '')
 
                                   elseif ($new_products[$x]['products_price'] > 0) {
-                                      $newArea = ' <a class="button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $new_products[$x]['products_id']) . '" title="Order/Purchase ' . $new_products[$x]['products_name'] . '">Add to Cart</a>';
+                                      $newArea = ' <a class="btn button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $new_products[$x]['products_id']) . '" title="Order/Purchase ' . $new_products[$x]['products_name'] . '">Add to Cart</a>';
                                   } //elseif ($new_products[$x]['products_price'] > 0)
 
                                   else {
-                                      $newArea = '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">Read More</a>';
+                                      $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">Read More</a>';
                                   } //else
 
                                   if (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
@@ -133,7 +133,7 @@
                                   else
                                       $whats_new_price = $whats_new_price;
                                   if ($new_products[$x]['products_price'] > 0) {
-                                      $button = '<input class="button" type="submit" value="Add to Cart" />';
+                                      $button = '<input class="btn button" type="submit" value="Add to Cart" />';
                                   } //if ($new_products[$x]['products_price'] > 0)
 
                                   else {
@@ -162,7 +162,7 @@
 <form method="post" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $new_products[$x]['products_id']) . '">
 
 
-<input class="button" type="submit" value="Add to Cart" /></form>
+<input class="btn button" type="submit" value="Add to Cart" /></form>
 </div>
 
 ');

@@ -81,7 +81,7 @@ $newArea='<div align="right"><span class="alternate_buy" ><a class="alt_buy_link
 {
 $newArea='';
 }else
-$newArea='<p><a class="button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now') . '">' .  IMAGE_BUTTON_IN_CART . '</a></p>';
+$newArea='<p><a class="btn button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now') . '">' .  IMAGE_BUTTON_IN_CART . '</a></p>';
 if(HIDE_PRICE_NON_LOGGED=="true" && $_SESSION['customers_email_address']=='')
 {
 $products_price="";
@@ -151,8 +151,8 @@ $products_price=$products_price;
                     <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                       <tr>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                        <td class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
-                        <td class="main" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
+                        <td class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                        <td class="main" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                       </tr>
                     </table></td>

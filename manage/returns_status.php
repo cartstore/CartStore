@@ -169,7 +169,7 @@ $id author Puddled Internet - http://www.puddled.co.uk
   if (substr($_GET['action'], 0, 3) != 'new') {
 ?>
                   <tr>
-                    <td colspan="2" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_INSERT . '</a>'; ?></td>
+                    <td colspan="2" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_INSERT . '</a>'; ?></td>
                   </tr>
 <?php
   }
@@ -195,7 +195,7 @@ $id author Puddled Internet - http://www.puddled.co.uk
 
       $contents[] = array('text' => '<br>' . TEXT_INFO_ORDERS_STATUS_NAME . $orders_status_inputs_string);
       $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . TEXT_SET_DEFAULT);
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . ' <a class="button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page']) . '">' .IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . ' <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page']) . '">' .IMAGE_CANCEL . '</a>');
       break;
     case 'edit':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_EDIT_ORDERS_STATUS . '</b>');
@@ -211,7 +211,7 @@ $id author Puddled Internet - http://www.puddled.co.uk
 
       $contents[] = array('text' => '<br>' . TEXT_INFO_ORDERS_STATUS_NAME . $orders_status_inputs_string);
       if (DEFAULT_RETURN_STATUS_ID != $oInfo->returns_status_id) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('default') . ' ' . TEXT_SET_DEFAULT);
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_update.gif', IMAGE_UPDATE) . ' <a class="button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_update.gif', IMAGE_UPDATE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     case 'delete':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_ORDERS_STATUS . '</b>');
@@ -219,13 +219,13 @@ $id author Puddled Internet - http://www.puddled.co.uk
       $contents = array('form' => tep_draw_form('status', FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id  . '&action=deleteconfirm'));
       $contents[] = array('text' => TEXT_INFO_DELETE_INTRO);
       $contents[] = array('text' => '<br><b>' . $oInfo->returns_status_name . '</b>');
-      if ($remove_status) $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id) . '">' .  IMAGE_CANCEL . '</a>');
+      if ($remove_status) $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     default:
       if (is_object($oInfo)) {
         $heading[] = array('text' => '<b>' . $oInfo->returns_status_name . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id . '&action=edit') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id . '&action=edit') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_STATUS, 'page=' . $_GET['page'] . '&oID=' . $oInfo->returns_status_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
 
         $orders_status_inputs_string = '';
         $languages = tep_get_languages();

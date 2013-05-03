@@ -56,7 +56,7 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 			</ul>
 			<div class="multi_buy_hide">
 				<div class="multibuy productitem ui-widget ui-widget-content ui-corner-all">
-					<input   class="button" type="submit" value="Add Selected to Cart" onclick="addMulti()" />
+					<input class="btn button" type="submit" value="Add Selected to Cart" onclick="addMulti()" />
 				</div>
 			</div>
 			<?php
@@ -273,7 +273,7 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 			$whats_new_price = $prod_price;
 			if (!empty($listing[$x]['products_url']) && isset($_SESSION['customers_email_address'])) {
 			$multibuy = '';
-			$newArea = '<div align="left"><span class="alternate_buy" ><a class="button" href="' . $listing[$x]['products_url'] . '" title="' . $listing[$x]['products_url'] . '"  >Partner Buy </a></div>';
+			$newArea = '<div align="left"><span class="alternate_buy" ><a class="btn button" href="' . $listing[$x]['products_url'] . '" title="' . $listing[$x]['products_url'] . '"  >Partner Buy </a></div>';
 			} elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
 			$newArea = '';
 			$multibuy = '';
@@ -281,7 +281,7 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 			$newArea = '<div class="qty">
 			<label>Qty:</label>
 			<input name=qty type="text" class="inputbox" value="1"/>
-			</div><input class="button" type="submit" value="Add Item to Cart"/>';
+			</div><input class="btn button" type="submit" value="Add Item to Cart"/>';
 			if (!tep_has_product_attributes($listing[$x]['products_id'])){
 			$ismulti = 1;
 			$multibuy = '<div class="multibuy-select">' . TEXT_MULTIBUY_SELECT . ' <input type="checkbox" name="multibuy[]" value="' . $listing[$x]['products_id'] . '" /></div>';
@@ -482,7 +482,7 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 		?>
 			<div class="multi_buy_hide">
 				<div  class="multibuy productitem ui-widget ui-widget-content ui-corner-all" style="text-align: right; display: none;">
-					<input class="button" type="submit" value="Add Selected" onclick="addMulti()" />
+					<input class="btn button" type="submit" value="Add Selected" onclick="addMulti()" />
 				</div>
 			</div>
 			<script type="text/javascript">

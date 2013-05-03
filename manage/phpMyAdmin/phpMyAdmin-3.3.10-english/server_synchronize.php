@@ -458,7 +458,7 @@ if ((isset($_REQUEST['submit_connect']))) {
             <p><input type= "checkbox" name="delete_rows" id ="delete_rows" /><label for="delete_rows">' . $strTableDeleteRows . '</label> </p>
             </fieldset> 
             <fieldset class="tblFooters">';
-            echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
+            echo '<input type="btn button" name="apply_changes" value="' . $GLOBALS['strApplyChanges']
              . '" onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" . ')" />';
             echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />' . '</fieldset>';
             echo '</form>';      
@@ -903,7 +903,7 @@ if (isset($_REQUEST['Table_ids'])) {
     </fieldset>'; 
     
     echo '<fieldset class="tblFooters">';
-    echo '<input type="button" name="apply_changes" value="' . $GLOBALS['strApplyChanges'] . '" 
+    echo '<input type="btn button" name="apply_changes" value="' . $GLOBALS['strApplyChanges'] . '" 
           onclick ="ApplySelectedChanges(' . "'" . htmlspecialchars($_SESSION['token']) . "'" .')" />';
     echo '<input type="submit" name="synchronize_db" value="' . $GLOBALS['strSynchronizeDb'] . '" />'
           . '</fieldset>';

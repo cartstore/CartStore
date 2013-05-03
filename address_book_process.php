@@ -350,8 +350,8 @@ require(DIR_WS_INCLUDES . 'header.php');
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                <td><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
-                <td align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'delete=' . $_GET['delete'] . '&action=deleteconfirm', 'SSL') . '">' .  IMAGE_BUTTON_DELETE . '</a>'; ?></td>
+                <td><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'delete=' . $_GET['delete'] . '&action=deleteconfirm', 'SSL') . '">' .  IMAGE_BUTTON_DELETE . '</a>'; ?></td>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
               </tr>
             </table></td>
@@ -376,7 +376,7 @@ require(DIR_WS_INCLUDES . 'header.php');
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                <td><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                <td><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
                 <td align="right"><?php echo tep_draw_hidden_field('action', 'update') . tep_draw_hidden_field('edit', $_GET['edit']) . tep_image_submit('button_update.gif', IMAGE_BUTTON_UPDATE); ?></td>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
               </tr>
@@ -398,7 +398,7 @@ require(DIR_WS_INCLUDES . 'header.php');
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                <td><?php echo '<a class="button" href="' . $back_link . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                <td><?php echo '<a class="btn button" href="' . $back_link . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
                 <td align="right"><?php echo tep_draw_hidden_field('action', 'process') . tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE); ?></td>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
               </tr>

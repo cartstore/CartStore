@@ -287,14 +287,14 @@
               } else
                   $whats_new_price = $prod_price;
               if ($listing[$x]['products_url'] != "" && $_SESSION['customers_email_address'] == '') {
-                  $newArea = '<div align="left"><span class="alternate_buy" ><a class="button" href="' . $listing[$x]['products_url'] . '" title="' . $listing[$x]['products_url'] . '"  >Partner Buy </a></div>';
+                  $newArea = '<div align="left"><span class="alternate_buy" ><a class="btn button" href="' . $listing[$x]['products_url'] . '" title="' . $listing[$x]['products_url'] . '"  >Partner Buy </a></div>';
               } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $newArea = '';
               } elseif ($listing[$x]['products_price'] > 0) {
                   $newArea = '<div class="qty">
               <label>Qty:</label>
            <input name=qty type="text" class="inputbox" value="1" size="4"/>
-           </div><input class="button" type="submit" value="Add to Cart"/>';
+           </div><input class="btn button" type="submit" value="Add to Cart"/>';
               } else {
                   $newArea = '';
               }

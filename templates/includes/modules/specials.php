@@ -79,14 +79,14 @@ OUR PRICE : <span>' . $currencies->display_price($random_product['products_price
 RRP:' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
  ';
               if ($random_product['products_url'] != "") {
-                  $newArea = '<span class="alternate_buy" ><a class="button_nojQuery" href=' . $random_product['products_url'] . '" title="' . $random_product['products_url'] . '" >Partner Buy </a>';
+                  $newArea = '<span class="alternate_buy" ><a class="btn btn-link" href=' . $random_product['products_url'] . '" title="' . $random_product['products_url'] . '" >Partner Buy </a>';
               } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $newArea = '';
               } elseif ($random_product['products_price'] > 0) {
                   $newArea = '<form method="post" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action', 'products_id')) . 'action=buy_now&products_id=' . $random_product['products_id']) . '">
-<input class="button_nojQuery" type="submit" value="ADD TO CART" /></form>';
+<input class="btn btn-link" type="submit" value="ADD TO CART" /></form>';
               } else {
-                  $newArea = '<a class="button_nojQuery" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">Read More</a>';
+                  $newArea = '<a class="btn btn-link" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">Read More</a>';
               }
               if (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $whats_new_price = "";

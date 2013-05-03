@@ -693,7 +693,7 @@ header("Pragma: ");
                   <INPUT TYPE="hidden" name="MAX_FILE_SIZE" value="100000000">
                 <p></p>
                   <input name="usrfl" type="file" size="50">
-                <input type="submit" class="button" name="buttoninsert" value="Insert into db">
+                <input type="submit" class="btn button" name="buttoninsert" value="Insert into db">
                 <br>
                 </p>
               </div>
@@ -708,7 +708,7 @@ header("Pragma: ");
                   <INPUT TYPE="hidden" name="MAX_FILE_SIZE" value="1000000000">
                 <p></p>
                   <input name="usrfl" type="file" size="50">
-                <input type="submit" class="button" name="buttonsplit" value="Split file">
+                <input type="submit" class="btn button" name="buttonsplit" value="Split file">
                 <br>
                 </p>
               </div>
@@ -721,7 +721,7 @@ header("Pragma: ");
                 <p><b><?php echo IMPORT_TMP_EP; ?><?php echo $tempdir; ?><?php echo " :" ?></b></p>
                 <p class="smallText">
                 <INPUT TYPE="text" name="localfile" size="50">
-                  <input type="submit" class="button" name="buttoninsert" value="Insert into db">
+                  <input type="submit" class="btn button" name="buttoninsert" value="Insert into db">
                   <br>
                 </p>
               </div>
@@ -899,8 +899,8 @@ if (is_uploaded_file($usrfl) && $split==1) {
 
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 
-<p> </p>
-<p> </p><p><br>
+<p>ï¿½</p>
+<p>ï¿½</p><p><br>
 </p></body>
 </html>
 

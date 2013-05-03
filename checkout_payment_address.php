@@ -942,7 +942,7 @@ function check_form_optional(form_name) {
 
       <tr>
 
-        <td><?php echo '<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
+        <td><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
 
       </tr>
 

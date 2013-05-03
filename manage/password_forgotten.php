@@ -96,13 +96,13 @@ $(document).ready(function() {
 ?>
 <br>
 <?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' . IMAGE_BACK . '</a>';
+      echo '<a "btn button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' . IMAGE_BACK . '</a>';
   } elseif (isset($success_message)) {
       echo $success_message;
 ?>
 <br>
 <?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' . IMAGE_BACK . '</a>';
+      echo '<a "btn button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' . IMAGE_BACK . '</a>';
 	} else {
 		if (isset($info_message)) {
 			echo $info_message;
@@ -125,7 +125,7 @@ $(document).ready(function() {
       <input type="text" class="inputbox" onclick="value=''" value="eMail" name="email_address"/>
       <div class="clear"></div>
     </div>
-    <input type="submit" class="button" class="login-button" value="Go" />
+    <input type="submit" "btn button" class="login-button" value="Go" />
     <br />
     <a class="readon" href="login.php"><< Back</a>
     <div class="clear"></div>

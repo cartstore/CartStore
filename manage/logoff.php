@@ -33,7 +33,7 @@
 <?php require(DIR_WS_INCLUDES . 'header.php'); ?>
 <h1><h3><?php echo HEADING_TITLE; ?></h3></h1>
 <?php echo TEXT_MAIN; ?><br>
-<?php echo '<a class="button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' .  IMAGE_BACK . '</a>'; ?><br>
+<?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' .  IMAGE_BACK . '</a>'; ?><br>
 
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?><br>
 

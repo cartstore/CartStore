@@ -444,14 +444,14 @@ if (is_array ( $wishList->wishID ) && ! empty ( $wishList->wishID )) {
 
 	?>
 		</table>
-				<a class="button" href="javascript:history.go(-1)">Back</a>
+				<a class="btn button" href="javascript:history.go(-1)">Back</a>
 				<div class="clear"></div>
 				<div style="float: right;">	<?php
-	echo '<button class="button" name="delete_prod_x" value="true">Delete From Wishlist</button>';
+	echo '<button class="btn button" name="delete_prod_x" value="true">Delete From Wishlist</button>';
 	?>
 
      <?php
-	echo '<button class="button" name="add_prod_x" value="true">Add to Cart</button>';
+	echo '<button class="btn button" name="add_prod_x" value="true">Add to Cart</button>';
 	?></div>
 				<div class="clear"></div>
 

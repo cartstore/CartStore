@@ -831,7 +831,7 @@ require (DIR_WS_INCLUDES . 'column_left.php');
 			<tr>
 
 				<td class="main" align="right"><?php
-				echo tep_draw_hidden_field('topics_date_added', (($tInfo -> date_added) ? $tInfo -> date_added : date('Y-m-d'))) . tep_draw_hidden_field('parent_id', $tInfo -> parent_id) . (isset ( $_GET ['tID'] ) ? tep_image_submit('button_update.png', IMAGE_UPDATE) : tep_image_submit('button_insert.png', IMAGE_INSERT)) . '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $_GET['tID']) . '">' . IMAGE_CANCEL . '</a>';
+				echo tep_draw_hidden_field('topics_date_added', (($tInfo -> date_added) ? $tInfo -> date_added : date('Y-m-d'))) . tep_draw_hidden_field('parent_id', $tInfo -> parent_id) . (isset ( $_GET ['tID'] ) ? tep_image_submit('button_update.png', IMAGE_UPDATE) : tep_image_submit('button_insert.png', IMAGE_INSERT)) . '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $_GET['tID']) . '">' . IMAGE_CANCEL . '</a>';
 		?></td>
 
 				</form>
@@ -1025,7 +1025,7 @@ $back_url_params = 'tPath=' . $tPath . '&tID=' . $tInfo->topics_id;
       <tr>
 
 				<td align="right"><?php
-				echo '<a class="button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
+				echo '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
 			?></td>
 
 			</tr>
@@ -1081,7 +1081,7 @@ if ($_GET['tID']) {
 
 }
 
-echo '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $_GET['tID']) . '">' . IMAGE_CANCEL . '</a>';
+echo '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $_GET['tID']) . '">' . IMAGE_CANCEL . '</a>';
 			?></td>
 
 				</form>
@@ -1525,7 +1525,7 @@ echo $aInfo -> articles_date_available;
 				<tr>
 
 					<td class="main" align="right"><?php
-					echo tep_draw_hidden_field('articles_date_added', (tep_not_null($aInfo -> articles_date_added) ? $aInfo -> articles_date_added : date('Y-m-d'))) . (isset ( $_GET ['aID'] ) ? tep_image_submit('button_update.png', IMAGE_UPDATE) : tep_image_submit('button_insert.png', IMAGE_INSERT)) . '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . (isset($_GET['aID']) ? '&aID=' . $_GET['aID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
+					echo tep_draw_hidden_field('articles_date_added', (tep_not_null($aInfo -> articles_date_added) ? $aInfo -> articles_date_added : date('Y-m-d'))) . (isset ( $_GET ['aID'] ) ? tep_image_submit('button_update.png', IMAGE_UPDATE) : tep_image_submit('button_insert.png', IMAGE_INSERT)) . '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . (isset($_GET['aID']) ? '&aID=' . $_GET['aID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
 		?></td>
 
 				</tr>
@@ -1829,7 +1829,7 @@ $back_url_params = 'tPath=' . $tPath . '&aID=' . $aInfo->articles_id;
       <tr>
 
 					<td align="right"><?php
-					echo '<a class="button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
+					echo '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
 			?></td>
 
 				</tr>
@@ -1889,7 +1889,7 @@ if (isset($_GET['aID'])) {
 
 }
 
-echo '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . (isset($_GET['aID']) ? '&aID=' . $_GET['aID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
+echo '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . (isset($_GET['aID']) ? '&aID=' . $_GET['aID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
 			?></td>
 
 				</tr>
@@ -2208,9 +2208,9 @@ $tPath_back = (tep_not_null ( $tPath_back )) ? 'tPath=' . $tPath_back . '&' : ''
 
 											<td align="right" class="smallText"><?php
 											if (sizeof($tPath_array) > 0)
-												echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, $tPath_back . 'tID=' . $current_topic_id) . '">' . IMAGE_BACK . '</a>&nbsp;';
+												echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, $tPath_back . 'tID=' . $current_topic_id) . '">' . IMAGE_BACK . '</a>&nbsp;';
 											if (!isset($_GET['search']))
-												echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&action=new_topic') . '">' . IMAGE_NEW_TOPIC . '</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&action=new_article') . '">' . IMAGE_NEW_ARTICLE . '</a>';
+												echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&action=new_topic') . '">' . IMAGE_NEW_TOPIC . '</a>&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&action=new_article') . '">' . IMAGE_NEW_ARTICLE . '</a>';
 		?>&nbsp;</td>
 
 										</tr>
@@ -2252,7 +2252,7 @@ switch ($action) {
 
 		$contents[] = array('text' => '<br>' . TEXT_SORT_ORDER . '<br>' . tep_draw_input_field('sort_order', '', 'size="2"'));
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2277,7 +2277,7 @@ switch ($action) {
 
 		$contents[] = array('text' => '<br>' . TEXT_EDIT_SORT_ORDER . '<br>' . tep_draw_input_field('sort_order', $tInfo -> sort_order, 'size="2"'));
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2296,7 +2296,7 @@ switch ($action) {
 		if ($tInfo -> articles_count > 0)
 			$contents[] = array('text' => '<br>' . sprintf(TEXT_DELETE_WARNING_ARTICLES, $tInfo -> articles_count));
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2309,7 +2309,7 @@ switch ($action) {
 
 		$contents[] = array('text' => '<br>' . sprintf(TEXT_MOVE, $tInfo -> topics_name) . '<br>' . tep_draw_pull_down_menu('move_to_topic_id', tep_get_topic_tree(), $current_topic_id));
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2346,7 +2346,7 @@ switch ($action) {
 
 		$contents[] = array('text' => '<br>' . $article_topics_string);
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2361,7 +2361,7 @@ switch ($action) {
 
 		$contents[] = array('text' => '<br>' . sprintf(TEXT_MOVE, $aInfo -> articles_name) . '<br>' . tep_draw_pull_down_menu('move_to_topic_id', tep_get_topic_tree(), $current_topic_id));
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="button"  href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="btn button"  href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2378,7 +2378,7 @@ switch ($action) {
 
 		$contents[] = array('text' => '<br>' . TEXT_HOW_TO_COPY . '<br>' . tep_draw_radio_field('copy_as', 'link', true) . ' ' . TEXT_COPY_AS_LINK . '<br>' . tep_draw_radio_field('copy_as', 'duplicate') . ' ' . TEXT_COPY_AS_DUPLICATE);
 
-		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_copy.png', IMAGE_COPY) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id) . '">' . IMAGE_CANCEL . '</a>');
+		$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_copy.png', IMAGE_COPY) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id) . '">' . IMAGE_CANCEL . '</a>');
 
 		break;
 
@@ -2389,7 +2389,7 @@ switch ($action) {
 
 				$heading[] = array('text' => '<b>' . $tInfo -> topics_name . '</b>');
 
-				$contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id . '&action=edit_topic') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id . '&action=delete_topic') . '">' . IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id . '&action=move_topic') . '">' . IMAGE_MOVE . '</a>');
+				$contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id . '&action=edit_topic') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id . '&action=delete_topic') . '">' . IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&tID=' . $tInfo -> topics_id . '&action=move_topic') . '">' . IMAGE_MOVE . '</a>');
 
 				$contents[] = array('text' => '<br>' . TEXT_DATE_ADDED . ' ' . tep_date_short($tInfo -> date_added));
 
@@ -2402,7 +2402,7 @@ switch ($action) {
 
 				$heading[] = array('text' => '<b>' . tep_get_articles_name($aInfo -> articles_id, $languages_id) . '</b>');
 
-				$contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=new_article') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=delete_article') . '">' . IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=move_article') . '">' . IMAGE_MOVE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=copy_to') . '">' . IMAGE_COPY_TO . '</a>');
+				$contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=new_article') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=delete_article') . '">' . IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=move_article') . '">' . IMAGE_MOVE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLES, 'tPath=' . $tPath . '&aID=' . $aInfo -> articles_id . '&action=copy_to') . '">' . IMAGE_COPY_TO . '</a>');
 				$contents[] = array('text' => '<br>' . TEXT_DATE_ADDED . ' ' . tep_date_short($aInfo -> articles_date_added));
 
 				if (tep_not_null($aInfo -> articles_last_modified))

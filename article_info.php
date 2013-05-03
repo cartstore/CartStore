@@ -123,17 +123,17 @@
                   if ($reviews['count'] <= 0) {
 ?>
           <?php
-                      echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_WRITE_REVIEW . '</a>';
+                      echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_WRITE_REVIEW . '</a>';
 ?>
           <?php
                       } else
                       {
 ?>
           <?php
-                          echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_WRITE_REVIEW . '</a> ';
+                          echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_WRITE_REVIEW . '</a> ';
 ?>
           <?php
-                          echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_REVIEWS . '</a>';
+                          echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_REVIEWS . '</a>';
 ?>
           <?php
                       }

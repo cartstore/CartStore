@@ -44,8 +44,8 @@ require(DIR_WS_INCLUDES . 'header.php');
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-		        <td class="main"><a class="button" href="javascript:history.go(-1)">Back</a></td>
-        <td align="right" class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_DEFAULT, '', 'NONSSL') . '">Continue</a>'; ?></td>
+		        <td class="main"><a class="btn button" href="javascript:history.go(-1)">Back</a></td>
+        <td align="right" class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_DEFAULT, '', 'NONSSL') . '">Continue</a>'; ?></td>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
               </tr>
             </table></td>

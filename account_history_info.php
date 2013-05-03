@@ -571,8 +571,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">USPS(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>">Track</a></td>
 			  </tr>
 
 <?php
@@ -582,8 +582,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">USPS(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num2']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num2']; ?>">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num2']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num2']; ?>">Track</a></td>
               </tr>
 <?php
 }
@@ -592,8 +592,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">UPS(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
 			  </tr>
 <?php
 }
@@ -602,8 +602,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">UPS(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
 			  </tr>
 <?php
 }
@@ -612,8 +612,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">Fedex(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
 			  </tr>
 <?php
 }
@@ -622,8 +622,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">Fedex(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
 			  </tr>
 <?php
 }
@@ -632,8 +632,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">DHL(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
 			  </tr>
 <?php
 }
@@ -642,8 +642,8 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 ?>
               <tr>
 			    <td class="main" align="left">DHL(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
 			  </tr>
 <?php
 }
@@ -673,42 +673,42 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
             <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
 			    <td class="main" align="left">USPS(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>">Track</a></td>
 			  </tr>
               <tr>
 			    <td class="main" align="left">USPS(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num2']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num2']; ?>">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num2']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num2']; ?>">Track</a></td>
               </tr>
 			  <tr>
 			    <td class="main" align="left">UPS(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
 			  </tr>
               <tr>
 			    <td class="main" align="left">UPS(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package"><?php echo $order->info['ups_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php echo $order->info['ups_track_num2']; ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track</a></td>
               </tr>
               <tr>
 			    <td class="main" align="left">Fedex(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
 			  </tr>
               <tr>
 			    <td class="main" align="left">Fedex(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['fedex_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php echo $order->info['fedex_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
               </tr>
               <tr>
 			    <td class="main" align="left">DHL(1):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
               <tr>
 			    <td class="main" align="left">DHL(2):</td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
-                <td class="main" align="left"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us"><?php echo $order->info['dhl_track_num']; ?></a></td>
+                <td class="main" align="left"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php echo $order->info['dhl_track_num2']; ?>&action=track&language=english&cntry_code=us">Track</a></td>
               </tr>
             </table></td>
           </tr></table>
@@ -743,7 +743,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 
                 <!-- // Points/Rewards Module V2.00 history_back_bof  //-->
 
-	            <td class="main"><a class="button" href="javascript:history.go(-1)"><?php echo ''. IMAGE_BUTTON_BACK.''; ?></a></td>
+	            <td class="main"><a class="btn button" href="javascript:history.go(-1)"><?php echo ''. IMAGE_BUTTON_BACK.''; ?></a></td>
 
 <!-- // Points/Rewards Module V2.00 history_back_eof //-->
 

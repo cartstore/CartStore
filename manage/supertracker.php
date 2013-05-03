@@ -5,7 +5,7 @@
   Copyright (c) 2003 osCommerce
   Released under the GNU General Public License
   Created by Mark Stephens, http://www.phpworks.co.uk
-  Added keywords filters by Monika Mathé, http://www.monikamathe.com
+  Added keywords filters by Monika Mathï¿½, http://www.monikamathe.com
 */
 
 // ********** PAY PER CLICK CONFIGURATION SECTION ************
@@ -101,7 +101,7 @@ define ('SUPERTRACKER_USE_PPC', false);
 						$num_rows = tep_db_num_rows($maint_result);
 						$maint_row = tep_db_fetch_array($maint_result);
 						echo '<span class="pageHeading">' . sprintf(TEXT_TABLE_DATABASE, $num_rows, tep_date_short($maint_row['time_arrived'])) . '</span><br><br>';
-						echo '<form name="del_rows" action="supertracker.php?action=del_rows" method="post">' . TEXT_TABLE_DELETE . '<input name="num_rows" size=10>&nbsp;<input type="submit" class="button" value="' . TEXT_BUTTON_ERASE  . '"></form><br><br>';
+						echo '<form name="del_rows" action="supertracker.php?action=del_rows" method="post">' . TEXT_TABLE_DELETE . '<input name="num_rows" size=10>&nbsp;<input type="submit" class="btn button" value="' . TEXT_BUTTON_ERASE  . '"></form><br><br>';
 ?>
 						  <?php echo TABLE_TEXT_MENU_DESC_TEXT; ?> <form name="report_select"><select name="report_selector" onChange="page_redirect(this)">
 								<option value=""><?php echo TABLE_TEXT_MENU_TEXT; ?></option>
@@ -503,7 +503,7 @@ define ('SUPERTRACKER_USE_PPC', false);
           		 <option value="completed" <?php if ($filter == 'completed') echo 'selected';?>><?php echo TEXT_SUCCESSFUL_CHECKOUTS; ?></option>
 				 </select>&nbsp;&nbsp;
                  <?php echo TEXT_REFERRER_STRING; ?><input type="text" size="15" name="refer_match" value="<?php echo $refer_match;?>">
-				 <input type="submit" class="button" value = "Update">						 
+				 <input type="submit" class="btn button" value = "Update">						 
       		     </form><br><br>
 			  </td>
 			</tr>
@@ -628,7 +628,7 @@ define ('SUPERTRACKER_USE_PPC', false);
 		
 		 }//End While
 ?>
-<br><strong><a href="supertracker.php?special=last_ten&offset=<?php echo $offset + 10;?>&filter=<?php echo $filter;?>&refer_match=<?php echo $refer_match;?>"><input type="submit" class="button" value="<?php echo TABLE_TEXT_NEXT_TEN_RESULTS; ?>"></a></strong>
+<br><strong><a href="supertracker.php?special=last_ten&offset=<?php echo $offset + 10;?>&filter=<?php echo $filter;?>&refer_match=<?php echo $refer_match;?>"><input type="submit" class="btn button" value="<?php echo TABLE_TEXT_NEXT_TEN_RESULTS; ?>"></a></strong>
 <?php
 		}//End Special "Last Ten" Report
 		
@@ -700,7 +700,7 @@ define ('SUPERTRACKER_USE_PPC', false);
              
              <?php echo TEXT_REFERRER_STRING; ?>
              <input type="text" size="15" name="agent_match" value="<?php echo $agent_match;?>">
-						 <input type="submit" class="button" value = "Update">						 
+						 <input type="submit" class="btn button" value = "Update">						 
       		 </form>
 				 </td>
 			</tr>

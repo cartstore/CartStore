@@ -664,7 +664,7 @@ table.bordered {
         <td><?php echo tep_draw_separator('pixel_trans.png', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td align="right" class="main"><?php echo (($action == 'edit') ? tep_image_submit('button_update.png', IMAGE_UPDATE) : tep_image_submit('button_insert.png', IMAGE_INSERT)) . ' <a class="button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
+        <td align="right" class="main"><?php echo (($action == 'edit') ? tep_image_submit('button_update.png', IMAGE_UPDATE) : tep_image_submit('button_insert.png', IMAGE_INSERT)) . ' <a class="btn button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
       </tr></form>
 <?php
   } else if (tep_not_null($action_checkAllLinks)) {
@@ -711,7 +711,7 @@ table.bordered {
      <td><?php echo tep_draw_separator('pixel_trans.png', '100%', '10'); ?></td>
     </tr>
     <tr>
-     <td colspan="3" align="center" class="main"><?php echo ' <a class="button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('action'))) .'">' . Continue . '</a>'; ?></td>
+     <td colspan="3" align="center" class="main"><?php echo ' <a class="btn button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('action'))) .'">' . Continue . '</a>'; ?></td>
     </tr>        
    </table></td></tr>   
    <?php   
@@ -854,8 +854,8 @@ table.bordered {
 <?php
     if (isset($_GET['search']) && tep_not_null($_GET['search'])) {
 ?>
-                    <td align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_LINKS) . '">' .  IMAGE_RESET . '</a>'; ?></td>
-                    <td align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_LINKS, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_LINK . '</a>'; ?></td>
+                    <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_LINKS) . '">' .  IMAGE_RESET . '</a>'; ?></td>
+                    <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_LINKS, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_LINK . '</a>'; ?></td>
                   </tr>  
 <?php
     } else {
@@ -873,7 +873,7 @@ table.bordered {
                    <td><?php echo tep_draw_separator('pixel_trans.png', '100%', '10'); ?></td>
                   </tr>
                   <tr>        
-                   <td align="right" colspan="4"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_LINKS, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_LINK . '</a>'; ?></td>
+                   <td align="right" colspan="4"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_LINKS, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_LINK . '</a>'; ?></td>
 <?php
     }
 ?>
@@ -890,7 +890,7 @@ table.bordered {
 
       $contents = array('form' => tep_draw_form('links', FILENAME_LINKS, tep_get_all_get_params(array('lID', 'action')) . 'lID=' . $lInfo->links_id . '&action=deleteconfirm'));
       $contents[] = array('text' => TEXT_DELETE_INTRO . '<br><br><b>' . $lInfo->links_url . '</b>');
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('lID', 'action')) . 'lID=' . $lInfo->links_id) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('lID', 'action')) . 'lID=' . $lInfo->links_id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     case 'check':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_CHECK_LINK . '</b>');
@@ -901,7 +901,7 @@ table.bordered {
         $contents[] = array('text' => TEXT_INFO_LINK_CHECK_RESULT . ' ' . $link_check_status_text);
         $contents[] = array('text' => '<br><b>' . $lInfo->links_reciprocal_url . '</b>');
       }  
-      $contents[] = array('align' => 'center', 'text' => '<br><a class="button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('lID', 'action')) . 'lID=' . $lInfo->links_id) . '">' . IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br><a class="btn button" href="' . tep_href_link(FILENAME_LINKS, tep_get_all_get_params(array('lID', 'action')) . 'lID=' . $lInfo->links_id) . '">' . IMAGE_CANCEL . '</a>');
       break;    
     default:
       if (isset($lInfo) && is_object($lInfo)) {

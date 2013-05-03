@@ -62,7 +62,7 @@
 ?></b></td>
               
               <td class="pageHeading" align="right"><?php
-  echo '<a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a>';
+  echo '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a>';
 ?></td>
             </tr>
           </table></td>

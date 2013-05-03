@@ -526,7 +526,7 @@ as newsdesk_date_available, p.newsdesk_status, p.newsdesk_sticky from " . TABLE_
 ?>
                 <br>
                 <?php
-                          echo tep_draw_hidden_field('newsdesk_date_added', (($pInfo->newsdesk_date_added) ? $pInfo->newsdesk_date_added : date('Y-m-d'))) . tep_image_submit('button_preview.png', IMAGE_PREVIEW) . '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $_GET['pID']) . '">' . IMAGE_CANCEL . '</a>';
+                          echo tep_draw_hidden_field('newsdesk_date_added', (($pInfo->newsdesk_date_added) ? $pInfo->newsdesk_date_added : date('Y-m-d'))) . tep_image_submit('button_preview.png', IMAGE_PREVIEW) . '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $_GET['pID']) . '">' . IMAGE_CANCEL . '</a>';
 ?>
                 </form>
                 <?php
@@ -700,7 +700,7 @@ pd where p.newsdesk_id = pd.newsdesk_id and p.newsdesk_id = '" . $_GET['pID'] . 
 ?>
             <tr>
               <td align="right"><?php
-                                      echo '<a class="button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
+                                      echo '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
 ?> </td>
             </tr>
             <?php
@@ -740,7 +740,7 @@ pd where p.newsdesk_id = pd.newsdesk_id and p.newsdesk_id = '" . $_GET['pID'] . 
                                           } else {
                                               echo tep_image_submit('button_insert.png', IMAGE_INSERT);
                                           }
-                                          echo '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $_GET['pID']) . '">' . IMAGE_CANCEL . '</a>';
+                                          echo '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $_GET['pID']) . '">' . IMAGE_CANCEL . '</a>';
 ?>
               </td>
               </form>
@@ -982,7 +982,7 @@ p.newsdesk_date_added desc
                                               $contents[] = array('text' => '<br>' . TEXT_SORT_ORDER . '<br>' . tep_draw_input_field('sort_order', '', 'size="2"'));
                                               
                                               $contents[] = array('text' => '<br>' . TEXT_SHOW_STATUS . '<br>' . tep_draw_input_field('catagory_status', $cInfo->catagory_status, 'size="2"') . '1=Enabled 0=Disabled');
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           case 'edit_category':
@@ -1000,7 +1000,7 @@ p.newsdesk_date_added desc
                                               $contents[] = array('text' => '<br>' . TEXT_EDIT_CATEGORIES_IMAGE . '<br>' . tep_draw_file_field('categories_image'));
                                               $contents[] = array('text' => '<br>' . TEXT_EDIT_SORT_ORDER . '<br>' . tep_draw_input_field('sort_order', $cInfo->sort_order, 'size="2"'));
                                               $contents[] = array('text' => '<br>' . TEXT_SHOW_STATUS . '<br>' . tep_draw_input_field('catagory_status', $cInfo->catagory_status, 'size="2"') . '1=Enabled 0=Disabled');
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           case 'delete_category':
@@ -1013,7 +1013,7 @@ p.newsdesk_date_added desc
                                                   $contents[] = array('text' => '<br>' . sprintf(TEXT_DELETE_WARNING_CHILDS, $cInfo->childs_count));
                                               if ($cInfo->products_count > 0)
                                                   $contents[] = array('text' => '<br>' . sprintf(TEXT_DELETE_WARNING_NEWSDESK, $cInfo->products_count));
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           case 'move_category':
@@ -1022,7 +1022,7 @@ p.newsdesk_date_added desc
                                               $contents = array('form' => tep_draw_form('categories', FILENAME_NEWSDESK, 'action=move_category_confirm') . tep_draw_hidden_field('categories_id', $cInfo->categories_id));
                                               $contents[] = array('text' => sprintf(TEXT_MOVE_CATEGORIES_INTRO, $cInfo->categories_name));
                                               $contents[] = array('text' => '<br>' . sprintf(TEXT_MOVE, $cInfo->categories_name) . '<br>' . tep_draw_pull_down_menu('move_to_category_id', newsdesk_get_category_tree('0', '', $cInfo->categories_id), $current_category_id));
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           case 'delete_product':
@@ -1044,7 +1044,7 @@ p.newsdesk_date_added desc
                                               $product_categories_string = substr($product_categories_string, 0, -4);
                                               $contents[] = array('text' => '<br>' . $product_categories_string);
                                               $contents[] = array('text' => '<br>' . TEXT_DELETE_IMAGE_INTRO);
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           case 'move_product':
@@ -1054,7 +1054,7 @@ p.newsdesk_date_added desc
                                               $contents[] = array('text' => strip_tags(sprintf(TEXT_MOVE_NEWSDESK_INTRO, $pInfo->newsdesk_article_name)));
                                               $contents[] = array('text' => '<br>' . TEXT_INFO_CURRENT_CATEGORIES . '<br><b>' . newsdesk_output_generated_category_path($pInfo->newsdesk_id, 'product') . '</b>');
                                               $contents[] = array('text' => '<br>' . strip_tags(sprintf(TEXT_MOVE, $pInfo->newsdesk_article_name)) . '<br>' . tep_draw_pull_down_menu('move_to_category_id', newsdesk_get_category_tree(), $current_category_id));
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           case 'copy_to':
@@ -1065,7 +1065,7 @@ p.newsdesk_date_added desc
                                               $contents[] = array('text' => '<br>' . TEXT_INFO_CURRENT_CATEGORIES . '<br><b>' . newsdesk_output_generated_category_path($pInfo->newsdesk_id, 'product') . '</b>');
                                               $contents[] = array('text' => '<br>' . TEXT_CATEGORIES . '<br>' . tep_draw_pull_down_menu('categories_id', newsdesk_get_category_tree(), $current_category_id));
                                               $contents[] = array('text' => '<br>' . TEXT_HOW_TO_COPY . '<br>' . tep_draw_radio_field('copy_as', 'link', true) . ' ' . TEXT_COPY_AS_LINK . '<br>' . tep_draw_radio_field('copy_as', 'duplicate') . ' ' . TEXT_COPY_AS_DUPLICATE);
-                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_copy.png', IMAGE_COPY) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id) . '">' . IMAGE_CANCEL . '</a>');
+                                              $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_copy.png', IMAGE_COPY) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id) . '">' . IMAGE_CANCEL . '</a>');
                                               break;
                                               
                                           default:
@@ -1078,12 +1078,12 @@ p.newsdesk_date_added desc
                                                       $heading[] = array('text' => '<b>' . $cInfo->categories_name . '</b>');
                                                       
                                                       if ($cPath)
-                                                          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, $cPath_back . '&cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>&nbsp;');
+                                                          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, $cPath_back . '&cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>&nbsp;');
                                                       if (!$_GET['search'])
-                                                          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_STORY . '</a>');
+                                                          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_STORY . '</a>');
                                                       
                                                       $contents[] = array('align' => 'center', 'text' => '
-<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=edit_category') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=delete_category') . '">' . IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=move_category') . '">' . IMAGE_MOVE . '</a>');
+<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=edit_category') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=delete_category') . '">' . IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=move_category') . '">' . IMAGE_MOVE . '</a>');
                                                       $contents[] = array('text' => '<br>' . TEXT_DATE_ADDED . ' ' . tep_date_short($cInfo->date_added));
                                                       if (tep_not_null($cInfo->last_modified))
                                                           $contents[] = array('text' => TEXT_LAST_MODIFIED . ' ' . tep_date_short($cInfo->last_modified));
@@ -1094,11 +1094,11 @@ p.newsdesk_date_added desc
                                                       $heading[] = array('text' => '<b>' . newsdesk_get_newsdesk_article_name($pInfo->newsdesk_id, $languages_id) . '</b>');
                                                       
                                                       if ($cPath)
-                                                          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, $cPath_back . '&cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>&nbsp;');
+                                                          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, $cPath_back . '&cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>&nbsp;');
                                                       if (!$_GET['search'])
-                                                          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_STORY . '</a>');
+                                                          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_STORY . '</a>');
                                                       
-                                                      $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=new_product') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=delete_product') . '">' . IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=move_product') . '">' . IMAGE_MOVE . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=copy_to') . '">' . IMAGE_COPY_TO . '</a>');
+                                                      $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=new_product') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=delete_product') . '">' . IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=move_product') . '">' . IMAGE_MOVE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&pID=' . $pInfo->newsdesk_id . '&action=copy_to') . '">' . IMAGE_COPY_TO . '</a>');
                                                       $contents[] = array('text' => '<br>' . TEXT_DATE_ADDED . ' ' . tep_date_short($pInfo->newsdesk_date_added));
                                                       if (tep_not_null($pInfo->newsdesk_last_modified))
                                                           $contents[] = array('text' => TEXT_LAST_MODIFIED . ' ' . tep_date_short($pInfo->newsdesk_last_modified));
@@ -1112,9 +1112,9 @@ p.newsdesk_date_added desc
                                                   $heading[] = array('text' => '<b>' . EMPTY_CATEGORY . '</b>');
                                                   
                                                   if ($cPath)
-                                                      $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, $cPath_back . '&cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>&nbsp;');
+                                                      $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, $cPath_back . '&cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>&nbsp;');
                                                   if (!$_GET['search'])
-                                                      $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_STORY . '</a>');
+                                                      $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_STORY . '</a>');
                                                   
                                                   $contents[] = array('text' => sprintf(TEXT_NO_CHILD_CATEGORIES_OR_story, $parent_categories_name));
                                               }

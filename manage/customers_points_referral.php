@@ -497,7 +497,7 @@ function validate(field) {
 ?>
                           <tr>
                             <td align="right" colspan="2"><?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL) . '">' . IMAGE_RESET . '</a>';
+      echo '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL) . '">' . IMAGE_RESET . '</a>';
 ?></td>
                           </tr>
                           <?php
@@ -524,7 +524,7 @@ function validate(field) {
           if ($uInfo->points_type == 'RV') {
               $contents[] = array('text' => tep_draw_hidden_field('products_name', $uInfo->products_name));
           }
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_confirm_points.gif', BUTTON_TEXT_CONFIRM_PENDING_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_confirm_points.gif', BUTTON_TEXT_CONFIRM_PENDING_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
           break;
       case 'cancel':
           $heading[] = array('text' => '<b>' . TEXT_CANCEL_POINTS . '</b>');
@@ -541,7 +541,7 @@ function validate(field) {
           if ($uInfo->points_type == 'RV') {
               $contents[] = array('text' => tep_draw_hidden_field('products_name', $uInfo->products_name));
           }
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_cancel_points.gif', BUTTON_TEXT_CANCEL_PENDING_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_cancel_points.gif', BUTTON_TEXT_CANCEL_PENDING_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
           break;
       case 'adjust':
           $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_ADJUST_POINTS . '</b>');
@@ -549,7 +549,7 @@ function validate(field) {
           $contents[] = array('text' => '<b>' . TEXT_INFO_HEADING_ADJUST_POINTS . '</b><br>');
           $value_field = TEXT_ADJUST_INTRO . '<br><br>' . TEXT_POINTS_TO_ADJUST . '<br>' . tep_draw_input_field('points_to_aj', '', 'onkeyup="validate(this)"');
           $contents[] = array('text' => $value_field);
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_adjust_points.gif', BUTTON_TEXT_ADJUST_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_adjust_points.gif', BUTTON_TEXT_ADJUST_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
           break;
       case 'rollback':
           $heading[] = array('text' => '<b>' . TEXT_ROLL_POINTS . '</b>');
@@ -567,25 +567,25 @@ function validate(field) {
           if ($uInfo->points_type == 'RV') {
               $contents[] = array('text' => tep_draw_hidden_field('products_name', $uInfo->products_name));
           }
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_rollback_points.gif', BUTTON_TEXT_ROLL_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_rollback_points.gif', BUTTON_TEXT_ROLL_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
           break;
       case 'delete':
           $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_RECORD . '</b>');
           $contents = array('form' => tep_draw_form('points_delete', FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete_points'));
           $contents[] = array('text' => TEXT_DELETE_INTRO);
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', BUTTON_TEXT_REMOVE_RECORD) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', BUTTON_TEXT_REMOVE_RECORD) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id) . '">' . IMAGE_CANCEL . '</a>');
           break;
       default:
           if (isset($uInfo) && is_object($uInfo)) {
               $heading[] = array('text' => '<b>' . $uInfo->customers_firstname . ' ' . $uInfo->customers_lastname . '</b>');
               if ($uInfo->points_status == 1) {
-                  $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=confirm') . '">' . BUTTON_TEXT_CONFIRM_PENDING_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=cancel') . '">' . BUTTON_TEXT_CANCEL_PENDING_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=adjust') . '">' . BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $uInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete') . '">' . BUTTON_TEXT_REMOVE_RECORD . '</a>');
+                  $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=confirm') . '">' . BUTTON_TEXT_CONFIRM_PENDING_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=cancel') . '">' . BUTTON_TEXT_CANCEL_PENDING_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=adjust') . '">' . BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $uInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete') . '">' . BUTTON_TEXT_REMOVE_RECORD . '</a>');
               }
               if ($uInfo->points_status == 2) {
-                  $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('action')) . 'uID=' . $uInfo->unique_id . '&action=rollback') . '">' . BUTTON_TEXT_ROLL_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $uInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a> <a class="button"  href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete') . '">' . BUTTON_TEXT_REMOVE_RECORD . '</a>');
+                  $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('action')) . 'uID=' . $uInfo->unique_id . '&action=rollback') . '">' . BUTTON_TEXT_ROLL_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $uInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a> <a class="btn button"  href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete') . '">' . BUTTON_TEXT_REMOVE_RECORD . '</a>');
               }
               if ($uInfo->points_status == 3) {
-                  $contents[] = array('text' => '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=confirm') . '">' . BUTTON_TEXT_CONFIRM_PENDING_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=adjust') . '">' . BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS . '?oID=' . $uInfo->orders_id . '&action=edit') . '">' . IMAGE_DETAILS . '</a> <a class="button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $uInfo->customers_email_address) . '">' . MAGE_EMAIL . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete') . '">' . BUTTON_TEXT_REMOVE_RECORD . '</a>');
+                  $contents[] = array('text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=confirm') . '">' . BUTTON_TEXT_CONFIRM_PENDING_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=adjust') . '">' . BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS . '?oID=' . $uInfo->orders_id . '&action=edit') . '">' . IMAGE_DETAILS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $uInfo->customers_email_address) . '">' . MAGE_EMAIL . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS_REFERRAL, tep_get_all_get_params(array('uID', 'action')) . 'uID=' . $uInfo->unique_id . '&action=delete') . '">' . BUTTON_TEXT_REMOVE_RECORD . '</a>');
               }
               if ($uInfo->points_comment == 'TEXT_DEFAULT_REFERRAL') {
                   $uInfo->points_comment = TEXT_DEFAULT_REFERRAL;

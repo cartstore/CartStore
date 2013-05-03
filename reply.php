@@ -99,7 +99,7 @@ if ($action=="newreply") {
   
  
    echo TEXT_SUBJECT . ': <INPUT TYPE="TEXT" NAME="subject" value="RE: ' . $last_title['title'] . '"> <BR>';
-   echo TEXT_MESSAGE . ': <TEXTAREA COLS=25 ROWS=10 name="m"></TEXTAREA><BR><input type="submit" class="button"><INPUT TYPE=HIDDEN NAME="action" VALUE="postreply"></FORM>';
+   echo TEXT_MESSAGE . ': <TEXTAREA COLS=25 ROWS=10 name="m"></TEXTAREA><BR><input type="submit" class="btn button"><INPUT TYPE=HIDDEN NAME="action" VALUE="postreply"></FORM>';
   echo '<TABLE WIDTH=100% BORDER=0>';
   echo '<br><br>' . TEXT_PREVIOUS . '<br>';
 

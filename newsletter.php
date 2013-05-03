@@ -119,7 +119,7 @@ require(DIR_WS_INCLUDES . 'header.php');
 				<input type="radio" name="list_on_off" value="0"><font size="-2">Unsubscribe</font>
 				<input type="hidden" name="check" value="20">
 			
-					  <input class="button" type="submit" border="0"  name="Submit" value="Submit"> 
+					  <input class="btn button" type="submit" border="0"  name="Submit" value="Submit"> 
 				   
 				  </form>
 				  

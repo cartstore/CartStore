@@ -179,8 +179,8 @@ function popupWindow(url) {
                           <td>
                             <table border="0" width="100%" cellspacing="0" cellpadding="2">
                               <tr>
-                                <td class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_INFO, tep_get_all_get_params()) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
-                                <td class="main" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
+                                <td class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_INFO, tep_get_all_get_params()) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                                <td class="main" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
                               </tr>
                             </table>
                           </td>

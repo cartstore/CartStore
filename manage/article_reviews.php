@@ -128,7 +128,7 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
         <td><?php echo tep_draw_separator('pixel_trans.png', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td align="right" class="main"><?php echo tep_draw_hidden_field('reviews_id', $rInfo->reviews_id) . tep_draw_hidden_field('articles_id', $rInfo->articles_id) . tep_draw_hidden_field('customers_name', $rInfo->customers_name) . tep_draw_hidden_field('articles_name', $rInfo->articles_name) . tep_draw_hidden_field('date_added', $rInfo->date_added) . tep_image_submit('button_preview.png', IMAGE_PREVIEW) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $_GET['rID']) . '">' .  IMAGE_CANCEL . '</a>'; ?></td>
+        <td align="right" class="main"><?php echo tep_draw_hidden_field('reviews_id', $rInfo->reviews_id) . tep_draw_hidden_field('articles_id', $rInfo->articles_id) . tep_draw_hidden_field('customers_name', $rInfo->customers_name) . tep_draw_hidden_field('articles_name', $rInfo->articles_name) . tep_draw_hidden_field('date_added', $rInfo->date_added) . tep_image_submit('button_preview.png', IMAGE_PREVIEW) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $_GET['rID']) . '">' .  IMAGE_CANCEL . '</a>'; ?></td>
       </form></tr>
 <?php
   } elseif ($action == 'preview') {
@@ -177,7 +177,7 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
       while(list($key, $value) = each($_POST)) echo tep_draw_hidden_field($key, $value);
 ?>
       <tr>
-        <td align="right" class="smallText"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=edit') . '">' . IMAGE_BACK . '</a> ' . tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id) . '">' .  IMAGE_CANCEL . '</a>'; ?></td>
+        <td align="right" class="smallText"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=edit') . '">' . IMAGE_BACK . '</a> ' . tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id) . '">' .  IMAGE_CANCEL . '</a>'; ?></td>
       </form></tr>
 <?php
     } else {
@@ -190,7 +190,7 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
       }
 ?>
       <tr>
-        <td align="right"><?php echo '<a class="button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>'; ?></td>
+        <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>'; ?></td>
       </tr>
 <?php
     }
@@ -262,13 +262,13 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
         $contents = array('form' => tep_draw_form('reviews', FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=deleteconfirm'));
         $contents[] = array('text' => TEXT_INFO_DELETE_REVIEW_INTRO);
         $contents[] = array('text' => '<br><b>' . $rInfo->articles_name . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id) . '">' .  IMAGE_CANCEL . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id) . '">' .  IMAGE_CANCEL . '</a>');
         break;
       default:
       if (isset($rInfo) && is_object($rInfo)) {
         $heading[] = array('text' => '<b>' . $rInfo->articles_name . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, 'page=' . $_GET['page'] . '&rID=' . $rInfo->reviews_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
         $contents[] = array('text' => '<br>' . TEXT_INFO_DATE_ADDED . ' ' . tep_date_short($rInfo->date_added));
         if (tep_not_null($rInfo->last_modified)) $contents[] = array('text' => TEXT_INFO_LAST_MODIFIED . ' ' . tep_date_short($rInfo->last_modified));
         $contents[] = array('text' => '<br>' . TEXT_INFO_REVIEW_AUTHOR . ' ' . $rInfo->customers_name);
@@ -278,11 +278,11 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
         $contents[] = array('text' => '<br>' . TEXT_INFO_ARTICLES_AVERAGE_RATING . ' ' . number_format($rInfo->average_rating, 2) . '%');
         if($rInfo->approved==0){
           $contents[] = array('align' => 'left', 'text' => '<br>' . TEXT_APPROVED . ': ' . TEXT_NO );
-          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('action', 'info')) . 'action=approve_review&rID=' . $rInfo->reviews_id, 'NONSSL') . '">' .  TEXT_APPROVE . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('action', 'info')) . 'action=approve_review&rID=' . $rInfo->reviews_id, 'NONSSL') . '">' .  TEXT_APPROVE . '</a>');
           }
         elseif($rInfo->approved==1) {
           $contents[] = array('align' => 'left', 'text' => '<br>' . TEXT_APPROVED . ': ' . TEXT_YES );
-          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('action', 'info')) . 'action=disapprove_review&rID=' . $rInfo->reviews_id, 'NONSSL') . '">' . TEXT_DISAPPROVE . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('action', 'info')) . 'action=disapprove_review&rID=' . $rInfo->reviews_id, 'NONSSL') . '">' . TEXT_DISAPPROVE . '</a>');
           }
         else{  
           $contents[] = array('align' => 'left', 'text' => '<br>&nbsp;' . TEXT_APPROVED . ': ' . "Unknown" );        

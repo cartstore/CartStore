@@ -2189,7 +2189,7 @@ Product extra fields help
 
 
 <?php
-	echo tep_draw_hidden_field('products_date_added', (tep_not_null($pInfo->products_date_added) ? $pInfo->products_date_added : date('Y-m-d'))) . tep_image_submit('button_preview.png', (isset($_GET['pID']) ? IMAGE_UPDATE : IMAGE_INSERT)) . '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
+	echo tep_draw_hidden_field('products_date_added', (tep_not_null($pInfo->products_date_added) ? $pInfo->products_date_added : date('Y-m-d'))) . tep_image_submit('button_preview.png', (isset($_GET['pID']) ? IMAGE_UPDATE : IMAGE_INSERT)) . '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
 ?>
 </div>
 </form>
@@ -2368,7 +2368,7 @@ Product extra fields help
               }
 ?>
   <?php
-              echo '<a class="button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
+              echo '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params, 'NONSSL') . '">' . IMAGE_BACK . '</a>';
 ?>
   <?php
               } else
@@ -2421,7 +2421,7 @@ Product extra fields help
                   } else {
                       echo tep_image_submit('button_insert.png', IMAGE_INSERT);
                   }
-                  echo '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
+                  echo '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '')) . '">' . IMAGE_CANCEL . '</a>';
 ?>
 </div>
 </form>
@@ -2589,9 +2589,9 @@ Product extra fields help
 ?></td>
             <td align="right" class="smallText"><?php
               if (sizeof($cPath_array) > 0)
-                  echo '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, $cPath_back . 'cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>';
+                  echo '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, $cPath_back . 'cID=' . $current_category_id) . '">' . IMAGE_BACK . '</a>';
               if (!isset($_GET['search']))
-                  echo '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>' . (isset($current_category_id) && $current_category_id != 0 ? '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_PRODUCT . '</a>' : '');
+                  echo '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&action=new_category') . '">' . IMAGE_NEW_CATEGORY . '</a>' . (isset($current_category_id) && $current_category_id != 0 ? '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&action=new_product') . '">' . IMAGE_NEW_PRODUCT . '</a>' : '');
 ?>
               </td>
           </tr>
@@ -2631,7 +2631,7 @@ Product extra fields help
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Description' . $category_htc_desc_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Keywords' . $category_htc_keywords_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Categories Description' . $category_htc_description_string);
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   case 'edit_category':
                       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_EDIT_CATEGORY . '</b>');
@@ -2661,7 +2661,7 @@ Product extra fields help
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Description' . $category_htc_desc_string);
                       $contents[] = array('text' => '<br>' . 'Header Tags Category Keywords' . $category_htc_keywords_string);
                       $contents[] = array('text' => '<br>' . 'Categories Description' . $category_htc_description_string);
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   case 'delete_category':
                       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_CATEGORY . '</b>');
@@ -2672,14 +2672,14 @@ Product extra fields help
                           $contents[] = array('text' => '<br>' . sprintf(TEXT_DELETE_WARNING_CHILDS, $cInfo->childs_count));
                       if ($cInfo->products_count > 0)
                           $contents[] = array('text' => '<br>' . sprintf(TEXT_DELETE_WARNING_PRODUCTS, $cInfo->products_count));
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   case 'move_category':
                       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_MOVE_CATEGORY . '</b>');
                       $contents = array('form' => tep_draw_form('categories', FILENAME_CATEGORIES, 'action=move_category_confirm&cPath=' . $cPath) . tep_draw_hidden_field('categories_id', $cInfo->categories_id));
                       $contents[] = array('text' => sprintf(TEXT_MOVE_CATEGORIES_INTRO, $cInfo->categories_name));
                       $contents[] = array('text' => '<br>' . sprintf(TEXT_MOVE, $cInfo->categories_name) . '<br>' . tep_draw_pull_down_menu('move_to_category_id', tep_get_category_tree(), $current_category_id));
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   case 'delete_product':
                       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_PRODUCT . '</b>');
@@ -2698,7 +2698,7 @@ Product extra fields help
                       }
                       $product_categories_string = substr($product_categories_string, 0, -4);
                       $contents[] = array('text' => '<br>' . $product_categories_string);
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   case 'move_product':
                       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_MOVE_PRODUCT . '</b>');
@@ -2706,7 +2706,7 @@ Product extra fields help
                       $contents[] = array('text' => sprintf(TEXT_MOVE_PRODUCTS_INTRO, $pInfo->products_name));
                       $contents[] = array('text' => '<br>' . TEXT_INFO_CURRENT_CATEGORIES . '<br><b>' . tep_output_generated_category_path($pInfo->products_id, 'product') . '</b>');
                       $contents[] = array('text' => '<br>' . sprintf(TEXT_MOVE, $pInfo->products_name) . '<br>' . tep_draw_pull_down_menu('move_to_category_id', tep_get_category_tree(), $current_category_id));
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_move.png', IMAGE_MOVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   case 'copy_to':
                       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_COPY_TO . '</b>');
@@ -2715,13 +2715,13 @@ Product extra fields help
                       $contents[] = array('text' => '<br>' . TEXT_INFO_CURRENT_CATEGORIES . '<br><b>' . tep_output_generated_category_path($pInfo->products_id, 'product') . '</b>');
                       $contents[] = array('text' => '<br>' . TEXT_CATEGORIES . '<br>' . tep_draw_pull_down_menu('categories_id', tep_get_category_tree(), $current_category_id));
                       $contents[] = array('text' => '<br>' . TEXT_HOW_TO_COPY . '<br>' . tep_draw_radio_field('copy_as', 'link', true) . ' ' . TEXT_COPY_AS_LINK . '<br>' . tep_draw_radio_field('copy_as', 'duplicate') . ' ' . TEXT_COPY_AS_DUPLICATE);
-                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_copy.png', IMAGE_COPY) . ' <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id) . '">' . IMAGE_CANCEL . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_copy.png', IMAGE_COPY) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id) . '">' . IMAGE_CANCEL . '</a>');
                       break;
                   default:
                       if ($rows > 0) {
                           if (isset($cInfo) && is_object($cInfo)) {
                               $heading[] = array('text' => '<b>' . $cInfo->categories_name . '</b>');
-                              $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=edit_category') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=delete_category') . '">' . IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=move_category') . '">' . IMAGE_MOVE . '</a>');
+                              $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=edit_category') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=delete_category') . '">' . IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&cID=' . $cInfo->categories_id . '&action=move_category') . '">' . IMAGE_MOVE . '</a>');
                               $contents[] = array('text' => '<br>' . TEXT_DATE_ADDED . ' ' . tep_date_short($cInfo->date_added));
                               if (tep_not_null($cInfo->last_modified))
                                   $contents[] = array('text' => TEXT_LAST_MODIFIED . ' ' . tep_date_short($cInfo->last_modified));
@@ -2733,7 +2733,7 @@ Product extra fields help
                                   $current_vendor_name = $vendors_2['vendors_name'];
                               }
                               $heading[] = array('text' => '<b>' . tep_get_products_name($pInfo->products_id, $languages_id) . '</b>');
-                              $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=new_product') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=delete_product') . '">' . IMAGE_DELETE . '</a><a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=move_product') . '">' . IMAGE_MOVE . '</a> <a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=copy_to') . '">' . IMAGE_COPY_TO . '</a><a class="button" href="./new_attributes.php?action=select&current_product_id=' . $pInfo->products_id . '&cPath=' . $cPath . '">Edit Attributes</a><a class="button" href="' . tep_href_link("stock.php", 'product_id=' . $pInfo->products_id) . '">' . Stock . '</a><a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=promote') . '">Promote</a>');
+                              $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=new_product') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=delete_product') . '">' . IMAGE_DELETE . '</a><a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=move_product') . '">' . IMAGE_MOVE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=copy_to') . '">' . IMAGE_COPY_TO . '</a><a class="btn button" href="./new_attributes.php?action=select&current_product_id=' . $pInfo->products_id . '&cPath=' . $cPath . '">Edit Attributes</a><a class="btn button" href="' . tep_href_link("stock.php", 'product_id=' . $pInfo->products_id) . '">' . Stock . '</a><a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=promote') . '">Promote</a>');
 //$contents[] = array('align' => 'center', 'text' => '<a href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=new_product') . '">' . tep_image_button('button_edit.gif', IMAGE_EDIT) . '</a> <a href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=delete_product') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=move_product') . '">' . tep_image_button('button_move.gif', IMAGE_MOVE) . '</a> <a href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=copy_to') . '">' . tep_image_button('button_copy_to.gif', IMAGE_COPY_TO) . '</a>' . ' <a href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $pInfo->products_id . '&action=promote') . '">Promote</a>');
                               $contents[] = array('text' => '<br>' . TEXT_DATE_ADDED . ' ' . tep_date_short($pInfo->products_date_added));
                               if (tep_not_null($pInfo->products_last_modified))

@@ -53,7 +53,7 @@
                         '    <td>' . tep_draw_separator('pixel_trans.png', '1', '10') . '</td>' . "\n" .
                         '  </tr>' . "\n" .
                         '  <tr>' . "\n" .
-                        '    <td align="right"><a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'] . '&action=confirm_send') . '">' . IMAGE_SEND . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_CANCEL . '</a></td>' . "\n" .
+                        '    <td align="right"><a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID'] . '&action=confirm_send') . '">' . IMAGE_SEND . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_CANCEL . '</a></td>' . "\n" .
                         '  </tr>' . "\n" .
                         '</table>';
 

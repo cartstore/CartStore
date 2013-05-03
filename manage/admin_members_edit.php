@@ -297,7 +297,7 @@ echo '&nbsp;<a href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $
                 <td colspan="2"><table border="0" width="100%" cellspacing="0" cellpadding="2">
                   <tr>
                     <td class="smallText" valign="top"><?php echo TEXT_COUNT_GROUPS . $count_groups; ?></td>
-                    <td class="smallText" valign="top" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT) . '">' .  IMAGE_BACK . '</a> <a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gID=' . $gInfo->admin_id . '&action=new_group') . '">' .  IMAGE_NEW_GROUP . '</a>'; ?>&nbsp;</td>
+                    <td class="smallText" valign="top" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT) . '">' .  IMAGE_BACK . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gID=' . $gInfo->admin_id . '&action=new_group') . '">' .  IMAGE_NEW_GROUP . '</a>'; ?>&nbsp;</td>
                   </tr>
                 </table></td>
               </tr>
@@ -378,7 +378,7 @@ echo '&nbsp;<a href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $
       $contents[] = array('text' => tep_draw_hidden_field('set_admin_id', substr($add_groups_prepare, 4)) );
       $contents[] = array('text' => TEXT_INFO_GROUPS_NAME . '<br>');
       $contents[] = array('align' => 'center', 'text' => tep_draw_input_field('admin_firstname'));
-      $contents[] = array('align' => 'center', 'text' => '<br><a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' . IMAGE_CANCEL . '</a> ' . tep_image_submit('button_next.png', IMAGE_NEXT) );
+      $contents[] = array('align' => 'center', 'text' => '<br><a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' . IMAGE_CANCEL . '</a> ' . tep_image_submit('button_next.png', IMAGE_NEXT) );
       break;
     case 'edit_group':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_EDIT_GROUP . '</b>');
@@ -390,7 +390,7 @@ echo '&nbsp;<a href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $
         $contents[] = array('text' => TEXT_INFO_GROUPS_NAME_USED . '<br>&nbsp;');
       }
       $contents[] = array('align' => 'center', 'text' => TEXT_INFO_EDIT_GROUP_INTRO . '<br>&nbsp;<br>' . tep_draw_input_field('admin_firstname', $gInfo->admin_firstname));
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     case 'del_group':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_GROUPS . '</b>');
@@ -398,11 +398,11 @@ echo '&nbsp;<a href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $
       $contents = array('form' => tep_draw_form('delete_group', FILENAME_ADMIN_MEMBERS_EDIT, 'action=group_delete&gID=' . $gInfo->admin_id, 'post', 'enctype="multipart/form-data"'));
       if ($gInfo->admin_id == 1) {
         $contents[] = array('align' => 'center', 'text' => sprintf(TEXT_INFO_DELETE_GROUPS_INTRO_NOT, $gInfo->admin_firstname));
-        $contents[] = array('align' => 'center', 'text' => '<br><a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' .  IMAGE_BACK . '</a><br>&nbsp;');
+        $contents[] = array('align' => 'center', 'text' => '<br><a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' .  IMAGE_BACK . '</a><br>&nbsp;');
       } else {
         $contents[] = array('text' => tep_draw_hidden_field('set_admin_id', substr($del_groups_prepare, 4)) );
         $contents[] = array('align' => 'center', 'text' => sprintf(TEXT_INFO_DELETE_GROUPS_INTRO, $gInfo->admin_firstname));
-        $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' . IMAGE_CANCEL . '</a><br>&nbsp;');
+        $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $_GET['gPath']) . '">' . IMAGE_CANCEL . '</a><br>&nbsp;');
       }
       break;
     case 'define_group':
@@ -410,7 +410,7 @@ echo '&nbsp;<a href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $
 
       $contents[] = array('text' => sprintf(TEXT_INFO_DEFINE_INTRO, $group_name['admin_firstname'], '&nbsp;', $group_name['admin_lastname']));
       if ($_GET['gPath'] == 1) {
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT) . '">' .  IMAGE_CANCEL . '</a><br>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT) . '">' .  IMAGE_CANCEL . '</a><br>');
       }
       break;
 
@@ -431,7 +431,7 @@ $admin_files_id = $admin_access['admin_files_id'];
 		 $contents[] = array('text' => tep_draw_radio_field('admin_access_values', '4', false) . ' ' . TEXT_INFO_READ_ONLY);
 		 $contents[] = array('text' => tep_draw_radio_field('admin_access_values', '5', false) . ' ' . TEXT_INFO_FORBIDDEN);
 
-	$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE, 'onClick="validateForm();return document.returnValue"') . ' <a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'page=' . $_GET['page'] . '&mID=' . $_GET['mID']) . '">' .  IMAGE_CANCEL . '</a>');
+	$contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE, 'onClick="validateForm();return document.returnValue"') . ' <a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'page=' . $_GET['page'] . '&mID=' . $_GET['mID']) . '">' .  IMAGE_CANCEL . '</a>');
 	  echo '</form>';
 	  break;
 
@@ -459,7 +459,7 @@ while($admin_edit = tep_db_fetch_array($admin_edit_query)){
 		$contents[] = array('text' => tep_draw_checkbox_field('delete_value', '1', $delete_value) . ' '.  TEXT_DELETE_ACCESS_VALUE);
 
    }
-	 $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE, 'onClick="validateForm();return document.returnValue"') . ' <a  class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT) . '">' .  IMAGE_CANCEL . '</a>');
+	 $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE, 'onClick="validateForm();return document.returnValue"') . ' <a  class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT) . '">' .  IMAGE_CANCEL . '</a>');
 	  echo '</form>';
     break;
 
@@ -483,7 +483,7 @@ while($admin_edit = tep_db_fetch_array($admin_edit_query)){
     default:
       if (is_object($mInfo)) {
         $heading[] = array('text' => '<b>&nbsp;' . TEXT_INFO_HEADING_DEFAULT . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $mInfo->admin_id . '&action=define_group') . '">' . IMAGE_FILE_PERMISSION . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $mInfo->admin_id . '&action=define_group') . '">' . IMAGE_FILE_PERMISSION . '</a>');
         $contents[] = array('text' => '&nbsp;<b>' . TEXT_INFO_FULLNAME . '</b><br>&nbsp;' . $mInfo->admin_firstname . ' ' . $mInfo->admin_lastname);
         $contents[] = array('text' => '&nbsp;<b>' . TEXT_INFO_EMAIL . '</b><br>&nbsp;' . $mInfo->admin_email_address);
         $contents[] = array('text' => '&nbsp;<b>' . TEXT_INFO_GROUP . '</b>' . $mInfo->admin_firstname);
@@ -495,7 +495,7 @@ while($admin_edit = tep_db_fetch_array($admin_edit_query)){
       } elseif (is_object($gInfo)) {
         $heading[] = array('text' => '<b>&nbsp;' . TEXT_INFO_HEADING_DEFAULT_GROUPS . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $gInfo->admin_id . '&action=define_group') . '">' .  IMAGE_FILE_PERMISSION . '</a> ');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_MEMBERS_EDIT, 'gPath=' . $gInfo->admin_id . '&action=define_group') . '">' .  IMAGE_FILE_PERMISSION . '</a> ');
         $contents[] = array('text' => '<br>' . TEXT_INFO_DEFAULT_GROUPS_INTRO . '<br>&nbsp');
       }
   }

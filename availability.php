@@ -190,7 +190,7 @@ function valid()
       } 
 ?>
                     <tr>
-                      <td colspan="8" align="center"><input type="submit" class="button" name="sb" value="Select & Close">
+                      <td colspan="8" align="center"><input type="submit" class="btn button" name="sb" value="Select & Close">
                         &nbsp;
                         <input type="button" value="Cancel" onClick="window.close();"></td>
                     </tr>

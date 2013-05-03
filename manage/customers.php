@@ -1036,7 +1036,7 @@ function check_form() {
         <td><?php echo tep_draw_separator('pixel_trans.png', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td align="right" class="main"><?php echo tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
+        <td align="right" class="main"><?php echo tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
       </tr></form>
 <?php
   } else {
@@ -1190,7 +1190,7 @@ function check_form() {
     if (isset($_GET['search']) && tep_not_null($_GET['search'])) {
 ?>
                   <tr>
-                    <td align="right" colspan="2"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS) . '">' . IMAGE_RESET . '</a>'; ?></td>
+                    <td align="right" colspan="2"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS) . '">' . IMAGE_RESET . '</a>'; ?></td>
                   </tr>
 <?php
     }
@@ -1252,7 +1252,7 @@ function check_form() {
       $contents = array('form' => tep_draw_form('customers', FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=deleteconfirm'));
       $contents[] = array('text' => TEXT_DELETE_INTRO . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
       if (isset($cInfo->number_of_reviews) && ($cInfo->number_of_reviews) > 0) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('delete_reviews', 'on', true) . ' ' . sprintf(TEXT_DELETE_REVIEWS, $cInfo->number_of_reviews));
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . IMAGE_CANCEL . '</a>');
       break;
     default:
       if (isset($cInfo) && is_object($cInfo)) {
@@ -1261,9 +1261,9 @@ function check_form() {
 // EOF Separate Pricing Per Customer
 
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm') . '">' .  IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' .  IMAGE_ORDERS . '</a> <a class="button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=confirm') . '">' .  IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' .  IMAGE_ORDERS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('../password_forgotten.php', 'cID=' . $cInfo->customers_id) . '" target="_BLANK">Send new password</a><br><a href="' . tep_href_link('create_order.php', 'Customer=' . $cInfo->customers_id) . '">Create Order</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link('../password_forgotten.php', 'cID=' . $cInfo->customers_id) . '" target="_BLANK">Send new password</a><br><a href="' . tep_href_link('create_order.php', 'Customer=' . $cInfo->customers_id) . '">Create Order</a>');
         $contents[] = array('text' => '<br>' . TEXT_DATE_ACCOUNT_CREATED . ' ' . tep_date_short($cInfo->date_account_created));
         $contents[] = array('text' => '<br>' . TEXT_DATE_ACCOUNT_LAST_MODIFIED . ' ' . tep_date_short($cInfo->date_account_last_modified));
         $contents[] = array('text' => '<br>' . TEXT_INFO_DATE_LAST_LOGON . ' '  . tep_date_short($cInfo->date_last_logon));

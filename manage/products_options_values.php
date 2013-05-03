@@ -238,7 +238,7 @@ require (DIR_WS_INCLUDES . 'header.php');
 ?>
                       </select>&nbsp;</td>
                       <td class="smallText"><?php echo $inputs; ?></td>
-                      <td align="center" class="smallText">&nbsp;<?php echo tep_image_submit('button_save.png', IMAGE_SAVE) . '<a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_OPTIONS_VALUES, $page_info, 'NONSSL'); ?>">Cancel</a>&nbsp;</td>
+                      <td align="center" class="smallText">&nbsp;<?php echo tep_image_submit('button_save.png', IMAGE_SAVE) . '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_OPTIONS_VALUES, $page_info, 'NONSSL'); ?>">Cancel</a>&nbsp;</td>
 				
 <?php
         echo '</form>';
@@ -247,7 +247,7 @@ require (DIR_WS_INCLUDES . 'header.php');
                       <td align="center" class="smallText">&nbsp;<?php echo $values_values["products_options_values_id"]; ?>&nbsp;</td>
                       <td align="center" class="smallText">&nbsp;<?php echo $options_name; ?>&nbsp;</td>
                       <td class="smallText">&nbsp;<?php echo $values_name; ?>&nbsp;</td>
-                      <td align="center" class="smallText">&nbsp;<?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_OPTIONS_VALUES, 'action=update_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info, 'NONSSL') . '">Edit</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_OPTIONS_VALUES, 'action=delete_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info, 'NONSSL'); ?>">Delete</a>&nbsp;
+                      <td align="center" class="smallText">&nbsp;<?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_OPTIONS_VALUES, 'action=update_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info, 'NONSSL') . '">Edit</a>&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_OPTIONS_VALUES, 'action=delete_option_value&value_id=' . $values_values['products_options_values_id'] . '&' . $page_info, 'NONSSL'); ?>">Delete</a>&nbsp;
 					      <?php echo tep_draw_hidden_field('products_options_values_id[]', $values_values['products_options_values_id']).tep_draw_hidden_field('options_values_sort', $values_values['sort_order']); ?>
 				      </td>
 <?php

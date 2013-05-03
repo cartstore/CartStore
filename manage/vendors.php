@@ -500,10 +500,10 @@ define('DEFAULT_VENDOR_ID', 7);
         <td align="right" class="main">
 
                 <?php
-                        if($action == 'new') { echo tep_image_submit('button_insert.png', IMAGE_INSERT) . ' <a class="button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; }
+                        if($action == 'new') { echo tep_image_submit('button_insert.png', IMAGE_INSERT) . ' <a class="btn button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; }
                 else { ?>
 
-                <?php echo tep_image_submit('button_update.png', IMAGE_UPDATE, 'action=update') . ' <a class="button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; ?>
+                <?php echo tep_image_submit('button_update.png', IMAGE_UPDATE, 'action=update') . ' <a class="btn button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('action'))) .'">' .  IMAGE_CANCEL . '</a>'; ?>
 
                 <?php }        ?>
 
@@ -571,7 +571,7 @@ define('DEFAULT_VENDOR_ID', 7);
     if (isset($_GET['search']) && tep_not_null($_GET['search'])) {
 ?>
                   <tr>
-                    <td align="right" colspan="2"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_VENDORS) . '">' .  IMAGE_RESET . '</a>'; ?></td>
+                    <td align="right" colspan="2"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_VENDORS) . '">' .  IMAGE_RESET . '</a>'; ?></td>
                   </tr>
 <?php
     }
@@ -594,7 +594,7 @@ define('DEFAULT_VENDOR_ID', 7);
        $contents = array('form' => tep_draw_form('vendor_delete', FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id . '&action=deleteconfirm'));
       $contents[] = array('text' => '<b>CAUTION!! ' . $num_products . ' products are assigned to this vendor! <br><br></b>' . TEXT_DELETE_INTRO . '<br><br><b>' . $vInfo->vendors_name . ' ' . $vInfo->vendors_contact . '</b>');
       $contents[] = array('text' => tep_draw_checkbox_field('delete_products', $vendors_id, false) . '&nbsp; Delete Products?');
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     default:
       if (isset($vInfo) && is_object($vInfo)) {
@@ -611,11 +611,11 @@ define('DEFAULT_VENDOR_ID', 7);
         $heading[] = array('text' => '<b>' . $vInfo->vendors_name . ' ' . $vInfo->vendors_contact . '</b>');
 
                 $contents[] = array('align' => 'center', 'text' => '
-                <a class="button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> 
-                ' . ($vInfo->vendors_id == DEFAULT_VENDOR_ID ? '' : '<a class="button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id . '&action=confirm') . '">' . IMAGE_DELETE . '</a>') . 
-                '<br><a class="button" href="' . tep_href_link(FILENAME_VENDOR_MODULES, 'set=shipping&vendors_id=' . $vInfo->vendors_id) . '">' .  IMAGE_MANAGE . '</a>
-                &nbsp;<a class="button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'action=new') . '">' . IMAGE_INSERT . '</a>
-                <br><a class="button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vendors_id=' . $vInfo->vendors_id) . '">' .  IMAGE_ORDERS . '</a><br><br>There are <strong>' . $num_orders . '</strong> orders for this Vendor.<br>This Vendor has <strong>' . $num_products . '</strong> products.<br>Click <a href="' . tep_href_link(FILENAME_PRODS_VENDORS, '&vendors_id=' . $vInfo->vendors_id) . '"><strong>here </strong></a>for Products Report<br>Click <a href="' . tep_href_link(FILENAME_STATS_VENDORS, '&vID=' . $vInfo->vendors_id) . '"><strong>here </strong></a>for Vendor Sales Report<strong> (Coming Soon)</strong>');
+                <a class="btn button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> 
+                ' . ($vInfo->vendors_id == DEFAULT_VENDOR_ID ? '' : '<a class="btn button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'vendors_id=' . $vInfo->vendors_id . '&action=confirm') . '">' . IMAGE_DELETE . '</a>') . 
+                '<br><a class="btn button" href="' . tep_href_link(FILENAME_VENDOR_MODULES, 'set=shipping&vendors_id=' . $vInfo->vendors_id) . '">' .  IMAGE_MANAGE . '</a>
+                &nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_VENDORS, tep_get_all_get_params(array('vendors_id', 'action')) . 'action=new') . '">' . IMAGE_INSERT . '</a>
+                <br><a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vendors_id=' . $vInfo->vendors_id) . '">' .  IMAGE_ORDERS . '</a><br><br>There are <strong>' . $num_orders . '</strong> orders for this Vendor.<br>This Vendor has <strong>' . $num_products . '</strong> products.<br>Click <a href="' . tep_href_link(FILENAME_PRODS_VENDORS, '&vendors_id=' . $vInfo->vendors_id) . '"><strong>here </strong></a>for Products Report<br>Click <a href="' . tep_href_link(FILENAME_STATS_VENDORS, '&vID=' . $vInfo->vendors_id) . '"><strong>here </strong></a>for Vendor Sales Report<strong> (Coming Soon)</strong>');
 
       }
       break;

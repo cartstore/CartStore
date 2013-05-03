@@ -116,7 +116,7 @@ function randomString() {
 
   name="oID" />
       <input type="hidden" value="edit" name="action">
-      <input type="submit" class="button" value="." />
+      <input type="submit" class="btn button" value="." />
       </form>
       <form method="get" action="customers.php" name="search" />
       <input
@@ -124,7 +124,7 @@ function randomString() {
   type="text" class="inputbox" onClick="value=''" value="Customer Search"
 
   name="search" />
-      <input type="submit" class="button" value="." />
+      <input type="submit" class="btn button" value="." />
       </form>
       <form method="get" action="categories.php" name="search">
         <input
@@ -132,7 +132,7 @@ function randomString() {
   type="text" class="inputbox" onClick="value=''" value="Product Search"
 
   name="search" />
-        <input type="submit" class="button" value="." />
+        <input type="submit" class="btn button" value="." />
       </form>
     </div>
   </div>

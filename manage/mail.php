@@ -148,7 +148,7 @@
                 <table border="0" width="100%" cellpadding="0" cellspacing="2">
                   <tr>
                     <td><?php echo tep_image_submit('button_back.png', IMAGE_BACK, 'name="back"'); ?></td>
-                    <td align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_MAIL) . '">' .  IMAGE_CANCEL . '</a> ' . tep_image_submit('button_send_mail.png', IMAGE_SEND_EMAIL); ?></td>
+                    <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_MAIL) . '">' .  IMAGE_CANCEL . '</a> ' . tep_image_submit('button_send_mail.png', IMAGE_SEND_EMAIL); ?></td>
                   </tr>
                 </table></td>
               </tr>

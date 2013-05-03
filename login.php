@@ -234,7 +234,7 @@ require (DIR_WS_INCLUDES . 'column_left.php');
 <b>Or Checkout Without an Account.</b>
  <P>Please note that all of our website account features will not be available to customers that do not wish to create an account.</P> 
 <div align="right"><?php
-					echo '<a class="button" href="' . tep_href_link ( FILENAME_CREATE_ACCOUNT, 'guest=guest', 'SSL' ) . '">Checkout!</a>';
+					echo '<a class="btn button" href="' . tep_href_link ( FILENAME_CREATE_ACCOUNT, 'guest=guest', 'SSL' ) . '">Checkout!</a>';
 					?>
 				<div class="clear" /></div>
 				</div>

@@ -195,8 +195,8 @@ $product_id=$product_info['products_id'];
                     <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                       <tr>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                        <td class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
-                        <td class="main" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, tep_get_all_get_params()) . '">' .  IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
+                        <td class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, tep_get_all_get_params()) . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                        <td class="main" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, tep_get_all_get_params()) . '">' .  IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                       </tr>
                     </table></td>
@@ -219,7 +219,7 @@ document.write('<?php echo '<span class="no_underline"><a class="general_link" h
 <?php
   }
 
-  echo '<p><a class="button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now') . '">' .  IMAGE_BUTTON_IN_CART . '</a></p>';
+  echo '<p><a class="btn button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now') . '">' .  IMAGE_BUTTON_IN_CART . '</a></p>';
 ?>
                 </td>
               </tr>

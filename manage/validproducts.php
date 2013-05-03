@@ -50,7 +50,7 @@ td {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: xx-small}
 <br>
 <table width="550" border="0" cellspacing="1">
 <tr>
-<td align=middle><input type="button" value="Close Window" onClick="window.close()"></td>
+<td align=middle><input type="btn button" value="Close Window" onClick="window.close()"></td>
 </tr></table>
 </body>
 </html>

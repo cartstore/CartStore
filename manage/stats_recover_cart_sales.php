@@ -85,7 +85,7 @@ Working...
          	       	<form method=post action=<?php echo $PHP_SELF;?> >
             	      <table align="right" width="100%">
                	     <tr class="dataTableContent" align="right">
-                  	    <td nowrap><?php echo DAYS_FIELD_PREFIX; ?><input class="inputbox" type=text size=4 width=4 value=<?php echo $tdate; ?> name=tdate><?php echo DAYS_FIELD_POSTFIX; ?><input class="button" type=submit value="<?php echo DAYS_FIELD_BUTTON; ?>"></td>
+                  	    <td nowrap><?php echo DAYS_FIELD_PREFIX; ?><input class="inputbox" type=text size=4 width=4 value=<?php echo $tdate; ?> name=tdate><?php echo DAYS_FIELD_POSTFIX; ?><input class="btn button" type=submit value="<?php echo DAYS_FIELD_BUTTON; ?>"></td>
    	                 </tr>
 	                  </table>
 			            </form>

@@ -205,7 +205,7 @@
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main" align="right"><?php echo (($form_action == 'insert') ? tep_image_submit('button_save.png', IMAGE_SAVE) : tep_image_submit('button_update.png', IMAGE_UPDATE)). '&nbsp;&nbsp;<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, (isset($_GET['page']) ? 'page=' . $_GET['page'] . '&' : '') . (isset($_GET['nID']) ? 'nID=' . $_GET['nID'] : '')) . '">' . IMAGE_CANCEL . '</a>'; ?></td>
+            <td class="main" align="right"><?php echo (($form_action == 'insert') ? tep_image_submit('button_save.png', IMAGE_SAVE) : tep_image_submit('button_update.png', IMAGE_UPDATE)). '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, (isset($_GET['page']) ? 'page=' . $_GET['page'] . '&' : '') . (isset($_GET['nID']) ? 'nID=' . $_GET['nID'] : '')) . '">' . IMAGE_CANCEL . '</a>'; ?></td>
           </tr>
         </table></td>
       </form></tr>
@@ -219,13 +219,13 @@
     $nInfo = new objectInfo($newsletter);
 ?>
       <tr>
-        <td align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+        <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_BACK . '</a>'; ?></td>
       </tr>
       <tr>
         <td><tt><?php echo nl2br($nInfo->content); ?></tt></td>
       </tr>
       <tr>
-        <td align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' . IMAGE_BACK . '</a>'; ?></td>
+        <td align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' . IMAGE_BACK . '</a>'; ?></td>
       </tr>
 <?php
   } elseif ($action == 'send') {
@@ -298,7 +298,7 @@
         <td><?php echo tep_draw_separator('pixel_trans.png', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td><?php echo '<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+        <td><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_BACK . '</a>'; ?></td>
       </tr>
 <?php
   } else {
@@ -347,7 +347,7 @@
                     <td class="smallText" align="right"><?php echo $newsletters_split->display_links($newsletters_query_numrows, MAX_DISPLAY_SEARCH_RESULTS, MAX_DISPLAY_PAGE_LINKS, $_GET['page']); ?></td>
                   </tr>
                   <tr>
-                    <td align="right" colspan="2"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'action=new') . '">' .  IMAGE_NEW_NEWSLETTER . '</a>'; ?></td>
+                    <td align="right" colspan="2"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'action=new') . '">' .  IMAGE_NEW_NEWSLETTER . '</a>'; ?></td>
                   </tr>
                 </table></td>
               </tr>
@@ -363,16 +363,16 @@
       $contents = array('form' => tep_draw_form('newsletters', FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=deleteconfirm'));
       $contents[] = array('text' => TEXT_INFO_DELETE_INTRO);
       $contents[] = array('text' => '<br><b>' . $nInfo->title . '</b>');
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $_GET['nID']) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     default:
       if (is_object($nInfo)) {
         $heading[] = array('text' => '<b>' . $nInfo->title . '</b>');
 
         if ($nInfo->locked > 0) {
-          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=new') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=preview') . '">' .  IMAGE_PREVIEW . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=send') . '">' . IMAGE_SEND . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=unlock') . '">' .  IMAGE_UNLOCK . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=new') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=preview') . '">' .  IMAGE_PREVIEW . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=send') . '">' . IMAGE_SEND . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=unlock') . '">' .  IMAGE_UNLOCK . '</a>');
         } else {
-          $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=preview') . '">' .  IMAGE_PREVIEW . '</a> <a class="button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=lock') . '">' .  IMAGE_LOCK . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=preview') . '">' .  IMAGE_PREVIEW . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_NEWSLETTERS, 'page=' . $_GET['page'] . '&nID=' . $nInfo->newsletters_id . '&action=lock') . '">' .  IMAGE_LOCK . '</a>');
         }
         $contents[] = array('text' => '<br>' . TEXT_NEWSLETTER_DATE_ADDED . ' ' . tep_date_short($nInfo->date_added));
         if ($nInfo->status == '1') $contents[] = array('text' => TEXT_NEWSLETTER_DATE_SENT . ' ' . tep_date_short($nInfo->date_sent));

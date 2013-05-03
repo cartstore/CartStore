@@ -172,7 +172,7 @@
 
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
 
-                <td align="right"><?php echo '<a class="button" href="' . $origin_href . '">Continue</a>'; ?></td>
+                <td align="right"><?php echo '<a class="btn button" href="' . $origin_href . '">Continue</a>'; ?></td>
 
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
 

@@ -41,7 +41,7 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
                      '<div class="model">Model: <span> ' . $extra_images['products_model'] . '</span></div>' .
                      '<div class="make">Make: <span>' . $extra_images['manufacturers_name'] . '</span></div>' .
                      '<a class="readon_p" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">More Info</a>' .
-                     ((HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])) ? '<a class="button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>' : '') .
+                     ((HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])) ? '<a class="btn button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>' : '') .
                      '</div>');
               $col++;
               if ($col > 2) {
@@ -76,7 +76,7 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
                         '<div class="model">Model: <span> ' . $extra_images['products_model'] . '</span></div>
                          <div class="make">Make: <span>' . $extra_images['manufacturers_name'] . '</span></div>
                          <a class="readon_p" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">More Info</a>' .
-                         ((HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])) ? '<a class="button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>' : '') .
+                         ((HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])) ? '<a class="btn button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>' : '') .
                          '</div>');
                   $col++;
                   if ($col > 2) {
@@ -130,15 +130,15 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
           while ($extra_images = tep_db_fetch_array($xsell_prod_query)) {
               $extra_images['products_name'] = tep_get_products_name($extra_images['products_id']);
               if ($extra_images['products_price'] > 0) {
-                  $newArea = '<a class="button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>';
+                  $newArea = '<a class="btn button" href="' . tep_href_link('index.php', 'products_id=' . $extra_images['products_id']) . '&action=buy_now">Add to Cart</a>';
                   $price = '<div class="price">' . $currencies->display_price($extra_images['products_price'], tep_get_tax_rate($extra_images['products_tax_class_id'])) . '</div>';
               } else {
-                  $newArea = '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">Read More</a>';
+                  $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">Read More</a>';
                   $price = '';
               }
               if (HIDE_PRICE_NON_LOGGED == "true" && empty($_SESSION['customer_id'])){
                 $price = '';
-                $newArea = '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">Read More</a>';
+                $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">Read More</a>';
               }
               $info_box_contents[$row][$col] = array('align' => '', 'params' => '', 'text' => '<div class="productWrap item' . $i++ . '"><div class="pimg"><center><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $extra_images['products_image'], $extra_images['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a></center></div><h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . $extra_images['products_name'] . '</a></h4>' . $price . '<div class="model">
               Model: <span> ' . $extra_images['products_model'] . '</span></div>

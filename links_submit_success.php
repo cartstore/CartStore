@@ -58,7 +58,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                <td align="right"><?php echo '<a class="button" href="' . $origin_href . '">' . IMAGE_BUTTON_CONTINUE . '</a>'; ?></td>
+                <td align="right"><?php echo '<a class="btn button" href="' . $origin_href . '">' . IMAGE_BUTTON_CONTINUE . '</a>'; ?></td>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
               </tr>
             </table></td>

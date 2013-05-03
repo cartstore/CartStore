@@ -72,7 +72,7 @@ $contents = '';
 		
  
 		<input type="hidden" name="action" value="updateimage">
-		<input type="submit" class="button" name="submit" value = "Update">
+		<input type="submit" class="btn button" name="submit" value = "Update">
 
  
 </form>

@@ -116,7 +116,7 @@
   if (empty($action)) {
 ?>
                   <tr>
-                    <td colspan="2" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ZONES, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_ZONE . '</a>'; ?></td>
+                    <td colspan="2" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ZONES, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_ZONE . '</a>'; ?></td>
                   </tr>
 <?php
   }

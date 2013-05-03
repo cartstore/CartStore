@@ -132,7 +132,7 @@ and pd.newsdesk_id = '" . $_GET['newsdesk_id'] . "' and pd.language_id = '" . $l
 
 if (!tep_db_num_rows($product_info)) { // product not found in database
 ?>
-            <?php echo TEXT_NEWS_NOT_FOUND; ?> <a class="button" href="<?php echo tep_href_link(FILENAME_DEFAULT, '', 'NONSSL'); ?>"><?php echo  ''.IMAGE_BUTTON_CONTINUE.''; ?></a>
+            <?php echo TEXT_NEWS_NOT_FOUND; ?> <a class="btn button" href="<?php echo tep_href_link(FILENAME_DEFAULT, '', 'NONSSL'); ?>"><?php echo  ''.IMAGE_BUTTON_CONTINUE.''; ?></a>
             <?php
 } else {
 	tep_db_query("update " . TABLE_NEWSDESK_DESCRIPTION . " set newsdesk_article_viewed = newsdesk_article_viewed+1 where newsdesk_id = '" . $_GET['newsdesk_id'] . "' and language_id = '" . $languages_id . "'");

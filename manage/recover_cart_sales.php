@@ -300,7 +300,7 @@ if (count($custid) > 0 ) {  ?>
 		$cline = "";
 	}
 	echo "<tr><td colspan=8 align='right' class='dataTableContent'><b>" . TABLE_CART_TOTAL . "</b>" . $currencies->format($tprice) . "</td> </tr>";
-	echo "<tr><td colspan=6 align='right'><a class=\"button\" href=" . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $tdate . "&sdate=" . $sdate) . ">" .  IMAGE_DELETE . "</a></td>  </tr>\n";
+	echo "<tr><td colspan=6 align='right'><a class=\"btn button\" href=" . tep_href_link(FILENAME_RECOVER_CART_SALES, "action=delete&customer_id=" . $cid . "&tdate=" . $tdate . "&sdate=" . $sdate) . ">" .  IMAGE_DELETE . "</a></td>  </tr>\n";
 	echo "<tr><td colspan=6 align=center><a href=".$PHP_SELF.">" . TEXT_RETURN . "</a></td></tr>";
 }
 else	 //we are NOT doing an e-mail to some customers
@@ -313,7 +313,7 @@ else	 //we are NOT doing an e-mail to some customers
                 <form method=post action=<?php echo $PHP_SELF;?> >
                   <table align="right" width="100%">
                     <tr class="dataTableContent" align="right">
-                      <td  nowrap><?php echo DAYS_FIELD_PREFIX; ?><input class="inputbox" type=text size=4 width=4 value=<?php echo $sdate; ?> name=sdate> - <input class="inputbox" type=text size=4 width=4 value=<?php echo $tdate; ?> name=tdate><?php echo DAYS_FIELD_POSTFIX; ?><input class="button" type=submit value="<?php echo DAYS_FIELD_BUTTON; ?>"></td>
+                      <td  nowrap><?php echo DAYS_FIELD_PREFIX; ?><input class="inputbox" type=text size=4 width=4 value=<?php echo $sdate; ?> name=sdate> - <input class="inputbox" type=text size=4 width=4 value=<?php echo $tdate; ?> name=tdate><?php echo DAYS_FIELD_POSTFIX; ?><input class="btn button" type=submit value="<?php echo DAYS_FIELD_BUTTON; ?>"></td>
                     </tr>
                   </table>
                 </form>
@@ -376,7 +376,7 @@ else	 //we are NOT doing an e-mail to some customers
                           <td class='dataTableContent' align='right' colspan='8'><b>" . TABLE_CART_TOTAL . "</b>" . $currencies->format($tprice) . "</td>
                         </tr>
                         <tr>
-                          <td colspan='6' align='right'><a class=\"button\" href=" . tep_href_link(FILENAME_RECOVER_CART_SALES,"action=delete&customer_id=" . $curcus . "&tdate=" . $tdate . "&sdate=" . $sdate) . ">" .  IMAGE_DELETE . "</a></td>
+                          <td colspan='6' align='right'><a class=\"btn button\" href=" . tep_href_link(FILENAME_RECOVER_CART_SALES,"action=delete&customer_id=" . $curcus . "&tdate=" . $tdate . "&sdate=" . $sdate) . ">" .  IMAGE_DELETE . "</a></td>
                         </tr>\n";
       if ($curcus != "" && !$skip)
         echo $cline;

@@ -160,7 +160,7 @@ $(document).ready(function() {
       <input type="password" class="inputbox" value="" name="password"/>
       <div class="clear"></div>
     </div>
-    <input type="submit" class="button" value="Login" />
+    <input type="submit" class="btn button" value="Login" />
     <br />
     <a href="password_forgotten.php" class="readon">Forgot Password?</a>
     <div class="clear"></div>

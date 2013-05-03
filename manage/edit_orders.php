@@ -1015,7 +1015,7 @@ document.onmousemove=positiontip
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE . '&nbsp;(' . HEADING_TITLE_NUMBER . '&nbsp;' . $oID . '&nbsp;' . HEADING_TITLE_DATE  . '&nbsp;' . tep_datetime_short($order->info['date_purchased']) . ')'; ?></td>
             <td class="pageHeading2" align="right"></td>
-             <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $_GET['oID'] . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' .  IMAGE_ORDERS_INVOICE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> '; ?></td>
+             <td class="pageHeading" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $_GET['oID'] . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' .  IMAGE_ORDERS_INVOICE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> '; ?></td>
           </tr>
 		</table></td>
       </tr>
@@ -1456,7 +1456,7 @@ if($action == "add_product")
             <tr>
 		      <td class="pageHeading"><?php echo ADDING_TITLE; ?> (No. <?php echo $oID; ?>)</td>
               <td class="pageHeading2" align="right"></td>
-              <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+              <td class="pageHeading" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
             </tr>
           </table>
 				</td>
@@ -1579,7 +1579,7 @@ if($action == "add_product")
 		}
 
 				echo '</td>';
-				echo '<td class="dataTableContent" align="center"><input type="submit" class="button" value="' . ADDPRODUCT_TEXT_OPTIONS_CONFIRM . '">';
+				echo '<td class="dataTableContent" align="center"><input type="submit" class="btn button" value="' . ADDPRODUCT_TEXT_OPTIONS_CONFIRM . '">';
 				echo '<input type="hidden" name="add_product_categories_id" value=' . $_POST['add_product_categories_id']. '>';
 				echo '<input type="hidden" name="add_product_products_id" value=' . $_POST['add_product_products_id'] . '>';
 				echo '<input type="hidden" name="step" value="4">';

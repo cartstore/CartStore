@@ -386,7 +386,7 @@ else
   echo tep_address_label($customer_id, $billto, true, ' ', '<br>');
 ?></td>
         	<td>  <?php
-  echo '<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL') . '"><span class="ui-icon ui-icon-gear" style="float:left";></span>Change Address</a>';
+  echo '<a class="btn button" href="' . tep_href_link(FILENAME_CHECKOUT_PAYMENT_ADDRESS, '', 'SSL') . '"><span class="ui-icon ui-icon-gear" style="float:left";></span>Change Address</a>';
 ?></td>
         </tr>
         	</table>

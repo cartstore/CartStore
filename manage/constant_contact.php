@@ -172,13 +172,13 @@
 		  $contents[] = array('text' => '<br><br>');
           $contents[] = array('text' => TEXT_INFO_CUSTOMER_LASTNAME . ' ' . tep_draw_checkbox_field('c_lastname'));
 		    $contents[] = array('text' =>'<br><br>');
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . ' <a class="button" href="' . tep_href_link(FILENAME_CONSTANT_CONTACT, 'page=' . $_GET['page'] . '&dID=' . $_GET['dID']) . '">Cancel</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CONSTANT_CONTACT, 'page=' . $_GET['page'] . '&dID=' . $_GET['dID']) . '">Cancel</a>');
           break;
       case 'delete':
           $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_DELETE_DUMP . '</b>');
           $contents[] = array('text' => TEXT_INFO_DELETE_INTRO);
           $contents[] = array('text' => '<br><b>' . $_GET['dID'] . '</b>');
-          $contents[] = array('align' => 'center', 'text' => '<br><a href="' . tep_href_link(FILENAME_CONSTANT_CONTACT, 'page=' . $_GET['page'] . '&dID=' . $_GET['dID'] . '&action=deleteconfirm') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a class="button" href="' . tep_href_link(FILENAME_CONSTANT_CONTACT, 'page=' . $_GET['page'] . '&dID=' . $_GET['dID']) . '">Cancel</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br><a href="' . tep_href_link(FILENAME_CONSTANT_CONTACT, 'page=' . $_GET['page'] . '&dID=' . $_GET['dID'] . '&action=deleteconfirm') . '">' . tep_image_button('button_delete.gif', IMAGE_DELETE) . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CONSTANT_CONTACT, 'page=' . $_GET['page'] . '&dID=' . $_GET['dID']) . '">Cancel</a>');
           break;
       default:
           if (tep_not_null($_GET["dID"])) {

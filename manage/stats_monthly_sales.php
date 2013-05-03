@@ -613,7 +613,7 @@ if ($num_rows>0 && !$print) {
 				else $sel_month_2 = $sel_month;
 				if ($sel_month<>0) echo $sel_year . $sel_month_2 . "_";
 				if (strpos($orders_status_text,' ')) echo substr($orders_status_text, 0, strpos($orders_status_text,' ')) . "_" . date("YmdHi"); else echo $orders_status_text . "_" . date("YmdHi");
-				?>'><input type="submit" class="button" value="<?php echo TEXT_BUTTON_REPORT_SAVE ;?>"></form>
+				?>'><input type="submit" class="btn button" value="<?php echo TEXT_BUTTON_REPORT_SAVE ;?>"></form>
 				</td>
 </tr>
 <?php }; // end button for Save CSV ?>

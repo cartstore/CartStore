@@ -127,7 +127,7 @@
 
 <td  width="'.SMALL_IMAGE_WIDTH.'">' . '<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
 
-<div id="remove-icon">		<a class="button" href="'.tep_href_link(FILENAME_SHOPPING_CART, 'action=update_product&cart_delete[]=' . $products[$i]['id'] . '&products_id[]=' . $products[$i]['id']).'">Remove</a></div>
+<div id="remove-icon">		<a class="btn button" href="'.tep_href_link(FILENAME_SHOPPING_CART, 'action=update_product&cart_delete[]=' . $products[$i]['id'] . '&products_id[]=' . $products[$i]['id']).'">Remove</a></div>
 
 
 
@@ -255,7 +255,7 @@
         	 	  
 	 
         	
-        	<a class="button" href="javascript:history.go(-1)">Back</a>
+        	<a class="btn button" href="javascript:history.go(-1)">Back</a>
 <?php
           $back = sizeof($navigation->path) - 2;
           if (isset($navigation->path[$back])) {
@@ -265,7 +265,7 @@
           }
 ?>
           <?php
-          echo '<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '">Checkout ' . $currencies->format($cart->show_total()) .'</a>';
+          echo '<a class="btn button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '">Checkout ' . $currencies->format($cart->show_total()) .'</a>';
 ?>
              </div>
             </form>
@@ -315,7 +315,7 @@
               new infoBox(array(array('text' => TEXT_CART_EMPTY)));
 ?><br>
       <?php
-              echo '<a class="button" href="javascript:history.go(-1)">' . IMAGE_BUTTON_CONTINUE . '</a>';
+              echo '<a class="btn button" href="javascript:history.go(-1)">' . IMAGE_BUTTON_CONTINUE . '</a>';
 ?>
 <?php
           }

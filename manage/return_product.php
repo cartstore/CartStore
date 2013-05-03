@@ -318,7 +318,7 @@ if ($_GET['action'] == 'sent'){
           </tr>
 
          <tr>
-            <td align="right" valign=bottom><br><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+            <td align="right" valign=bottom><br><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS) . '">' .  IMAGE_BACK . '</a>'; ?></td>
          </tr>
         </table></td>
       </tr>

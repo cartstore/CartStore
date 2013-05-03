@@ -19,7 +19,7 @@
             Unsubscribe
             <input type="radio" name="list_on_off" value="0" />
             <input type="hidden" name="check" value="20" />
-            <input type="submit" value="subscribe" class="button" />
+            <input type="submit" value="subscribe" class="btn button" />
             <br />
             <div class="clear"></div>
           </form>

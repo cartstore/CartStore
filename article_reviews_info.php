@@ -118,8 +118,8 @@ function popupWindow(url) {
                     <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                       <tr>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                        <td class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
-                        <td class="main" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
+                        <td class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                        <td class="main" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS_WRITE, tep_get_all_get_params(array('reviews_id'))) . '">' .  IMAGE_BUTTON_WRITE_REVIEW . '</a>'; ?></td>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                       </tr>
                     </table></td>

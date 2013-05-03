@@ -179,7 +179,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $usps_text = 'USPS(1): ';
                           $usps_track_num_noblanks = str_replace(' ', '', $usps_track_num);
                           $usps_link = 'http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=' . $usps_track_num_noblanks;
-                          $usps_track = '<a class="button" target="_blank" href="' . $usps_link . '">' . $usps_track_num . '</a>' . "\n";
+                          $usps_track = '<a class="btn button" target="_blank" href="' . $usps_link . '">' . $usps_track_num . '</a>' . "\n";
                       } //else
                       if ($usps_track_num2 == null) {
                           $usps_text2 = '';
@@ -189,7 +189,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $usps_text2 = 'USPS(2): ';
                           $usps_track_num2_noblanks = str_replace(' ', '', $usps_track_num2);
                           $usps_link2 = 'http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=' . $usps_track_num2_noblanks;
-                          $usps_track2 = '<a class="button" target="_blank" href="' . $usps_link2 . '">' . $usps_track_num2 . '</a>' . "\n";
+                          $usps_track2 = '<a class="btn button" target="_blank" href="' . $usps_link2 . '">' . $usps_track_num2 . '</a>' . "\n";
                       } //else
                       if ($ups_track_num == null) {
                           $ups_text = '';
@@ -199,7 +199,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $ups_text = 'UPS(1): ';
                           $ups_track_num_noblanks = str_replace(' ', '', $ups_track_num);
                           $ups_link = 'http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=' . $ups_track_num_noblanks . '&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package ';
-                          $ups_track = '<a class="button" target="_blank" href="' . $ups_link . '">' . $ups_track_num . '</a>' . "\n";
+                          $ups_track = '<a class="btn button" target="_blank" href="' . $ups_link . '">' . $ups_track_num . '</a>' . "\n";
                       } //else
                       if ($ups_track_num2 == null) {
                           $ups_text2 = '';
@@ -209,7 +209,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $ups_text2 = 'UPS(2): ';
                           $ups_track_num2_noblanks = str_replace(' ', '', $ups_track_num2);
                           $ups_link2 = 'http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=' . $ups_track_num2_noblanks . '&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package ';
-                          $ups_track2 = '<a class="button" target="_blank" href="' . $ups_link2 . '">' . $ups_track_num2 . '</a>' . "\n";
+                          $ups_track2 = '<a class="btn button" target="_blank" href="' . $ups_link2 . '">' . $ups_track_num2 . '</a>' . "\n";
                       } //else
                       if ($fedex_track_num == null) {
                           $fedex_text = '';
@@ -219,7 +219,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $fedex_text = 'Fedex(1): ';
                           $fedex_track_num_noblanks = str_replace(' ', '', $fedex_track_num);
                           $fedex_link = 'http://www.fedex.com/Tracking?tracknumbers=' . $fedex_track_num_noblanks . '&action=track&language=english&cntry_code=us';
-                          $fedex_track = '<a class="button" target="_blank" href="' . $fedex_link . '">' . $fedex_track_num . '</a>' . "\n";
+                          $fedex_track = '<a class="btn button" target="_blank" href="' . $fedex_link . '">' . $fedex_track_num . '</a>' . "\n";
                       } //else
                       if ($fedex_track_num2 == null) {
                           $fedex_text2 = '';
@@ -229,7 +229,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $fedex_text2 = 'Fedex(2): ';
                           $fedex_track_num2_noblanks = str_replace(' ', '', $fedex_track_num2);
                           $fedex_link2 = 'http://www.fedex.com/Tracking?tracknumbers=' . $fedex_track_num2_noblanks . '&action=track&language=english&cntry_code=us';
-                          $fedex_track2 = '<a class="button" target="_blank" href="' . $fedex_link2 . '">' . $fedex_track_num2 . '</a>' . "\n";
+                          $fedex_track2 = '<a class="btn button" target="_blank" href="' . $fedex_link2 . '">' . $fedex_track_num2 . '</a>' . "\n";
                       } //else
                       if ($dhl_track_num == null) {
                           $dhl_text = '';
@@ -239,7 +239,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $dhl_text = 'DHL(1): ';
                           $dhl_track_num_noblanks = str_replace(' ', '', $dhl_track_num);
                           $dhl_link = 'http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=' . $dhl_track_num_noblanks . '&action=track&language=english&cntry_code=us';
-                          $dhl_track = '<a class="button" target="_blank" href="' . $dhl_link . '">' . $dhl_track_num . '</a>' . "\n";
+                          $dhl_track = '<a class="btn button" target="_blank" href="' . $dhl_link . '">' . $dhl_track_num . '</a>' . "\n";
                       } //else
                       if ($dhl_track_num2 == null) {
                           $dhl_text2 = '';
@@ -249,7 +249,7 @@ else { $sort_by = "o.orders_id DESC"; }
                           $dhl_text2 = 'DHL(2): ';
                           $dhl_track_num2_noblanks = str_replace(' ', '', $dhl_track_num2);
                           $dhl_link2 = 'http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=' . $dhl_track_num2_noblanks . '&action=track&language=english&cntry_code=us';
-                          $dhl_track2 = '<a class="button" target="_blank" href="' . $dhl_link2 . '">' . $dhl_track_num2 . '</a>' . "\n";
+                          $dhl_track2 = '<a class="btn button" target="_blank" href="' . $dhl_link2 . '">' . $dhl_track_num2 . '</a>' . "\n";
                       } //else
                       $email = 'Dear ' . $check_status['customers_name'] . ',' . "\n\n" . STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . (int)$oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . "<a HREF='" . tep_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . (int)$oID, 'SSL') . "'>" . 'order_id=' . (int)$oID . "</a>\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_TRACKING_NUMBER . "\n" . $usps_text . $usps_track . $usps_text2 . $usps_track2 . $ups_text . $ups_track . $ups_text2 . $ups_track2 . $fedex_text . $fedex_track . $fedex_text2 . $fedex_track2 . $dhl_text . $dhl_track . $dhl_text2 . $dhl_track2 . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
                       tep_mail($check_status['customers_name'], $check_status['customers_email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . (int)$oID . EMAIL_TEXT_SUBJECT_2 . $orders_status_array[$status], $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
@@ -265,35 +265,35 @@ else { $sort_by = "o.orders_id DESC"; }
                       $usps_text = 'USPS(1): ';
                       $usps_track_num_noblanks = str_replace(' ', '', $usps_track_num);
                       $usps_link = 'http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=' . $usps_track_num_noblanks;
-                      $usps_track = '<a class="button" target="_blank" href="' . $usps_link . '">' . $usps_track_num . '</a>' . "\n";
+                      $usps_track = '<a class="btn button" target="_blank" href="' . $usps_link . '">' . $usps_track_num . '</a>' . "\n";
                       $usps_text2 = 'USPS(2): ';
                       $usps_track_num2_noblanks = str_replace(' ', '', $usps_track_num2);
                       $usps_link2 = 'http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=' . $usps_track_num2_noblanks;
-                      $usps_track2 = '<a class="button" target="_blank" href="' . $usps_link2 . '">' . $usps_track_num2 . '</a>' . "\n";
+                      $usps_track2 = '<a class="btn button" target="_blank" href="' . $usps_link2 . '">' . $usps_track_num2 . '</a>' . "\n";
                       $ups_text = 'UPS(1): ';
                       $ups_track_num_noblanks = str_replace(' ', '', $ups_track_num);
                       $ups_link = 'http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=' . $ups_track_num_noblanks . '&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package ';
-                      $ups_track = '<a class="button" target="_blank" href="' . $ups_link . '">' . $ups_track_num . '</a>' . "\n";
+                      $ups_track = '<a class="btn button" target="_blank" href="' . $ups_link . '">' . $ups_track_num . '</a>' . "\n";
                       $ups_text2 = 'UPS(2): ';
                       $ups_track_num2_noblanks = str_replace(' ', '', $ups_track_num2);
                       $ups_link2 = 'http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=' . $ups_track_num2_noblanks . '&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package ';
-                      $ups_track2 = '<a class="button" target="_blank" href="' . $ups_link2 . '">' . $ups_track_num2 . '</a>' . "\n";
+                      $ups_track2 = '<a class="btn button" target="_blank" href="' . $ups_link2 . '">' . $ups_track_num2 . '</a>' . "\n";
                       $fedex_text = 'Fedex(1): ';
                       $fedex_track_num_noblanks = str_replace(' ', '', $fedex_track_num);
                       $fedex_link = 'http://www.fedex.com/Tracking?tracknumbers=' . $fedex_track_num_noblanks . '&action=track&language=english&cntry_code=us';
-                      $fedex_track = '<a class="button" target="_blank" href="' . $fedex_link . '">' . $fedex_track_num . '</a>' . "\n";
+                      $fedex_track = '<a class="btn button" target="_blank" href="' . $fedex_link . '">' . $fedex_track_num . '</a>' . "\n";
                       $fedex_text2 = 'Fedex(2): ';
                       $fedex_track_num2_noblanks = str_replace(' ', '', $fedex_track_num2);
                       $fedex_link2 = 'http://www.fedex.com/Tracking?tracknumbers=' . $fedex_track_num2_noblanks . '&action=track&language=english&cntry_code=us';
-                      $fedex_track2 = '<a class="button" target="_blank" href="' . $fedex_link2 . '">' . $fedex_track_num2 . '</a>' . "\n";
+                      $fedex_track2 = '<a class="btn button" target="_blank" href="' . $fedex_link2 . '">' . $fedex_track_num2 . '</a>' . "\n";
                       $dhl_text = 'DHL(1): ';
                       $dhl_track_num_noblanks = str_replace(' ', '', $dhl_track_num);
                       $dhl_link = 'http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=' . $dhl_track_num_noblanks . '&action=track&language=english&cntry_code=us';
-                      $dhl_track = '<a class="button" target="_blank" href="' . $dhl_link . '">' . $dhl_track_num . '</a>' . "\n";
+                      $dhl_track = '<a class="btn button" target="_blank" href="' . $dhl_link . '">' . $dhl_track_num . '</a>' . "\n";
                       $dhl_text2 = 'DHL(2): ';
                       $dhl_track_num2_noblanks = str_replace(' ', '', $dhl_track_num2);
                       $dhl_link2 = 'http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=' . $dhl_track_num2_noblanks . '&action=track&language=english&cntry_code=us';
-                      $dhl_track2 = '<a class="button" target="_blank" href="' . $dhl_link2 . '">' . $dhl_track_num2 . '</a>' . "\n";
+                      $dhl_track2 = '<a class="btn button" target="_blank" href="' . $dhl_link2 . '">' . $dhl_track_num2 . '</a>' . "\n";
                       $email = 'Dear ' . $check_status['customers_name'] . ',' . "\n\n" . STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . (int)$oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . "<a HREF='" . tep_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . (int)$oID, 'SSL') . "'>" . 'order_id=' . (int)$oID . "</a>\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_TRACKING_NUMBER . "\n" . $usps_text . $usps_track . $usps_text2 . $usps_track2 . $ups_text . $ups_track . $ups_text2 . $ups_track2 . $fedex_text . $fedex_track . $fedex_text2 . $fedex_track2 . $dhl_text . $dhl_track . $dhl_text2 . $dhl_track2 . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
                       tep_mail($check_status['customers_name'], $check_status['customers_email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . (int)$oID . EMAIL_TEXT_SUBJECT_2 . $orders_status_array[$status], $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
                       $customer_notified = '1';
@@ -454,7 +454,7 @@ else { $sort_by = "o.orders_id DESC"; }
 
 
       <td class="pageHeading" align="right"><?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a>';
+      echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a>';
 ?>
 
 
@@ -466,7 +466,7 @@ else { $sort_by = "o.orders_id DESC"; }
       -->
 
                 <td class="pageHeading" align="right"><?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $_GET['oID']) . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> ';
+      echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $_GET['oID']) . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> ';
 ?></td>
               </tr>
             </table></td>
@@ -800,13 +800,13 @@ else { $sort_by = "o.orders_id DESC"; }
                 <td class="main"><?php
       echo tep_draw_textbox_field('usps_track_num', '40', '40', '', $order->info['usps_track_num']);
 ?></td>
-                <td class="main"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php
+                <td class="main"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php
       echo $order->info['usps_track_num'];
 ?>">Track It</a></td>
                 <td class="main"><?php
       echo tep_draw_textbox_field('usps_track_num2', '40', '40', '', $order->info['usps_track_num2']);
 ?></td>
-                <td class="main"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php
+                <td class="main"><a class="btn button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php
       echo $order->info['usps_track_num2'];
 ?>">Track It</a></td>
               </tr>
@@ -822,13 +822,13 @@ else { $sort_by = "o.orders_id DESC"; }
                 <td class="main"><?php
       echo tep_draw_textbox_field('ups_track_num', '40', '40', '', $order->info['ups_track_num']);
 ?></td>
-                <td><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php
+                <td><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php
       echo $order->info['ups_track_num'];
 ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track It</a></td>
                 <td class="main"><?php
       echo tep_draw_textbox_field('ups_track_num2', '40', '40', '', $order->info['ups_track_num2']);
 ?></td>
-                <td><a class="button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php
+                <td><a class="btn button" target="_blank" href="http://wwwapps.ups.com/etracking/tracking.cgi?InquiryNumber1=<?php
       echo $order->info['ups_track_num2'];
 ?>&InquiryNumber2=&InquiryNumber3=&InquiryNumber4=&InquiryNumber5=&TypeOfInquiryNumber=T&UPS_HTML_Version=3.0&IATA=us&Lang=en&submit=Track+Package">Track It</a></td>
               </tr>
@@ -844,13 +844,13 @@ else { $sort_by = "o.orders_id DESC"; }
                 <td class="main"><?php
       echo tep_draw_textbox_field('fedex_track_num', '40', '40', '', $order->info['fedex_track_num']);
 ?></td>
-                <td class="main"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php
+                <td class="main"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php
       echo $order->info['fedex_track_num'];
 ?>&action=track&language=english&cntry_code=us">Track It</a></td>
                 <td class="main"><?php
       echo tep_draw_textbox_field('fedex_track_num2', '40', '40', '', $order->info['fedex_track_num2']);
 ?></td>
-                <td class="main"><a class="button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php
+                <td class="main"><a class="btn button" target="_blank" href="http://www.fedex.com/Tracking?tracknumbers=<?php
       echo $order->info['fedex_track_num2'];
 ?>&action=track&language=english&cntry_code=us">Track It</a></td>
               </tr>
@@ -866,13 +866,13 @@ else { $sort_by = "o.orders_id DESC"; }
                 <td class="main"><?php
       echo tep_draw_textbox_field('dhl_track_num', '40', '40', '', $order->info['dhl_track_num']);
 ?></td>
-                <td class="main"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php
+                <td class="main"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php
       echo $order->info['dhl_track_num'];
 ?>&action=track&language=english&cntry_code=us">Track It</a></td>
                 <td class="main"><?php
       echo tep_draw_textbox_field('dhl_track_num2', '40', '40', '', $order->info['dhl_track_num2']);
 ?></td>
-                <td class="main"><a class="button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php
+                <td class="main"><a class="btn button" target="_blank" href="http://track.dhl-usa.com/atrknav.asp?ShipmentNumber=<?php
       echo $order->info['dhl_track_num2'];
 ?>&action=track&language=english&cntry_code=us">Track It</a></td>
               </tr>
@@ -962,7 +962,7 @@ require_once(DIR_FS_CATALOG . 'googlecheckout/inserts/admin/orders3.php');
         </tr>
         <tr>
           <td align="right"><?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $_GET['oID']) . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> ';
+      echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $_GET['oID']) . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('action'))) . '">' . IMAGE_BACK . '</a> ';
 ?></td>
         </tr>
         <?php
@@ -1089,13 +1089,13 @@ require_once(DIR_FS_CATALOG . 'googlecheckout/inserts/admin/orders3.php');
                   $contents = array('form' => tep_draw_form('orders', FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=deleteconfirm'));
                   $contents[] = array('text' => TEXT_INFO_DELETE_INTRO . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
                   $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('restock') . ' ' . TEXT_INFO_RESTOCK_PRODUCT_QUANTITY);
-                  $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id) . '">' . IMAGE_CANCEL . '</a>');
+                  $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id) . '">' . IMAGE_CANCEL . '</a>');
                   break;
               default:
                   if (isset($oInfo) && is_object($oInfo)) {
                       $heading[] = array('text' => '<b>[' . $oInfo->orders_id . ']&nbsp;&nbsp;' . tep_datetime_short($oInfo->date_purchased) . '</b>');
-                      $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=edit') . '">' . IMAGE_DETAILS . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=delete') . '">' . IMAGE_DELETE . '</a>');
-                      $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $oInfo->orders_id) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $oInfo->orders_id) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $oInfo->orders_id) . '">' . IMAGE_EDIT . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=edit') . '">' . IMAGE_DETAILS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id . '&action=delete') . '">' . IMAGE_DELETE . '</a>');
+                      $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_INVOICE, 'oID=' . $oInfo->orders_id) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_PACKINGSLIP, 'oID=' . $oInfo->orders_id) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_EDIT, 'oID=' . $oInfo->orders_id) . '">' . IMAGE_EDIT . '</a>');
                       $contents[] = array('text' => '<br>' . TEXT_DATE_ORDER_CREATED . ' ' . tep_date_short($oInfo->date_purchased));
                       if (tep_not_null($oInfo->last_modified))
                           $contents[] = array('text' => TEXT_DATE_ORDER_LAST_MODIFIED . ' ' . tep_date_short($oInfo->last_modified));

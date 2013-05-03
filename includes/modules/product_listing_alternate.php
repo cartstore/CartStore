@@ -378,12 +378,12 @@ $whats_new_price=$prod_price;
 
 if($listing[$x]['products_url']!=""  && $_SESSION['customers_email_address']=='')
 {
-$newArea='<div align="left"><span class="alternate_buy" ><a class="button" href='.$listing[$x]['products_url'].' >Partner Buy </a></div>';
+$newArea='<div align="left"><span class="alternate_buy" ><a class="btn button" href='.$listing[$x]['products_url'].' >Partner Buy </a></div>';
 }elseif(HIDE_PRICE_NON_LOGGED=="true" && $_SESSION['customers_email_address']=='')
 {
 $newArea='';
 }else
-$newArea='<input class="button" type="submit" value="Add to Cart"/>';
+$newArea='<input class="btn button" type="submit" value="Add to Cart"/>';
 if(HIDE_PRICE_NON_LOGGED=="true" && $_SESSION['customers_email_address']=='')
 {
 $whats_new_price="";

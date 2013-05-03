@@ -319,7 +319,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
         <tr>
           <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
           <td class="pageHeading" align="right"><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></td>
-          <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+          <td class="pageHeading" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
         </tr>
       </table></td>
   </tr>
@@ -586,7 +586,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
         <tr>
           <td class="pageHeading"><h3><?php echo HEADING_TITLE; ?></h3></td>
           <td class="pageHeading" align="right"><?php echo tep_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></td>
-          <td class="pageHeading" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+          <td class="pageHeading" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
         </tr>
       </table></td>
   </tr>
@@ -896,7 +896,7 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
 <tr>
   <td colspan="2" align="right"><?php echo
 
-				'<a class="button" href="' . tep_href_link(FILENAME_RETURNS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="button" href="' . tep_href_link("returns_packingslip.php", 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
+				'<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_INVOICE, 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_INVOICE . '</a> <a class="btn button" href="' . tep_href_link("returns_packingslip.php", 'oID=' . $_GET['oID']) . '" TARGET="_blank">' . IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('action'))) . '">' .  IMAGE_BACK . '</a>'; ?></td>
 </tr>
 <?php
 
@@ -1010,14 +1010,14 @@ if ($return_complete['returns_date_finished'] != '0000-00-00 00:00:00') {
       $contents = array('form' => tep_draw_form('orders', FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id . '&action=deleteconfirm'));
       $contents[] = array('text' => TEXT_INFO_DELETE_INTRO . '<br><br><b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
       $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('restock') . ' ' . TEXT_INFO_RESTOCK_PRODUCT_QUANTITY);
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id) . '">' . IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id) . '">' . IMAGE_CANCEL . '</a>');
       break;
     default:
       if (is_object($oInfo)) {
         $heading[] = array('text' => '<b>[' . $oInfo->returns_id . ']&nbsp;&nbsp;' . tep_datetime_short($oInfo->date_purchased) . '</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link("returns_packingslip.php", 'oID=' . $oInfo->returns_id) . '" TARGET="_blank">' .  IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_RETURNS_INVOICE, 'oID=' . $oInfo->returns_id) . '" TARGET="_blank">' .  IMAGE_ORDERS_INVOICE .
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link("returns_packingslip.php", 'oID=' . $oInfo->returns_id) . '" TARGET="_blank">' .  IMAGE_ORDERS_PACKINGSLIP . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_RETURNS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->returns_id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_RETURNS_INVOICE, 'oID=' . $oInfo->returns_id) . '" TARGET="_blank">' .  IMAGE_ORDERS_INVOICE .
 
 // Begin IceTheNet Repair Packing Slip Mod
 // If you really need a packing slip then you can modify admin/packingslip.php

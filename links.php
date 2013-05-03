@@ -41,7 +41,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
             <?php echo tep_draw_form('cat', tep_href_link('links.php', 'action=catsel'), 'get').'Links Category: ' . tep_draw_pull_down_menu('category', $category_array, $_GET['category'], 'onChange="this.form.submit();" rel="link"');
 ?>
             <noscript>
-            <input  class="button" title="View" name="" type="submit" value="Go">
+            <input  class="btn button" title="View" name="" type="submit" value="Go">
             </noscript>
             </form>
             <?php } ?>
@@ -79,7 +79,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
               <br>
               <center>
                 <?php echo  tep_draw_form(add_link,tep_href_link('links_submit.php',tep_get_all_get_params()));?>
-                <INPUT class="button" type=submit value="<?php echo 'Exchange Links With Us';?>">
+                <INPUT class="btn button" type=submit value="<?php echo 'Exchange Links With Us';?>">
                 </FORM>
               </center>
             </div></td>

@@ -25,8 +25,8 @@ while ($reviews = tep_db_fetch_array($reviews_query)) {
  if(mysql_num_rows($reviews_query) > 0) {
 $info_box_contents[][0] = array('align' => '',
                           'params' => '',
-                          'text' => '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, 'products_id=' . (int)$_GET['products_id']) . '"><span class="ui-icon ui-icon-comment" style="float:left;"></span>All Reviews</a>');
-						  print('<a class="button" style="float:left;" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, 'products_id=' . (int)$_GET['products_id']) . '" ><span class="ui-icon ui-icon-comment" style="float:left;"></span>All Reviews</a><a class="button" href="' . tep_href_link("product_reviews_write.php", tep_get_all_get_params(array('action')).'products_id=' . $product_info['products_id']) . '" >Write Review </a>');
+                          'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, 'products_id=' . (int)$_GET['products_id']) . '"><span class="ui-icon ui-icon-comment" style="float:left;"></span>All Reviews</a>');
+						  print('<a class="btn button" style="float:left;" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, 'products_id=' . (int)$_GET['products_id']) . '" ><span class="ui-icon ui-icon-comment" style="float:left;"></span>All Reviews</a><a class="btn button" href="' . tep_href_link("product_reviews_write.php", tep_get_all_get_params(array('action')).'products_id=' . $product_info['products_id']) . '" >Write Review </a>');
 
 						  
 						  
@@ -37,7 +37,7 @@ $info_box_contents[][0] = array('align' => '',
                           'text' => NO_REVIEWS_TEXT);
 						 
 						  //print(NO_REVIEWS_TEXT);
- echo '<p><a class="button" href="' . tep_href_link("product_reviews_write.php", tep_get_all_get_params(array('action')).'products_id=' . $product_info['products_id']) . '" >Write Review </a></p>'; 
+ echo '<p><a class="btn button" href="' . tep_href_link("product_reviews_write.php", tep_get_all_get_params(array('action')).'products_id=' . $product_info['products_id']) . '" >Write Review </a></p>'; 
 }
 //new contentBox($info_box_contents);
 ?>

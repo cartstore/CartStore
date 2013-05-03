@@ -52,14 +52,14 @@
       } else
           $whats_new_price = $whats_new_price;
       if ($random_product['products_url'] != "") {
-          $newArea = '<div align="right"><span class="alternate_buy" ><a class="button" href=' . $random_product['products_url'] . '" title="' . $random_product['products_url'] . '" >Partner Buy </a></div>';
+          $newArea = '<div align="right"><span class="alternate_buy" ><a class="btn button" href=' . $random_product['products_url'] . '" title="' . $random_product['products_url'] . '" >Partner Buy </a></div>';
       } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
           $newArea = '';
       } elseif ($random_product['products_price'] > 0) {
           $newArea = '<form method="post" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action', 'products_id')) . 'action=buy_now&products_id=' . $random_product['products_id']) . '">
-<input class="button" type="submit" value="Add to Cart" /></form>';
+<input class="btn button" type="submit" value="Add to Cart" /></form>';
       } else {
-          $newArea = '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">Read More</a>';
+          $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">Read More</a>';
       }
       if (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
           $whats_new_price = "";

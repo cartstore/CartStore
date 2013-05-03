@@ -68,7 +68,7 @@
     <td><h1><?php echo SUBMIT;?></h1></td></tr>
  <tr><td><br /><br />Thank you for your submission, once we have found your reciprocal link a moderator will approve your link and it will appear here.</td></tr>
 
- <tr><td align="center"><?php echo  tep_draw_form(add_link,tep_href_link('links.php',tep_get_all_get_params(array('action'))));?><INPUT class="button" type=submit value="<?php echo 'BACK'?>"></FORM></td></tr>
+ <tr><td align="center"><?php echo  tep_draw_form(add_link,tep_href_link('links.php',tep_get_all_get_params(array('action'))));?><INPUT class="btn button" type=submit value="<?php echo 'BACK'?>"></FORM></td></tr>
  </table>
  <?php } else {
   if ($action == 'add_link') $status = 'class="messageStackSuccess"'?>
@@ -149,11 +149,11 @@
         </P>
 				</td></tr><tr><td align="center"><br />
         <P>
-          <INPUT class="button"  type=submit id="submit" value="<?php echo ADD;?>">
+          <INPUT class="btn button"  type=submit id="submit" value="<?php echo ADD;?>">
         </P>
       </FORM></td>
   </tr>
-	<tr><td align="center"><br /><?php echo  tep_draw_form(add_link,tep_href_link('links.php',tep_get_all_get_params(array('action'))));?><INPUT class="button" type=submit value="<?php echo 'BACK'?>"></FORM></td></tr>
+	<tr><td align="center"><br /><?php echo  tep_draw_form(add_link,tep_href_link('links.php',tep_get_all_get_params(array('action'))));?><INPUT class="btn button" type=submit value="<?php echo 'BACK'?>"></FORM></td></tr>
 	     <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>

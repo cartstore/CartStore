@@ -93,7 +93,7 @@ require(DIR_WS_INCLUDES . 'header.php');
                 <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                   <tr class="moduleRow" onMouseOver="rowOverEffect(this)" onMouseOut="rowOutEffect(this)" onClick="document.location.href='<?php echo tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'edit=' . $addresses['address_book_id'], 'SSL'); ?>'">
                     <td class="main"><b><?php echo tep_output_string_protected($addresses['firstname'] . ' ' . $addresses['lastname']); ?></b><?php if ($addresses['address_book_id'] == $customer_default_address_id) echo '&nbsp;<small><i>' . PRIMARY_ADDRESS . '</i></small>'; ?></td>
-                    <td class="main" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'edit=' . $addresses['address_book_id'], 'SSL') . '">' . SMALL_IMAGE_BUTTON_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'delete=' . $addresses['address_book_id'], 'SSL') . '">' . SMALL_IMAGE_BUTTON_DELETE . '</a>'; ?></td>
+                    <td class="main" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'edit=' . $addresses['address_book_id'], 'SSL') . '">' . SMALL_IMAGE_BUTTON_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'delete=' . $addresses['address_book_id'], 'SSL') . '">' . SMALL_IMAGE_BUTTON_DELETE . '</a>'; ?></td>
                   </tr>
                   <tr>
                     <td colspan="2"><table border="0" cellspacing="0" cellpadding="2">
@@ -123,11 +123,11 @@ require(DIR_WS_INCLUDES . 'header.php');
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                <td class="smallText"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                <td class="smallText"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
 <?php
   if (tep_count_customer_address_book_entries() < MAX_ADDRESS_BOOK_ENTRIES) {
 ?>
-                <td class="smallText" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, '', 'SSL') . '">' . IMAGE_BUTTON_ADD_ADDRESS . '</a>'; ?></td>
+                <td class="smallText" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, '', 'SSL') . '">' . IMAGE_BUTTON_ADD_ADDRESS . '</a>'; ?></td>
 <?php
   }
 ?>

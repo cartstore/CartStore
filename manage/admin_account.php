@@ -175,7 +175,7 @@
                 </td>
               </tr>
               <tr>
-                <td><table width="100%" border="0" cellspacing="0" cellpadding="3"><tr><td class="smallText" valign="top"><?php echo TEXT_INFO_MODIFIED . $myAccount['admin_modified']; ?></td><td align="right"><?php if ($_GET['action'] == 'edit_process') { echo '<a class="button"  href="' . tep_href_link(FILENAME_ADMIN_ACCOUNT) . '">' .  IMAGE_BACK . '</a> '; if (tep_session_is_registered('confirm_account')) { echo tep_image_submit('button_save.png', IMAGE_SAVE, 'onClick="validateForm();return document.returnValue"'); } } elseif ($_GET['action'] == 'check_account') { echo '&nbsp;'; } else { echo tep_image_submit('button_edit.png', IMAGE_EDIT); } ?></td><tr></table></td>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="3"><tr><td class="smallText" valign="top"><?php echo TEXT_INFO_MODIFIED . $myAccount['admin_modified']; ?></td><td align="right"><?php if ($_GET['action'] == 'edit_process') { echo '<a class="btn button"  href="' . tep_href_link(FILENAME_ADMIN_ACCOUNT) . '">' .  IMAGE_BACK . '</a> '; if (tep_session_is_registered('confirm_account')) { echo tep_image_submit('button_save.png', IMAGE_SAVE, 'onClick="validateForm();return document.returnValue"'); } } elseif ($_GET['action'] == 'check_account') { echo '&nbsp;'; } else { echo tep_image_submit('button_edit.png', IMAGE_EDIT); } ?></td><tr></table></td>
               </tr>              
             </table>
    
@@ -199,7 +199,7 @@
         $contents[] = array('text' => '&nbsp;' . TEXT_INFO_INTRO_CONFIRM_PASSWORD_ERROR);
       }
       $contents[] = array('align' => 'center', 'text' => tep_draw_password_field('password_confirmation'));
-      $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_ADMIN_ACCOUNT) . '"> '.IMAGE_BACK.'</a> ' . tep_image_submit('button_confirm.png', IMAGE_CONFIRM) . '<br>&nbsp');
+      $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_ADMIN_ACCOUNT) . '"> '.IMAGE_BACK.'</a> ' . tep_image_submit('button_confirm.png', IMAGE_CONFIRM) . '<br>&nbsp');
       break; 
     default:
       $heading[] = array('text' => '<b>&nbsp;' . TEXT_INFO_HEADING_DEFAULT . '</b>');

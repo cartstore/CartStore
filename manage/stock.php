@@ -152,7 +152,7 @@
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="pageHeading"><?php echo PRODUCTS_STOCK.": $product_name" . '<td align="right"><a class="button" href="' . tep_href_link(FILENAME_CATEGORIES, '&pID=' . $product_id . '&action=new_product') . '">' .  IMAGE_EDIT . '</a></td><br><br>'; ?></td>
+            <td class="pageHeading"><?php echo PRODUCTS_STOCK.": $product_name" . '<td align="right"><a class="btn button" href="' . tep_href_link(FILENAME_CATEGORIES, '&pID=' . $product_id . '&action=new_product') . '">' .  IMAGE_EDIT . '</a></td><br><br>'; ?></td>
 
             <td class="pageHeading2" align="right"></td>
           </tr>

@@ -307,7 +307,7 @@ function check_form() {
         <td><?php echo tep_draw_separator('pixel_trans.png', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td align="right" class="main"><?php echo tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('action','cID'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
+        <td align="right" class="main"><?php echo tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="btn button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('action','cID'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
       </tr>
       </form>
 
@@ -498,7 +498,7 @@ function check_form() {
         <td><?php echo tep_draw_separator('pixel_trans.png', '1', '10'); ?></td>
       </tr>
       <tr>
-        <td align="right" class="main"><?php echo tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('action','cID'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
+        <td align="right" class="main"><?php echo tep_image_submit('button_update.png', IMAGE_UPDATE) . ' <a class="btn button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('action','cID'))) .'">' .  IMAGE_CANCEL . '</a>'; ?></td>
       </tr>
       </form>
 <?php 
@@ -576,13 +576,13 @@ function check_form() {
     if (tep_not_null($_GET['search'])) {
 ?>
                   <tr>
-                    <td align="right" colspan="2"><?php echo '<a  class="button" href="' . tep_href_link('customers_groups.php') . '">' . IMAGE_RESET . '</a>'; ?></td>
+                    <td align="right" colspan="2"><?php echo '<a  class="btn button" href="' . tep_href_link('customers_groups.php') . '">' . IMAGE_RESET . '</a>'; ?></td>
                   </tr>
 <?php
     } else {
 ?>
 			      <tr>
-                    <td align="right" colspan="2" class="smallText"><?php echo '<a class="button" href="' . tep_href_link('customers_groups.php', 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_INSERT . '</a>'; ?></td>
+                    <td align="right" colspan="2" class="smallText"><?php echo '<a class="btn button" href="' . tep_href_link('customers_groups.php', 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_INSERT . '</a>'; ?></td>
                   </tr>
 <?php
 	}
@@ -600,7 +600,7 @@ function check_form() {
             $contents = array('form' => tep_draw_form('customers_groups', 'customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id . '&action=deleteconfirm'));
             $contents[] = array('text' => TEXT_DELETE_INTRO . '<br><br><b>' . $cInfo->customers_group_name . ' </b>');
             if ($cInfo->number_of_reviews > 0) $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('delete_reviews', 'on', true) . ' ' . sprintf(TEXT_DELETE_REVIEWS, $cInfo->number_of_reviews));
-            $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id) . '">' . IMAGE_CANCEL . '</a>');
+            $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id) . '">' . IMAGE_CANCEL . '</a>');
         } else {
             $heading[] = array('text' => ''. tep_draw_separator('pixel_trans.png', '11', '12') .'&nbsp;<br><b>' . TEXT_INFO_HEADING_DELETE_GROUP . '</b>');
             $contents[] = array('text' => 'You are not allowed to delete this group:<br><br><b>' . $cInfo->customers_group_name . ' </b>');
@@ -609,7 +609,7 @@ function check_form() {
     default:
       if (is_object($cInfo)) {
         $heading[] = array('text' => ''. tep_draw_separator('pixel_trans.png', '11', '12') .'&nbsp;<br><b>' . $cInfo->customers_group_name . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id . '&action=confirm') . '">' .  IMAGE_DELETE . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id . '&action=edit') . '">' .  IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link('customers_groups.php', tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_group_id . '&action=confirm') . '">' .  IMAGE_DELETE . '</a>');
 
       }
       break;

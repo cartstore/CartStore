@@ -1122,7 +1122,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
                       <option value="addnew">Add New Only</option>
                       <option value="update">Update Only</option>
                   </select>
-                  <input class="button" type="submit" class="button"  name="buttoninsert" value="Insert into db">
+                  <input class="btn button" type="submit"  name="buttoninsert" value="Insert into db">
               </form>
 <hr />
            <form enctype="multipart/form-data" action="easypopulate.php<?php if (defined('SID') && tep_not_null(SID)) { echo '?'.tep_session_name().'='.tep_session_id(); } ?>" method="post"><?php if (defined('SID') && tep_not_null(SID)) { echo tep_draw_hidden_field(tep_session_name(), tep_session_id()); } ?>
@@ -1156,7 +1156,7 @@ if (!empty($_POST['localfile']) or (isset($_FILES['usrfl']) && isset($_GET['spli
                       <option value="addnew">Add New Only</option>
                       <option value="update">Update Only</option>
                   </select>
-                  <input type="submit" class="button"  name="buttoninsert" value="Insert into db">
+                  <input type="submit" class="btn button"  name="buttoninsert" value="Insert into db">
                   <br />
              </form>
 <hr />

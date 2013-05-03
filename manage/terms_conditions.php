@@ -94,7 +94,7 @@ body {
                   <td align="right" valign="middle"><?php
   echo tep_image_submit('button_confirm.png', IMAGE_BUTTON_LOGIN);
 ?></td>
-                  <td align="left" valign="middle"><a class="button" href="logoff.php">Cancel</a>
+                  <td align="left" valign="middle"><a class="btn button" href="logoff.php">Cancel</a>
                 </tr>
               </table></td>
           </tr>

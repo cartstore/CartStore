@@ -286,7 +286,7 @@ function fixSeoLink($url)
 <h1>Checkout</h1>
 
 
-  <div class="buttonSet">
+  <div class="btn buttonSet">
     <?php echo tep_draw_button(IMAGE_BUTTON_BACK, 'triangle-1-w', tep_href_link(FILENAME_DEFAULT, '', 'SSL')); ?>
   </div>
   

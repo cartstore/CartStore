@@ -229,7 +229,7 @@
 </p>
 <?php
   echo'
-<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL') . '"><span class="ui-icon ui-icon-gear" style="float:left"></span>Change Address</a>';
+<a class="btn button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL') . '"><span class="ui-icon ui-icon-gear" style="float:left"></span>Change Address</a>';
 ?>
 
                       	

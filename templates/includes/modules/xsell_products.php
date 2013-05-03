@@ -62,16 +62,16 @@
               $products_price = echo '<a href="' . $urlContactUs . '">Email for Price </a>';
           }
           if ($product_info['products_url'] != "") {
-              $newArea = '<div align="right"><span class="alternate_buy" ><a class="button" href="' . $extra_images['products_url'] . '" title="' . $extra_images['products_url'] . '" >Partner Buy </a></div>';
+              $newArea = '<div align="right"><span class="alternate_buy" ><a class="btn button" href="' . $extra_images['products_url'] . '" title="' . $extra_images['products_url'] . '" >Partner Buy </a></div>';
           } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
               $newArea = '';
           } else
               $
               elseif ($products_price = $extra_images['products_price'] > 0) {
-                  $newArea = '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_INFO . '?action=buy_now&products_id=' . $extra_images['products_id']) . '">Add to Cart</a>';
+                  $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO . '?action=buy_now&products_id=' . $extra_images['products_id']) . '">Add to Cart</a>';
               } else {
                   $urlContactUs = "email_for_price.php?product_name=" . addslashes(addslashesextra_images['products_name'])) . "&products_model=" . $product_info['products_model'];
-                  $newArea = '<a class="button" href="' . $urlContactUs . '">Email 4 Price</a>';
+                  $newArea = '<a class="btn button" href="' . $urlContactUs . '">Email 4 Price</a>';
               }
           if (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
               $products_price = "";

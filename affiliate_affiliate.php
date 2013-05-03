@@ -77,7 +77,7 @@ echo '<a  href="' . tep_href_link(FILENAME_AFFILIATE_TERMS, '', 'SSL') . '">' . 
 ?></p>
 
             <?php
-echo '<a class="button" href="' . tep_href_link(FILENAME_AFFILIATE_SIGNUP, '', 'SSL') . '">Continue</a>';
+echo '<a class="btn button" href="' . tep_href_link(FILENAME_AFFILIATE_SIGNUP, '', 'SSL') . '">Continue</a>';
 ?>
           </div>
         </div>

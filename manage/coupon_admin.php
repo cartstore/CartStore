@@ -423,7 +423,7 @@
 ?>
                           &nbsp;</td>
                         <td align="right"><?php //
-        //  echo '<a class="button" href="' . tep_href_link(FILENAME_COUPON_ADMIN) . '">' . IMAGE_CANCEL . '</a> ' . tep_image_submit('button_send_mail.png', IMAGE_SEND_EMAIL);
+        //  echo '<a class="btn button" href="' . tep_href_link(FILENAME_COUPON_ADMIN) . '">' . IMAGE_CANCEL . '</a> ' . tep_image_submit('button_send_mail.png', IMAGE_SEND_EMAIL);
 ?></td>
                       </tr>
                     </table></td>
@@ -1033,7 +1033,7 @@
                   echo tep_image_submit('button_preview.png', IMAGE_PREVIEW);
 ?></td>
                         <td align="left"><?php
-                  echo '<a class="button" href="' . tep_href_link('coupon_admin.php', '');
+                  echo '<a class="btn button" href="' . tep_href_link('coupon_admin.php', '');
 ?>
                           ">
                           <?php
@@ -1204,7 +1204,7 @@
                                     </tr>
                                     <tr>
                                       <td align="right" colspan="2" class="smallText"><?php
-                  echo '<a class="button" href="' . tep_href_link('coupon_admin.php', 'page=' . $_GET['page'] . '&cID=' . $cInfo->coupon_id . '&action=new') . '">' .  IMAGE_INSERT . '</a>';
+                  echo '<a class="btn button" href="' . tep_href_link('coupon_admin.php', 'page=' . $_GET['page'] . '&cID=' . $cInfo->coupon_id . '&action=new') . '">' .  IMAGE_INSERT . '</a>';
 ?></td>
                                     </tr>
                                   </table></td>
@@ -1230,7 +1230,7 @@
                           }
                           $coupon_min_order = $currencies->format($cInfo->coupon_minimum_order);
                           if ($_GET['action'] == 'voucherdelete') {
-                              $contents[] = array('text' => TEXT_CONFIRM_DELETE . '</br></br>' . '<a class="button" href="' . tep_href_link('coupon_admin.php', 'action=confirmdelete&status=' . $status . (($_GET['page'] > 1) ? '&page=' . $_GET['page'] : '') . '&cid=' . $_GET['cid'], 'NONSSL') . '">' .  IMAGE_CONFIRM . '</a>' . '<a class="button" href="' . tep_href_link('coupon_admin.php', 'cid=' . $cInfo->coupon_id, 'NONSSL') . '">' .  IMAGE_CANCEL . '</a>');
+                              $contents[] = array('text' => TEXT_CONFIRM_DELETE . '</br></br>' . '<a class="btn button" href="' . tep_href_link('coupon_admin.php', 'action=confirmdelete&status=' . $status . (($_GET['page'] > 1) ? '&page=' . $_GET['page'] : '') . '&cid=' . $_GET['cid'], 'NONSSL') . '">' .  IMAGE_CONFIRM . '</a>' . '<a class="btn button" href="' . tep_href_link('coupon_admin.php', 'cid=' . $cInfo->coupon_id, 'NONSSL') . '">' .  IMAGE_CANCEL . '</a>');
                           } else {
                               $prod_details = NONE;
                               if ($cInfo->restrict_to_products) {
@@ -1242,7 +1242,7 @@
                               }
                               $coupon_name_query = tep_db_query("select coupon_name from " . TABLE_COUPONS_DESCRIPTION . " where coupon_id = '" . $cInfo->coupon_id . "' and language_id = '" . $languages_id . "'");
                               $coupon_name = tep_db_fetch_array($coupon_name_query);
-                              $contents[] = array('text' => COUPON_NAME . '&nbsp;:&nbsp;' . $coupon_name['coupon_name'] . '<br>' . COUPON_AMOUNT . '&nbsp;:&nbsp;' . $amount . '<br>' . REDEEM_DATE_LAST . '&nbsp;:&nbsp;' . ((isset($rInfo->redeem_date)) ? tep_date_short($rInfo->redeem_date) : '') . '<br>' . COUPON_MIN_ORDER . '&nbsp;:&nbsp;' . $coupon_min_order . '<br>' . COUPON_STARTDATE . '&nbsp;:&nbsp;' . tep_date_short($cInfo->coupon_start_date) . '<br>' . COUPON_FINISHDATE . '&nbsp;:&nbsp;' . tep_date_short($cInfo->coupon_expire_date) . '<br>' . COUPON_USES_COUPON . '&nbsp;:&nbsp;' . $cInfo->uses_per_coupon . '<br>' . COUPON_USES_USER . '&nbsp;:&nbsp;' . $cInfo->uses_per_user . '<br>' . COUPON_PRODUCTS . '&nbsp;:&nbsp;' . $prod_details . '<br>' . COUPON_CATEGORIES . '&nbsp;:&nbsp;' . $cat_details . '<br>' . DATE_CREATED . '&nbsp;:&nbsp;' . tep_date_short($cInfo->date_created) . '<br>' . DATE_MODIFIED . '&nbsp;:&nbsp;' . tep_date_short($cInfo->date_modified) . '<br><br>' . '<center><a class="button" href="' . tep_href_link('coupon_admin.php', 'action=voucheredit&cid=' . $cInfo->coupon_id, 'NONSSL') . '">' .  COUPON_BUTTON_EDIT_VOUCHER . '</a>' . '<a class="button" href="' . tep_href_link('coupon_admin.php', 'action=voucherdelete&status=' . $status . (($_GET['page'] > 1) ? '&page=' . $_GET['page'] : '') . '&cid=' . $cInfo->coupon_id, 'NONSSL') . '">' . COUPON_BUTTON_DELETE_VOUCHER . '</a>' . '<br><a class="button" href="' . tep_href_link('coupon_admin.php', 'action=voucherreport&cid=' . $cInfo->coupon_id, 'NONSSL') . '">' .  COUPON_BUTTON_VOUCHER_REPORT . '</a></center>');
+                              $contents[] = array('text' => COUPON_NAME . '&nbsp;:&nbsp;' . $coupon_name['coupon_name'] . '<br>' . COUPON_AMOUNT . '&nbsp;:&nbsp;' . $amount . '<br>' . REDEEM_DATE_LAST . '&nbsp;:&nbsp;' . ((isset($rInfo->redeem_date)) ? tep_date_short($rInfo->redeem_date) : '') . '<br>' . COUPON_MIN_ORDER . '&nbsp;:&nbsp;' . $coupon_min_order . '<br>' . COUPON_STARTDATE . '&nbsp;:&nbsp;' . tep_date_short($cInfo->coupon_start_date) . '<br>' . COUPON_FINISHDATE . '&nbsp;:&nbsp;' . tep_date_short($cInfo->coupon_expire_date) . '<br>' . COUPON_USES_COUPON . '&nbsp;:&nbsp;' . $cInfo->uses_per_coupon . '<br>' . COUPON_USES_USER . '&nbsp;:&nbsp;' . $cInfo->uses_per_user . '<br>' . COUPON_PRODUCTS . '&nbsp;:&nbsp;' . $prod_details . '<br>' . COUPON_CATEGORIES . '&nbsp;:&nbsp;' . $cat_details . '<br>' . DATE_CREATED . '&nbsp;:&nbsp;' . tep_date_short($cInfo->date_created) . '<br>' . DATE_MODIFIED . '&nbsp;:&nbsp;' . tep_date_short($cInfo->date_modified) . '<br><br>' . '<center><a class="btn button" href="' . tep_href_link('coupon_admin.php', 'action=voucheredit&cid=' . $cInfo->coupon_id, 'NONSSL') . '">' .  COUPON_BUTTON_EDIT_VOUCHER . '</a>' . '<a class="btn button" href="' . tep_href_link('coupon_admin.php', 'action=voucherdelete&status=' . $status . (($_GET['page'] > 1) ? '&page=' . $_GET['page'] : '') . '&cid=' . $cInfo->coupon_id, 'NONSSL') . '">' . COUPON_BUTTON_DELETE_VOUCHER . '</a>' . '<br><a class="btn button" href="' . tep_href_link('coupon_admin.php', 'action=voucherreport&cid=' . $cInfo->coupon_id, 'NONSSL') . '">' .  COUPON_BUTTON_VOUCHER_REPORT . '</a></center>');
                           }
                           break;
                   }

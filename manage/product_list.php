@@ -110,7 +110,7 @@ else
 					<form name="search_products" method="POST" action="product_list.php">		
 					<td align="right" valign="top"> &nbsp;&nbsp;&nbsp;
 					<input class="inputbox" type="text" name="prod_search" value="">&nbsp;
-					<input type="submit" class="button" name="search" value="Search">					</td>
+					<input type="submit" class="btn button" name="search" value="Search">					</td>
 					</form>
               </tr>
 
@@ -163,7 +163,7 @@ else
 								<td></td>
 								 <td></td>
 								<td class="dataTableContent">
-								<input type="hidden" name="prod_search" value="<?php echo $_REQUEST['prod_search']; ?>"><input type="submit" class="button" name="update" value="update">								</td>
+								<input type="hidden" name="prod_search" value="<?php echo $_REQUEST['prod_search']; ?>"><input type="submit" class="btn button" name="update" value="update">								</td>
 							</tr>
 							</table>
 							</form>					 </td>

@@ -75,7 +75,7 @@ if ($messageStack->size('password_forgotten') > 0) {
 <table border="0" width="100%" cellspacing="0" cellpadding="2">
 	<tr>
 	
-		<td><?php echo '<a class="button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
+		<td><?php echo '<a "btn button" href="' . tep_href_link(FILENAME_LOGIN, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
 		<td align="right"><?php echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE); ?></td>
 
 		</tr>

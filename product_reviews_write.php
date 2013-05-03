@@ -175,7 +175,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
                     <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                       <tr>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                        <td class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params(array('reviews_id', 'action'))) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
+                        <td class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params(array('reviews_id', 'action'))) . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?></td>
                         <td class="main" align="right"><?php echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE); ?></td>
                         <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
                       </tr>
@@ -199,7 +199,7 @@ document.write('<?php echo '<a class="general_link" href="javascript:popupstsWin
 <?php
   }
 
-  echo '<p><a class="button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now') . '">' . IMAGE_BUTTON_IN_CART . '</a></p>';
+  echo '<p><a class="btn button" href="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now') . '">' . IMAGE_BUTTON_IN_CART . '</a></p>';
 ?>
                 </td>
               </tr>

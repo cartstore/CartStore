@@ -499,7 +499,7 @@ $aa='&l_id='.$e_info['links_id'];
 	</td><td><?php
 	$back_url = 'link_manage.php';
 	$back_url_params = 'page=' . $_GET['page'] . $sort;
-	echo '<a class="button" href="' . tep_href_link($back_url, $back_url_params) . '">' .  IMAGE_CANCEL. '</a>' . '<a class="button" href="' . tep_href_link($back_url, $back_url_params . '&action=delete'.$aa.($sess_id ? '' : '#' . $e_info['links_id'])) . '">' .  IMAGE_DELETE . '</a>'; ?></td></tr>
+	echo '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params) . '">' .  IMAGE_CANCEL. '</a>' . '<a class="btn button" href="' . tep_href_link($back_url, $back_url_params . '&action=delete'.$aa.($sess_id ? '' : '#' . $e_info['links_id'])) . '">' .  IMAGE_DELETE . '</a>'; ?></td></tr>
   </tr>
 	<tr><td colspan="7" align="right" class="smallText"><?php echo LM_NOFOLLOW_TEXT; ?></td></tr>
   <tr>

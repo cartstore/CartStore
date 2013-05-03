@@ -240,7 +240,7 @@ function popupWindow(url) {
                             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                                 <tr>
                                   <td class="main"><?php
-  echo '<a class="button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('reviews_id', 'action'))) . '">' . IMAGE_BUTTON_BACK . '</a>';
+  echo '<a class="btn button" href="' . tep_href_link(FILENAME_ARTICLE_REVIEWS, tep_get_all_get_params(array('reviews_id', 'action'))) . '">' . IMAGE_BUTTON_BACK . '</a>';
 ?></td>
                                   <td class="main" align="right"><?php
   echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE);

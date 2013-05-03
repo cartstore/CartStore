@@ -111,7 +111,7 @@
   if (empty($action)) {
 ?>
                   <tr>
-                    <td colspan="2" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_TAX_CLASSES, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_TAX_CLASS . '</a>'; ?></td>
+                    <td colspan="2" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_TAX_CLASSES, 'page=' . $_GET['page'] . '&action=new') . '">' .  IMAGE_NEW_TAX_CLASS . '</a>'; ?></td>
                   </tr>
 <?php
   }

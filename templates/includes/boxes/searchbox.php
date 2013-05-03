@@ -14,7 +14,7 @@
 
 					</div>
 
-					<input type="submit" class="button" value="SEARCH" />
+					<input type="submit" class="btn button" value="SEARCH" />
 
 				</form>
 

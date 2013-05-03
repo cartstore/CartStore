@@ -168,7 +168,7 @@ if ( isset($_POST[upload]) && $_POST[upload] == 'Upload')
 	      <tr>
 	        <td colspan="2"><div align="center">
 			  <input type="hidden" name="orders_id" value="<?php echo $orders_id;?>" >
-	          <input type="submit" class="button" value="Upload" name="upload">
+	          <input type="submit" class="btn button" value="Upload" name="upload">
 	          </div></td>
 		    </tr>
 	        </table>

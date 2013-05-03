@@ -190,7 +190,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
 
 ' . TEXT_YOUR_RMA_NUMBER . '<input type="text" name="rma" value="" size="20" class="inputbox"><br>
 
-<input class="button" type=submit name="submit" value="' . TEXT_FIND_RETURN . '">
+<input class="btn button" type=submit name="submit" value="' . TEXT_FIND_RETURN . '">
 
                              </form>
 

@@ -166,7 +166,7 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr>
-            <td class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_DEFAULT, '', 'SSL') . '">' .  Back . '</a>'; ?></td>
+            <td class="main"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_DEFAULT, '', 'SSL') . '">' .  Back . '</a>'; ?></td>
             <td class="main" align="right"><?php echo tep_image_submit('button_confirm.png', Confirm); ?></td>
           </tr>
         </table></td>

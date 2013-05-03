@@ -59,7 +59,7 @@
           
           <div class="clear"></div>
           <?php
-      echo '<a class="button" href="' . tep_href_link(FILENAME_DEFAULT) . '">' . IMAGE_BUTTON_CONTINUE . '</a>';
+      echo '<a class="btn button" href="' . tep_href_link(FILENAME_DEFAULT) . '">' . IMAGE_BUTTON_CONTINUE . '</a>';
 ?>
     
     <!-- body_text_eof //-->

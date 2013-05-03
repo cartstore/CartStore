@@ -66,7 +66,7 @@ require(DIR_WS_INCLUDES . 'column_left.php');
 
 Thank you your message has been sent.
       <br>
-<?php echo '<a class="button" href="' . tep_href_link(FILENAME_DEFAULT) . '">' .  IMAGE_BUTTON_CONTINUE . '</a>'; ?>
+<?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_DEFAULT) . '">' .  IMAGE_BUTTON_CONTINUE . '</a>'; ?>
         <?php
   } else {
 ?>

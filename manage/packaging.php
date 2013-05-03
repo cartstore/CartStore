@@ -188,9 +188,9 @@ function DisplayPackages($activeid,$error) {
         }
     }
     echo '</td></tr></table><br>';
-    echo '<a class="button" href="' . tep_href_link( FILENAME_PACKAGING ) . '?Action=shownewpackageform&id=' . $_GET['id'] . '">'. NEW_ADMIN.'</a>&nbsp;';
-    echo '<a class="button" href="' . tep_href_link( FILENAME_PACKAGING ) . '?Action=showupdatepackageform&id=' . $_GET['id'] . '">'.NEW_ADMIN.'</a>&nbsp;' ;	 
-    echo '<a class="button" href="' . tep_href_link( FILENAME_PACKAGING ) . '?Action=showconfirmdeletepackageform&id=' . $_GET['id'] . '">'. NEW_ADMIN.'</a>' ;	 
+    echo '<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING ) . '?Action=shownewpackageform&id=' . $_GET['id'] . '">'. NEW_ADMIN.'</a>&nbsp;';
+    echo '<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING ) . '?Action=showupdatepackageform&id=' . $_GET['id'] . '">'.NEW_ADMIN.'</a>&nbsp;' ;	 
+    echo '<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING ) . '?Action=showconfirmdeletepackageform&id=' . $_GET['id'] . '">'. NEW_ADMIN.'</a>' ;	 
     echo '</td><td class="infoBoxContent" valign="top">';
 }
 
@@ -218,7 +218,7 @@ function showNewPackageForm() {
     echo '<tr><td class="infoBoxContent"><b>'.HEADING_MAX_WEIGHT.'</b></td></tr><tr><td class="infoBoxContent">'.HEADING_MAX_WEIGHT_TEXT.'</td></tr><tr><td class="infoBoxContent">'.tep_draw_input_field("max_weight").'</td></tr>';
     echo '<tr><td class="infoBoxContent"><b>'.HEADING_COST.'</b></td></tr><tr><td class="infoBoxContent">'.HEADING_COST_TEXT.'</td></tr><tr><td class="infoBoxContent">'.tep_draw_input_field("cost", $cost).'</td></tr>';
     echo '<tr><td colspan="2">'. tep_image_submit('button_confirm.png', 'Save these values as a new package.') ;
-    echo '&nbsp;&nbsp;<a class="button" href="' . tep_href_link( FILENAME_PACKAGING,'id='.$_GET["id"] ) . '">'. IMAGE_CANCEL .'</A>' ;	 
+    echo '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING,'id='.$_GET["id"] ) . '">'. IMAGE_CANCEL .'</A>' ;	 
     echo "</td></tr></table>" ;
     echo ("</form>");
 }
@@ -248,7 +248,7 @@ function showUpdatePackageForm() {
     echo '<tr><td class="infoBoxContent"><b>'.HEADING_MAX_WEIGHT.'</b></td></tr><tr><td class="infoBoxContent">'.HEADING_MAX_WEIGHT_TEXT.'</td></tr><tr><td class="infoBoxContent">'.tep_draw_input_field("max_weight", $activepackage['max_weight']).'</td></tr>';
     echo '<tr><td class="infoBoxContent"><b>'.HEADING_COST.'</b></td></tr><tr><td class="infoBoxContent">'.HEADING_COST_TEXT.'</td></tr><tr><td class="infoBoxContent">'.tep_draw_input_field("cost", $activepackage['cost']).'</td></tr>';
     echo '<tr><td colspan="2">'. tep_image_submit('button_confirm.png', 'Update the package with these values.') ;
-    echo '&nbsp;&nbsp;<a class="button" href="' . tep_href_link( FILENAME_PACKAGING,'id='.$_GET["id"] ) . '">'. IMAGE_CANCEL .'</a>' ;	 
+    echo '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING,'id='.$_GET["id"] ) . '">'. IMAGE_CANCEL .'</a>' ;	 
     echo "</td></tr></table>" ;
     echo ("</form>");
 }
@@ -268,8 +268,8 @@ function showConfirmDeletePackageForm() {
     echo "<tr><td>".$package_name."</td></td>";
     echo "<tr><td>";
     //echo tep_image_submit('button_confirm.png', 'ok') ;
-    echo '<a class="button" href="' . tep_href_link( FILENAME_PACKAGING,'Action=deletepackage&id='.$_GET["id"] ) . '">'. IMAGE_CONFIRM.'</a>' ;	 
-    echo '&nbsp;&nbsp;<a class="button" href="' . tep_href_link( FILENAME_PACKAGING,'id='.$_GET["id"] ) . '">'.IMAGE_CANCEL .'</a>' ;	 
+    echo '<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING,'Action=deletepackage&id='.$_GET["id"] ) . '">'. IMAGE_CONFIRM.'</a>' ;	 
+    echo '&nbsp;&nbsp;<a class="btn button" href="' . tep_href_link( FILENAME_PACKAGING,'id='.$_GET["id"] ) . '">'.IMAGE_CANCEL .'</a>' ;	 
     echo '</td></tr></table>';
 }
 

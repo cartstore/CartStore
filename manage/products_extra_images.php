@@ -157,7 +157,7 @@ UPLOAD_ERR_NOFILE The form was submitted, but no file was uploaded
   if (empty($action)) {
 ?>
               <tr>
-                <td align="right" colspan="3" class="smallText"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pInfo->products_extra_images_id . '&action=new') . '">' .  IMAGE_INSERT . '</a>'; ?></td>
+                <td align="right" colspan="3" class="smallText"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pInfo->products_extra_images_id . '&action=new') . '">' .  IMAGE_INSERT . '</a>'; ?></td>
               </tr>
 <?php
   }
@@ -183,7 +183,7 @@ UPLOAD_ERR_NOFILE The form was submitted, but no file was uploaded
 	  $contents[] = array('text' => '<br>' . UPDATE_EXTRA_IMAGE_OPTION );
 	  $contents[] = array('text' =>  '<br>' .tep_draw_input_field('products_extra_image','','size=50 value=""') );
 	  $contents[] = array('text' => '<br>' . TEXT_PRODUCTS . ' ' . (count($products_array)-1));
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pId) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pId) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     case 'edit':
       $heading[] = array('text' => '<b>' . TEXT_HEADING_EDIT_EXTRA_IMAGE . '</b>');
@@ -200,7 +200,7 @@ UPLOAD_ERR_NOFILE The form was submitted, but no file was uploaded
 	  $contents[] = array('text' =>  '<br>' .tep_draw_input_field('products_extra_image',$pInfo -> products_extra_image,'size=50 value=' . $pInfo -> products_extra_image) );
 	  $contents[] = array('text' => '<br>' . $pInfo -> products_extra_image );
       $contents[] = array('text' => '<br>' . TEXT_PRODUCTS . ' ' . (count($products_array)-1));
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pInfo->products_extra_images_id) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_save.png', IMAGE_SAVE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pInfo->products_extra_images_id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     case 'delete':
       $heading[] = array('text' => '<b>' . TEXT_HEADING_DELETE_MANUFACTURER . '</b>');
@@ -209,12 +209,12 @@ UPLOAD_ERR_NOFILE The form was submitted, but no file was uploaded
       $contents[] = array('text' => TEXT_DELETE_INTRO);
       $contents[] = array('text' => '<br><b>' . $pInfo->products_model . '</b>');
       $contents[] = array('text' => '<br>' . tep_draw_checkbox_field('delete_image', '', true) . ' ' . TEXT_DELETE_IMAGE);
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pInfo->products_extra_images_id) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.png', IMAGE_DELETE) . ' <a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pInfo->products_extra_images_id) . '">' .  IMAGE_CANCEL . '</a>');
       break; 
     default:
       if (isset($pId)) {
         $heading[] = array('text' => '<b>' . $pInfo -> products_model . '</b>');
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pId . '&action=edit') . '">' . IMAGE_EDIT . '</a><a class="button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pId . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pId . '&action=edit') . '">' . IMAGE_EDIT . '</a><a class="btn button" href="' . tep_href_link(FILENAME_PRODUCTS_EXTRA_IMAGES, 'page=' . $page . '&pId=' . $pId . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
         $contents[] = array('text' => '<br>' . tep_info_image($pInfo -> products_extra_image, $pInfo -> products_model));
 		$contents[] = array('text' => '<br>' . TEXT_PRODUCTS . ' ' . (count($products_array)-1));
       }

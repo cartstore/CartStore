@@ -407,7 +407,7 @@ function validate(field) {
     if (isset($_GET['search']) && tep_not_null($_GET['search'])) {
 ?>
                   <tr>
-                    <td align="right" colspan="2"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS) . '">' . IMAGE_RESET . '</a>'; ?></td>
+                    <td align="right" colspan="2"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS) . '">' . IMAGE_RESET . '</a>'; ?></td>
                   </tr>
 <?php
     }
@@ -435,7 +435,7 @@ function validate(field) {
       $contents[] = array('text' => tep_draw_checkbox_field('queue_add') . ' ' . TEXT_QUEUE_POINTS_TABLE);
       $contents[] = array('text' => tep_draw_hidden_field('customers_firstname', $cInfo->customers_firstname) . tep_draw_hidden_field('customers_lastname', $cInfo->customers_lastname) . tep_draw_hidden_field('customers_gender', $cInfo->customers_gender) . tep_draw_hidden_field('customers_email_address', $cInfo->customers_email_address) . tep_draw_hidden_field('customers_shopping_points', $cInfo->customers_shopping_points) . tep_draw_hidden_field('customers_points_expires', $cInfo->customers_points_expires));
 
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_add_points.png', BUTTON_TEXT_ADD_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_add_points.png', BUTTON_TEXT_ADD_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . IMAGE_CANCEL . '</a>');
       break;
     case 'adjust':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_ADJUST_POINTS . '</b>');
@@ -448,7 +448,7 @@ function validate(field) {
         $contents[] = array('text' => tep_draw_checkbox_field('set_exp', '', false) . ' ' . TEXT_SET_EXPIRE);
       }
            
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_adjust_points.png', BUTTON_TEXT_ADJUST_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id) . '">' .  IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_adjust_points.png', BUTTON_TEXT_ADJUST_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('oID', 'action')) . 'oID=' . $oInfo->orders_id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     case 'deletepoints':
       $heading[] = array('text' => '<b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
@@ -465,16 +465,16 @@ function validate(field) {
       }
       $contents[] = array('text' => tep_draw_hidden_field('customers_firstname', $cInfo->customers_firstname) . tep_draw_hidden_field('customers_lastname', $cInfo->customers_lastname) . tep_draw_hidden_field('customers_gender', $cInfo->customers_gender) . tep_draw_hidden_field('customers_email_address', $cInfo->customers_email_address) . tep_draw_hidden_field('customers_shopping_points', $cInfo->customers_shopping_points) . tep_draw_hidden_field('customers_points_expires', $cInfo->customers_points_expires));      
 
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete_points.png', BUTTON_TEXT_DELETE_POINTS) . ' <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete_points.png', BUTTON_TEXT_DELETE_POINTS) . ' <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id) . '">' . IMAGE_CANCEL . '</a>');
       break;
     default:
       if (isset($cInfo) && is_object($cInfo)) {
         $heading[] = array('text' => '<b>' . $cInfo->customers_firstname . ' ' . $cInfo->customers_lastname . '</b>');
 
     if ($cInfo->customers_shopping_points > 0) {
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=addpoints') . '">' .  BUTTON_TEXT_ADD_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=deletepoints') . '">' .  BUTTON_TEXT_DELETE_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=adjust') . '">' .  BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' .  IMAGE_ORDERS . '</a> <a class="button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=addpoints') . '">' .  BUTTON_TEXT_ADD_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=deletepoints') . '">' .  BUTTON_TEXT_DELETE_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=adjust') . '">' .  BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' .  IMAGE_ORDERS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' . IMAGE_EMAIL . '</a>');
      } else {
-        $contents[] = array('text' => '<a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=addpoints') . '">' .  BUTTON_TEXT_ADD_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=adjust') . '">' . BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . IMAGE_EDIT . '</a> <a class="button" href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' .  IMAGE_ORDERS . '</a> <a class="button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' .  IMAGE_EMAIL . '</a>');
+        $contents[] = array('text' => '<a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=addpoints') . '">' .  BUTTON_TEXT_ADD_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS_POINTS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=adjust') . '">' . BUTTON_TEXT_ADJUST_POINTS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_CUSTOMERS, tep_get_all_get_params(array('cID', 'action')) . 'cID=' . $cInfo->customers_id . '&action=edit') . '">' . IMAGE_EDIT . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_ORDERS, 'cID=' . $cInfo->customers_id) . '">' .  IMAGE_ORDERS . '</a> <a class="btn button" href="' . tep_href_link(FILENAME_MAIL, 'selected_box=tools&customer=' . $cInfo->customers_email_address) . '">' .  IMAGE_EMAIL . '</a>');
        }
         $contents[] = array('text' => '<br>' . TEXT_INFO_NUMBER_OF_ORDERS . ' ' . $currencies->format($cInfo->ordersum));
         $contents[] = array('text' => TEXT_INFO_NUMBER_OF_PENDING . ' ' . number_format($cInfo->pending_total,POINTS_DECIMAL_PLACES));

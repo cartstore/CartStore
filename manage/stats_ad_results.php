@@ -78,7 +78,7 @@
     echo ENTRY_TODATE . tep_draw_input_field('end_date', $end_date). '&nbsp;';
     echo ENTRY_PRINTABLE . tep_draw_checkbox_field('printable', $print). '&nbsp;';
     echo ENTRY_SORTVALUE . tep_draw_checkbox_field('total_value', $total_value). '&nbsp;&nbsp;';
-    echo '<input type="submit" class="button" value="'. ENTRY_SUBMIT .'">';
+    echo '<input type="submit" class="btn button" value="'. ENTRY_SUBMIT .'">';
     echo '</td></form>';
 
     $grand_total_value = 0;

@@ -128,7 +128,7 @@
   if (empty($action)) {
 ?>
                   <tr>
-                    <td colspan="3" align="right"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&action=new') . '">New Delivery Time</a>'; ?></td>
+                    <td colspan="3" align="right"><?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&action=new') . '">New Delivery Time</a>'; ?></td>
                   </tr>
 <?php
   }
@@ -149,7 +149,7 @@
       $contents[] = array('text' => TEXT_INFO_DELETE_INTRO);
       $contents[] = array('text' => '<br><b>'.TABLE_HEADING_DATE.':'.$cInfo->delv_date . '</b>');
 	  $contents[] = array('text' => '<br><b>'.TABLE_HEADING_SLOT.':'.$cInfo->slot . '</b>');
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_UPDATE) . '&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id) . '">' .  IMAGE_CANCEL. '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_delete.gif', IMAGE_UPDATE) . '&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id) . '">' .  IMAGE_CANCEL. '</a>');
       break;
   	  case 'new':
 	   $d_date = explode("[-]", date('Y-m-d'));
@@ -166,7 +166,7 @@
 	$costs[3] = array('id' => 5, 'text' =>'5');
 
       $contents[] = array('text' => '<br>' . TABLE_HEADING_MAX_LIMIT . '<br>' . tep_draw_input_field('max_limit'));
-      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . '&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page']) . '">' . IMAGE_CANCEL . '</a>');
+      $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_insert.gif', IMAGE_INSERT) . '&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page']) . '">' . IMAGE_CANCEL . '</a>');
       break;
       case 'edit':
       $heading[] = array('text' => '<b>' . TEXT_INFO_HEADING_EDIT_DELIVERY . '</b>');
@@ -183,13 +183,13 @@
 
 
       $contents[] = array('text' => '<br>' . TEXT_INFO_EDIT_MAX_LIMIT . '<br>' . tep_draw_input_field('em_max_limit', $cInfo->em_max_limit));
-          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_update.gif', IMAGE_UPDATE) . '&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id) . '">' .  IMAGE_CANCEL . '</a>');
+          $contents[] = array('align' => 'center', 'text' => '<br>' . tep_image_submit('button_update.gif', IMAGE_UPDATE) . '&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id) . '">' .  IMAGE_CANCEL . '</a>');
       break;
     default:
       if (is_object($cInfo)) {
         $heading[] = array('text' => '<b>' .$cInfo->delv_date.'('.$cInfo->slot . ')</b>');
 
-        $contents[] = array('align' => 'center', 'text' => '<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'] . '&cID=' . $cInfo->id . '&action=edit') . '">' .IMAGE_EDIT . '</a>&nbsp;<a class="button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
+        $contents[] = array('align' => 'center', 'text' => '<a class="btn button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&dayid=' . $_GET['dayid'] . '&cID=' . $cInfo->id . '&action=edit') . '">' .IMAGE_EDIT . '</a>&nbsp;<a class="btn button" href="' . tep_href_link(FILENAME_EMERGENCY_DELIVERY_TIME, 'page=' . $_GET['page'] . '&cID=' . $cInfo->id . '&action=delete') . '">' .  IMAGE_DELETE . '</a>');
 
       }
       break;

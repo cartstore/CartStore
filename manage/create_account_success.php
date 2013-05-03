@@ -55,7 +55,7 @@
         </table></td>
       </tr>
       <tr>
-        <td align="right"><br><?php echo '<a class="button" href="' . $origin_href . '">' . IMAGE_CONTINUE . '</a>'; ?></td>
+        <td align="right"><br><?php echo '<a class="btn button" href="' . $origin_href . '">' . IMAGE_CONTINUE . '</a>'; ?></td>
       </tr>
     </table></td>
 <!-- body_text_eof //-->

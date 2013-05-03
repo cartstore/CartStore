@@ -92,7 +92,7 @@ if (!$submitted || ($submitted != 1 && $submitted != 2))
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td><input type="submit" class="button" value="<?php echo "Generate"; ?>"></td>
+            <td><input type="submit" class="btn button" value="<?php echo "Generate"; ?>"></td>
           </tr>
         </table>
       </td>

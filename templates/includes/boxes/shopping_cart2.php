@@ -88,7 +88,7 @@ if (tep_session_is_registered('cc_id') && $cc_id) {
       new infoBox($info_box_contents);
 ?>
           <br />
-          <a class="button" href="checkout_shipping.php">Checkout</a>
+          <a class="btn button" href="checkout_shipping.php">Checkout</a>
           <div class="clear"/>
         </div>
       </div>

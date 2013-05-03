@@ -240,7 +240,7 @@ descriptions, full category trees, automatic upload and more.
 
        <td>
 
-         <?php echo '<a class="button" href="' . tep_href_link('googlefeeder.php') . '" target=_blank">Create Google Feed File</a>'; ?>
+         <?php echo '<a class="btn button" href="' . tep_href_link('googlefeeder.php') . '" target=_blank">Create Google Feed File</a>'; ?>
 
        </td>
 

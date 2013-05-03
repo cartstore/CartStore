@@ -127,7 +127,7 @@
 			}
 			?>
 			<td colspan="2"><div align="center">
-	          <input type="submit" class="button" value="Upload" name="upload">
+	          <input type="submit" class="btn button" value="Upload" name="upload">
 	          </div></td>
 		    </tr>
 

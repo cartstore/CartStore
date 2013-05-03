@@ -63,7 +63,7 @@
   function tep_image_submit($image, $alt = '', $parameters = '')
   {
       global $language;
-      $image_submit = '<input type="submit" class="button" value="' . tep_output_string($alt) . '"';
+      $image_submit = '<input type="submit" class="btn button" value="' . tep_output_string($alt) . '"';
       if (tep_not_null($alt))
           $image_submit .= '';
       if (tep_not_null($parameters))

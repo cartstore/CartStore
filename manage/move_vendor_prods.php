@@ -116,7 +116,7 @@
               </tr>
               <tr>
                  <td><br>
-                 <?php echo tep_image_submit('button_update.png', 'SUBMIT') . ' <a class="button" href="' . tep_href_link(FILENAME_MOVE_VENDORS, tep_get_all_get_params(array('action'))) .'">' . IMAGE_CANCEL . '</a>';  ?>
+                 <?php echo tep_image_submit('button_update.png', 'SUBMIT') . ' <a class="btn button" href="' . tep_href_link(FILENAME_MOVE_VENDORS, tep_get_all_get_params(array('action'))) .'">' . IMAGE_CANCEL . '</a>';  ?>
 
                  <?php } ?>
              </td>

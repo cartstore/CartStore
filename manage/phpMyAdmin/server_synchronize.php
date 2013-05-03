@@ -461,7 +461,7 @@ if ((isset($_REQUEST['submit_connect']))) {
                 . '</label> </p>
             </fieldset>
             <fieldset class="tblFooters">';
-            echo '<input type="button" name="apply_changes" value="'
+            echo '<input type="btn button" name="apply_changes" value="'
                 . __('Apply Selected Changes')
                 . '" onclick ="ApplySelectedChanges('
                 . "'" . htmlspecialchars($_SESSION['token']) . "'" . ')" />';
@@ -934,7 +934,7 @@ if (isset($_REQUEST['Table_ids'])) {
         </fieldset>';
 
     echo '<fieldset class="tblFooters">';
-    echo '<input type="button" name="apply_changes" value="'
+    echo '<input type="btn button" name="apply_changes" value="'
         . __('Apply Selected Changes') . '" onclick ="ApplySelectedChanges('
         . "'" . htmlspecialchars($_SESSION['token']) . "'" .')" />';
     echo '<input type="submit" name="synchronize_db" value="'

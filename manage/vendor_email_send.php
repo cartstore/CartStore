@@ -257,7 +257,7 @@ if (isset($_GET['action']) && ($_GET['action'] == 'send_vendor_email')) {
 						?></h3></td>
 						<td class="pageHeading2" align="right"></td>
 						<!--       <td class="pageHeading" align="left"><?php
-						echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vID=' . $vendors_id) . '">' . IMAGE_BACK . '</a>';
+						echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vID=' . $vendors_id) . '">' . IMAGE_BACK . '</a>';
 						?></td>  -->
 					</tr>
 					<tr>
@@ -340,7 +340,7 @@ if ($_GET['action'] == 'success') {
 										echo '<b>Congratulations!  The email has been sent to <big>' . $contact . ' </b></big><br>For order number <b>' . $oID . '</b>';
 										?></td>
 										<td class="pageHeading" align="left"><?php
-										echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS) . '">' . IMAGE_BACK . '</a>';
+										echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS) . '">' . IMAGE_BACK . '</a>';
 										?></td>
 										<?php
 										} //if ($_GET["s_235"] == "s_236")
@@ -357,7 +357,7 @@ if ($_GET['action'] == 'success') {
 													echo 'The email will look like this: <br>';
 													?></td>
 													<td align="center"><?php
-													echo '<a classs="button" href="' . tep_href_link(FILENAME_VENDORS_EMAIL_SEND, '&vID=' . $_GET['vID'] . '&oID=' . $_GET['oID'] . '&vOS=' . $_GET['vOS']) . '">' . IMAGE_BACK . '</a><a class="button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vID=' . $vendors_id) . '">' . IMAGE_CANCEL . '</a></td>';
+													echo '<a classs="btn button" href="' . tep_href_link(FILENAME_VENDORS_EMAIL_SEND, '&vID=' . $_GET['vID'] . '&oID=' . $_GET['oID'] . '&vOS=' . $_GET['vOS']) . '">' . IMAGE_BACK . '</a><a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vID=' . $vendors_id) . '">' . IMAGE_CANCEL . '</a></td>';
 													?></td>
 													<tr>
 														<td colspan="3"><?php
@@ -437,7 +437,7 @@ if ($debug == 'yes') {
 					echo 'The body of the email will look like this, this is what your Vendor will see when they open the email: <br>';
 					?></td>
 					<td align="center"><?php
-					echo '<a class="button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vID=' . $vendors_id) . '">' . IMAGE_CANCEL . '</a></td>';
+					echo '<a class="btn button" href="' . tep_href_link(FILENAME_ORDERS_VENDORS, '&vID=' . $vendors_id) . '">' . IMAGE_CANCEL . '</a></td>';
 					?></td>
 					<tr>
 						<td colspan="3"><?php

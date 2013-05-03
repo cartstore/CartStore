@@ -15,7 +15,7 @@
           </a>
         </center>
         <br />
-        <a class="button" href="logoff.php">Log Out</a>
+        <a class="btn button" href="logoff.php">Log Out</a>
         <div class="clear"></div>
       </div>
     </div>
@@ -36,7 +36,7 @@
 
 
 
- <a class="button" href="logoff.php">Logout.</a></span></center>';
+ <a class="btn button" href="logoff.php">Logout.</a></span></center>';
           else {
 ?>
         <div class="box">
@@ -57,7 +57,7 @@
 					echo '<div id="social-login">' . $sociallogininterface . '</div>';
 				}
 			?>
-            <input type="submit" value="Login" class="button" />
+            <input type="submit" value="Login" class="btn button" />
             <div class="clear"></div>
             <a href="password_forgotten.php">Forgot Password?</a><br />
             <a href="create_account.php">New User? Click here</a>
