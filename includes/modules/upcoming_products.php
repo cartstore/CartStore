@@ -14,37 +14,43 @@
   if (tep_db_num_rows($expected_query) > 0) {
 ?>
 <!-- upcoming_products //-->
-          <tr>
-            <td><br><table border="0" width="100%" cellspacing="0" cellpadding="2">
-              <tr>
-                <td class="tableHeading">&nbsp;<?php echo TABLE_HEADING_UPCOMING_PRODUCTS; ?>&nbsp;</td>
-                <td align="right" class="tableHeading">&nbsp;<?php echo TABLE_HEADING_DATE_EXPECTED; ?>&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2"><?php echo tep_draw_separator(); ?></td>
-              </tr>
-              <tr>
-<?php
-    $row = 0;
-    while ($expected = tep_db_fetch_array($expected_query)) {
-      $row++;
-      if (($row / 2) == floor($row / 2)) {
-        echo '              <tr class="upcomingProducts-even">' . "\n";
-      } else {
-        echo '              <tr class="upcomingProducts-odd">' . "\n";
-      }
 
-      echo '                <td class="smallText">&nbsp;<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $expected['products_id']) . '">' . $expected['products_name'] . '</a>&nbsp;</td>' . "\n" .
-           '                <td align="right" class="smallText">&nbsp;' . tep_date_short($expected['date_expected']) . '&nbsp;</td>' . "\n" .
-           '              </tr>' . "\n";
-    }
-?>
-              <tr>
-                <td colspan="2"><?php echo tep_draw_separator(); ?></td>
-              </tr>
-            </table></td>
-          </tr>
+<div class="module-upcoming">
+
+					<div class="upcomingtitle clearfix">
+						<div class="title">
+						<?php echo TABLE_HEADING_UPCOMING_PRODUCTS;?>
+						</div>
+						<div class="date">
+							<?php echo TABLE_HEADING_DATE_EXPECTED;?>
+						</div>
+					</div>
+					
+					
+					
+	
+			<?php
+			$row = 0;
+			while ($expected = tep_db_fetch_array($expected_query)) {
+				$row++;
+				if (($row / 2) == floor($row / 2)) {
+					echo '<div class="item clearfix">
+						<div class="itemname">';
+				} else {
+					echo '<div class="item gray clearfix">
+						<div class="itemname">';
+				}
+
+				echo '  	<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $expected['products_id']) . '">' . $expected['products_name'] . '</a>
+				</div>
+						<div class="itemdate">
+				  
+				' . tep_date_short($expected['date_expected']) . '</div>
+					</div>';
+			}
+			?>
+		</div>
 <!-- upcoming_products_eof //-->
 <?php
-  }
+}
 ?>

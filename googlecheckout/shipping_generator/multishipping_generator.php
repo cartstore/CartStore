@@ -11,31 +11,31 @@
 <?php
 if(is_array(@$mc_shipping_methods))
 foreach($mc_shipping_methods as $shippername => $shippermethods){
-?>	
-		
+?>
+
 		<tr><td>
 			<table border="1" cellpadding="2" cellspacing="0" align="center">
 			  <tr bgcolor="#F0F0F0">
 			    <th align="left">Shipping Code:</th>
 			    <td>
-						<input type="text" name="code[<?=$shippername;?>]" size="50" value="<?=$shippername;?>" id="code"/><a onclick="show_help(0);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
+						<input type="text" name="code[<?php echo $shippername;?>]" size="50" value="<?php echo $shippername;?>" id="code"/><a onclick="show_help(0);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
 				  </td>
 			  </tr>
 			  <tr>
 			    <th align="left">Shipping Fancy Name:</th>
 			    <td>
-						<input type="text" name="name[<?=$shippername;?>]" size="50" value="<?=$mc_shipping_methods_names[$shippername];?>" id="name"/><a onclick="show_help(1);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
+						<input type="text" name="name[<?php echo $shippername;?>]" size="50" value="<?php echo $mc_shipping_methods_names[$shippername];?>" id="name"/><a onclick="show_help(1);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
 				  </td>
 			  </tr>
 			  <!-- demestic types -->
 			  <tr>
 			  	<td colspan="2">
 				  	<table>
-				  		<tbody id="d_table<?=$shippername;?>">
+				  		<tbody id="d_table<?php echo $shippername;?>">
 						  	<tr>
 							    <th align="left" colspan="3">Domestic Types: <small>(leave LAST empty to ignore)</small></th>
 							  </tr>
-							  <tr> 
+							  <tr>
 							    <td>
 							    	Method Code:<a onclick="show_help(2);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
 							    </td>
@@ -52,34 +52,34 @@ foreach($mc_shipping_methods as $shippername => $shippermethods){
 <?php
 				if(is_array(@$shippermethods['domestic_types']))
 				foreach($shippermethods['domestic_types'] as $methodcode => $methodname){
-?>						  
+?>
 							  <tr id="d_tr">
 							    <td>
-							    	<input type="text" name="d_m_code[<?=$shippername;?>][]" value="<?=htmlentities($methodcode);?>" id="d_m_code"/>
+							    	<input type="text" name="d_m_code[<?php echo $shippername;?>][]" value="<?php echo htmlentities($methodcode);?>" id="d_m_code"/>
 							    </td>
                   <td>
-                    <input type="text" name="d_m_name[<?=$shippername;?>][]" value="<?=htmlentities($methodname['title']);?>" size="50" id="d_m_name"/>
+                    <input type="text" name="d_m_name[<?php echo $shippername;?>][]" value="<?php echo htmlentities($methodname['title']);?>" size="50" id="d_m_name"/>
                   </td>
                   <td>
                     <?php echo DEFAULT_CURRENCY . " " . $methodname['cost'];?>
                   </td>
 							    <td>
-									  <input type="button" value="+" style="display:none" onclick="add_sibling('d_table<?=$shippername;?>', 'd_tr<?=$shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
+									  <input type="button" value="+" style="display:none" onclick="add_sibling('d_table<?php echo $shippername;?>', 'd_tr<?php echo $shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
 									  <input type="button" value="-" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);"/>
 							    </td>
 							  </tr>
 <?php
 				}
-?>							  
-							  <tr id="d_tr<?=$shippername;?>">
+?>
+							  <tr id="d_tr<?php echo $shippername;?>">
 							    <td>
-							    	<input type="text" name="d_m_code[<?=$shippername;?>][]" value="" id="d_m_code"/>
+							    	<input type="text" name="d_m_code[<?php echo $shippername;?>][]" value="" id="d_m_code"/>
 							    </td>
 							    <td>
-							    	<input type="text" name="d_m_name[<?=$shippername;?>][]" value="" size="50" id="d_m_name"/>
+							    	<input type="text" name="d_m_name[<?php echo $shippername;?>][]" value="" size="50" id="d_m_name"/>
 							    </td>
 							    <td>
-									  <input type="button" value="+" onclick="add_sibling('d_table<?=$shippername;?>', 'd_tr<?=$shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
+									  <input type="button" value="+" onclick="add_sibling('d_table<?php echo $shippername;?>', 'd_tr<?php echo $shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
 									  <input type="button" value="-" style="display:none" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);"/>
 							    </td>
 							  </tr>
@@ -91,7 +91,7 @@ foreach($mc_shipping_methods as $shippername => $shippermethods){
 			  <tr>
 			  	<td colspan="2">
 				  	<table>
-				  		<tbody id="i_table<?=$shippername;?>">
+				  		<tbody id="i_table<?php echo $shippername;?>">
 						  	<tr>
 							    <th align="left" colspan="3">International Types: <small>(leave LAST empty to ignore)</small></th>
 							  </tr>
@@ -112,34 +112,34 @@ foreach($mc_shipping_methods as $shippername => $shippermethods){
 <?php
 				if(is_array(@$shippermethods['international_types']))
 				foreach($shippermethods['international_types'] as $methodcode => $methodname){
-?>						  
+?>
 							  <tr id="i_tr">
 							    <td>
-							    	<input type="text" name="i_m_code[<?=$shippername;?>][]" value="<?=htmlentities($methodcode);?>" id="i_m_code"/>
+							    	<input type="text" name="i_m_code[<?php echo $shippername;?>][]" value="<?php echo htmlentities($methodcode);?>" id="i_m_code"/>
 							    </td>
 							    <td>
-							    	<input type="text" name="i_m_name[<?=$shippername;?>][]" size="50"	 value="<?=htmlentities($methodname['title']);?>" id="i_m_name"/>
+							    	<input type="text" name="i_m_name[<?php echo $shippername;?>][]" size="50"	 value="<?php echo htmlentities($methodname['title']);?>" id="i_m_name"/>
 							    </td>
                   <td>
                     <?php echo DEFAULT_CURRENCY . " " . $methodname['cost'];?>
                   </td>
 							    <td>
-									  <input type="button" value="+" style="display:none" onclick="add_sibling('i_table<?=$shippername;?>', 'i_tr<?=$shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
+									  <input type="button" value="+" style="display:none" onclick="add_sibling('i_table<?php echo $shippername;?>', 'i_tr<?php echo $shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
 									  <input type="button" value="-" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);"/>
 							    </td>
 								</tr>
 <?php
 				}
 ?>
-							  <tr id="i_tr<?=$shippername;?>">
+							  <tr id="i_tr<?php echo $shippername;?>">
 							    <td>
-							    	<input type="text" name="i_m_code[<?=$shippername;?>][]" value="" id="i_m_code"/>
+							    	<input type="text" name="i_m_code[<?php echo $shippername;?>][]" value="" id="i_m_code"/>
 							    </td>
 							    <td>
-							    	<input type="text" name="i_m_name[<?=$shippername;?>][]" size="50" value="" id="i_m_name"/>
+							    	<input type="text" name="i_m_name[<?php echo $shippername;?>][]" size="50" value="" id="i_m_name"/>
 							    </td>
 							    <td>
-									  <input type="button" value="+" onclick="add_sibling('i_table<?=$shippername;?>', 'i_tr<?=$shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
+									  <input type="button" value="+" onclick="add_sibling('i_table<?php echo $shippername;?>', 'i_tr<?php echo $shippername;?>');this.style.display='none';this.nextSibling.nextSibling.style.display='block';"/>
 									  <input type="button" value="-" style="display:none" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);"/>
 							    </td>
 								</tr>
@@ -148,11 +148,11 @@ foreach($mc_shipping_methods as $shippername => $shippermethods){
 			  </tr>
 			</table>
 			</td></tr>
-			
+
 <?php
 }
-?>			
-			
+?>
+
 			<tr><td>
 			<table align="center">
 			  <tr>
@@ -166,7 +166,7 @@ foreach($mc_shipping_methods as $shippername => $shippermethods){
 			<div align="center"><iframe name="frame" id="frame" style="width:95%; height:600" rows="20"></iframe></div>
 			</td></tr>
 		</table>
-	</form>	
+	</form>
 
 <div id="help" style="display:none; position:absolute; top:10px; right:10px">
   <table width="200" border="1" cellpadding="2" cellspacing="0">
@@ -175,7 +175,7 @@ foreach($mc_shipping_methods as $shippername => $shippermethods){
     </tr>
     <tr>
       <td colspan="2" id="help_text"></td>
-    </tr>    
+    </tr>
   </table>
 </div>
 </body>

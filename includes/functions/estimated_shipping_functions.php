@@ -126,25 +126,27 @@ function tep_get_estimated_shipping_quotes($country, $getvar, $customer_country)
 
 
 	if(isset($_POST['estzipcode']) && $_POST['estzipcode']!=""){
-			
-			$return .= '<tr width="100%"><td class="ship_method" align="left" colspan="2" nowrap>' . $quotes[$i]['module'] . '</td></tr>';
+
+			$return .= '<tr width="100%"><td class="ship_method" align="left" colspan="2" nowrap><h3 class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-transferthick-e-w" ;="" style="float:left"></span>' . $quotes[$i]['module'] . '</h3></td></tr>';
 
 	}
 
 
 
-			
+
 			if (isset($quotes[$i]['error'])) {
 
 			if(isset($_POST['estzipcode']) && $_POST['estzipcode']!=""){
-				
+
 				$return .= '<tr><td class="ship_method2" align="left" colspan="2"><b>' .$quotes[$i]['error'] . '</b></td>';
-			
+
 			}
-			
+
 			} else {
 				for ($j=0, $n2=sizeof($quotes[$i]['methods']); $j<$n2; $j++) {
-					$return .= '<tr><td class="ship_service" align="left">' . $quotes[$i]['methods'][$j]['title'] . '</td>';
+                    $search = array(' regimark', ' tradmrk');
+                    $replace = array('<sup>&reg;</sup>', '<sup>&trade;</sup>');
+					$return .= '<tr><td class="ship_service" align="left">' . str_replace($search, $replace, $quotes[$i]['methods'][$j]['title']) . '</td>';
 					if ( ($n > 1) || ($n2 > 1) ) {
 						 $return .= '<td class="ship_service_price" width="20%" align="right" nowrap>' . $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], (isset($quotes[$i]['tax']) ? $quotes[$i]['tax'] : 0))) . '</td></tr>';
 					} else {

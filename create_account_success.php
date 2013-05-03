@@ -106,7 +106,7 @@
 
               <tr>
 
-                <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
+                <td class="pageHeading"><h1><?php echo HEADING_TITLE; ?></h1></td>
 
               </tr>
 
@@ -186,37 +186,20 @@
 
       </tr>
 
-    </table></td>
+    </table>
+		<!-- body_text_eof //-->
 
-<!-- body_text_eof //-->
-
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-
-<!-- right_navigation //-->
-
-<?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
-
+			<!-- right_navigation //-->
+<?php
+require (DIR_WS_INCLUDES . 'column_right.php');
+?>
 <!-- right_navigation_eof //-->
-
-    </table></td>
-
-  </tr>
-
-</table>
-
+		
 <!-- body_eof //-->
-
-
-
 <!-- footer //-->
-
-<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
-
+<?php
+require (DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
-
 </body>
-
 </html>
-
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
-

@@ -1,10 +1,10 @@
 /* PHP Event Calendar CSS */
 
- 
- 
- 
- 
- 
+
+
+
+
+
 .list {
 	margin: 0 auto;
 	width: 380px;
@@ -67,30 +67,32 @@
 	text-align: center;
 	border: 1px dotted #CCCCCC;
 	padding: 2px;
-	
-}
-#leftCol .module div.cal_day div.day_heading {
-	position: relative;
- 		text-align: center;
 
+}
+#leftCol .module span.cal_day span.day_heading {
+	position: relative;
+ 	text-align: center;
+    display: block;
 	text-transform: uppercase;
  	background-color: #CCCCCC;
  }
 .cal_day .day_count {
 	position: relative;
 	text-align: right;
+    display: block;
 }
 .cal_day .day_number {
 	font-weight: bold;
 	text-align: center;
 	z-index:999;
 	clear:left;
+    display: block;
 }
 .cal_day .day_number.today {
 	color: #08c;
 }
 span.event {
-	
+
 	display:block;
 	text-align:center;
 
@@ -111,7 +113,9 @@ a.jigowatt {
 	font-weight: normal;
 	color: #000000;
 	text-decoration: none;
+display: block;
 }
 .cal_day .event {
 	color: #FF0000;
+display: block;
 }

@@ -14,9 +14,11 @@
   define('FILENAME_RETURN_EMAILS', 'return_emails.php');
   define('FILENAME_RETURNS_TRACK', 'returns_track.php');
   define('FILENAME_FEATURED', 'featured.php');
+    define('FILENAME_FEATURED_MOBILE', 'featured_mobile.php');
+  
   define('FILENAME_HOMEPAGE', 'homepage.php');
   define('FILENAME_FEATURED_PRODUCTS', 'featured_products.php');
-
+define('FILENAME_FEATURED_PRODUCTS_MOBILE', 'featured_products_mobile.php');
 // define the filenames used in the project
 define('defualtcatimage', 'default.gif');
 
@@ -32,6 +34,7 @@ define('defualtcatimage', 'default.gif');
   define('FILENAME_ADVANCED_SEARCH', 'advanced_search.php');
   define('FILENAME_ADVANCED_SEARCH_RESULT', 'advanced_search_result.php');
   define('FILENAME_ALSO_PURCHASED_PRODUCTS', 'also_purchased_products.php');
+  define('FILENAME_CHECKOUT', 'checkout.php');
   define('FILENAME_CHECKOUT_CONFIRMATION', 'checkout_confirmation.php');
   define('FILENAME_CHECKOUT_PAYMENT', 'checkout_payment.php');
   define('FILENAME_CHECKOUT_PAYMENT_ADDRESS', 'checkout_payment_address.php');
@@ -47,6 +50,7 @@ define('defualtcatimage', 'default.gif');
   define('FILENAME_CREATE_ACCOUNT', 'create_account.php');
   define('FILENAME_CREATE_ACCOUNT_SUCCESS', 'create_account_success.php');
   define('FILENAME_DEFAULT', 'index.php');
+   define('FILENAME_DEFAULT_MOBILE', 'index_mobile.php');
   define('FILENAME_DOWNLOAD', 'download.php');
   define('FILENAME_INFO_SHOPPING_CART', 'info_shopping_cart.php');
   define('FILENAME_LOGIN', 'login.php');
@@ -62,6 +66,7 @@ define('defualtcatimage', 'default.gif');
   define('FILENAME_PRIVACY', 'privacy.php');
   define('FILENAME_PRODUCT_INFO', 'product_info.php');
   define('FILENAME_PRODUCT_LISTING', 'product_listing_col.php');
+  define('FILENAME_PRODUCT_LISTING_MOBILE', 'product_listing_col_mobile.php');
   define('FILENAME_PRODUCT_LISTING_QPBPP', 'product_listing_qpbpp.php');
   define('FILENAME_PRODUCT_REVIEWS', 'product_reviews.php');
   define('FILENAME_PRODUCT_REVIEWS_INFO', 'product_reviews_info.php');
@@ -198,6 +203,14 @@ define('FILENAME_EVENTS_CALENDAR_CONTENT','calendar_content.php');
 define('FILENAME_EVENTS_CALENDAR','events_calendar.php');
 
 define( 'FILENAME_BANNER_ROTATOR', 'banner_rotator.php' );
-
+/* CCGV - BEGIN */
+  define('FILENAME_GV_FAQ', 'gv_faq.php');
+  define('FILENAME_GV_REDEEM', 'gv_redeem.php');
+  define('FILENAME_GV_REDEEM_PROCESS', 'gv_redeem_process.php');
+  define('FILENAME_GV_SEND', 'gv_send.php');
+  define('FILENAME_GV_SEND_PROCESS', 'gv_send_process.php');
+  define('FILENAME_PRODUCT_LISTING_COL', 'product_listing_col.php');
+  define('FILENAME_POPUP_COUPON_HELP', 'popup_coupon_help.php');
+/* CCGV - END */
 
 ?>

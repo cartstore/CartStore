@@ -5,7 +5,8 @@
         <h3>PRODUCT CATEGORIES</h3>
 <?php
   $show_ulcats_as_box = false;
-  $idname_for_menu = 'mainlevel';
+//  $idname_for_menu = 'mainlevel';
+  $idname_for_menu = '';
   $classname_for_selected = 'active';
   $classname_for_parent = 'mainlevel';
   $before_nobox_html = '';
@@ -53,14 +54,15 @@
       }
       $output = '';
       $result = tep_db_query('select c.categories_id, cd.categories_name, c.parent_id from ' . TABLE_CATEGORIES . ' c, ' . TABLE_CATEGORIES_DESCRIPTION . ' cd where c.categories_id = cd.categories_id and cd.language_id="' . (int)$languages_id . '" ' . $parent_query . ' order by sort_order, cd.categories_name');
-      while ($row = tep_db_fetch_array($result)) {
+      if (tep_db_num_rows($result) > 0){
+        while ($row = tep_db_fetch_array($result)) {
           $table[$row['parent_id']][$row['categories_id']] = $row['categories_name'];
-      }
-      $output .= '<ul id="' . $idname_for_menu . '">';
-      $output .= tep_make_cat_ulbranch($rootcatid, $table, 0, $maxlevel);
-
-      for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
+        }
+        $output .= '<ul>';
+        $output .= tep_make_cat_ulbranch($rootcatid, $table, 0, $maxlevel);
+        for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
           $output .= '</ul>';
+        }
       }
       return $output;
   }
@@ -91,7 +93,7 @@
           } else {
               global $current_category_id;
               if ($current_category_id > 0 && $current_category_id == $key) {
-                  $output .= '<li id="selected"><a id="active_menu"  href="';
+                  $output .= '<li><a href="';
               } else
                   $output .= '<li class="cat_lev_' . $level . '"><a href="';
               if (!$level) {
@@ -108,7 +110,7 @@
                   $this_parent_class = '';
               }
               $output .= tep_href_link(FILENAME_DEFAULT, $cPath_new) . '"' . $this_parent_class . '>' . $val;
-              if (SHOW_COUNTS == 'false') {
+              if (SHOW_COUNTS == 'true') {
                   $products_in_category = tep_count_products_in_category($key);
                   if ($products_in_category > 0) {
                       $output .= '&nbsp;(' . $products_in_category . ')';
@@ -127,7 +129,6 @@
       return $output;
   }
 ?>
-        </ul>
       </div>
     </div>
   </div>

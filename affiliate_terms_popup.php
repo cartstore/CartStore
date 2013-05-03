@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_terms_popup.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -33,7 +33,7 @@
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="pageHeading"><?php echo HEADING_AFFILIATE_PROGRAM_TITLE; ?></td>
-            <td align="right">&nbsp;</td>
+            <td class="pageHeading" align="right"><?php echo tep_image(DIR_WS_IMAGES . 'table_background_specials.gif', HEADING_TITLE, HEADING_IMAGE_WIDTH, HEADING_IMAGE_HEIGHT); ?></td>
           </tr>
         </table></td>
       </tr>

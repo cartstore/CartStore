@@ -34,8 +34,8 @@ define('REASONS1', ' General Inquiry');
 define('REASONS2', ' Product Enquiry');
 define('REASONS3', ' Technical Enquiry');
 define('REASONS4', ' Sales Enquiry');
-define('REASONS5', ' Template Enquiry');
-define('REASONS6', ' Support Request');
+define('REASONS5', ' Support Request');
+//define('REASONS6', ' Template Enquiry');
 // BOF Super Contact us enhancement 1.5
 
 ?>

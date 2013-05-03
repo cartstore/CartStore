@@ -26,7 +26,7 @@
 		$info_box_contents = array();
 		$info_box_contents[] = array('align' => '',
 									 'text'  => TABLE_HEADING_ESTIMATED_SHIPPING);
-		
+
 
 		if (tep_session_is_registered('country')) {
 			if (isset($_POST['country'])) {
@@ -52,8 +52,8 @@
 			$check_address_query = tep_db_query("select entry_postcode from " . TABLE_ADDRESS_BOOK . " where customers_id = '" . (int)$customer_id . "' and address_book_id = '" . (int)$customer_default_address_id . "'");
 			$check_address = tep_db_fetch_array($check_address_query);
 			$estzipcode = $check_address['entry_postcode'];
-		
-		
+
+
 		}
 
 		$info_box_contents = array();
@@ -72,8 +72,9 @@ if (isset($_POST['country']) && $_POST['country']!="" ) {
 
 $list_ctyp=tep_get_estimated_shipping_quotes($country,  $_GET['action'],$customer_country_id);
 
-}else { $list_ctyp="";}
-		$info_box_contents[] = array('form' => tep_draw_form('estimated_shipping', tep_href_link(basename($PHP_SELF), '',$request_type, false), 'post') .  tep_hide_session_id(),
+}else {
+ $list_ctyp="";}
+ $info_box_contents[] = array('form' => tep_draw_form('estimated_shipping', tep_href_link(basename($_SERVER['PHP_SELF']), '',$request_type, false), 'post') .  tep_hide_session_id(),
 									 'align' => '',
 									 'text' => '
  <span class="est_shipping">
@@ -87,7 +88,7 @@ $list_ctyp=tep_get_estimated_shipping_quotes($country,  $_GET['action'],$custome
   <tr>
     <td class="horzdot">&nbsp;</td>
   </tr>
-  
+
   <tr>
     <td class="t1">Select country to ship to:</td>
   </tr>

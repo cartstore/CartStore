@@ -58,8 +58,9 @@
 
           if (DISPLAY_PRICE_WITH_TAX == 'true') $order->info['shipping_cost'] += tep_calculate_tax($order->info['shipping_cost'], $shipping_tax);
         }
-
-        $this->output[] = array('title' => $order->info['shipping_method'] . ':',
+                        $search = array(' regimark', ' tradmrk');
+                        $replace = array('<sup>&reg;</sup>', '<sup>&trade;</sup>');
+                        $this->output[] = array('title' => str_replace($search, $replace, $order->info['shipping_method']) . ':',
                                 'text' => $currencies->format($order->info['shipping_cost'], true, $order->info['currency'], $order->info['currency_value']),
                                 'value' => $order->info['shipping_cost']);
       }

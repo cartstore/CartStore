@@ -212,9 +212,17 @@
       if (is_array($_GET) && (sizeof($_GET) > 0)) {
           reset($_GET);
           while (list($key, $value) = each($_GET)) {
+            if (is_array($value)){
+             foreach($value as $val){
+              if ((strlen($val) > 0) && ($key != tep_session_name()) && ($key != 'error') && (!in_array($key, $exclude_array)) && ($key != 'x') && ($key != 'y')) {
+                  $get_url .= $key . '=' . rawurlencode(stripslashes($val)) . '&';
+              }
+             }
+            } else {
               if ((strlen($value) > 0) && ($key != tep_session_name()) && ($key != 'error') && (!in_array($key, $exclude_array)) && ($key != 'x') && ($key != 'y')) {
                   $get_url .= $key . '=' . rawurlencode(stripslashes($value)) . '&';
               }
+            }
           }
       }
       return $get_url;
@@ -345,14 +353,53 @@
       }
       return $number;
   }
-
+////
+// Round up function for non whole numbers by GREG DEETH
+// The value for the precision variable determines how many digits after the decimal and rounds the last digit up to the next value
+// Precision = 0 -> xx.xxxx = x+
+// Precision = 1 -> xx.xxxx = xx.+
+// Precision = 2 -> xx.xxxx = xx.x+
+  function tep_round_up($number, $precision) {
+            $number_whole = '';
+            $num_left_dec = 0;
+            $num_right_dec = 0;
+            $num_digits = strlen($number);
+            $number_out = '';
+            $i = 0;
+            while ($i + 1 <= strlen($number))
+            {
+                        $current_digit = substr($number, $i, ($i + 1) - $num_digits);
+                        if ($current_digit == '.') {
+                                    $i = $num_digits + 1;
+                                    $num_left_dec = strlen($number_whole);
+                                    $num_right_dec = ($num_left_dec + 1) - $num_digits;
+                        } else {
+                                    $number_whole = $number_whole . $current_digit;
+                                    $i = $i + 1;
+                        }
+            }
+            if ($num_digits > 3 && $precision < ($num_digits - $num_left_dec - 1) && $precision >= 0) {
+                        $i = $precision;
+                        $addable = 1;
+                        while ($i > 0) {
+                                    $addable = $addable * .1;
+                                    $i = $i - 1;
+                        }
+                        $number_out = substr($number, 0, $num_right_dec + $precision) + $addable;
+            } else {
+                        $number_out = $number;
+            }
+            return $number_out;
+  }
 
 
   function tep_get_tax_rate($class_id, $country_id = -1, $zone_id = -1)
   {
-
-
       global $customer_zone_id, $customer_country_id, $sppc_customer_group_tax_exempt;
+    //BOF WA State Tax Modification added $billto, $sendto, $cart, $customer_id
+    global $billto, $sendto, $cart, $customer_id;
+    //EOF WA State Tax Modification
+	  
       if (!tep_session_is_registered('sppc_customer_group_tax_exempt')) {
           $customer_group_tax_exempt = '0';
       } else {
@@ -371,6 +418,16 @@
               $zone_id = $customer_zone_id;
           }
       }
+//BOF WA State Tax Modification
+    if ($class_id != 0){
+      if (tep_get_zone_code($customer_country_id, $customer_zone_id, "") == "WA") { //make sure this universal
+        //this customer is from Washington State,
+        //so attempt to get their tax rate based on order destination
+	    $tax_rate= parse_DOR();
+        if ($tax_rate!='' && $tax_rate!='0') return $tax_rate ;
+      }
+    }
+//EOF WA State Tax Modification
       $tax_query = tep_db_query("select sum(tax_rate) as tax_rate from " . TABLE_TAX_RATES . " tr left join " . TABLE_ZONES_TO_GEO_ZONES . " za on (tr.tax_zone_id = za.geo_zone_id) left join " . TABLE_GEO_ZONES . " tz on (tz.geo_zone_id = tr.tax_zone_id) where (za.zone_country_id is null or za.zone_country_id = '0' or za.zone_country_id = '" . (int)$country_id . "') and (za.zone_id is null or za.zone_id = '0' or za.zone_id = '" . (int)$zone_id . "') and tr.tax_class_id = '" . (int)$class_id . "' group by tr.tax_priority");
       if (tep_db_num_rows($tax_query)) {
           $tax_multiplier = 1.0;
@@ -437,6 +494,16 @@
   {
       global $YMM_where;
       $products_count = 0;
+		$subs = array($category_id);
+		tep_get_subcategories($subs, $parent_id = $category_id);
+      	if ($include_inactive == true) {
+			$products_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_TO_CATEGORIES . " p2c where " . (YMM_FILTER_COUNT_PRODUCTS_IN_CATEGORY == 'Yes' ? $YMM_where : '') . " p.products_id = p2c.products_id and p2c.categories_id  IN (" . implode(",", $subs) . ")");
+        } else {
+			$products_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_TO_CATEGORIES . " p2c where " . (YMM_FILTER_COUNT_PRODUCTS_IN_CATEGORY == 'Yes' ? $YMM_where : '') . " p.products_id = p2c.products_id and p.products_status = '1' and p2c.categories_id IN (" . implode(",", $subs) . ")");
+		}
+		$products_count = tep_db_fetch_array($products_query);
+		return $products_count['total'];
+
       if ($include_inactive == true) {
           $products_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_TO_CATEGORIES . " p2c where " . (YMM_FILTER_COUNT_PRODUCTS_IN_CATEGORY == 'Yes' ? $YMM_where : '') . " p.products_id = p2c.products_id and p2c.categories_id = '" . (int)$category_id . "'");
       } else {
@@ -654,117 +721,155 @@
   }
 
 
-  function tep_parse_search_string($search_str = '', &$objects)
-  {
-      $search_str = trim(strtolower($search_str));
+////
+// Parse search string into indivual objects
+  function tep_parse_search_string($search_str = '', &$objects) {
+    $search_str = trim(strtolower($search_str));
 
-      $pieces = explode('[[:space:]]+', $search_str);
-      $objects = array();
-      $tmpstring = '';
-      $flag = '';
-      for ($k = 0; $k < count($pieces); $k++) {
-          while (substr($pieces[$k], 0, 1) == '(') {
-              $objects[] = '(';
-              if (strlen($pieces[$k]) > 1) {
-                  $pieces[$k] = substr($pieces[$k], 1);
-              } else {
-                  $pieces[$k] = '';
-              }
-          }
-          $post_objects = array();
-          while (substr($pieces[$k], -1) == ')') {
-              $post_objects[] = ')';
-              if (strlen($pieces[$k]) > 1) {
-                  $pieces[$k] = substr($pieces[$k], 0, -1);
-              } else {
-                  $pieces[$k] = '';
-              }
-          }
+// Break up $search_str on whitespace; quoted string will be reconstructed later
+    $pieces = preg_split('/[[:space:]]+/', $search_str);
+    $objects = array();
+    $tmpstring = '';
+    $flag = '';
 
-          if ((substr($pieces[$k], -1) != '"') && (substr($pieces[$k], 0, 1) != '"')) {
-              $objects[] = trim($pieces[$k]);
-              for ($j = 0; $j < count($post_objects); $j++) {
-                  $objects[] = $post_objects[$j];
-              }
-          } else {
-
-              $tmpstring = trim(preg_replace('/"/', ' ', $pieces[$k]));
-
-              if (substr($pieces[$k], -1) == '"') {
-
-                  $flag = 'off';
-                  $objects[] = trim($pieces[$k]);
-                  for ($j = 0; $j < count($post_objects); $j++) {
-                      $objects[] = $post_objects[$j];
-                  }
-                  unset($tmpstring);
-
-                  continue;
-              }
-
-              $flag = 'on';
-
-              $k++;
-
-              while (($flag == 'on') && ($k < count($pieces))) {
-                  while (substr($pieces[$k], -1) == ')') {
-                      $post_objects[] = ')';
-                      if (strlen($pieces[$k]) > 1) {
-                          $pieces[$k] = substr($pieces[$k], 0, -1);
-                      } else {
-                          $pieces[$k] = '';
-                      }
-                  }
-
-                  if (substr($pieces[$k], -1) != '"') {
-
-                      $tmpstring .= ' ' . $pieces[$k];
-
-                      $k++;
-                      continue;
-                  } else {
-                      $tmpstring .= ' ' . trim(preg_replace('/"/', ' ', $pieces[$k]));
-
-                      $objects[] = trim($tmpstring);
-                      for ($j = 0; $j < count($post_objects); $j++) {
-                          $objects[] = $post_objects[$j];
-                      }
-                      unset($tmpstring);
-
-                      $flag = 'off';
-                  }
-              }
-          }
+    for ($k=0; $k<count($pieces); $k++) {
+      while (substr($pieces[$k], 0, 1) == '(') {
+        $objects[] = '(';
+        if (strlen($pieces[$k]) > 1) {
+          $pieces[$k] = substr($pieces[$k], 1);
+        } else {
+          $pieces[$k] = '';
+        }
       }
 
-      $temp = array();
-      for ($i = 0; $i < (count($objects) - 1); $i++) {
-          $temp[] = $objects[$i];
-          if (($objects[$i] != 'and') && ($objects[$i] != 'or') && ($objects[$i] != '(') && ($objects[$i + 1] != 'and') && ($objects[$i + 1] != 'or') && ($objects[$i + 1] != ')')) {
-              $temp[] = ADVANCED_SEARCH_DEFAULT_OPERATOR;
-          }
+      $post_objects = array();
+
+      while (substr($pieces[$k], -1) == ')')  {
+        $post_objects[] = ')';
+        if (strlen($pieces[$k]) > 1) {
+          $pieces[$k] = substr($pieces[$k], 0, -1);
+        } else {
+          $pieces[$k] = '';
+        }
       }
-      $temp[] = $objects[$i];
-      $objects = $temp;
-      $keyword_count = 0;
-      $operator_count = 0;
-      $balance = 0;
-      for ($i = 0; $i < count($objects); $i++) {
-          if ($objects[$i] == '(')
-              $balance--;
-          if ($objects[$i] == ')')
-              $balance++;
-          if (($objects[$i] == 'and') || ($objects[$i] == 'or')) {
-              $operator_count++;
-          } elseif (($objects[$i]) && ($objects[$i] != '(') && ($objects[$i] != ')')) {
-              $keyword_count++;
-          }
-      }
-      if (($operator_count < $keyword_count) && ($balance == 0)) {
-          return true;
+
+// Check individual words
+
+      if ( (substr($pieces[$k], -1) != '"') && (substr($pieces[$k], 0, 1) != '"') ) {
+        $objects[] = trim($pieces[$k]);
+
+        for ($j=0; $j<count($post_objects); $j++) {
+          $objects[] = $post_objects[$j];
+        }
       } else {
-          return false;
+/* This means that the $piece is either the beginning or the end of a string.
+   So, we'll slurp up the $pieces and stick them together until we get to the
+   end of the string or run out of pieces.
+*/
+
+// Add this word to the $tmpstring, starting the $tmpstring
+        $tmpstring = trim(preg_replace('/"/', ' ', $pieces[$k]));
+
+// Check for one possible exception to the rule. That there is a single quoted word.
+        if (substr($pieces[$k], -1 ) == '"') {
+// Turn the flag off for future iterations
+          $flag = 'off';
+
+          $objects[] = trim(preg_replace('/"/', ' ', $pieces[$k]));
+
+          for ($j=0; $j<count($post_objects); $j++) {
+            $objects[] = $post_objects[$j];
+          }
+
+          unset($tmpstring);
+
+// Stop looking for the end of the string and move onto the next word.
+          continue;
+        }
+
+// Otherwise, turn on the flag to indicate no quotes have been found attached to this word in the string.
+        $flag = 'on';
+
+// Move on to the next word
+        $k++;
+
+// Keep reading until the end of the string as long as the $flag is on
+
+        while ( ($flag == 'on') && ($k < count($pieces)) ) {
+          while (substr($pieces[$k], -1) == ')') {
+            $post_objects[] = ')';
+            if (strlen($pieces[$k]) > 1) {
+              $pieces[$k] = substr($pieces[$k], 0, -1);
+            } else {
+              $pieces[$k] = '';
+            }
+          }
+
+// If the word doesn't end in double quotes, append it to the $tmpstring.
+          if (substr($pieces[$k], -1) != '"') {
+// Tack this word onto the current string entity
+            $tmpstring .= ' ' . $pieces[$k];
+
+// Move on to the next word
+            $k++;
+            continue;
+          } else {
+/* If the $piece ends in double quotes, strip the double quotes, tack the
+   $piece onto the tail of the string, push the $tmpstring onto the $haves,
+   kill the $tmpstring, turn the $flag "off", and return.
+*/
+            $tmpstring .= ' ' . trim(preg_replace('/"/', ' ', $pieces[$k]));
+
+// Push the $tmpstring onto the array of stuff to search for
+            $objects[] = trim($tmpstring);
+
+            for ($j=0; $j<count($post_objects); $j++) {
+              $objects[] = $post_objects[$j];
+            }
+
+            unset($tmpstring);
+
+// Turn off the flag to exit the loop
+            $flag = 'off';
+          }
+        }
       }
+    }
+
+// add default logical operators if needed
+    $temp = array();
+    for($i=0; $i<(count($objects)-1); $i++) {
+      $temp[] = $objects[$i];
+      if ( ($objects[$i] != 'and') &&
+           ($objects[$i] != 'or') &&
+           ($objects[$i] != '(') &&
+           ($objects[$i+1] != 'and') &&
+           ($objects[$i+1] != 'or') &&
+           ($objects[$i+1] != ')') ) {
+        $temp[] = ADVANCED_SEARCH_DEFAULT_OPERATOR;
+      }
+    }
+    $temp[] = $objects[$i];
+    $objects = $temp;
+
+    $keyword_count = 0;
+    $operator_count = 0;
+    $balance = 0;
+    for($i=0; $i<count($objects); $i++) {
+      if ($objects[$i] == '(') $balance --;
+      if ($objects[$i] == ')') $balance ++;
+      if ( ($objects[$i] == 'and') || ($objects[$i] == 'or') ) {
+        $operator_count ++;
+      } elseif ( ($objects[$i]) && ($objects[$i] != '(') && ($objects[$i] != ')') ) {
+        $keyword_count ++;
+      }
+    }
+
+    if ( ($operator_count < $keyword_count) && ($balance == 0) ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 
@@ -1043,10 +1148,10 @@
                   $char = chr(tep_rand(0, 255));
               }
               if ($type == 'mixed') {
-                  if (preg_replace('/^[a-z0-9]$/i', $char))
+                  if (preg_match('/^[a-z0-9]$/i', $char))
                       $rand_value .= $char;
               } elseif ($type == 'chars') {
-                  if (preg_replace('/^[a-z]$/i', $char))
+                  if (preg_match('/^[a-z]$/i', $char))
                       $rand_value .= $char;
               } elseif ($type == 'digits') {
                   if (preg_match('/^[0-9]$/', $char))
@@ -1312,4 +1417,40 @@
           }
           return($ids != '' ? ' c.categories_id in (' . $ids . ') and ' : ' c.categories_id in (0) and  ');
       }
+
+if (!function_exists('json_encode')){
+  function json_encode($a=false){
+    if (is_null($a)) return 'null';
+    if ($a === false) return 'false';
+    if ($a === true) return 'true';
+    if (is_scalar($a)){
+      if (is_float($a)){
+        // Always use "." for floats.
+        return floatval(str_replace(",", ".", strval($a)));
+      }
+
+      if (is_string($a)){
+        static $jsonReplaces = array(array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'), array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
+        return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
+      }
+      else
+        return $a;
+    }
+    $isList = true;
+    for ($i = 0, reset($a); $i < count($a); $i++, next($a)){
+      if (key($a) !== $i){
+        $isList = false;
+        break;
+      }
+    }
+    $result = array();
+    if ($isList){
+      foreach ($a as $v) $result[] = json_encode($v);
+      return '[' . join(',', $result) . ']';
+    } else {
+      foreach ($a as $k => $v) $result[] = json_encode($k).':'.json_encode($v);
+      return '{' . join(',', $result) . '}';
+    }
+  }
+}
 ?>

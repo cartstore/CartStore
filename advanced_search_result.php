@@ -167,7 +167,11 @@
                   $where_str .= "(pd.products_name like '%" . tep_db_input($keyword) . "%' or p.products_model like '%" . tep_db_input($keyword) . "%' or m.manufacturers_name like '%" . tep_db_input($keyword) . "%'";
                   if (isset($_GET['search_in_description']) && ($_GET['search_in_description'] == '1'))
                       $where_str .= " or pd.products_description like '%" . tep_db_input($keyword) . "%' or pd.products_short like '%" . tep_db_input($keyword) . "%' ";
-                  $where_str .= ')';
+                  $where_str .= " or pd.products_head_title_tag like '%" . tep_db_input($keyword) . "'";
+                  $where_str .= " or pd.products_head_desc_tag like '%" . tep_db_input($keyword) . "'";
+                  $where_str .= " or pd.products_head_keywords_tag like '%" . tep_db_input($keyword) . "'";
+                  $where_str .= " or pd.products_info_title like '%" . tep_db_input($keyword) . "'";
+                  $where_str .= " or pd.products_info_desc like '%" . tep_db_input($keyword) . "')";
                   break;
           }
       }
@@ -259,8 +263,12 @@
           break;
   }
   $listing_sql = $select_str . $from_str . $where_str . $order_str;
+
   echo '<div class="search_wrapper">';
-  require(DIR_WS_MODULES . FILENAME_PRODUCT_LISTING);
+  if (IS_MOBILE_DEVICE == TRUE)
+				include (DIR_WS_MODULES . FILENAME_PRODUCT_LISTING_MOBILE);
+			else
+				include (DIR_WS_MODULES . FILENAME_PRODUCT_LISTING);
   echo '</div>';
 
   echo '<a class="button" href="' . tep_href_link(FILENAME_ADVANCED_SEARCH, tep_get_all_get_params(array('sort', 'page')), 'NONSSL', true, false) . '">' . IMAGE_BUTTON_BACK . '</a>';

@@ -1,33 +1,25 @@
 <?php
 /*
-  $Id: gzip_compression.php,v 1.3 2003/02/11 01:31:02 hpdl Exp $
+  $Id$
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   function tep_check_gzip() {
-    //global $HTTP_ACCEPT_ENCODING;
+    global $HTTP_ACCEPT_ENCODING;
 
     if (headers_sent() || connection_aborted()) {
       return false;
     }
 
-    /*
     if (strpos($HTTP_ACCEPT_ENCODING, 'x-gzip') !== false) return 'x-gzip';
 
     if (strpos($HTTP_ACCEPT_ENCODING,'gzip') !== false) return 'gzip';
-    */
-    
-// >>> BEGIN REGISTER_GLOBALS
-    if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'x-gzip') !== false) return 'x-gzip';
-
-    if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'],'gzip') !== false) return 'gzip';
-// <<< END REGISTER_GLOBALS
 
     return false;
   }

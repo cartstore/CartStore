@@ -560,7 +560,7 @@ tp = new WebFXTabPane(document.getElementById("tabpane1"));
                 <td class="horzdot" >&nbsp;</td>
               </tr>
               <tr>
-                <td  style="padding-left:15px"><? include(DIR_WS_MODULES . 'product_reviews_info.php'); ?></td>
+                <td  style="padding-left:15px"><?php include(DIR_WS_MODULES . 'product_reviews_info.php'); ?></td>
               </tr>
               <tr>
                 <td class="horzdot" >&nbsp;</td>

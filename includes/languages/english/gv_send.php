@@ -9,13 +9,13 @@
   Copyright (c) 2001,2002 Ian C Wilson
   http://www.phesis.org
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
 define('HEADING_TITLE', 'Send Gift Certificate');
 define('NAVBAR_TITLE', 'Send Gift Certificate');
 define('EMAIL_SUBJECT', 'Enquiry from ' . STORE_NAME);
-define('HEADING_TEXT','<br>Please enter below the details of the Gift Certificate you wish to send. For more information, please see our <a href="' . tep_href_link(FILENAME_GV_FAQ,'','NONSSL').'">'.GV_FAQ.'.</a><br>');
+define('HEADING_TEXT','<br>Please enter below the details of the Gift Certificate you wish to send. For more information, please see our <a href="' . tep_href_link(FILENAME_GV_FAQ,'','NONSSL').'">gift voucher FAQ page</a>.<br>');
 define('ENTRY_NAME', 'Recipients Name:');
 define('ENTRY_EMAIL', 'Recipients E-Mail Address:');
 define('ENTRY_MESSAGE', 'Message to Recipients:');

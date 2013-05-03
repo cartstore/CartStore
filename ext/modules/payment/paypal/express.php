@@ -2,12 +2,12 @@
 /*
   $Id: express.php 1803 2008-01-11 18:16:37Z hpdl $
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2007 CartStore
+  Copyright (c) 2007 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   chdir('../../../../');
@@ -169,7 +169,6 @@
             } else {
 // get all available shipping quotes
               $quotes = $shipping_modules->quote();
-
 // select cheapest shipping method
               $shipping = $shipping_modules->cheapest();
               $shipping = $shipping['id'];

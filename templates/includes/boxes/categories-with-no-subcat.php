@@ -30,7 +30,7 @@
           $categories_string .= '</a></div></div>';
       }
       
-      if (SHOW_COUNTS == 'false') {
+      if (SHOW_COUNTS == 'true') {
           $products_in_category = tep_count_products_in_category($counter);
           if ($products_in_category > 0) {
               $categories_string .= '&nbsp;(' . $products_in_category . ')';

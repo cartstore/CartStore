@@ -15,7 +15,7 @@
 	$(function() {
 		$("#datepicker").datepicker();
 	});
-</script> 
+</script>
 
 <!-- Load TinyMCE -->
 <script type="text/javascript" src="js/tiny_mce/jquery.tinymce.js"></script>
@@ -46,22 +46,22 @@
 			external_link_list_url : "lists/link_list.js",
 			external_image_list_url : "lists/image_list.js",
 			media_external_list_url : "lists/media_list.js",
-			
+
 		});
 	});
 </script>
-<!-- /TinyMCE --> 
- 
+<!-- /TinyMCE -->
+
 </head>
 <body>
 
 <div id="admin_header">
-    
+
     <div id="admin_title"><a href="index.php"><h2>Calendar Control Panel</h2></a></div>
-    
-    <? if(session_is_registered('username')) { ?>
-    <div id='admin_logout'><a href='logout.php'>Logout (<?=$_SESSION['username'];?>)</a></div>
-    <? }?>
+
+    <?php if(session_is_registered('username')) { ?>
+    <div id='admin_logout'><a href='logout.php'>Logout (<?php echo $_SESSION['username'];?>)</a></div>
+    <?php }?>
 
 </div>
 

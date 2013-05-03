@@ -3,13 +3,13 @@
  * Created on 20/03/2007
  * @author: Ropu
  * @version: 1.2
- * 
+ *
  * Script to emulate a google checkout request to merchant response handler
  * Expected answer: A valid XML in response to your posted xml request.
- *                  No PHP errors warnings or any other string. 
- * 
+ *                  No PHP errors warnings or any other string.
+ *
  * CURL must be installed
- * 
+ *
  * README:
  * Configure the parameters.
  * Place this script in your website.
@@ -19,7 +19,7 @@
  if(!isset($_POST['URL']) || empty($_POST['URL'])){
    $_POST['URL'] = 'https://your-site.com/googlecheckout/responsehandler.php';
  }
- 
+
 ?>
 <html>
 <head>
@@ -31,15 +31,15 @@
  												'The full path to your responsehandler.php file<br/><small>(ie. https://your-site.com/ googlecheckout/responsehandler.php)<br/>Only ports 80 and 443 are available</small>',
  												'Here put the XML Request your want to test against your implementation<br/><small>(ie. New-order-notification, Merchant-calculation-callback)</small>)'
  												);
- 
+
  /**
   * show_help
-  * @param {int} help_index 
+  * @param {int} help_index
   */
   function show_help(help_index) {
   	var help_div = document.getElementById('help');
   	var help_text = document.getElementById('help_text');
-  	
+
   	help_text.innerHTML = help_texts[help_index];
   	help_div.style.display = 'block';
   }
@@ -89,11 +89,11 @@ pre.xmlCode {
 
 
 </style>
-  
+
 </head>
-<body>  
+<body>
   <h2 align=center>Responsehandler Test: Test your implementation</h2>
-  
+
 <?php
 
 if(isset($_POST['submit'])){
@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
 	$merkey = $_POST['sb_key'];
 	// Here put the xml u want to emulate! You can take the ones from googlecheckout/response_message.log
 	$postargs = $_POST['xml'];
-	
+
 
 
 	// No need to touch anything below here.
@@ -114,11 +114,11 @@ if(isset($_POST['submit'])){
 	$response = send_google_req($url, $merid, $merkey, $postargs);
 	list($end_m, $end_s) = explode(' ', microtime());
 	$end = $end_m + $end_s;
-	
+
   $header_string = "Authorization: Basic XXXXXX:XXXXXX\n";
   $header_string .= "Content-Type: application/xml;charset=UTF-8\n";
   $header_string .= "Accept: application/xml;charset=UTF-8\n";
-  
+
   $ip = isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
   $header_string .= "X-Origin-IP: " . $ip ."\n";
 ?>
@@ -130,7 +130,7 @@ if(isset($_POST['submit'])){
 		  <th>XML We Sent:</th>
 		  <td>
 			  <div style="width: 100%;">
-			  	<pre class="xmlCode"><?= htmlentities($header_string) . "\n".htmlentities($postargs);?></pre>
+			  	<pre class="xmlCode"><?php echo  htmlentities($header_string) . "\n".htmlentities($postargs);?></pre>
 			  </div>
 		  </td>
 	  </tr>
@@ -138,7 +138,7 @@ if(isset($_POST['submit'])){
 		  <th>XML We Received:</th>
 		  <td>
 			  <div style="width: 100%;">
-			  	<pre class="xmlCode"><?=htmlentities($response);?></pre>
+			  	<pre class="xmlCode"><?php echo htmlentities($response);?></pre>
 			  </div>
 		  </td>
 	  </tr>
@@ -147,8 +147,8 @@ if(isset($_POST['submit'])){
 
 <?php
 	echo "<xmp>";
-	
-	echo "\n\nTime to response: ". ($end-$start) ." segs"; 
+
+	echo "\n\nTime to response: ". ($end-$start) ." segs";
 	echo "\n\nNote: This script MUST response in less than 3 sec. so GC srv doesn't timeout.'";
 	echo "</xmp>";
 }
@@ -160,7 +160,7 @@ function send_google_req($url, $merid, $merkey, $postargs) {
   $headers[] = "Content-Type: application/xml;charset=UTF-8";
   $headers[] = "Accept: application/xml;charset=UTF-8";
   $headers[] = "User-Agent: Ropus ResponseHandler Test";
-  
+
   $ip = isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
   $headers[] = "X-Origin-IP: " . $ip;
 
@@ -173,7 +173,7 @@ function send_google_req($url, $merid, $merkey, $postargs) {
   curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 //  curl_setopt($session, CURLOPT_PROXY, '192.168.128.150:3128');
 //  curl_setopt($session, CURLOPT_TIMEOUT, 10);
-  
+
   // Set to valir ssl.crt certification
 //curl_setopt($session, CURLOPT_CAINFO, "C:\\Program Files\\xampp\\apache\\conf\\ssl.crt\\ca-bundle.crt");
 
@@ -189,20 +189,20 @@ function send_google_req($url, $merid, $merkey, $postargs) {
   $status_code = array();
   return $response;
 }
-?>  
+?>
   <form action="" method="post">
   <table border="1" cellpadding="2" cellspacing="0" align="center" width="90%">
     <tr>
       <th align="right">Merchant ID: </th>
-      <td><input type="text" value="<?=@$_POST['sb_id'];?>" name="sb_id" size="100"/><a onclick="show_help(0);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a></td>
+      <td><input type="text" value="<?php echo @$_POST['sb_id'];?>" name="sb_id" size="100"/><a onclick="show_help(0);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a></td>
     </tr>
     <tr>
       <th align="right">Merchant Key: </th>
-      <td><input type="text" value="<?=@$_POST['sb_key'];?>" name="sb_key" size="100"/><a onclick="show_help(1);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a></td>
+      <td><input type="text" value="<?php echo @$_POST['sb_key'];?>" name="sb_key" size="100"/><a onclick="show_help(1);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a></td>
     </tr>
     <tr>
       <th align="right">Merchant Calculation API URL:</th>
-      <td><input type="text" value="<?=@$_POST['URL'];?>" name="URL" size="100"/><a onclick="show_help(2);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
+      <td><input type="text" value="<?php echo @$_POST['URL'];?>" name="URL" size="100"/><a onclick="show_help(2);" onmouseover="this.style.cursor='help'"><big>&nbsp;&nbsp;?&nbsp;&nbsp;</big></a>
       </td>
     </tr>
     <tr>
@@ -210,12 +210,12 @@ function send_google_req($url, $merid, $merkey, $postargs) {
     </tr>
     <tr>
       <td colspan="2">
-  			<textarea name="xml" style="width:100%;height:500" cols="100"><?=@$_POST['xml'];?></textarea>
+  			<textarea name="xml" style="width:100%;height:500" cols="100"><?php echo @$_POST['xml'];?></textarea>
       </td>
     </tr>
     <tr>
       <td align="center" colspan="2"><input type="submit" name="submit" value="Test"/><div align=right><small>Coded by:<b><a href="http://ropu.woot.com.ar/">Ropu</a></b></small></div></td>
-    </tr>    
+    </tr>
   </table>
   </form>
   <div id="help" style="display:none; position:absolute; top:10px; right:10px">
@@ -225,7 +225,7 @@ function send_google_req($url, $merid, $merkey, $postargs) {
     </tr>
     <tr>
       <td colspan="2" id="help_text"></td>
-    </tr>    
+    </tr>
   </table>
 </div>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">

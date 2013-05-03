@@ -51,6 +51,11 @@
 
       return $format_string;
     }
+    function calculate_price($products_price, $products_tax, $quantity = 1) {
+      global $currency;
+
+      return tep_round(tep_add_tax($products_price, $products_tax), $this->currencies[$currency]['decimal_places']) * $quantity;
+    }
 
     function is_set($code) {
       if (isset($this->currencies[$code]) && tep_not_null($this->currencies[$code])) {

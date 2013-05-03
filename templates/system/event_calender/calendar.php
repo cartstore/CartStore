@@ -54,9 +54,8 @@ $next_year = $year + 1;
 // Do NOT edit the above. //
 
 		echo "<div class='title_bar'>";
-
-		echo "<a href='calendar.php?month=". $change_month ."&year=". $change_year ."'><div class='previous'></div></a>";
-		echo "<a href='calendar.php?month=". $change_month_next ."&year=". $change_year_next ."'><div class='next'></div></a>";
+		//echo "<a href='calendar.php?month=". $change_month ."&year=". $change_year ."'><div class='previous'></div></a>";
+		//echo "<a href='calendar.php?month=". $change_month_next ."&year=". $change_year_next ."'><div class='next'></div></a>";
 		echo "<h3>" . date('F',  mktime(0,0,0,$month,1)) . "&nbsp;" . $year . "</h3>";
 
 
@@ -72,25 +71,25 @@ for($i=1; $i<= $day_count; $i++) { // Start of for $i
 
 	$count = count_events($i,$month,$year);
 
-	echo "<a href='templates/system/event_calender/day_view.php?day=$i&month=$month&year=$year' title='$i $month_name' rel='day_view'>";
-	echo "<div class='cal_day'>"; // Calendar Day
+	echo "<a href='templates/system/event_calender/day_view.php?day=$i&amp;month=$month&amp;year=$year' title='$i $month_name' rel='day_view'>";
+	echo "<span class='cal_day'>"; // Calendar Day
 
-		echo "<div class='day_heading'>" . $day_name . "</div>";
+		echo "<span class='day_heading'>" . $day_name . "</span>";
 
 
 		if($today == $date) {
-			echo "<div class='day_number today'>" . $i . "</div>";
+			echo "<span class='day_number today'>" . $i . "</span>";
 		}
 
 		elseif($count >= 1) {
-		echo '<div class="day_number event">'. $i . '</div>'; }
+		echo '<span class="day_number event">'. $i . '</span>'; }
 
 
 		else {
-			echo '<div class="day_number">'. $i . '</div>';
+			echo '<span class="day_number">'. $i . '</span>';
 		}
 
-	echo "</div>";
+	echo "</span>";
 	echo "</a>";
 
 } // EOF for $i
@@ -103,4 +102,4 @@ for($i=1; $i<= $day_count; $i++) { // Start of for $i
  </div>
 </div></div></div></div>
 
-<? include('admin/footer.php'); ?>
+<?php include('admin/footer.php'); ?>

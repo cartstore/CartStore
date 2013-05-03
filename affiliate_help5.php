@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_help5.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');

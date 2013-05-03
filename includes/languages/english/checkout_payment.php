@@ -16,7 +16,7 @@ define('HEADING_TITLE', 'Payment Information');
 
 define('TABLE_HEADING_BILLING_ADDRESS', 'Billing Address');
 define('TEXT_SELECTED_BILLING_DESTINATION', 'Please choose from your address book where you would like the invoice to be sent to.');
-define('TITLE_BILLING_ADDRESS', 'Billing Address:');
+define('TITLE_BILLING_ADDRESS', 'Billing Address');
 
 define('TABLE_HEADING_PAYMENT_METHOD', 'Payment Method');
 define('TEXT_SELECT_PAYMENT_METHOD', '');
@@ -37,6 +37,8 @@ define('TEXT_REFERRAL_REFERRED', 'If you were referred to us by a friend please 
 define('HEADING_PRODUCTS', 'Products');
 define('TEXT_EDIT', 'Edit');
 // Points/Rewards Module V2.00 EOF
+define('TABLE_HEADING_CREDIT', ' <strong>Gift Vouchers / Store Credit</strong>');
+
 //DELIVERY MODULE - START
 define('TEXT_DELIVERY_HEADING', 'Delivery Details:');
 define('TEXT_DELIVERY_DATE', 'Date:');

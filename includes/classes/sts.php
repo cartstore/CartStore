@@ -45,6 +45,9 @@ class sts {
 	  return;
 	}
 
+	if( MODULE_STS_MOBILE_STATUS == 'true' && IS_MOBILE_DEVICE && !isset($_GET['sts_template']))
+		$this->template_folder = MODULE_STS_MOBILE_TEMPLATE_FOLDER;
+
 	// Defines constants needed when working with templates
     define('STS_TEMPLATE_DIR', DIR_WS_TEMPLATES . 'includes/sts_templates/' . $this->template_folder .'/');
     define('STS_DEFAULT_TEMPLATE', STS_TEMPLATE_DIR . MODULE_STS_TEMPLATE_FILE);

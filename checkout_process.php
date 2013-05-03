@@ -1,32 +1,59 @@
 <?php
   include('includes/application_top.php');
 
-  if (!tep_session_is_registered('customer_id')) {
-      $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
-      tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+//* One Page Checkout - BEGIN */
+  if (defined('ONEPAGE_CHECKOUT_ENABLED') && ONEPAGE_CHECKOUT_ENABLED == 'True'){
+  	if (defined('ONEPAGE_LOGIN_REQUIRED') && ONEPAGE_LOGIN_REQUIRED == 'true' && SELECT_VENDOR_SHIPPING != 'true'){
+      if (!tep_session_is_registered('customer_id')) {
+          $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
+          tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+      }
+	}
   }
-  if (!tep_session_is_registered('sendto')) {
-      tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
-  }
-  if ((tep_not_null(MODULE_PAYMENT_INSTALLED)) && (!tep_session_is_registered('payment'))) {
-      tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
+/* One Page Checkout - END */
+
+// if the customer is not logged on, redirect them to the login page
+  elseif (!tep_session_is_registered('customer_id')) {
+    $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
+    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
   }
 
-  if (isset($cart->cartID) && tep_session_is_registered('cartID')) {
-      if ($cart->cartID != $cartID) {
-          tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
-      }
+// if there is nothing in the customers cart, redirect them to the shopping cart page
+  if ($cart->count_contents() < 1) {
+    tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
   }
+
+// if no shipping method has been selected, redirect the customer to the shipping method selection page
+  if (!tep_session_is_registered('shipping') || !tep_session_is_registered('sendto')) {
+    tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+  }
+
+  if ( (tep_not_null(MODULE_PAYMENT_INSTALLED)) && (!tep_session_is_registered('payment')) ) {
+    tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
+ }
+
+// avoid hack attempts during the checkout procedure by checking the internal cartID
+  if (isset($cart->cartID) && tep_session_is_registered('cartID')) {
+    if ($cart->cartID != $cartID) {
+      tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+    }
+  }
+
   include(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_PROCESS);
 
+/* One Page Checkout - BEGIN */
+  if (defined('ONEPAGE_CHECKOUT_ENABLED') && ONEPAGE_CHECKOUT_ENABLED == 'True'){
+      require(DIR_WS_MODULES . 'checkout/includes/classes/onepage_checkout.php');
+      $onePageCheckout = new osC_onePageCheckout();
+  }
+/* One Page Checkout - END */
+
+// load selected payment module
   require(DIR_WS_CLASSES . 'payment.php');
-
-
-  if ($credit_covers)
-      $payment = '';
-
+/* CCGV - BEGIN */
+  if ($credit_covers) $payment='';
   $payment_modules = new payment($payment);
-
+/* CCGV - END */
 
   if (($total_weight > 0) || (SELECT_VENDOR_SHIPPING == 'true')) {
       include(DIR_WS_CLASSES . 'vendor_shipping.php');
@@ -38,6 +65,38 @@
   require(DIR_WS_CLASSES . 'order.php');
   $order = new order;
 
+/* One Page Checkout - BEGIN */
+  if (ONEPAGE_CHECKOUT_ENABLED == 'True'){
+      $onePageCheckout->loadSessionVars();
+      $onePageCheckout->fixTaxes();
+
+      /*
+       * This error report is due to the fact that we cannot duplicate some errors.
+       * please forward this email always if you recieve it
+       */
+      if ($order->customer['email_address'] == '' || $order->customer['firstname'] == '' || $order->billing['firstname'] == '' || $order->delivery['firstname'] == ''){
+      	ob_start();
+      	echo 'ONEPAGE::' . serialize($onepage);
+      	echo 'SESSION::' . serialize($_SESSION);
+      	echo 'SERVER::' . serialize($_SERVER);
+      	echo 'ORDER::' . serialize($order);
+      	$content = ob_get_contents();
+      	mail(ONEPAGE_DEBUG_EMAIL_ADDRESS, 'Order Error: Please forward to I.T. Web Experts', $content);
+      	unset($content);
+      	ob_end_clean();
+      }
+  }
+/* One Page Checkout - END */
+
+  $payment_modules->update_status();
+
+/* CCGV - BEGIN */
+if (                                                    ((is_array($payment_modules->modules)) && (sizeof($payment_modules->modules) > 1) && (!is_object($$payment)) && (!$credit_covers) && (!$customer_shopping_points_spending) ) || ( (is_object($$payment)) && ($$payment->enabled == false) ) ) {
+/* CCGV - END */
+
+    tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode(ERROR_NO_PAYMENT_MODULE_SELECTED), 'SSL'));
+  }
+
   require(DIR_WS_CLASSES . 'order_total.php');
   $order_total_modules = new order_total;
   $order_totals = $order_total_modules->process();
@@ -47,9 +106,11 @@
   $del_temp = explode("~", $selected_time_slot);
   $del_date = $del_temp[0];
   $del_slotid = $del_temp[1];
-
-  $sql_data_array = array('customers_id' => $customer_id, 'customers_name' => $order->customer['firstname'] . ' ' . $order->customer['lastname'], 'customers_company' => $order->customer['company'], 'customers_street_address' => $order->customer['street_address'],  'customers_street_address_2' => $order->customer['street_address_2'],'customers_suburb' => $order->customer['suburb'], 'customers_city' => $order->customer['city'], 'customers_postcode' => $order->customer['postcode'], 'customers_state' => $order->customer['state'], 'customers_country' => $order->customer['country']['title'], 'customers_telephone' => $order->customer['telephone'], 'customers_email_address' => $order->customer['email_address'], 'customers_address_format_id' => $order->customer['format_id'], 'delivery_name' => $order->delivery['firstname'] . ' ' . $order->delivery['lastname'], 'delivery_company' => $order->delivery['company'], 'delivery_street_address' => $order->delivery['street_address'],  'delivery_street_address_2' => $order->delivery['street_address_2'], 'delivery_suburb' => $order->delivery['suburb'], 'delivery_city' => $order->delivery['city'], 'delivery_postcode' => $order->delivery['postcode'], 'delivery_state' => $order->delivery['state'], 'delivery_country' => $order->delivery['country']['title'], 'delivery_address_format_id' => $order->delivery['format_id'], 'billing_name' => $order->billing['firstname'] . ' ' . $order->billing['lastname'], 'billing_company' => $order->billing['company'], 'billing_street_address' => $order->billing['street_address'],   'billing_street_address_2' => $order->billing['street_address_2'], 'billing_suburb' => $order->billing['suburb'], 'billing_city' => $order->billing['city'], 'billing_postcode' => $order->billing['postcode'], 'billing_state' => $order->billing['state'], 'billing_country' => $order->billing['country']['title'], 'billing_address_format_id' => $order->billing['format_id'], 'payment_method' => $order->info['payment_method'], 'cc_type' => $order->info['cc_type'], 'cc_owner' => $order->info['cc_owner'], 'cc_number' => $order->info['cc_number'], 'cc_expires' => $order->info['cc_expires'], 'date_purchased' => 'now()', 'orders_status' => $order->info['order_status'], 'currency' => $order->info['currency'],
-
+  $cfg_cc_number = CONFIG_SAVE_CC_NUMBER == 'true' ? $order->info['cc_number'] : ''; 
+  $sql_data_array = array('customers_id' => $customer_id, 'customers_name' => $order->customer['firstname'] . ' ' . $order->customer['lastname'], 'customers_company' => $order->customer['company'], 'customers_street_address' => $order->customer['street_address'],  'customers_street_address_2' => $order->customer['street_address_2'],'customers_suburb' => $order->customer['suburb'], 'customers_city' => $order->customer['city'], 'customers_postcode' => $order->customer['postcode'], 'customers_state' => $order->customer['state'], 'customers_country' => $order->customer['country']['title'], 'customers_telephone' => $order->customer['telephone'], 'customers_email_address' => $order->customer['email_address'], 'customers_address_format_id' => $order->customer['format_id'], 'delivery_name' => $order->delivery['firstname'] . ' ' . $order->delivery['lastname'], 'delivery_company' => $order->delivery['company'], 'delivery_street_address' => $order->delivery['street_address'],  'delivery_street_address_2' => $order->delivery['street_address_2'], 'delivery_suburb' => $order->delivery['suburb'], 'delivery_city' => $order->delivery['city'], 'delivery_postcode' => $order->delivery['postcode'], 'delivery_state' => $order->delivery['state'], 'delivery_country' => $order->delivery['country']['title'], 'delivery_address_format_id' => $order->delivery['format_id'], 'billing_name' => $order->billing['firstname'] . ' ' . $order->billing['lastname'], 'billing_company' => $order->billing['company'], 'billing_street_address' => $order->billing['street_address'],   'billing_street_address_2' => $order->billing['street_address_2'], 'billing_suburb' => $order->billing['suburb'], 'billing_city' => $order->billing['city'], 'billing_postcode' => $order->billing['postcode'], 'billing_state' => $order->billing['state'], 'billing_country' => $order->billing['country']['title'], 'billing_address_format_id' => $order->billing['format_id'], 'payment_method' => $order->info['payment_method'], 'cc_type' => $order->info['cc_type'], 'cc_owner' => $order->info['cc_owner'], 
+  'cc_number' => $cfg_cc_number,
+  'cc_expires' => $order->info['cc_expires'], 'date_purchased' => 'now()', 'orders_status' => $order->info['order_status'], 'currency' => $order->info['currency'],
+'wa_dest_tax' => $wa_dest_tax_rate['locationcode'],
   'currency_value' => $order->info['currency_value'], 'delivery_date' => $del_date, 'delivery_time_slotid' => $del_slotid);
 
   tep_db_perform(TABLE_ORDERS, $sql_data_array);
@@ -87,6 +148,7 @@
   tep_db_perform(TABLE_ORDERS_STATUS_HISTORY, $sql_data_array);
 
   $shipping_array = $shipping['vendor'];
+  if (count($shipping_array) > 0){
   foreach ($shipping_array as $vendors_id => $shipping_data) {
       $vendors_query = tep_db_query("select vendors_name
 
@@ -110,7 +172,7 @@
       $sql_data_array = array('orders_id' => $insert_id, 'vendors_id' => $vendors_id, 'shipping_module' => $shipping_method, 'shipping_method' => $shipping_data['title'], 'shipping_cost' => $shipping_data['cost'], 'shipping_tax' => $shipping_data['ship_tax'], 'vendors_name' => $vendors_name, 'vendor_order_sent' => 'no');
       tep_db_perform(TABLE_ORDERS_SHIPPING, $sql_data_array);
   }
-
+  }
 
   $products_ordered = '';
   $subtotal = 0;
@@ -238,11 +300,10 @@
       tep_session_register('last_order');
       $last_order = $insert_id;
       $oID = $last_order;
-
-
-
-      $order_total_modules->update_credit_account($i);
-
+// Start - CREDIT CLASS Gift Voucher Contribution
+// CCGV 5.19 Fix for GV Queue with Paypal IPN
+  $order_total_modules->update_credit_account($i,$insert_id);
+/* CCGV - END */
 
       $attributes_exist = '0';
       $products_ordered_attributes = '';
@@ -513,10 +574,23 @@ EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
   for ($i = 0, $n = sizeof($order_totals); $i < $n; $i++) {
       $email_order .= strip_tags($order_totals[$i]['title']) . ' ' . strip_tags($order_totals[$i]['text']) . "\n";
   }
-  if ($order->content_type != 'virtual') {
-      $email_order .= "\n" . EMAIL_TEXT_DELIVERY_ADDRESS . "\n" . EMAIL_SEPARATOR . "\n" . tep_address_label($customer_id, $sendto, 0, '', "\n") . "\n";
+  
+/* One Page Checkout - BEGIN */
+  $sendToFormatted = tep_address_label($customer_id, $sendto, 0, '', "\n");
+  if (ONEPAGE_CHECKOUT_ENABLED == 'True'){
+      $sendToFormatted = $onePageCheckout->getAddressFormatted('sendto');
   }
-  $email_order .= "\n" . EMAIL_TEXT_BILLING_ADDRESS . "\n" . EMAIL_SEPARATOR . "\n" . tep_address_label($customer_id, $billto, 0, '', "\n") . "\n\n";
+
+  $billToFormatted = tep_address_label($customer_id, $billto, 0, '', "\n");
+  if (ONEPAGE_CHECKOUT_ENABLED == 'True'){
+      $billToFormatted = $onePageCheckout->getAddressFormatted('billto');
+  }
+/* One Page Checkout - END */
+
+  if ($order->content_type != 'virtual') {
+      $email_order .= "\n" . EMAIL_TEXT_DELIVERY_ADDRESS . "\n" . EMAIL_SEPARATOR . "\n" . $sendToFormatted . "\n";
+  }
+  $email_order .= "\n" . EMAIL_TEXT_BILLING_ADDRESS . "\n" . EMAIL_SEPARATOR . "\n" . $billToFormatted . "\n\n";
   if (is_object($$payment)) {
       $email_order .= EMAIL_TEXT_PAYMENT_METHOD . "\n" . EMAIL_SEPARATOR . "\n";
       $payment_class = $$payment;
@@ -568,6 +642,12 @@ EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
   $wishList->clear();
   $cart->reset(true);
 
+/* One Page Checkout - BEGIN */
+  if (ONEPAGE_CHECKOUT_ENABLED == 'True'){
+      $onepage['info']['order_id'] = $insert_id;
+  }
+/* One Page Checkout - END */
+
   tep_session_unregister('sendto');
   tep_session_unregister('billto');
   tep_session_unregister('shipping');
@@ -580,9 +660,12 @@ EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
 
   tep_session_unregister('customer_referral');
 
-  if (tep_session_is_registered('credit_covers'))
-      tep_session_unregister('credit_covers');
-
+  if(tep_session_is_registered('credit_covers')) tep_session_unregister('credit_covers');
+	if (SELECT_VENDOR_SHIPPING == 'true')
+		include'templates/system/pdf_email_order_mvs.php';
+	else
+		include'templates/system/pdf_email_order.php';
+		
   $order_total_modules->clear_posts();
 
   tep_redirect(tep_href_link(FILENAME_CHECKOUT_SUCCESS, '', 'SSL'));

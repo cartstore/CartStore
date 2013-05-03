@@ -225,51 +225,11 @@
   }
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_RETURN);
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_RETURN, '', 'NONSSL'));
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php echo HTML_PARAMS; ?>>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
-<title><?php echo TITLE; ?></title>
-<base href="<?php echo (getenv('HTTPS') == 'on' ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
 
-<script language="javascript"><!--
-function popupWindow(url) {
-  window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=450,height=280,screenX=150,screenY=150,top=150,left=150')
-}
-//--></script>
-<script>
- var submitDone = false;
+require(DIR_WS_INCLUDES . 'header.php'); 
+ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
 
- function submitForm(myForm, button) {
 
-      if (!submitDone) {
-         submitDone = true;
-         button.value = 'Please Wait';
-         button.disabled = true;
-         myForm.submit();
-      }
-      else {
-        alert ("Already submitted, please wait!");
-      }
-   return true;
- }
-</script>
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php require(DIR_WS_INCLUDES . 'header.php'); ?>
-<!-- header_eof //-->
-
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- left_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_left.php'); ?>
-<!-- left_navigation_eof //-->
-    </table></td>
 <!-- body_text //-->
     <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="0">
       <tr>
@@ -329,7 +289,7 @@ if ($_GET['action'] == 'sent'){
       <tr>
         <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
       </tr>
-      <tr><form name="longsubmit" action="return_product.php?action=insert&oID=<? echo $_GET['order_id'] . '&products_id=' . $_GET['products_id']; ?>" method=post>
+      <tr><form name="longsubmit" action="return_product.php?action=insert&oID=<?php echo $_GET['order_id'] . '&products_id=' . $_GET['products_id']; ?>" method=post>
         <td><table border="0" cellspacing="0" cellpadding="2" width=100%>
              <?php
                   if (isset($error)=='yes') {
@@ -338,7 +298,7 @@ if ($_GET['action'] == 'sent'){
           <tr class="infoBoxContents">
             <td width="40%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main"><b><? echo TEXT_ERROR; ?></b></td>
+                <td class="main"><b><?php echo TEXT_ERROR; ?></b></td>
               </tr>
 
            </table></td>
@@ -542,7 +502,7 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
           <tr class="infoBoxContents">
             <td width="40%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main"><b><? echo TEXT_PREF_REFUND_METHOD; ?></b></td>
+                <td class="main"><b><?php echo TEXT_PREF_REFUND_METHOD; ?></b></td>
               </tr>
               <tr>
                 <td class="main">&nbsp;</td>
@@ -645,19 +605,10 @@ echo '            <td class="main" align="right" valign="top">' . $currencies->f
 
     </table></td>
 <!-- body_text_eof //-->
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- right_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
-<!-- right_navigation_eof //-->
-    </table></td>
-  </tr>
-</table>
-<!-- body_eof //-->
 
-<!-- footer //-->
-<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
-<!-- footer_eof //-->
-<br>
-</body>
-</html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+
+<?php 
+require(DIR_WS_INCLUDES . 'column_right.php');
+
+ require(DIR_WS_INCLUDES . 'footer.php'); 
+ require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

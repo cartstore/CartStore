@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_news.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -52,22 +52,12 @@
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
-            <td align="right">&nbsp;</td>
+            <td class="pageHeading" align="right"></td>
           </tr>
         </table></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
-      <tr>
-        <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
-          <tr>
-            <td class="main"><?php echo TEXT_INFORMATION; ?></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
  <tr>
    <td><br><?php include(DIR_WS_MODULES . FILENAME_AFFILIATE_NEWS); ?></td>
@@ -90,6 +80,7 @@
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

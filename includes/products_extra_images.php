@@ -33,7 +33,7 @@ if (tep_db_num_rows($products_extra_images_query) >= 1){
 //-->
 </script>
 
-<?php   echo '<a href="' . DIR_WS_IMAGES . $extra_images['products_extra_image'] .'" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $extra_images['products_extra_image'], addslashes($extra_images['products_name']), 25, SMALL_IMAGE_HEIGHT, ' class="imageborder" ').'</a>'; ?>
+<?php   echo '<a href="' . DIR_WS_IMAGES . $extra_images['products_extra_image'] .'" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $extra_images['products_extra_image'], addslashes($extra_images['products_name']), 65, SMALL_IMAGE_HEIGHT, ' class="imageborder" ').'</a>'; ?>
 
 
 

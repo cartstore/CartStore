@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_account_details.php,v 2.0 2002/09/29 SDK
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   if (!isset($is_read_only)) $is_read_only = false;

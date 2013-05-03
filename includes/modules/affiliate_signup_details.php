@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_account_details.php,v 2.0 2002/09/29 SDK
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   if (!isset($is_read_only)) $is_read_only = false;
@@ -635,11 +635,7 @@
             <td class="main">&nbsp;</td>
             <td class="main">&nbsp;
 <?php 
-	echo tep_draw_checkbox_field('a_agb', $value = '1', $checked = $affiliate['affiliate_agb']) . ENTRY_AFFILIATE_ACCEPT_AGB . '<b>';
-	?>
-	<a href="#" onClick="javascript:window.open('affiliate_terms_popup.php', 'Terms','scrollbars=yes,toolbar=no,menubar=no,status=no,width=400,height=400');">Affiliate Program Terms and Conditions</a>
-	<?php
-	print('</b>');
+	echo tep_draw_checkbox_field('a_agb', $value = '1', $checked = $affiliate['affiliate_agb']) . ENTRY_AFFILIATE_ACCEPT_AGB . '<b><a href="javascript:popupWindow(\'' . tep_href_link(FILENAME_AFFILIATE_TERMS_POPUP, '', 'SSL') . '\')">' . ENTRY_AFFILIATE_ACCEPT_AGB_TEXT . '</a></b>';
     if ($entry_agb_error == true) {
       echo "<br>".ENTRY_AFFILIATE_AGB_ERROR;
     }

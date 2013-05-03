@@ -12,10 +12,8 @@
     <div>
       <div>
         <h3>SELECT VEHICLE</h3>
-        <p>
-          <center>
+        <p style="text-align: center;">
             You can disable this feature for stores that do not require it
-          </center>
         </p>
         <?php
           $info_box_contents = array();
@@ -26,11 +24,9 @@
           $Model_array[] = array('id' => 'all', 'text' => 'Choose Model');
           $Year_array[] = array('id' => 0, 'text' => 'Choose Year');
           $javascript = '<script language="javascript" type="text/javascript">
-
+//<![CDATA[
 var a = new Array();
-
 var b = new Array();
-
 var c = new Array();';
           $y = array();
           $M_a = array();
@@ -82,69 +78,43 @@ var c = new Array();';
           $javascript .= '
 
 function pop_model(){
-
-
-
   var o ="<select name=\"Model\" onChange=\"pop_year();\" style=\"width: 100%\"><option value=\"all\">Choose Model</option>";
-
   var sv = document.make_model_year.Make.value;
-
   if(sv != "all"){
-
     var v = a.length;
-
     while(v--) if(sv == a[v]) break;
-
     for(var i = 0; i < b[v].length; i++)
-
       o+="<option value=\""+b[v][i]+"\">"+b[v][i]+"</option>";
-
   }
-
   o+="</select>";
-
   document.getElementById("model_select").innerHTML= o;
-
     document.getElementById("year_select").innerHTML= "<select name=\"Year\" style=\"width: 100%\"><option value=\"0\">Choose Year</option></select>";
-
 }
 
 function pop_year(){
-
-
-
   var o ="<select name=\"Year\" style=\"width: 100%\" onChange=\"document.make_model_year.submit();\"><option value=\"0\">Choose Year</option>";
-
   var sv = document.make_model_year.Make.value;
-
   if(sv != "all"){
-
     var v = a.length;
-
     while(v--) if(sv == a[v]) break;
-
     var sv2 = document.make_model_year.Model.value;
-
       if(sv2 != "all"){
-
         var v2 = b[v].length;
-
         while(v2--) if(sv2 == b[v][v2]) break;
-
         for(var i = 0; i < c[v][v2].length; i++)
-
           o+="<option value=\""+c[v][v2][i]+"\">"+c[v][v2][i]+"</option>";
-
       }
-
   }
-
   o+="</select>";
-
   document.getElementById("year_select").innerHTML= o;
-
 }
 
+function clear_vehicle(){
+  jQuery("form[name=\'make_model_year\'] select[name=\'Make\']").val("all");
+  jQuery("form[name=\'make_model_year\'] select[name=\'Model\'] option[value!=\'all\']").remove();
+  jQuery("form[name=\'make_model_year\'] select[name=\'Year\'] option[value!=\'0\']").remove();
+}
+//]]>
 </script>';
           if (isset($Make_selected_var) && isset($M_a[$Make_selected_var])) {
               foreach ($M_a[$Make_selected_var] as $k => $v)
@@ -189,7 +159,7 @@ function pop_year(){
           }
           $info_box_contents = array();
           $info_box_contents[] = array("text" => $javascript);
-          $info_box_contents[] = array('form' => tep_draw_form('make_model_year', $action, 'get'), 'text' => tep_draw_pull_down_menu('Make', $Make_array, (isset($Make_selected_var) ? $Make_selected_var : ''), 'onChange="pop_model();"  style="width: 100%"') . '<br><br>' . '<span id="model_select">' . tep_draw_pull_down_menu('Model', $Model_array, (isset($Model_selected_var) ? $Model_selected_var : ''), 'onChange="pop_year();" style="width: 100%"') . '</span><br><br>' . '<span id="year_select">' . tep_draw_pull_down_menu('Year', $Year_array, (isset($Year_selected_var) ? $Year_selected_var : ''), 'onChange="document.make_model_year.submit();" style="width: 100%"') . '</span><br><br>' . $hidden_get_variables . tep_hide_session_id() . '<input class="button" type="submit" value="Go">&nbsp;&nbsp;&nbsp;<a href="' . $link . '">Clear Vehicle</a>');
+          $info_box_contents[] = array('form' => tep_draw_form('make_model_year', $action, 'get'), 'text' => tep_draw_pull_down_menu('Make', $Make_array, (isset($Make_selected_var) ? $Make_selected_var : ''), 'onchange="pop_model();"  style="width: 100%"') . '<br /><br />' . '<span id="model_select">' . tep_draw_pull_down_menu('Model', $Model_array, (isset($Model_selected_var) ? $Model_selected_var : ''), 'onchange="pop_year();" style="width: 100%"') . '</span><br /><br />' . '<span id="year_select">' . tep_draw_pull_down_menu('Year', $Year_array, (isset($Year_selected_var) ? $Year_selected_var : ''), 'onchange="document.make_model_year.submit();" style="width: 100%"') . '</span><br /><br />' . $hidden_get_variables . tep_hide_session_id() . '<input class="button" type="submit" value="Go" />&nbsp;&nbsp;&nbsp;<a href="javascript: void(0)" onclick="clear_vehicle();return false">Clear Vehicle</a>');
           new infoBox($info_box_contents);
 ?>
       </div>

@@ -77,7 +77,7 @@
       }
       if ($customer_group_id > 0)
           $customerQuery = " and s.customers_group_id = " . (int)$customer_group_id . " ";
-      $listing_sql = "select p.products_model,p.products_image,p.products_id,p.map_price, p.msrp_price, pd.products_name, p.products_price, p.products_tax_class_id, p.products_image, s.specials_new_products_price from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd, " . TABLE_SPECIALS . " s where p.products_status = '1' and s.products_id = p.products_id and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "' and s.status = '1'   $customerQuery " . $listing_sql;
+      $listing_sql = "select p.products_model,p.products_image,p.products_id,p.map_price, p.msrp_price, pd.products_name, pd.products_short, p.products_price, p.products_tax_class_id, p.products_image, s.specials_new_products_price from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd, " . TABLE_SPECIALS . " s where p.products_status = '1' and s.products_id = p.products_id and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "' and s.status = '1'   $customerQuery " . $listing_sql;
       if (ALLOW_CATEGORY_DESCRIPTIONS == 'true') {
           $category_header = tep_get_category_heading_title((int)$current_category_id);
           if (strlen($category_header) == 0) {

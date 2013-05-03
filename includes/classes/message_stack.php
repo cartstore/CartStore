@@ -35,18 +35,19 @@
 // class methods
     function add($class, $message, $type = 'error') {
       if ($type == 'error') {
-        $this->messages[] = array('params' => '', 'class' => $class, 'text' =>  '<div class="ui-widget"><div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all"> 
+        $this->messages[] = array('params' => '', 'class' => $class, 'text' =>  '<div class="ui-widget"><div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all">
 	<p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span>' . $message .'</p>
 				</div>
 			</div>');
       } elseif ($type == 'warning') {
-        $this->messages[] = array('params' => '', 'class' => $class, 'text' => '<div class="ui-widget"><div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all"> 
+        $this->messages[] = array('params' => '', 'class' => $class, 'text' => '<div class="ui-widget"><div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all">
 	<p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span>' . $message .'</p>
 				</div>
+              </div>
 			 ');
       } elseif ($type == 'success') {
         $this->messages[] = array('params' => '', 'class' => $class, 'text' => '<div class="ui-widget">
-				<div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+				<div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all">
 					<p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>' . $message . '</p>
 				</div>
 			</div>');

@@ -1,41 +1,67 @@
 <?php
   require('includes/application_top.php');
 
-  if ((!tep_session_is_registered('customer_id')) && (!tep_session_is_registered('pwa_array_customer'))) {
-      $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
-      tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
-  } //if ((!tep_session_is_registered('customer_id')) && (!tep_session_is_registered('pwa_array_customer')))
+
+/* One Page Checkout - BEGIN */
+  if (ONEPAGE_CHECKOUT_ENABLED == 'True' && !isset($_SESSION['ppe_token']) && !isset($_SESSION['ppe_payerid']) && !isset($_SESSION['ppe_payerstatus']) && $_SESSION['ppe_payerstatus'] != 'verified'){
+	        tep_redirect(tep_href_link(FILENAME_CHECKOUT, $_SERVER['QUERY_STRING'], 'SSL'));
+  }
+/* One Page Checkout - END */
+
+// if the customer is not logged on, redirect them to the login page
+  if (!tep_session_is_registered('customer_id')) {
+    $navigation->set_snapshot(array('mode' => 'SSL', 'page' => FILENAME_CHECKOUT_PAYMENT));
+    tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
+  }
+
+// if there is nothing in the customers cart, redirect them to the shopping cart page
   if ($cart->count_contents() < 1) {
-      tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
-  } //if ($cart->count_contents() < 1)
+    tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
+  }
+
+// avoid hack attempts during the checkout procedure by checking the internal cartID
   if (isset($cart->cartID) && tep_session_is_registered('cartID')) {
-      if ($cart->cartID != $cartID) {
-          tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
-      } //if ($cart->cartID != $cartID)
-  } //if (isset($cart->cartID) && tep_session_is_registered('cartID'))
-  if (!tep_session_is_registered('shipping')) {
+    if ($cart->cartID != $cartID) {
       tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
-  } //if (!tep_session_is_registered('shipping'))
-  if (!tep_session_is_registered('payment'))
-      tep_session_register('payment');
-  if (isset($_POST['payment']))
-      $payment = $_POST['payment'];
-  if (!tep_session_is_registered('comments'))
-      tep_session_register('comments');
+    }
+  }
+
+// if no shipping method has been selected, redirect the customer to the shipping method selection page
+  if (!tep_session_is_registered('shipping')) {
+    tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
+  }
+
+  if (!tep_session_is_registered('payment')) tep_session_register('payment');
+  if (isset($_POST['payment'])) $payment = $_POST['payment'];
+
+  if (!tep_session_is_registered('comments')) tep_session_register('comments');
   if (tep_not_null($_POST['comments'])) {
-      $comments = tep_db_prepare_input($_POST['comments']);
-  } //if (tep_not_null($_POST['comments']))
+    $comments = tep_db_prepare_input($_POST['comments']);
+  }
+
+// load the selected payment module
   require(DIR_WS_CLASSES . 'payment.php');
-  if ($credit_covers)
-      $payment = '';
-  $payment_modules = new payment($payment);
+/* CCGV - BEGIN */
+  if ($credit_covers) $payment='credit_covers'; 
   require(DIR_WS_CLASSES . 'order_total.php');
+/* CCGV - END */
+  $payment_modules = new payment($payment);
+
   require(DIR_WS_CLASSES . 'order.php');
   $order = new order;
+
   $payment_modules->update_status();
+
+/* CCGV - BEGIN */
   $order_total_modules = new order_total;
   $order_total_modules->collect_posts();
   $order_total_modules->pre_confirmation_check();
+
+// >>> FOR ERROR gv_redeem_code NULL
+if (isset($_POST['gv_redeem_code']) && ($_POST['gv_redeem_code'] == null)) {tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));}
+// <<< end for error
+  
+  
   if (isset($_POST['customer_shopping_points_spending']) && USE_REDEEM_SYSTEM == 'true') {
       if (isset($_POST['customer_shopping_points_spending']) && tep_calc_shopping_pvalue($customer_shopping_points_spending) < $order->info['total'] && !is_object($$payment)) {
           tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode(REDEEM_SYSTEM_ERROR_POINTS_NOT), 'SSL'));
@@ -59,10 +85,13 @@
           if (!tep_session_is_registered('customer_referral'))
               tep_session_register('customer_referral');
       } //else
-  } //if (isset($_POST['customer_referred']) && tep_not_null($_POST['customer_referred']))
-  if ((is_array($payment_modules->modules)) && (sizeof($payment_modules->modules) > 1) && (!is_object($$payment)) && (!$credit_covers) && (!$customer_shopping_points_spending)) {
-      tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode(ERROR_NO_PAYMENT_MODULE_SELECTED), 'SSL'));
-  } //if ((is_array($payment_modules->modules)) && (sizeof($payment_modules->modules) > 1) && (!is_object($$payment)) && (!$credit_covers) && (!$customer_shopping_points_spending))
+  }
+/*  if ( ($payment_modules->selected_module != $payment) || ( is_array($payment_modules->modules) && (sizeof($payment_modules->modules) > 1) && !is_object($$payment) ) || (is_object($$payment) && ($$payment->enabled == false)) ) {*/
+//  CCGV + POINTS AND REWARDS MODULE for osc 2.2
+if (((is_array($payment_modules->modules)) && (sizeof($payment_modules->modules) > 1) && (!is_object($$payment)) && (!$credit_covers) && (!$customer_shopping_points_spending) ) || ( (is_object($$payment)) && ($$payment->enabled == false) ) ) {
+    tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'error_message=' . urlencode(ERROR_NO_PAYMENT_MODULE_SELECTED), 'SSL'));
+  }
+
   if (is_array($payment_modules->modules)) {
       $payment_modules->pre_confirmation_check();
   } //if (is_array($payment_modules->modules))
@@ -73,6 +102,13 @@
       include(DIR_WS_CLASSES . 'shipping.php');
   } //elseif (($total_weight > 0) || (SELECT_VENDOR_SHIPPING == 'false'))
   $shipping_modules = new shipping($shipping);
+
+/* CCGV - BEGIN */
+//  require(DIR_WS_CLASSES . 'order_total.php');
+//  $order_total_modules = new order_total;
+/* CCGV - END */
+//  $order_total_modules->process();
+// Stock Check
   $any_out_of_stock = false;
   if (STOCK_CHECK == 'true') {
       $check_stock = '';
@@ -95,7 +131,8 @@
           tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
       } //if ((STOCK_ALLOW_CHECKOUT != 'true') && ($any_out_of_stock == true))
   } //if (STOCK_CHECK == 'true')
-  if (tep_db_prepare_input($HTTP_POST_VARS['TermsAgree']) != 'true' and MATC_AT_CHECKOUT != 'false') {
+
+  if (tep_db_prepare_input($_POST['TermsAgree']) != 'true' and MATC_AT_CHECKOUT != 'false' && $payment_modules->selected_module != 'paypal_express') {
       tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, 'matcerror=true', 'SSL'));
   }
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_CONFIRMATION);
@@ -191,21 +228,15 @@ win = window.open(mypage,myname,settings)
 ?>
 <!-- header_eof //-->
 <!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php
-  echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-  echo BOX_WIDTH;
-?>" cellspacing="0" cellpadding="2">
+
         <!-- left_navigation //-->
         <?php
   require(DIR_WS_INCLUDES . 'column_left.php');
 ?>
         <!-- left_navigation_eof //-->
-      </table></td>
+  
     <!-- body_text //-->
-    <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
         <tr>
           <td>
 
@@ -295,40 +326,24 @@ win = window.open(mypage,myname,settings)
 ?>
                 <td width="<?php
   echo(($sendto != false) ? '70%' : '100%');
-?>" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
-                          <?php
-  if (sizeof($order->info['tax_groups']) > 1) {
-?>
-                          <tr>
-                            <td class="main" colspan="2"><?php
-      echo '<b>' . HEADING_PRODUCTS . '</b> <a class="general_link" href="' . tep_href_link(FILENAME_SHOPPING_CART) . '"><span class="orderEdit">(' . TEXT_EDIT . ')</span></a>';
-?></td>
-                            <td class="smallText" align="right"><b>
-                              <?php
-      echo HEADING_TAX;
-?>
-                              </b></td>
-                            <td class="smallText" align="right"><b>
-                              <?php
-      echo HEADING_TOTAL;
-?>
-                              </b></td>
-                          </tr>
-                          <?php
-      } else
-      {
-?>
-                          <tr>
-                            <td class="main" colspan="3"><?php
-          echo '<b>' . HEADING_PRODUCTS . '</b> <a class="general_link" href="' . tep_href_link(FILENAME_SHOPPING_CART) . '"><span class="orderEdit">(' . TEXT_EDIT . ')</span></a>';
-?></td>
-                          </tr>
-                          <?php
-      }
+?>" valign="top">
+<?php echo '<b>' . HEADING_PRODUCTS . '</b> <a class="general_link" href="' . tep_href_link(FILENAME_SHOPPING_CART) . '"><span class="orderEdit">(' . TEXT_EDIT . ')</span></a>'; ?>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+      	<thead>
+      		<th style="text-align:center"><?php echo TABLE_HEADING_QTY; ?></th>
+      		<th><?php echo TABLE_HEADING_ITEM; ?></th>
+      		<th style="text-align:right"><?php echo TABLE_HEADING_UNIT_PRICE; ?></th>
+  			<?php if (sizeof($order->info['tax_groups']) > 1) { ?>
+      			<th style="text-align:right"><?php echo TABLE_HEADING_TAX; ?></th>
+      		<?php } ?>
+      		<th style="text-align:right"><?php echo TABLE_HEADING_ITEM_PRICE; ?></th>
+      	</thead>
+      	<tbody>
+<?php
       for ($i = 0, $n = sizeof($order->products); $i < $n; $i++) {
-          echo '          <tr>' . "\n" . '            <td class="main" align="right" valign="top" width="30">' . $order->products[$i]['qty'] . '&nbsp;x&nbsp;</td>' . "\n" . '            <td class="main" valign="top">' . $order->products[$i]['name'];
+          echo '          <tr>' . "\n" . '            
+          <td class="main" align="center" valign="top" width="10%">' . $order->products[$i]['qty'] . '</td>'
+           . "\n" . '<td class="main" valign="top">' . $order->products[$i]['name'];
           if (STOCK_CHECK == 'true') {
               echo $check_stock[$i];
           } //if (STOCK_CHECK == 'true')
@@ -338,9 +353,10 @@ win = window.open(mypage,myname,settings)
               } //for ($j = 0, $n2 = sizeof($order->products[$i]['attributes']); $j < $n2; $j++)
           } //if ((isset($order->products[$i]['attributes'])) && (sizeof($order->products[$i]['attributes']) > 0))
           echo '</td>' . "\n";
+          echo '            <td width="20%" class="main" align="right" valign="top">' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], 1) . '</td>' . "\n";
           if (sizeof($order->info['tax_groups']) > 1)
               echo '            <td class="main" valign="top" align="right">' . tep_display_tax_value($order->products[$i]['tax']) . '%</td>' . "\n";
-          echo '            <td class="main" align="right" valign="top">' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . '</td>' . "\n" . '          </tr>' . "\n";
+          echo '            <td width="20%" class="main" align="right" valign="top">' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . '</td>' . "\n" . '          </tr>' . "\n";
       } //for ($i = 0, $n = sizeof($order->products); $i < $n; $i++)
 ?>
                         </table></td>
@@ -412,6 +428,15 @@ win = window.open(mypage,myname,settings)
             </table></td>
         </tr>
         <?php
+  if (isset($$payment->form_action_url)) {
+    $form_action_url = $$payment->form_action_url;
+  } else {
+    $form_action_url = tep_href_link(FILENAME_CHECKOUT_PROCESS, '', 'SSL');
+  }
+      echo tep_draw_form('checkout_confirmation', $form_action_url, 'post');
+// Start - CREDIT CLASS Gift Voucher Contribution
+  echo tep_draw_hidden_field('gv_redeem_code', $_POST['gv_redeem_code']); 
+// End - CREDIT CLASS Gift Voucher Contribution
       if (is_array($payment_modules->modules)) {
           if ($confirmation = $payment_modules->confirmation()) {
 ?>
@@ -512,13 +537,6 @@ win = window.open(mypage,myname,settings)
           <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
               <tr>
                 <td align="right" class="main"><?php
-      if (isset($$payment->form_action_url)) {
-          $form_action_url = $$payment->form_action_url;
-      } //if (isset($$payment->form_action_url))
-      else {
-          $form_action_url = tep_href_link(FILENAME_CHECKOUT_PROCESS, '', 'SSL');
-      } //else
-      echo tep_draw_form('checkout_confirmation', $form_action_url, 'post');
       if (is_array($payment_modules->modules)) {
           echo $payment_modules->process_button();
       } //if (is_array($payment_modules->modules))
@@ -577,21 +595,15 @@ win = window.open(mypage,myname,settings)
 
             </td>
         </tr>
-      </table></td>
+      </table> 
     <!-- body_text_eof //-->
-    <td width="<?php
-      echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-      echo BOX_WIDTH;
-?>" cellspacing="0" cellpadding="2">
+ 
         <!-- right_navigation //-->
         <?php
       require(DIR_WS_INCLUDES . 'column_right.php');
 ?>
         <!-- right_navigation_eof //-->
-      </table></td>
-  </tr>
-</table>
+    
 <!-- body_eof //-->
 <!-- footer //-->
 <?php

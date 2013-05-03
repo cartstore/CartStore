@@ -2,12 +2,12 @@
 /*
   $Id: popup_coupon_help.php,v 1.1.2.5 2003/05/02 01:43:29 wilt Exp $
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -59,7 +59,7 @@ BODY { margin-bottom: 10px; margin-left: 10px; margin-right: 10px; margin-top: 1
   $coupon_get=tep_db_query("select restrict_to_categories from " . TABLE_COUPONS . " where coupon_id='".$_GET['cID']."'");
   $get_result=tep_db_fetch_array($coupon_get);
 
-  $cat_ids = explode(",", $get_result['restrict_to_categories']);
+  $cat_ids = split("[,]", $get_result['restrict_to_categories']);
   for ($i = 0; $i < count($cat_ids); $i++) {
     $result = tep_db_query("SELECT * FROM categories, categories_description WHERE categories.categories_id = categories_description.categories_id and categories_description.language_id = '" . $languages_id . "' and categories.categories_id='" . $cat_ids[$i] . "'");
     if ($row = tep_db_fetch_array($result)) {
@@ -72,7 +72,7 @@ BODY { margin-bottom: 10px; margin-left: 10px; margin-right: 10px; margin-top: 1
   $coupon_get=tep_db_query("select restrict_to_products from " . TABLE_COUPONS . "  where coupon_id='".$_GET['cID']."'");
   $get_result=tep_db_fetch_array($coupon_get);
 
-  $pr_ids = explode(",", $get_result['restrict_to_products']);
+  $pr_ids = split("[,]", $get_result['restrict_to_products']);
   for ($i = 0; $i < count($pr_ids); $i++) {
     $result = tep_db_query("SELECT * FROM products, products_description WHERE products.products_id = products_description.products_id and products_description.language_id = '" . $languages_id . "'and products.products_id = '" . $pr_ids[$i] . "'");
     if ($row = tep_db_fetch_array($result)) {

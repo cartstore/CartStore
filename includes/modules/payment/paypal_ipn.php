@@ -5,7 +5,7 @@ $Id: paypal_ipn.php,v 1.1.2.2 2005/08/04 06:05:08 Michael Sasek Exp $
 osCMax Power E-Commerce
 http://oscdox.com
 
-Copyright © 2004 osCommerce
+Copyright ï¿½ 2004 osCommerce
 
 Released under the GNU General Public License
 */
@@ -202,6 +202,9 @@ $sql_data_array = array('customers_id' => $customer_id,
 'date_purchased' => 'now()',
 'orders_status' => $order->info['order_status'],
 'currency' => $order->info['currency'],
+                         //BOF WA State Tax Modification
+                         'wa_dest_tax' => $wa_dest_tax_rate['locationcode'],
+                         //BOF WA State Tax Modification
 'currency_value' => $order->info['currency_value']);
 
 tep_db_perform(TABLE_ORDERS, $sql_data_array);
@@ -411,8 +414,8 @@ $parameters['upload'] = '1';
 ////////////
 //handling
 /*
-Von Ihnen erhobene Bearbeitungsgebühren. Dieser Betrag ist unabhängig von der Menge. Derselbe Betrag wird berechnet, egal wie viele Posten die Bestellung umfasst.
-Standardwert: keine Bearbeitungsgebühren
+Von Ihnen erhobene Bearbeitungsgebï¿½hren. Dieser Betrag ist unabhï¿½ngig von der Menge. Derselbe Betrag wird berechnet, egal wie viele Posten die Bestellung umfasst.
+Standardwert: keine Bearbeitungsgebï¿½hren
 */
 /*if (MODULE_PAYMENT_PAYPAL_FIX_FEE != '0') {
 $handling_amount = MODULE_PAYMENT_PAYPAL_FIX_FEE;
@@ -431,15 +434,12 @@ $handling = round(($order->info['total'] - $handling_amount),2);
 if (MODULE_PAYMENT_PAYPAL_FIX_FEE != '0') {
 $handling_amount = MODULE_PAYMENT_PAYPAL_FIX_FEE;
 $handling = $handling_amount;
-} else {
-$handling_amount = ($order->info['subtotal'] * MODULE_PAYMENT_PAYPAL_FEE);
-$handling = round(($handling_amount - $order->info['subtotal']),2);
 }
 //
 $_handling_tax = '1.'.$cod_tax;
 $handling = ($handling * $_handling_tax);
 //
-$parameters['handling'] = $handling;  //Bearbeitungsgebühren
+$parameters['handling'] = $handling;  //Bearbeitungsgebï¿½hren
 
 //////////
 for ($i=0, $n=sizeof($order->products); $i<$n; $i++) {
@@ -448,14 +448,13 @@ $item = $i+1;
 $_products_tax = ('1.'.$order->products[$i]['tax']);
 $tax_value = ($_products_tax * $order->products[$i]['final_price']) - $order->products[$i]['final_price'];
 $_bruttopreis_item = $_products_tax * $order->products[$i]['final_price'];
+$_bruttopreis_item = $order->products[$i]['final_price'];
 
-$parameters['item_name_' . $item] = ' Art.nr.: ' . $order->products[$i]['model'] .' '. $order->products[$i]['name']. 'GEB:'.$parameters['handling'];
+$parameters['item_name_' . $item] =  $order->products[$i]['name'];
 $parameters['amount_' . $item] = number_format($_bruttopreis_item * $currencies->get_value($my_currency), $currencies->get_decimal_places($my_currency));
-// Tax not Display. It not funktion
-#$parameters['tax_' . $item] = number_format($order->info['tax'] * $currencies->get_value($my_currency), $currencies->get_decimal_places($my_currency));
-#$parameters['tax_' . $item] = number_format($tax_value * $currencies->get_value($my_currency), $currencies->get_decimal_places($my_currency));
+$parameters['tax_rate_' . $item] = $order->products[$i]['tax'];
 $parameters['quantity_' . $item] = $order->products[$i]['qty'];
-$parameters['handling'] = $handling;  //Bearbeitungsgebühren
+$parameters['handling'] = $handling;  //Bearbeitungsgebï¿½hren
 if ($i == 0) {
 if (DISPLAY_PRICE_WITH_TAX == 'true') {
 $shipping_cost = $order->info['shipping_cost'];
@@ -505,8 +504,8 @@ $parameters['item_name'] = STORE_NAME;
 //$parameters['item_name'] .= '  Kundenname: '.$order->customer['firstname'] . ' ' . $order->customer['lastname'];
 //handling
 /*
-Von Ihnen erhobene Bearbeitungsgebühren. Dieser Betrag ist unabhängig von der Menge. Derselbe Betrag wird berechnet, egal wie viele Posten die Bestellung umfasst.
-Standardwert: keine Bearbeitungsgebühren
+Von Ihnen erhobene Bearbeitungsgebï¿½hren. Dieser Betrag ist unabhï¿½ngig von der Menge. Derselbe Betrag wird berechnet, egal wie viele Posten die Bestellung umfasst.
+Standardwert: keine Bearbeitungsgebï¿½hren
 */
 /*if (MODULE_PAYMENT_PAYPAL_FIX_FEE != '0') {
 $handling_amount = MODULE_PAYMENT_PAYPAL_FIX_FEE;
@@ -522,12 +521,12 @@ $handling = $handling_amount;
 $handling_amount = ($order->info['total'] * MODULE_PAYMENT_PAYPAL_FEE);
 $handling = round(($handling_amount - $order->info['total']),2);
 }
-$parameters['handling'] = $handling;  //Bearbeitungsgebühren
+$parameters['handling'] = $handling;  //Bearbeitungsgebï¿½hren
 ////
- // Versand ohne Zuschlag für zahlweise paypal
+ // Versand ohne Zuschlag fï¿½r zahlweise paypal
 $parameters['shipping'] = number_format($order->info['shipping_cost'] * $currencies->get_value($my_currency), $currencies->get_decimal_places($my_currency));
 //
-// Versand mit Zuschlag für zahlweise paypal
+// Versand mit Zuschlag fï¿½r zahlweise paypal
 #$parameters['shipping'] = number_format($order->info['shipping_cost'] * MODULE_PAYMENT_PAYPAL_FEE * $currencies->get_value($my_currency), $currencies->get_decimal_places($my_currency));
 if(MOVE_TAX_TO_TOTAL_AMOUNT == 'True') {
 // PandA.nl move tax to total amount
@@ -561,11 +560,11 @@ $parameters['amount'] = number_format((($order->info['total'] - $order->info['sh
 
 /////
 $parameters['currency_code'] = $my_currency;
-$parameters['invoice'] = substr($cart_PayPal_Standard_ID, strpos($cart_PayPal_Standard_ID, '-')+1);
+$parameters['invoice'] = $cart_PayPal_Standard_ID;
 $parameters['custom'] = $customer_id;
 $parameters['no_shipping'] = '2';
 $parameters['no_note'] = '1';
-$parameters['handling'] = $handling;  //Bearbeitungsgebühren
+$parameters['handling'] = $handling;  //Bearbeitungsgebï¿½hren
 $parameters['notify_url'] = tep_href_link('ext/modules/payment/paypal_ipn/ipn.php', '', 'SSL', false, false);
 $parameters['return'] = tep_href_link(FILENAME_CHECKOUT_PROCESS, '', 'SSL');
 $parameters['cancel_return'] = tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL');
@@ -576,7 +575,7 @@ $parameters['page_style'] = MODULE_PAYMENT_PAYPAL_IPN_PAGE_STYLE;
 }
 
 
-//// Verschlüssellung
+//// Verschlï¿½ssellung
 if (MODULE_PAYMENT_PAYPAL_IPN_EWP_STATUS == 'True') {
 $parameters['cert_id'] = MODULE_PAYMENT_PAYPAL_IPN_EWP_CERT_ID;
 
@@ -907,11 +906,10 @@ tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, conf
 tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Move tax to total amount', 'MOVE_TAX_TO_TOTAL_AMOUNT', 'True', 'Do you want to move the tax to the total amount? If true PayPal will allways show the total amount including tax. (needs Aggregate i.s.o. Per Item to function)', '6', '4', 'tep_cfg_select_option(array(\'True\', \'False\'), ', now())");
 // eof PandA.nl move tax to total amount
 
-// für fee
-tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('PayPal Fee', 'MODULE_PAYMENT_PAYPAL_FEE" . $i."', '0', 'Insert a % PayPal feel - 1.04 = 4%', '6', '0', now())");
+// fï¿½r fee
 
 tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('PayPal Fix Fee', 'MODULE_PAYMENT_PAYPAL_FIX_FEE" . $i."', '0', 'Insert a PayPal fix feel', '6', '0', now())");
-// Ende für fee
+// Ende fï¿½r fee
 
 tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added) values ('E-Mail Address', 'MODULE_PAYMENT_PAYPAL_IPN_ID', '', 'The e-mail address to use for the PayPal IPN service', '6', '4', now())");
 tep_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, set_function, date_added) values ('Transaction Currency', 'MODULE_PAYMENT_PAYPAL_IPN_CURRENCY', 'Selected Currency', 'The currency to use for transactions', '6', '6', 'tep_cfg_select_option(array(\'Selected Currency\',\'Only CHF\',\'Only CAD\',\'Only EUR\',\'Only GBP\',\'Only JPY\'), ', now())");
@@ -939,7 +937,7 @@ tep_db_query("delete from " . TABLE_CONFIGURATION . " where configuration_key in
 
 function keys() {
 // PandA.nl move tax to total amount added: ", 'MOVE_TAX_TO_TOTAL_AMOUNT'"
-return array('MODULE_PAYMENT_PAYPAL_IPN_STATUS', 'MOVE_TAX_TO_TOTAL_AMOUNT', 'MODULE_PAYMENT_PAYPAL_IPN_ID', 'MODULE_PAYMENT_PAYPAL_IPN_CURRENCY','MODULE_PAYMENT_PAYPAL_FEE', 'MODULE_PAYMENT_PAYPAL_FIX_FEE', 'MODULE_PAYMENT_PAYPAL_IPN_ZONE', 'MODULE_PAYMENT_PAYPAL_IPN_PREPARE_ORDER_STATUS_ID', 'MODULE_PAYMENT_PAYPAL_IPN_ORDER_STATUS_ID', 'MODULE_PAYMENT_PAYPAL_IPN_GATEWAY_SERVER', 'MODULE_PAYMENT_PAYPAL_IPN_TRANSACTION_TYPE', 'MODULE_PAYMENT_PAYPAL_IPN_PAGE_STYLE', 'MODULE_PAYMENT_PAYPAL_IPN_DEBUG_EMAIL', 'MODULE_PAYMENT_PAYPAL_IPN_SORT_ORDER', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_STATUS', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_PRIVATE_KEY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_PUBLIC_KEY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_PAYPAL_KEY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_CERT_ID', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_WORKING_DIRECTORY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_OPENSSL');
+return array('MODULE_PAYMENT_PAYPAL_IPN_STATUS', 'MOVE_TAX_TO_TOTAL_AMOUNT', 'MODULE_PAYMENT_PAYPAL_IPN_ID', 'MODULE_PAYMENT_PAYPAL_IPN_CURRENCY', 'MODULE_PAYMENT_PAYPAL_FIX_FEE', 'MODULE_PAYMENT_PAYPAL_IPN_ZONE', 'MODULE_PAYMENT_PAYPAL_IPN_PREPARE_ORDER_STATUS_ID', 'MODULE_PAYMENT_PAYPAL_IPN_ORDER_STATUS_ID', 'MODULE_PAYMENT_PAYPAL_IPN_GATEWAY_SERVER', 'MODULE_PAYMENT_PAYPAL_IPN_TRANSACTION_TYPE', 'MODULE_PAYMENT_PAYPAL_IPN_PAGE_STYLE', 'MODULE_PAYMENT_PAYPAL_IPN_DEBUG_EMAIL', 'MODULE_PAYMENT_PAYPAL_IPN_SORT_ORDER', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_STATUS', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_PRIVATE_KEY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_PUBLIC_KEY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_PAYPAL_KEY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_CERT_ID', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_WORKING_DIRECTORY', 'MODULE_PAYMENT_PAYPAL_IPN_EWP_OPENSSL');
 }
 }
 

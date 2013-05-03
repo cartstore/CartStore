@@ -21,9 +21,9 @@
     }
 
     function restore_contents() {
-// ############Added CCGV Contribution ##########
+/* CCGV - BEGIN */
       global $customer_id, $gv_id, $REMOTE_ADDR;
-// ############ End Added CCGV Contribution ##########
+/* CCGV - END */
 
       if (!tep_session_is_registered('customer_id')) return false;
 
@@ -47,16 +47,14 @@
             tep_db_query("update " . TABLE_CUSTOMERS_BASKET . " set customers_basket_quantity = '" . $qty . "' where customers_id = '" . (int)$customer_id . "' and products_id = '" . tep_db_input($products_id) . "'");
           }
         }
-
-// ############ Added CCGV Contribution ##########
+/* CCGV - BEGIN */
         if (tep_session_is_registered('gv_id')) {
           $gv_query = tep_db_query("insert into  " . TABLE_COUPON_REDEEM_TRACK . " (coupon_id, customer_id, redeem_date, redeem_ip) values ('" . $gv_id . "', '" . (int)$customer_id . "', now(),'" . $REMOTE_ADDR . "')");
           $gv_update = tep_db_query("update " . TABLE_COUPONS . " set coupon_active = 'N' where coupon_id = '" . $gv_id . "'");
           tep_gv_account_update($customer_id, $gv_id);
           tep_session_unregister('gv_id');
         }
-// ############ End Added CCGV Contribution ##########
-
+/* CCGV - END */
       }
 
 // reset per-session cart contents, but not the database contents
@@ -109,7 +107,6 @@
       $pf = new PriceFormatter;
       $pf->loadProduct($products_id, $languages_id);
       $qty = $pf->adjustQty($qty);
-
       // EOF Separate Pricing Per Customer, Price Break 1.11.3 modification
 
       $products_id = tep_get_uprid($products_id, $attributes);
@@ -283,9 +280,11 @@
 
 
 function calculate() {
-	// ############ Added CCGV Contribution ##########
-      $this->total_virtual = 0; // CCGV Contribution
-// ############ End Added CCGV Contribution ##########
+     global $currencies;
+
+/* CCGV - BEGIN */
+      $this->total_virtual = 0;
+/* CCGV - END */
       $this->total = 0;
       $this->weight = 0;
       if (!is_array($this->contents)) return 0;
@@ -302,6 +301,14 @@ function calculate() {
 
     //    if ($product = tep_db_fetch_array($product_query)) {
         if ($product = $pf->loadProduct($products_id, $languages_id)){
+/* CCGV - BEGIN */
+          $no_count = 1;
+          $gv_query = tep_db_query("select products_model from " . TABLE_PRODUCTS . " where products_id = '" . (int)$products_id . "'");
+          $gv_result = tep_db_fetch_array($gv_query);
+          if (preg_match('/^GIFT/', $gv_result['products_model'])) {
+            $no_count = 0;
+          }
+/* CCGV - END */
           $prid = $product['products_id'];
          $products_tax = tep_get_tax_rate($product['products_tax_class_id']);
   //        $products_price = $product['products_price'];
@@ -309,13 +316,12 @@ function calculate() {
           $products_weight = $product['products_weight'];
 // EOF Separate Pricing Per Customer, Price Break 1.11.3 mod
 
+/* CCGV - BEGIN */
+          $this->total_virtual += $currencies->calculate_price($products_price, $products_tax, ($qty * $no_count) );
+          $this->weight_virtual += ($qty * $products_weight) * $no_count;
+/* CCGV - END */
 
-		  // ############ Added CCGV Contribution ##########
-          $this->total_virtual += tep_add_tax($products_price, $products_tax) * $qty * $no_count;// ICW CREDIT CLASS;
-          $this->weight_virtual += ($qty * $products_weight) * $no_count;// ICW CREDIT CLASS;
-		  // ############ End Added CCGV Contribution ##########
-
-          $this->total += tep_add_tax($products_price, $products_tax) * $qty;
+          $this->total += $currencies->calculate_price($products_price, $products_tax, $qty);
           $this->weight += ($qty * $products_weight);
         }
 
@@ -516,8 +522,8 @@ function get_products() {
 									'products_ship_zip' => $products_shipping['products_ship_zip'],
 									// end  indvship
                                     //MVS start
-                                    'vendors_id' => $products['vendors_id'],
-                                    'vendors_name' => $products['vendors_name'],
+                                    'vendors_id' => isset($products['vendors_id']) ? $products['vendors_id'] : '',
+                                    'vendors_name' => isset($products['vendors_name']) ? $products['vendors_name'] : '',
                                     //MVS end
                                     'attributes' => (isset($this->contents[$products_id]['attributes']) ? $this->contents[$products_id]['attributes'] : ''),
                                     'attributes_values' => (isset($this->contents[$products_id]['attributes_values']) ? $this->contents[$products_id]['attributes_values'] : ''));
@@ -540,6 +546,19 @@ function get_products() {
       return $this->weight;
     }
 
+/* CCGV - BEGIN */
+    function show_total_virtual() {
+      $this->calculate();
+
+      return $this->total_virtual;
+    }
+
+    function show_weight_virtual() {
+      $this->calculate();
+
+      return $this->weight_virtual;
+    }
+/* CCGV - END */
     function generate_cart_id($length = 5) {
       return tep_create_random_value($length, 'digits');
     }
@@ -583,8 +602,7 @@ function get_products() {
                 }
               }
             }
-
-			// ############ Added CCGV Contribution ##########
+/* CCGV - BEGIN */
           } elseif ($this->show_weight() == 0) {
             reset($this->contents);
             while (list($products_id, ) = each($this->contents)) {
@@ -614,7 +632,7 @@ function get_products() {
                 }
               }
             }
-// ############ End Added CCGV Contribution ##########
+/* CCGV - END */
           } else {
             switch ($this->content_type) {
               case 'virtual':
@@ -636,20 +654,6 @@ function get_products() {
     }
 
 
-// ############ Added CCGV Contribution ##########
-    function show_total_virtual() {
-      $this->calculate();
-
-      return $this->total_virtual;
-    }
-
-    function show_weight_virtual() {
-      $this->calculate();
-
-      return $this->weight_virtual;
-    }
-// ############ End Added CCGV Contribution ##########
-
 
 
     function unserialize($broken) {
@@ -660,15 +664,8 @@ function get_products() {
       }
     }
 
-
-		// ############ Added CCGV Contribution ##########
-   // amend count_contents to show nil contents for shipping
-   // as we don't want to quote for 'virtual' item
-   // GLOBAL CONSTANTS if NO_COUNT_ZERO_WEIGHT is true then we don't count any product with a weight
-   // which is less than or equal to MINIMUM_WEIGHT
-   // otherwise we just don't count gift certificates
-
-    function count_contents_virtual() {  // get total number of items in cart disregard gift vouchers
+/* CCGV - BEGIN */
+    function count_contents_virtual() {
       $total_items = 0;
       if (is_array($this->contents)) {
         reset($this->contents);
@@ -691,8 +688,6 @@ function get_products() {
       }
       return $total_items;
     }
-// ############ End Added CCGV Contribution ##########
-
-
+/* CCGV - END */
   }
 ?>

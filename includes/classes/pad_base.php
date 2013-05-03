@@ -364,16 +364,37 @@
           } elseif ($build_nonstocked) {
               $stocked_where = "and popt.products_options_track_stock = '0'";
           }
+		  // Sort via AJAX Attribute Manager method
           $products_options_name_query = tep_db_query("select distinct popt.products_options_id, popt.products_options_name,popt.products_options_type, popt.products_options_track_stock, popt.products_options_images_enabled,popt.products_options_length from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$this->products_id . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "' " . $stocked_where . " order by patrib.products_options_sort_order");
+		  // Sort via Products Options/Products Options Values method
+          //$products_options_name_query = tep_db_query("select distinct popt.products_options_id, popt.products_options_name,popt.products_options_type, popt.products_options_track_stock, popt.products_options_images_enabled,popt.products_options_length from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$this->products_id . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "' " . $stocked_where . " order by popt.products_options_sort_order");
           $attributes = array();
+
           while ($products_options_name = tep_db_fetch_array($products_options_name_query)) {
               $products_options_array = array();
-              $products_options_query = tep_db_query("select pov.products_options_values_id, pov.products_options_values_name, pa.options_values_price, pa.price_prefix, pov.products_options_values_thumbnail from " . TABLE_PRODUCTS_ATTRIBUTES . " pa, " . TABLE_PRODUCTS_OPTIONS_VALUES . " pov where pa.products_id = '" . (int)$this->products_id . "' and pa.options_id = '" . (int)$products_options_name['products_options_id'] . "' and pa.options_values_id = pov.products_options_values_id and pov.language_id = '" . (int)$languages_id . "'  order by pa.products_options_sort_order");
+		  		// Sort via AJAX Attribute Manager method
+              	$products_options_query = tep_db_query("select pov.products_options_values_id, pov.products_options_values_name, pa.options_values_price, pa.price_prefix, pov.products_options_values_thumbnail from " . TABLE_PRODUCTS_ATTRIBUTES . " pa, " . TABLE_PRODUCTS_OPTIONS_VALUES . " pov where pa.products_id = '" . (int)$this->products_id . "' and pa.options_id = '" . (int)$products_options_name['products_options_id'] . "' and pa.options_values_id = pov.products_options_values_id and pov.language_id = '" . (int)$languages_id . "'  order by pa.products_options_sort_order");
+		  		// Sort via Products Options/Products Options Values method
+              	//$products_options_query = tep_db_query("select pov.products_options_values_id, pov.products_options_values_name, pa.options_values_price, pa.price_prefix, pov.products_options_values_thumbnail from " . TABLE_PRODUCTS_ATTRIBUTES . " pa, " . TABLE_PRODUCTS_OPTIONS_VALUES . " pov left join " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " pov2po on pov.products_options_values_id = pov2po.products_options_values_id where pa.products_id = '" . (int)$this->products_id . "' and pa.options_id = '" . (int)$products_options_name['products_options_id'] . "' and pa.options_values_id = pov.products_options_values_id and pov.language_id = '" . (int)$languages_id . "'  order by pov2po.sort_order");
               while ($products_options = tep_db_fetch_array($products_options_query)) {
                   $products_options_array[] = array('id' => $products_options['products_options_values_id'], 'text' => $products_options['products_options_values_name'], 'thumbnail' => '');
                   $products_options_array[sizeof($products_options_array) - 1]['thumbnail'] = $products_options['products_options_values_thumbnail'];
                   if ($products_options['options_values_price'] != '0') {
+                  	if (defined('DISPLAY_ATTRIBUTES_WITH_PRICE') && DISPLAY_ATTRIBUTES_WITH_PRICE == 'true'){
+                  		global $pf;
+						$productprice = $pf->computePrice(1);
+                  		$new_price = (float)$productprice + (float)$products_options['options_values_price'];
+                        $products_options_array[sizeof($products_options_array) - 1]['text'] .= ' (' . $currencies->display_price($new_price, tep_get_tax_rate($this->products_tax_class_id)) . ')';
+                  	} else {
                       $products_options_array[sizeof($products_options_array) - 1]['text'] .= ' (' . $products_options['price_prefix'] . $currencies->display_price($products_options['options_values_price'], tep_get_tax_rate($this->products_tax_class_id)) . ')';
+					}
+                  } else {
+                  	if (defined('DISPLAY_ATTRIBUTES_WITH_PRICE') && DISPLAY_ATTRIBUTES_WITH_PRICE == 'true'){
+                  		global $pf;
+						$productprice = $pf->computePrice(1);
+                  		$new_price = (float)$productprice + (float)$products_options['options_values_price'];
+                        $products_options_array[sizeof($products_options_array) - 1]['text'] .= ' (' . $currencies->display_price($new_price, tep_get_tax_rate($this->products_tax_class_id)) . ')';
+                  	}
                   }
               }
               if (isset($cart->contents[$this->products_id]['attributes'][$products_options_name['products_options_id']]))

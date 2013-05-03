@@ -14,17 +14,17 @@
 <script type="text/javascript" src="templates/system/jquery.color.js"></script>
 <script type="text/javascript"><!--
 function disablebutton(){
-	$("#TheSubmitButton").attr("disabled","disabled").hide();  //This disables and hides TheSubmitButton
+	$("#TheSubmitButton, #matc-submit-button .ui-btn").attr("disabled","disabled").hide();  //This disables and hides TheSubmitButton
 	$("#TheDisabledButton").fadeIn(300);
 }
 
 function enablebutton(){
-	$("#TheSubmitButton").removeAttr("disabled").fadeIn(300);//This enables and shows the TheSubmitButton.
+	$("#TheSubmitButton, #matc-submit-button .ui-btn").removeAttr("disabled").fadeIn(300);//This enables and shows the TheSubmitButton.
 	$("#TheDisabledButton").hide();
 }
 
 function updatebutton(){
-	if($("#TermsAgree").attr("checked")){
+	if($("input[name='TermsAgree']").attr("checked")){
 		enablebutton();
 	}else{
 		disablebutton();
@@ -32,7 +32,7 @@ function updatebutton(){
 }
 
 function warningon(){
-	if(!$("#TermsAgree").attr("checked")){
+	if(!$("input[name='TermsAgree']").attr("checked")){
 		$("#CAparagraph").animate({backgroundColor: "#FF0000"}, 200);
 	}
 }
@@ -42,15 +42,19 @@ function warningoff(){
 }
 
 //Initiate everything
+<?php if (IS_MOBILE_DEVICE == true): ?>
+$(document).bind('pageinit',function() {
+<?php else: ?>
 $(document).ready(function(){
-  	$("#TheSubmitButton").after('<?php
+<?php endif; ?>
+  	$("#TheSubmitButton").parent().after('<?php
 	if(MATC_BUTTONSTYLE == 'gray'){
 		echo tep_image(DIR_WS_LANGUAGES . $language . '/images/buttons/button_continue_disabled.gif', '', '', '', ' id="TheDisabledButton" style="display:none;cursor:not-allowed;" onMouseOut="warningoff()" onMouseOver="warningon()"');
 	}else{
 		echo tep_image(DIR_WS_LANGUAGES . $language . '/images/buttons/button_continue.gif', '', '', '', ' id="TheDisabledButton" style="display:none;cursor:not-allowed;filter:alpha(opacity=33);-moz-opacity:.33;opacity:.33;" onMouseOut="warningoff()" onMouseOver="warningon()"');
 	} ?>');
 
-	if(!$("#TermsAgree").attr("checked")){ //if it isnt checked the button should be disabled
+	if(!$("input[name='TermsAgree']").attr("checked")){ //if it isnt checked the button should be disabled
 		disablebutton();
 	}
 });
@@ -83,12 +87,14 @@ if(MATC_SHOW_TEXTAREA != 'false'){ //START "show the textarea if"
 	};
 ?>
 <h3><br /><strong><?php echo MATC_HEADING_CONDITIONS; ?></strong></h3>
-<textarea name="conditions" class="small" rows="14" cols="60" readonly style="width: 100%"><?php echo $textarea_contents; ?></textarea>
+ <div class="scroll_terms"><?php echo $textarea_contents; ?></div>
+
+ 
 <?php
 }//End "show the textarea if"
 ?>
 <br /><br />
-<div align="right" id="CAparagraph">
+<div id="CAparagraph">
 		<?php
 			if(MATC_SHOW_LINK != 'false'){
 				echo sprintf(MATC_CONDITION_AGREEMENT, tep_href_link(MATC_FILENAME, MATC_PARAMETERS));

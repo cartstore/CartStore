@@ -5,9 +5,9 @@
       for ($i = 0; $i < $tree[$counter]['level']; $i++) {
           $categories_string .= "&nbsp;&nbsp;";
       }
-      
+
       if ($tree[$counter]['name'] != "") {
-          
+
           $categories_string .= '
   <li><a href="';
           if ($tree[$counter]['parent'] == 0) {
@@ -19,7 +19,7 @@
           if (isset($cPath_array) && in_array($counter, $cPath_array)) {
               $categories_string .= '<span class="active">';
           }
-          
+
           $categories_string .= $tree[$counter]['name'];
           if (isset($cPath_array) && in_array($counter, $cPath_array)) {
               $categories_string .= '</span>';
@@ -29,14 +29,14 @@
           }
           $categories_string .= '</a></li>';
       }
-      
-      if (SHOW_COUNTS == 'false') {
+
+      if (SHOW_COUNTS == 'true') {
           $products_in_category = tep_count_products_in_category($counter);
           if ($products_in_category > 0) {
               $categories_string .= '&nbsp;(' . $products_in_category . ')';
           }
       }
-      
+
       if ($tree[$counter]['next_id'] != false) {
           tep_show_category($tree[$counter]['next_id']);
       }
@@ -60,7 +60,7 @@
           $first_element = $categories['categories_id'];
       }
   }
-  
+
   if (tep_not_null($cPath)) {
       $new_path = '';
       reset($cPath_array);
@@ -71,11 +71,11 @@
           if (tep_db_num_rows($categories_query)) {
               $new_path .= $value;
               while ($row = tep_db_fetch_array($categories_query)) {
-                  
-                  
-                  
-                  
-                  
+
+
+
+
+
                   if (isset($parent_id)) {
                       $tree[$parent_id]['next_id'] = $row['categories_id'];
                   }
@@ -96,8 +96,8 @@
   tep_show_category($first_element);
   $info_box_contents = array();
   $info_box_contents[] = array('text' => $categories_string);
-  
-  
+
+
   new infoBox($info_box_contents);
 ?>
 <!-- categories_eof //-->

@@ -1,17 +1,16 @@
-@import url("reset.css");
-
 #menu {
 	background: url(../images/menu_bg.jpg) no-repeat left top;
 	width: 990px;
 	height: 38px;
 	margin-bottom: 10px;
-} 
+}
 
 #menu li {
 	background: url(../images/li_border.jpg) no-repeat left top;
 	float: left;
 	position: relative;
 	padding-left: 2px;
+	font-weight: bold;
 }
 
 #menu li.itemid1 {
@@ -73,7 +72,7 @@
 	margin-left: 1px;
 }
 
-#menu li ul ul { 
+#menu li ul ul {
 	top: -1px;
    margin-left: 166px;
 	z-index: 1000;
@@ -83,16 +82,19 @@
 #menu li li {
 	float: left;
 	height: auto;
-	width: 138px;
-	background: url(../images/subnav_bg.jpg) repeat-y left bottom;
+	width: 160px;
 	padding-top: 0;
 	padding-right: 15px;
 	padding-bottom: 0;
 	padding-left: 15px;
+	background-color: #FFF;
+	background-image: url(../images/subnav_bg.jpg);
+	background-repeat: repeat-y;
+	background-position: left bottom;
 }
 
 #menu li li.last {
-	background: url(../images/li_ul_bg.gif) no-repeat left bottom; 
+	background: url(../images/li_ul_bg.gif) no-repeat left bottom;
 }
 
 
@@ -115,7 +117,7 @@
 	padding: 0;
 	height: auto;
 	line-height: normal;
-	cursor: pointer;	
+	cursor: pointer;
 }
 
 #menu li.active li a:link span,
@@ -132,7 +134,7 @@
 	line-height: normal;
 	background-image: none;
 	padding: 6px 0px 6px 12px;
-	cursor: pointer;	
+	cursor: pointer;
 }
 
 #menu li.sfHover li a:hover,
@@ -189,38 +191,38 @@
 
 /* --- need it every time ---- */
 
-#menu li:hover ul ul, 
-#menu li:hover ul ul ul, 
-#menu li.sfHover ul ul, 
+#menu li:hover ul ul,
+#menu li:hover ul ul ul,
+#menu li.sfHover ul ul,
 #menu li.sfHover ul ul ul {
    left: -999em;
 }
 
-#menu li:hover ul, 
-#menu li li:hover ul, 
-#menu li li li:hover ul, 
-#menu li.sfHover ul, 
-#menu li li.sfHover ul, 
+#menu li:hover ul,
+#menu li li:hover ul,
+#menu li li li:hover ul,
+#menu li.sfHover ul,
+#menu li li.sfHover ul,
 #menu li li li.sfHover ul {
 	left: 0px;
 }
 
-#menu li:hover ul ul, 
-#menu li:hover ul ul ul, 
-#menu li:hover ul ul ul ul, 
-#menu li.sfHover ul ul, 
-#menu li.sfHover ul ul ul, 
+#menu li:hover ul ul,
+#menu li:hover ul ul ul,
+#menu li:hover ul ul ul ul,
+#menu li.sfHover ul ul,
+#menu li.sfHover ul ul ul,
 #menu li.sfHover ul ul ul ul {
    left: -999em;
 }
 
-#menu li:hover ul, 
-#menu li li:hover ul, 
-#menu li li li:hover ul, 
-#menu li li li li:hover ul, 
-#menu li.sfHover ul, 
-#menu li li.sfHover ul, 
-#menu li li li.sfHover ul, 
+#menu li:hover ul,
+#menu li li:hover ul,
+#menu li li li:hover ul,
+#menu li li li li:hover ul,
+#menu li.sfHover ul,
+#menu li li.sfHover ul,
+#menu li li li.sfHover ul,
 #menu li li li li.sfHover ul {
    left: 0px;
 }

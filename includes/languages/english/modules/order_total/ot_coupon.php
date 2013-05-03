@@ -17,9 +17,7 @@
   define('TAX_NOT_INCLUDED', ' [Tax not included]');
   define('MODULE_ORDER_TOTAL_COUPON_USER_PROMPT', '');
   define('ERROR_NO_INVALID_REDEEM_COUPON', 'Invalid Coupon Code');
-// ccgv coupon restrictions error fix
-// define('ERROR_REDEEMED_AMOUNT_ZERO', 'a valid coupon number. HOWEVER: No reduction will be applied, please see the coupon restrictions that was sent within your offer email**');
-  define('ERROR_REDEEMED_AMOUNT_ZERO', '*** This is a valid coupon code. HOWEVER: there is a bug with the coupon redeemer, please resubmit the code again and it will work. **');
+  define('ERROR_REDEEMED_AMOUNT_ZERO', 'This is a valid coupon code. HOWEVER: No price reduction can be applied, please see the coupon restrictions that were included with the offer.');
   define('ERROR_INVALID_STARTDATE_COUPON', 'This coupon is not available yet');
   define('ERROR_INVALID_FINISDATE_COUPON', 'This coupon has expired');
   define('ERROR_INVALID_USES_COUPON', 'This coupon can only be used ');  

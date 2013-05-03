@@ -64,4 +64,7 @@ if ($sts->display_template_output) {
 // START STS 4.1
 }
 // END STS 4.1
+$DEBUG42['time_end'] = microtime_float();
+$DEBUG42['execution_time'] = $DEBUG42['time_end'] - $DEBUG42['start_time'];
+//print "Execution Time (Total): " . $DEBUG42['execution_time'] . " seconds<br>";
 ?>

@@ -2,13 +2,12 @@ $searchbox#
 
 $orderhistorybox#
 
+$categorybox5#
 
 
 $quickfinder#
 
 $currenciesbox#
-
-$categorybox5#
 
 $shop_by_price#
 
@@ -26,8 +25,8 @@ $tellafriendbox#
 
 $reviewsbox#
 
-$newsdesk_latest# <br />
-
+$newsdesk_latest#
+<br />
 $calendar#
 
 $rss2#

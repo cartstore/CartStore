@@ -22,6 +22,6 @@
   require('templates/pages/' . $page_contents);
 ?>
 </div>
-<div id="pageFooter"> <a href="../copyright.html" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=640,height=480'); return false;">Copyright &copy; 2011 CartStore</a> </a></div>
+<div id="pageFooter"> <a href="../copyright.html" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=yes,dependent=no,width=640,height=480'); return false;">Copyright &copy; 2013 CartStore</a> </a></div>
 </body>
 </html>

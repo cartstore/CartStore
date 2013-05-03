@@ -15,8 +15,9 @@ define('NAVBAR_TITLE', 'Conditions of Use');
 define('HEADING_TITLE', 'Conditions of Use');
 
 define('TEXT_INFORMATION', '
+THE LEGAL AGREEMENTS SET OUT BELOW GOVERN YOUR USE OF THIS WEBSITE AND SERVICES. TO AGREE TO THESE TERMS, CLICK "AGREE." IF YOU DO NOT AGREE TO THESE TERMS, DO NOT CLICK "AGREE," AND DO NOT USE THE SERVICES.<br><BR>
 
-The content on ladylanguage.com is copyrighted. Copying materials from this website is strictly forbidden. You must be at least 18 years of age to purchase from ladylanguage.com and by use of this website you agree to not conduct any activities which would disrupt service. By using or purchasing from this site you agree not to hold ladylanguage.com it\'s representatives, it affiliates or it\'s employees liable for any and all claims, acts or omissions of any kind. 
+You must be at least 18 years of age to purchase and by use of this website you agree to not conduct any activities which would disrupt service. By using or purchasing from this site you agree not to hold our representatives, affiliates or employees liable for any and all claims, acts or omissions of any kind. 
 ');
 define('TEXT_CLOSE_WINDOW', 'Close window');
 ?>

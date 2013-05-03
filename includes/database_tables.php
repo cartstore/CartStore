@@ -165,4 +165,14 @@ define('TABLE_EVENTS_CALENDAR', 'events_calendar');
   define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS', 'products_attributes_download_groups');
   define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_FILES', 'products_attributes_download_groups_files');
   define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD_GROUPS_TO_FILES', 'products_attributes_download_groups_to_files');
+  define('TABLE_PHPIDS', 'phpids_intrusions');
+  define('TABLE_BANNED_IP', 'banned_ip');
+/* CCGV - BEGIN */
+  define('TABLE_COUPON_GV_CUSTOMER', 'coupon_gv_customer');
+  define('TABLE_COUPON_GV_QUEUE', 'coupon_gv_queue');
+  define('TABLE_COUPON_REDEEM_TRACK', 'coupon_redeem_track');
+  define('TABLE_COUPON_EMAIL_TRACK', 'coupon_email_track');
+  define('TABLE_COUPONS', 'coupons');
+  define('TABLE_COUPONS_DESCRIPTION', 'coupons_description');
+/* CCGV - END */
 ?>

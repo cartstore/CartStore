@@ -5,7 +5,7 @@
   CartStore eCommerce Software, for The Next Generation
   http://www.cartstore.com
 
-  
+
 
   Copyright (c) 2002 Richard Fielder
 
@@ -29,7 +29,7 @@ td {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: xx-small}
 </style>
 <script language="JavaScript">
 	function ClickEvent(products_id)
-	{	
+	{
 		oForms=window.opener.document.forms;
 		for(i=0;i<oForms.length;i++)
 		{	if(oForms[i]["coupon_products"])
@@ -66,9 +66,9 @@ if(!empty($search))
         do {
 ?>
 	<tr>
-		<td><a href="#" onClick="javascript:ClickEvent(<? echo($row["products_id"]); ?>);"><? echo($row["products_id"]); ?></a></td>
-		<td><a href="#" onClick="javascript:ClickEvent(<? echo($row["products_id"]); ?>);"><? echo($row["products_name"]); ?></a></td>
-		<td><a href="#" onClick="javascript:ClickEvent(<? echo($row["products_id"]); ?>);"><? echo($row["products_model"]); ?></a></td>
+		<td><a href="#" onClick="javascript:ClickEvent(<?php echo($row["products_id"]); ?>);"><?php echo($row["products_id"]); ?></a></td>
+		<td><a href="#" onClick="javascript:ClickEvent(<?php echo($row["products_id"]); ?>);"><?php echo($row["products_name"]); ?></a></td>
+		<td><a href="#" onClick="javascript:ClickEvent(<?php echo($row["products_id"]); ?>);"><?php echo($row["products_model"]); ?></a></td>
 	</tr>
 <?php
         }

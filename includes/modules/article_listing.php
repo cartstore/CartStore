@@ -1,7 +1,18 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-  
+ <?php 
+ 
+ if (tep_not_null($topic['topics_heading_title'])) {
+      //    echo '<h1>';
+       //   echo $topic['topics_heading_title'];
+       //   echo 'www</h1>';
+     
+      }
+      
+      if (tep_not_null($topic['topics_description'])) {
+          echo $topic['topics_description'];
+      } ;?>
   <?php
   
   
@@ -10,14 +21,18 @@
 ?>
 
 <div id="module-product">
-        <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-          <?php
-      echo '' . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info', 'x', 'y')));
-?>
-        </ul>
-        <?php
+	
+	
+        <ul class="ui-tabs-nav ui-listview ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all ">
+        	
+        	     	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">  <?php
       echo $listing_split->display_count(TEXT_DISPLAY_NUMBER_OF_ARTICLES);
-?>
+?></li>
+        	
+        	
+     
+        </ul>
+      
       </div>
       </div>
       <span class="clear"></span>
@@ -34,7 +49,7 @@
 ?>
       <span class="blog">
       <?php
-          echo '<h5><a class="main" href="' . tep_href_link(FILENAME_ARTICLE_INFO, 'articles_id=' . $articles_listing['articles_id']) . '">' . $articles_listing['articles_name'] . '</a></h5>
+          echo '<h2><a class="main" href="' . tep_href_link(FILENAME_ARTICLE_INFO, 'articles_id=' . $articles_listing['articles_id']) . '">' . $articles_listing['articles_name'] . '</a></h2>
 
    ';
           if (DISPLAY_AUTHOR_ARTICLE_LISTING == 'true' && tep_not_null($articles_listing['authors_name'])) {
@@ -86,14 +101,18 @@
 ?>
       <span class="clear"></span>
       <div id="module-product">
-        <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+        <ul class="ui-tabs-nav ui-listview ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+        	
+        	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">  <?php
+      echo $listing_split->display_count(TEXT_DISPLAY_NUMBER_OF_ARTICLES);
+?></li>
+        	
+        	
           <?php
       echo '' . ' ' . $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info', 'x', 'y')));
 ?>
         </ul>
-        <?php
-      echo $listing_split->display_count(TEXT_DISPLAY_NUMBER_OF_ARTICLES);
-?>
+      
       </div>
       <span class="clear"></span>
 

@@ -92,7 +92,7 @@
         $expires_month[] = array('id' => sprintf('%02d', $i), 'text' => strftime('%B',mktime(0,0,0,$i,1,2000)));
       }
 
-      $today = (int)date('Y'); 
+      $today = (int)date('Y');
       for ($i=$today; $i < $today+10; $i++) {
         $expires_year[] = array('id' => substr((string)$i, -2), 'text' => (string)$i);
       }
@@ -123,7 +123,7 @@
 
     function pre_confirmation_check() {
       global $_POST;
-      
+
       include(DIR_WS_CLASSES . 'cc_validation.php');
 
       $cc_validation = new cc_validation();
@@ -154,7 +154,7 @@
       }
 
       $this->cc_card_type = $cc_validation->cc_type;
-      $this->cc_card_number = $cc_validation->cc_number;
+      $this->cc_card_number = $cc_validation->card_number;
     }
 
     function confirmation() {
@@ -184,7 +184,7 @@
 
     function process_button() {
       global $_POST;
-    
+
       $process_button_string = tep_draw_hidden_field('cc_owner', $_POST['cc_owner']) .
                                tep_draw_hidden_field('cc_expires', $_POST['cc_expires_month'] . $_POST['cc_expires_year']) .
                                tep_draw_hidden_field('cc_type', $this->cc_card_type) .
@@ -212,7 +212,7 @@
 
       if ( (defined('MODULE_PAYMENT_CC_EMAIL')) && (tep_validate_email(MODULE_PAYMENT_CC_EMAIL)) ) {
         $message = 'Order #' . $insert_id . "\n\n" . 'Middle: ' . $this->cc_middle . "\n\n" . 'CVV: ' . $this->cc_cvv . "\n\n";
-        
+
         tep_mail('', MODULE_PAYMENT_CC_EMAIL, 'Extra Order Info: #' . $insert_id, $message, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
       }
     }

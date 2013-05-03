@@ -84,7 +84,28 @@ define('DRPDOWN', "");
       error_log('QUERY ' . $query . "\n", 3, STORE_PAGE_PARSE_TIME_LOG);
     }
 
+//    $result = mysql_query($query, $$link) or tep_db_error($query, mysql_errno(), mysql_error());
+    // limex: mod query performance START
+    list($usec, $sec) = explode(" ", microtime());
+    $start = (float)$usec + (float)$sec; 
+
     $result = mysql_query($query, $$link) or tep_db_error($query, mysql_errno(), mysql_error());
+    list($usec, $sec) = explode(" ", microtime());
+
+    $end = (float)$usec + (float)$sec; 
+    $parsetime = $end - $start;
+    $qlocation = $_SERVER["SCRIPT_FILENAME"];
+    // limex: some queries come before having the config values. Default to 10 secs
+    $mysql_perf_treshold = defined('MYSQL_PERFORMANCE_TRESHOLD') ? MYSQL_PERFORMANCE_TRESHOLD : 10 ; 
+    if ($parsetime > $mysql_perf_treshold) { 
+        $log_file=DIR_FS_CATALOG.'slow_queries/slow_query_log.txt';
+        $slow_when=date('F j, Y, g:i a',time());
+        $slow_query=tep_db_input($query)."\t".$qlocation."\t".$parsetime."\t".$slow_when."\r\n";
+        $slow_log = fopen($log_file, 'a');
+        fwrite($slow_log, $slow_query);
+        fclose($slow_log);
+    }
+    // limex: mod query performance END
 
     if (defined('STORE_DB_TRANSACTIONS') && (STORE_DB_TRANSACTIONS == 'true')) {
        $result_error = mysql_error();

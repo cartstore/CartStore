@@ -219,6 +219,10 @@
                           $lc_align = '';
                           $pf->parse($listing[$x]);
                           $prod_price = $pf->getPriceStringShort();
+                          if ($listing[$x]['map_price'] != 0.00 && !isset($_SESSION['customer_id'])){
+                          	// $map_price = $currencies->display_price($listing[$x]['map_price'], tep_get_tax_rate($listing[$x]['products_tax_class_id']));
+                          	$prod_price = '<a href="login.php">Login to See Price</a>';
+                          }
                           break;
                       case 'PRODUCT_LIST_QUANTITY':
                           $lc_align = '';

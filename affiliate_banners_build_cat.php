@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_banners_build.php,v 2.00 2003/10/12
 
-
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -40,7 +40,9 @@ if ( file_exists(DIR_WS_INCLUDES . 'header_tags.php') ) {
 		  <title><?php echo TITLE; ?></title>
 		  <?php
 		}
-
+		if (DISPLAY_DHTML_MENU == 'CoolMenu') {
+			  echo '<SCRIPT LANGUAGE="JavaScript1.2" SRC="includes/coolMenu.js"></SCRIPT>';
+			}
 			// EOF: WebMakers.com Changed: Header Tag Controller v1.0
 			?>
 		
@@ -76,7 +78,7 @@ if (DISPLAY_DHTML_MENU == 'CoolMenu') {
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
-            <td align="right"><?php echo tep_image(DIR_WS_IMAGES . 'affiliate_links.gif', HEADING_TITLE, HEADING_IMAGE_WIDTH, HEADING_IMAGE_HEIGHT); ?></td>
+            <td align="right"></td>
           </tr>
 	      <tr>
             <td colspan=2 class="main"><?php echo TEXT_INFORMATION; ?></td>
@@ -85,7 +87,7 @@ if (DISPLAY_DHTML_MENU == 'CoolMenu') {
 	   </td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
       <tr>
         <td><table width="95%" align="center" border="0" cellpadding="4" cellspacing="0"><td>
@@ -93,7 +95,7 @@ if (DISPLAY_DHTML_MENU == 'CoolMenu') {
             <td class="infoBoxHeading" align="center"><?php echo TEXT_AFFILIATE_INDIVIDUAL_BANNER . ' ' . $affiliate_banners['affiliate_banners_title']; ?></td>
           </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
           <tr>
             <td class="smallText" align="center"><?php echo TEXT_AFFILIATE_INDIVIDUAL_BANNER_INFO . tep_draw_form('individual_banner', tep_href_link(FILENAME_AFFILIATE_BANNERS_BUILD_CAT) ) . "\n" . tep_draw_input_field('individual_banner_id', '', 'size="5"') . "&nbsp;&nbsp;" . tep_image_submit('button_affiliate_build_a_link.gif', IMAGE_BUTTON_BUILD_A_LINK); ?></form></td>
@@ -102,7 +104,7 @@ if (DISPLAY_DHTML_MENU == 'CoolMenu') {
        <td class="smallText" align="center"><?php echo '<a href="javascript:popupWindow(\'' . tep_href_link(FILENAME_AFFILIATE_VALIDCATS) . '\')"><b>' . TEXT_AFFILIATE_VALIDPRODUCTS . '</b></a>'; ?>&nbsp;&nbsp;<?php echo TEXT_AFFILIATE_INDIVIDUAL_BANNER_VIEW;?><br><?php echo TEXT_AFFILIATE_INDIVIDUAL_BANNER_HELP;?></td>
      </tr>
      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
 <?php
   if (tep_not_null($_POST['individual_banner_id']) || tep_not_null($_GET['individual_banner_id'])) {
@@ -157,7 +159,7 @@ if (DISPLAY_DHTML_MENU == 'CoolMenu') {
             </td> 
           </tr>
           </table>
-<?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?>
+
 <?php
 }
 ?>
@@ -180,6 +182,7 @@ if (DISPLAY_DHTML_MENU == 'CoolMenu') {
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

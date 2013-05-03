@@ -25,7 +25,7 @@
           }
       }
       $info_box_contents = array();
-      $info_box_contents[] = array('form' => tep_draw_form('currencies', tep_href_link(basename($PHP_SELF), '', $request_type, false), 'get'), 'align' => '', 'text' => tep_draw_pull_down_menu('currency', $currencies_array, $currency, 'onChange="this.form.submit();"') . $hidden_get_variables . tep_hide_session_id());
+      $info_box_contents[] = array('form' => tep_draw_form('currencies', tep_href_link(basename($PHP_SELF), '', $request_type, false), 'get'), 'align' => '', 'text' => tep_draw_pull_down_menu('currency', $currencies_array, $currency, 'onchange="this.form.submit();"') . $hidden_get_variables . tep_hide_session_id());
       new infoBox($info_box_contents);
 ?>
       </div>

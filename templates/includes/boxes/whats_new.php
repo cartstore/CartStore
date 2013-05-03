@@ -1,5 +1,5 @@
 <?php
-  if ($random_product = tep_random_select("select p.products_id,pd.products_url, p.products_image,p.map_price, p.msrp_price, p.products_tax_class_id,pd.products_short, p.products_price from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where " . (YMM_FILTER_WHATS_NEW_BOX == 'Yes' ? $YMM_where : '') . " p.products_status = '1' and p.products_id=pd.products_id order by p.products_date_added desc limit " . MAX_RANDOM_SELECT_NEW)) {
+  if ($random_product = tep_random_select("select p.products_id,pd.products_url, p.products_image,p.map_price, p.msrp_price, p.products_tax_class_id, p.products_price from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where " . (YMM_FILTER_WHATS_NEW_BOX == 'Yes' ? $YMM_where : '') . " p.products_status = '1' and p.products_id=pd.products_id order by p.products_date_added desc limit " . MAX_RANDOM_SELECT_NEW)) {
 ?>
 <!-- whats_new //-->
 

@@ -50,22 +50,21 @@ class indvship {
 
 	function quote($method = '') {
 		global $order, $cart, $shipping_modules;
-//echo '<pre>';
-//print_r($GLOBALS);
-$indvcount=0;
-	 $shiptotal = 0;
 
-	 if(!method_exists('shipping_modules','get_shiptotal')){
-$products = $cart->get_products();
-	  for ($i=0, $n=sizeof($products); $i<$n; $i++) {
-	    if (tep_not_null($products[$i]['products_ship_price'])) {
-	      $products_ship_price = $products[$i]['products_ship_price'];//}
-	      $products_ship_price_two = $products[$i]['products_ship_price_two'];
-	      if(is_numeric($products_ship_price)){
-	        $indvcount += 1;
+
+      $indvcount=0;
+	  $shiptotal = 0;
+   	  if(!method_exists($shipping_modules,'get_shiptotal')){
+        $products = $cart->get_products();
+	    for ($i=0, $n=sizeof($products); $i<$n; $i++) {
+	      if (tep_not_null($products[$i]['products_ship_price'])) {
+	         $products_ship_price = $products[$i]['products_ship_price'];//}
+	         $products_ship_price_two = $products[$i]['products_ship_price_two'];
+	         if(is_numeric($products_ship_price)){
+	           $indvcount += 1;
+	         }
 	      }
 	    }
-	  }
 
 
 	  $products = $cart->get_products();
@@ -97,9 +96,9 @@ $products = $cart->get_products();
 		// not sure why this is needed, but it now works correctly for home country - by Ed
 	  }
 	 } else{
-   $shiptotal = $shipping_modules->get_shiptotal();
-   $indvcount = $shipping_modules->get_indvcount();
-   }
+        $shiptotal = $shipping_modules->get_shiptotal();
+        $indvcount = $shipping_modules->get_indvcount();
+     }
  if (tep_not_null($shiptotal) || tep_not_null($indvcount) || $shiptotal == '0'){
       $dest_zones = preg_split("/[,]/", strtolower(MODULE_SHIPPING_INDVSHIP_STATES));
       if (in_array(strtolower($order->delivery['state']), $dest_zones)) $shiptotal += MODULE_SHIPPING_INDVSHIP_HANDLING;

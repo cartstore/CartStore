@@ -517,7 +517,7 @@ if ($num_products_xsell > 0) {
                 <span class="horzdot"> </span>
                 <div class="clear"></div>
         <span class="previews">
-          <? include(DIR_WS_MODULES . 'product_reviews_info.php'); ?>
+          <?php include(DIR_WS_MODULES . 'product_reviews_info.php'); ?>
         </span>
         <span class="horzdot" ></span>
         <?php

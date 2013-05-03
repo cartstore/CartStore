@@ -62,6 +62,12 @@ define('HEADER_TITLE_CATALOG', 'Catalog');
 define('HEADER_TITLE_LOGOFF', 'Log Off');
 define('HEADER_TITLE_LOGIN', 'Log In');
 
+define('TABLE_HEADING_QTY', 'Qty');
+define('TABLE_HEADING_ITEM', 'Item');
+define('TABLE_HEADING_UNIT_PRICE', 'Unit Price');
+define('TABLE_HEADING_ITEM_PRICE', 'Price');
+define('TABLE_HEADING_TAX', 'Tax');
+
 // footer text in includes/footer.php
 define('FOOTER_TEXT_REQUESTS_SINCE', 'requests since');
 
@@ -134,6 +140,9 @@ define('BOX_INFORMATION_PRIVACY', 'Privacy Notice');
 define('BOX_INFORMATION_CONDITIONS', 'Conditions of Use');
 define('BOX_INFORMATION_SHIPPING', 'Shipping & Returns');
 define('BOX_INFORMATION_CONTACT', 'Contact Us');
+  define('MODULE_BOXES_INFORMATION_BOX_GV', 'Gift Vouchers');
+  define('MODULE_BOXES_INFORMATION_BOX_SHIPPING', 'Shipping &amp; Returns');
+  define('MODULE_BOXES_INFORMATION_BOX_CONTACT', 'Contact Us');
 // Wholesale Inquiries
 define('BOX_WHOLESALE_INQUIRY', 'Wholesale Inquiries');
 define('WHOLESALE_EMAIL', 'sales@scriptkeen.com');
@@ -193,6 +202,7 @@ define('ENTRY_EMAIL_ADDRESS', 'E-Mail Address:');
 define('ENTRY_EMAIL_ADDRESS_ERROR', 'Your E-Mail Address must contain a minimum of ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' characters.');
 define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', 'Your E-Mail Address does not appear to be valid - please make any necessary corrections.');
 define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Your E-Mail Address already exists in our records - please log in with the e-mail address or create an account with a different address.');
+define('ENTRY_EMAIL_ADDRESS_CREATE_EXISTS', 'is already taken, please enter a different address.');
 define('ENTRY_EMAIL_ADDRESS_TEXT', '*');
 define('ENTRY_STREET_ADDRESS', 'Street Address:');
 define('ENTRY_STREET_ADDRESS_ERROR', 'Your Street Address must contain a minimum of ' . ENTRY_STREET_ADDRESS_MIN_LENGTH . ' characters.');
@@ -219,7 +229,7 @@ define('ENTRY_TELEPHONE_NUMBER_TEXT', '*');
 define('ENTRY_FAX_NUMBER', 'Fax Number:');
 define('ENTRY_FAX_NUMBER_ERROR', '');
 define('ENTRY_FAX_NUMBER_TEXT', '');
-define('ENTRY_NEWSLETTER', 'Newsletter:');
+define('ENTRY_NEWSLETTER', 'Newsletter');
 define('ENTRY_NEWSLETTER_TEXT', '');
 define('ENTRY_NEWSLETTER_YES', 'Subscribed');
 define('ENTRY_NEWSLETTER_NO', 'Unsubscribed');
@@ -326,7 +336,7 @@ define('MULTIPLE_SHIP_METHODS_TITLE', 'Combined Shipping');
 //MVS End
 
 define('ERROR_TEP_MAIL', '<font face="Verdana, Arial" size="2" color="#ff0000"><b><small>TEP ERROR:</small> Cannot send the email through the specified SMTP server. Please check your php.ini setting and correct the SMTP server if necessary.</b></font>');
-define('WARNING_INSTALL_DIRECTORY_EXISTS', '<strong>Warning</strong> Installation directory exists at: ' . dirname($_SERVER['SCRIPT_FILENAME']) . '/install. Please remove this directory for security reasons.</div>');
+define('WARNING_INSTALL_DIRECTORY_EXISTS', '<strong>Warning</strong> Installation directory exists at: ' . dirname($_SERVER['SCRIPT_FILENAME']) . '/install. Please remove this directory for security reasons.');
 define('WARNING_CONFIG_FILE_WRITEABLE', 'Warning: I am able to write to the configuration file: ' . dirname($_SERVER['SCRIPT_FILENAME']) . '/includes/configure.php. This is a potential security risk - please set the right user permissions on this file.');
 define('WARNING_SESSION_DIRECTORY_NON_EXISTENT', 'Warning: The sessions directory does not exist: ' . tep_session_save_path() . '. Sessions will not work until this directory is created.');
 define('WARNING_SESSION_DIRECTORY_NOT_WRITEABLE', 'Warning: I am not able to write to the sessions directory: ' . tep_session_save_path() . '. Sessions will not work until the right user permissions are set.');
@@ -447,4 +457,6 @@ define('RECAPTCHA_ERROR_MSG',"The reCAPTCHA wasn't entered correctly. Try it aga
 define('MATC_CONDITION_AGREEMENT', 'I have read the <a href="%s" target="_blank"><strong><u>Terms &amp; Conditions</u></strong></a> and I agree to them: ');
 define('MATC_HEADING_CONDITIONS', 'Terms and Conditions Agreement');
 define('MATC_ERROR', 'You must agree to our terms and conditions in order to continue.');
+
+define("TEXT_MULTIBUY_SELECT", "Select");
 ?>

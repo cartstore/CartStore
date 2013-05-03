@@ -2,11 +2,11 @@
 /*
  ======================================================================
  lastRSS 0.9.1
- 
+
  Simple yet powerfull PHP class to Parse2 RSS files.
- 
+
  by Vojtech Semecky, webmaster @ webdot . cz
- 
+
  Latest version, features, manual and examples:
  	http://lastrss.webdot.cz/
 
@@ -82,7 +82,7 @@ class lastRSS2 {
 		// return result
 		return $result;
 	}
-	
+
 	// -------------------------------------------------------------------
 	// Modification of preg_match(); return trimed field with index 1
 	// from 'classic' preg_match() array output
@@ -131,14 +131,22 @@ class lastRSS2 {
 	// Don't use Parse2() in your scripts - use Get($rss_file) instead.
 	// -------------------------------------------------------------------
 	function Parse2 ($rss_url) {
-		// Open and load RSS file
-		if ($f = @fopen($rss_url, 'r')) {
-			$rss_content = '';
-			while (!feof($f)) {
-				$rss_content .= fgets($f, 4096);
-			}
-			fclose($f);
+        $feed_fetched = false;
+        if ($f = @fopen($rss_url, 'r')) {
+            $rss_content = '';
+            while (!feof($f)) {
+                $rss_content .= fgets($f, 4096);
+            }
+            fclose($f);
+            $feed_fetched = true;
+        } else {
+          $ch = curl_init($rss_url);
+          curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+          $rss_content = curl_exec($ch);
+          $feed_fetched = true;
+        }
 
+        if ($feed_fetched == true) {
 			// Parse2 document encoding
 			$result['encoding'] = $this->my_preg_match2("'encoding=[\'\"](.*?)[\'\"]'si", $rss_content);
 			// if document codepage is specified, use it

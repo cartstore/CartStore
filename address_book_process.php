@@ -24,7 +24,9 @@
     tep_db_query("delete from " . TABLE_ADDRESS_BOOK . " where address_book_id = '" . (int)$_GET['delete'] . "' and customers_id = '" . (int)$customer_id . "'");
 
     $messageStack->add_session('addressbook', SUCCESS_ADDRESS_BOOK_ENTRY_DELETED, 'success');
-
+    //BOF WA State Tax Modification
+    if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+    //EOF WA State Tax Modification
     tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL'));
   }
 
@@ -215,6 +217,9 @@
 
       $messageStack->add_session('addressbook', SUCCESS_ADDRESS_BOOK_ENTRY_UPDATED, 'success');
 
+    //BOF WA State Tax Modification
+    if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+    //EOF WA State Tax Modification
       tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL'));
     }
   }
@@ -228,6 +233,9 @@
     if (!tep_db_num_rows($entry_query)) {
       $messageStack->add_session('addressbook', ERROR_NONEXISTING_ADDRESS_BOOK_ENTRY);
 
+    //BOF WA State Tax Modification
+    if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+    //EOF WA State Tax Modification
       tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL'));
     }
 
@@ -236,6 +244,9 @@
     if ($_GET['delete'] == $customer_default_address_id) {
       $messageStack->add_session('addressbook', WARNING_PRIMARY_ADDRESS_DELETION, 'warning');
 
+    //BOF WA State Tax Modification
+    if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+    //EOF WA State Tax Modification
       tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL'));
     } else {
       $check_query = tep_db_query("select count(*) as total from " . TABLE_ADDRESS_BOOK . " where address_book_id = '" . (int)$_GET['delete'] . "' and customers_id = '" . (int)$customer_id . "'");
@@ -244,6 +255,9 @@
       if ($check['total'] < 1) {
         $messageStack->add_session('addressbook', ERROR_NONEXISTING_ADDRESS_BOOK_ENTRY);
 
+    //BOF WA State Tax Modification
+    if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+    //EOF WA State Tax Modification
         tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL'));
       }
     }
@@ -255,6 +269,9 @@
     if (tep_count_customer_address_book_entries() >= MAX_ADDRESS_BOOK_ENTRIES) {
       $messageStack->add_session('addressbook', ERROR_ADDRESS_BOOK_FULL);
 
+    //BOF WA State Tax Modification
+    if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+    //EOF WA State Tax Modification
       tep_redirect(tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL'));
     }
   }
@@ -269,33 +286,11 @@
   } else {
     $breadcrumb->add(NAVBAR_TITLE_ADD_ENTRY, tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, '', 'SSL'));
   }
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php echo HTML_PARAMS; ?>>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
-<title><?php echo TITLE; ?></title>
-<base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<?php
-  if (!isset($_GET['delete'])) {
-    include('includes/form_check.js.php');
-  }
-?>
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php require(DIR_WS_INCLUDES . 'header.php'); ?>
-<!-- header_eof //-->
 
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- left_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_left.php'); ?>
-<!-- left_navigation_eof //-->
-    </table></td>
+require(DIR_WS_INCLUDES . 'header.php'); 
+ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
+
+
 <!-- body_text //-->
     <td width="100%" valign="top"><?php if (!isset($_GET['delete'])) echo tep_draw_form('addressbook', tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, (isset($_GET['edit']) ? 'edit=' . $_GET['edit'] : ''), 'SSL'), 'post', 'onSubmit="return check_form(addressbook);"'); ?><table border="0" width="100%" cellspacing="0" cellpadding="0">
       <tr>
@@ -418,18 +413,8 @@
 ?>
     </table><?php if (!isset($_GET['delete'])) echo '</form>'; ?></td>
 <!-- body_text_eof //-->
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- right_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
-<!-- right_navigation_eof //-->
-    </table></td>
-  </tr>
-</table>
-<!-- body_eof //-->
 
-<!-- footer //-->
-<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
-<!-- footer_eof //-->
-</body>
-</html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+
+<?php require(DIR_WS_INCLUDES . 'column_right.php');
+ require(DIR_WS_INCLUDES . 'footer.php'); 
+ require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

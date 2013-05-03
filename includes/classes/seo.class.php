@@ -113,7 +113,6 @@ class SEO_DataBase{
  */
 	function FetchArray($resource_id, $type = MYSQL_BOTH){
 		return mysql_fetch_array($resource_id, $type);
-        var_dump(debug_backtrace());
 	} # end function
 
 /**
@@ -2256,7 +2255,7 @@ case 'pollid':
  * @param integer $global Sets whether cache record is global is scope
  * @param string $expires Sets the expiration
  */
-	function save_cache($name, $value, $method='RETURN', $gzip=1, $global=0, $expires = '30/days'){
+	function save_cache($name, $value, $method='RETURN', $gzip=1, $global=0, $expires = '365/days'){
 		$expires = $this->convert_time($expires);
 		if ($method == 'ARRAY' ) $value = serialize($value);
 		$value = ( $gzip === 1 ? base64_encode(gzdeflate($value, 1)) : addslashes($value) );

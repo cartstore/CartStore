@@ -41,7 +41,7 @@
               print('
 <div class="productWrap">
 
-<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $featured_products_array[$i]['id']) . '" title="' . $featured_products_array[$i]['shortdescription'] . '">' . $featured_products_array[$i]['name'] . '</a></h4>
+<h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $featured_products_array[$i]['id']) . '" title="' . $featured_products_array[$i]['name'] . '">' . $featured_products_array[$i]['name'] . '</a></h4>
 
 <center>' . $z_image . '</center>');
               if ($featured_products_array[$i]['map_price'] != "0.00") {

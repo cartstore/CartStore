@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_banners_text.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -54,7 +54,7 @@
         <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
-            <td align="right">&nbsp;</td>
+            <td align="right"></td>
           </tr>
 	  <tr>
             <td colspan=2 class="main"><?php echo TEXT_INFORMATION; ?></td>
@@ -63,7 +63,7 @@
 	</td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
       <tr>
         <td><table width="100%" align="center" border="0" cellpadding="0" cellspacing="0"><td>
@@ -120,7 +120,7 @@ $ban_id=$affiliate_banners['affiliate_banners_id'];
    </td> 
           </tr>
           </table>
-<?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?>
+
 <? 
    }
 }
@@ -142,6 +142,7 @@ $ban_id=$affiliate_banners['affiliate_banners_id'];
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

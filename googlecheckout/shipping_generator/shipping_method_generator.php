@@ -35,12 +35,12 @@ if(isset($_POST['country'])) {
 	error_reporting(E_ALL);
 	chdir('./../..');
 	$curr_dir = getcwd();
-	 
+
 	include_once('includes/application_top.php');
 	// serialized cart, to avoid needing one in session
 	$cart = unserialize('O:12:"shoppingcart":5:{s:8:"contents";a:1:{i:6;a:1:{s:3:"qty";i:1;}}s:5:"total";d:30;s:6:"weight";d:7;s:6:"cartID";s:5:"62209";s:12:"content_type";s:8:"physical";}');
 //	print_r($cart);
-  
+
   $cart->total = $_POST['price'];
   $cart->weight = $_POST['weight'];
   $cart->contents[6]['qty'] = $_POST['cant'];
@@ -48,20 +48,20 @@ if(isset($_POST['country'])) {
 //die;
 	require(DIR_WS_CLASSES .'order.php');
 	$order = new order;
-	
+
 	// Register a random ID in the session to check throughout the checkout procedure
 	// against alterations in the shopping cart contents.
 	if (!tep_session_is_registered('cartID')) {
 	  tep_session_register('cartID');
 	}
-	
-	
+
+
 	$total_weight = $cart->show_weight();
 	$total_count = $cart->count_contents();
-	
+
 	// Get all the enabled shipping methods.
 	require(DIR_WS_CLASSES .'shipping.php');
-	
+
 	// Required for some shipping methods (ie. USPS).
 	require_once('includes/classes/http_client.php');
 }
@@ -91,25 +91,25 @@ if(isset($_POST['country'])) {
             <tr>
               <th>Country:</th>
               <td>
-                <input type="text" name="country" value="<?=isset($_POST['country'])?$_POST['country']:'US';?>"/>
+                <input type="text" name="country" value="<?php echo isset($_POST['country'])?$_POST['country']:'US';?>"/>
               </td>
             </tr>
             <tr>
               <th>City:</th>
               <td>
-                <input type="text" name="city" value="<?=isset($_POST['city'])?$_POST['city']:'Miami';?>"/>
+                <input type="text" name="city" value="<?php echo isset($_POST['city'])?$_POST['city']:'Miami';?>"/>
               </td>
             </tr>
             <tr>
               <th>Region:</th>
               <td>
-                <input type="text" name="region" value="<?=isset($_POST['region'])?$_POST['region']:'FL';?>"/>
+                <input type="text" name="region" value="<?php echo isset($_POST['region'])?$_POST['region']:'FL';?>"/>
               </td>
             </tr>
             <tr>
               <th>Postal Code:</th>
               <td>
-                <input type="text" name="postalcode" value="<?=isset($_POST['postalcode'])?$_POST['postalcode']:'33102';?>"/>
+                <input type="text" name="postalcode" value="<?php echo isset($_POST['postalcode'])?$_POST['postalcode']:'33102';?>"/>
               </td>
             </tr>
           </table>
@@ -122,25 +122,25 @@ if(isset($_POST['country'])) {
             <tr>
               <th>Country:</th>
               <td>
-                <input type="text" name="i_country" value="<?=isset($_POST['i_country'])?$_POST['i_country']:'GB';?>"/>
+                <input type="text" name="i_country" value="<?php echo isset($_POST['i_country'])?$_POST['i_country']:'GB';?>"/>
               </td>
             </tr>
             <tr>
               <th>City:</th>
               <td>
-                <input type="text" name="i_city" value="<?=isset($_POST['i_city'])?$_POST['i_city']:'Glasgow';?>"/>
+                <input type="text" name="i_city" value="<?php echo isset($_POST['i_city'])?$_POST['i_city']:'Glasgow';?>"/>
               </td>
             </tr>
             <tr>
               <th>Region:</th>
               <td>
-                <input type="text" name="i_region" value="<?=isset($_POST['i_region'])?$_POST['i_region']:'LANARKSHIRE';?>"/>
+                <input type="text" name="i_region" value="<?php echo isset($_POST['i_region'])?$_POST['i_region']:'LANARKSHIRE';?>"/>
               </td>
             </tr>
             <tr>
               <th>Postal Code:</th>
               <td>
-                <input type="text" name="i_postalcode" value="<?=isset($_POST['i_postalcode'])?$_POST['i_postalcode']:'G42 8RB';?>"/>
+                <input type="text" name="i_postalcode" value="<?php echo isset($_POST['i_postalcode'])?$_POST['i_postalcode']:'G42 8RB';?>"/>
               </td>
             </tr>
            </table>
@@ -155,19 +155,19 @@ if(isset($_POST['country'])) {
             <tr>
               <th>Weight:</th>
               <td>
-                <input type="text" name="weight" value="<?=isset($_POST['weight'])?$_POST['weight']:'7';?>"/>
+                <input type="text" name="weight" value="<?php echo isset($_POST['weight'])?$_POST['weight']:'7';?>"/>
               </td>
             </tr>
             <tr>
               <th>Quantity:</th>
               <td>
-                <input type="text" name="cant" value="<?=isset($_POST['cant'])?$_POST['cant']:'1';?>"/>
+                <input type="text" name="cant" value="<?php echo isset($_POST['cant'])?$_POST['cant']:'1';?>"/>
               </td>
             </tr>
             <tr>
               <th>Total Price:</th>
               <td>
-                <input type="text" name="price" value="<?=isset($_POST['price'])?$_POST['price']:'30';?>"/>
+                <input type="text" name="price" value="<?php echo isset($_POST['price'])?$_POST['price']:'30';?>"/>
               </td>
             </tr>
           </table>
@@ -180,14 +180,14 @@ if(isset($_POST['country'])) {
       </tr>
     </table>
   </form>
-  
+
 <?php
 if(isset($_POST['country'])) {
 	$mc_shipping_methods = array();
   $mc_shipping_methods_names = array();
-  
+
   $methods_duplicate = array();
-  
+
 	list($start_m, $start_s) = explode(' ', microtime());
 	$start = $start_m + $start_s;
 
@@ -197,19 +197,19 @@ if(isset($_POST['country'])) {
   $city = mysql_escape_string($_POST['city']);
   $region = mysql_escape_string($_POST['region']);
   $postal_code = mysql_escape_string($_POST['postalcode']);
-  
+
   $row = tep_db_fetch_array(tep_db_query("select * from ". TABLE_COUNTRIES ." where countries_iso_code_2 = '". $country ."'"));
-  $order->delivery['country'] = array('id' => $row['countries_id'], 
-                                      'title' => $row['countries_name'], 
-                                      'iso_code_2' => $country, 
+  $order->delivery['country'] = array('id' => $row['countries_id'],
+                                      'title' => $row['countries_name'],
+                                      'iso_code_2' => $country,
                                       'iso_code_3' => $row['countries_iso_code_3']);
   $order->delivery['country_id'] = $row['countries_id'];
   $order->delivery['format_id'] = $row['address_format_id'];
-  
+
   $row = tep_db_fetch_array(tep_db_query("select * from ". TABLE_ZONES ." where zone_code = '" . $region."'"));
   $order->delivery['zone_id'] = $row['zone_id'];
   $order->delivery['state'] = $row['zone_name'];
-  
+
   $order->delivery['city'] = $city;
   $order->delivery['postcode'] = $postal_code;
   $shipping_modules = new shipping();
@@ -226,11 +226,11 @@ if(isset($_POST['country'])) {
         else {
           $methods_duplicate[$method['title']] = 1;
         }
-        $methods[$method['id']] = array('title' => htmlentities($method['title']), 
+        $methods[$method['id']] = array('title' => htmlentities($method['title']),
                                         'cost' => $method['cost']);
-      }    
+      }
       $mc_shipping_methods[$shipper['id']]['domestic_types'] = $methods;
-      if (class_exists($shipper['id'])) {               
+      if (class_exists($shipper['id'])) {
         $GLOBALS[$shipper['id']] = new $shipper['id'];
       }
       $mc_shipping_methods_names[$shipper['id']] = htmlentities($shipper['module']);
@@ -242,19 +242,19 @@ if(isset($_POST['country'])) {
     $city = mysql_escape_string($_POST['i_city']);
     $region = mysql_escape_string($_POST['i_region']);
     $postal_code = mysql_escape_string($_POST['i_postalcode']);
-    
+
     $row = tep_db_fetch_array(tep_db_query("select * from ". TABLE_COUNTRIES ." where countries_iso_code_2 = '". $country ."'"));
-    $order->delivery['country'] = array('id' => $row['countries_id'], 
-                                        'title' => $row['countries_name'], 
-                                        'iso_code_2' => $country, 
+    $order->delivery['country'] = array('id' => $row['countries_id'],
+                                        'title' => $row['countries_name'],
+                                        'iso_code_2' => $country,
                                         'iso_code_3' => $row['countries_iso_code_3']);
     $order->delivery['country_id'] = $row['countries_id'];
     $order->delivery['format_id'] = $row['address_format_id'];
-    
+
     $row = tep_db_fetch_array(tep_db_query("select * from ". TABLE_ZONES ." where zone_code = '" . $region."'"));
     $order->delivery['zone_id'] = $row['zone_id'];
     $order->delivery['state'] = $row['zone_name'];
-    
+
     $order->delivery['city'] = $city;
     $order->delivery['postcode'] = $postal_code;
 //    $shipping_modules = new shipping();
@@ -269,11 +269,11 @@ if(isset($_POST['country'])) {
           else {
             $methods_duplicate[$method['title']] = 1;
           }
-          $methods[$method['id']] = array('title' => htmlentities($method['title']), 
+          $methods[$method['id']] = array('title' => htmlentities($method['title']),
                                           'cost' => $method['cost']);
-        }    
+        }
         $mc_shipping_methods[$shipper['id']]['international_types'] = $methods;
-        if (class_exists($shipper['id'])) {               
+        if (class_exists($shipper['id'])) {
           $GLOBALS[$shipper['id']] = new $shipper['id'];
         }
         $mc_shipping_methods_names[$shipper['id']] = htmlentities($shipper['module']);

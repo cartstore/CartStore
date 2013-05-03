@@ -43,8 +43,11 @@ require(DIR_WS_BOXES . 'year_make_model.php');
   if (ARTICLE_BOX_DISPLAY == 'true'){
     require(DIR_WS_BOXES . 'articles.php');
   }
-     if (SHOW_RSS_NEWS == 'true') 
-    if (basename($PHP_SELF) != 'rss_reader.php') 
+  
+  require(DIR_WS_BOXES . 'sociallogin.php');
+  
+     if (SHOW_RSS_NEWS == 'true')
+    if (basename($PHP_SELF) != 'rss_reader.php')
       include(DIR_WS_BOXES . 'rss_news.php');
 // START STS 4.1
 }

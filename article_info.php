@@ -3,22 +3,17 @@
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_ARTICLE_INFO);
   $article_check_query = tep_db_query("SELECT COUNT(*) as total from " . TABLE_ARTICLES . " a, " . TABLE_ARTICLES_DESCRIPTION . " ad where a.articles_status = '1' and a.articles_id = '" . (int)$_GET['articles_id'] . "' and ad.articles_id = a.articles_id and ad.language_id = '" . (int)$languages_id . "'");
   $article_check = tep_db_fetch_array($article_check_query);
-  
-  
 ?>
 
 
 <?php
-  
-  
-  
   if (file_exists(DIR_WS_INCLUDES . 'article_header_tags.php')) {
       require(DIR_WS_INCLUDES . 'article_header_tags.php');
-  } else {
+  } //if (file_exists(DIR_WS_INCLUDES . 'article_header_tags.php'))
+  else {
 ?>
 <?php
-  }
-  
+  } //else
 ?>
 
         
@@ -49,16 +44,17 @@
           $articles_author_id = $article_info['authors_id'];
           $articles_author = $article_info['authors_name'];
 ?>
-          <span style="float: right;">
+          <span style="float: right;" id="article_info_share">
           <?php
           if ($_SERVER['HTTPS']) {
               echo '';
-          } else {
+          } //if ($_SERVER['HTTPS'])
+          else {
               echo '<script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=d0747722-a27b-4a5e-808e-52268da6c4ad&amp;type=website"></script>';
-          }
+          } //else
 ?>
           </span>
-          <h1>
+          <h1 id="article_info">
             <?php
           echo $articles_name;
 ?>
@@ -84,18 +80,15 @@
           <hr>
           <div id="div_Comments"> (
             <?php
-          
 ?>
             </h3>
             <?php
-          
 ?>
             
             <!-- Comment Form -->
             
             <p>
               <?php
-          
 ?>
             </p>
           </div>
@@ -106,7 +99,7 @@
               echo sprintf(TEXT_MORE_INFORMATION, tep_href_link(FILENAME_REDIRECT, 'action=url&goto=' . urlencode($article_info['articles_url']), 'NONSSL', true, false));
 ?>
           <?php
-          }
+          } //if (tep_not_null($article_info["s_38"]))
           if (DISPLAY_DATE_ADDED_ARTICLE_LISTING == 'true') {
               if ($article_info['articles_date_available'] > date('Y-m-d H:i:s')) {
 ?>
@@ -116,7 +109,7 @@
 ?>
           <?php
                   }
-              }
+              } //if ($article_info["s_43"] > date("s_44"))
 ?>
           <?php
               if (ENABLE_ARTICLE_REVIEWS == 'true') {
@@ -144,7 +137,7 @@
 ?>
           <?php
                       }
-                  }
+                  } //if ($reviews["s_52"] <= 0)
 ?>
           </form>
           
@@ -157,9 +150,9 @@
                       if ($num_products_xsell >= MIN_DISPLAY_ARTICLES_XSELL) {
                           while ($dt_product_xsell = tep_db_fetch_array($xsell_query)) {
                               $products_id = $dt_product_xsell['products_id'];
-                          }
-                      }
-                  }
+                          } //while ($dt_product_xsell = tep_db_fetch_array($xsell_query))
+                      } //if ($num_products_xsell >= MIN_DISPLAY_ARTICLES_XSELL)
+                  } //if ($_GET['articles_id'])
                   if (ENABLE_TELL_A_FRIEND_ARTICLE == 'true') {
                       if (isset($_GET['articles_id'])) {
                           $info_box_contents = array();
@@ -168,20 +161,20 @@
                           $info_box_contents = array();
                           $info_box_contents[] = array('form' => tep_draw_form('tell_a_friend', tep_href_link(FILENAME_TELL_A_FRIEND, '', 'NONSSL', false), 'get'), 'align' => 'left', 'text' => TEXT_TELL_A_FRIEND . '&nbsp;' . tep_draw_input_field('to_email_address', '', 'size="10" maxlength="30" style="width: ' . (BOX_WIDTH - 30) . 'px"') . '&nbsp;<input type="hidden" name="products_id" value="' . $products_id . '">' . tep_image_submit('button_tell_a_friend.gif', BOX_HEADING_TELL_A_FRIEND) . tep_draw_hidden_field('articles_id', $_GET['articles_id']) . tep_hide_session_id());
                           new infoBox($info_box_contents);
-                      }
-                  }
+                      } //if (isset($_GET['articles_id']))
+                  } //if (ENABLE_TELL_A_FRIEND_ARTICLE == 'true')
 ?>
           
           <!-- tell_a_friend_eof //-->
           
           <?php
-                  
                   if ((USE_CACHE == 'true') && !SID) {
                       include(DIR_WS_MODULES . FILENAME_ARTICLES_XSELL);
-                  } else {
+                  } //if ((USE_CACHE == 'true') && !SID)
+                  else {
                       include(DIR_WS_MODULES . FILENAME_ARTICLES_XSELL);
-                  }
-              }
+                  } //else
+              } //if (ENABLE_ARTICLE_REVIEWS == "s_45")
 ?></td>
       </tr>
     </table>
@@ -192,8 +185,6 @@
         
         <?php
               require(DIR_WS_INCLUDES . 'column_right.php');
-
               require(DIR_WS_INCLUDES . 'footer.php');
-
               require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>

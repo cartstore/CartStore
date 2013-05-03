@@ -21,10 +21,11 @@
   new infoBoxHeading($info_box_contents, true, true);
   $info_box_contents = array();
   $info_box_contents[] = array('text' => tep_draw_input_field('keywords', '', 'id="keywords" onKeyUp="loadXMLDoc_advanced(this.value)" autocomplete="off"'));
-  $info_box_contents[] = array('text' => '<div style="display: block; margin-left: 0%; padding: 5px; float: left;" id="quicksearch">Quick Find Results....</div>');
-  $info_box_contents[] = array('align' => '', 'text' => tep_draw_checkbox_field('search_in_description', '1', 'true') . ' ' . TEXT_SEARCH_IN_DESCRIPTION);
+  $info_box_contents[] = array('text' => '<div class="quick-search-wrap"><div style="display: block; margin-left: 0%; padding: 5px; float: left;" id="quicksearch">Quick Find Results....</div></div>');
+  $info_box_contents[] = array('align' => '', 'text' => tep_draw_checkbox_field('search_in_description', '1', 'true') . '<div class="clear"></div> ' . TEXT_SEARCH_IN_DESCRIPTION);
   new infoBox($info_box_contents);
 ?>
+<div class="clear"></div>
 <a href="#" onClick="javascript:window.open('<?php
   echo tep_href_link(FILENAME_POPUP_SEARCH_HELP);
 ?>', 'Estimate Shipping','scrollbars=yes,toolbar=no,menubar=no,status=no,width=400,height=400');" class="general_link">
@@ -35,7 +36,9 @@
 <?php
   echo tep_image_submit('button_search.gif', IMAGE_BUTTON_SEARCH);
 ?>
-<table border="0" width="100%" cellspacing="0" cellpadding="2">
+
+
+<table id="extra-search" border="0" width="100%" cellspacing="0" cellpadding="2">
   <tr>
     <td class="fieldKey"><?php
   echo ENTRY_CATEGORIES;
@@ -80,6 +83,7 @@
   echo tep_draw_input_field('pto');
 ?></td>
   </tr>
+<?php /*  
   <tr>
     <td colspan="2"></td>
   </tr>
@@ -99,6 +103,8 @@
   echo tep_draw_input_field('dto', DOB_FORMAT_STRING, 'onFocus="RemoveFormatString(this, \'' . DOB_FORMAT_STRING . '\')"');
 ?></td>
   </tr>
+ * 
+ */?>
   <?php
   $attributes_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id = '" . (int)$languages_id . "'");
   while ($attributes = tep_db_fetch_array($attributes_query)) {

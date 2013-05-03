@@ -2,12 +2,12 @@
 /*
   $Id: cod.php,v 1.28 2003/02/14 05:51:31 hpdl Exp $
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   class ccerr {
@@ -68,7 +68,7 @@
     }
 
     function check() {
-	// Check if module is installed or not
+    // Check if module is installed or not
       if (!isset($this->_check)) {
         $check_query = tep_db_query("select configuration_value from " . TABLE_CONFIGURATION . " where configuration_key = 'MODULE_PAYMENT_CCERR_SORT_ORDER'");
         $this->_check = tep_db_num_rows($check_query);

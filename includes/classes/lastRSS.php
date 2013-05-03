@@ -2,11 +2,11 @@
 /*
  ======================================================================
  lastRSS 0.9.1
- 
+
  Simple yet powerfull PHP class to parse RSS files.
- 
+
  by Vojtech Semecky, webmaster @ webdot . cz
- 
+
  Latest version, features, manual and examples:
  	http://lastrss.webdot.cz/
 
@@ -82,7 +82,7 @@ class lastRSS {
 		// return result
 		return $result;
 	}
-	
+
 	// -------------------------------------------------------------------
 	// Modification of preg_match(); return trimed field with index 1
 	// from 'classic' preg_match() array output
@@ -131,14 +131,22 @@ class lastRSS {
 	// Don't use Parse() in your scripts - use Get($rss_file) instead.
 	// -------------------------------------------------------------------
 	function Parse ($rss_url) {
-		// Open and load RSS file
+        $feed_fetched = false;
 		if ($f = @fopen($rss_url, 'r')) {
 			$rss_content = '';
 			while (!feof($f)) {
 				$rss_content .= fgets($f, 4096);
 			}
 			fclose($f);
+            $feed_fetched = true;
+        } else {
+          $ch = curl_init($rss_url);
+          curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+          $rss_content = curl_exec($ch);
+          $feed_fetched = true;
+        }
 
+        if ($feed_fetched == true){
 			// Parse document encoding
 			$result['encoding'] = $this->my_preg_match("'encoding=[\'\"](.*?)[\'\"]'si", $rss_content);
 			// if document codepage is specified, use it
@@ -213,6 +221,7 @@ class lastRSS {
 		}
 		else // Error in opening return False
 		{
+            echo "ERROR";
 			return False;
 		}
 	}

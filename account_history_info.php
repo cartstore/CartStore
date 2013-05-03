@@ -42,7 +42,7 @@
 
   }
 
-  
+
 
 // Begin RMA Returns System - added order status ID to query
 
@@ -506,7 +506,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 
          '                <td class="main" valign="top" width="70">' . $statuses['orders_status_name'] . '</td>' . "\n" .
 
-         '                <td class="main" valign="top">' . (empty($statuses['comments']) ? '&nbsp;' : nl2br(tep_output_string_protected($statuses['comments']))) . '</td>' . "\n" .
+         '                <td class="main" valign="top">' . (empty($statuses['comments']) ? '&nbsp;' : nl2br($statuses['comments'])) . '</td>' . "\n" .
 
          '              </tr>' . "\n";
 
@@ -574,7 +574,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
                 <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>"><?php echo $order->info['usps_track_num']; ?></a></td>
                 <td class="main" align="left"><a class="button" target="_blank" href="http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=<?php echo $order->info['usps_track_num']; ?>">Track</a></td>
 			  </tr>
-				
+
 <?php
 }
       if ($order->info['usps_track_num2'] == NULL) {

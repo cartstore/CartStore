@@ -1,6 +1,10 @@
 <?php
   require('includes/application_top.php');
   require('includes/classes/http_client.php');
+  if (ONEPAGE_CHECKOUT_ENABLED == 'True' && SELECT_VENDOR_SHIPPING != 'true'){
+      tep_redirect(tep_href_link(FILENAME_CHECKOUT, $_SERVER['QUERY_STRING'], 'SSL'));
+  }
+  
   if (!tep_session_is_registered('customer_id')) {
       $navigation->set_snapshot();
       tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));
@@ -10,6 +14,9 @@
   }
   if (!tep_session_is_registered('sendto')) {
       tep_session_register('sendto');
+  //BOF WA State Tax Modification
+  if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+  //EOF WA State Tax Modification
       $sendto = $customer_default_address_id;
   } else {
       if ($customer_id == 0) {
@@ -31,12 +38,14 @@
   $cartID = $cart->cartID;
   $total_weight = $cart->show_weight();
   $total_count = $cart->count_contents();
-  if (($order->content_type == 'virtual') || ($order->content_type == 'virtual_weight') || ($total_weight == 0)) {
+  if (SKIP_SHIPPING_DOWNLOADS_ZERO_WEIGHT == 'Yes'){
+    if (($order->content_type == 'virtual') || ($order->content_type == 'virtual_weight') || ($total_weight == 0)) {
       if (!tep_session_is_registered('shipping'))
           tep_session_register('shipping');
       $shipping = false;
       $sendto = false;
       tep_redirect(tep_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL'));
+   }
   }
   if (SELECT_VENDOR_SHIPPING == 'true') {
       include(DIR_WS_CLASSES . 'vendor_shipping.php');
@@ -142,42 +151,23 @@
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CHECKOUT_SHIPPING);
   $breadcrumb->add(NAVBAR_TITLE_1, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
   $breadcrumb->add(NAVBAR_TITLE_2, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'));
-?>
 
 
-<!-- header //-->
-<?php
   require(DIR_WS_INCLUDES . 'header.php');
-?>
-<!-- header_eof //-->
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php
-  echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-  echo BOX_WIDTH;
-?>" cellspacing="0" cellpadding="2">
-        <!-- left_navigation //-->
-        <?php
+
+
   require(DIR_WS_INCLUDES . 'column_left.php');
 ?>
-        <!-- left_navigation_eof //-->
-      </table></td>
+       
     <!-- body_text //-->
-    <td width="100%" valign="top"><?php
-  echo tep_draw_form('checkout_address', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL')) . tep_draw_hidden_field('action', 'process');
-?>
+   	<?php echo tep_draw_form('checkout_address', tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL')) . tep_draw_hidden_field('action', 'process'); ?>
       <table border="0" width="100%" cellspacing="0" cellpadding="0">
         <tr>
-          <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
-              <tr>
-                <td class="pageHeading"><?php
+          <td>
+          	
+          <h1><?php
   echo HEADING_TITLE;
-?></td>
-                <td align="right">&nbsp;</td>
-              </tr>
-            </table>
+?></h1>
 
             <br>
 
@@ -195,7 +185,7 @@
 
 
 
-    <li>4. <?php  echo CHECKOUT_BAR_FINISHED; ?></span></li>
+    <li>4. <?php  echo CHECKOUT_BAR_FINISHED; ?></li>
   </ul>
 </div>
 
@@ -222,45 +212,48 @@
               <tr class="infoBoxContents">
                 <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                     <tr>
-                      <td><?php
-  echo tep_draw_separator('pixel_trans.gif', '10', '1');
-?></td>
-                      <td class="main" width="50%" valign="top"><?php
-  echo TEXT_CHOOSE_SHIPPING_DESTINATION . '<br><br><a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL') . '"><span class="ui-icon ui-icon-pencil" style="float:left";></span>Change Address</a>';
-?></td>
-                      <td align="right" width="50%" valign="top"><table border="0" cellspacing="0" cellpadding="2">
-                          <tr>
-                            <td class="main" align="center" valign="top"><?php
-  echo '<b>' . TITLE_SHIPPING_ADDRESS . '</b><br>' . tep_image(DIR_WS_IMAGES . 'arrow_south_east.gif');
-?></td>
-                            <td><?php
-  echo tep_draw_separator('pixel_trans.gif', '10', '1');
-?></td>
-                            <td class="main" valign="top"><?php
+                      <td></td>
+                      <td class="main" valign="top">
+                      	<?php
+  echo TEXT_CHOOSE_SHIPPING_DESTINATION . '<br>
+  
+  ';
+?>
+                      	<?php
+  echo '<p><b>Selected Address</b><br>';
+?>
+
+<?php
   echo tep_address_label($customer_id, $sendto, true, ' ', '<br>');
-?></td>
-                            <td><?php
-  echo tep_draw_separator('pixel_trans.gif', '10', '1');
-?></td>
-                          </tr>
-                        </table></td>
+?>
+</p>
+<?php
+  echo'
+<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING_ADDRESS, '', 'SSL') . '"><span class="ui-icon ui-icon-gear" style="float:left"></span>Change Address</a>';
+?>
+
+                      	
+                      	</td>
+                      
                     </tr>
                   </table></td>
               </tr>
             </table></td>
         </tr>
         <tr>
-          <td><?php
-  echo tep_draw_separator('pixel_trans.gif', '100%', '10');
-?></td>
+     
         </tr>
         <?php
   if (tep_count_shipping_modules() > 0 || SELECT_VENDOR_SHIPPING == 'true') {
 ?>
         <tr>
-          <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
+          <td>
+          	
+          	<br><p></p>
+          	
+          	<table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td class="main"><b>
+                <td class="main"><b><span class="ui-icon ui-icon-forward ui-icon-shadow" style="float:left;"></span>
                   <?php
       echo TABLE_HEADING_SHIPPING_METHOD;
 ?>
@@ -302,7 +295,7 @@
               $shipping = $shipping_modules->cheapest();
 ?>
         <tr>
-          <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
+          <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox  fixwidthshipping">
               <tr class="infoBoxContents">
                 <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                     <?php
@@ -394,7 +387,7 @@
 
                             <td class="main"  colspan="3"><br><br>
 
-<h3 class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-transferthick-e-w" style="float:left";></span>
+<h3 class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-forward ui-icon-shadow" style="float:left"></span>
                            <?php
                       echo $quotes[$i]['module'];
 ?>
@@ -425,10 +418,11 @@
                                   } else {
                                       echo '                  <tr class="moduleRow">' . "\n";
                                   }
+                             $search = array(' regimark', ' tradmrk');
+                             $replace = array('<sup>&reg;</sup>', '<sup>&trade;</sup>');
 ?>
-
                             <td class="main" width="75%"><?php
-                                  echo $quotes[$i]['methods'][$j]['title'];
+                                  echo str_replace($search, $replace, $quotes[$i]['methods'][$j]['title']);
 ?></td>
                             <?php
                                   if (($n > 1) || ($n2 > 1)) {
@@ -556,34 +550,25 @@
 
 
 
-    <li>4. <?php  echo CHECKOUT_BAR_FINISHED; ?></span></li>
+    <li>4. <?php  echo CHECKOUT_BAR_FINISHED; ?></li>
   </ul>
 </div>
 
 
-             </td>
-
-
-
-
-            </table></td>
+           
+            
+            </td>
         </tr>
       </table>
-      </form></td>
+     </form>
     <!-- body_text_eof //-->
-    <td width="<?php
-                  echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-                  echo BOX_WIDTH;
-?>" cellspacing="0" cellpadding="2">
+ 
         <!-- right_navigation //-->
         <?php
                   require(DIR_WS_INCLUDES . 'column_right.php');
 ?>
         <!-- right_navigation_eof //-->
-      </table></td>
-  </tr>
-</table>
+      
 <!-- body_eof //-->
 <!-- footer //-->
 <?php

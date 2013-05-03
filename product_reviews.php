@@ -58,7 +58,7 @@ $products_price='<span class="msrp_name">MSRP Price:</span> <span class="msrp_pr
 
 <span class="map_name">MAP Price:</span> <span class="map_price">'.$currencies->display_price($product_info['map_price'], tep_get_tax_rate($product_info['products_tax_class_id'])).'</span><br>
 
-<span class="ourprice_name">Our Price:</span> <span class="our_price_price"><a href=”login.php”>Login to See Price</a></span>' ;
+<span class="ourprice_name">Our Price:</span> <span class="our_price_price"><a href=ï¿½login.phpï¿½>Login to See Price</a></span>' ;
 }elseif($product_info['msrp_price']!="0.00")
 {
 $products_price='<div class="price">'.$currencies->display_price($product_info['products_price'], tep_get_tax_rate($product_info['products_tax_class_id'])).'</div><span class="msrp_name">MSRP Price:</span> <span class="msrp_price">'.$currencies->display_price($product_info['msrp_price'], tep_get_tax_rate($product_info['products_tax_class_id'])).'</span><br>';
@@ -67,33 +67,10 @@ $products_price=$products_price;
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_PRODUCT_REVIEWS);
 
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params()));
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php echo HTML_PARAMS; ?>>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
-<title><?php echo TITLE; ?></title>
-<base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
-<link href="/css/css.css" rel="stylesheet" type="text/css">
-<script language="javascript"><!--
-function popupWindow(url) {
-  window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,copyhistory=no,width=100,height=100,screenX=150,screenY=150,top=150,left=150')
-}
-//--></script>
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php require(DIR_WS_INCLUDES . 'header.php'); ?>
-<!-- header_eof //-->
 
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- left_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_left.php'); ?>
-<!-- left_navigation_eof //-->
-    </table></td>
+ require(DIR_WS_INCLUDES . 'header.php'); 
+require(DIR_WS_INCLUDES . 'column_left.php'); ?>
+
 <!-- body_text //-->
     <td width="100%" valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="0">
       <tr>
@@ -252,18 +229,7 @@ document.write('<?php echo '<span class="no_underline"><a class="general_link" h
       </tr>
     </table></td>
 <!-- body_text_eof //-->
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- right_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
-<!-- right_navigation_eof //-->
-    </table></td>
-  </tr>
-</table>
-<!-- body_eof //-->
 
-<!-- footer //-->
-<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
-<!-- footer_eof //-->
-</body>
-</html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+<?php require(DIR_WS_INCLUDES . 'column_right.php');
+require(DIR_WS_INCLUDES . 'footer.php'); 
+ require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

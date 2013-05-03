@@ -39,7 +39,16 @@ function tep_image($src, $alt = '', $width = '', $height = '', $params = '') {
 
         if (isset($product_info['products_image'])
                    && $src == DIR_WS_IMAGES . $product_info['products_image']
-                   && $product_info[products_id]==$_GET['products_id'])  {   //final check just to make sure that we don't interfere with other contribs
+                   && $product_info[products_id]==$_GET['products_id']
+				   && IS_MOBILE_DEVICE == FALSE
+				   
+				   
+				   )  
+                   
+
+                   
+                   
+                   {   //final check just to make sure that we don't interfere with other contribs
             $width = PRODUCT_INFO_IMAGE_WIDTH == 0?'':PRODUCT_INFO_IMAGE_WIDTH;
             $height = PRODUCT_INFO_IMAGE_HEIGHT == 0?'':PRODUCT_INFO_IMAGE_HEIGHT;
             $product_info_image=true;
@@ -110,8 +119,8 @@ function tep_image($src, $alt = '', $width = '', $height = '', $params = '') {
         }
 
        //Return the html
-        $image = '<img class="imageborder" src="imagemagic.php?img='.$src.'&w='.
-        tep_output_string($width).'&h='.tep_output_string($height).'&page='.$page.'"';
+        $image = '<img class="imageborder" src="imagemagic.php?img='.$src.'&amp;w='.
+        tep_output_string($width).'&amp;h='.tep_output_string($height).'&amp;page='.$page.'"';
 
     } elseif (IMAGE_REQUIRED == 'false') {
       return false;
@@ -147,7 +156,7 @@ function tep_image($src, $alt = '', $width = '', $height = '', $params = '') {
         $image .= ' onload="fixPNG(this)"';
   }
 
-  $image .= '>';
+  $image .= ' />';
   return $image;
 }
 //EOF Image Magic
@@ -221,8 +230,8 @@ function tep_image_r_path($src, $alt = '', $width = '', $height = '', $params = 
         }
 
        //Return the html
-        $image111 = 'imagemagic.php?img='.$src.'&w='.
-        tep_output_string($width).'&h='.tep_output_string($height).'&page='.$page.'';
+        $image111 = 'imagemagic.php?img='.$src.'&amp;w='.
+        tep_output_string($width).'&amp;h='.tep_output_string($height).'&amp;page='.$page.'';
 
     } elseif (IMAGE_REQUIRED == 'false') {
       return false;
@@ -258,7 +267,7 @@ function tep_image_r_path($src, $alt = '', $width = '', $height = '', $params = 
         $image .= ' onload="fixPNG(this)"';
   }
 
-  $image .= '>';
+  $image .= ' />';
   return $image111;
 }
 //EOF Image Magic
@@ -268,10 +277,10 @@ function tep_image_r_path($src, $alt = '', $width = '', $height = '', $params = 
 // Outputs a button in the selected language
   function tep_image_submit($image, $alt = '', $parameters = '') {
     global $language;
-$image_submit = '<input class="button" type="submit" value="' . tep_output_string($alt) . '"';
+$image_submit = '<input class="button btn btn-large" type="submit" value="' . tep_output_string($alt) . '"';
     if (tep_not_null($alt)) $image_submit .= ' title=" ' . tep_output_string($alt) . ' "';
     if (tep_not_null($parameters)) $image_submit .= ' ' . $parameters;
-    $image_submit .= '>';
+    $image_submit .= ' />';
     return $image_submit;
   }
  function tep_image_submit2($image, $alt = '', $parameters = '') {
@@ -279,7 +288,7 @@ $image_submit = '<input class="button" type="submit" value="' . tep_output_strin
 $image_submit = '<input  type="image" src="' . tep_output_string(DIR_WS_LANGUAGES . $language . '/images/buttons/' . $image) . '" value="' . tep_output_string($alt) . '"';
     if (tep_not_null($alt)) $image_submit .= ' title=" ' . tep_output_string($alt) . ' "';
     if (tep_not_null($parameters)) $image_submit .= ' ' . $parameters;
-    $image_submit .= '>';
+    $image_submit .= ' />';
     return $image_submit;
   }
 ////
@@ -304,14 +313,19 @@ $image_submit = '<input  type="image" src="' . tep_output_string(DIR_WS_LANGUAGE
 ////
 // Output a form input field
   function tep_draw_input_field($name, $value = '', $parameters = '', $type = 'text', $reinsert_value = true) {
-    $field = '<input class="inputbox" type="' . tep_output_string($type) . '" name="' . tep_output_string($name) . '"';
+    $field = '<input type="' . tep_output_string($type) . '" name="' . tep_output_string($name) . '"';
     if ( (isset($GLOBALS[$name])) && ($reinsert_value == true) ) {
       $field .= ' value="' . tep_output_string(stripslashes($GLOBALS[$name])) . '"';
     } elseif (tep_not_null($value)) {
       $field .= ' value="' . tep_output_string($value) . '"';
     }
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
-    $field .= '>';
+    $field .= ' />';
+	if (preg_match('/class="/',$field)){
+		$field = preg_replace('/class="/','class="inputbox ',$field);
+	} else {
+		$field = str_replace('type="','class="inputbox" type="',$field);
+	}
     return $field;
   }
 ////
@@ -322,14 +336,20 @@ $image_submit = '<input  type="image" src="' . tep_output_string(DIR_WS_LANGUAGE
 ////
 // Output a selection field - alias function for tep_draw_checkbox_field() and tep_draw_radio_field()
   function tep_draw_selection_field($name, $type, $value = '', $checked = false, $parameters = '') {
-    $selection = '<input class="inputcheckbox" type="' . tep_output_string($type) . '" name="' . tep_output_string($name) . '"';
+    $selection = '<input id="checkbox" type="' . tep_output_string($type) . '" name="' . tep_output_string($name) . '"';
     if (tep_not_null($value)) $selection .= ' value="' . tep_output_string($value) . '"';
     if ( ($checked == true) || ( isset($GLOBALS[$name]) && is_string($GLOBALS[$name]) && ( ($GLOBALS[$name] == 'on') || (isset($value) && (stripslashes($GLOBALS[$name]) == $value)) ) ) ) {
-      $selection .= ' CHECKED';
+      $selection .= ' checked="checked"';
     }
     if (tep_not_null($parameters)) $selection .= ' ' . $parameters;
-    $selection .= '>';
-    return $selection;
+    $selection .= ' />';
+	$field = $selection;
+	if (preg_match('/class="/',$field)){
+		$field = preg_replace('/class="/','class="inputcheckbox ',$field);
+	} else {
+		$field = str_replace('type="','class="inputcheckbox" type="',$field);
+	}
+    return $field;
   }
 ////
 // Output a form checkbox field
@@ -380,7 +400,7 @@ function tep_draw_textarea_field2($name, $wrap, $width, $height, $text = '', $pa
       $field .= ' value="' . tep_output_string(stripslashes($GLOBALS[$name])) . '"';
     }
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
-    $field .= '>';
+    $field .= ' />';
     return $field;
   }
 ////
@@ -394,18 +414,23 @@ function tep_draw_textarea_field2($name, $wrap, $width, $height, $text = '', $pa
 ////
 // Output a form pull down menu
   function tep_draw_pull_down_menu($name, $values, $default = '', $parameters = '', $required = false) {
-    $field = '<select class="inputbox" id="' . tep_output_string($name) . '" name="' . tep_output_string($name) . '"';
+    $field = '<select id="' . tep_output_string($name) . '" name="' . tep_output_string($name) . '"';
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
     $field .= '>';
     if (empty($default) && isset($GLOBALS[$name])) $default = stripslashes($GLOBALS[$name]);
     for ($i=0, $n=sizeof($values); $i<$n; $i++) {
       $field .= '<option value="' . tep_output_string($values[$i]['id']) . '"';
       if ($default == $values[$i]['id']) {
-        $field .= ' SELECTED';
+        $field .= ' selected="selected"';
       }
       $field .= '>' . tep_output_string($values[$i]['text'], array('"' => '&quot;', '\'' => '&#039;', '<' => '&lt;', '>' => '&gt;')) . '</option>';
     }
     $field .= '</select>';
+	if (preg_match('/class="/',$field)){
+		$field = preg_replace('/class="/','class="inputbox ',$field);
+	} else {
+		$field = str_replace('type="','class="inputbox" type="',$field);
+	}
     if ($required == true) $field .= TEXT_FIELD_REQUIRED;
     return $field;
   }
@@ -414,7 +439,7 @@ function tep_draw_textarea_field2($name, $wrap, $width, $height, $text = '', $pa
   function tep_get_country_list($name, $selected = '', $parameters = '') {
     // bof jefs42 mod - add default countries to top of select
     $countries_array = array(array('id' => '', 'text' => PULL_DOWN_DEFAULT));
-    $countries_array[] = array('id' => '', 'text' => "--------------------------------------");
+    $countries_array[] = array('id' => '--', 'text' => "--------------");
     $countries_array[] = array('id' => STORE_COUNTRY, 'text' => tep_get_country_name(STORE_COUNTRY));
     // add additional "popular" countries
     $country_list = array(223, 222, 38, 13, 103, 99); // array of country id's to list (default country will be skipped if present
@@ -422,7 +447,7 @@ function tep_draw_textarea_field2($name, $wrap, $width, $height, $text = '', $pa
       if ($country_id != STORE_COUNTRY)
          $countries_array[] = array('id' => $country_id, 'text' => tep_get_country_name($country_id));
     }
-    $countries_array[] = array('id' => '', 'text' => "--------------------------------------");
+    $countries_array[] = array('id' => '--', 'text' => "--------------");
     // eof jefs42 mod
 
     $countries = tep_get_countries();
@@ -431,4 +456,81 @@ function tep_draw_textarea_field2($name, $wrap, $width, $height, $text = '', $pa
     }
     return tep_draw_pull_down_menu($name, $countries_array, $selected, $parameters);
   }
-?>
+
+////
+// Output a jQuery UI Button
+  function tep_draw_button($title = null, $icon = null, $link = null, $priority = null, $params = null) {
+    static $button_counter = 1;
+
+    $types = array('submit', 'button', 'reset');
+
+    if ( !isset($params['type']) ) {
+      $params['type'] = 'submit';
+    }
+
+    if ( !in_array($params['type'], $types) ) {
+      $params['type'] = 'submit';
+    }
+
+    if ( ($params['type'] == 'submit') && isset($link) ) {
+      $params['type'] = 'button';
+    }
+
+    if (!isset($priority)) {
+      $priority = 'secondary';
+    }
+
+    $button = '<span class="tdbLink">';
+
+    if ( ($params['type'] == 'button') && isset($link) ) {
+      $button .= '<a id="tdb' . $button_counter . '" href="' . $link . '"';
+
+      if ( isset($params['newwindow']) ) {
+        $button .= ' target="_blank"';
+      }
+    } else {
+      $button .= '<button id="tdb' . $button_counter . '" type="' . tep_output_string($params['type']) . '"';
+    }
+
+    if ( isset($params['params']) ) {
+      $button .= ' ' . $params['params'];
+    }
+
+    $button .= '>' . $title;
+
+    if ( ($params['type'] == 'button') && isset($link) ) {
+      $button .= '</a>';
+    } else {
+      $button .= '</button>';
+    }
+
+    $button .= '</span><script type="text/javascript">$("#tdb' . $button_counter . '").button(';
+
+    $args = array();
+
+    if ( isset($icon) ) {
+      if ( !isset($params['iconpos']) ) {
+        $params['iconpos'] = 'left';
+      }
+
+      if ( $params['iconpos'] == 'left' ) {
+        $args[] = 'icons:{primary:"ui-icon-' . $icon . '"}';
+      } else {
+        $args[] = 'icons:{secondary:"ui-icon-' . $icon . '"}';
+      }
+    }
+
+    if (empty($title)) {
+      $args[] = 'text:false';
+    }
+
+    if (!empty($args)) {
+      $button .= '{' . implode(',', $args) . '}';
+    }
+
+    $button .= ').addClass("ui-priority-' . $priority . '").parent().removeClass("tdbLink");</script>';
+
+    $button_counter++;
+
+    return $button;
+  }

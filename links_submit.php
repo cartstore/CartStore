@@ -21,18 +21,18 @@
       while (list($key, $value) = each($_POST)) {
 			  if (!is_array($_POST[$key])) {
           $_POST[$key] = preg_replace("/[^ \/a-zA-Z0-9@:{}_.-]/i", "", urldecode($_POST[$key]));
-        } else { unset($_POST[$key]); } // no arrays expected 
-      } 
+        } else { unset($_POST[$key]); } // no arrays expected
+      }
   $mailerror = (strlen(trim($_POST['email']))<1);
 	if (strlen(trim($_POST['email']))>0 && tep_validate_email($_POST['email']) == false) $mailerror = true;
-	$urlerror = (strlen(trim($_POST['url'],'http:// '))<1);  
+	$urlerror = (strlen(trim($_POST['url'],'http:// '))<1);
 	$rurlerror = (strlen(trim($_POST['recurl'],'http:// '))<1);
-	$titleerror = (strlen(trim($_POST['title']))<1); 
-	$descerror = (strlen(trim($_POST['description']))<1 || strlen($_POST['description'])>280 ); 
-	$nameerror = (strlen(trim($_POST['name']))<1); 
+	$titleerror = (strlen(trim($_POST['title']))<1);
+	$descerror = (strlen(trim($_POST['description']))<1 || strlen($_POST['description'])>280 );
+	$nameerror = (strlen(trim($_POST['name']))<1);
 	$_POST['description'] = substr($_POST['description'],0,280);
-	$error = $nameerror || $descerror || $titleerror || $rurlerror || $mailerror || $urlerror; 
-  		if (!$error) { 
+	$error = $nameerror || $descerror || $titleerror || $rurlerror || $mailerror || $urlerror;
+  		if (!$error) {
 			$sql_data_array = array('link_title' => tep_db_prepare_input($_POST['title']),
 																	'link_url' => tep_db_prepare_input($_POST['url']),
 																	'link_description' => tep_db_prepare_input($_POST['description']),
@@ -51,34 +51,15 @@
 	$category_query = tep_db_query("select category_id, category_name from links_categories where status = 1 order by sort_order, category_name");
   while ($category_values = tep_db_fetch_array($category_query)) {
     $category_array[] = array('id' => $category_values['category_id'], 'text' => $category_values['category_name']);
-  } 
+  }
 	 require(DIR_WS_FUNCTIONS.'pagerank.php');
-	$breadcrumb->add('links', tep_href_link('links.php', '', 'SSL')); 
+	$breadcrumb->add('links', tep_href_link('links.php', '', 'SSL'));
   $breadcrumb->add('links submit', tep_href_link('links_submit.php', '', 'SSL'));
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php echo HTML_PARAMS; ?>>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
-<title><?php echo TITLE; ?></title>
-<base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php require(DIR_WS_INCLUDES . 'header.php'); ?>
-<!-- header_eof //-->
 
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- left_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_left.php'); ?>
-<!-- left_navigation_eof //-->
-    </table></td>
+ require(DIR_WS_INCLUDES . 'header.php'); 
+ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
 
-    <td width="100%" align="center" valign="top">
+
 <!-- body_text //-->
 
 <?php if ($action == 'submited'){ ?>
@@ -86,12 +67,12 @@
  <tr>
     <td><h1><?php echo SUBMIT;?></h1></td></tr>
  <tr><td><br /><br />Thank you for your submission, once we have found your reciprocal link a moderator will approve your link and it will appear here.</td></tr>
- 
+
  <tr><td align="center"><?php echo  tep_draw_form(add_link,tep_href_link('links.php',tep_get_all_get_params(array('action'))));?><INPUT class="button" type=submit value="<?php echo 'BACK'?>"></FORM></td></tr>
  </table>
- <?php } else { 
+ <?php } else {
   if ($action == 'add_link') $status = 'class="messageStackSuccess"'?>
- 
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
     <td><h1><?php echo SUBMIT;?></h1>
@@ -100,15 +81,15 @@
         <TBODY>
           <TR>
             <TD width="20%"><?php echo TURL ?></TD>
-            <TD width="80%"><A class="headerInfo" href="<?=HTTP_SERVER?>" target=_blank><?=HTTP_SERVER?></A></TD>
+            <TD width="80%"><A class="headerInfo" href="<?php echo HTTP_SERVER; ?>" target=_blank><?php echo HTTP_SERVER; ?></A></TD>
           </TR>
           <TR>
             <TD><?php echo TTITLE;  ?></TD>
-            <TD><?=HEAD_TITLE_TAG_DEFAULT?></TD>
+            <TD><?php echo HEAD_TITLE_TAG_DEFAULT; ?></TD>
           </TR>
           <TR>
             <TD height="40" style="vertical-align:top;"><?php echo TDESCRIPTION; ?></TD>
-            <TD ><?=HEAD_DESC_TAG_DEFAULT?></TD>
+            <TD ><?php echo HEAD_DESC_TAG_DEFAULT; ?></TD>
           </TR>
         </TBODY>
       </TABLE>
@@ -116,7 +97,7 @@
         <?php echo tep_draw_textarea_field('codes','Physical',40,5,HEAD_DESC_TAG_DEFAULT);?>
       </P>
       <P><B><?php echo STEP2;?></B></P>
-      <P class="main"><?php echo STEP2DS?></P> 
+      <P class="main"><?php echo STEP2DS?></P>
     <?php echo  tep_draw_form('add_link',tep_href_link('links_submit.php',tep_get_all_get_params() . 'action=add_link' . ($sess_id ? '' : '#submit')), 'post');?>
      </td></tr><tr><td align="center">
         <TABLE border=0 class=infoBoxContents>
@@ -158,7 +139,7 @@
               <TD align="left"><B><?php echo 'Category: ';?></B></TD>
 							<td ><table summary="" width="100%" cellspacing="0" cellpadding="0"><tr><TD align="left" class="smallText"><?php echo tep_draw_pull_down_menu('category', $category_array, $_POST['category']). '</td><td align="right" class="smallText">Suggest New Category: ' . tep_draw_input_field('new_category', $_POST['new_category'], 'maxLength=32 size=18 ' );; ?></TD></tr>
 </table></td>
-              
+
             </TR>
           </TBODY>
         </TABLE>
@@ -181,22 +162,11 @@
 
 
 <!-- body_text_eof //-->
-	
+
 	</td>
 <!-- body_text_eof //-->
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-<!-- right_navigation //-->
-<?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
-<!-- right_navigation_eof //-->
-    </table></td>
-  </tr>
-</table>
-<!-- body_eof //-->
 
-<!-- footer //-->
-<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
-<!-- footer_eof //-->
-<br>
-</body>
-</html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+
+<?php require(DIR_WS_INCLUDES . 'column_right.php');
+ require(DIR_WS_INCLUDES . 'footer.php'); 
+require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

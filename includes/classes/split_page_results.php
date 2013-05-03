@@ -182,7 +182,7 @@
 
 // previous window of pages
 
-      if ($cur_window_num > 1) $display_links_string .= '<li><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $this->page_name . '=' . (($cur_window_num - 1) * $max_page_links), $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . sprintf(PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE, $max_page_links) . ' "></a></li>';
+      if ($cur_window_num > 1) $display_links_string .= '<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-last ui-btn-up-b"><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $this->page_name . '=' . (($cur_window_num - 1) * $max_page_links), $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . sprintf(PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE, $max_page_links) . ' "></a></li>';
 
 
 
@@ -192,11 +192,11 @@
 
         if ($jump_to_page == $this->current_page_number) {
 
-          $display_links_string .= '<li  ><a class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all" href="#"><span>' . $jump_to_page . '</span></a></li>';
+          $display_links_string .= '<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-last ui-btn-up-b"><a class="ui-state-default  ui-tabs-selected ui-state-active ui-corner-all" href="#"><span>' . $jump_to_page . '</span></a></li>';
 
         } else {
 
-          $display_links_string .= '<li><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $this->page_name . '=' . $jump_to_page, $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . sprintf(PREVNEXT_TITLE_PAGE_NO, $jump_to_page) . ' "><span>' . $jump_to_page . '</span></a></li>';
+          $display_links_string .= '<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-last ui-btn-up-b"><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $this->page_name . '=' . $jump_to_page, $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . sprintf(PREVNEXT_TITLE_PAGE_NO, $jump_to_page) . ' "><span>' . $jump_to_page . '</span></a></li>';
 
         }
 
@@ -206,13 +206,13 @@
 
 // next window of pages
 
-      if ($cur_window_num < $max_window_num) $display_links_string .= '<li><span><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $this->page_name . '=' . (($cur_window_num) * $max_page_links + 1), $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . sprintf(PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE, $max_page_links) . ' ">...</span></a></li>';
+      if ($cur_window_num < $max_window_num) $display_links_string .= '<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-last ui-btn-up-b"><span><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $this->page_name . '=' . (($cur_window_num) * $max_page_links + 1), $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . sprintf(PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE, $max_page_links) . ' ">...</span></a></li>';
 
 
 
 // next button
 
-      if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)) $display_links_string .= '<li class="next"><a href="' . tep_href_link(basename($PHP_SELF), $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' "><span>' . PREVNEXT_BUTTON_NEXT . '</span></a></li>';
+      if (($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1)) $display_links_string .= '<li class="next ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-last ui-btn-up-b"><a href="' . tep_href_link(basename($PHP_SELF), $parameters . 'page=' . ($this->current_page_number + 1), $request_type) . '" class="ui-state-default ui-corner-all" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' "><span>' . PREVNEXT_BUTTON_NEXT . '</span></a></li>';
 
 
 

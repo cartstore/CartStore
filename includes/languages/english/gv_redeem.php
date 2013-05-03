@@ -9,7 +9,7 @@
   Copyright (c) 2001,2002 Ian C Wilson
   http://www.phesis.org
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
 define('NAVBAR_TITLE', 'Redeem Gift Certificate');

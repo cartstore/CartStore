@@ -42,11 +42,18 @@ define('TEXT_TAB_ASKAQUESTION', 'Ask a question');
 define('TEXT_ASK_QUESTION', 'Ask aquestionabout<br>this product...');
 define('TEXT_TAB_ADDITTIONAL_IMAGES', 'Product Pictures');
 
-	  
+
 // year make model
 define('TEXT_PRODUCTS_CAR_HEADING', 'Major Applications:');
 define('TEXT_PRODUCTS_CAR_MAKE', 'Make');
 define('TEXT_PRODUCTS_CAR_MODEL', 'Model');
 define('TEXT_PRODUCTS_CAR_YEARS', 'Year Range');
 
+// previous next product
+define('PREV_NEXT_PRODUCT', 'Product ');
+define('PREV_NEXT_OF', ' of ');
+define('PREV_NEXT_CAT', 'Category');
+define('PREV_NEXT_MB', 'Manafacturer');
+define('ALT_PREVIOUS_PRODUCT', 'Previous Product');
+define('ALT_NEXT_PRODUCT', 'Nest Product');
 ?>

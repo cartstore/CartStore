@@ -1,8 +1,4 @@
-#module-product h3 {
-	font-size: 18px;
-	font-weight: bold;
-	margin-bottom: 5px;
-}
+
 .details h4 {
 	font-weight: bold;
 	margin-top: 5px;
@@ -56,10 +52,6 @@ hr {
 	list-style-type: none;
 }
 .article_desc ul li,  .ui-tabs-panel ul li,  .blog ul li,  .description ul li {
-	background:url("../includes/sts_templates/default/images/module_li_li_bg.jpg") no-repeat scroll left 8px transparent;
-	color:#000000;
-	font-size:12px;
-	line-height:22px;
 	margin-left:16px;
 	padding:0 0 0 20px;
 	text-decoration:none;
@@ -122,11 +114,27 @@ table.calendarBox table.calendarMonth td a:link, table.calendarBox table.calenda
 }
 .alt_prod_list_col_top tr {
 }
-
-
-a.button:link, a.button:visited {
-	color: #FFFFFF;
+#remove-icon .ui-button-text {
+	padding: .4em 0;
 }
-a.button:hover {
-	color: #666666;
+#remove-icon a {
+text-decoration: none;
+background: #75BCFF;
+color: white;
+font-size: 10px;
+padding: 2px 10px;
+margin: 4px;
+display: block;
+width: 40px;
+margin: 2px auto;
+border-radius: 6px;
 }
+
+#shippingMethods .shippingRow table {
+	width: 98%;
+	margin: 5px 5px 5px auto;
+}
+#shippingMethods .shippingRow table td { padding: 2px 5px; }
+#shippingMethods .shippingRow table tr:nth-child(even) td { border-width: 1px 0; border-style: solid; border-color: #ddd; }
+#shippingMethods .shippingRow table tr:hover td { background: #5C81A9 }
+

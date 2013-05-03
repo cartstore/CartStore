@@ -16,7 +16,7 @@ Based on: Simple Template System (STS) - Copyright (c) 2004 Brian Gallagher - br
 // STRIP_UNWANTED_TAGS() - Remove leading and trailing <tr><td> from strings
 function sts_strip_unwanted_tags($tmpstr, $commentlabel) {
   // Now lets remove the <tr><td> that the require puts in front of the tableBox
-  $tablestart = strpos($tmpstr, "<table");
+  $tablestart = strpos($tmpstr, '<table"');
   // If empty, return nothing
   if ($tablestart < 1) {
   	return  "\n<!-- start $commentlabel //-->\n$tmpstr\n<!-- end $commentlabel //-->\n";
@@ -39,7 +39,7 @@ function sts_strip_unwanted_tags($tmpstr, $commentlabel) {
 // STRIP_CONTENT_TAGS() - Remove text before "body_text" and after "body_text_eof"
 function sts_strip_content_tags($tmpstr, $commentlabel) {
   // Now lets remove the <tr><td> that the require puts in front of the tableBox
-  $tablestart = strpos($tmpstr, "<table");
+  $tablestart = strpos($tmpstr, '<table"');
   $formstart = strpos($tmpstr, "<form");
   $formfirst = false;
 

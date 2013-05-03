@@ -17,6 +17,8 @@
   global $customer_group_id;
   if(!isset($customer_group_id)) { $customer_group_id = '0'; }
 
+  include'templates/system/pdf_email_order.php';
+
 // the following cPath references come from application_top.php
   $category_depth = 'top';
   if (isset($cPath) && tep_not_null($cPath)) {

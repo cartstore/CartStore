@@ -1,5 +1,4 @@
 <?php
-//ICW ADDED FOR ORDER_TOTAL CREDIT SYSTEM - Start Addition
   $gv_query=tep_db_query("select amount from " . TABLE_COUPON_GV_CUSTOMER . " where customer_id='".$customer_id."'");
   if ($gv_result=tep_db_fetch_array($gv_query)) {
     if ($gv_result['amount'] > 0) {
@@ -15,5 +14,4 @@
       </tr>
 <?php
 }}
-//ICW ADDED FOR ORDER_TOTAL CREDIT SYSTEM - End Addition
 ?>

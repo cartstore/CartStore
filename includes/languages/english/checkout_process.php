@@ -10,7 +10,7 @@
 */
 
 //Package Tracking Plus BEGIN
-//define('EMAIL_TEXT_SUBJECT', 'Order Process');
+define('EMAIL_TEXT_SUBJECT', 'Order Process');
 define('EMAIL_TEXT_GREETING', 'Thank you so much for ordering from ' . STORE_NAME . '! Below is an invoice of your order for your records. If necessary, you may update your order directly by following the link below (login required). If you have questions or comments, please reply to this email.' . "\n\n" . 'With warm regards from your friends at ' . STORE_NAME . "\n");
 define('EMAIL_TEXT_SUBJECT_1', ' Order');
 define('EMAIL_TEXT_SUBJECT_2', 'has been received.');
@@ -40,4 +40,7 @@ define('TEXT_EMAIL_VIA', 'via');
 // PWA BOF
 define('EMAIL_WARNING', 'ATTENTION: This email address was given to us by someone who had visited our well known online store. If this was not done by you please email us at  ' . STORE_OWNER_EMAIL_ADDRESS . ' Thank you for shopping with us and have a great day.');
 // PWA EOF
+
+define('MODULE_PAYMENT_RFQ2_TEXT_EMAIL_FOOTER', 'Upon receiving your quote, you may choose to process the order. You will need to contact us with your payment information at this time. Your order will not ship until the full payment is received.');
+
 ?>

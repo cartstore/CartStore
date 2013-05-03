@@ -26,7 +26,7 @@
 ?>
       <!-- events_calendar //-->
       <SCRIPT LANGUAGE="JavaScript">
-
+//<[CDATA[
     function jump(view, url)
 
     {
@@ -44,7 +44,7 @@
         }
 
     }
-
+//]]>
 </SCRIPT>
       <?php
 

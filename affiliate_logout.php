@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_logout.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
 
@@ -50,7 +50,7 @@
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
           </tr>
           <tr>
-            <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+            <td></td>
           </tr>
           <tr>
 <?php
@@ -74,7 +74,7 @@
         </table></td>
       </tr>
       <tr>
-        <td align="right" class="main"><br><?php echo '<a class="button" href="' . tep_href_link(FILENAME_DEFAULT) . '">' . IMAGE_BUTTON_CONTINUE . '</a>'; ?></td>
+        <td align="right" class="main"><br><?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image_button('button_continue.gif', IMAGE_BUTTON_CONTINUE) . '</a>'; ?></td>
       </tr>
     </table></td>
 <!-- body_text_eof //-->
@@ -90,6 +90,7 @@
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

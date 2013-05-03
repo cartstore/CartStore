@@ -12,10 +12,12 @@
 define('NAVBAR_TITLE_1', 'Create an Account');
 define('NAVBAR_TITLE_2', 'Success');
 define('HEADING_TITLE', 'Your Account Has Been Created!');
-define('TEXT_ACCOUNT_CREATED', 'Congratulations! Your new account has been successfully created! You can now take advantage of member priviledges to enhance your online shopping experience with us. If you have <small><b>ANY</b></small> questions about the operation of this online shop, please <a class="general_link" href="' . tep_href_link(FILENAME_CONTACT_US) . '">contact us</a>.<br><br>A confirmation has been sent to the provided email address. If you have not received it within the hour, please <a class="general_link" href="' . tep_href_link(FILENAME_CONTACT_US) . '">contact us</a>.<br /><br />
+define('TEXT_ACCOUNT_CREATED', '<p><b>Congratulations! </b>Your new account has been successfully created! </p>
+
+<p>A confirmation has been sent to the provided email address. If you have not received it within the hour, please <a class="general_link" href="' . tep_href_link(FILENAME_CONTACT_US) . '">contact us</a>.</p>
 ');
 // Points/Rewards system V2.00 BOF
-define('TEXT_WELCOME_POINTS_TITLE', 'As part of our Welcome to new customers, we have credited your  <a class="general_link" href="' . tep_href_link(FILENAME_MY_POINTS, '', 'SSL') . '">Shopping Points Account</a>  with a total of %s Shopping Points worth %s');
-define('TEXT_WELCOME_POINTS_LINK', '<br><br>Please refer to the  <a class="general_link" href="' . tep_href_link(FILENAME_MY_POINTS_HELP, '', 'NONSSL') . '">Reward Point Program FAQ</a> as conditions may apply.');
+define('TEXT_WELCOME_POINTS_TITLE', '<p>As part of our Welcome to new customers, we have credited your  <a class="general_link" href="' . tep_href_link(FILENAME_MY_POINTS, '', 'SSL') . '">Shopping Points Account</a>  with a total of %s Shopping Points worth %s');
+define('TEXT_WELCOME_POINTS_LINK', ' Please refer to the  <a class="general_link" href="' . tep_href_link(FILENAME_MY_POINTS_HELP, '', 'NONSSL') . '">Reward Point Program FAQ</a> as conditions may apply.</p>');
 // Points/Rewards system V2.00 EOF
 ?>

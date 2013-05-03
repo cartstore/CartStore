@@ -12,30 +12,31 @@
 
 
   $banner_query_raw = "
-    select 
+    select
       banners_id,
-      banners_url, 
+      banners_url,
       banners_image,
       banners_html_text
-    from 
+    from
       " . TABLE_BANNERS . "
-    where 
-      banners_group = '" . BANNER_ROTATOR_GROUP . "' 
-      and language_id = '" . ( int )$languages_id . "' 
-    order by 
-      " . BANNER_ORDER . " 
-    limit 
+    where
+      banners_group = '" . BANNER_ROTATOR_GROUP . "'
+      and language_id = '" . ( int )$languages_id . "'
+      and status = 1
+    order by
+      " . BANNER_ORDER . "
+    limit
       " . MAX_DISPLAY_BANNER_ROTATOR
   ;
   // print $banner_query_raw; exit();
   $banner_query = tep_db_query( $banner_query_raw );
   if( tep_db_num_rows( $banner_query ) > 0 ) {
-    
+
 ?>
 <!-- banner_rotator -->
   <div id="bannerRotator">
-    <ul>
-<?php 
+    <ul class="slides">
+<?php
     while( $banner = tep_db_fetch_array( $banner_query ) ) {
       echo '      <li>';
       if( $banner['banners_url'] != '' ) {

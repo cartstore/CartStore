@@ -95,11 +95,22 @@
     function quote($method = '', $module = '', $vendors_id = '1') {
       global $_POST, $shipping_weight, $order, $cart, $shipping_num_boxes;
 
-      if (@constant('MODULE_SHIPPING_TABLE_MODE_' . $vendors_id) == 'price') {
-        $order_total = $shipping_cost;
-      } else {
-        $order_total = $shipping_weight;
+      switch (@constant('MODULE_SHIPPING_TABLE_MODE_' . $vendors_id) ) {
+        case 'price':
+          $order_total = $cart->vendor_shipping[$vendors_id]['cost'];
+          break;
+        case 'weight':
+          $order_total = $cart->vendor_shipping[$vendors_id]['weight'];
+          break;
+        case 'quantity':
+          $order_total = $cart->vendor_shipping[$vendors_id]['qty'];
       }
+
+//      if (@constant('MODULE_SHIPPING_TABLE_MODE_' . $vendors_id) == 'price') {
+//        $order_total = $shipping_cost;
+//      } else {
+//        $order_total = $shipping_weight;
+//      }
 
       $table_cost = preg_split("/[:,]/" , @constant('MODULE_SHIPPING_TABLE_COST_' . $vendors_id));
       $size = sizeof($table_cost);

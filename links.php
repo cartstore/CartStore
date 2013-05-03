@@ -22,33 +22,13 @@
   while ($category_values = tep_db_fetch_array($category_query)) {
     $category_array[] = array('id' => $category_values['category_id'], 'text' => $category_values['category_name']);
 		$categories[$category_values['category_id']] = $category_values['category_name'];
-  } 
+  }
   $breadcrumb->add('links', tep_href_link('links.php', '', 'SSL'));
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php echo HTML_PARAMS; ?>>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
-<title><?php echo TITLE; ?></title>
-<base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<style type="text/css">
-<!--
--->
-</style>
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php require(DIR_WS_INCLUDES . 'header.php'); ?>
-<!-- header_eof //-->
-<!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-        <!-- left_navigation //-->
-        <?php require(DIR_WS_INCLUDES . 'column_left.php'); ?>
-        <!-- left_navigation_eof //-->
-      </table></td>
+
+require(DIR_WS_INCLUDES . 'header.php');
+require(DIR_WS_INCLUDES . 'column_left.php'); ?>
+       
+
     <td width="100%" align="center" valign="top"><!-- body_text //-->
       <table width="100%" border="0" cellspacing="0" cellpadding="0" >
         <tr>
@@ -71,11 +51,11 @@
               while($links_tree=tep_db_fetch_array($links_query)){
 			   ?>
             <li><?php echo  '<a ' . ($links_tree['link_found'] ? '' : 'rel="link" ') . 'href="'.$links_tree['link_url'] . '">';
-			 if (!$links_tree['links_image']) { 
+			 if (!$links_tree['links_image']) {
 							//echo tep_image('http://open.thumbshots.org/image.pxf?url='.$links_tree['link_url'],$links_tree['link_title']);
 							echo '<img  style="float: left; padding-right: 5px;" title="'. $links_tree['link_title'] .'" alt="'. $links_tree['link_title'] .'" src="http://open.thumbshots.org/image.pxf?url='.$links_tree['link_url'].'" class="imageborder"/>';
-							
-							} else { 
+
+							} else {
 							//echo tep_image(DIR_WS_IMAGES . 'links/' . $links_tree['links_image'],$links_tree['link_title'],'120','90');
 							echo '<img   style="float: left; padding-right: 5px;" width="120" height="90" title="'. $links_tree['link_title'] .'" alt="'. $links_tree['link_title'] .'" src="'.DIR_WS_IMAGES . 'links/' . $links_tree['links_image'].'" class="imageborder"/>';
 							} ?> </a>
@@ -87,7 +67,7 @@
             <div class="clear"></div>
             <br>
             <!-- <td align="center"><?php //echo $links_tree['link_codes']?$links_tree['link_codes']:'';?></td> -->
-            <?php }  
+            <?php }
 	if ($link_split->number_of_rows > $result_page){  ?>
             <ul>
               <?php  echo $link_split->display_count(TEXT_DISPLAY_NUMBER_OF_LINKS).''.TEXT_RESULT_PAGE . ' ' . $link_split->display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info'))); ?>
@@ -108,18 +88,8 @@
       <!-- body_text_eof //-->
     </td>
     <!-- body_text_eof //-->
-    <td width="<?php echo BOX_WIDTH; ?>" valign="top"><table border="0" width="<?php echo BOX_WIDTH; ?>" cellspacing="0" cellpadding="2">
-        <!-- right_navigation //-->
-        <?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
-        <!-- right_navigation_eof //-->
-      </table></td>
-  </tr>
-</table>
-<!-- body_eof //-->
-<!-- footer //-->
-<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
-<!-- footer_eof //-->
-<br>
-</body>
-</html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+
+
+        <?php require(DIR_WS_INCLUDES . 'column_right.php');
+ require(DIR_WS_INCLUDES . 'footer.php');
+require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

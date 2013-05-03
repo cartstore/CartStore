@@ -2,23 +2,21 @@
 
 define('NAVBAR_TITLE', 'Affiliate Program');
 define('HEADING_TITLE', 'Affiliate Program');
-define('TEXT_CLOSE_WINDOW', 'Close');
 
 define('HEADING_AFFILIATE_PROGRAM_TITLE', 'The ' . STORE_NAME . ' Affiliate Terms');
 define('TEXT_INFORMATION', '
- 
-  
-   
-        
-		<br />
-<h3>By filling out the signup form you acknowledge that you have read the terms and
-		conditions below for the '. STORE_NAME  .' AFFILIATE Program, 
-		understand, and agree with them. </h3><br />
-<br />
+<div align="center">
+ <table width="98%" border="0" cellspacing="0" cellpadding="4">
+  <tr>
+   <td bgcolor="#FFFFFF">
+        <P>
+        <span style="font-family: verdana,tahoma,arial; font-size: 10pt; color: #ff0000; font-weight: bold;">
+		By filling out the signup form you acknowledge that you have read the terms and
+		conditions below for the YOURCOMPANYNAMEorWEBSITE AFFILIATE Program, 
+		understand, and agree with them.</span>
+		</P>
 
-		 
-
-		 
+		<span style="font-family: verdana,tahoma,arial; font-size: 10pt; color: #000000;">
 		<P>
         <B>1. Joining the Program</B><BR>
         By filling out the signup form you will automatically become an
@@ -99,35 +97,37 @@ define('TEXT_INFORMATION', '
 		federal laws (including, but not limited to, the "CAN-SPAM" Act, effective January 1, 2004) 
 		regarding the sending of e-mails.
 		<br><br>
-		AFFILIATE shall indemnify and hold '. STORE_NAME  .' harmless from any and all legal 
+		AFFILIATE shall indemnify and hold YOURCOMPANYNAMEorWEBSITE harmless from any and all legal 
 		actions, damages or liabilities incurred from the day-to-day operations of AFFILIATE. Under 
-		no circumstances will '. STORE_NAME  .' be liable whether in tort, contract or otherwise 
+		no circumstances will YOURCOMPANYNAMEorWEBSITE be liable whether in tort, contract or otherwise 
 		for indirect, incidental, consequential, special or exemplary damages (including but not limited 
 		to damages for any loss of revenue, profits, business interruption, loss of business information 
 		or data, loss of goodwill, work stoppage, hardware or software failure, or other pecuniary loss) 
 		arising from or relating to any provision of this Agreement or the program. Without limiting the 
-		foregoing, '. STORE_NAME  .' aggregate liability arising with respect to this Agreement will 
+		foregoing, YOURCOMPANYNAMEorWEBSITE aggregate liability arising with respect to this Agreement will 
 		not exceed the total fees paid or payable to AFFILIATE under this agreement.
 		<br><br>
-		'. STORE_NAME  .' 
+		YOURCOMPANYNAMEorWEBSITE 
 		will own all right, title and interest in and to all information that is created or collected in 
-		the operation of the '. STORE_NAME  .' Web site and reserves the right to amend or terminate 
+		the operation of the YOURCOMPANYNAMEorWEBSITE Web site and reserves the right to amend or terminate 
 		this Agreement at any time, with or without notice to AFFILIATE.
 		<br><br>
 		The laws of the State of California shall govern this Agreement. Should there be any legal dispute 
 		between the parties, then both parties agree to take the matter before arbitration/mediation in 
-		Placer County , CA should '. STORE_NAME  .' request arbitration/mediation in lieu of formal 
+		Placer County , CA should YOURCOMPANYNAMEorWEBSITE request arbitration/mediation in lieu of formal 
 		legal process. Both parties mutually agree that the sole legal venue for all disputes shall be in 
 		the Placer County General District Court, CA.
         </P>
 		
         <P>
-        
+        <span style="font-family: verdana,tahoma,arial; font-size: 10pt; color: #ff0000; font-weight: bold;">
 		By filling out the signup form you acknowledge that you have read the terms and
-		conditions above for the '. STORE_NAME  .' AFFILIATE Program, 
+		conditions above for the YOURCOMPANYNAMEorWEBSITE AFFILIATE Program, 
 		understand, and agree with them.</span>
 		</P>
- 
+		</td>
+      </tr>
+	 </table>
 	</div>
    <br>
 ');

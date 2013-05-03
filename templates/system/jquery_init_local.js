@@ -1,212 +1,133 @@
 $(document).ready(function() {
-						   
-	      $("a[rel=day_view]").fancybox({
-
-        'titleShow'    : true,
-
-        'transitionIn'  : 'none',
-
-        'transitionOut'  : 'none'
-
-      });
+	
+	
 
 
+	$("a[rel=day_view]").fancybox({
 
+		'titleShow' : true,
 
+		'transitionIn' : 'none',
 
-      $("a[rel=44day_view]").fancybox({
+		'transitionOut' : 'none'
 
-        'titlePosition'  : 'over'
+	});
 
-      });
+	$("a[rel=44day_view]").fancybox({
 
+		'titlePosition' : 'over'
 
+	});
 
-      $("a[rel=lightbox]").fancybox({
+	$("a[rel=lightbox]").fancybox({
 
-        'transitionIn'    : 'none',
+		'transitionIn' : 'none',
 
-        'transitionOut'    : 'none',
+		'transitionOut' : 'none',
 
-        'titlePosition'   : 'over',
+		'titlePosition' : 'over',
 
-        'titleFormat'    : function(title, currentArray, currentIndex, currentOpts) {
+		'titleFormat' : function(title, currentArray, currentIndex, currentOpts) {
 
-          return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+			return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
 
-        }    
+		}
+		
+		
+		
 
-        
+		
+		
+		
+	});
 
-      });
-					   
-						   
-						   
-//bannerRotator('#bannerRotator', 500, 4000);
-// $(".demo div").hide();
- //  $(".inputcheckbox").each(function(i) {
- //    $(this).change(function(){
-  //      divId = $(this).val();
-
- //   $(".demo div").hide('slow');
-
- //   $("#"+divId).show('slow');
-    
- //         $("input:checked").show('slow');
-
-
- //   });
-//  });
+	
 
 });
 
- 
+$(".demo input:eq(toggler)").each(function() {
 
-$(".demo input:eq(toggler)")
+	$(this).click(function(evt) {
 
-  .each( function() {
+		var divID = '#' + $(this).val();
 
-    $(this).click( function(evt) {
+		$(divID).toggle();
 
-      var divID= '#' + $(this).val();
+	});
 
-      $(divID).toggle();
+	$("#dialog-message").dialog({
 
-    });
-               
+		modal : true,
 
-    $("#dialog-message").dialog({
+		buttons : {
 
-      modal: true,
+			Ok : function() {
 
-      buttons: {
+				$(this).dialog('close');
 
-        Ok: function() {
+			}
+		}
 
-          $(this).dialog('close');
+	});
 
-        }
+	$("#container a[href][title]").qtip({
 
-      }
+		style : {
 
-    });
+			tip : {// Now an object instead of a string
 
+				corner : 'topLeft', // We declare our corner within the object using the corner sub-option
 
+				color : '#727272',
 
+				size : {
 
+					x : 20, // Be careful that the x and y values refer to coordinates on screen, not height or width.
 
+					y : 8 // Depending on which corner your tooltip is at, x and y could mean either height or width!
 
+				}
 
+			}
+		}
+	});
 
-
-
-
-
-
-
-  
-
- 
-
- 
-
-
-
- 
-
-
-
-    $("#container a[href][title]").qtip({
-
-   style: { 
-
-      tip: { // Now an object instead of a string
-
-         corner: 'topLeft', // We declare our corner within the object using the corner sub-option
-
-         color: '#727272',
-
-         size: {
-
-            x: 20, // Be careful that the x and y values refer to coordinates on screen, not height or width.
-
-            y : 8 // Depending on which corner your tooltip is at, x and y could mean either height or width!
-
-         }
-
-}  }  });  
-
-  });
-
-
-
-
-
+});
 function popup() {
 
-  $(function() {
+	$(function() {
 
-    if($.cookie('dont_show') == null){
+		if($.cookie('dont_show') == null) {
 
-    $("a[rel=popup]").trigger("click");
+			$("a[rel=popup]").trigger("click");
 
-    }
+		}
 
-  });
-
+	});
 }
 
+$(function() {
 
+	var config = {
 
-$(function()
+		toolbar : [['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'], ['UIColor']]
 
-{
+	};
 
-  var config = {
+	$(".button, .button").button();
 
-    toolbar:
+	$("#tabs").tabs();
 
-    [
+	$("#datepicker").datepicker();
 
-      ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
+	// Initialize the editor.
 
-      ['UIColor']
+	// Callback function can be passed and executed after full instance creation.
 
-    ]
+	$('a[rel="ckeditor"]').ckeditor(config);
 
-  };    
-
-  
-
-   
-
-            $(".button, .button").button();
-
-       
-
- 
-
-    $("#tabs").tabs();
-
-        $("#datepicker").datepicker();
-
-
-
-
-
-
-
-
-
-  // Initialize the editor.
-
-  // Callback function can be passed and executed after full instance creation.
-
-  $('a[rel="ckeditor"]').ckeditor(config);
-  
-    var options = $('div.demo').find('input:radio');
-    $('.inputcheckbox').ready(function()
-    {
-        options.removeAttr('checked');
-    });   });
-         
+	var options = $('div.demo').find('input:radio');
+	$('.inputcheckbox').ready(function() {
+		options.removeAttr('checked');
+	});
+});

@@ -2,12 +2,12 @@
 /*
   $Id: shipping.php,v 2.00 2003/10/12
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -48,12 +48,12 @@
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
-            <td align="right">&nbsp;</td>
+            <td class="pageHeading" align="right"></td>
           </tr>
         </table></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
@@ -63,7 +63,7 @@
         </table></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
 
       <tr>
@@ -82,12 +82,12 @@
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
-                <td width="60"><img src="images/account_personal.gif" border="0" alt="" width="60" height="60"></td>
+                <td width="60"><img src="images/affiliate_clicks.gif" border="0" alt="" width="60" height="60"></td>
                 <td width="10"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
                 <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                   <tr>
                     <td class="main"><img src="images/arrow_green.gif" border="0" alt="" width="12" height="10">&nbsp;<?php echo TEXT_INFORMATION_CLICKS ;?></td>
-                    <td width="200" class="main" align="left"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_AFFILIATE_CLICKS, '', 'SSL') . '">' .  IMAGE_CLICKS . '</a>';?></td>
+                    <td width="200" class="main" align="left"><?php echo '<a href="' . tep_href_link(FILENAME_AFFILIATE_CLICKS, '', 'SSL') . '">' . tep_image_button('button_affiliate_clickthroughs.gif', IMAGE_CLICKS) . '</a>';?></td>
                   </tr>
                   </table></td>
                <td width="10" align="right"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
@@ -112,12 +112,12 @@
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
-                <td width="60"><img src="images/account_personal.gif" border="0" alt="" width="60" height="60"></td>
+                <td width="60"><img src="images/affiliate_sales.gif" border="0" alt="" width="60" height="60"></td>
                 <td width="10"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
                 <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                   <tr>
                     <td class="main"><img src="images/arrow_green.gif" border="0" alt="" width="12" height="10">&nbsp;<?php echo TEXT_INFORMATION_SALES ;?></td>
-                    <td width="200" class="main" align="left"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_AFFILIATE_SALES, '', 'SSL') . '">' .  IMAGE_SALES . '</a>';?></td>
+                    <td width="200" class="main" align="left"><?php echo '<a href="' . tep_href_link(FILENAME_AFFILIATE_SALES, '', 'SSL') . '">' . tep_image_button('button_affiliate_sales.gif', IMAGE_SALES) . '</a>';?></td>
                   </tr>
                   </table></td>
                <td width="10" align="right"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
@@ -142,12 +142,12 @@
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
                 <td width="10"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
-                <td width="60"><img src="images/account_personal.gif" border="0" alt="" width="60" height="60"></td>
+                <td width="60"><img src="images/affiliate_payment.gif" border="0" alt="" width="60" height="60"></td>
                 <td width="10"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
                 <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
                   <tr>
                     <td class="main"><img src="images/arrow_green.gif" border="0" alt="" width="12" height="10">&nbsp;<?php echo TEXT_INFORMATION_PAYMENT ;?></td>
-                    <td width="200" class="main" align="left"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_AFFILIATE_PAYMENT, '', 'SSL') . '">' . IMAGE_PAYMENT . '</a>';?></td>
+                    <td width="200" class="main" align="left"><?php echo '<a href="' . tep_href_link(FILENAME_AFFILIATE_PAYMENT, '', 'SSL') . '">' . tep_image_button('button_affiliate_payment.gif', IMAGE_PAYMENT) . '</a>';?></td>
                   </tr>
                   </table></td>
                <td width="10" align="right"><img src="images/pixel_trans.gif" border="0" alt="" width="10" height="1"></td>
@@ -171,6 +171,7 @@
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

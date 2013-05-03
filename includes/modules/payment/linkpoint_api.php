@@ -12,12 +12,12 @@
 	Version 1.2c Patch
   Changes/Fixes
   ----------------
-  1.  Changed language on step 8 of readme.html from “LinkPoint API” to “Secure Credit Card Transaction” because this is the language actually used in the code.  We chose this phrase for several practical reasons but some installers may not have realized that it will actually show up in the admin panel as “Secure Credit Card Transaction” . Problem noted by Mike Keranen.
+  1.  Changed language on step 8 of readme.html from ï¿½LinkPoint APIï¿½ to ï¿½Secure Credit Card Transactionï¿½ because this is the language actually used in the code.  We chose this phrase for several practical reasons but some installers may not have realized that it will actually show up in the admin panel as ï¿½Secure Credit Card Transactionï¿½ . Problem noted by Mike Keranen.
 
 	Version 1.2b Patch
 	Changes/Fixes
 	----------------
-  1. More filtering on XML data. A line like richmond µ + &, Virginia 123455 µ + will work after filtering.
+  1. More filtering on XML data. A line like richmond ï¿½ + &, Virginia 123455 ï¿½ + will work after filtering.
 
 	Extended by Jared De Blander and James Ballenger of IOFAST.com
 	Version 1.2a Patch
@@ -63,7 +63,7 @@
 // class methods
 		function filterLinkPoint($strToFilter){
 			$strToFilter=str_replace("&", " and ", $strToFilter);
-			$strToFilter=str_replace("µ", "u", $strToFilter);
+			$strToFilter=str_replace("ï¿½", "u", $strToFilter);
 
 			return $strToFilter;
 		}
@@ -127,7 +127,7 @@
                                                  'field' => tep_draw_pull_down_menu('linkpoint_api_cc_expires_month', $expires_month) . '&nbsp;' . tep_draw_pull_down_menu('linkpoint_api_cc_expires_year', $expires_year)),
 																		       array('title' => MODULE_PAYMENT_LINKPOINT_API_TEXT_CREDIT_CARD_CHECK_VALUE,
 //                                                 'field' => tep_draw_input_field('linkpoint_api_cc_cvm', '', 'size="4" maxlength="4"') . '&nbsp;&nbsp;(last 3 or 4 digits on back of credit card)<br>' . '&nbsp;&nbsp;</small>'),
-																								'field' => tep_draw_input_field('linkpoint_api_cc_cvm', '', 'size="4" maxlength="4"') . '<img src="spacer.gif" width="13" height="1"><a href="javascript:popupstsWindow(\''.DIR_WS_IMAGES.'cvv2.html\')" class="articleLink"><img src="'.DIR_WS_IMAGES.'cvv.gif" title="Visa/Mastercard" alt="Visa/Mastercard" align="top" border="0"><img src="spacer.gif" width="5" height="1" border="0"><img src="'.DIR_WS_IMAGES.'cvv-amex.gif" align="top" alt="American Express" title="American Express" border="0"><img src="spacer.gif" width="15" height="1" border="0">Where?</a>')));
+																								'field' => tep_draw_input_field('linkpoint_api_cc_cvm', '', 'size="4" maxlength="4"') . '<a href="javascript:popupstsWindow(\''.DIR_WS_IMAGES.'cvv2.html\')" class="articleLink"><img src="'.DIR_WS_IMAGES.'cvv.gif" title="Visa/Mastercard" alt="Visa/Mastercard" align="top" border="0"><img src="spacer.gif" width="5" height="1" border="0"><img src="spacer.gif" width="15" height="1" border="0">Where?</a>')));
 
       return $selection;
     }

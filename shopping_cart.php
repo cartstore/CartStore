@@ -10,53 +10,18 @@
    GNU General Public License Compatible
    */
   require("includes/application_top.php");
+  if ($cart->count_contents() > 0) {
+    include(DIR_WS_CLASSES . 'payment.php');
+    $payment_modules = new payment;
+  }
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_SHOPPING_CART);
   $breadcrumb->add(NAVBAR_TITLE, tep_href_link(FILENAME_SHOPPING_CART));
-?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html <?php
-  echo HTML_PARAMS;
-?>>
-<head>
-<meta http-equiv="Content-Type"
-  content="text/html; charset=<?php
-  echo CHARSET;
-?>">
-<title><?php
-  echo TITLE;
-?></title>
-<base
-  href="<?php
-  echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG;
-?>">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<!-- BEGIN CHECKOUT BY AMAZON CODE -->
-<!-- end of order summary pop up -->
-<!-- END CHECKOUT BY AMAZON CODE -->
-</head>
-<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0"
-  leftmargin="0" rightmargin="0">
-<!-- header //-->
-<?php
+
   require(DIR_WS_INCLUDES . 'header.php');
-?>
-<!-- header_eof //-->
-<!-- body //-->
-<table border="0" width="100%">
-  <tr>
-    <td width="<?php
-  echo BOX_WIDTH;
-?>" valign="top">
-    <table border="0" width="<?php
-  echo BOX_WIDTH;
-?>">
-      <!-- left_navigation //-->
-<?php
+
   require(DIR_WS_INCLUDES . 'column_left.php');
 ?>
-<!-- left_navigation_eof //-->
-    </table>
-    </td>
+
     <!-- body_text //-->
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -69,14 +34,14 @@
 <?php
   if ($cart->count_contents() > 0) {
 ?>
-  <div id="module-product">
+ 
         <h3><?php
       echo HEADING_TITLE;
-?> <?php
-      echo ': Subtotal';
-?> <?php
-      echo $currencies->format($cart->show_total());
-?></h3>
+?> </h3>
+
+
+
+
 <?php
       $info_box_contents = array();
       $info_box_contents[0][] = array('align' => '', 'params' => '', 'text' => "");
@@ -139,14 +104,39 @@
       }
       for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
           if (($i / 2) == floor($i / 2)) {
-              $info_box_contents[] = array('params' => '<div class="productitem ui-widget ui-widget-content ui-corner-all"><div class="remove"><b>Remove</b>');
+              $info_box_contents[] = array('params' => '');
           } else {
-              $info_box_contents[] = array('params' => ' <div class="productitem ui-widget ui-widget-content ui-corner-all"><div class="remove"><b>Remove</b>');
+              $info_box_contents[] = array('params' => ' ');
           }
           $cur_row = sizeof($info_box_contents) - 1;
-          $info_box_contents[$cur_row][] = array('align' => '', 'params' => '', 'text' => tep_draw_checkbox_field('cart_delete[]', $products[$i]['id']));
-          $products_name = '</div>
-<div class="productimage">' . '  ' . '<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a><div class="clear"></div></div>' . '<div class="productdes"><h4><a class="cart_prod_name" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . $products[$i]['name'] . '</a></h4><p>';
+           $products_name = '
+ 
+
+<div class="ui-widget ui-widget-content ui-corner-all ui-helper-reset ui-helper-clearfix ui-listview ui-listview-inset ui-corner-all ui-shadow">
+
+<h4 class="ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all ui-li ui-li-divider ui-bar-a ui-first-child">
+<a class="cart_prod_name" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . $products[$i]['name'] . '</a>
+</h4>
+
+
+' . $products[$i][$option]['products_options_name'] . '' . $products[$i][$option]['products_options_values_name'] . '
+
+
+<table class="ui-datepicker-calendar"  width="100%">
+<tr>
+
+<td  width="'.SMALL_IMAGE_WIDTH.'">' . '<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
+
+<div id="remove-icon">		<a class="button" href="'.tep_href_link(FILENAME_SHOPPING_CART, 'action=update_product&cart_delete[]=' . $products[$i]['id'] . '&products_id[]=' . $products[$i]['id']).'">Remove</a></div>
+
+
+
+
+</td>
+
+
+
+';
           if (STOCK_CHECK == 'true') {
               //++++ QT Pro: Begin Changed code
               if (isset($products[$i]['attributes']) && is_array($products[$i]['attributes'])) {
@@ -163,13 +153,62 @@
           if (isset($products[$i]['attributes']) && is_array($products[$i]['attributes'])) {
               reset($products[$i]['attributes']);
               while (list($option, $value) = each($products[$i]['attributes'])) {
-                  $products_name .= '<small><i>' . $products[$i][$option]['products_options_name'] . ' - ' . $products[$i][$option]['products_options_values_name'] . '</i></small><br>';
+                  $products_name .= '<div class="ui-state-highlight ui-corner-all "><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>' . $products[$i][$option]['products_options_name'] . '  ' . $products[$i][$option]['products_options_values_name'] . '</div>';
               }
           }
-          $products_name .= '</p> <label>Qty:</label>' . '' . '';
+          $products_name .= '' . '' . '';
           $info_box_contents[$cur_row][] = array('params' => '', 'text' => $products_name);
-          $info_box_contents[$cur_row][] = array('align' => '', 'params' => '', 'text' => '' . tep_draw_input_field('cart_quantity[]', $products[$i]['quantity'], 'size="4" onChange="UpdateCartQuantity();" id="qty_' . $products[$i]['id'] . '"') . '<span class="cart_quan_symb cartminus"><a href="javascript:changeQuantity(' . $products[$i]['id'] . ',-1)"> - </a></span><span class="cart_quan_symb cartplus" ><a href="javascript:changeQuantity(' . $products[$i]['id'] . ', 1)">/+ </a></span>' . tep_draw_hidden_field('products_id[]', $products[$i]['id']));
-          $info_box_contents[$cur_row][] = array('align' => '', 'params' => '<div class="prize">', 'text' => '' . $currencies->display_price($products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) . '<div class="clear"></div></div><div class="clear"></div></div><div class="clear"></div></div>');
+          $info_box_contents[$cur_row][] = array('align' => '', 'params' => '
+         
+         
+         
+         
+         <td class="ui-state-default ui-state-highlight ui-state-active center"><label>Total Price</label><br>
+         
+         
+         ', 'text' => '' . $currencies->display_price($products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), $products[$i]['quantity']) . '
+          </span>
+          </td>
+		      <td class="ui-state-default ui-state-highlight ui-state-active center"><label>Unit Price</label><br>
+         ' . $currencies->display_price($products[$i]['final_price'], tep_get_tax_rate($products[$i]['tax_class_id']), 1) . '
+		 </td>
+          
+ 
+          </span>
+          </td>
+		  
+		  
+		  
+		  <td class="ui-state-default ui-state-highlight ui-state-active center">
+		  
+	<div class="qty_wrap"> ' . tep_draw_input_field('cart_quantity[]', $products[$i]['quantity'], 'size="4" onChange="UpdateCartQuantity();" id="qty_' . $products[$i]['id'] . '"') . '
+		<a href="javascript:changeQuantity(\'' . $products[$i]['id'] . '\', 1)"><span class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-c ui-icon ui-icon-circle-plus ui-icon-plus">+</span></a>
+		<a href="javascript:changeQuantity(\'' . $products[$i]['id'] . '\', -1)"><span class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-c ui-icon ui-icon-circle-minus ui-icon-minus">-</span></a>
+	' . tep_draw_hidden_field('products_id[]', $products[$i]['id']) .'
+
+	</div>
+		</td>
+		
+		
+		
+	 
+		  
+		  
+		  
+		  
+
+		  
+		  </tr>
+		  </table>
+		  
+		  
+	
+		  
+		  
+		  
+          </div>
+          
+          ');
       }
       new productListingBox($info_box_contents);
 ?>
@@ -199,11 +238,24 @@
               }
           }
 ?>
+
+
+
+
 <div class="clear"></div>
+
+
+
+
 <?php
           echo tep_image_submit('button_update_cart.gif', IMAGE_BUTTON_UPDATE_CART);
 ?>
-        <div class="shoppingcart_nav"><a class="button" href="javascript:history.go(-1)">Back</a>
+        <div class="shoppingcart_nav">
+        	
+        	 	  
+	 
+        	
+        	<a class="button" href="javascript:history.go(-1)">Back</a>
 <?php
           $back = sizeof($navigation->path) - 2;
           if (isset($navigation->path[$back])) {
@@ -213,9 +265,9 @@
           }
 ?>
           <?php
-          echo '<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '">Checkout</a>';
+          echo '<a class="button" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '">Checkout ' . $currencies->format($cart->show_total()) .'</a>';
 ?>
-
+             </div>
             </form>
           <?php
           // CHECKOUT BY AMAZON CODE
@@ -224,22 +276,37 @@
        //       include_once('checkout_by_amazon/checkout_by_amazon_main.php');
      //     }
           // END CHECKOUT BY AMAZON CODE
-?>
-
-    <?php
-          // ** GOOGLE CHECKOUT **
-          // Checks if the Google Checkout payment module has been enabled and if so
-          // includes gcheckout.php to add the Checkout button to the page
-          if (defined('MODULE_PAYMENT_GOOGLECHECKOUT_STATUS') && MODULE_PAYMENT_GOOGLECHECKOUT_STATUS == 'True') {
-              include_once('googlecheckout/gcheckout.php');
+          if (defined('MODULE_PAYMENT_GOOGLECHECKOUT_STATUS') && MODULE_PAYMENT_GOOGLECHECKOUT_STATUS == 'True' && SELECT_VENDOR_SHIPPING == 'false') {
+            include_once('googlecheckout/gcheckout.php');
           }
-          // ** END GOOGLE CHECKOUT **
+
+    $initialize_checkout_methods = $payment_modules->checkout_initialization_method();
+    if (!empty($initialize_checkout_methods)) {
 ?>
-       <div class="subtotal"><b></b>
-        <br>
+  <p align="right" style="clear: both; padding: 15px 50px 0 0;"><?php // echo TEXT_ALTERNATIVE_CHECKOUT_METHODS; ?></p>
 <?php
-          // echo '<a class="est_shipping" rel="lightbox-page"  href="' . tep_href_link(FILENAME_POPUP_SHIPPING) . '">' . '<img src="static/images/calculate_shipping.png" border="0"/></a>';
-?></div>
+      reset($initialize_checkout_methods);
+      while (list(, $value) = each($initialize_checkout_methods)) {
+?>
+  <p align="right"><?php echo $value; ?></p>
+<?php
+      }
+    }
+?>
+ <div class="est_shipping" id="est_shipping">
+  <script type="text/javascript">
+   jQuery(document).ready(function(){
+     jQuery.ajax({
+       url: "ext/estimated_shipping.php",
+       success: function(data){
+         jQuery("#est_shipping").html(data);
+       }
+     })
+   });
+  </script>
+ </div>
+
+      
     <?php
           } else
           {
@@ -253,42 +320,20 @@
 <?php
           }
 ?><div class="clear"></div>
- <span class="est_shipping">
-   <?php
-          include(DIR_WS_MODULES . FILENAME_ESTIMATED_SHIPPING);
-?></span>
-<a style="display: none"; href="subscribe.html"
-          rel="popup">message</a></div>
-        </div>
-        </div>
-        </form>
+<!--<a style="display: none"; href="subscribe.html"
+          rel="popup">message</a>--></div>
+           </div>
+          </div>
         </td>
       </tr>
     </table>
     <!-- body_text_eof //-->
-    <td width="<?php
-          echo BOX_WIDTH;
-?>" valign="top">
-    <table border="0" width="<?php
-          echo BOX_WIDTH;
-?>">
-      <!-- right_navigation //-->
+   
+
 <?php
           require(DIR_WS_INCLUDES . 'column_right.php');
-?>
-<!-- right_navigation_eof //-->
-    </table>
-    </td>
-  </tr>
-</table>
-<!-- body_eof //-->
-<!-- footer //-->
-<?php
+
           require(DIR_WS_INCLUDES . 'footer.php');
-?>
-<!-- footer_eof //-->
-</body>
-</html>
-<?php
+
           require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>

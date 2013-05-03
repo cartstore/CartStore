@@ -47,7 +47,7 @@
           echo HEADING_TITLE;
       }
 ?>
-  </h1>
+  1</h1>
   <?php
       if (tep_not_null($topic['topics_description'])) {
           echo $topic['topics_description'];
@@ -133,8 +133,8 @@
       }
       include(DIR_WS_MODULES . FILENAME_ARTICLE_LISTING);
   } else {
-      echo HEADING_TITLE;
-      echo '<b>' . TEXT_CURRENT_ARTICLES . '</b>';
+      echo '<h1>'. HEADING_TITLE .'</h1>';
+      echo '<p>' . TEXT_CURRENT_ARTICLES . '</p>';
       $articles_all_array = array();
       $articles_all_query_raw = "select a.articles_id, a.articles_date_added, ad.articles_name, ad.articles_head_desc_tag, au.authors_id, au.authors_name, td.topics_id, td.topics_name from ((" . TABLE_ARTICLES . " a, " . TABLE_ARTICLES_TO_TOPICS . " a2t) left join " . TABLE_TOPICS_DESCRIPTION . " td on a2t.topics_id = td.topics_id) left join " . TABLE_AUTHORS . " au on a.authors_id = au.authors_id, " . TABLE_ARTICLES_DESCRIPTION . " ad where (a.articles_date_available IS NULL or to_days(a.articles_date_available) <= to_days(now())) and a.articles_id = a2t.articles_id and a.articles_status = '1' and a.articles_id = ad.articles_id and ad.language_id = '" . (int)$languages_id . "' and td.language_id = '" . (int)$languages_id . "' order by a.articles_date_added desc, ad.articles_name";
       $listing_sql = $articles_all_query_raw;

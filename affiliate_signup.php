@@ -2,22 +2,53 @@
 /*
   $Id: affiliate_signup.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_AFFILIATE_SIGNUP);
+  
+  //Check if customer is logged in and get data
+  if($_SESSION['customer_id']){
+  	$customer_query_raw = "SELECT * FROM customers c where customers_id = ".$_SESSION['customer_id'];
+  	$customer_query = tep_db_query($customer_query_raw);
+  	$customer = tep_db_fetch_array($customer_query);
+  	
+  	$a_gender = tep_db_prepare_input($customer['a_gender']);
+    $a_firstname = tep_db_prepare_input($customer['customers_firstname']);
+    $a_lastname = tep_db_prepare_input($customer['customers_lastname']);
+    $a_dob = tep_db_prepare_input($customer['customers_dob']);
+    $a_email_address = tep_db_prepare_input($customer['customers_email_address']);
+    $a_telephone = tep_db_prepare_input($customer['customers_telephone']);
+    $a_fax = tep_db_prepare_input($customer['customers_fax']);
+    
+    if($customer['customers_default_address_id'] >''){
+      	$customer_address_query_raw = "SELECT * FROM address_book a where customers_id = ".$_SESSION['customer_id']." AND address_book_id=".$customer['customers_default_address_id'];
+  		$customer_address_query = tep_db_query($customer_address_query_raw);
+  		$customer_address = tep_db_fetch_array($customer_address_query);
+  		
+  		$a_company = tep_db_prepare_input($customer_address['entry_company']);
+  		$a_street_address = tep_db_prepare_input($customer_address['entry_street_address']);
+	    $a_suburb = tep_db_prepare_input($customer_address['entry_suburb']);
+	    $a_postcode = tep_db_prepare_input($customer_address['entry_postcode']);
+	    $a_city = tep_db_prepare_input($customer_address['entry_city']);
+	    $a_state = tep_db_prepare_input($customer_address['entry_state']);
+	    $a_country=tep_db_prepare_input($customer_address['entry_country_id']);
+	    $a_zone_id = tep_db_prepare_input($customer_address['entry_zone_id']);
+    }
+  }
 
+  
   if (isset($_POST['action'])) {
     $a_gender = tep_db_prepare_input($_POST['a_gender']);
     $a_firstname = tep_db_prepare_input($_POST['a_firstname']);
@@ -44,10 +75,11 @@
     $a_fax = tep_db_prepare_input($_POST['a_fax']);
     $a_homepage = tep_db_prepare_input($_POST['a_homepage']);
     $a_password = tep_db_prepare_input($_POST['a_password']);
+    $a_newsletter = tep_db_prepare_input($_POST['a_newsletter']);
     $a_confirmation = tep_db_prepare_input($_POST['a_confirmation']);
     $a_agb = tep_db_prepare_input($_POST['a_agb']);
 
-$error = false; // reset error flag
+    $error = false; // reset error flag
 
     if (ACCOUNT_GENDER == 'true') {
       if (($a_gender == 'm') || ($a_gender == 'f')) {
@@ -80,7 +112,7 @@ $error = false; // reset error flag
         $entry_date_of_birth_error = true;
       }
     }
-  
+
     if (strlen($a_email_address) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
       $error = true;
       $entry_email_address_error = true;
@@ -101,13 +133,13 @@ $error = false; // reset error flag
     } else {
       $entry_street_address_error = false;
     }
-  
+
     if (strlen($a_postcode) < ENTRY_POSTCODE_MIN_LENGTH) {
       $error = true;
       $entry_post_code_error = true;
     } else {
       $entry_post_code_error = false;
-    } 
+    }
 
     if (strlen($a_city) < ENTRY_CITY_MIN_LENGTH) {
       $error = true;
@@ -163,49 +195,29 @@ $error = false; // reset error flag
       $entry_telephone_error = false;
     }
 
-    
+    $passlen = strlen($a_password);
+    if ($passlen < ENTRY_PASSWORD_MIN_LENGTH) {
+      $error = true;
+      $entry_password_error = true;
+    } else {
+      $entry_password_error = false;
+    }
 
-$passlen = strlen($a_password);
-    
-if ($passlen < ENTRY_PASSWORD_MIN_LENGTH) {
- 
-	$error = true;
-      
-	$entry_password_error = true;
-    
-} else {
-      
-	$entry_password_error = false;
-    
-}
+    if ($a_password != $a_confirmation) {
+      $error = true;
+      $entry_password_error = true;
+    }
 
-    
-
-if ($a_password != $a_confirmation) {
-      
-	$error = true;
-      
-	$entry_password_error = true;
-    
-}
-    
-$check_email = tep_db_query("select affiliate_email_address from " . TABLE_AFFILIATE . " where affiliate_email_address = '" . tep_db_input($a_email_address) . "'");
-    
-if (tep_db_num_rows($check_email)) {
-      
-	$error = true;
-      
-	$entry_email_address_exists = true;
-    
-} else {
-      
-	$entry_email_address_exists = false;
-    
-}
+    $check_email = tep_db_query("select affiliate_email_address from " . TABLE_AFFILIATE . " where affiliate_email_address = '" . tep_db_input($a_email_address) . "'");
+    if (tep_db_num_rows($check_email)) {
+      $error = true;
+      $entry_email_address_exists = true;
+    } else {
+      $entry_email_address_exists = false;
+    }
 
     // Check Suburb
-    
-$entry_suburb_error = false;
+    $entry_suburb_error = false;
 
     // Check Fax
     $entry_fax_error = false;
@@ -222,11 +234,11 @@ $entry_suburb_error = false;
 	  $entry_agb_error=true;
     }
 
-    // Check Company 
+    // Check Company
     $entry_company_error = false;
     $entry_company_taxid_error = false;
 
-    // Check Newsletter 
+    // Check Newsletter
     $entry_newsletter_error = false;
 
     // Check Payment
@@ -282,15 +294,18 @@ $entry_suburb_error = false;
 
       $affiliate_id = affiliate_insert ($sql_data_array, $_SESSION['affiliate_ref'] );
 
-      $aemailbody = MAIL_AFFILIATE_HEADER . "\n"
-                  . MAIL_AFFILIATE_ID . $affiliate_id . "\n"
-                  . MAIL_AFFILIATE_USERNAME . $a_email_address . "\n"
-                  . MAIL_AFFILIATE_PASSWORD . $a_password . "\n\n"
-                  . MAIL_AFFILIATE_LINK
-                  . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_AFFILIATE . "\n\n"
-                  . MAIL_AFFILIATE_FOOTER;
-      tep_mail($a_firstname . ' ' . $a_lastname, $a_email_address, MAIL_AFFILIATE_SUBJECT, nl2br($aemailbody), STORE_OWNER, AFFILIATE_EMAIL_ADDRESS);
-    
+      // build the message content
+	  $name = $a_firstname . ' ' . $a_lastname;
+	  $email_text = sprintf(MAIL_GREET_NONE, $a_firstname);
+          $email_text .= MAIL_AFFILIATE_HEADER;
+	  $email_text .= sprintf(MAIL_AFFILIATE_ID, $affiliate_id);
+	  $email_text .= sprintf(MAIL_AFFILIATE_USERNAME, $a_email_address);
+	  $email_text .= sprintf(MAIL_AFFILIATE_PASSWORD, $a_password);
+	  $email_text .= sprintf(MAIL_AFFILIATE_LINK, HTTP_SERVER . DIR_WS_CATALOG . FILENAME_AFFILIATE) . "\n\n";
+	  $email_text .= MAIL_AFFILIATE_FOOTER;
+
+      tep_mail($name, $a_email_address, MAIL_AFFILIATE_SUBJECT, $email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+
       tep_session_register('affiliate_id');
       $affiliate_email = $a_email_address;
       $affiliate_name = $a_firstname . ' ' . $a_lastname;
@@ -334,12 +349,12 @@ function popupWindow(url) {
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
-            <td align="right">&nbsp;</td>
+            <td class="pageHeading" align="right"></td>
           </tr>
         </table></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
+        <td></td>
       </tr>
       <tr>
         <td>
@@ -368,6 +383,7 @@ function popupWindow(url) {
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

@@ -39,21 +39,22 @@
   tep_session_unregister('customer_shopping_points');// Points/Rewards Module V2.00
   tep_session_unregister('customer_shopping_points_spending');// Points/Rewards Module V2.00
   tep_session_unregister('customer_referral');// Points/Rewards Module V2.00
-// ###### Added CCGV Contribution #########
+/* CCGV - BEGIN */
   tep_session_unregister('gv_id');
+  tep_session_unregister('cot_gv');
   tep_session_unregister('cc_id');
+/* CCGV - END */
+  //BOF WA State Tax Modification
+  tep_session_unregister('wa_dest_tax_rate');
+  //EOF WA State Tax Modification
 
  setcookie("first_name", "", time()-3600, "/", ".chibakita.net");
 
-// ###### End Added CCGV Contribution #########
   $cart->reset();
   $wishList->reset();
-  include_once 'includes/classes/facebook.php';
-  include_once "fbconnect.php";
   $domainarray = explode('.', HTTPS_SERVER);
   $index=count($domainarray)-1;
   $domainname= $domainarray[$index-1].".".$domainarray[$index];
-  setcookie('fbs_'.$facebook->getAppId(), '', time()-100, '/',".".$domainname);
   header("location:index.php");
 ?>
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">

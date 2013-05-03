@@ -35,9 +35,8 @@ if ( ($category_depth == 'products') || (isset($_GET['manufacturers_id'])) ) {
   define('TEXT_NOW', '\' now');
   define('TABLE_HEADING_MULTIPLE', 'Qty: ');
 } elseif ($category_depth == 'top') {
-  define('HEADING_TITLE', '<p class="Slogan">CandyMake™ Candy Making Supplies.</p> ');
+  define('HEADING_TITLE', '<p class="Slogan">CandyMakeï¿½ Candy Making Supplies.</p> ');
 } elseif ($category_depth == 'nested') {
   define('HEADING_TITLE', 'Categories');
 }
 ?>
-

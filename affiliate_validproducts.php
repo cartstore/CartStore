@@ -2,16 +2,16 @@
 /*
   $Id: affiliate_validproducts.php,v 2.00 2003/10/12
 
-  
+  OSC-Affiliate
 
   Contribution based on:
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -33,11 +33,12 @@
 <tr>
 <td colspan="2" class="infoBoxHeading" align="center"><?php echo TEXT_VALID_PRODUCTS_LIST; ?></td>
 </tr>
-<?php    echo "<tr><td><b>". TEXT_VALID_PRODUCTS_ID . "</b></td><td><b>" . TEXT_VALID_PRODUCTS_NAME . "</b></td></tr><tr>";
+<?
+    echo "<tr><td><b>". TEXT_VALID_PRODUCTS_ID . "</b></td><td><b>" . TEXT_VALID_PRODUCTS_NAME . "</b></td></tr><tr>";
     $result = mysql_query("SELECT * FROM products, products_description WHERE products.products_id = products_description.products_id and products_description.language_id = '" . $languages_id . "' ORDER BY products_description.products_name");
     if ($row = mysql_fetch_array($result)) {
         do {
-            echo "<td class='infoBoxContents'>&nbsp".$row["products_id"]."</td>\n";
+            echo "<td class='infoBoxContents'>&nbsp;".$row["products_id"]."</td>\n";
             echo "<td class='infoBoxContents'>".$row["products_name"]."</td>\n";
             echo "</tr>\n";
         }
@@ -46,6 +47,7 @@
     echo "</table>\n";
 ?>
 <p class="smallText" align="right"><?php echo '<a href="javascript:window.close()">' . TEXT_CLOSE_WINDOW . '</a>'; ?>&nbsp;&nbsp;&nbsp;</p>
+<br>
 </body>
 </html>
 <?php require('includes/application_bottom.php'); ?>

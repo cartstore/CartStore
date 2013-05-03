@@ -417,14 +417,11 @@
   }
   echo '  <title>' . $tags_array['title'] . '</title>' . "\n";
   if ($tags_array['keywords'] == ", ") {
-      echo '  <meta name="Keywords" content=" fff">' . "\n";
+      echo '  <meta name="Keywords" content=" fff" />' . "\n";
   } else {
-      echo '  <meta name="Keywords" content="' . $tags_array['keywords'] . '">' . "\n";
+      echo '  <meta name="Keywords" content="' . $tags_array['keywords'] . '" />' . "\n";
   }
-  echo '  <meta name="Description" content="' . $tags_array['desc'] . '">' . "\n";
-
-
-
+  echo '  <meta name="Description" content="' . $tags_array['desc'] . '" />' . "\n";
 
   echo '<!-- EOF: Generated Meta Tags -->' . "\n";
 ?>

@@ -17,7 +17,8 @@
     function payment($module = '') {
       global $payment, $language, $PHP_SELF;
 
-      if (defined('MODULE_PAYMENT_INSTALLED') && tep_not_null(MODULE_PAYMENT_INSTALLED)) {
+/* CCGV - BEGIN */
+      if (defined('MODULE_PAYMENT_INSTALLED') && tep_not_null(MODULE_PAYMENT_INSTALLED) && ($module != 'credit_covers')) {
         //$this->modules = explode(';', MODULE_PAYMENT_INSTALLED);
 		// BOF Separate Pricing Per Customer, next line original code
 		 //       $this->modules = explode(';', MODULE_PAYMENT_INSTALLED);
@@ -90,7 +91,7 @@
    The following method is a work-around to implementing the method in all
    payment modules available which would break the modules in the contributions
    section. This should be looked into again post 2.2.
-*/   
+*/
     function update_status() {
       if (is_array($this->modules)) {
         if (is_object($GLOBALS[$this->selected_module])) {
@@ -105,25 +106,25 @@
       }
     }
 
-    // #################### Begin Added CGV JONYO ######################
-//    function javascript_validation() {
+/* CCGV - BEGIN */
   function javascript_validation($coversAll) {
-	//added the $coversAll to be able to pass whether or not the voucher will cover the whole
-	//price or not.  If it does, then let checkout proceed when just it is passed.
       $js = '';
       if (is_array($this->modules)) {
- if ($coversAll) {
-   $addThis='if (document.checkout_payment.cot_gv.checked) {
-      payment_value=cot_gv;  alert (\'hey yo\');
-   } else ';
-   } else {
-    $addThis='';
-   }
-        $js = '<script language="javascript"><!-- ' . "\n" .
+        if ($coversAll) {
+          $addThis='if (document.checkout_payment.cot_gv.checked) {
+            payment_value=\'cot_gv\';
+          } else ';
+        } else {
+          $addThis='';
+        }
+/* CCGV - END */
+        $js = '<script type="text/javascript"><!-- ' . "\n" .
               'function check_form() {' . "\n" .
               '  var error = 0;' . "\n" .
               '  var error_message = "' . JS_ERROR . '";' . "\n" .
-              '  var payment_value = null;' . "\n" .$addThis . //added by jonyo, yo
+/* CCGV - BEGIN */
+              '  var payment_value = null;' . "\n" .$addThis . 
+/* CCGV - END */
               '  if (document.checkout_payment.payment.length) {' . "\n" .
               '    for (var i=0; i<document.checkout_payment.payment.length; i++) {' . "\n" .
               '      if (document.checkout_payment.payment[i].checked) {' . "\n" .
@@ -144,18 +145,13 @@
           }
         }
 
-// ############ Added CCGV Contribution ##########
-//        $js .= "\n" . '  if (payment_value == null) {' . "\n" .
-        $js .= "\n" . '  if (payment_value == null && submitter != 1) {' . "\n" . // CCGV Contribution
-// ############ End Added CCGV Contribution ##########
+/* CCGV - BEGIN */
+        $js .= "\n" . '  if (payment_value == null && submitter != 1) {' . "\n" . 
                '    error_message = error_message + "' . JS_ERROR_NO_PAYMENT_MODULE_SELECTED . '";' . "\n" .
                '    error = 1;' . "\n" .
                '  }' . "\n\n" .
-// ############ Added CCGV Contribution ##########
-//  ICW CREDIT CLASS Gift Voucher System Line below amended
-//               '  if (error == 1) {' . "\n" .
                '  if (error == 1 && submitter != 1) {' . "\n" .
-// ############ End Added CCGV Contribution ##########
+/* CCGV - END */
                '    alert(error_message);' . "\n" .
                '    return false;' . "\n" .
                '  } else {' . "\n" .
@@ -167,7 +163,22 @@
 
       return $js;
     }
-// #################### End Added CGV JONYO ######################
+
+    function checkout_initialization_method() {
+      $initialize_array = array();
+
+      if (is_array($this->modules)) {
+        reset($this->modules);
+        while (list(, $value) = each($this->modules)) {
+          $class = substr($value, 0, strrpos($value, '.'));
+          if ($GLOBALS[$class]->enabled && method_exists($GLOBALS[$class], 'checkout_initialization_method')) {
+            $initialize_array[] = $GLOBALS[$class]->checkout_initialization_method();
+          }
+        }
+      }
+
+      return $initialize_array;
+    }
 
     function selection() {
       $selection_array = array();
@@ -186,31 +197,27 @@
       return $selection_array;
     }
 
-   // ############ Added CCGV Contribution ##########
- // check credit covers was setup to test whether credit covers is set in other parts of the code
-function check_credit_covers() {
-	global $credit_covers;
+/* CCGV - BEGIN */
+  function check_credit_covers() {
+  	global $credit_covers;
 
-	return $credit_covers;
-}
-// ############ End Added CCGV Contribution ##########
+  	return $credit_covers;
+  }
+/* CCGV - END */
+
     function pre_confirmation_check() {
-// ############ Added CCGV Contribution ##########
+/* CCGV - BEGIN */
       global $credit_covers, $payment_modules; 
-// ############ End Added CCGV Contribution ##########
       if (is_array($this->modules)) {
         if (is_object($GLOBALS[$this->selected_module]) && ($GLOBALS[$this->selected_module]->enabled) ) {
-// ############ Added CCGV Contribution ##########
-          if ($credit_covers) { //  ICW CREDIT CLASS Gift Voucher System
-            $GLOBALS[$this->selected_module]->enabled = false; //ICW CREDIT CLASS Gift Voucher System
-            $GLOBALS[$this->selected_module] = NULL; //ICW CREDIT CLASS Gift Voucher System
-            $payment_modules = ''; //ICW CREDIT CLASS Gift Voucher System
-          } else { //ICW CREDIT CLASS Gift Voucher System
-// ############ End Added CCGV Contribution ##########
-          $GLOBALS[$this->selected_module]->pre_confirmation_check();
-// ############ Added CCGV Contribution ##########
+          if ($credit_covers) {
+            $GLOBALS[$this->selected_module]->enabled = false;
+            $GLOBALS[$this->selected_module] = NULL;
+            $payment_modules = '';
+          } else {
+            $GLOBALS[$this->selected_module]->pre_confirmation_check();
           }
-// ############ End Added CCGV Contribution ##########
+/* CCGV - END */
         }
       }
     }
@@ -262,7 +269,7 @@ function check_credit_covers() {
         }
       }
 		}
-		
+
 		function ec_step2() {
       if (is_array($this->modules)) {
         if (is_object($GLOBALS[$this->selected_module]) && ($GLOBALS[$this->selected_module]->enabled) ) {

@@ -1,6 +1,33 @@
 <?php
+
+
+// if gzip_compression is enabled, start to buffer the output
+  if ( (GZIP_COMPRESSION == 'true') && ($ext_zlib_loaded = extension_loaded('zlib')) && !headers_sent() ) {
+    if (($ini_zlib_output_compression = (int)ini_get('zlib.output_compression')) < 1) {
+      if (PHP_VERSION < '5.4' || PHP_VERSION > '5.4.5') { // see PHP bug 55544
+        if (PHP_VERSION >= '4.0.4') {
+          ob_start('ob_gzhandler');
+        } elseif (PHP_VERSION >= '4.0.1') {
+          include(DIR_WS_FUNCTIONS . 'gzip_compression.php');
+          ob_start();
+          ob_implicit_flush();
+        }
+      }
+    } elseif (function_exists('ini_set')) {
+      ini_set('zlib.output_compression_level', GZIP_LEVEL);
+    }
+  }
+  
+
+
 ini_set('error_reporting', E_ALL ^ E_NOTICE);
-//ini_set('error_reporting', E_ALL);
+
+function microtime_float(){
+    list($usec, $sec) = explode(" ", microtime());
+    return ((float)$usec + (float)$sec);
+}
+$DEBUG42['start_time'] = microtime_float();
+// ini_set('error_reporting', E_ALL);
 /*
 Team Do not remove comments in this file.
 
@@ -47,14 +74,7 @@ Turn off all error reporting
 
   $request_type = (getenv('HTTPS') == 'on') ? 'SSL' : 'NONSSL';
 
-  if (!isset($PHP_SELF))
-      $PHP_SELF = $_SERVER['PHP_SELF'];
-
-  include_once DIR_WS_MODULES . 'fwr_media_security_pro.php';
-  $security_pro = new Fwr_Media_Security_Pro;
-
-
-  $security_pro->cleanse($PHP_SELF);
+  if( empty( $PHP_SELF ) ) $PHP_SELF = ( ( ( strlen(ini_get('cgi.fix_pathinfo' ) ) > 0 ) && ( ( bool )ini_get('cgi.fix_pathinfo' ) == false ) ) || !isset($_SERVER['SCRIPT_NAME' ] ) ) ? basename( $_SERVER['PHP_SELF' ] ) : basename( $_SERVER[ 'SCRIPT_NAME' ] );
 
   if ($request_type == 'NONSSL') {
       define('DIR_WS_CATALOG', DIR_WS_HTTP_CATALOG);
@@ -84,7 +104,8 @@ Turn off all error reporting
 
   $configuration_query = tep_db_query('select configuration_key as cfgKey, configuration_value as cfgValue from ' . TABLE_CONFIGURATION);
   while ($configuration = tep_db_fetch_array($configuration_query)) {
-      define($configuration['cfgKey'], $configuration['cfgValue']);
+      if (!defined($configuration['cfgKey']))
+        define($configuration['cfgKey'], $configuration['cfgValue']);
   }
 
 
@@ -94,22 +115,17 @@ Turn off all error reporting
   }
 
 
-  if ((GZIP_COMPRESSION == 'true') && ($ext_zlib_loaded = extension_loaded('zlib')) && (PHP_VERSION >= '4')) {
-      if (($ini_zlib_output_compression = (int)ini_get('zlib.output_compression')) < 1) {
-          if (PHP_VERSION >= '4.0.4') {
-              ob_start('ob_gzhandler');
-          } else {
-              include(DIR_WS_FUNCTIONS . 'gzip_compression.php');
-              ob_start();
-              ob_implicit_flush();
-          }
-      } else {
-          ini_set('zlib.output_compression_level', GZIP_LEVEL);
-      }
-  }
+ 
 
+  include_once DIR_WS_MODULES . 'fwr_media_security_pro.php';
+  $security_pro = new Fwr_Media_Security_Pro;
+  $security_pro->cleanse($PHP_SELF);
   require(DIR_WS_FUNCTIONS . 'general.php');
   require(DIR_WS_FUNCTIONS . 'html_output.php');
+  if (defined('PHPIDS_IP_BAN_MODULE') && PHPIDS_IP_BAN_MODULE === 'true') {
+    include(DIR_WS_MODULES . 'banned_ip.php');
+  }
+   require(DIR_FS_CATALOG . 'includes/osc_sec.php');
 
   require(DIR_WS_CLASSES . 'calendar.php');
 
@@ -128,6 +144,10 @@ Turn off all error reporting
   require(DIR_WS_CLASSES . 'navigation_history.php');
 
   require(DIR_WS_FUNCTIONS . 'compatibility.php');
+//BOF WA State Tax Modification
+  require(DIR_WS_FUNCTIONS . 'wa_taxes.php');
+//EOF WA State Tax Modification
+  require_once('includes/functions/categories_description.php');
 
   if (!function_exists('session_start')) {
       define('PHP_SESSION_NAME', 'osCsid');
@@ -279,15 +299,10 @@ Turn off all error reporting
       }
   }
 
-  if (tep_session_is_registered('navigation')) {
-      if (PHP_VERSION < 4) {
-          $broken_navigation = $navigation;
-          $navigation = new navigationHistory();
-          $navigation->unserialize($broken_navigation);
-      }
-  } else {
-      tep_session_register('navigation');
-      $navigation = new navigationHistory();
+// navigation history
+  if (!tep_session_is_registered('navigation') || !is_object($navigation)) {
+    tep_session_register('navigation');
+    $navigation = new navigationHistory;
   }
   $navigation->add_current_page();
 
@@ -325,7 +340,7 @@ Turn off all error reporting
       }
       if (DISPLAY_CART == 'true') {
           $goto = FILENAME_SHOPPING_CART;
-          $parameters = array('action', 'cPath', 'products_id', 'pid');
+          $parameters = array('action', 'cPath', 'products_id', 'pid', 'cart_delete');
       } else {
           $goto = basename($PHP_SELF);
           if ($_GET['action'] == 'buy_now') {
@@ -337,9 +352,9 @@ Turn off all error reporting
       switch ($_GET['action']) {
 
           case 'update_product':
-              for ($i = 0, $n = sizeof($_POST['products_id']); $i < $n; $i++) {
-                  if (in_array($_POST['products_id'][$i], (is_array($_POST['cart_delete']) ? $_POST['cart_delete'] : array()))) {
-                      $cart->remove($_POST['products_id'][$i]);
+              for ($i = 0, $n = sizeof($_REQUEST['products_id']); $i < $n; $i++) {
+                  if (in_array($_REQUEST['products_id'][$i], (is_array($_REQUEST['cart_delete']) ? $_REQUEST['cart_delete'] : array()))) {
+                      $cart->remove($_REQUEST['products_id'][$i]);
                   } else {
                       if (PHP_VERSION < 4) {
 
@@ -410,9 +425,7 @@ Turn off all error reporting
 
           case 'buy_now':
               if (isset($_GET['products_id'])) {
-                  $q = $_GET['qty'];
-                  if ($q < 1)
-                      $q = 1;
+                  $q = (isset($_GET['qty']) ? $_GET['qty'] : 1);
                   if (tep_has_product_attributes($_GET['products_id'])) {
                       tep_redirect(tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $_GET['products_id']));
                   } else {
@@ -420,6 +433,20 @@ Turn off all error reporting
                   }
               }
 
+              tep_redirect(tep_href_link($goto, tep_get_all_get_params($parameters)));
+              break;
+          case 'add_multi':
+              if (isset($_POST['multibuy']) && is_array($_POST['multibuy'])){
+                 foreach ($_POST['multibuy'] as $products_id => $qty){
+                   if (is_numeric($products_id) && is_numeric($qty)){
+                      if ($cart->in_cart($products_id)) {
+                        $cart->update_quantity((int)$products_id,(int)$qty + $cart->get_quantity($products_id));
+                      } else {
+                        $cart->add_cart((int)$products_id,(int)$qty);
+                      }
+                   }
+                 }
+              }
               tep_redirect(tep_href_link($goto, tep_get_all_get_params($parameters)));
               break;
           case 'notify':
@@ -607,8 +634,8 @@ Turn off all error reporting
   $sts->start_capture();
 
 
-  require(DIR_WS_INCLUDES . 'add_ccgvdc_application_top.php');
-
+  require(DIR_WS_FUNCTIONS . 'add_ccgvdc_application_top.php');  // ICW CREDIT CLASS Gift Voucher Addition
+  require(DIR_WS_LANGUAGES . $language . '/add_ccgvdc.php'); // ICW CREDIT CLASS Gift Voucher Addition
   require(DIR_WS_INCLUDES . 'affiliate_application_top.php');
 
   if (tep_session_is_registered('customer_id') && $customer_id == 0 && substr(basename($PHP_SELF), 0, 7) == 'account')
@@ -617,9 +644,9 @@ Turn off all error reporting
   define('DIR_WS_RSS', DIR_WS_INCLUDES . 'modules/faqdesk/rss/');
   require_once('includes/functions/clean_html_comments.php');
 
-  require(DIR_WS_CLASSES . 'supertracker.php');
-  $tracker = new supertracker();
-  $tracker->update();
+ // require(DIR_WS_CLASSES . 'supertracker.php');
+//  $tracker = new supertracker();
+//  $tracker->update();
 
   $expire = time() + 60 * 60 * 24 * 90;
   $where = "";
@@ -662,3 +689,4 @@ Turn off all error reporting
       }
       $YMM_where .= " p.products_id in ($ids) and ";
   }
+ require(DIR_WS_INCLUDES . 'socialsetting.php');

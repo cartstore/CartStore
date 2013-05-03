@@ -48,10 +48,13 @@
           if (tep_count_products_in_category((int)$row['categories_id']))
               $table[$row['parent_id']][$row['categories_id']] = $row['categories_name'];
       }
-      $output .= '<ul>';
-      $output .= tep_make_cat_ulbranch2($rootcatid, $table, 0, $maxlevel, $limitCat);
-      for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
+
+      if (count($table) > 0){
+        $output .= '<ul>';
+        $output .= tep_make_cat_ulbranch2($rootcatid, $table, 0, $maxlevel, $limitCat);
+        for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
           $output .= '</ul>';
+       }
       }
       return $output;
   }

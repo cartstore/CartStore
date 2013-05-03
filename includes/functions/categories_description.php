@@ -20,6 +20,7 @@
   //        language_id: In which Language do we need the Description?
   // Out:   The Header of the Category
   //
+ if (!function_exists("tep_get_category_heading_title") ){
   function tep_get_category_heading_title($category_id, $language_id = '') {
     global $languages_id;
 
@@ -35,7 +36,7 @@
 
     return trim($categories_description['categories_htc_title_tag']);
   }
-
+ }
   // Returns a categorie's description
   //
   // TABLE: categories_description
@@ -43,6 +44,7 @@
   //        language_id: In which Language do we need the Description?
   // Out:   The Description of the Category
   //
+ if (!function_exists("tep_get_category_description")){
   function tep_get_category_description($category_id, $language_id = '') {
     global $languages_id;
 
@@ -58,5 +60,6 @@
 
     return trim($categories_description['categories_htc_description']);
   }
+ }
 
 ?>

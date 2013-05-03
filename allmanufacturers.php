@@ -9,8 +9,15 @@
         
     
     <!-- body_text //-->
-  <h1>All Manufacturers</h1>
-          <ul id="manufacturer">
+ 
+           <ul data-role="listview" data-theme="b" data-divider-theme="a">
+           	
+           	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-a">
+				All Manufacturers
+                
+					
+				
+            </li>
             
             <!-- all manufacturers begin //-->
             
@@ -34,7 +41,7 @@
           while ($manufacturers = tep_db_fetch_array($manufacturers_query)) {
               $row++;
               echo '';
-              echo '<li><a href="' . tep_href_link(FILENAME_DEFAULT, 'manufacturers_id=' . $manufacturers['manufacturers_id'] . '=' . $manufacturers['manufacturers_name'], 'NONSSL', false) . '"><span class="manufacturers_name">' . $manufacturers['manufacturers_name'] . '  </span>';
+              echo '<li><a  data-transition="slide"  href="' . tep_href_link(FILENAME_DEFAULT, 'manufacturers_id=' . $manufacturers['manufacturers_id'] . '=' . $manufacturers['manufacturers_name'], 'NONSSL', false) . '"><h1 class="ui-li-heading">' . $manufacturers['manufacturers_name'] . '  </h1>';
               if ($manufacturers['manufacturers_image']) {
                   echo tep_image(DIR_WS_IMAGES . $manufacturers['manufacturers_image'], $manufacturers['manufacturers_name']);
               }

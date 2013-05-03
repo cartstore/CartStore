@@ -19,7 +19,9 @@
 ////
 // Auto expire products on special
   function tep_expire_specials() {
-  
+
+/* TO SLOW QUERIES
+
   $specials_query = tep_db_query("select specials_id from " . TABLE_SPECIALS . " where specialStartDate >0 and now()>=specialStartDate");
     if (tep_db_num_rows($specials_query)) {
       while ($specials = tep_db_fetch_array($specials_query)) {
@@ -32,17 +34,24 @@
         tep_set_specials_status($specials['specials_id'], '0');
       }
     }
+ */
+/*
 	$specials_query = tep_db_query("select specials_id from " . TABLE_SPECIALS . " where status = '0' and expires_date = 0");
     if (tep_db_num_rows($specials_query)) {
       while ($specials = tep_db_fetch_array($specials_query)) {
         tep_set_specials_status($specials['specials_id'], '1');
       }
     }
+*/
+
+/*
     $specials_query = tep_db_query("select specials_id from " . TABLE_SPECIALS . " where status = '1' and now() >= expires_date and expires_date > 0");
     if (tep_db_num_rows($specials_query)) {
       while ($specials = tep_db_fetch_array($specials_query)) {
         tep_set_specials_status($specials['specials_id'], '0');
       }
     }
+	
+	*/
   }
 ?>

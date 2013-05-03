@@ -9,12 +9,11 @@
   Copyright (c) 2001,2002 Ian C Wilson
   http://www.phesis.org
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
-
-define('NAVBAR_TITLE', 'Gift Voucher FAQ');
-define('HEADING_TITLE', 'Gift Voucher FAQ');
-
+ 
+define('NAVBAR_TITLE', 'Gift Voucher/Store Credit FAQ');
+define('HEADING_TITLE', 'Gift Voucher/Store Credit FAQ');
 define('TEXT_INFORMATION', '<a name="Top"></a>
   <a href="'.tep_href_link(FILENAME_GV_FAQ,'faq_item=1','NONSSL').'">Purchasing Gift Vouchers</a><br>
   <a href="'.tep_href_link(FILENAME_GV_FAQ,'faq_item=2','NONSSL').'">How to send Gift vouchers</a><br>

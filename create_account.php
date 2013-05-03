@@ -1,34 +1,29 @@
 <?php
-include_once 'includes/classes/facebook.php';
-include_once "fbconnect.php";
-if ($fbme){
-    $param  =   array(
-        'method'     => 'users.getinfo',
-        'uids'       => $fbme['id'],
-        'fields'     => 'birthday_date, locale',
-        'callback'   => ''
-    );
-
-    try{
-        $info           =   $facebook->api($param);
-    }
-    catch(Exception $o){
-        error_log("Legacy Api Calling Error!");
-    }
-    if($fbme['gender'] == 'female'){
-        $fbgender = 'f';
-    }elseif ($fbme['gender'] == 'male'){
-        $fbgender = 'm';
-    }
-}
   require('includes/application_top.php');
-if($fbme){
-    $fb_customer_query = tep_db_query("select count(*) as total from " . TABLE_CUSTOMERS . " where fb_user_id = '" . $fbme['id'] . "'");
-    $fb_customer = tep_db_fetch_array($fb_customer_query);
-    if($fb_customer['total'] > 0){
-        tep_redirect(tep_href_link(FILENAME_ACCOUNT));
-    }
+
+if (isset($_POST['check-email'])){
+          $check_email_query = tep_db_query("select customers_id as id, customers_paypal_ec as ec from " . TABLE_CUSTOMERS . " where customers_email_address = '" . tep_db_input($_POST['email_address']) . "'");
+          if (tep_db_num_rows($check_email_query) > 0) {
+              $check_email = tep_db_fetch_array($check_email_query);
+              if ($check_email['ec'] == '1') {
+                  tep_db_query("delete from " . TABLE_ADDRESS_BOOK . " where customers_id = '" . (int)$check_email['id'] . "'");
+                  tep_db_query("delete from " . TABLE_CUSTOMERS . " where customers_id = '" . (int)$check_email['id'] . "'");
+                  tep_db_query("delete from " . TABLE_CUSTOMERS_INFO . " where customers_info_id = '" . (int)$check_email['id'] . "'");
+                  tep_db_query("delete from " . TABLE_CUSTOMERS_BASKET . " where customers_id = '" . (int)$check_email['id'] . "'");
+                  tep_db_query("delete from " . TABLE_CUSTOMERS_BASKET_ATTRIBUTES . " where customers_id = '" . (int)$check_email['id'] . "'");
+                  tep_db_query("delete from " . TABLE_WHOS_ONLINE . " where customer_id = '" . (int)$check_email['id'] . "'");
+				  print "true";
+				  exit();
+              } else {
+                  print json_encode($_POST['email_address'] . " " . ENTRY_EMAIL_ADDRESS_CREATE_EXISTS);
+				  exit();
+              }
+          }
+	print "true";
+	exit();
 }
+
+
   if (isset($_GET['guest']) && $cart->count_contents() < 1)
       tep_redirect(tep_href_link(FILENAME_SHOPPING_CART));
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_CREATE_ACCOUNT);
@@ -75,6 +70,7 @@ if($fbme){
       }
       $password = tep_db_prepare_input($_POST['password']);
       $confirmation = tep_db_prepare_input($_POST['confirmation']);
+
       $error = false;
     if (tep_db_prepare_input($HTTP_POST_VARS['TermsAgree']) != 'true' and MATC_AT_REGISTER != 'false') {
         $error = true;
@@ -131,7 +127,7 @@ if($fbme){
           $error = true;
           $messageStack->add('create_account', ENTRY_POST_CODE_ERROR);
       }
-      if (strlen($city) < ENTRY_CITY_MIN_LENGTH) {
+      if (strlen($city) < ENTRY_CITY_MIN_LENGTH && ACCOUNT_CITY == 'true') {
           $error = true;
           $messageStack->add('create_account', ENTRY_CITY_ERROR);
       }
@@ -161,7 +157,7 @@ if($fbme){
               }
           }
       }
-      if (strlen($telephone) < ENTRY_TELEPHONE_MIN_LENGTH) {
+      if (strlen($telephone) < ENTRY_TELEPHONE_MIN_LENGTH && ACCOUNT_TELEPHONE == 'true') {
           $error = true;
           $messageStack->add('create_account', ENTRY_TELEPHONE_NUMBER_ERROR);
       }
@@ -238,7 +234,7 @@ if($fbme){
           tep_session_register('customer_zone_id');
           setcookie("first_name", $customer_first_name, time() + 3600, "/", ".chibakita.net");
           if (isset($_GET['guest']) or isset($_POST['guest']))
-              tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING));
+              tep_redirect(tep_href_link(FILENAME_CHECKOUT_SHIPPING));		  
           $cart->restore_contents();
           $wishList->restore_wishlist();
           $name = $firstname . ' ' . $lastname;
@@ -258,28 +254,70 @@ if($fbme){
               $text_points = sprintf(EMAIL_WELCOME_POINTS, $points_account, number_format(NEW_SIGNUP_POINT_AMOUNT, POINTS_DECIMAL_PLACES), $currencies->format(tep_calc_shopping_pvalue(NEW_SIGNUP_POINT_AMOUNT)), $points_faq) . "\n\n";
           }
           $email_text .= EMAIL_WELCOME . EMAIL_TEXT . $text_points . EMAIL_CONTACT . EMAIL_WARNING;
-          if (NEW_SIGNUP_GIFT_VOUCHER_AMOUNT > 0) {
-              $coupon_code = create_coupon_code();
-              $insert_query = tep_db_query("insert into " . TABLE_COUPONS . " (coupon_code, coupon_type, coupon_amount, date_created) values ('" . $coupon_code . "', 'G', '" . NEW_SIGNUP_GIFT_VOUCHER_AMOUNT . "', now())");
-              $insert_id = tep_db_insert_id($insert_query);
-              $insert_query = tep_db_query("insert into " . TABLE_COUPON_EMAIL_TRACK . " (coupon_id, customer_id_sent, sent_firstname, emailed_to, date_sent) values ('" . $insert_id . "', '0', 'Admin', '" . $email_address . "', now() )");
-              $email_text .= sprintf(EMAIL_GV_INCENTIVE_HEADER, $currencies->format(NEW_SIGNUP_GIFT_VOUCHER_AMOUNT)) . "\n\n" . sprintf(EMAIL_GV_REDEEM, $coupon_code) . "\n\n" . EMAIL_GV_LINK . tep_href_link(FILENAME_GV_REDEEM, 'gv_no=' . $coupon_code, 'NONSSL', false) . "\n\n";
+/* CCGV - BEGIN */
+      if (NEW_SIGNUP_GIFT_VOUCHER_AMOUNT > 0) {
+        $coupon_code = create_coupon_code();
+        $insert_query = tep_db_query("insert into " . TABLE_COUPONS . " (coupon_code, coupon_type, coupon_amount, date_created) values ('" . $coupon_code . "', 'G', '" . NEW_SIGNUP_GIFT_VOUCHER_AMOUNT . "', now())");
+        $insert_id = tep_db_insert_id();
+        $insert_query = tep_db_query("insert into " . TABLE_COUPON_EMAIL_TRACK . " (coupon_id, customer_id_sent, sent_firstname, emailed_to, date_sent) values ('" . $insert_id ."', '0', 'Admin', '" . $email_address . "', now() )");
+
+        $email_text .= sprintf(EMAIL_GV_INCENTIVE_HEADER, $currencies->format(NEW_SIGNUP_GIFT_VOUCHER_AMOUNT)) . "\n\n" .
+                       sprintf(EMAIL_GV_REDEEM, $coupon_code) . "\n\n" .
+                       EMAIL_GV_LINK . tep_href_link(FILENAME_GV_REDEEM, 'gv_no=' . $coupon_code,'NONSSL', false) .
+                       "\n\n";
+      }
+      if (NEW_SIGNUP_DISCOUNT_COUPON != '') {
+    		$coupon_code = NEW_SIGNUP_DISCOUNT_COUPON;
+        $coupon_query = tep_db_query("select * from " . TABLE_COUPONS . " where coupon_code = '" . $coupon_code . "'");
+        $coupon = tep_db_fetch_array($coupon_query);
+    		$coupon_id = $coupon['coupon_id'];		
+        $coupon_desc_query = tep_db_query("select * from " . TABLE_COUPONS_DESCRIPTION . " where coupon_id = '" . $coupon_id . "' and language_id = '" . (int)$languages_id . "'");
+        $coupon_desc = tep_db_fetch_array($coupon_desc_query);
+        $insert_query = tep_db_query("insert into " . TABLE_COUPON_EMAIL_TRACK . " (coupon_id, customer_id_sent, sent_firstname, emailed_to, date_sent) values ('" . $coupon_id ."', '0', 'Admin', '" . $email_address . "', now() )");
+        $email_text .= EMAIL_COUPON_INCENTIVE_HEADER .  "\n" .
+                       sprintf("%s", $coupon_desc['coupon_description']) ."\n\n" .
+                       sprintf(EMAIL_COUPON_REDEEM, $coupon['coupon_code']) . "\n\n" .
+                       "\n\n";
+      }
+/* CCGV - END */
+          if (isset($_POST['newsletter']) && defined("USE_CONSTANT_CONTACT") && USE_CONSTANT_CONTACT == 'true'){
+             require_once(DIR_WS_INCLUDES . "ConstantContact/ConstantContact.php");
+             $ConstantContact = new ConstantContact('basic',CONSTANT_CONTACT_API_KEY,CONSTANT_CONTACT_USER,CONSTANT_CONTACT_PW);
+             $ContactLists = $ConstantContact->getLists();
+               foreach ($ContactLists['lists'] as $list){
+                  $parts = pathinfo($list->id);
+                  if ($parts['filename'] == CONSTANT_CONTACT_LIST_ID)
+                     $listID = $list->id;
+               }
+
+               $Contact = new Contact(array(
+                   "emailAddress" => $email_address,
+                   "firstName" => $firstname,
+                   "lastName" => $lastname,
+                   "lists"=>$listID
+                   ));
+			 $check = $ConstantContact->searchContactsByEmail($email_address);
+			 $pass = false;
+			 if (empty($check)){
+				$pass = true;
+			 } else {
+				$details = $ConstantContact->getContactDetails($check[0]);
+				if (empty($details->lists) || !in_array($listID,$details->lists))
+				  $pass = true;
+			 }
+            if ($pass = true)
+                $NewContact = $ConstantContact->addContact($Contact);
           }
-          if (NEW_SIGNUP_DISCOUNT_COUPON != '') {
-              $coupon_code = NEW_SIGNUP_DISCOUNT_COUPON;
-              $coupon_query = tep_db_query("select * from " . TABLE_COUPONS . " where coupon_code = '" . $coupon_code . "'");
-              $coupon = tep_db_fetch_array($coupon_query);
-              $coupon_id = $coupon['coupon_id'];
-              $coupon_desc_query = tep_db_query("select * from " . TABLE_COUPONS_DESCRIPTION . " where coupon_id = '" . $coupon_id . "' and language_id = '" . (int)$languages_id . "'");
-              $coupon_desc = tep_db_fetch_array($coupon_desc_query);
-              $insert_query = tep_db_query("insert into " . TABLE_COUPON_EMAIL_TRACK . " (coupon_id, customer_id_sent, sent_firstname, emailed_to, date_sent) values ('" . $coupon_id . "', '0', 'Admin', '" . $email_address . "', now() )");
-              $email_text .= EMAIL_COUPON_INCENTIVE_HEADER . "\n" . sprintf("%s", $coupon_desc['coupon_description']) . "\n\n" . sprintf(EMAIL_COUPON_REDEEM, $coupon['coupon_code']) . "\n\n" . "\n\n";
-          }
+
+
           tep_mail($name, $email_address, EMAIL_SUBJECT, $email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
           if (ACCOUNT_COMPANY == 'true' && tep_not_null($company_tax_id)) {
               $alert_email_text = "Please note that " . $firstname . " " . $lastname . " of the company: " . $company . " has created an account.";
               tep_mail(STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, 'Company account created', $alert_email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
           }
+  //BOF WA State Tax Modification
+  if (tep_session_is_registered('wa_dest_tax_rate')) tep_session_unregister('wa_dest_tax_rate');
+  //BOF WA State Tax Modification
           tep_redirect(tep_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
       }
   }
@@ -330,27 +368,21 @@ if($fbme){
 ?>
 <!-- header_eof //-->
 <!-- body //-->
-<table border="0" width="100%" cellspacing="3" cellpadding="3">
-  <tr>
-  <td width="<?php
-  echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-  echo BOX_WIDTH;
-?>" cellspacing="0" cellpadding="2">
+
       <!-- left_navigation //-->
       <?php
   require(DIR_WS_INCLUDES . 'column_left.php');
 ?>
       <!-- left_navigation_eof //-->
-    </table></td>
+   
   <!-- body_text //-->
   <!-- PWA BOF -->
-  <td width="100%" valign="top">
-  <?php
-  echo tep_draw_form('create_account', tep_href_link(FILENAME_CREATE_ACCOUNT, (isset($_GET['guest']) ? 'guest=guest' : ''), 'SSL'), 'post', 'onSubmit="return check_form(create_account);"') . tep_draw_hidden_field('action', 'process');
-?>
-  <?php
-  echo tep_draw_form('create_account', tep_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'), 'post', 'onSubmit="return check_form(create_account);"') . tep_draw_hidden_field('action', 'process');
+<table border="0" width="100%" cellspacing="3" cellpadding="3">
+  <tr>
+  <td>
+  	
+  	  <?php
+  	echo tep_draw_form('create_account', tep_href_link(FILENAME_CREATE_ACCOUNT, (isset($_GET['guest']) ? 'guest=guest' : ''), 'SSL'), 'post', 'onSubmit="return check_form(create_account);"') . tep_draw_hidden_field('action', 'process');
 ?>
   <h1>
     <?php
@@ -360,45 +392,6 @@ if($fbme){
   <?php
   echo sprintf(TEXT_ORIGIN_LOGIN, tep_href_link(FILENAME_LOGIN, tep_get_all_get_params(), 'SSL'));
 ?>
-              <div id="fb-root"></div>
-        <script type="text/javascript">
-            window.fbAsyncInit = function() {
-                FB.init({appId: '<?=$fbconfig['appid' ]?>', status: true, cookie: true, xfbml: true});
-
-                /* All the events registered */
-                FB.Event.subscribe('auth.login', function(response) {
-                    // do something with response
-                    login();
-                });
-                FB.Event.subscribe('auth.logout', function(response) {
-                    // do something with response
-                    logout();
-                });
-            };
-            (function() {
-                var e = document.createElement('script');
-                e.type = 'text/javascript';
-                e.src = document.location.protocol +
-                    '//connect.facebook.net/en_US/all.js';
-                e.async = true;
-                document.getElementById('fb-root').appendChild(e);
-            }());
-
-            function login(){
-                document.location.href = "create_account.php";
-            }
-
-            function logout(){
-                document.location.href = "logoff.php";
-            }
-
-</script>
-<?php if($fbme){
-}else{?>
-    <p>
-        <fb:login-button autologoutlink="true" perms="email,offline_access,user_birthday,user_location,user_work_history,user_religion_politics,user_relationships">Connect with Facebook</fb:login-button>
-    </p>
-    <?php }?>
   <?php
   if ($messageStack->size('create_account') > 0) {
 ?>
@@ -407,6 +400,7 @@ if($fbme){
 ?>
   <?php
   }
+
 ?>
 <br>
 <span style="float:right" class="inputRequirement">  <?php
@@ -418,7 +412,7 @@ if($fbme){
   <?php
   echo CATEGORY_PERSONAL;
 ?>
-  </b><br>
+  </b></legend><br>
   <?php
   if (ACCOUNT_GENDER == 'true') {
 ?>
@@ -428,7 +422,7 @@ if($fbme){
 ?>
   </label>
   <?php
-      echo tep_draw_radio_field('gender', $fbgender) . '' . MALE . '' . tep_draw_radio_field('gender', 'f') . '' . FEMALE . '' . (tep_not_null(ENTRY_GENDER_TEXT) ? '<span class="inputRequirement">' . ENTRY_GENDER_TEXT . '</span>' : '');
+      echo tep_draw_radio_field('gender', 'm') . '' . MALE . '' . tep_draw_radio_field('gender', 'f') . '' . FEMALE . '' . (tep_not_null(ENTRY_GENDER_TEXT) ? '<span class="inputRequirement">' . ENTRY_GENDER_TEXT . '</span>' : '');
 ?>
   <br>
   <?php
@@ -440,7 +434,7 @@ if($fbme){
 ?>
   </label>
   <?php
-  echo tep_draw_input_field('firstname', $fbme['first_name']) . '' . (tep_not_null(ENTRY_FIRST_NAME_TEXT) ? '<span class="inputRequirement">' . ENTRY_FIRST_NAME_TEXT . '</span>' : '');
+  echo tep_draw_input_field('firstname') . '' . (tep_not_null(ENTRY_FIRST_NAME_TEXT) ? '<span class="inputRequirement">' . ENTRY_FIRST_NAME_TEXT . '</span>' : '');
 ?>
   <br>
   <label>
@@ -449,7 +443,7 @@ if($fbme){
 ?>
   </label>
   <?php
-  echo tep_draw_input_field('lastname', $fbme['last_name']) . '' . (tep_not_null(ENTRY_LAST_NAME_TEXT) ? '<span class="inputRequirement">' . ENTRY_LAST_NAME_TEXT . '</span>' : '');
+  echo tep_draw_input_field('lastname') . '' . (tep_not_null(ENTRY_LAST_NAME_TEXT) ? '<span class="inputRequirement">' . ENTRY_LAST_NAME_TEXT . '</span>' : '');
 ?>
   <br>
   <?php
@@ -461,7 +455,7 @@ if($fbme){
 ?>
   </label>
   <?php
-      echo tep_draw_input_field('dob', $fbme['birthday']) . '' . (tep_not_null(ENTRY_DATE_OF_BIRTH_TEXT) ? '<span class="inputRequirement">' . ENTRY_DATE_OF_BIRTH_TEXT . '</span>' : '');
+      echo tep_draw_input_field('dob') . '' . (tep_not_null(ENTRY_DATE_OF_BIRTH_TEXT) ? '<span class="inputRequirement">' . ENTRY_DATE_OF_BIRTH_TEXT . '</span>' : '');
 ?>
   <br>
   <?php
@@ -473,20 +467,19 @@ if($fbme){
 ?>
   </label>
   <?php
-  echo tep_draw_input_field('email_address', $fbme['email']) . '' . (tep_not_null(ENTRY_EMAIL_ADDRESS_TEXT) ? '<span class="inputRequirement">' . ENTRY_EMAIL_ADDRESS_TEXT . '</span>' : '');
+  echo tep_draw_input_field('email_address') . '' . (tep_not_null(ENTRY_EMAIL_ADDRESS_TEXT) ? '<span class="inputRequirement">' . ENTRY_EMAIL_ADDRESS_TEXT . '</span>' : '');
 ?>
   <br>
   <?php
   if (ACCOUNT_COMPANY == 'true') {
 ?>
-  </legend>
   <br>
   <br>
   <legend> <b>
   <?php
       echo CATEGORY_COMPANY;
 ?>
-  </b><br>
+  </b></legend><br>
   <label>
   <?php
       echo ENTRY_COMPANY;
@@ -508,14 +501,13 @@ if($fbme){
   <?php
   }
 ?>
-  </legend>
   <br>
   <br>
   <legend> <b>
   <?php
   echo CATEGORY_ADDRESS;
 ?>
-  </b><br>
+  </b></legend><br>
   <label>
   <?php
   echo ENTRY_STREET_ADDRESS;
@@ -548,13 +540,9 @@ Street Address Line 2:
   <?php
   }
 ?>
-  <label>
+  <label><?php  echo ENTRY_CITY; ?></label>
   <?php
-  echo ENTRY_CITY;
-?>
-  </label>
-  <?php
-  echo tep_draw_input_field('city') . '' . (tep_not_null(ENTRY_CITY_TEXT) ? '<span class="inputRequirement">' . ENTRY_CITY_TEXT . '</span>' : '');
+  echo tep_draw_input_field('city') . '' . (tep_not_null(ENTRY_CITY_TEXT) && ACCOUNT_CITY == 'true' ? '<span class="inputRequirement">' . ENTRY_CITY_TEXT . '</span>' : '');
 ?>
   <br>
   <label>
@@ -572,7 +560,7 @@ Street Address Line 2:
 ?>
   </label>
   <?php
-  echo tep_get_country_list('country', 'Please', 'onchange="loadXMLDoc(this.value);" style="width:150px" ');
+  echo tep_get_country_list('country', 'Please', 'onchange="loadXMLDoc(this.value);" ');
 ?>
   <br>
   <?php
@@ -592,14 +580,14 @@ Street Address Line 2:
                   $zones_array[] = array('id' => $zones_values['zone_name'], 'text' => $zones_values['zone_name']);
               }
               echo '<span id="states">';
-              echo tep_draw_pull_down_menu('state', $zones_array, '', ' class="inputBox" style="width:175px" ');
+              echo tep_draw_pull_down_menu('state', $zones_array, '', ' style="width:175px" ');
               echo '</span>';
           } else {
               echo tep_draw_input_field('state');
           }
       } else {
           echo '<span id="states">';
-          echo tep_draw_pull_down_menu('state', $zones_array, '', ' class="inputBox" style="width:175px" ');
+          echo tep_draw_pull_down_menu('state', $zones_array, '', ' style="width:175px" ');
           echo '</span>';
       }
       if (tep_not_null(ENTRY_STATE_TEXT))
@@ -608,20 +596,19 @@ Street Address Line 2:
   <?php
   }
 ?>
-  </legend>
   <br>
   <br>
   <legend>
   <b><?php
   echo CATEGORY_CONTACT;
-?></b><br>
+?></b></legend><br>
   <label>
   <?php
   echo ENTRY_TELEPHONE_NUMBER;
 ?>
   </label>
   <?php
-  echo tep_draw_input_field('telephone') . '' . (tep_not_null(ENTRY_TELEPHONE_NUMBER_TEXT) ? '<span class="inputRequirement">' . ENTRY_TELEPHONE_NUMBER_TEXT . '</span>' : '');
+  echo tep_draw_input_field('telephone') . '' . (tep_not_null(ENTRY_TELEPHONE_NUMBER_TEXT) && ACCOUNT_TELEPHONE == 'true' ? '<span class="inputRequirement">' . ENTRY_TELEPHONE_NUMBER_TEXT . '</span>' : '');
 ?>
   <br>
   <label>
@@ -634,41 +621,46 @@ Street Address Line 2:
 ?>
   <br>
   <?php
-  if (!isset($_GET['guest']) && !isset($_POST['guest'])) {
+  if ((!isset($_GET['guest']) && !isset($_POST['guest'])) || (defined("USE_CONSTANT_CONTACT") && USE_CONSTANT_CONTACT == 'true')) {
 ?>
-  </legend>
-  <br>
-  <br>
-  <legend>
+ 
+ 
    <b><?php
       echo CATEGORY_OPTIONS;
 ?></b>
   <br>
- <label>  <?php
+  
+<label>  <?php
       echo ENTRY_NEWSLETTER;
 ?>
   </label>
+  
   <?php
       echo tep_draw_checkbox_field('newsletter', '1', (!$process || isset($_POST['newsletter']) ? ' checked="checked"' : '')) . '' . (tep_not_null(ENTRY_NEWSLETTER_TEXT) ? '<span class="inputRequirement">' . ENTRY_NEWSLETTER_TEXT . '</span>' : '');
-?>
-   </legend>
+?> 
+
+
+
+
+
+<br>
   <br>
-  <br>
-  <legend>
-  <b>
- <b> <?php
-      echo CATEGORY_PASSWORD;
+<?php }
+    if (!isset($_GET['guest']) && !isset($_POST['guest'])) {
 ?>
- </b><br>
+  <b><?php echo CATEGORY_PASSWORD; ?></b>
+  
+ <br>
+  
   <label>
   <?php
       echo ENTRY_PASSWORD;
 ?>
   </label>
   <?php
-      echo tep_draw_password_field('password') . '' . (tep_not_null(ENTRY_PASSWORD_TEXT) ? '<span class="inputRequirement">' . ENTRY_PASSWORD_TEXT . '</span>' : '');
+      echo tep_draw_password_field('password',null,'id="password-field"') . '' . (tep_not_null(ENTRY_PASSWORD_TEXT) ? '<span class="inputRequirement">' . ENTRY_PASSWORD_TEXT . '</span>' : '');
 ?>
-  <br>
+  <div class="clear"></div>
   <label>
   <?php
       echo ENTRY_PASSWORD_CONFIRMATION;
@@ -691,33 +683,24 @@ Street Address Line 2:
   <?php
       echo tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE,'id="TheSubmitButton"');
 ?>
-  </td>
-  </tr>
-</table>
 </form>
-</td>
+  </td>
+</tr>
+</table>
 <!-- body_text_eof //-->
-<td width="<?php
-      echo BOX_WIDTH;
-?>" valign="top"><table border="0" width="<?php
-      echo BOX_WIDTH;
-?>" cellspacing="0" cellpadding="2">
+
     <!-- right_navigation //-->
     <?php
       include(DIR_WS_INCLUDES . 'column_right.php');
 ?>
     <!-- right_navigation_eof //-->
-  </table></td>
-</tr>
-</table>
+
 <!-- body_eof //-->
 <!-- footer //-->
 <?php
       include(DIR_WS_INCLUDES . 'footer.php');
 ?>
 <!-- footer_eof //-->
-</body>
-</html>
 <?php
       require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>

@@ -2,16 +2,16 @@
 /*
   $Id: gv_faq.php,v 1.2 2003/02/17 23:53:04 wilt Exp $
 
-  CartStore eCommerce Software, for The Next Generation
-  http://www.cartstore.com
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
 
-  Copyright (c) 2008 Adoovo Inc. USA
+  Copyright (c) 2002 - 2003 osCommerce
 
   Gift Voucher System v1.0
   Copyright (c) 2001, 2002 Ian C Wilson
   http://www.phesis.org
 
-  GNU General Public License Compatible
+  Released under the GNU General Public License
 */
 
   require('includes/application_top.php');
@@ -68,7 +68,7 @@
        <td class="main"><?php echo SUB_HEADING_TEXT; ?></td>
       </tr>
       <tr>
-        <td align="right" class="main"><?php echo '<a class="button" href="' . tep_href_link(FILENAME_DEFAULT, '', 'NONSSL') . '">' .  IMAGE_BUTTON_CONTINUE . '</a>'; ?></td>
+        <td align="right" class="main"><?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT, '', 'NONSSL') . '">' . tep_image_button('button_continue.gif', IMAGE_BUTTON_CONTINUE) . '</a>'; ?></td>
       </tr>
     </table></td>
 <!-- body_text_eof //-->
@@ -84,6 +84,7 @@
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
+<br>
 </body>
 </html>
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>

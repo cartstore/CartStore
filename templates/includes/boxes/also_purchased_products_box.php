@@ -25,7 +25,7 @@
   <div>
     <div>
       <div>
-        <h3>CUSTOMERS ALSO ORDERED</h3>
+        <h3>YOU MIGHT LIKE</h3>
         <div class="box">
           <!-- also_purchased_products //-->
           <?php
@@ -42,7 +42,7 @@
 
                          
 
-                         <span class="short_desc">Desc: ' . $orders['products_short'] . '</span>
+                         <span class="short_desc">' . $orders['products_short'] . '</span>
 
   
 

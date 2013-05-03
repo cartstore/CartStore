@@ -1,9 +1,8 @@
-# $Id: .htaccess 2856 2007-06-08 00:42:19Z Ropu $
 #
-# This is used with Apache WebServers
-# The following blocks direct HTTP requests in this directory recursively
-#
-# This will prevent access to logs from the web
+# This file is used by Apache web servers.
+# 
+# It blocks direct HTTP requests to this directory recursively in order to
+# prevent access to logs via the web.
 
 <Files *.log>
 Order Deny,Allow
