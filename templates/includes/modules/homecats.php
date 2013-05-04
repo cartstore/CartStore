@@ -9,11 +9,9 @@
 
   if (sizeof($categories_products_array) <> '0') {
       print('
-<div class="module-product">
-  <div class="mbottom">
-    <div class="mTop">
-      <h3>Categories</h3>
 
+      <h3>Categories</h3>
+<ul class="thumbnails">
 
 ');
       $row = 0;
@@ -28,8 +26,20 @@
 
           print('
                 ');
-          echo '<div class="productWrap"><!-- <a class="cat_image" href="' . $categories_products_array[$i]['categories_name'] . '-c-' . $categories_products_array[$i]['categories_id'] . '.html">' . tep_image(DIR_WS_IMAGES . $categories_products_array[$i]['categories_image'], $categories_products_array[$i]['categories_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a> -->';
-          print('<a href="' . tep_href_link(FILENAME_DEFAULT, 'cPath=' . $categories_products_array[$i]['categories_id'], 'NONSSL') . '">' . (!empty($categories_products_array[$i]['categories_image']) ? '<div>' . tep_image(DIR_WS_IMAGES . $categories_products_array[$i]['categories_image'], $categories_products_array[$i]['categories_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</div>' : '') . $categories_products_array[$i]['categories_name'] . '</a></div>');
+          echo '
+          
+          <li class="span3">
+          <div class="thumbnail">
+          
+        <!-- <a class="cat_image" href="' . $categories_products_array[$i]['categories_name'] . '-c-' . $categories_products_array[$i]['categories_id'] . '.html">' . tep_image(DIR_WS_IMAGES . $categories_products_array[$i]['categories_image'], $categories_products_array[$i]['categories_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a> -->';
+          print('
+          
+          
+          <a href="' . tep_href_link(FILENAME_DEFAULT, 'cPath=' . $categories_products_array[$i]['categories_id'], 'NONSSL') . '">' . (!empty($categories_products_array[$i]['categories_image']) ? '' . tep_image(DIR_WS_IMAGES . $categories_products_array[$i]['categories_image'], $categories_products_array[$i]['categories_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '' : '') . $categories_products_array[$i]['categories_name'] . '</a>
+          
+          </div>
+          </li>
+          ');
 
           $col1++;
           if ($col1 > (3 - 1) || $count == $total) {
@@ -47,10 +57,7 @@
           $count++;
       }
       print(' 
-     <div class="clear"></div>
-    </div>
-  </div>
-</div>
+   </ul>
 
 <div class="clear"></div>');
   }

@@ -22,17 +22,36 @@
           }
       }
 ?>
-		<?php
-$listing_split = new splitPageResults($listing_sql, MAX_DISPLAY_SEARCH_RESULTS, 'p.products_id');
-if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3'))) {
-		?>
+	
 		<div id="module-product">
-			<h3>Products</h3>
-			<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+			 
 				<?php
-				echo '' . $listing_split -> display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info', 'x', 'y')));
+			//	echo '' . $listing_split -> display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info', 'x', 'y')));
 
-				echo '<form name="sort_dropdown" method="get" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action'))) . '" class="alihgn_right"><label class="label">Sort by:</label>';
+				echo '
+				
+				 
+			</div>
+				
+				<div class="">
+<div class="">
+				<div class="content_sortPagiBar">
+				<div class="row-fluid sortPagiBar">                    
+					<div class="span3 hidden-phone">
+						<div class="inner">
+						  <div id="productsview" class="btn-group">
+							<a rel="view-grid" href="#" class="btn"><i class="icon-th"></i></a>
+							<a rel="view-list" href="#" class="btn"><i class="icon-th-list"></i></a>
+						  </div>
+						</div>
+					</div>
+                    <div class="span6 hidden-phone">
+                    <div class="inner">
+					
+                   
+				
+				
+				<form name="sort_dropdown" method="get" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action'))) . '" class="">';
 				if (isset($_GET['manufacturers_id'])) {
 					$manufacture = "&manufacturers_id=" . $_GET['manufacturers_id'];
 					$options = array( array('id' => '', 'text' => TEXT_ALL_CATEGORIES));
@@ -53,12 +72,42 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 				echo tep_draw_pull_down_menu('sort_id', $options_sort, (isset($_GET['sort_id']) ? $_GET['sort_id'] : ''), 'onchange="sortBy(\'' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('sort_id', 'sort', 'page', 'keywords', 'manufacturers_id', 'search_in_description'))) . '?keywords=' . (isset($_GET['keywords']) ? $_GET['keywords'] : '') . $manufacture . $searchDes . '&page=\')"');
 				echo tep_hide_session_id() . '</form>' . "\n";
 			?>
-			</ul>
-			<div class="multi_buy_hide">
-				<div class="multibuy productitem ui-widget ui-widget-content ui-corner-all">
-					<input class="btn button" type="submit" value="Add Selected to Cart" onclick="addMulti()" />
+			
+			
+			 </div>
+                    </div>
+					
+					<div class="span3">
+					
+					<div class="inner">
+           
+	<div class="multi_buy_hide">
+				<div class="multibuy">
+					<input class="btn btn-medium" type="submit" value="Add Selected" onclick="addMulti()" />
 				</div>
 			</div>
+
+
+                    </div>
+                    </div>
+				</div>
+			</div>
+			
+				</div>
+			</div>
+			
+		
+			
+			
+			<?php
+$listing_split = new splitPageResults($listing_sql, MAX_DISPLAY_SEARCH_RESULTS, 'p.products_id');
+if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3'))) {
+		?>	
+			
+			
+			
+			
+			
 			<?php
 			}
 			$list_box_contents = array();
@@ -480,11 +529,15 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 			}
 			if ($ismulti == 1){
 		?>
+		
+		
 			<div class="multi_buy_hide">
 				<div  class="multibuy productitem ui-widget ui-widget-content ui-corner-all" style="text-align: right; display: none;">
-					<input class="btn button" type="submit" value="Add Selected" onclick="addMulti()" />
+					<input class="btn btn-small" type="submit" value="Add Selected" onclick="addMulti()" />
 				</div>
 			</div>
+			
+			
 			<script type="text/javascript">
 				jQuery(document).ready(function() {
 					jQuery(".multibuy").show();
@@ -508,6 +561,9 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 					}
 				}
 			</script>
+			
+			
+			
 			<?php
 			}
 
@@ -516,7 +572,9 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 			}
 			if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '2') || (PREV_NEXT_BAR_LOCATION == '3'))) {
 			?>
-			<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+			
+			<div class="pagination">
+			<ul class="">
 				<?php
 				echo '' . $listing_split -> display_links(MAX_DISPLAY_PAGE_LINKS, tep_get_all_get_params(array('page', 'info', 'x', 'y')));
 				?>
@@ -525,11 +583,15 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 ' . "\n";
 				?>
 			</ul>
+			
+			
 			<p align="right">
 				<?php
 				echo $listing_split -> display_count(TEXT_DISPLAY_NUMBER_OF_PRODUCTS);
 				?>
 			</p>
+			
+			
 			<?php
 if (isset($add_multiple) && $add_multiple == "1") {
 			?>
@@ -540,6 +602,46 @@ if (isset($add_multiple) && $add_multiple == "1") {
 			}
 			}
 			?>
-		</div></td>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</td>
 	</tr>
 </table>

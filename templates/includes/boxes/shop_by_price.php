@@ -15,16 +15,16 @@
       }
   }
   echo '
-<div class="module">
-  <div>
-    <div>
-      <div>
-        <h3>Shop by Price</h3>
-        <ul>';
+
+        <h3></h3>
+        <div class="sidebar-nav">
+         <ul class="nav nav-tabs nav-stacked">
+    	
+    <li class="nav-header">Shop by Price</li>
+        ';
   new infoBox($info_box_contents);
-  echo '</ul>  </div>
-    </div>
-  </div>
+  echo '</ul>  
+
 </div>';
 ?>
 <!-- shop_by_price //-->

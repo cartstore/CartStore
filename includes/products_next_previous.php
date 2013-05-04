@@ -79,7 +79,7 @@
 	<?php
 	if ($first != (int)$_GET['products_id']) {
 	?>
-	<?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, "$fPath&products_id=$previous") . '"><span class="ui-icon ui-icon-triangle-1-w"></span></a>';?>
+	<?php echo '<a class="" href="' . tep_href_link(FILENAME_PRODUCT_INFO, "$fPath&products_id=$previous") . '"><span class="icon-chevron-left ui-icon ui-icon-triangle-1-w"></span></a>';?>
 
 	<?php
 	} else {
@@ -92,7 +92,7 @@
 	<?php
 	if ($last != (int)$_GET['products_id']) {
 	?>
-	<?php echo '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, "$fPath&products_id=$next_item") . '"><span class="ui-icon ui-icon-triangle-1-e"></span></a>';?>
+	<?php echo '<a class="" href="' . tep_href_link(FILENAME_PRODUCT_INFO, "$fPath&products_id=$next_item") . '"><span class="icon-chevron-right ui-icon ui-icon-triangle-1-e"></span></a>';?>
 	<?php
 	} else {
 	?>

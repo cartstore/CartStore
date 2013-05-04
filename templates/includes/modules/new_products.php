@@ -27,10 +27,14 @@
 
       $select_list_of_prdct_ids = "products_id = '" . $list_of_prdct_ids[0] . "' ";
       if ($no_of_new_products > 0) {
-          echo '<div class="module-product">
-  <div class="mbottom">
-    <div class="mTop">
-      <h3>New Products</h3>';
+          echo '
+
+
+      <h3>New Products</h3>
+      
+      <ul class="thumbnails">
+      
+      ';
           for ($n = 1; $n < count($list_of_prdct_ids); $n++) {
               $select_list_of_prdct_ids .= "or products_id = '" . $list_of_prdct_ids[$n] . "' ";
           } //for ($n = 1; $n < count($list_of_prdct_ids); $n++)
@@ -140,30 +144,38 @@
                                       $button = '';
                                   } //else
 
-                                  $info_box_contents[$row][$col] = array('align' => '', 'params' => '', 'text' => '<div class="productWrap">
+                                  $info_box_contents[$row][$col] = array('align' => '', 'params' => '', 'text' => '
+                                  
+                                  <li class="span3">
+		<div class="thumbnail">
+                                  
+                          <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $new_products[$x]['products_image'], $new_products[$x]['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>        
+                             
 
-                       <h4><a title ="' . $new_products[$x]['products_name'] . '" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">' . $new_products[$x]['products_name'] . '</a></h4>
 
-                       <center><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $new_products[$x]['products_image'], $new_products[$x]['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
-                       </center>
+	<div class="caption">
+				<h5><a title ="' . $new_products[$x]['products_name'] . '" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">' . $new_products[$x]['products_name'] . '</a></h5>
+				<p>
+					' . $new_products[$x]['products_short'] . '
+				</p>
+				<h4>' . $newArea . '<a class="btn" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">More Info</a><span class="pull-right">' . $whats_new_price . '</span></h4>
+			</div>
 
-                       <div class="price">' . $whats_new_price . '</div>
 
-                      ' . $newArea . '
+
+
+ 
+                     
+					 
+					 
+					 
+					  
+
+                      
 
                        </div>
 
-
-
-                       <div class="np_hide">
-
-                       Desc : ' . $new_products[$x]['products_short'] . '
-<a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $new_products[$x]['products_id']) . '">More Info</a>
-<form method="post" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action')) . 'action=buy_now&products_id=' . $new_products[$x]['products_id']) . '">
-
-
-<input class="btn button" type="submit" value="Add to Cart" /></form>
-</div>
+</li>
 
 ');
                                   $col++;
@@ -177,10 +189,8 @@
 
                               new contentBox($info_box_contents);
                               if ($no_of_new_products > 0) {
-                                  echo '<div class="clear"></div>
-    </div>
-  </div>
-</div><div class="clear"></div>
+                                  echo '
+</ul>
 ';
                               } //if ($no_of_new_products > 1)
 

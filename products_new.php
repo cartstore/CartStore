@@ -49,21 +49,17 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
   if (($products_new_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3'))) {
 ?>
 <div class="clear"></div>
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-		<tr>
-		<td class="main" align="center">
-      </td>
-		    <td class="smallText">&nbsp;</td>
-          </tr>
-        </table>
 
-<div class="clear"></div>
+
 <?php
   }
 ?>
 
-            <h1><?php echo HEADING_TITLE; ?></h1><a class="linkup" href="index.php">Home</a> >> <?php echo $breadcrumb->trail(' &raquo; '); ?>
-
+            <h1><?php echo HEADING_TITLE; ?></h1>
+            
+          <ul class="breadcrumb">
+           <li> <a class="linkup" href="index.php">Home</a><span class="divider">/</span></li> <?php echo $breadcrumb->trail(' &raquo; '); ?>
+</ul>
 
 <!------------------------------------------------------------------------------------->
 

@@ -277,7 +277,7 @@ function tep_image_r_path($src, $alt = '', $width = '', $height = '', $params = 
 // Outputs a button in the selected language
   function tep_image_submit($image, $alt = '', $parameters = '') {
     global $language;
-$image_submit = '<input class="btn button btn btn-large" type="submit" value="' . tep_output_string($alt) . '"';
+$image_submit = '<input class="btn button btn" type="submit" value="' . tep_output_string($alt) . '"';
     if (tep_not_null($alt)) $image_submit .= ' title=" ' . tep_output_string($alt) . ' "';
     if (tep_not_null($parameters)) $image_submit .= ' ' . $parameters;
     $image_submit .= ' />';

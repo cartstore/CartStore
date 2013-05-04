@@ -1,8 +1,11 @@
-<div class="module">
-  <div>
-    <div>
-      <div>
-        <h3>PRODUCT CATEGORIES</h3>
+    <div class="sidebar-nav">
+    
+    	
+    <li class="nav-header">Catagories</li>
+ 
+  
+    
+    
 <?php
   $show_ulcats_as_box = false;
 //  $idname_for_menu = 'mainlevel';
@@ -58,7 +61,7 @@
         while ($row = tep_db_fetch_array($result)) {
           $table[$row['parent_id']][$row['categories_id']] = $row['categories_name'];
         }
-        $output .= '<ul>';
+        $output .= '<ul class="nav nav-tabs nav-stacked">';
         $output .= tep_make_cat_ulbranch($rootcatid, $table, 0, $maxlevel);
         for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
           $output .= '</ul>';
@@ -129,7 +132,5 @@
       return $output;
   }
 ?>
-      </div>
-    </div>
-  </div>
-</div>
+       </ul>
+       </div>

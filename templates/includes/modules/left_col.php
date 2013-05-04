@@ -1,23 +1,23 @@
-$searchbox#
 
 $orderhistorybox#
+$currenciesbox#
+$articles#
 
-$categorybox5#
+$manufacturerbox#
+
+
 
 
 $quickfinder#
 
-$currenciesbox#
 
 $shop_by_price#
 
 $year_make_model#
 
-$manufacturerbox#
 
 $search#
 
-$articles#
 
 $bestsellersbox_only#
 

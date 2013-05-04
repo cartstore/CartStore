@@ -5,7 +5,7 @@
 ?>
 <!-- events_calendar //-->
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
   <tr>
     <td><?php
   echo '<div class="module">
@@ -18,7 +18,7 @@
 
 <div>
 
-<h3>CALENDER</h3>';
+<h4>CALENDER</h4>';
 ?>
       <?php
 

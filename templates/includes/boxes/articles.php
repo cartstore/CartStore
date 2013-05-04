@@ -1,8 +1,4 @@
-<div class="module">
-  <div>
-    <div>
-      <div>
-        <h3>ARTICLES</h3>
+ <li class="nav-header">ARTICLES</li> 
         <?php
   function tep_show_topic($counter)
   {
@@ -42,7 +38,7 @@
   }
 ?>
         <!-- topics //-->
-        <ul>
+        <ul class="nav nav-list">
           <?php
   $info_box_contents = array();
   $info_box_contents[] = array('text' => BOX_HEADING_ARTICLES);
@@ -131,8 +127,5 @@
 ?>
           <li><a href="articles.php">All Articles</a></li>
         </ul>
-      </div>
-    </div>
-  </div>
-</div>
+  
 <!-- topics_eof //-->

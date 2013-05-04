@@ -19,20 +19,65 @@
 <!-- body_text //-->
 
 
-<h1>
-        <?php
-      echo HEADING_TITLE;
-?>
-      </h1>
 
 
 
-    <span class="breadcrumb"> <a class="linkup" href="index.php">Home</a> >>
+
+    <ul class="breadcrumb"> 
+    	 <li><a class="" href="index.php">Home</a><span class="divider">/</span></li>
+    	
       <?php
       echo $breadcrumb->trail(' &raquo; ');
-	  echo '</span><DIV CLASS="CLEAR"></DIV>';
+	  echo '</ul>
+	  
+	  <h1>
+        '.HEADING_TITLE .'
+      </h1>
+	  
+	  
+	  
+	  ';
 
-      $firstletter_nav = '<span class="allprodsnav"><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=A', 'NONSSL') . '"> A |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=B', 'NONSSL') . '"> B |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=C', 'NONSSL') . '"> C |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=D', 'NONSSL') . '"> D |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=E', 'NONSSL') . '"> E |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=F', 'NONSSL') . '"> F |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=G', 'NONSSL') . '"> G |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=H', 'NONSSL') . '"> H |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=I', 'NONSSL') . '"> I |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=J', 'NONSSL') . '"> J |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=K', 'NONSSL') . '"> K |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=L', 'NONSSL') . '"> L |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=M', 'NONSSL') . '"> M |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=N', 'NONSSL') . '"> N |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=O', 'NONSSL') . '"> O |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=P', 'NONSSL') . '"> P |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Q', 'NONSSL') . '"> Q |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=R', 'NONSSL') . '"> R |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=S', 'NONSSL') . '"> S |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=T', 'NONSSL') . '"> T |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=U', 'NONSSL') . '"> U |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=V', 'NONSSL') . '"> V |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=W', 'NONSSL') . '"> W |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=X', 'NONSSL') . '"> X |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Y', 'NONSSL') . '"> Y |</A>' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Z', 'NONSSL') . '"> Z</A>&nbsp;&nbsp;' . '<a href="' . tep_href_link(FILENAME_ALLPRODS, '', 'NONSSL') . '">' . HEADING_TITLE . '</A></span>';
+      $firstletter_nav = '
+      
+    <div class="btn-group">
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+Find Product by Name
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<!-- dropdown menu links -->
+      
+      
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=A', 'NONSSL') . '"> A </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=B', 'NONSSL') . '"> B </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=C', 'NONSSL') . '"> C </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=D', 'NONSSL') . '"> D </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=E', 'NONSSL') . '"> E </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=F', 'NONSSL') . '"> F </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=G', 'NONSSL') . '"> G </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=H', 'NONSSL') . '"> H </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=I', 'NONSSL') . '"> I </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=J', 'NONSSL') . '"> J </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=K', 'NONSSL') . '"> K </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=L', 'NONSSL') . '"> L </A></li>' . '
+     <li> <a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=M', 'NONSSL') . '"> M </A></li>' . '
+     <li> <a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=N', 'NONSSL') . '"> N </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=O', 'NONSSL') . '"> O </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=P', 'NONSSL') . '"> P </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Q', 'NONSSL') . '"> Q </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=R', 'NONSSL') . '"> R </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=S', 'NONSSL') . '"> S </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=T', 'NONSSL') . '"> T </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=U', 'NONSSL') . '"> U </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=V', 'NONSSL') . '"> V </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=W', 'NONSSL') . '"> W </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=X', 'NONSSL') . '"> X </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Y', 'NONSSL') . '"> Y </A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Z', 'NONSSL') . '"> Z</A></li>' . '
+      <li><a href="' . tep_href_link(FILENAME_ALLPRODS, '', 'NONSSL') . '">' . HEADING_TITLE . '</A></li>
+      </ul>
+</div>';
       echo $firstletter_nav;
 
       $define_list = array('PRODUCT_LIST_MODEL' => PRODUCT_LIST_MODEL, 'PRODUCT_LIST_NAME' => PRODUCT_LIST_NAME, 'PRODUCT_LIST_MANUFACTURER' => PRODUCT_LIST_MANUFACTURER, 'PRODUCT_LIST_PRICE' => PRODUCT_LIST_PRICE, 'PRODUCT_LIST_QUANTITY' => PRODUCT_LIST_QUANTITY, 'PRODUCT_LIST_WEIGHT' => PRODUCT_LIST_WEIGHT, 'PRODUCT_LIST_IMAGE' => PRODUCT_LIST_IMAGE, 'PRODUCT_LIST_BUY_NOW' => PRODUCT_LIST_BUY_NOW);

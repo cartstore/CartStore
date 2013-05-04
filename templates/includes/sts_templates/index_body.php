@@ -1,8 +1,8 @@
 
 <div class="modulelist">
-  <center><?php
+ <?php
           echo tep_display_banner('dynamic', 'specials');
-?></center>
+?>
  <?php
           include(DIR_WS_MODULES . 'homecats.php');
 ?>

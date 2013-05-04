@@ -45,11 +45,11 @@ $category = tep_db_fetch_array($category_query);
 		print($category['categories_name']);
 		echo ' </h1>';
 		?>
-		<div class="breadcrumbs">
-			<a class="linkup" href="index.php">Home</a> >> <?php
+		<ul class="breadcrumb">
+			<li><a class="linkup" href="index.php">Home</a> <span class="divider">/</span></li> <?php
 			echo $breadcrumb -> trail(' >> ');
 			?>
-		</div>
+		</ul>
 		<div class="cat_desc">
 			<span class="cat_image_wrap"> <?php
 			print(tep_image(DIR_WS_IMAGES . $category['categories_image'], $category['categories_name'], CATEGORY_IMAGE_WIDTH, CATEGORY_IMAGE_HEIGHT));
@@ -421,9 +421,12 @@ include(DIR_WS_TEMPLATES . 'listing_sort_order_conf.php');
 
 		else
 			print($category['categories_name']);
-		?></h1><span class="breadcrumbs"><a class="linkup" href="index.php">Home</a> >> <?php
-		echo $breadcrumb -> trail(' >> ');
-			?></span>
+		?></h1><ul class="breadcrumb">
+			
+			
+			<li><a class="linkup" href="index.php">Home</a> <span class="divider">/</span></li><?php
+		echo $breadcrumb -> trail('');
+			?></ul>
 		<div class="cat_desc">
 			<span class="cat_image_wrap"> <?php
 			print(tep_image(DIR_WS_IMAGES . $category['categories_image'], $category['categories_name'], CATEGORY_IMAGE_WIDTH, CATEGORY_IMAGE_HEIGHT));

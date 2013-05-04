@@ -8,12 +8,9 @@
 ?>
 <!-- best_sellers //-->
 
-<div class="module">
-  <div>
-    <div>
-      <div>
-        <h3>BEST SELLERS</h3>
-        <ul>
+ 
+        <h4>BEST SELLERS</h4>
+       <ul class="nav nav-pills nav-stacked well">
           <?php
       $info_box_contents = array();
       $info_box_contents[] = array('text' => BOX_HEADING_BESTSELLERS);
@@ -30,10 +27,7 @@
       new infoBox($info_box_contents);
 ?>
         </ul>
-      </div>
-    </div>
-  </div>
-</div>
+   
 <!-- best_sellers_eof //-->
 <?php
   }

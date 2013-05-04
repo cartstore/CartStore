@@ -41,9 +41,15 @@ tep_session_unregister('wishlist_id');
 		<h1><?php
 echo $products_name;
 		?></h1>
-	<span class="breadcrumbs"> <?php
-echo $breadcrumb->trail(' &raquo; ');
-			?></span><?php
+	<ul class="breadcrumb"> 
+		
+		<?php
+echo $breadcrumb->trail('');
+			?>
+			
+			
+		</ul>
+<?php
 if (tep_not_null($product_info['products_image'])) {
 		?><span class="pimage"
 		style="margin-right: 10px; float: left">
@@ -416,18 +422,19 @@ echo $product_info['products_info_desc'];
 		<!-- YMM BOF -->
 		<br>
 		<br>
-		<table width="100%" colspan="3">
-		<td class="dataTableHeading" nowrap><b> <?php
+		<table width="100%" class="table table-bordered" colspan="3">
+			
+		<td><b> <?php
 echo TEXT_PRODUCTS_CAR_HEADING;
 		?></b></td>
-		<tr>
-		<td class="dataTableContentUp"><?php
+		<tr class="success"> 
+		<td><?php
 echo TEXT_PRODUCTS_CAR_MAKE;
 		?></td>
-		<td class="dataTableContentUp"><?php
+		<td><?php
 echo TEXT_PRODUCTS_CAR_MODEL;
 		?></td>
-		<td class="dataTableContentUp"><?php
+		<td><?php
 echo TEXT_PRODUCTS_CAR_YEARS;
 		?></td>
 		</tr>

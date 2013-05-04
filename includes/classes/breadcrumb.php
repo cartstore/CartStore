@@ -34,7 +34,7 @@
 if($i>1){
 		
 		if (isset($this->_trail[$i]['link']) && tep_not_null($this->_trail[$i]['link'])) {
-          $trail_string .= '<a href="' . $this->_trail[$i]['link'] . '" class="linkup">' . $this->_trail[$i]['title'] . '</a>';
+          $trail_string .= '<li><a href="' . $this->_trail[$i]['link'] . '" class="">' . $this->_trail[$i]['title'] . '</a><span class="divider">/</span></li>';
         } else {
           $trail_string .= $this->_trail[$i]['title'];
         }
