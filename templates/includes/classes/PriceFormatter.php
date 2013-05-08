@@ -326,16 +326,12 @@ $product_info['specials_new_products_price'] = $specials_price['specials_new_pro
 		$lc_text = '
 		
 		
-		<ul class="product_price_page">
-		<li class="special_word"><span>'
+	<p class="lead text-info">'
 		. $currencies->display_price($this->specialPrice,
 				     tep_get_tax_rate($this->taxClass))
 		. '
-
-
-
-</span></li>
-
+</p>
+ 
 <li>
 <s>'. $currencies->display_price($this->thePrice,
 				     tep_get_tax_rate($this->taxClass)) .'</s></li>';
@@ -361,16 +357,16 @@ $product_info['specials_new_products_price'] = $specials_price['specials_new_pro
 	$msrp_query = tep_db_query("select p.products_id,p.map_price, p.msrp_price from " . TABLE_PRODUCTS . " p where p.products_id = '" . (int)$_GET['products_id'] . "' ");
 	$msrp = tep_db_fetch_array($msrp_query);
 	if ($msrp['msrp_price'] != "0.00")
-		$lc_text .= '<p><span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($msrp['msrp_price'], tep_get_tax_rate($this->taxClass)) . '</span></p>';	
+		$lc_text .= '<s> Msrp ' . $currencies->display_price($msrp['msrp_price'], tep_get_tax_rate($this->taxClass)) . '</s></b></p>';	
       // If you want to change the format of the price/quantity table
       // displayed on the product information page, here is where you do it.
 
     if($this->hasQuantityPrice == true) {
-	$lc_text .= '<span class="quanity_price">Quantity Pricing </span>
+	$lc_text .= '<p class="text-success">Quantity Pricing 
 ';
 		for($i=1; $i<=8; $i++) {
 			if($this->quantity[$i] > 0) {
-				$lc_text .= '<span class="quanity_price">'
+				$lc_text .= ''
 				. $this->quantity[$i]
 				.'+&nbsp;'
 				. $currencies->display_price($this->price[$i],
@@ -384,14 +380,18 @@ $product_info['specials_new_products_price'] = $specials_price['specials_new_pro
       }
       else {
 		if ($this->hasSpecialPrice == true) {
-			$lc_text = '<ul class="product_price_page"><li class="product_price_price">'
+			$lc_text = '<p class="text-info lead">
+			
+			
+			
+			'
 			  . $currencies->display_price($this->specialPrice, tep_get_tax_rate($this->taxClass))
-		. '</li><li><s>'
+		. '</p><s>'
 			  . $currencies->display_price($this->thePrice, tep_get_tax_rate($this->taxClass))
-			  . '</s></li><li class="product_price_save">Save '
+			  . '</s><p class="text-success">Save '
 		. $currencies->display_price($this->thePrice - $this->specialPrice,
 				     tep_get_tax_rate($this->taxClass))
-		. '</li></ul>';
+		. '</p>';
 	    
 		}
 		else {

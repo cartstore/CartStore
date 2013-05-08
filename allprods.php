@@ -40,9 +40,9 @@
 
       $firstletter_nav = '
       
-    <div class="btn-group">
+   <blockquote> <div class="btn-group">
 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-Find Product by Name
+Find Product by First Letter
 <span class="caret"></span>
 </a>
 <ul class="dropdown-menu">
@@ -77,7 +77,7 @@ Find Product by Name
       <li><a href="' . tep_href_link(FILENAME_ALLPRODS, 'fl=Z', 'NONSSL') . '"> Z</A></li>' . '
       <li><a href="' . tep_href_link(FILENAME_ALLPRODS, '', 'NONSSL') . '">' . HEADING_TITLE . '</A></li>
       </ul>
-</div>';
+</div></blockquote>';
       echo $firstletter_nav;
 
       $define_list = array('PRODUCT_LIST_MODEL' => PRODUCT_LIST_MODEL, 'PRODUCT_LIST_NAME' => PRODUCT_LIST_NAME, 'PRODUCT_LIST_MANUFACTURER' => PRODUCT_LIST_MANUFACTURER, 'PRODUCT_LIST_PRICE' => PRODUCT_LIST_PRICE, 'PRODUCT_LIST_QUANTITY' => PRODUCT_LIST_QUANTITY, 'PRODUCT_LIST_WEIGHT' => PRODUCT_LIST_WEIGHT, 'PRODUCT_LIST_IMAGE' => PRODUCT_LIST_IMAGE, 'PRODUCT_LIST_BUY_NOW' => PRODUCT_LIST_BUY_NOW);

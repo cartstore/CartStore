@@ -1,4 +1,3 @@
- <li class="nav-header">ARTICLES</li> 
         <?php
   function tep_show_topic($counter)
   {
@@ -38,7 +37,9 @@
   }
 ?>
         <!-- topics //-->
-        <ul class="nav nav-list">
+        <ul class="nav nav-list well">
+        	 <li class="nav-header">ARTICLES</li> 
+
           <?php
   $info_box_contents = array();
   $info_box_contents[] = array('text' => BOX_HEADING_ARTICLES);

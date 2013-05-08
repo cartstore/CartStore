@@ -49,57 +49,97 @@ echo $breadcrumb->trail('');
 			
 			
 		</ul>
-<?php
-if (tep_not_null($product_info['products_image'])) {
-		?><span class="pimage"
-		style="margin-right: 10px; float: left">
-		<script language="javascript"><!--
+		
+		    <div class="row-null">
+    <div class="span5">
+    	
+    <ul class="thumbnails">
+<li class="span12">
+	
+	<script language="javascript"><!--
 
 		document.write('<?php
-echo '<a href="imagemagic.php?img=images/'.$product_info['products_image'].'&w=400&h=&page=popup" rel="lightbox">'.tep_image(DIR_WS_IMAGES.$product_info['products_image'],addslashes($product_info['products_name']),SMALL_IMAGE_WIDTH,SMALL_IMAGE_HEIGHT,' data-zoomsrc="images/'.$product_info['products_image'].'" class="imageborder" name="source" ').'<div class="clear"></div><center><b>Click here to enlarge</b></center></a><br>'.'';
+echo '<a class="thumbnail" href="imagemagic.php?img=images/'.$product_info['products_image'].'&w=400&h=&page=popup" rel="lightbox">'.tep_image(DIR_WS_IMAGES.$product_info['products_image'],addslashes($product_info['products_name']),SMALL_IMAGE_WIDTH,SMALL_IMAGE_HEIGHT,' data-zoomsrc="images/'.$product_info['products_image'].'" class="imageborder" name="source" ').'<div class="clear"></div><center><b>Click here to enlarge</b></center></a><br>'.'';
 		?>
 ');
 //-->
 		</script>
-	 
-		<span class="extra_images">
-
-		<center>
+		
+		</li>
+		
+		 
+	
+	
+	  
+    	
+    	
+    	<?php
+if (tep_not_null($product_info['products_image'])) {
+		?>
+		
+		
+		 
+<li class="span3">
+		
 		<?php
 		if ($product_info['product_image_2'] != "") {
-		echo '<a href="' . DIR_WS_IMAGES . $product_info['product_image_2'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_2'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
+		echo '<a class="thumbnail" href="' . DIR_WS_IMAGES . $product_info['product_image_2'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_2'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
 		?>
+		
+		</li>
+		
 		<?php
 }
 		?>
+		
+		<li class="span3">
+		
 		<?php
 		if ($product_info['product_image_3'] != "") {
-		echo '<a href="' . DIR_WS_IMAGES . $product_info['product_image_3'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_3'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
+		echo '<a class="thumbnail" href="' . DIR_WS_IMAGES . $product_info['product_image_3'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_3'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
 		?>
+		
+		
 		<?php
 }
 		?>
+		
+		</li>
+		
+		
+		<li class="span3">
+		
 		<?php
 		if ($product_info['product_image_4'] != "") {
-		echo '<a href="' . DIR_WS_IMAGES . $product_info['product_image_4'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_4'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
+		echo '<a class="thumbnail" href="' . DIR_WS_IMAGES . $product_info['product_image_4'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_4'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
 		?>
 		<?php
 }
 		?>
+		
+		</li>
+		
+		
+		<li class="span3">
 		<?php
 		if ($product_info['product_image_5'] != "") {
-		echo '<a href="' . DIR_WS_IMAGES . $product_info['product_image_5'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_5'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
+		echo '<a class="thumbnail" href="' . DIR_WS_IMAGES . $product_info['product_image_5'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_5'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
 		?>
 		<?php
 }
 		?>
+		
+		</li>
+		
+		<li class="span3">
 		<?php
 		if ($product_info['product_image_6'] != "") {
-		echo '<a href="' . DIR_WS_IMAGES . $product_info['product_image_6'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_6'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
+		echo '<a class="thumbnail" href="' . DIR_WS_IMAGES . $product_info['product_image_6'] . '" rel="lightbox">' . tep_image(DIR_WS_IMAGES . $product_info['product_image_6'], $product_info['products_name'], 75, SMALL_IMAGE_HEIGHT) . '</a>';
 		?>
 		<?php
 }
 		?>
+		</li>
 		<?php  //backwards compat with other popular extra iamage ext do not delete needed for migrations
 		$totproducts_extra_images_query=tep_db_query("SELECT products_extra_image, products_extra_images_id FROM ".TABLE_PRODUCTS_EXTRA_IMAGES." WHERE products_id='".$product_info['products_id']."'");
 
@@ -117,24 +157,41 @@ include (DIR_WS_INCLUDES.'products_extra_images.php');
 		<?php	} else	{?>
 
 		<?php }?>
-	
-			</center></span></span>
+		</ul>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		
+		
+		
+    <div class="span7">
 
+		
+		 
+	 
 		<?php
 }
 if ($product_info['map_price'] != "0.00") {
 	if (isset($_SESSION['customer_id'])) {
 		$products_price = $products_price;
 		$products_price .= '<br />
-			<span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($product_info['map_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span>';
+			<span class="label label-important"><i class="icon-tags-3x"></i> MAP Price: ' . $currencies->display_price($product_info['map_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span>';
 	} else {
 		$products_price = '<br />
-			<span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($product_info['map_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span><br>';
+		<span class="label label-important"><i class="icon-tags icon-3x pull-right"></i>Min Advertised Price <br><span class="lead">' . $currencies->display_price($product_info['map_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span></span>';
 	}
 	if (!isset($_SESSION['customer_id'])) {
 		$products_price .= '<br>
-			<span class="ourprice_name">Our Price</span> <br />
-			<span class="our_price_price"><a href="login.php">Login to See Price</a></span>';
+		 
+		</p></b><i class="icon-unlock"></i> <a href="login.php">Login to See Price</a><p><b>';
 	}
 } elseif ($product_info['msrp_price'] != "0.00") {
 	//$products_price = '' . $products_price . '<ul class="product_price_page"> <li>MSRP Price <span>' . $currencies->display_price($product_info['msrp_price'], tep_get_tax_rate($product_info['products_tax_class_id'])) . '</span></li></ul>';
@@ -147,8 +204,8 @@ $newArea = '<div align="right">
 } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
 $newArea = '';
 } elseif ($product_info['products_price'] > 0) {
-$newArea = "<span class='buy_quan'><b>Qty</b><br> " . tep_draw_input_field('cart_quantity', $pf->adjustQty(1), 'size="6"') . " <br>
-" . tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_buy_now.gif', IMAGE_BUTTON_IN_CART) . " </span>";
+$newArea = "<span class='span-null'><b>Qty</b><br> " . tep_draw_input_field('cart_quantity', $pf->adjustQty(1), 'size="6"') . " <br>
+" . tep_draw_hidden_field('products_id', $product_info['products_id']) .'<button type="submit" title="Add to Cart " value="Add to Cart" class="btn btn-large"><i class="icon-shopping-cart icon-large"></i> Add to Cart</button></span>';
 } else {
 $newArea = '';
 }
@@ -171,57 +228,54 @@ echo '
 		<span class="pmodel"><b>SKU <?php
 echo $product_info['products_model'];
 		?></b></span>
-		<br />
+	
 		<?php
 }
 		?>
 		<?php
 if($product_info['products_price']>0&&empty($product_info['products_url'])) {
-echo '<a class="linkup2" href="'.tep_href_link(FILENAME_WISHLIST,tep_get_all_get_params(array('action','products_id')).'wishlist_x=true&products_id='.$product_info['products_id']).'" >[ Add to Wishlist ]</a>';
+echo '<a class="linkup2" href="'.tep_href_link(FILENAME_WISHLIST,tep_get_all_get_params(array('action','products_id')).'wishlist_x=true&products_id='.$product_info['products_id']).'" ><i class="icon-share-alt"></i> Add to Wishlist</a>';
 } else {
 $urlContactUs="email_for_price.php?product_name=".addslashes(addslashes($product_info['products_name']))."&products_model=".$product_info['products_model'];
-echo '<a href="'.$urlContactUs.'">[ Email for Price ]</a>';
+echo '<a href="'.$urlContactUs.'"><i class="icon-envelope"></i> Email for Price</a>';
 }
 		?>
-		<?php
-echo '&nbsp;&nbsp;<a  class="linkup2" href="'.tep_href_link('wishlist.php',tep_get_all_get_params(array('action')).'').'" > [ View Wishlist ]</a>';
-		?>
-		<br />
-		<br />
+	
+		
 		 <?php
 if($product_info['products_price']>0) {
-echo '<span class="price">'.$products_price .'</span><div class="btc"><img src="images/bitcoin_icon16x16.png"><span>BTC 0.21</span></div>';
+echo '<p class="text-info lead"><b>'.$products_price .'</b></p>';
 echo '';
 if((STOCK_CHECK=='true')&&($product_info['products_quantity']<1)) {
-$status_p="<span class=\"orange\">Out of Stock</span>";
+$status_p="<span class=\"label label-important\"><i class=\"icon-qrcode\"></i> Out of Stock</span>";
 } elseif($product_info['products_date_available']>date('Y-m-d H:i:s')) {
-$status_p='<span class=\"green\"><b>Available '.tep_date_long($product_info['products_date_available']).'</b></span>';
+$status_p='<span class=\"label label-warning\"><i class="icon-qrcode"></i> Available '.tep_date_long($product_info['products_date_available']).'</span>';
 } else {
-$status_p="<span class=\"green\"><b>In Stock!</b></span>";
+$status_p="<span class=\"label label-success\"><i class=\"icon-qrcode\"></i> In Stock</span>";
 }
 } else {
 $urlContactUs="email_for_price.php?product_name=".addslashes(addslashes($product_info['products_name']))."&products_model=".$product_info['products_model'];
-echo '<p><span class="ui-icon ui-icon-mail-closed" style="float:left;"></span><a href="'.$urlContactUs.'"><b>Email us for special pricing!</b></a></p>';
+echo '';
 echo '';
 if((STOCK_CHECK=='true')&&($product_info['products_quantity']<1)) {
-$status_p="Out of Stock";
+$status_p="<span class=\"label label-important\"><i class=\"icon-qrcode\"></i> Out of Stock</span>";
 } elseif($product_info['products_date_available']>date('Y-m-d H:i:s')) {
-$status_p='<b>Available '.tep_date_long($product_info['products_date_available']).'</b>';
+$status_p='<span class=\"label label-warning\"><i class="icon-qrcode"></i> Available '.tep_date_long($product_info['products_date_available']).'</span>';
 } else {
-$status_p="<b>In Stock</b>";
+$status_p="<span class=\"label label-success\"><i class=\"icon-qrcode\"></i> In Stock</span>";
 }
 }
 		?>
-	<span class="ui-state-highlight ui-corner-all "><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>Stock Status
+	
 		<?php
 echo $status_p;
 		?>
-</span><br>
+
 		
 		<?php
 if($product_info['products_info_title']!="") {
 print('
-	<span class="ui-state-highlight ui-corner-all "><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>Typiclly Ships In: '.$product_info['products_info_title']) .' Days</span><br>';
+	<span class="label label-info"><i class="icon-truck"></i> Ships In '.$product_info['products_info_title']) .' Days</span>';
 }
 		?>
 		
@@ -237,11 +291,11 @@ $products_points_value=tep_calc_price_pvalue($products_points);
 if(USE_POINTS_FOR_SPECIALS=='true'||$new_price==false) {
 echo '
 
-	<span class="ui-state-highlight ui-corner-all "><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>'.sprintf(TEXT_PRODUCT_POINTS,number_format($products_points,POINTS_DECIMAL_PLACES),$currencies->format($products_points_value)).'</span><br>';
+	<span class="label"><i class="icon-trophy"></i> '.sprintf(TEXT_PRODUCT_POINTS,number_format($products_points,POINTS_DECIMAL_PLACES),$currencies->format($products_points_value)).'</span>';
 } else {
 echo '
 
-		<span class="ui-state-highlight ui-corner-all "><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>	 '.TEXT_PRODUCT_NO_POINTS.'</span><br>
+		<span class="label"><i class="icon-trophy"></i> '.TEXT_PRODUCT_NO_POINTS.'</span>
 
 		
 
@@ -270,13 +324,13 @@ $extra_shipping_query=tep_db_query("select products_ship_price, products_ship_pr
 if(tep_db_num_rows($extra_shipping_query)>0) {
 $extra_shipping=tep_db_fetch_array($extra_shipping_query);
 if($extra_shipping['products_ship_price']=='0.00') {
-echo '<p><i>(Free Shipping for this Item)</i></p>';
+echo '<p><div class="alert alert-info"><small>(Free Shipping for this Item)</small></div>';
 } else {
-echo '<p><i>(This item requires additional shipping of $'.$extra_shipping['products_ship_price'];
+echo '<p><div class="alert alert-info"><small>(This item requires additional shipping of $'.$extra_shipping['products_ship_price'];
 if(($extra_shipping['products_ship_price_two'])>0) {
-echo ' for the first item, and $'.$extra_shipping['products_ship_price_two'].' for each additional item + regular shipping costs.)</i></p>';
+echo ' for the first item, and $'.$extra_shipping['products_ship_price_two'].' for each additional item + regular shipping costs.)';
 } else {
-echo ' + regular shipping costs.)</i></p>';
+echo ' + regular shipping costs.)</spall></div></p>';
 }
 }
 }
@@ -325,25 +379,47 @@ echo '</span>';
 		
 		
 		
-		<div class="clear"></div> <!-- begin tab pane //--> <div class="clear"></div>
-		<br>
+		</div>
+    </div>
+		
+		    <div class="row-null">
+    <div class="span12">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="clear"></div> 
+		
+		
+		<!-- begin tab pane //--> 
+		
+		
+		
+		<div class="clear"></div>
+	
 		<?php
 		$product_description_string = $product_info['products_description'];
 		$tab_array = preg_match_all("|#newtab#(.*)#/newtab#|Us", $product_description_string, $matches, PREG_SET_ORDER);
 		if ($tab_array) {
 		?>
-		<div id="tabs">
-		<ul>
+	<ul class="nav nav-tabs">
 		<?php
 for($i=0,$n=sizeof($matches);$i<$n;$i++) {
 $this_tab_name=preg_match_all("|#tabname#(.*)#/tabname#|Us",$matches[$i][1],$tabname,PREG_SET_ORDER);
 if($this_tab_name) {
-echo ''.'<li><a href="#tabs-'.$i.'"><span>'.$tabname[0][1].'</span></a></li>'.'';
+echo ''.'<li><a href="#tabs-'.$i.'" data-toggle="tab">'.$tabname[0][1].'</a></li>'.'';
 echo '';
 }
 }
 		?>
 		</ul>
+		<div class="tab-content">
 		<?php
 for($i=0,$n=sizeof($matches);$i<$n;$i++) {
 $this_tab_name=preg_match_all("|#tabname#(.*)#/tabname#|Us",$matches[$i][1],$tabname,PREG_SET_ORDER);
@@ -351,7 +427,7 @@ if($this_tab_name) {
 if(preg_match_all("|#tabpage#(.*)#/tabpage#|Us",$matches[$i][1],$tabpage,PREG_SET_ORDER)) {
 require ($tabpage[0][1]);
 } elseif(preg_match_all("|#tabtext#(.*)#/tabtext#|Us",$matches[$i][1],$tabtext,PREG_SET_ORDER)) {
-echo '<div id="tabs-'.$i.'">'.stripslashes($tabtext[0][1]).'</div>';
+echo '<div class="tab-pane" id="tabs-'.$i.'">'.stripslashes($tabtext[0][1]).'</div>';
 }
 echo '
 
@@ -364,11 +440,16 @@ echo '
 		?>
 		</div>
 		<br>
+		
+		
 		<center>
 		<?php
 echo $product_info['products_info_desc'];
 		?>
-		</center> <?php
+		</center> 
+		
+		
+		<?php
 } else
 {
 		?>
@@ -555,6 +636,18 @@ include (DIR_WS_MODULES.'auto_xsell_products.php');
 		<br>
 		<span class="previews"> <?php
 include (DIR_WS_MODULES.'product_reviews_info.php');
-		?></span> </form></td>
+		?></span> 
+		
+		</div>
+     </div>
+		
+		
+		
+		</form>
+		
+		
+		
+		
+		</td>
 	</tr>
 </table>

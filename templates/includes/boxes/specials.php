@@ -31,7 +31,7 @@
 <div class="bottom">
 <div class="cart">
 <a class="readon" href="#">More Info</a>
-<input class="btn button" type="button" value="Add to Cart" input=""/>
+<input class="btn btn-small" type="button" value="Add to Cart" input=""/>
 </div><div class="orginalprice">
 Original Price :<span>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
 </div><div class="salesprice">
@@ -50,11 +50,8 @@ Sales Price :
       if (tep_not_null($random_product_arr)) {
           foreach ($random_product_arr as $random_product) {
 ?>
-<div class="module special">
-  <div>
-    <div>
-      <div>
-        <h3>SPECIALS</h3>
+<div class="">
+<li class="nav-header">Specials</li>
         <!-- specials //-->
         <?php
               $info_box_contents = array();
@@ -63,13 +60,15 @@ Sales Price :
               $info_box_contents = array();
               if ($random_product['map_price'] != "0.00") {
                   if ($_SESSION['customers_email_address'] != '') {
-                      $whats_new_price = '<div class="orginalprice">
-Original Price :<span>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
-</div><div class="salesprice">
+                      $whats_new_price = '
+                      
+               <s>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</s>
+
 
 <span>' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
-</div>';
-                      $whats_new_price .= '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($random_product['msrp_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
+ ';
+
+$whats_new_price .= '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($random_product['msrp_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
 
 <span class="map_name">MAP Price:</span> <span class="map_price">' . $currencies->display_price($random_product['map_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>';
                   } else {
@@ -83,59 +82,65 @@ Original Price :<span>' . $currencies->display_price($random_product['products_p
 <span class="ourprice_name">Our Price:</span> <span class="our_price_price"><a href="login.php">Login to See Price</a></span>';
                   }
               } elseif ($random_product['msrp_price'] != "0.00") {
-                  $whats_new_price = '<div class="orginalprice">
-Original Price :<span>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
-</div><div class="salesprice">
+                  $whats_new_price = '
+<s>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</s>
+
+
 
 <span>' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
-</div>' . '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($random_product['msrp_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>';
+
+ ' . '<span class="msrp_name">MSRP Price:</span> <span class="msrp_price">' . $currencies->display_price($random_product['msrp_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>';
               } else
-                  $whats_new_price = '<div class="orginalprice">
-Original Price :<span>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
-</div><div class="salesprice">
+                  $whats_new_price = '
+<s>' . $currencies->display_price($random_product['products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</s>
+
+
 
 <span>' . $currencies->display_price($random_product['specials_new_products_price'], tep_get_tax_rate($random_product['products_tax_class_id'])) . '</span>
-</div>';
+
+';
               if ($random_product['products_url'] != "") {
-                  $newArea = '<div align="right"><span class="alternate_buy" ><a class="btn button" href=' . $random_product['products_url'] . '" title="' . $random_product['products_url'] . '" >Partner Buy </a></div>';
+                  $newArea = '<div align="right"><span class="alternate_buy" ><a class="btn btn-small" href=' . $random_product['products_url'] . '" title="' . $random_product['products_url'] . '" >Partner Buy </a></div>';
               } elseif (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $newArea = '';
               } elseif ($random_product['products_price'] > 0) {
                   $newArea = '<form method="post" action="' . tep_href_link(basename($PHP_SELF), tep_get_all_get_params(array('action', 'products_id')) . 'action=buy_now&products_id=' . $random_product['products_id']) . '">
-<input class="btn button" type="submit" value="Add to Cart" /></form>';
+<input class="btn btn-small" type="submit" value="Add to Cart" /></form>';
               } else {
-                  $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">Read More</a>';
+                  $newArea = '<a class="btn btn-small" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">Read More</a>';
               }
               if (HIDE_PRICE_NON_LOGGED == "true" && $_SESSION['customers_email_address'] == '') {
                   $whats_new_price = "";
               } else
                   $whats_new_price = $whats_new_price;
-              $info_box_contents[] = array('align' => '', 'text' => '<div class="box">
+              $info_box_contents[] = array('align' => '', 'text' => '
+              
+           <ul class="thumbnails">
+<li class="span12">
+
+<h5><a class="special_title" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">' . $random_product['products_name'] . '</a></h5>
 
 
+<a class="thumbnail" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product["products_id"]) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
 
-<h4><a class="special_title" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product['products_id']) . '">' . $random_product['products_name'] . '</a></h4>
+<p>' . $random_product['products_short'] . '</p>
+<a class="btn btn-small" href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $random_product['products_id']) . '">More Info</a>
+
+ '. $newArea . '<p class="text-success">' . $whats_new_price . '</p>');
+              $info_box_contents[] = array('align' => '', 'text' => '
 
 
-<a class="imagebox" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $random_product["products_id"]) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], 89, SMALL_IMAGE_HEIGHT) . '</a>
-
-<span class="short_desc">' . $random_product['products_short'] . '</span>
-<div class="clear"></div><a class="readon" href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $random_product['products_id']) . '">More Info</a>
-<div class="clear"></div>
-<div class="price">' . $whats_new_price . '</div>' . $newArea);
-              $info_box_contents[] = array('align' => '', 'text' => '<div class="clear"></div>
-              </div>
-
+</li>
+              </ul>
+ 
 
 
 ');
               $info_box_contents[] = array('align' => '', 'text' => '');
               new infoBox($info_box_contents);
 ?>
-        <div class="clear"></div>
-      </div>
-    </div>
-  </div>
+       
+<hr>
 </div>
 <!-- specials_eof //-->
 <?php

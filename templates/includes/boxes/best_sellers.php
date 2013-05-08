@@ -9,8 +9,8 @@
 <!-- best_sellers //-->
 
  
-        <h4>BEST SELLERS</h4>
-       <ul class="nav nav-pills nav-stacked well">
+      <ul class="nav nav-pills nav-stacked well">
+      	<li class="nav-header">Best Sellers</li> 
           <?php
       $info_box_contents = array();
       $info_box_contents[] = array('text' => BOX_HEADING_BESTSELLERS);

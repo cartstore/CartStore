@@ -11,8 +11,8 @@
 
 define('TEXT_PRODUCT_NOT_FOUND', 'Product not found!');
 // Points/Rewards Module V2.00 BOF
-define('TEXT_PRODUCT_POINTS', 'Award Points: %s points valued at %s');
-define('TEXT_PRODUCT_NO_POINTS', 'Points Credit :<font color="#FF0000"> No points awarded for discounted products.</font>');
+define('TEXT_PRODUCT_POINTS', '%s points (%s)');
+define('TEXT_PRODUCT_NO_POINTS', '0 Points');
 // Points/Rewards Module V2.00 EOF
 define('TEXT_CURRENT_REVIEWS', 'Current Reviews:');
 define('TEXT_MORE_INFORMATION', 'For more information, please visit this products <a href="%s" target="_blank"><u>webpage</u></a>.');

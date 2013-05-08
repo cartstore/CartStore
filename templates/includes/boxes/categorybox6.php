@@ -50,7 +50,7 @@
       }
 
       if (count($table) > 0){
-        $output .= '<ul>';
+        $output .= '<ul class="dropdown-menu">';
         $output .= tep_make_cat_ulbranch2($rootcatid, $table, 0, $maxlevel, $limitCat);
         for ($nest = 0; $nest <= $GLOBALS['this_level']; $nest++) {
           $output .= '</ul>';
@@ -68,7 +68,7 @@
           while (list($key, $val) = each($list)) {
               if ($GLOBALS['this_level'] != $level) {
                   if ($GLOBALS['this_level'] < $level) {
-                      $output .= "\n" . '<ul>';
+                      $output .= "\n" . '<ul class="dropdown-menu">';
                   } else {
                       for ($nest = 1; $nest <= ($GLOBALS['this_level'] - $level); $nest++) {
                           $output .= '</ul></li>' . "\n";

@@ -25,6 +25,7 @@
     <meta charset="utf-8">
 $headertags#
  <link href="templates/includes/sts_templates/default/css/bootstrap.min.css" rel="stylesheet" media="screen">
+ <link rel="stylesheet" href="templates/includes/sts_templates/default/css/css/font-awesome.min.css">
  <link href="templates/includes/sts_templates/default/css/bootstrap-responsive.css" rel="stylesheet">
 <link rel="stylesheet" href="templates/includes/sts_templates/default/css/font-awesome.min.css">
 <link href="templates/includes/sts_templates/default/css/template_css.css" rel="stylesheet" type="text/css" />
@@ -38,7 +39,7 @@ $headertags#
 <!-- jQuery UI  |  http://jquery.com/  http://jqueryui.com/  http://jqueryui.com/docs/Theming  -->
 <script src="templates/system/jquery/js/jquery.min.js" type="text/javascript"></script>
 
- <script src="templates/includes/sts_templates/default/js/bootstrap.js"></script>
+ <script src="templates/includes/sts_templates/default/js/bootstrap.min.js"></script>
 
  
  

@@ -17,12 +17,13 @@ pd WHERE pd.newsdesk_id = p.newsdesk_id and pd.language_id = "' . $languages_id 
       if (!tep_db_num_rows($latest_news_var_query)) {
       } //if (!tep_db_num_rows($latest_news_var_query))
       else {
-		  echo '<div class="module">
-  <div>
-    <div>
-      <div>
-        <h3>LATEST</h3>
-        <ul>';
+		  echo '
+
+		  <ul class="nav nav-list well">
+<li class="nav-header">LATEST</li>
+		  
+		  
+      ';
           $info_box_contents = array();
           $info_box_contents[] = array('align' => '', 'text' => BOX_HEADING_NEWSDESK_LATEST);
           new infoBoxHeading($info_box_contents, false, false);
@@ -42,10 +43,7 @@ pd WHERE pd.newsdesk_id = p.newsdesk_id and pd.language_id = "' . $languages_id 
           } //while ($latest_news = tep_db_fetch_array($latest_news_var_query))
           new contentBox($info_box_contents);
 		  echo '</ul>
-      </div>
-    </div>
-  </div>
-</div>';
+    ';
       } //else
 ?>
           <!-- newsdesk_eof //-->

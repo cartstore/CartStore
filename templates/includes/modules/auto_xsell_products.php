@@ -23,11 +23,18 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
       $num_products_xsell = tep_db_num_rows($xsell_query);
       if ($num_products_xsell >= MIN_DISPLAY_ALSO_PURCHASED) {
 ?>
-<div class="modulelist">
-  <div class="module-product">
-    <div class="mbottom">
-      <div class="mTop">
+ 
         <h3>You Might Also Be Interested In</h3>
+        
+   <ul class="thumbnails">
+      
+      
+  
+    
+                                  
+                                  
+        
+        
 <?php
           $info_box_contents = array();
           new contentBoxHeading($info_box_contents);
@@ -87,11 +94,7 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
           }
           new contentBox($info_box_contents);
 ?>
-        <div class="clear"></div>
-      </div>
-    </div>
-  </div>
-</div>
+    
 <?php
       } else {
           $info_box_contents = array();
@@ -121,11 +124,10 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
                                           limit " . MAX_DISPLAY_ALSO_PURCHASED);
       if (tep_db_num_rows($xsell_prod_query) >= MIN_DISPLAY_ALSO_PURCHASED) {
 ?>
-<div class="modulelist">
-  <div class="module-product">
-    <div class="mbottom">
-      <div class="mTop">
-        <h3>You Might Also Be Interested In</h3>
+      <h3>You Might Also Be Interested In</h3>
+        
+   <ul class="thumbnails">
+      
 <?php
           while ($extra_images = tep_db_fetch_array($xsell_prod_query)) {
               $extra_images['products_name'] = tep_get_products_name($extra_images['products_id']);
@@ -140,10 +142,32 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
                 $price = '';
                 $newArea = '<a class="btn button" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">Read More</a>';
               }
-              $info_box_contents[$row][$col] = array('align' => '', 'params' => '', 'text' => '<div class="productWrap item' . $i++ . '"><div class="pimg"><center><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $extra_images['products_image'], $extra_images['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a></center></div><h4><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . $extra_images['products_name'] . '</a></h4>' . $price . '<div class="model">
-              Model: <span> ' . $extra_images['products_model'] . '</span></div>
-              <div class="make">Make: <span>' . $extra_images['manufacturers_name'] . '</span></div>
-              <a class="readon_p" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">More Info</a>' . $newArea . '</div>');
+              $info_box_contents[$row][$col] = array('align' => '', 'params' => '', 'text' => '
+              
+                <li class="span3">   
+              
+              <div class="thumbnail">
+              
+          <a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . tep_image(DIR_WS_IMAGES . $extra_images['products_image'], $extra_images['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
+          
+         <div class="caption"> 
+          
+ <h5><a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">' . $extra_images['products_name'] . '</a></h5>
+ 
+ 
+ <span class="pull-right">' . $price . '</span>
+ 
+ 
+       
+        
+              <a class="btn" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $extra_images['products_id']) . '">More Info</a>' . $newArea . '
+              
+              
+              
+              </div>
+             </div>
+              
+              ');
               $col++;
               if ($col > 2) {
                   $col = 0;
@@ -153,7 +177,7 @@ left join manufacturers m on p.manufacturers_id = m.manufacturers_id)
           new contentBox($info_box_contents);
         }
 ?>
-        <div class="clear"></div>
+    
       </div>
     </div>
   </div>

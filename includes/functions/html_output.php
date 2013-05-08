@@ -416,7 +416,7 @@ function tep_draw_textarea_field2($name, $wrap, $width, $height, $text = '', $pa
   function tep_draw_pull_down_menu($name, $values, $default = '', $parameters = '', $required = false) {
     $field = '<select id="' . tep_output_string($name) . '" name="' . tep_output_string($name) . '"';
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
-    $field .= '>';
+    $field .= ' width="%100" style="width: 100%;">';
     if (empty($default) && isset($GLOBALS[$name])) $default = stripslashes($GLOBALS[$name]);
     for ($i=0, $n=sizeof($values); $i<$n; $i++) {
       $field .= '<option value="' . tep_output_string($values[$i]['id']) . '"';

@@ -1,15 +1,14 @@
-$viewed_products#  $cartbox2#
+$cartbox2#
 
 $login# 
-$also_purchased_products_box#
+<hr>
 
 $specialbox#
 
-$whatsnewbox#
 
 $newsletter#
 
-$rss#   
+$rss2#   
 
 <center>
 <script type="text/javascript"><!--

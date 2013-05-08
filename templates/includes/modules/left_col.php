@@ -29,4 +29,3 @@ $newsdesk_latest#
 <br />
 $calendar#
 
-$rss2#

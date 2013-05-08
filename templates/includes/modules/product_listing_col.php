@@ -37,7 +37,7 @@
 <div class="">
 				<div class="content_sortPagiBar">
 				<div class="row-fluid sortPagiBar">                    
-					<div class="span3 hidden-phone">
+					<div class="span2 hidden-phone">
 						<div class="inner">
 						  <div id="productsview" class="btn-group">
 							<a rel="view-grid" href="#" class="btn"><i class="icon-th"></i></a>
@@ -77,13 +77,13 @@
 			 </div>
                     </div>
 					
-					<div class="span3">
+					<div class="span4">
 					
 					<div class="inner">
            
 	<div class="multi_buy_hide">
 				<div class="multibuy">
-					<input class="btn btn-medium" type="submit" value="Add Selected" onclick="addMulti()" />
+					<button class="btn btn-medium pull-right" type="submit" value="Add Selected" onclick="addMulti()" id="image-button" style="wrap:nowrap;"/>  <i class="icon-shopping-cart"></i> Add Selected</button>
 				</div>
 			</div>
 
@@ -475,7 +475,7 @@ if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || 
 			print('
 			<div class="productitem ui-widget ui-widget-content ui-corner-all">
 			<div class="productimage">
-			<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing[$x]['products_id']) . '"><img src=imagemagic.php?img=images/noimage.jpg&w=' . SMALL_IMAGE_WIDTH . '&h=' . SMALL_IMAGE_WIDTH . '&page=/></a>
+			<a class="thumbnail" href="' . tep_href_link(FILENAME_PRODUCT_INFO, ($cPath ? 'cPath=' . $cPath . '&' : '') . 'products_id=' . $listing[$x]['products_id']) . '"><i class="icon-picture icon-4x"></i></a>
 			' . $model . '
 			</div>
 			<div class="productdes">' . $multibuy . '<h4>' . $prod_name . '</h4>

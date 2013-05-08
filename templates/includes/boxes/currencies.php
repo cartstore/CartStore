@@ -7,7 +7,7 @@
   <div>
     <div>
       <div>
-        <h3>CURRENCY SELECTOR</h3>
+       <li class="nav-header">Currency Selector</li>
         <?php
       $info_box_contents = array();
       $info_box_contents[] = array('text' => BOX_HEADING_CURRENCIES);

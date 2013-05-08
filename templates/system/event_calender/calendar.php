@@ -15,7 +15,7 @@ $today = date('Y/n/d');
 $day_count = cal_days_in_month($type, $month, $year); // Get the amount of days in the chosen month to give to our function.
 
 echo "
-<div class=\"module\">
+<div class=\"module clearfix well\">
 <div>
 <div>
 <div id='calendar'>";
@@ -56,7 +56,7 @@ $next_year = $year + 1;
 		echo "<div class='title_bar'>";
 		//echo "<a href='calendar.php?month=". $change_month ."&year=". $change_year ."'><div class='previous'></div></a>";
 		//echo "<a href='calendar.php?month=". $change_month_next ."&year=". $change_year_next ."'><div class='next'></div></a>";
-		echo "<h3>" . date('F',  mktime(0,0,0,$month,1)) . "&nbsp;" . $year . "</h3>";
+		echo "<li class=\"nav-header\">" . date('F',  mktime(0,0,0,$month,1)) . "&nbsp;" . $year . "</li>";
 
 
 		echo "</div>";

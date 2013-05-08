@@ -16,37 +16,32 @@
       $rand_review = tep_db_fetch_array($rand_review_query);
       $rand_review_text = tep_break_string(tep_output_string_protected($rand_review['reviews_text']), 15, '');
       $info_box_contents[] = array('text' => '
-<div class="module">
- <div>
-  <div>
-   <div><h3>REVIEWS</h3>
+      <div class="">
+<li class="nav-header">Reviews</li>
+      
+      <ul class="thumbnails">
 
-    <div class="box">
-       <h4> <a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . $random_product['products_id'] . '&reviews_id=' . $random_product['reviews_id']) . '">' . $random_product['products_name'] . '</a></h4> 
+<li class="span12">
+  <h5><a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . $random_product['products_id'] . '&reviews_id=' . $random_product['reviews_id']) . '">' . $random_product['products_name'] . '</a></h5> 
+
+<a class="thumbnail" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . $random_product['products_id'] . '&reviews_id=' . $random_product['reviews_id']) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a>
+
   
-    <div class="imgBox"><a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . $random_product['products_id'] . '&reviews_id=' . $random_product['reviews_id']) . '">' . tep_image(DIR_WS_IMAGES . $random_product['products_image'], $random_product['products_name'], 89, SMALL_IMAGE_HEIGHT) . '</a></div> 
   
-  <div class="rating">
-  <a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . $random_product['products_id'] . '&reviews_id=' . $random_product['reviews_id']) . '"><br />
-' . $rand_review_text . ' ..</a><br><span class="star">' . tep_image(DIR_WS_IMAGES . 'stars_' . $random_product['reviews_rating'] . '.gif', sprintf(BOX_REVIEWS_TEXT_OF_5_STARS, $random_product['reviews_rating'])) . '</span></center><br />
-<center><a href="reviews.php">All Reviews</a></center>
+
+  <a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_INFO, 'products_id=' . $random_product['products_id'] . '&reviews_id=' . $random_product['reviews_id']) . '">
+' . $rand_review_text . ' ..</a><br><span class="star">' . tep_image(DIR_WS_IMAGES . 'stars_' . $random_product['reviews_rating'] . '.gif', sprintf(BOX_REVIEWS_TEXT_OF_5_STARS, $random_product['reviews_rating'])) . '
+<a class="btn btn-mini" href="reviews.php">All Reviews</a>
+</li></ul>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>');
+');
   } elseif (isset($_GET['products_id'])) {
       
-      $info_box_contents[] = array('text' => '<div class="module">
-<div>
-<div>
-<div><h3>WRITE REVIEW</h3>
-  <center><a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, 'products_id=' . $_GET['products_id']) . '"></a><a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, 'products_id=' . $_GET['products_id']) . '">' . BOX_REVIEWS_WRITE_REVIEW . '</a></center>
-</div>
-</div>
-</div>
-</div>');
+      $info_box_contents[] = array('text' => '
+      <div class="well">
+      <li class="nav-header">Write Reviews</li>
+<a class="btn" href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS_WRITE, 'products_id=' . $_GET['products_id']) . '">' . BOX_REVIEWS_WRITE_REVIEW . '</a></div>
+');
   } else {
  
       

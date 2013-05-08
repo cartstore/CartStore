@@ -2,12 +2,10 @@
   $manufacturers_query = tep_db_query("select manufacturers_id, manufacturers_name from " . TABLE_MANUFACTURERS . " order by manufacturers_name");
   if ($number_of_rows = tep_db_num_rows($manufacturers_query)) {
 ?>
-<div class="module">
-	<div>
-		<div>
-			<div>
-				<h3>SHOP BY BRAND</h3>
-				<ul>
+<div class="sidebar-nav">
+				<ul class="nav nav-tabs nav-stacked">
+					<li class="nav-header">SHOP BY BRAND</li>
+
 					<!-- manufacturers //-->
 					<?php
 					$info_box_contents = array();
@@ -39,10 +37,8 @@
 					new infoBox($info_box_contents);
 				?>
 				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+		
+
 <?php
 } //if ($number_of_rows = tep_db_num_rows($manufacturers_query))
 ?>

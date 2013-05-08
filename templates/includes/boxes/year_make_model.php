@@ -7,11 +7,9 @@
 ?>
 <!-- year make model //-->
 
-<div class="module">
-  <div>
-    <div>
-      <div>
-        <h3>SELECT VEHICLE</h3>
+<div class="well">
+ 
+    <li class="nav-header">SELECT VEHICLE</li>
         <p style="text-align: center;">
             You can disable this feature for stores that do not require it
         </p>
@@ -162,9 +160,7 @@ function clear_vehicle(){
           $info_box_contents[] = array('form' => tep_draw_form('make_model_year', $action, 'get'), 'text' => tep_draw_pull_down_menu('Make', $Make_array, (isset($Make_selected_var) ? $Make_selected_var : ''), 'onchange="pop_model();"  style="width: 100%"') . '<br /><br />' . '<span id="model_select">' . tep_draw_pull_down_menu('Model', $Model_array, (isset($Model_selected_var) ? $Model_selected_var : ''), 'onchange="pop_year();" style="width: 100%"') . '</span><br /><br />' . '<span id="year_select">' . tep_draw_pull_down_menu('Year', $Year_array, (isset($Year_selected_var) ? $Year_selected_var : ''), 'onchange="document.make_model_year.submit();" style="width: 100%"') . '</span><br /><br />' . $hidden_get_variables . tep_hide_session_id() . '<input class="btn button" type="submit" value="Go" />&nbsp;&nbsp;&nbsp;<a href="javascript: void(0)" onclick="clear_vehicle();return false">Clear Vehicle</a>');
           new infoBox($info_box_contents);
 ?>
-      </div>
-    </div>
-  </div>
+     
 </div>
 <!-- year make model_eof //-->
 <?php

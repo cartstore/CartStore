@@ -2,13 +2,11 @@
 <?php
   if ($cart->count_contents() > 0) {
 ?>
+<div class="well">
+ 
+<li class="nav-header">Shoppping Cart</li>
 
-<div class="module special">
-  <div>
-    <div>
-      <div>
-        <h3>SHOPPING CART</h3>
-        <div class="box">
+
           <?php
       $info_box_contents = array();
       $info_box_contents[] = array('text' => BOX_HEADING_SHOPPING_CART);
@@ -53,8 +51,7 @@ function couponpopupWindow(url) {
       $info_box_contents = array();
       $info_box_contents[] = array('text' => $cart_contents_string);
       if ($cart->count_contents() > 0) {
-          $info_box_contents[] = array('text' => tep_draw_separator());
-          $info_box_contents[] = array('align' => '', 'text' => $currencies->format($cart->show_total()));
+          $info_box_contents[] = array('align' => '', 'text' => '<p class="text-success lead">' .$currencies->format($cart->show_total()) .'</p>');
       }
 // Start - CREDIT CLASS Gift Voucher Contribution
   if (tep_session_is_registered('customer_id')) {
@@ -69,7 +66,6 @@ function couponpopupWindow(url) {
   if (tep_session_is_registered('gv_id')) {
     $gv_query = tep_db_query("select coupon_amount from " . TABLE_COUPONS . " where coupon_id = '" . $gv_id . "'");
     $coupon = tep_db_fetch_array($gv_query);
-    $info_box_contents[] = array('align' => 'left','text' => tep_draw_separator());
     $info_box_contents[] = array('align' => 'left','text' => '<table cellpadding="0" width="100%" cellspacing="0" border="0"><tr><td class="smalltext">' . VOUCHER_REDEEMED . '</td><td class="smalltext" align="right" valign="bottom">' . $currencies->format($coupon['coupon_amount']) . '</td></tr></table>');
 
   }
@@ -79,7 +75,6 @@ if (tep_session_is_registered('cc_id') && $cc_id) {
  $coupon_desc_query = tep_db_query("select * from " . TABLE_COUPONS_DESCRIPTION . " where coupon_id = '" . $cc_id . "' and language_id = '" . $languages_id . "'");
  $coupon_desc = tep_db_fetch_array($coupon_desc_query);
  $text_coupon_help = sprintf("%s",$coupon_desc['coupon_name']);
-   $info_box_contents[] = array('align' => 'left','text' => tep_draw_separator());
    $info_box_contents[] = array('align' => 'left','text' => '<table cellpadding="0" width="100%" cellspacing="0" border="0"><tr><td class="infoBoxContents">' . CART_COUPON . $text_coupon_help . '<br>' . '</td></tr></table>');
    }  
 // End - CREDIT CLASS Gift Voucher Contribution
@@ -87,15 +82,9 @@ if (tep_session_is_registered('cc_id') && $cc_id) {
 	  
       new infoBox($info_box_contents);
 ?>
-          <br />
-          <a class="btn button" href="checkout_shipping.php">Checkout</a>
-          <div class="clear"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+          
+          <a class="btn button btn-primary btn-block" href="checkout_shipping.php"><i class="icon-shopping-cart"></i> Checkout</a>
+ </div>
 <?php
   }
 ?>
