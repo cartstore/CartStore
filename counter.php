@@ -1,1 +1,0 @@
-To kill any trojans
