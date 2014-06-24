@@ -1,5 +1,0 @@
-<?php
-define('MODULE_SHIPPING_PERCENT3_TEXT_TITLE', 'Percentage Rate 3');
-define('MODULE_SHIPPING_PERCENT3_TEXT_DESCRIPTION', 'Percent Rate 3');
-define('MODULE_SHIPPING_PERCENT3_TEXT_WAY', 'Total');
-?>

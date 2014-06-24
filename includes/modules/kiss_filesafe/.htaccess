@@ -1,4 +1,0 @@
-php_flag engine off
-<Files ~ "\.(php*|s?p?html|cgi|pl|ini)$">
-deny from all
-</Files>

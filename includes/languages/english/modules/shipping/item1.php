@@ -1,5 +1,0 @@
-<?php
-define('MODULE_SHIPPING_ITEM1_TEXT_TITLE', 'Per Item 1');
-define('MODULE_SHIPPING_ITEM1_TEXT_DESCRIPTION', 'Per Item 1');
-define('MODULE_SHIPPING_ITEM1_TEXT_WAY', 'Best Way');
-?>

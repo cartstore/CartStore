@@ -1,5 +1,0 @@
-<?php
-define('MODULE_SHIPPING_FLAT1_TEXT_TITLE', 'Flat Rate 1');
-define('MODULE_SHIPPING_FLAT1_TEXT_DESCRIPTION', 'Flat Rate 1');
-define('MODULE_SHIPPING_FLAT1_TEXT_WAY', 'Best Way');
-?>
