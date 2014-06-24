@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><rss version="2.0"><channel>	<title>Title of Newsfeed</title>	<link>http://www.yourdomain.com/</link>	<description>Put the description of the feed here</description>	<language>iso-language-code</language>	<copyright>Copyright: 2005(C) Your Name Here</copyright>	<ttl>60</ttl>
+
+<item><title>Title of news item</title><description>Description of newest news item</description><link>Link to webpage or site of the article</link></item>
+
+<item><title>Older news</title><description>Description of the not so new news</description><link>Link to webpage or site of the article</link></item><item><title>Old news</title> <description>Description of now old news</description> <link>Link to webpage or site of the article</link></item><item> <title>Maximum of 15 items</title> <description> This will keep you compatible with older rssreaders</description> <link>Link to webpage or site of the article</link> </item></channel></rss>

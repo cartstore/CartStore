@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://payments.amazon.com/checkout/2008-11-30/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://payments.amazon.com/checkout/2008-11-30/"
+    elementFormDefault="qualified">
+
+    <xs:include schemaLocation="order.xsd"/>
+
+    <xs:element name="OrderCalculationsRequest" type="tns:OrderCalculationsRequest" />
+	<xs:element name="OrderCalculationsResponse" type="tns:OrderCalculationsResponse" />
+	<xs:element name="OrderCalculationsError" type="tns:OrderCalculationsError" />
+
+    <xs:complexType name="OrderCalculationsRequest">
+        <xs:sequence>
+            <xs:element name="CallbackReferenceId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OrderCalculationCallbacks" type="tns:OrderCalculationCallbacks" minOccurs="1"  maxOccurs="1" />
+            <xs:element name="ClientRequestId" type="xs:string" minOccurs="0"/>
+            <xs:element name="IntegratorId"    type="xs:string" minOccurs="0"/>
+            <xs:element name="IntegratorName" type="xs:string" minOccurs="0"/>
+            <xs:element name="Cart" type="tns:Cart" maxOccurs="1" />
+			<xs:element name="CallbackOrders" type="tns:CallbackOrders" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrderCalculationsResponse">
+		<xs:sequence>
+			<xs:element name="Response">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="Error" type="tns:Error" maxOccurs="1" />
+							<xs:element name="CallbackOrders" type="tns:CallbackOrders" maxOccurs="1" />
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+            <xs:element name="TaxTables" type="tns:TaxTables" minOccurs="0" />
+            <xs:element name="Promotions" type="tns:Promotions" minOccurs="0"/>
+            <xs:element name="ShippingMethods" type="tns:ShippingMethods" minOccurs="0" />
+            <xs:element name="CartPromotionId" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="OrderCalculationsError">
+ 		<xs:sequence>
+			<xs:element name="OrderCalculationsErrorCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OrderCalculationsErrorMessage" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OrderCalculationsRequest" type="tns:OrderCalculationsRequest" minOccurs="1" maxOccurs="1"/>            
+			<xs:element name="OrderCalculationsResponse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+   
+    <xs:complexType name="Address">
+        <xs:sequence>
+            <xs:element name="AddressId" type="xs:string" minOccurs="1"  maxOccurs="1"/>
+            <xs:element name="AddressFieldOne" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="AddressFieldTwo" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="AddressFieldThree" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="City" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="State" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="PostalCode" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+            <xs:element name="CountryCode" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CallbackOrders">
+        <xs:sequence>
+            <xs:element name="CallbackOrder" type="tns:CallbackOrder" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CallbackOrder">
+        <xs:sequence>
+            <xs:element name="Address" type="tns:Address" minOccurs="1" maxOccurs="1" />
+            <xs:element name="CallbackOrderItems" type="tns:CallbackOrderItems" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="CallbackOrderItems">
+		<xs:sequence>
+			<xs:element name="CallbackOrderItem" type="tns:CallbackOrderItem" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CallbackOrderItem">
+		<xs:sequence>
+            <xs:element name="SKU" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="TaxTableId" type="xs:string" minOccurs="0"/>
+            <xs:element name="PromotionIds" type="tns:PromotionIds" minOccurs="0"/>
+            <xs:element name="ShippingMethodIds" type="tns:ShippingMethodIds" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:complexType name="Error">
+        <xs:sequence>
+            <xs:element name="Code" type="tns:ErrorCode" />
+            <xs:element name="Message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="ErrorCode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="INVALID_SHIPPING_ADDRESS"/>
+            <xs:enumeration value="INTERNAL_SERVER_ERROR"/>
+            <xs:enumeration value="SERVICE_UNAVAILABLE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+</xs:schema>

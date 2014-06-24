@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><OrderReadyToShipNotification xmlns="http://payments.amazon.com/checkout/2008-11-30/">
+    <NotificationReferenceId>d936c5d5-9ea9-4e71-95f2-92e1c2bb3427</NotificationReferenceId>
+    <ProcessedOrder>
+        <OrderChannel>Amazon Checkout (Live)</OrderChannel>
+        <AmazonOrderID>103-9676089-9250648</AmazonOrderID>
+        <OrderDate>2009-07-02T10:58:57.000Z</OrderDate>
+        <BuyerInfo>
+            <BuyerName>Map Buyer 02</BuyerName>
+            <BuyerEmailAddress>map-buyer+02@amazon.com</BuyerEmailAddress>
+        </BuyerInfo>
+        <ShippingAddress>
+            <Name>California Address</Name>
+            <AddressFieldOne>1156 High St</AddressFieldOne>
+            <City>Santa Cruz</City>
+            <State>CA</State>
+            <PostalCode>95064</PostalCode>
+            <CountryCode>US</CountryCode>
+        </ShippingAddress>
+        <ShippingServiceLevel>Standard</ShippingServiceLevel>
+        <ProcessedOrderItems>
+            <ProcessedOrderItem>
+                <AmazonOrderItemCode>34275235482146</AmazonOrderItemCode>
+                <MerchantId>A161FGV2183AB6</MerchantId>
+                <SKU>28</SKU>
+                <Title>SriTest</Title>
+                <Description>SriTest</Description>
+                <ClientRequestId>cartId:50845</ClientRequestId>
+                <CartId>miq://rose:1.0/cart/cba:1.0/cart:2.0/AZ4B0ZS3LGLX/A161FGV2183AB6/2-1246532290569-4C37BE29B631C1B6</CartId>
+                <IntegratorId>A2E8RSUU6OBDEI</IntegratorId>
+                <IntegratorName>OSCommercev2.0MS2</IntegratorName>
+                <Price>
+                    <Amount>0.14</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                </Price>
+               <Quantity>1</Quantity>
+                <Weight>
+                    <Amount>1.0</Amount>
+                    <Unit>lb</Unit>
+                </Weight>
+                <Category>Uncategorised</Category>
+                <FulfillmentNetwork>MERCHANT</FulfillmentNetwork>
+                <ItemCharges>
+                    <Component>
+                        <Type>Principal</Type>
+                        <Charge>
+                            <Amount>0.14</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>Shipping</Type>
+                        <Charge>
+                            <Amount>1.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>Tax</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>ShippingTax</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>PrincipalPromo</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>ShippingPromo</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                </ItemCharges>
+                <CartCustomData>
+                    <ShippingMapping>
+                        <Carrier>FedEx1</Carrier>
+                        <StandardOverride>flat</StandardOverride>
+                        <Domestic>
+                            <Standard/>
+                            <Expedited>Priority (by 10:30AM, later for rural)</Expedited>
+                            <OneDay>First Overnight</OneDay>
+                            <TwoDay>Standard Overnight (by 3PM, later for rural)</TwoDay>
+                        </Domestic>
+                        <International>
+                            <Standard>International Priority (1-3 Days)</Standard>
+                            <Expedited>International Economy (4-5 Days)</Expedited>
+                            <OneDay>Home Delivery</OneDay>
+                            <TwoDay>International First</TwoDay>
+                        </International>
+                    </ShippingMapping>
+                </CartCustomData>
+            </ProcessedOrderItem>
+        </ProcessedOrderItems>
+        <DisplayableShippingLabel>Standard</DisplayableShippingLabel>
+    </ProcessedOrder>
+</OrderReadyToShipNotification>

@@ -1,0 +1,42 @@
+/* PHP Event Calendar CSS */
+
+body { font: 62.5% "Lucida Grande", Arial, sans-serif; background-color: #f6f6f6; color: #333; }
+
+a { text-decoration: none; color: #333; }
+a:hover { text-decoration: none; }
+
+h1 { font:30px Arial, Helvetica, sans-serif; letter-spacing:-1px; padding:30px 0 0 0; margin: 0; }
+h2 { font:15px Arial, Helvetica, sans-serif; padding-bottom: 3px; margin-bottom: 0; }
+
+.list { margin: 0 auto; width: 380px; padding: 10px; background-color: #fff; }
+#event_row { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dotted #ccc; }
+#event_row_last { padding-bottom: 5px; }
+
+#header, #calendar, #main, #footer { margin: 0 auto;margin-bottom: 15px; width: 940px; overflow: hidden; }
+#calendar, #main { background-color: #fff; border: 1px solid #cbcbcb; -moz-border-radius: 5px; -webkit-border-radius:5px; }
+
+#calendar_wrap { width: 924px; margin-left: 10px; margin-bottom: 6px; overflow: hidden; text-align: left; }
+#calendar_wrap .title_bar { font-weight: bold; color: #1C1C1C; text-align: center;  border:1px solid #fff; margin-bottom:15px; margin-top:10px; }
+#calendar_wrap .title_bar .previous { float: left; display: block; width: 25px; height: 20px; background: url(assets/previous_month.gif) left top no-repeat; margin-top:10px; margin-left:10px;  }
+#calendar_wrap .title_bar .next { float: right; display: block; width: 25px; height: 20px; background: url(assets/next_month.gif) right top no-repeat; margin-top:10px; margin-right:10px;  }
+#calendar_wrap .title_bar .month {  width: 800px; margin:10px auto; padding-bottom:0 !important; padding-bottom:10px; }
+#calendar_wrap .title_bar h2 { font-size: 16px;     }
+
+.cal_day { position: relative; float: left; margin: 0 4px 4px 0 !important; margin:0 4px -24px 0; width: 128px; height: 95px; background: url(assets/day.png) top no-repeat; }
+.cal_day .day_heading { position: relative; float: left; width: 40px; height: 16px; padding: 6px; text-transform: uppercase; font: 14px Arial; color: #FFF; }
+.cal_day .day_count { position: relative; float: right; width: 64px; text-align: right; height: 16px; padding: 6px; font: 11px Arial, sans-serif; color: #FFF; }
+.cal_day .day_number { width: 100%; font: 52px Arial; font-weight: bold; color: #2b2b2b; height:95px; text-align: center; z-index:999; clear:left; }
+.cal_day .day_number.today { color: #08c; }
+
+span.event { width:55px; margin-top: -1px; padding:2px 0 !important; padding:1px 0 1px; display:inline-block; text-align:center; background-color: #000; opacity:0.4; filter:alpha(opacity=40); -moz-border-radius: 8px; -webkit-border-radius:8px; }
+
+#footer { text-align: right; font-size: 10px; }
+
+a.jigowatt {
+	text-indent:-9999px;
+	display:inline-block;
+	text-align:left;
+	width:84px;
+	height:11px;
+	background:url(admin/assets/logo.gif) no-repeat;
+}

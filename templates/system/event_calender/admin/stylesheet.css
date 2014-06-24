@@ -1,0 +1,75 @@
+/* PHP Event Calendar | Control Panel CSS */
+
+* { outline:none; }
+body { font: 72.5% "Lucida Grande", Arial, sans-serif; margin: 30px 0; background-color: #f6f6f6; color: #666; }
+a { color: #08c; text-decoration: none; }
+a:hover { text-decoration: none; color:#333; }
+
+h2 { font: 30px Arial, Helvetica, sans-serif; color: #333; letter-spacing:-1px; padding: 0; margin: 0; }
+h3 { font:18px Arial; letter-spacing:-1px; color:#333; }
+
+#admin_main, #admin_header, #footer {
+margin: 0 auto; width: 540px; margin-bottom: 10px; overflow: hidden; }
+
+#admin_main { padding: 15px; width: 510px; border: 1px solid #cbcbcb; -moz-border-radius: 10px; -webkit-border-radius:10px; background:#fff; }
+#admin_title { float: left; }
+#admin_logout { float: right; }
+
+.error_message { display: block; height: 22px; line-height: 22px; background: #FBE3E4 url(assets/error.gif) no-repeat 10px center; padding: 3px 10px 3px 35px; margin: 10px 0; color:#8a1f11;border: 1px solid #FBC2C4; -moz-border-radius: 5px; -webkit-border-radius:5px; }
+
+.success_message { display: block; height: 22px; line-height: 22px; padding: 3px 10px 3px 35px; margin: 0; color:#666; border: 1px solid #A0D997; -moz-border-radius: 5px; -webkit-border-radius:5px; background-color: #D6FFD8; background-image: url(assets/success.gif); background-repeat: no-repeat; background-position: 10px center; color:#436213; }
+
+#footer { text-align: right; font-size: 10px; }
+
+span.add a { height:52px; width:250px; display:block; text-indent:-9999px; background:url(assets/add.png) bottom no-repeat; float:left; margin-top:15px; }
+span.add a:hover { background-position:top; }
+
+span.edit a { height:52px; width:250px; display:block; text-indent:-9999px; background:url(assets/edit.png) bottom no-repeat;  margin-left:259px !important; margin-left:257px; margin-top:15px; }
+span.edit a:hover { background-position:top; }
+
+ul.upcoming-events { margin: 5px 0; padding:0; }
+ul.upcoming-events li { line-height: 25px; border-bottom: 1px dotted #ccc; list-style: none; }
+ul.upcoming-events li a { display: block; }
+ul.upcoming-events li a:hover { background: #FFF url(./assets/pencil.gif) right center no-repeat; }
+span.upcoming-date { color:#999; }
+
+label {
+	display:block;
+	font-weight:bold;
+	color:#888;
+	font:10px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	margin:12px 0 4px;
+}
+
+input, textarea, select {
+	padding:7px;
+	border:1px solid #eee;
+	font:16px Arial, Helvetica, sans-serif;
+	width:490px;
+	color:#999;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+input[type=submit], input.submit {
+	width:auto;
+	background:#08c;
+	border:1px solid #06a;
+	color:#fff;
+	font-weight:bold;
+	margin-top:15px;
+	cursor:pointer;
+	width:auto;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	padding:5px;
+}
+
+input[type=submit]:hover, input[type=submit]:focus, input.submit:hover, input.submit:focus { background:#06a; color:#fff; }
+
+.checkbox { width:auto; }
+input.edit_search { width:400px; }
+select { width:auto; }
+input:focus, textarea:focus { border-color:#ccc; color:#555; }
+a.jigowatt { text-indent:-9999px; display:inline-block; text-align:left; width:84px; height:11px; background:url(assets/logo.gif) no-repeat; }

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Amazon Payments</title>
+  <style>
+	a,body,html,table{
+		font:normal normal 12px Verdana,sans-serif;
+	}
+	table{
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+	}
+	tr th {
+		background-color: #efefef;
+	}
+	tr td {
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+	}
+  </style>
+ </head>
+ <body>
+<b>Order Status History</b><br/>
+Reflects the statuses that an order went through on Amazon and corresponding status changes in your website. 
+<u>The last row in this table reflects the latest update on this order.</u>
+<br/><br/>
+The order status history is updated when
+<ul>
+<li>An order moves into a new state on Amazon</li>
+<li>A request is sent from OSCommerce orders UI to Amazon in order to update the status.</li>
+</li>
+</ul>
+<br/>
+
+<b>The order status history shows the following information:</b>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr><th>Status</th><th>Explanation</th></tr>
+	<tr>
+		<td width="25%">Amazon Order Status</td>
+		<td>Reflects the operation performed on this order at amazon (Unshipped\Shipped\Refund Applied\Canceled) with a corresponding status (Initiated\Succes\Failure)</td>
+	</tr>
+	<tr>
+		<td>OSCommerce Order Status</td>
+		<td>Reflects the corresponding status applied to this order on your website.</td>
+	</tr>
+	<tr>
+		<td>Initiated On</td>
+		<td>The time when the operation was initiated from your website requesting Amazon for a status change on the order</td>
+	</tr>
+	<tr>
+		<td>Completed On</td>
+		<td>The time when a notification was received by your Website after the operation completed on Amazon.</td>
+	</tr>
+	<tr>
+		<td>Comments</td>
+		<td>You can use this message to decide the next action for this order.</td>
+	</tr>
+</table><br/>
+<input type="button" value="Close this Window" onclick="window.close();">
+</body>
+</html>

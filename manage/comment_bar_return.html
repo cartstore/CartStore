@@ -1,0 +1,64 @@
+<html>
+<head>
+   <script language="JavaScript">
+   <!--
+
+   function updateComment(obj) {
+		  mytextarea = document.getElementsByTagName("TEXTAREA"); 
+		  if(!obj.length)
+		  {
+			mytextarea[0].value = "";
+			return;
+		  }
+		  if(obj == 'Date')
+		  {
+   		    if(mytextarea[0].value != "")
+			{
+				mytextarea[0].value += "\n";
+			}
+		    mytextarea[0].value += Date();
+			mytextarea[0].value += ":\n";
+			return;
+		  }
+		  if (mytextarea.length)
+		  {
+		    if(mytextarea[0].value != "")
+			{
+				mytextarea[0].value += "\n";
+			}
+			mytextarea[0].value += Date();
+			mytextarea[0].value += ":\n";
+			mytextarea[0].value += obj;
+		  }
+   }
+   //-->
+   </script>
+
+<style type="text/css">
+.cbutton { font-family: Verdana; font-size: 9px; padding: 0px; border-bottom: 1px solid #000000; border-right: 1px solid #000000; border-top: 1px solid #CCCCCC; border-left: 1px solid #CCCCCC; cursor: hand;}
+   </style>
+
+</head>
+<body>
+
+<!--
+Edit the following buttons to make the buttons
+and text inserts of your liking.
+
+e.g. <button class="cbutton" onClick="updateComment('Comment to insert for this button');">Button Name</button>&amp;amp;amp;nbsp;
+
+Just copy and paste the above line to insert more buttons.
+-->
+
+<button class="cbutton" onClick="updateComment('Date');">Date</button>
+<button class="cbutton" onClick="updateComment('Your return request has been approved. Provided the item is in its original condition and packaging, you may ship the item back to us using the provided return shipping label. This label is attached to the packing slip that was included in the package. Shipment via a traceable method is highly recommended. <br /><br />Please note that all returns must be received within 15 days of RMA issuance. Upon receipt of the returned item, store credit for the amount of the purchased item will be issued electronically to the email address that was provided when the order was placed.');">Accepted</button>&nbsp;
+<button class="cbutton" onClick="updateComment('Your return request has been declined.<br />Please contact us for more information.');">Rejected</button>&nbsp;
+<button class="cbutton" onClick="updateComment('Your return request has been processed. A restocking fee will apply for this product return.<br />Your refund should appear within one or two billing statement cycles.');">Restock Charge Applied</button>&nbsp;
+<button class="cbutton" onClick="updateComment('Your account as been refunded and made in the same manner of your original payment. Your refund should appear within one or two billing statement cycles.');">Refund Made</button>&nbsp;
+<button class="cbutton" onClick="updateComment('Your return has been processed. We have sent a separate message containing a store credit code, issued in exchange for your recent product return. You can redeem this code during checkout when placing your next order. After redeeming, the credited funds will be available in your account. Simply check the box that will appear near the bottom of the payment screen to apply the credit to your order. On the final confirmation screen, please check that the credit is properly reflected in your account prior to submitting your order. Please let us know if you have any questions.');">Credit Issued</button>
+<button class="cbutton" onClick="updateComment('');">Clear all</button>
+
+</body>
+</html>
+
+

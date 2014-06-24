@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><OrderCancelledNotification xmlns="http://payments.amazon.com/checkout/2008-11-30/">
+    <NotificationReferenceId>4482f4ec-865a-4adb-9542-4be9c1b49cfa</NotificationReferenceId>
+    <ProcessedOrder>
+        <OrderChannel>Amazon Checkout (Live)</OrderChannel>
+        <AmazonOrderID>103-7190884-9726621</AmazonOrderID>
+        <OrderDate>2009-07-13T06:42:18.000Z</OrderDate>
+        <BuyerInfo>
+            <BuyerName>bala test</BuyerName>
+            <BuyerEmailAddress>mbchandar2@gmail.com</BuyerEmailAddress>
+        </BuyerInfo>
+        <ShippingAddress>
+            <Name>balachandar muruganantham</Name>
+            <AddressFieldOne>pac mac building</AddressFieldOne>
+            <City>Seattle</City>
+            <State>WA</State>
+            <PostalCode>98144</PostalCode>
+            <CountryCode>US</CountryCode>
+        </ShippingAddress>
+        <ShippingServiceLevel>Standard</ShippingServiceLevel>
+        <ProcessedOrderItems>
+            <ProcessedOrderItem>
+                <AmazonOrderItemCode>08425219903122</AmazonOrderItemCode>
+                <MerchantId>A161FGV2183AB6</MerchantId>
+                <SKU>19</SKU>
+                <Title>There\'s Something About Mary</Title>
+                <Description>Regional Code: 2 (Japan, Europe, Middle East, South Africa).
+&lt;br&gt;
+Languages: English, Deutsch.
+&lt;br&gt;
+Subtitles: English, Deutsch, Spanish.
+&lt;br&gt;
+Audio: Dolby Surround 5.1.
+&lt;br&gt;
+Picture Format: 16:9 Wide-Screen.
+&lt;br&gt;
+Length: (approx) 114 minutes.</Description>
+                <ClientRequestId>cartId:73889</ClientRequestId>
+                <CartId>miq://rose:1.0/cart/cba:1.0/cart:2.0/AZ4B0ZS3LGLX/A161FGV2183AB6/1-1247467311822-FA087C2F23DC5A1F</CartId>
+                <IntegratorId>A2E8RSUU6OBDEI</IntegratorId>
+                <IntegratorName>OSCommercev2.2RC2</IntegratorName>
+                <Price>
+                    <Amount>0.01</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                </Price>
+                <Quantity>0</Quantity>
+                <Weight>
+                    <Amount>0.01</Amount>
+                    <Unit>lb</Unit>
+                </Weight>
+                <Category>Comedy</Category>
+                <FulfillmentNetwork>MERCHANT</FulfillmentNetwork>
+                <CartCustomData>
+                    <ShippingMapping>
+                        <Carrier>FedEx1</Carrier>
+                        <StandardOverride>flat</StandardOverride>
+                        <Domestic>
+                            <Standard/>
+                            <Expedited>Priority (by 10:30AM, later for rural)</Expedited>
+                            <OneDay>Standard Overnight (by 3PM, later for rural)</OneDay>
+                            <TwoDay>2 Day Air</TwoDay>
+                        </Domestic>
+                        <International>
+                            <Standard>Home Delivery</Standard>
+                            <Expedited/>
+                            <OneDay>International First</OneDay>
+                            <TwoDay>International Priority (1-3 Days)</TwoDay>
+                        </International>
+                    </ShippingMapping>
+                </CartCustomData>
+            </ProcessedOrderItem>
+        </ProcessedOrderItems>
+        <DisplayableShippingLabel>Standard Shipping</DisplayableShippingLabel>
+    </ProcessedOrder>
+</OrderCancelledNotification>

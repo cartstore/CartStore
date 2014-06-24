@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><OrderCancelledNotification xmlns="http://payments.amazon.com/checkout/2008-11-30/">
+    <NotificationReferenceId>95c378c3-7d8c-4277-91c5-fbc3e4def316</NotificationReferenceId>
+    <ProcessedOrder>
+        <OrderChannel>Amazon Checkout (Live)</OrderChannel>
+        <AmazonOrderID>002-5472038-6661864</AmazonOrderID>
+        <OrderDate>2009-07-07T14:19:39.000Z</OrderDate>
+        <BuyerInfo>
+            <BuyerName>Map Buyer 02</BuyerName>
+            <BuyerEmailAddress>map-buyer+02@amazon.com</BuyerEmailAddress>
+        </BuyerInfo>
+        <ShippingAddress>
+            <Name>Seattle Address</Name>
+            <AddressFieldOne>5th and Jackson</AddressFieldOne>
+            <City>Seattle</City>
+            <State>WA</State>
+            <PostalCode>98104</PostalCode>
+            <CountryCode>US</CountryCode>
+        </ShippingAddress>
+        <ShippingServiceLevel>Standard</ShippingServiceLevel>
+        <ProcessedOrderItems>
+            <ProcessedOrderItem>
+                <AmazonOrderItemCode>59213613707234</AmazonOrderItemCode>
+                <MerchantId>A161FGV2183AB6</MerchantId>
+                <SKU>28</SKU>
+                <Title>SriTest</Title>
+                <Description>SriTest</Description>
+                <ClientRequestId>cartId:06816</ClientRequestId>
+                <CartId>miq://rose:1.0/cart/cba:1.0/cart:2.0/AZ4B0ZS3LGLX/A161FGV2183AB6/2-1246976339880-E38E9918BDF76102</CartId>
+                <IntegratorId>A2E8RSUU6OBDEI</IntegratorId>
+                <IntegratorName>OSCommercev2.0MS2</IntegratorName>
+                <Price>
+                    <Amount>0.14</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                </Price>
+                <Quantity>2</Quantity>
+                <Weight>
+                    <Amount>1.0</Amount>
+                    <Unit>lb</Unit>
+                </Weight>
+                <Category>Uncategorised</Category>
+                <FulfillmentNetwork>MERCHANT</FulfillmentNetwork>
+                <CartCustomData>
+                    <ShippingMapping>
+                        <Carrier>FedEx1</Carrier>
+                        <StandardOverride>flat</StandardOverride>
+                        <Domestic>
+                            <Standard/>
+                            <Expedited>Priority (by 10:30AM, later for rural)</Expedited>
+                            <OneDay>First Overnight</OneDay>
+                            <TwoDay>Standard Overnight (by 3PM, later for rural)</TwoDay>
+                        </Domestic>
+                        <International>
+                            <Standard>International Priority (1-3 Days)</Standard>
+                            <Expedited>International Economy (4-5 Days)</Expedited>
+                            <OneDay>Home Delivery</OneDay>
+                            <TwoDay>International First</TwoDay>
+                        </International>
+                    </ShippingMapping>
+                </CartCustomData>
+            </ProcessedOrderItem>
+        </ProcessedOrderItems>
+        <DisplayableShippingLabel>Standard</DisplayableShippingLabel>
+    </ProcessedOrder>
+</OrderCancelledNotification>

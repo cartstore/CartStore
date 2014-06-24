@@ -1,0 +1,27 @@
+.uTable {
+	width: 750px;
+}
+
+.uTR {
+	color: red !important;
+}
+
+.uTD {
+	padding-left: 8px;
+	padding-top: 5px;
+}
+
+fieldset {
+	width: 750px;
+}
+legend {
+padding-top: 15px;
+	#padding-top: 0px;
+	margin-bottom: 20px;
+}
+
+.uSubmit {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 11px;
+}

@@ -1,0 +1,121 @@
+/* PHP Event Calendar CSS */
+
+
+
+
+
+
+.list {
+	margin: 0 auto;
+	width: 380px;
+	padding: 10px;
+	background-color: #fff;
+}
+#event_row {
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px dotted #ccc;
+}
+#event_row_last {
+	padding-bottom: 5px;
+}
+#header, #calendar, #main, #footer {
+
+}
+#calendar, #main {
+ }
+#leftCol .module div#calendar_wrap {
+	text-align:center;
+	margin-left: 5px;
+	display: block;
+ }
+#calendar_wrap .title_bar {
+	font-weight: bold;
+}
+#calendar_wrap .title_bar .previous {
+	float: left;
+	display: none;
+	width: 25px;
+	height: 20px;
+	background: url(assets/previous_month.gif) left top no-repeat;
+	margin-top:10px;
+	margin-left:10px;
+}
+#calendar_wrap .title_bar .next {
+	float: right;
+	display: none;
+	width: 25px;
+	height: 20px;
+	background: url(assets/next_month.gif) right top no-repeat;
+	margin-top:10px;
+	margin-right:10px;
+}
+#calendar_wrap .title_bar .month {
+	width: 800px;
+	margin:10px auto;
+	padding-bottom:0 !important;
+	padding-bottom:10px;
+}
+#calendar_wrap .title_bar h2 {
+	font-size: 16px;
+}
+.cal_day {
+	position: relative;
+	float: left;
+	width: 25px;
+ 	font-size: 10px;
+	text-align: center;
+	border: 1px dotted #CCCCCC;
+	padding: 2px;
+
+}
+#leftCol .module span.cal_day span.day_heading {
+	position: relative;
+ 	text-align: center;
+    display: block;
+	text-transform: uppercase;
+ 	background-color: #CCCCCC;
+ }
+.cal_day .day_count {
+	position: relative;
+	text-align: right;
+    display: block;
+}
+.cal_day .day_number {
+	font-weight: bold;
+	text-align: center;
+	z-index:999;
+	clear:left;
+    display: block;
+}
+.cal_day .day_number.today {
+	color: #08c;
+}
+span.event {
+
+	display:block;
+	text-align:center;
+
+}
+#footer {
+	text-align: right;
+	font-size: 10px;
+}
+a.jigowatt {
+	text-indent:-9999px;
+	display:inline-block;
+	text-align:left;
+	width:84px;
+	height:11px;
+	background:url(admin/assets/logo.gif) no-repeat;
+}
+.cal_day  {
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+display: block;
+}
+.cal_day .event {
+	color: #FF0000;
+display: block;
+}

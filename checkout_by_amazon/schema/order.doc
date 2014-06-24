@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><Order xmlns="http://payments.amazon.com/checkout/2008-11-30/">
+  <ClientRequestId>cartId:51985</ClientRequestId>
+  <Cart>
+    <Items>
+      <Item>
+        <SKU>DVD-TSAB</SKU>
+        <MerchantId>A22OSABDJYE3TN</MerchantId>
+	<Title>Sri</Title>
+        <Description>Regional Code: 2 (Japan, Europe, Middle East, South Africa).
+&lt;br&gt;
+Languages: English, Deutsch.
+&lt;br&gt;
+Subtitles: English, Deutsch, Spanish.
+&lt;br&gt;
+Audio: Dolby Surround 5.1.
+
+&lt;br&gt;
+Picture Format: 16:9 Wide-Screen.
+&lt;br&gt;
+Length: (approx) 114 minutes.
+</Description>
+        <Price>
+          <Amount>0.01</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+        </Price>
+        <Quantity>1</Quantity>
+        <Weight>
+          <Amount>0.01</Amount>
+          <Unit>lb</Unit>
+        </Weight>
+        <Category>Comedy</Category>
+      </Item>
+    </Items>
+  </Cart>
+  <ReturnUrl>http://map-1002.amazon.com/catalog/index.php</ReturnUrl>
+  <ShippingAddresses>
+  <ShippingAddress>
+            <Name>Seattle Address</Name>
+            <AddressFieldOne>5th and Jackson</AddressFieldOne>
+            <City>Seattle</City>
+            <State>WA</State>
+            <PostalCode>98104</PostalCode>
+            <CountryCode>US</CountryCode>
+        </ShippingAddress>
+  </ShippingAddresses>
+</Order>

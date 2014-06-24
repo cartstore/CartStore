@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><NewOrderNotification xmlns="http://payments.amazon.com/checkout/2008-11-30/">
+    <NotificationReferenceId>q55501cba-4151-4b0d-afaa-eaf8c519d85c</NotificationReferenceId>
+    <ProcessedOrder>
+        <OrderChannel>Amazon Checkout (Live)</OrderChannel>
+        <AmazonOrderID>092-5469850-2011466</AmazonOrderID>
+        <OrderDate>2009-08-17T15:38:08.000Z</OrderDate>
+        <BuyerInfo>
+            <BuyerName>Map Buyer 02</BuyerName>
+            <BuyerEmailAddress>map-buyer+02@amazon.com</BuyerEmailAddress>
+        </BuyerInfo>
+        <ShippingAddress>
+            <Name>Seattle Address</Name>
+            <AddressFieldOne>5th and Jackson</AddressFieldOne>
+            <City>Seattle</City>
+           <State>WA</State>
+            <PostalCode>98104</PostalCode>
+            <CountryCode>US</CountryCode>
+        </ShippingAddress>
+        <ShippingServiceLevel>Standard</ShippingServiceLevel>
+        <ProcessedOrderItems>
+            <ProcessedOrderItem>
+                <AmazonOrderItemCode>22309534372234</AmazonOrderItemCode>
+                <MerchantId>A22OSABDJYE3TN</MerchantId>
+                <SKU>19</SKU>
+                <Title>There\'s Something About Mary</Title>
+                <Description>Regional Code: 2 (Japan, Europe, Middle East, South Africa).
+&lt;br&gt;
+Languages: English, Deutsch.
+&lt;br&gt;
+Subtitles: English, Deutsch, Spanish.
+&lt;br&gt;
+Audio: Dolby Surround 5.1.
+&lt;br&gt;
+Picture Format: 16:9 Wide-Screen.
+&lt;br&gt;
+Length: (approx) 114 minutes.</Description>
+                <ClientRequestId>cartId:51741</ClientRequestId>
+                <CartId>miq://rose:1.0/cart/cba:1.0/cart:2.0/AZ4B0ZS3LGLX/A22OSABDJYE3TN/2-1250523420761-688E72728248BC69</CartId>
+                <IntegratorId>A2E8RSUU6OBDEI</IntegratorId>
+                <IntegratorName>OSCommercev2.2RC2</IntegratorName>
+                <Price>
+                    <Amount>0.01</Amount>
+                    <CurrencyCode>USD</CurrencyCode>
+                </Price>
+                <Quantity>1</Quantity>
+                <Weight>
+                    <Amount>0.01</Amount>
+                    <Unit>lb</Unit>
+                </Weight>
+                <Category>Comedy</Category>
+                <FulfillmentNetwork>MERCHANT</FulfillmentNetwork>
+                <ItemCharges>
+                    <Component>
+                        <Type>Principal</Type>
+                        <Charge>
+                            <Amount>0.01</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+
+                        <Type>Shipping</Type>
+                        <Charge>
+                            <Amount>0.08</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>Tax</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>ShippingTax</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>PrincipalPromo</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                    <Component>
+                        <Type>ShippingPromo</Type>
+                        <Charge>
+                            <Amount>0.0</Amount>
+                            <CurrencyCode>USD</CurrencyCode>
+                        </Charge>
+                    </Component>
+                </ItemCharges>
+                <CartCustomData>
+                    <MerchantCartCustomData>
+                        <SRI>HELLO</SRI>
+                        <ASHA>GORUR</ASHA>
+                    </MerchantCartCustomData>
+                </CartCustomData>
+            </ProcessedOrderItem>
+        </ProcessedOrderItems>
+        <DisplayableShippingLabel>Standard</DisplayableShippingLabel>
+    </ProcessedOrder>
+</NewOrderNotification>
