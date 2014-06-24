@@ -50,7 +50,7 @@ CartStore&#8482; Cloud</h1></div>
                
     
     <div class="jumbotron">
-        <h1><i class="fa fa-trophy fa-3x pull-left"></i>OpenSource shopping cart software.</h1>
+        <h1><i class="fa fa-cloud fa-4x pull-left"></i>OpenSource shopping cart software.</h1>
   <p><a href="http://www.cartstore.com/" class="btn btn-primary btn-lg" role="button" target="_BLANK"><i class="fa fa-user"></i> Request Service</a></p>
 </div>
 

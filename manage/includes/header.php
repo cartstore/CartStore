@@ -15,7 +15,8 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="//codeorigin.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css" rel="stylesheet">
 		<link href="redactor/redactor.css" rel="stylesheet">
-		 
+		 <link href="//fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+
 	</head>
 	<body class="contrast-red " style="" <?php if('new_product' == $action || 'update_product' == $action) { echo 'onload="goOnLoad()"'; } ?>>
 		<header>
@@ -60,7 +61,10 @@
 							<li class="color-settings-body-color">
 								
 										
-<a href="javascript:popUp('./Abs/')">Backup / Rollback <i class="fa fa-umbrella"></i></a>	
+<a href="javascript:popUp('./Abs/')">Backup </a>	
+
+										<a href="javascript:popUp('./icecoder')">Web Desgner</a>
+
  								<a href="configuration.php?gID=1"> My Store </a>
  								<a href="configuration.php?gID=7"> Shipping Packing </a>
 																<a href="configuration.php?gID=9"> Stock </a>
@@ -236,15 +240,8 @@
 								<li>
 									<a href="javascript:;" class="dropdown-collapse"> <span>Commissions</span> <i class="icon-angle-down angle-down"></i> </a>
 									<ul class="nav nav-stacked">
-										 
-										
-										
-									
-										
-										
-										
-										
-										
+
+
 										<li class="active parent">
 											<a href="javascript:;" class="dropdown-collapse"> <span>Affiliates</span> <i class="icon-angle-down angle-down"></i> </a>
 											<ul class="nav nav-stacked">
@@ -390,8 +387,8 @@
 											<a href="feeders.php">Google&#153; Merchant Center</a>
 										</li>
 
-								<li>
-									<a href="" class="dropdown-collapse"> <span>Drop Shipping System</span> <i class="icon-angle-down angle-down"></i> </a>
+								<li class="vendor-system">
+									<a href="" class="dropdown-collapse "> <span>Drop Shipping System</span> <i class="icon-angle-down angle-down"></i> </a>
 									<ul class="nav nav-stacked">
 										<li>
 											<a href="vendors.php">Vendor Manager</a>
@@ -471,9 +468,7 @@
 						<a href="javascript:;" class="dropdown-collapse"> <span><i class="fa fa-plus-circle"></i> CMS <i class="icon-angle-down angle-down"></i> </span></a>
 						<ul class="nav nav-stacked">
                                                     
-                                                    <li>
-											<a href="link_manage.php">Links Manager</a>
-										</li>
+
                                                     <li>
 											<a href="banner_manager.php">Banner Manager</a>
 										</li>
@@ -550,9 +545,7 @@
 								<a href="javascript:popUp('ckfinder/ckfinder.html')">Media Manager</a>
 							</li>
 							
-							<li>
-								<a href="link_manage.php">Links Manager</a>
-							</li>
+
                                                         
                                                         <li>
 								<a href="events_main.php">Event / Calendar</a>
@@ -674,9 +667,7 @@
 											<li>
 												<a href="configuration.php?gID=888004">SEO URLs</a>
 											</li>
-											<li>
-												<a href="configuration.php?gID=18">Links</a>
-											</li>
+											 
 											<li>
 												<a href="configuration.php?gID=73">Terms &amp; Conditions</a>
 											</li>
@@ -759,6 +750,9 @@
 									</li>
 									<li>
 										<a href="javascript:popUp('./Abs/')">Backup / Rollback</a>
+									</li>
+										<li>
+										<a href="javascript:popUp('./icecoder')">Web Desgner</a>
 									</li>
 									<li>
 										<a target="_BLANK" href="../scanner_2.6.php">Scan Virus/Trojans</a>

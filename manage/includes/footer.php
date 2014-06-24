@@ -30,7 +30,7 @@
 <div class="navbar navbar-fixed-bottom hidden-xs" id="status">
     <div class="btn-toolbar">
         <div class="btn-group pull-right">
-            <p>CartStore 7 Phoenix ©2006-2014 Adoovo Inc. NV USA
+            <p><b>CartStore Cloud&trade;</b> ©2014 CartStore, Inc.
             </p>
 
         </div>
@@ -64,39 +64,19 @@
         </div>
     </div>
 </div>  
-
-<!-- / jquery [required] -->
-<script src="./templates/responsive-red/assets/jquery.min.js" type="text/javascript"></script>
-<!-- / jquery mobile (for touch events) -->
-<script src="./templates/responsive-red/assets/jquery.mobile.custom.min.js" type="text/javascript"></script>
-<!-- / jquery migrate (for compatibility with new jquery) [required] -->
-<script src="./templates/responsive-red/assets/jquery-migrate.min.js" type="text/javascript"></script>
-<!-- / jquery ui -->
-<script src="./templates/responsive-red/assets/jquery-ui.min.js" type="text/javascript"></script>
-<!-- / jQuery UI Touch Punch -->
-<script src="./templates/responsive-red/assets/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
-<!-- / bootstrap [required] -->
-<script src="./templates/responsive-red/assets/bootstrap.js" type="text/javascript"></script>
-<!-- / modernizr -->
-<script src="./templates/responsive-red/assets/modernizr.min.js" type="text/javascript"></script>
-<!-- / retina -->
-<script src="./templates/responsive-red/assets/retina.js" type="text/javascript"></script>
-<!-- / theme file [required] -->
-<script src="./templates/responsive-red/assets/theme.js" type="text/javascript"></script>
-<!-- / END - page related files and scripts [optional] -->
-<link href="//fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ <script src="./templates/responsive-red/assets/theme.js" type="text/javascript"></script>
+ 
 
 
 
 <script src="<?php
 echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
 ?>templates/jquery.init.local.js" type="text/javascript"></script>
-<!--<script type="text/javascript" src="<?php
-echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
-?>ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="<?php
-echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
-?>ckfinder/ckfinder.js"></script>-->
+ 
  
 <script type="text/javascript" src="<?php echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;?>redactor/redactor.min.js"></script>
 <script type="text/javascript" src="<?php echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;?>redactor/fontcolor.js"></script>

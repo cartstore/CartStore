@@ -984,8 +984,56 @@ function deleteImage(pID,imageID){
                   <div class="panel panel-default">
 
                       <div id="collapseOne" class="panel-collapse collapse">
-                          <div class="panel-body"><i class="fa fa-pencil-square-o fa-5x pull-left"></i>
-Please see the additional help located in each particular tab.                      </div>
+                          <div class="panel-body">
+<h3>General</h3>
+<p><b>Categories</b> – You can select multiple categories by pressing ctrl right click to select multiple</p>
+<p><b> Products MPN</b> – Manufacturer part number, displays in front end product page and if present is sent to google merchant center feed</p>
+<p><b> Alternate Buy Now Url</b> – If you enter a url here instead of the normal buy now button appearing clicking buy now will take you to whatever page you define in the url. This is useful if you need to run checkout through some alternate means.</p>
+
+<p><b> Processing Time (Days)</b> – This field shows on the front end product page to let them know how long after ordering if any processing time to consider</p>
+
+<p><b> Product a Special Order Item </b>– If yes then a special message will show on the product page in the front end altering the customer to this special custom message</p>
+
+<p><b> Products Sort Order </b>– The default sort order uses numbered ordering so if you enter a 0 it will appear first, if you enter a 1 it will appear second if you enter a 3 it will appear third</p>
+
+<h3>Description</h3>
+<p><b> Products Short Description</b> – This is intro text that shows on product listing view in categories</p>
+<p>Video Code – You can paste youtube video code here to show videos in your product pages as well as other video sites</p>
+
+
+<h3>Price</h3>
+<p><b> Tax Class </b>– If you need tax applied to this product then you must select a tax class otherwise its non taxable.</p>
+<p><b> MSRP Price</b> – This is a display only price that shows on the product page as well as in modules</p>
+<p>Map Price – Manufacturer minimum advertised price. If your map price is $99 but your product price is lower then that then it will require the user to login or add the item to there cart to see the price to comply with the manufacturer. Many electronic manufacturers require this.</p>
+
+ 
+
+
+<h3>Attributes</h3>
+<p><b>Attributes</b> are select list or other form field inputs that are options to products Like Red, XL etc. Different variations of the same product or addons, options.</p>
+
+
+
+
+<h3>Price Breaks</h3>
+<p><b>Quantity Blocks</b> - if you enter 10 here then the product can only be entered in quantities of 10. IE 10,20,30 etc.</p>
+<p><b>Price break level</b> – If you enter 30 in the qty field for level 1 and a price of 89 and the main products price is 99 then if I order at least 30 of these they are 89 each. Same thing for the other price levels.
+<p><b>Group pricing</b> – This is the same qty discounts as the first which is for the default group of retail , this group pricing addon for qty pricing allows you to also define qty pricing per groups. So that if a customer in one particular group is logged in they see special pricing for that group.</p>
+
+
+<h3>Extra Fields</h3>
+<p> These are custom fields that you define that allow you to enter in particular info for that extra field label. For example If you enter in Blue in color then these extra info shows on the product page. Its also used in filtering modules, drill downs for example to only see blue products in that category.
+
+
+<h3>YMM</h3>
+<p>
+
+							 <b>YMM</b> – Year make model for parts products that allow selecting vehicles and only seeing products compatible with that.</p>
+
+
+<h3>Individual Shipping</h3>
+
+<p> Individual shipping is if you need to define special pricing per products rather then depending on shipping modules. If you use individual shipping this module must be enabled. </p>                     </div>
                       </div>
                   </div>   
               </div>   
@@ -997,7 +1045,7 @@ Please see the additional help located in each particular tab.                  
 <hr>
 
 	<ul class="nav nav-tabs" id="edit-product-tab">
-		<li><a href="#tab-general-options" data-toggle="tab">General Options</a></li>
+		<li><a href="#tab-general-options" data-toggle="tab">General</a></li>
                 		<li><a href="#tab-description" data-toggle="tab">Description</a></li>
 		<li><a href="#tab-default-pricing" data-toggle="tab">Price</a></li>
 
@@ -1009,9 +1057,9 @@ Please see the additional help located in each particular tab.                  
 
 
 		<li><a href="#tab-price-breaks" data-toggle="tab">Price Breaks</a></li>
-		<li><a href="#tab-multi-vendor" data-toggle="tab">Vendor</a></li>
+		<li class="vendor-system"><a href="#tab-multi-vendor" data-toggle="tab" >Vendor</a></li>
 		<li><a href="#tab-extra-fields" data-toggle="tab">Extra Fields</a></li>
-		<li><a href="#tab-auto-parts" data-toggle="tab">Year Make Model</a></li>
+		<li><a href="#tab-auto-parts" data-toggle="tab">YMM</a></li>
 				<li><a href="#tab-individual-shipping" data-toggle="tab">Individual Shipping</a></li>
 
 	</ul>
@@ -1019,7 +1067,7 @@ Please see the additional help located in each particular tab.                  
 	<div class="tab-content">
 <!-- General Options tab -->
 	 <div class="tab-pane"  id="tab-general-options">
-	 <h3>General Options</h3>
+	 <h3>General</h3>
 
           <?php
       for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
@@ -1103,6 +1151,24 @@ Please see the additional help located in each particular tab.                  
 
      </div>
 
+<a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseMore">
+                     <i class="fa fa-level-down "></i> More
+                  </a>
+
+		 
+		 
+		 
+	<div class="panel-group" id="accordion">
+                  <div class="clear"></div>
+                  <div class="panel panel-default">
+
+                      <div id="collapseMore" class="panel-collapse collapse">
+                          <div class="panel-body"> 	 
+		 
+		 
+		 
+
+		 
 
   <div class="form-group"><label>
     <?php
@@ -1226,7 +1292,10 @@ Please see the additional help located in each particular tab.                  
     </div>
 
 
-
+                       </div>
+                      </div>
+                  </div>   
+              </div>
 
 
 
@@ -1235,6 +1304,16 @@ Please see the additional help located in each particular tab.                  
 		<?php echo   tep_draw_input_field('pSortOrder', $pInfo->pSortOrder, 'size=2'); ?>
      </div>
 
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 
 
 
@@ -1944,9 +2023,7 @@ If you have old images in the deprecated extra images extension you can access t
 	 <div class="tab-pane"  id="tab-description">
     <?php for ($i = 0, $n = sizeof($languages); $i < $n; $i++) { ?>
    <h3>
-   Descriptions<br><small><a rel="lightbox-page" HREF="tabshowto.php">(How do I create tabs in my
-
-    product description? ) </a></small></h3>
+   Descriptions</h3>
 
 
 
@@ -2106,7 +2183,7 @@ If you have old images in the deprecated extra images extension you can access t
 <!-- Xtra Fields tab -->
 	 <div class="tab-pane"  id="tab-extra-fields">
 
-<h3>Product extra fields</h3>
+<h3>xtra fields</h3>
 
     <?php
       for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
@@ -2136,7 +2213,7 @@ If you have old images in the deprecated extra images extension you can access t
 <!-- Auto Parts tab -->
 	 <div class="tab-pane"  id="tab-auto-parts">
 
-	 <h3>Year Make Model</h3>
+	 <h3>YMM</h3>
   <?php
       if (AUTO_CONFIG == 'true') {
 ?>
@@ -2325,7 +2402,15 @@ If you have old images in the deprecated extra images extension you can access t
 
                       <div id="collapseOne" class="panel-collapse collapse">
                           <div class="panel-body"><i class="fa fa-money fa-5x pull-left"></i>
-ddd                      </div>
+
+						  
+
+						  
+						  
+						  
+						  
+						  
+						  </div>
                   </div>   
               </div> 
  <h3 class="text-success"> <?php

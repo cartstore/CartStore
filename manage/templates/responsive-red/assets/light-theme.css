@@ -5276,7 +5276,16 @@ pre {
  
  #rightCol .module img.thumbnail {max-width:220px;height:auto;}
  
- 
+
 .navbar .btn-toolbar .btn-group {margin-right:7px;}
 
 .nav.nav-stacked.in fa.fa-unlock {color:#404040;}
+
+
+ul li.vendor-system {display:none;}
+
+
+#add_edit_product .nav > li > a {
+ 
+padding: 5px 10px;
+}
