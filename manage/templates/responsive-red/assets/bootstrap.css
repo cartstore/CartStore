@@ -1358,8 +1358,7 @@ th, .dataTableHeadingContent {
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
-  background-color: #D9D9D9;
-}
+ }
 table col[class*="col-"] {
   float: none;
   display: table-column;

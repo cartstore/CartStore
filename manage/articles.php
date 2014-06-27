@@ -1122,7 +1122,7 @@ qqqqHelp for this section is not yet available.                          </div>
 
 				<?php
 
-				echo '<span >' . tep_draw_textarea_field ('articles_head_desc_tag[' . $languages[$i]['id'] . ']', 'soft', '70', '15', (isset($articles_head_desc_tag[$languages[$i]['id']]) ? $categories_htc_description[$languages[$i]['id']] : tep_get_articles_head_desc_tag($aInfo -> articles_id, $languages[$i]['id']))) . ' </span>';
+				echo '<span >' . tep_draw_textarea_field_redactor ('articles_head_desc_tag[' . $languages[$i]['id'] . ']', 'soft', '70', '15', (isset($articles_head_desc_tag[$languages[$i]['id']]) ? $categories_htc_description[$languages[$i]['id']] : tep_get_articles_head_desc_tag($aInfo -> articles_id, $languages[$i]['id']))) . ' </span>';
 			?>
 
 
@@ -1161,7 +1161,7 @@ qqqqHelp for this section is not yet available.                          </div>
 			?>
 
 <?php
-									echo '<span >' . tep_draw_textarea_field('articles_head_keywords_tag[' . $languages[$i]['id'] . ']', 'soft', '70', '5', (isset($articles_head_keywords_tag[$languages[$i]['id']]) ? $articles_head_keywords_tag[$languages[$i]['id']] : tep_get_articles_head_keywords_tag($aInfo -> articles_id, $languages[$i]['id'])));
+									echo '<span >' . tep_draw_textarea_field_redactor('articles_head_keywords_tag[' . $languages[$i]['id'] . ']', 'soft', '70', '5', (isset($articles_head_keywords_tag[$languages[$i]['id']]) ? $articles_head_keywords_tag[$languages[$i]['id']] : tep_get_articles_head_keywords_tag($aInfo -> articles_id, $languages[$i]['id'])));
 			?>
 
 </td>

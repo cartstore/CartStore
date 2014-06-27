@@ -3,20 +3,16 @@
   require('includes/functions/newsdesk_general.php');
   if ($_GET['action']) {
       switch ($_GET['action']) {
-          
           case 'unlink_image':
-              
-              
+
               $filename = tep_get_local_path(DIR_FS_CATALOG_IMAGES . $_GET['newsdesk_image']);
-              
+
               if (file_exists($filename)) {
                   unlink($filename);
-                  
-                  
-                  
+
                   $filename = '';
               }
-              
+
               $image = $_GET['newsdesk_image_number'];
               switch ($image) {
                   case '1':
@@ -45,11 +41,9 @@
               tep_db_query("update " . TABLE_NEWSDESK_DESCRIPTION . " set " . $image_to_delete . "='' where newsdesk_id = '" . tep_db_input($id_to_update) . "'");
               tep_redirect(tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $_GET['c_path'] . '&pID=' . $id_to_update . "&action=new_product"));
               break;
-              
-              
-              
+
           case 'setflag':
-              
+
               if (($_GET['flag'] == '0') || ($_GET['flag'] == '1')) {
                   if ($_GET['pID']) {
                       newsdesk_set_product_status($_GET['pID'], $_GET['flag']);
@@ -62,11 +56,9 @@
                       tep_reset_cache_block('newsdesk');
                   }
               }
-              
-              
-              
+
           case 'setflag_sticky':
-              
+
               if (($_GET['flag_sticky'] == '0') || ($_GET['flag_sticky'] == '1')) {
                   if ($_GET['pID']) {
                       newsdesk_set_product_sticky($_GET['pID'], $_GET['flag_sticky']);
@@ -78,13 +70,13 @@
               }
               tep_redirect(tep_href_link(FILENAME_NEWSDESK, 'cPath=' . $_GET['cPath']));
               break;
-              
+
           case 'insert_category':
-              
+
           case 'update_category':
-              
-              
-              
+
+
+
               $categories_id = tep_db_prepare_input($_POST['categories_id']);
               $sort_order = tep_db_prepare_input($_POST['sort_order']);
               
@@ -502,7 +494,7 @@ The summary is also the meta description seo tag as well as the short intro text
                       ?></label><p>
                 <?php
                       echo tep_image(DIR_WS_CATALOG_LANGUAGES . $languages[$i]['directory'] . '/images/' . $languages[$i]['image'], $languages[$i]['name']);
-                      ?></p>
+                      ?></p>eee
                 <?php
                       require(DIR_WS_INCLUDES . 'modules/newsdesk/html_editor/summary_bb.php');
                       
@@ -572,42 +564,42 @@ The summary is also the meta description seo tag as well as the short intro text
                               $newsdesk_image_text_two = $_POST['newsdesk_image_text_two'];
                               $newsdesk_image_text_three = $_POST['newsdesk_image_text_three'];
                               
-                              $newsdesk_image = tep_get_uploaded_file('newsdesk_image');
-                              $newsdesk_image_two = tep_get_uploaded_file('newsdesk_image_two');
-                              $newsdesk_image_three = tep_get_uploaded_file('newsdesk_image_three');
-                              $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
+                          //    $newsdesk_image = tep_get_uploaded_file('newsdesk_image');
+                           //   $newsdesk_image_two = tep_get_uploaded_file('newsdesk_image_two');
+                           //   $newsdesk_image_three = tep_get_uploaded_file('newsdesk_image_three');
+                           //   $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
                               
-                              if (($newsdesk_image != 'none') && ($newsdesk_image != '')) {
-                                  $newsdesk_image = tep_get_uploaded_file('newsdesk_image');
-                                  $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
-                              }
-                              if (($newsdesk_image_two != 'none') && ($newsdesk_image_two != '')) {
-                                  $newsdesk_image_two = tep_get_uploaded_file('newsdesk_image_two');
-                                  $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
-                              }
-                              if (($newsdesk_image_three != 'none') && ($newsdesk_image_three != '')) {
-                                  $newsdesk_image_three = tep_get_uploaded_file('newsdesk_image_three');
-                                  $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
-                              }
-                              if (is_uploaded_file($newsdesk_image['tmp_name'])) {
-                                  tep_copy_uploaded_file($newsdesk_image, $image_directory);
-                                  $newsdesk_image_name = $newsdesk_image['name'];
-                              } else {
-                                  $newsdesk_image_name = $_POST['products_previous_image'];
-                              }
-                              if (is_uploaded_file($newsdesk_image_two['tmp_name'])) {
-                                  tep_copy_uploaded_file($newsdesk_image_two, $image_directory);
-                                  $newsdesk_image_name_two = $newsdesk_image_two['name'];
-                              } else {
-                                  $newsdesk_image_name_two = $_POST['products_previous_image_two'];
-                              }
-                              if (is_uploaded_file($newsdesk_image_three['tmp_name'])) {
-                                  tep_copy_uploaded_file($newsdesk_image_three, $image_directory);
-                                  $newsdesk_image_name_three = $newsdesk_image_three['name'];
-                              } else {
-                                  $newsdesk_image_name_three = $_POST['products_previous_image_three'];
-                              }
-                              
+                           //   if (($newsdesk_image != 'none') && ($newsdesk_image != '')) {
+                         //         $newsdesk_image = tep_get_uploaded_file('newsdesk_image');
+                          //        $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
+                         //     }
+                        //      if (($newsdesk_image_two != 'none') && ($newsdesk_image_two != '')) {
+                        //          $newsdesk_image_two = tep_get_uploaded_file('newsdesk_image_two');
+                        //          $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
+                        //      }
+                        //      if (($newsdesk_image_three != 'none') && ($newsdesk_image_three != '')) {
+                        //          $newsdesk_image_three = tep_get_uploaded_file('newsdesk_image_three');
+                        //          $image_directory = tep_get_local_path(DIR_FS_CATALOG_IMAGES);
+                        //      }
+                            //  if (is_uploaded_file($newsdesk_image['tmp_name'])) {
+                            //      tep_copy_uploaded_file($newsdesk_image, $image_directory);
+                            //      $newsdesk_image_name = $newsdesk_image['name'];
+                            //  } else {
+                           //       $newsdesk_image_name = $_POST['products_previous_image'];
+                            //  }
+                           //   if (is_uploaded_file($newsdesk_image_two['tmp_name'])) {
+                           //       tep_copy_uploaded_file($newsdesk_image_two, $image_directory);
+                           //       $newsdesk_image_name_two = $newsdesk_image_two['name'];
+                           //   } else {
+                           //       $newsdesk_image_name_two = $_POST['products_previous_image_two'];
+                           //   }
+                           //   if (is_uploaded_file($newsdesk_image_three['tmp_name'])) {
+                           //       tep_copy_uploaded_file($newsdesk_image_three, $image_directory);
+                           //       $newsdesk_image_name_three = $newsdesk_image_three['name'];
+                           //   } else {
+                           //       $newsdesk_image_name_three = $_POST['products_previous_image_three'];
+                           //   }
+
                               } else
                               {
                                   $product_query = tep_db_query("

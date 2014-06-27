@@ -10,12 +10,12 @@ define('TABLE_HEADING_DATE', 'Date');
 define('TABLE_HEADING_ACTION', 'Action');
 define('TABLE_HEADING_STATUS', 'Status');
 
-define('IMAGE_NEW_STORY', 'New Story');
+define('IMAGE_NEW_STORY', 'New Article');
 
 define('TEXT_CATEGORIES', 'Categories:');
 define('TEXT_SUBCATEGORIES', 'Subcategories:');
 define('TEXT_NEWSDESK', 'News:');
-define('TEXT_NEW_NEWSDESK', 'News Story in the category &quot;%s&quot;');
+define('TEXT_NEW_NEWSDESK', 'News article in the category &quot;%s&quot;');
 
 define('TABLE_HEADING_LATEST_NEWS_HEADLINE', 'Headline');
 define('TEXT_NEWS_ITEMS', 'News Items:');
@@ -26,9 +26,9 @@ define('TEXT_LATEST_NEWS_HEADLINE', 'Headline:');
 
 define('IMAGE_NEW_NEWS_ITEM', 'New news item');
 
-define('TEXT_NEWSDESK_STATUS', 'News Article Status:');
-define('TEXT_NEWSDESK_AVAILABLE', 'In Print');
-define('TEXT_NEWSDESK_NOT_AVAILABLE', 'Out of Print');
+define('TEXT_NEWSDESK_STATUS', 'Status:');
+define('TEXT_NEWSDESK_AVAILABLE', 'Published');
+define('TEXT_NEWSDESK_NOT_AVAILABLE', 'Unpublished');
 
 define('TEXT_NEWSDESK_URL', 'URL to outside resource:');
 define('TEXT_NEWSDESK_URL_WITHOUT_HTTP', '<small>(without http://)</small>');
@@ -107,7 +107,7 @@ define('TEXT_SHOW_STATUS', 'Status');
 define('TEXT_DELETE_IMAGE', 'Delete Image(s) ?');
 define('TEXT_DELETE_IMAGE_INTRO', 'BEWARE:: Deleting this/these image(s) will completely remove it/them. If you use this/these image(s) elsewhere -- I warned you !!');
 
-define('TEXT_NEWSDESK_STICKY', 'Sticky Status');
+define('TEXT_NEWSDESK_STICKY', 'Sticky');
 define('TEXT_NEWSDESK_STICKY_ON', 'ON');
 define('TEXT_NEWSDESK_STICKY_OFF', 'OFF');
 define('TABLE_HEADING_STICKY', 'Sticky');

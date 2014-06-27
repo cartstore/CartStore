@@ -1002,9 +1002,9 @@ The orders screen shows you detailed information about the orders received. Its 
                       <td class="dataTableContent"><?php
               echo tep_datetime_short($orders['date_purchased']);
 ?></td>
-                      <td class="dataTableContent"><?php
+                      <td class="dataTableContent"><span class="label label-default"><?php
               echo $orders['orders_status_name'];
-?></td>
+?></span></td>
                       <td class="dataTableContent"><?php
               if (isset($oInfo) && is_object($oInfo) && ($orders['orders_id'] == $oInfo->orders_id)) {
                   echo '<i class="fa fa-long-arrow-right"></i>';

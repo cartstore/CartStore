@@ -7,7 +7,7 @@
  
  		<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
  		<link href="./templates/responsive-red/assets/light-theme.css" media="all" id="color-settings-body-color" rel="stylesheet" type="text/css">
- 
+
 		<link href="./templates/responsive-red/assets/bootstrap.css" media="all" rel="stylesheet" type="text/css">
 
  	   
@@ -61,7 +61,7 @@
 							<li class="color-settings-body-color">
 								
 										
-<a href="javascript:popUp('./Abs/')">Backup </a>	
+
 
 										<a href="javascript:popUp('./icecoder')">Web Desgner</a>
 
@@ -547,9 +547,7 @@
 							
 
                                                         
-                                                        <li>
-								<a href="events_main.php">Event / Calendar</a>
-							</li>
+
 						</ul>
 					</li>
 					<li>
@@ -748,9 +746,7 @@
 											</li>
 										</ul>
 									</li>
-									<li>
-										<a href="javascript:popUp('./Abs/')">Backup / Rollback</a>
-									</li>
+
 										<li>
 										<a href="javascript:popUp('./icecoder')">Web Desgner</a>
 									</li>

@@ -5,7 +5,7 @@
 <td width="100%" valign="top">
 
 <?php
-echo newsdesk_draw_textarea_field('newsdesk_article_shorttext_' . $languages[$i]['id'] . '', 'soft', '50', '3', stripbr((($newsdesk_article_shorttext[$languages[$i]['id']]) ? stripslashes($newsdesk_article_shorttext[$languages[$i]['id']]) : newsdesk_get_newsdesk_article_shorttext($pInfo->newsdesk_id, $languages[$i]['id']))));
+echo tep_draw_textarea_field_redactor('newsdesk_article_shorttext_' . $languages[$i]['id'] . '', 'soft', '50', '3', stripbr((($newsdesk_article_shorttext[$languages[$i]['id']]) ? stripslashes($newsdesk_article_shorttext[$languages[$i]['id']]) : newsdesk_get_newsdesk_article_shorttext($pInfo->newsdesk_id, $languages[$i]['id']))));
 ?>
 
 		</td>

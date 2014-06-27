@@ -318,9 +318,3 @@ RewriteRule ^(.*)-nra-(.*).html$ newsdesk_reviews_article.php?newsdesk_id=$2&%{Q
 
 
 
- 
- 
-AuthType Basic
-AuthName "admin"
-AuthUserFile "/home/devcarts/.htpasswds/public_html/passwd"
-require valid-user

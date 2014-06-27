@@ -11,7 +11,7 @@
 
   $rss = new lastRSS;
 
-  $rss->cache_dir = './rsscache';
+  $rss->cache_dir = './cache/rsscache';
   $rss->cache_time = 3600;
 ?>
 <span class="nav-header"><i class="fa fa-rss"></i> RSS</span>

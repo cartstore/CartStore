@@ -10,7 +10,7 @@
   $rss = new lastRSS2;
 
 
-  $rss->cache_dir = './rsscache2';
+  $rss->cache_dir = './cache/rsscache2';
   $rss->cache_time = 3600;
 ?>
 

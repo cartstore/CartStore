@@ -1,21 +1,5 @@
 <?php
   $selection = $payment_modules->selection();
-  // *** BEGIN GOOGLE CHECKOUT ***
-  // Skips Google Checkout as a payment option on the payments page since that option
-  // is provided in the checkout page.
-  for ($i = 0, $n = sizeof($selection); $i < $n; $i++) {
-    if ($selection[$i]['id'] == 'googlecheckout') {
-      array_splice($selection, $i, 1);
-      break;
-    }
-  }
-  // *** END GOOGLE CHECKOUT ***
-  for ($i = 0, $n = sizeof($selection); $i < $n; $i++) {
-    if ($selection[$i]['id'] == 'ccerr') {
-      array_splice($selection, $i, 1);
-      break;
-    }
-  }
   
   $paymentMethod = '';
   if (tep_session_is_registered('onepage')){
