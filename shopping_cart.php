@@ -20,23 +20,17 @@
   require(DIR_WS_INCLUDES . 'header.php');
 
   require(DIR_WS_INCLUDES . 'column_left.php');
-?>
 
-    <!-- body_text //-->
-  
-
-  <?php
   echo tep_draw_form('cart_quantity', tep_href_link(FILENAME_SHOPPING_CART, 'action=update_product'));
-?>
 
-<?php
   if ($cart->count_contents() > 0) {
 ?>
- 
-      <div class="page-header">         	<a class="btn btn-default pull-right" href="javascript:history.go(-1)">Back</a>
- <h1><?php
-      echo HEADING_TITLE;
-?> </h1></div>
+
+      <div class="page-header">         	
+		
+		  <a class="btn btn-default pull-right" href="javascript:history.go(-1)">Back</a>
+
+		  <h1><?php echo HEADING_TITLE;?> </h1></div>
 
 
 
@@ -123,10 +117,12 @@
 
 <td colspan="4">
 
-<h4 class="ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all ui-li ui-li-divider ui-bar-a ui-first-child">
-<a class="cart_prod_name" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . $products[$i]['name'] . '</a>
-</h4>
- 
+<h3><a style="margin-left:20px;" class="pull-right" href="'.tep_href_link(FILENAME_SHOPPING_CART, 'action=update_product&cart_delete[]=' . $products[$i]['id'] . '&products_id[]=' . $products[$i]['id']).'"><i class="fa fa-times-circle"></i></a>
+
+
+<a href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . $products[$i]['name'] . '</a>
+</h3>
+
 </td>
 
 </tr>
@@ -135,12 +131,9 @@
 
 <tr>
 
-<td>' . '<p><a class="" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], 32, SMALL_IMAGE_HEIGHT) . '</a></p>
-
-<div id="remove-icon">	<p>	<a class="btn btn-warning btn-xs" href="'.tep_href_link(FILENAME_SHOPPING_CART, 'action=update_product&cart_delete[]=' . $products[$i]['id'] . '&products_id[]=' . $products[$i]['id']).'"><i class="fa fa-times-circle"></i> Remove</a></p> 
+<td>' . '<p><a class="" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], 120, SMALL_IMAGE_HEIGHT) . '</a></p>
 
 
-</div>
 
 
 

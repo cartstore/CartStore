@@ -1,4 +1,4 @@
- 
+
 .productdes .text-success {
 	font-size: 1.5em;
 }
@@ -12,49 +12,6 @@ a.large-link {
 .article_desc {
 	font-size: 1.2em;
 	line-height: 1.4em;
-}
-
-div.carousel-item img {
-	max-width: 100%;
-}
-.carousel {
-	margin-bottom: 0;
-	padding: 5px 40px;
-}
-.carousel a {
-	text-decoration: none;
-}
-.carousel-control {
-	position: absolute;
-	top: 40%;
-	left: 15px;
-	width: 40px;
-	height: 40px;
-	margin-top: -20px;
-	font-size: 50px;
-	font-weight: 100;
-	line-height: 25px;
-	color: rgb(255, 255, 255);
-	text-align: center;
-	background: none repeat scroll 0% 0% rgb(34, 34, 34);
-	border: 3px solid rgb(255, 255, 255);
-	border-radius: 23px 23px 23px 23px;
-	opacity: 0.5;
-	text-decoration: none;
-}
-.carousel a.left {
-	left: 0px;
-}
-.carousel a.right {
-	right: 0px;
-}
-.carousel .carousel-inner {
-	margin: 0px;
-}
-#homecats-carousel .carousel-item span {
-	display: block;
-	text-align: center;
-	padding: 5px;
 }
 
 .product-shop .alert {
@@ -89,10 +46,8 @@ div.carousel-item img {
 .productitem-grid .text-success {display:block;width:100%}
 
  
-.label {
-    margin-right:3px;margin-top:3px;;
-}
- 
+
+
 
 .productitem-grid .well {min-height:130px;}
 
@@ -115,8 +70,8 @@ div.carousel-item img {
     -moz-opacity: 0.3; /* mozilla, netscape */
     opacity: 0.3; /* fx, safari, opera */
  }
- 
+
  
  #overlay img{margin-right:auto;margin-left:auto;}
- 
+
   #overlay {text-alighn:center;}

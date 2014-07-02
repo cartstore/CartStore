@@ -275,7 +275,7 @@
 				include (DIR_WS_MODULES . FILENAME_PRODUCT_LISTING);
   echo ' ';
 
-  echo '<a class="btn btn-default" href="' . tep_href_link(FILENAME_ADVANCED_SEARCH, tep_get_all_get_params(array('sort', 'page')), 'NONSSL', true, false) . '">' . IMAGE_BUTTON_BACK . '</a><div class="clear"></div></div></div>';
+  echo '<a class="btn btn-default" href="' . tep_href_link(FILENAME_ADVANCED_SEARCH, tep_get_all_get_params(array('sort', 'page')), 'NONSSL', true, false) . '">' . IMAGE_BUTTON_BACK . '</a><div class="clear"></div></div>';
 
   require(DIR_WS_INCLUDES . 'column_right.php');
   require(DIR_WS_INCLUDES . 'footer.php');
