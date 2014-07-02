@@ -1,4 +1,0 @@
-v_products_model	v_products_extra_fields_name	v_products_extra_fields_id	v_products_extra_fields_value	EOREOR
-	EF Field name	28	tester	EOREOR
-TEST1	EF Field name	28	woopwoop	EOREOR
-	EF Field name	28	woopwoop	EOREOR
