@@ -171,9 +171,9 @@
 			(orders_id, orders_status_id, date_added, customer_notified, comments, admin_comments)
 			values ('" . tep_db_input($_GET['oID']) . "',
 				'" . tep_db_input($_POST['status']) . "',
-				now(),
-				" . tep_db_input($customer_notified) . ",
-				'" . tep_db_input($_POST['comments'])  . ",
+				'now()',
+				'" . tep_db_input($customer_notified) . "',
+				'" . tep_db_input($_POST['comments'])  . "',
 				'" . tep_db_input($_POST['admin_comments'])  . "')");
 			}
 
@@ -1272,7 +1272,7 @@ echo '<div class="form-group">'. tep_draw_pull_down_menu('update_info_payment_cu
 $orders_history_query = tep_db_query("select * from " . TABLE_ORDERS_STATUS_HISTORY . " where orders_id = '" . tep_db_input($oID) . "' order by date_added");
 if (tep_db_num_rows($orders_history_query)) {
   while ($orders_history = tep_db_fetch_array($orders_history_query)) {
-  	print_r($orders_history);
+  //	print_r($orders_history);
     echo '  <tr class="dataTableProducts">' . "\n" .
          '    <td class="smallText">' . tep_datetime_short($orders_history['date_added']) . '</td>' . "\n" .
          '   ' . "\n" .

@@ -43,4 +43,9 @@ define('EMAIL_WARNING', 'ATTENTION: This email address was given to us by someon
 
 define('MODULE_PAYMENT_RFQ2_TEXT_EMAIL_FOOTER', 'Upon receiving your quote, you may choose to process the order. You will need to contact us with your payment information at this time. Your order will not ship until the full payment is received.');
 
+
+define('EMAIL_TEXT_CONFIRM', 'Order Confirmation ');
+define('TEXT_FROM', 'from');
+
+
 ?>

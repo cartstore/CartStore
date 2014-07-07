@@ -310,7 +310,15 @@ if (isset($_POST['check-email'])){
           }
 
 
-          tep_mail($name, $email_address, EMAIL_SUBJECT, $email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+          //*******start mail manager**************// 
+if (file_exists(DIR_WS_MODULES.'mail_manager/create_account.php')){
+include(DIR_WS_MODULES.'mail_manager/create_account.php'); 
+}else{ 
+tep_mail($name, $email_address, EMAIL_SUBJECT, $email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS); 
+}
+//*******end mail manager****************//
+		  
+		  
           if (ACCOUNT_COMPANY == 'true' && tep_not_null($company_tax_id)) {
               $alert_email_text = "Please note that " . $firstname . " " . $lastname . " of the company: " . $company . " has created an account.";
               tep_mail(STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS, 'Company account created', $alert_email_text, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);

@@ -1,5 +1,3 @@
-											
-
 
 
 
@@ -29,7 +27,7 @@
 
 <div class="navbar navbar-fixed-bottom hidden-xs" id="status">
     <div class="btn-toolbar">
-        <div class="btn-group pull-right">
+        <div class="btn-group pull-right" style="margin-right:60px;">
             <p><b>CartStore Cloud&trade;</b> ©2014 CartStore, Inc.
             </p>
 
@@ -64,6 +62,8 @@
         </div>
     </div>
 </div>  
+
+
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
@@ -101,7 +101,6 @@ echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
 ?>includes/general.js"></script>
 
 
-
 <script language="javascript" type="text/javascript">
 <!--
     function popUp(url) {
@@ -130,6 +129,52 @@ echo(($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_ADMIN;
 
     // -->
 </script>
+<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
+<style type="text/css" media="screen, projection">
+  @import url(//assets.zendesk.com/external/zenbox/v2.6/zenbox.css);
+</style>
+<script type="text/javascript">
+  if (typeof(Zenbox) !== "undefined") {
+    Zenbox.init({
+      dropboxID:   "20116109",
+      url:         "https://cartstore.zendesk.com",
+      tabTooltip:  "Questions",
+      tabImageURL: "",
+      tabColor:    "#D1000E",
+      tabPosition: ""
+    });
+  }
+</script>
 
+<style>
+.contrast-red #zenbox_tab {
+position: fixed;
+right: 0px;
+bottom: 0px;
+background-color: #F0F0F0;
+-webkit-box-shadow: -3px 10px 10px rgba(0,0,0,0.1);
+-moz-box-shadow: -3px 10px 10px rgba(0,0,0,0.1);
+box-shadow: -3px 10px 10px rgba(0,0,0,0.1);
+-webkit-border-radius: 4px 4px 0px 0px;
+-moz-border-radius: 4px 4px 0px 0px;
+-ms-border-radius: 4px 4px 0px 0px;
+-o-border-radius: 4px 4px 0px 0px;
+border-radius: 4px 0px 0px 4px;
+padding: 0px !important;
+
+	width:60px;height:30px;
+	top: auto;
+	font-size: 12px;
+line-height: 28px;
+font-family: 'PT Sans Narrow', sans-serif;
+font-weight:bold;
+
+
+	}
+#zenbox_tab::before { 
+	text-align:center;
+	content: " Support ";
+	color:#fff;padding-left:5px;}
+</style>
 </body>
 </html>

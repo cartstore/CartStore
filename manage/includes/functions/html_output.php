@@ -282,6 +282,33 @@
           $field .= TEXT_FIELD_REQUIRED;
       return $field;
   }
+  //// custom by evatix
+  function tep_draw_lists_custom($name, $values, $default = '', $parameters = '', $required = false)
+  {
+    global $PHP_SELF;
+
+    
+      //$field = '<ul class="pagination"';
+      //if (tep_not_null($parameters))
+          //$field .= ' ' . $parameters;
+      //$field .= '>';
+      if (empty($default) && isset($GLOBALS[$name]))
+          $default = stripslashes($GLOBALS[$name]);
+      for ($i = 0, $n = sizeof($values); $i < $n; $i++) {
+          $field .= '<li ';
+          if ($default == $values[$i]['id']) {
+              $field .= ' class="active"';
+              $field .= '><a href="javascript:void(0);">' . tep_output_string($values[$i]['text'], array('"' => '&quot;', '\'' => '&#039;', '<' => '&lt;', '>' => 'r')) . '<span class="sr-only">(current)</span></a></li>';
+          } else {
+            $field .= '><a href="' . tep_href_link(basename($PHP_SELF), $name . '=' . tep_output_string($values[$i]['id']), 'NONSSL') . '">' . tep_output_string($values[$i]['text'], array('"' => '&quot;', '\'' => '&#039;', '<' => '&lt;', '>' => 'r')) . '</a></li>';  
+          }
+          
+      }
+      //$field .= '</ul>';
+      if ($required == true)
+          $field .= TEXT_FIELD_REQUIRED;
+      return $field;
+  }
 // Output a form muliple select menu
   function tep_draw_mselect_menu($name, $values, $selected_vals, $params = '', $required = false) {
     $field = '<select class="form-control" name="' . $name . '"';

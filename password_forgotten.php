@@ -26,7 +26,13 @@ if (isset($_GET['action']) && ($_GET['action'] == 'process')) {
 
 		tep_db_query("update " . TABLE_CUSTOMERS . " set customers_password = '" . tep_db_input($crypted_password) . "' where customers_id = '" . (int)$check_customer['customers_id'] . "'");
 
-		tep_mail($check_customer['customers_firstname'] . ' ' . $check_customer['customers_lastname'], $email_address, EMAIL_PASSWORD_REMINDER_SUBJECT, sprintf(EMAIL_PASSWORD_REMINDER_BODY, $new_password), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+		//*******start mail manager 
+if (file_exists(DIR_WS_MODULES.'mail_manager/password_forgotten.php')){
+include(DIR_WS_MODULES.'mail_manager/password_forgotten.php'); 
+}else{
+tep_mail($check_customer['customers_firstname'] . ' ' . $check_customer['customers_lastname'], $email_address, EMAIL_PASSWORD_REMINDER_SUBJECT, sprintf(EMAIL_PASSWORD_REMINDER_BODY, $new_password), STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+}
+//*******end mail manager
 
 		$messageStack -> add_session('login', SUCCESS_PASSWORD_SENT, 'success');
 		tep_redirect(tep_href_link(FILENAME_LOGIN, '', 'SSL'));

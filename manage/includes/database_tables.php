@@ -192,4 +192,10 @@ define('TABLE_WISHLIST_ATTRIBUTES', 'customers_wishlist_attributes');
   define('TABLE_COUPONS', 'coupons');
   define('TABLE_COUPONS_DESCRIPTION', 'coupons_description');
 // add CCGV table end
+
+define('TABLE_MM_RESPONSEMAIL', 'mm_responsemail');
+define('TABLE_MM_RESPONSEMAIL_RESTORE', 'mm_responsemail_backup');
+define('TABLE_MM_RESPONSEMAIL_RESET', 'mm_responsemail_reset');
+define('TABLE_MM_TEMPLATES', 'mm_templates');
+define('TABLE_MM_NEWSLETTERS', 'mm_newsletters');
 ?>

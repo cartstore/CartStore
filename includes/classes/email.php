@@ -575,4 +575,15 @@
       return $date . $this->lf . $from . $this->lf . $to . $this->lf . $subject . $this->lf . implode($this->lf, $headers) . $this->lf . $this->lf . $this->output;
     }
   }
+
+// eliminate line feeds as <br>
+class emailMailManager extends email { 
+function add_html($html, $text = NULL, $images_dir = NULL) {
+$this->html = $html; //tep_convert_linefeeds(array("\r\n", "\n", "\r"), '<br>', $html);
+$this->html_text = tep_convert_linefeeds(array("\r\n", "\n", "\r"), $this->lf, $text);
+if (isset($images_dir)) $this->find_html_images($images_dir);
+}
+}
+
+
 ?>

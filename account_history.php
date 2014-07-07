@@ -54,7 +54,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
         $order_name = $history['billing_name'];
       }
 ?>
-          <table class="table-striped">
+          <table class="table table-default">
             <tr>
               <td class="main"><?php echo '<b>' . TEXT_ORDER_NUMBER . '</b> ' . $history['orders_id']; ?></td>
               <td class="main" align="right"><?php echo '<b>' . TEXT_ORDER_STATUS . '</b> ' . $history['orders_status_name']; ?></td>
@@ -62,7 +62,7 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
           </table>
         
           
-          <table class="">
+          <table class="table table-default">
             <tr class="infoBoxContents">
               <td><table border="0" width="100%" cellspacing="2" cellpadding="4">
                 <tr>

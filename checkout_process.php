@@ -418,7 +418,7 @@ if (                                                    ((is_array($payment_modu
       $total_cost += $total_products_price;
 
 
-          $products_ordered .= $order->products[$i]['qty'] . ' x ' . $order->products[$i]['name'] . ' (' . $order->products[$i]['model'] . ') = ' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . $products_ordered_attributes . $products_ordered_extra_fields . "\n";
+          $products_ordered .= $order->products[$i]['qty'] . ' x ' . $order->products[$i]['name'] . ' (' . $order->products[$i]['model'] . ') = ' . $currencies->display_price($order->products[$i]['final_price'], $order->products[$i]['tax'], $order->products[$i]['qty']) . $products_ordered_attributes . $products_ordered_extra_fields . "<br>";
 
   }
   if (SELECT_VENDOR_EMAIL_OPTION == 'true') {
@@ -598,9 +598,15 @@ EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
           $email_order .= $payment_class->email_footer . "\n\n";
       }
   }
-//Package Tracking Plus BEGIN
-  tep_mail($order->customer['firstname'] . ' ' . $order->customer['lastname'], $order->customer['email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . ' ' . $insert_id . ' ' . EMAIL_TEXT_SUBJECT_2 , $email_order, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
-//Package Tracking Plus END
+//*******start mail manager****************// 
+if (file_exists(DIR_WS_MODULES.'mail_manager/order_confirm.php')){
+include(DIR_WS_MODULES.'mail_manager/order_confirm.php'); 
+}else{ 
+tep_mail($order->customer['firstname'] . ' ' . $order->customer['lastname'], $order->customer['email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . ' ' . $insert_id . ' ' . EMAIL_TEXT_SUBJECT_2 , $email_order, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS); 
+}
+//*******end mail manager*****************//
+
+
 
   if (SEND_EXTRA_ORDER_EMAILS_TO != '') {
       //Package Tracking Plus BEGIN
@@ -663,7 +669,7 @@ EMAIL_TEXT_DATE_ORDERED . ' ' . strftime(DATE_FORMAT_LONG) . "\n\n";
 	if (SELECT_VENDOR_SHIPPING == 'true')
 		include'templates/system/pdf_email_order_mvs.php';
 	else
-		include'templates/system/pdf_email_order.php';
+	//	include'templates/system/pdf_email_order.php';
 
   $order_total_modules->clear_posts();
 

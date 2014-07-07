@@ -83,10 +83,16 @@ define('TEXT_NO_ORDER_HISTORY', 'No Order History Available');
 define('EMAIL_SEPARATOR', '------------------------------------------------------');
 define('EMAIL_TEXT_SUBJECT_1', ' Order ');
 define('EMAIL_TEXT_SUBJECT_2', ':  ');
+define('EMAIL_TEXT_SUBJECT', '['. STORE_NAME .'] Order Status Update ');
+
 define('EMAIL_TEXT_ORDER_NUMBER', 'Order Number:');
 define('EMAIL_TEXT_INVOICE_URL', 'Detailed Invoice:');
 define('EMAIL_TEXT_DATE_ORDERED', 'Date Ordered:');
 define('EMAIL_TEXT_STATUS_UPDATE', 'Your order has been updated to the following status:  %s' . "\n\n" . 'If necessary, you may update your order directly by following the link above (login required). If you have questions or comments, please reply to this email.' . "\n\n" . 'With warm regards from your friends at ' . STORE_NAME . "\n");
+define('EMAIL_TEXTHTML_STATUS_UPDATE', '<p>Your order has been updated to the following status:</p>  %s' . "" . '<p>If necessary, you may update your order directly by following the link below (login required).</p><p> If you have questions or comments, please reply to this email.</p>' . "" . '<p>With warm regards from your friends at ' . STORE_NAME . "</p>");
+
+
+
 define('EMAIL_TEXT_TRACKING_NUMBER', 'Package tracking number(s):');
 define('EMAIL_TEXT_COMMENTS_UPDATE', 'The comments for your order are:' . "\n\n%s\n\n");
 //Package Tracking Plus END

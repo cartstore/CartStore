@@ -45,12 +45,12 @@ require(DIR_WS_INCLUDES . 'column_left.php'); ?>
 		?>
 <br>
 
-		<h3><?php echo OVERVIEW_TITLE; ?>
-		<ul>
+		<h3><?php echo OVERVIEW_TITLE; ?></h3>
 
-		<?php echo '<a class="btn btn-success" href="' . tep_href_link(FILENAME_ACCOUNT_HISTORY, '', 'SSL') . '">' . OVERVIEW_SHOW_ALL_ORDERS . '</a>'; ?>
 
-	</ul>
+		<?php echo '<a class="" href="' . tep_href_link(FILENAME_ACCOUNT_HISTORY, '', 'SSL') . '">' . OVERVIEW_SHOW_ALL_ORDERS . '</a>'; ?>
+
+
 		<?php echo '<h3>' . OVERVIEW_PREVIOUS_ORDERS . '</h3>'; ?>
 
 

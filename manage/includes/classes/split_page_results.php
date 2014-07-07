@@ -56,20 +56,25 @@
 
       if ($num_pages > 1) {
         $display_links = tep_draw_form('pages', basename($PHP_SELF), '', 'get');
-
+        
+        $display_links .= '<ul class="pagination">';
+        
         if ($current_page_number > 1) {
-          $display_links .= '<a href="' . tep_href_link(basename($PHP_SELF), $parameters . $page_name . '=' . ($current_page_number - 1), 'NONSSL') . '" class="splitPageLink"><i class="fa fa-chevron-left"></i></a> ';
+          $display_links .= '<li><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $page_name . '=' . ($current_page_number - 1), 'NONSSL') . '" class="splitPageLink"><i class="fa fa-chevron-left"></i></a></li>';
         } else {
-          $display_links .= '<i class="fa fa-chevron-left"></i> ';
+          $display_links .= '<li><a href="javascript:void(0);"><i class="fa fa-chevron-left"></i></a></li>';
         }
 
-        $display_links .= sprintf(TEXT_RESULT_PAGE, tep_draw_pull_down_menu($page_name, $pages_array, $current_page_number, 'onChange="this.form.submit();"'), $num_pages);
+        //$display_links .= sprintf(TEXT_RESULT_PAGE, tep_draw_lists_custom($page_name, $pages_array, $current_page_number, 'onChange="this.form.submit();"'), $num_pages);
+        $display_links .= tep_draw_lists_custom($page_name, $pages_array, $current_page_number, 'onChange="this.form.submit();"');
 
         if (($current_page_number < $num_pages) && ($num_pages != 1)) {
-          $display_links .= '&nbsp;&nbsp;<a href="' . tep_href_link(basename($PHP_SELF), $parameters . $page_name . '=' . ($current_page_number + 1), 'NONSSL') . '" class="splitPageLink"><i class="fa fa-chevron-right"></i> </a>';
+          $display_links .= '<li><a href="' . tep_href_link(basename($PHP_SELF), $parameters . $page_name . '=' . ($current_page_number + 1), 'NONSSL') . '" class="splitPageLink"><i class="fa fa-chevron-right"></i> </a></li>';
         } else {
-          $display_links .= ' <i class="fa fa-chevron-right"></i>';
+          $display_links .= '<li><a href="javascript:void(0);"><i class="fa fa-chevron-right"></i></a></li>';
         }
+        
+        $display_links .= '</ul>';
 
         if ($parameters != '') {
           if (substr($parameters, -1) == '&') $parameters = substr($parameters, 0, -1);

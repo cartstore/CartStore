@@ -18,7 +18,7 @@ require('includes/application_top.php');
 
   $valid_product = false;
   if (isset($_GET['products_id'])) {
-    $product_info_query = tep_db_query("select pd.products_name from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = '" . (int)$_GET['products_id'] . "' and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "'");
+    $product_info_query = tep_db_query("select p.products_image, pd.products_name from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd where p.products_status = '1' and p.products_id = '" . (int)$_GET['products_id'] . "' and p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "'");
     if (tep_db_num_rows($product_info_query)) {
       $valid_product = true;
 
@@ -75,8 +75,13 @@ require('includes/application_top.php');
       $email_body .= sprintf(TEXT_EMAIL_LINK, tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $_GET['products_id'])) . "\n\n" .
                      sprintf(TEXT_EMAIL_SIGNATURE, STORE_NAME . "\n" . HTTP_SERVER . DIR_WS_CATALOG . "\n");
 
-      tep_mail($to_name, $to_email_address, $email_subject, $email_body, $from_name, $from_email_address);
-
+//*******start mail manager***************// 
+if (file_exists(DIR_WS_MODULES.'mail_manager/tell_a_friend.php')){
+include(DIR_WS_MODULES.'mail_manager/tell_a_friend.php'); 
+}else{ 
+tep_mail($to_name, $to_email_address, $email_subject, $email_body, $from_name, $from_email_address);
+}
+//*******end mail manager*****************//
       $messageStack->add_session('header', sprintf(TEXT_EMAIL_SUCCESSFUL_SENT, $product_info['products_name'], tep_output_string_protected($to_name)), 'success');
 
       tep_redirect(tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $_GET['products_id']));

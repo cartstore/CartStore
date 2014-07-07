@@ -1201,3 +1201,12 @@ define('IMAGE_BUTTON_CANCEL', 'Do not delete records');
 
 
 define('MODULE_PAYMENT_CHARGEIT_CC_ACCEPTED', 'Credit Card / Offline Proccess');
+
+
+//mail manager
+define('BOX_HEADING_MAIL_MANAGER', 'Mail Manager');
+define('BOX_MM_BULKMAIL', 'BulkMail Manager');
+define('BOX_MM_TEMPLATES', 'Template Manager');
+define('BOX_MM_EMAIL', 'Send Email');
+define('BOX_MM_RESPONSEMAIL', 'Response Mail');
+?>

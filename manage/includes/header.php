@@ -472,7 +472,7 @@
                                                     <li>
 											<a href="banner_manager.php">Banner Manager</a>
 										</li>
-						
+
 							<li>
 								<a href="newsdesk.php?selected_box=newsdesk"> Blog </a>
 							</li>
@@ -480,6 +480,54 @@
                                                         	<li>
 								<a href="articles.php?selected_box=articles">Information Pages</a>
 							</li>
+							
+							
+							
+									<li class="parent">
+								<a href="javascript:;" class="dropdown-collapse"> <span>Email Templates</span> <i class="icon-angle-down angle-down"></i> </a>
+								<ul class="nav nav-stacked">
+									<li>
+										<a href="mm_templates.php">mm_templates.php</a>
+									</li>
+									<li>
+										<a href="mm_responsemail.php">mm_responsemail.php</a>
+									</li>
+									<li>
+										<a href="mm_email.php">mm_email.php</a>
+									</li>
+									<li>
+										<a href="mm_bulkmail.php">mm_bulkmail.php</a>
+									</li>
+								 
+								</ul>
+							</li>
+							
+							
+							
+
+							
+									<li class="parent">
+								<a href="javascript:;" class="dropdown-collapse"> <span>HTML Module Editors</span> <i class="icon-angle-down angle-down"></i> </a>
+								<ul class="nav nav-stacked">
+									<li>
+										<a href="general_area1.php">HTML Module Position 1</a>
+									</li>
+									<li>
+										<a href="general_area2.php">HTML Module Position 2</a>
+									</li>
+									<li>
+										<a href="general_area3.php">HTML Module Position 3</a>
+									</li>
+									<li>
+										<a href="general_area4.php">HTML Module Position 4</a>
+									</li>
+									<li>
+										<a href="general_area5.php">HTML Module Position 5</a>
+									</li>
+								</ul>
+							</li>
+							
+
 							<li>
 								<a href="configuration.php?gID=923&amp;selected_box=configuration">RSS News Module</a>
 							</li>
@@ -487,7 +535,7 @@
                                                         <li>
 											<a href="configuration.php?gID=30&amp;cID=885">Ebay&#153; Auctions</a>
 										</li>
-							
+
 							<li class="parent">
 								<a href="javascript:;" class="dropdown-collapse"> <span>HTML Module Editors</span> <i class="icon-angle-down angle-down"></i> </a>
 								<ul class="nav nav-stacked">

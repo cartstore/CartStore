@@ -409,11 +409,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 
       </tr>
 
-      <tr>
 
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-
-      </tr>
 
       <tr>
 
@@ -421,11 +417,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 
       </tr>
 
-      <tr>
 
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-
-      </tr>
 
       <tr>
 
@@ -467,15 +459,11 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 <?php
     if ($order->info['usps_track_num'] == NULL & $order->info['usps_track_num2'] == NULL & $order->info['ups_track_num'] == NULL & $order->info['ups_track_num2'] == NULL & $order->info['fedex_track_num'] == NULL & $order->info['fedex_track_num2'] == NULL & $order->info['dhl_track_num'] == NULL & $order->info['dhl_track_num2'] == NULL) {
 ?>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td class="main"><b><?php echo HEADING_TRACKING; ?></b></td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
           <tr class="infoBoxContents">
@@ -487,21 +475,15 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
           </tr>
         </table></td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
 <?php
 }else if ($order->info['usps_track_num'] == NULL or $order->info['usps_track_num2'] == NULL or $order->info['ups_track_num'] == NULL or $order->info['ups_track_num2'] == NULL or $order->info['fedex_track_num'] == NULL or $order->info['fedex_track_num2'] == NULL or $order->info['dhl_track_num'] == NULL or $order->info['dhl_track_num2'] == NULL) {
 ?>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td class="main"><b><?php echo HEADING_TRACKING; ?></b></td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
           <tr class="infoBoxContents">
@@ -593,21 +575,15 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
           </tr></table>
         </td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
 <?php
 }else if ($order->info['usps_track_num'] != NULL & $order->info['usps_track_num2'] != NULL & $order->info['ups_track_num'] != NULL & $order->info['ups_track_num2'] != NULL & $order->info['fedex_track_num'] != NULL & $order->info['fedex_track_num2'] != NULL & $order->info['dhl_track_num'] != NULL & $order->info['dhl_track_num2'] != NULL) {
 ?>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td class="main"><b><?php echo HEADING_TRACKING; ?></b></td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
           <tr class="infoBoxContents">
@@ -655,20 +631,14 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
           </tr></table>
         </td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
 <?php
 }
   if (DOWNLOAD_ENABLED == 'true') include(DIR_WS_MODULES . 'downloads.php');
 ?>
 <!-- Package Tracking Plus END -->
 
-      <tr>
 
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-
-      </tr>
 
       <tr>
 
@@ -680,7 +650,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 
               <tr>
 
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+                <td width="10"> </td>
 
                 <!-- // Points/Rewards Module V2.00 history_back_bof  //-->
 
@@ -688,7 +658,7 @@ if (($orders_status == '1') OR ($orders_status == '2') ) {
 
 <!-- // Points/Rewards Module V2.00 history_back_eof //-->
 
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+                <td width="10"> </td>
 
               </tr>
 

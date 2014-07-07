@@ -218,5 +218,9 @@ define('FILENAME_BANNED_IP', 'banned_ip.php');
   define('FILENAME_GV_SENT', 'gv_sent.php');
   define('FILENAME_COUPON_ADMIN', 'coupon_admin.php');
 // add CCGV define end
-
+//MAIL MANAGER
+define('FILENAME_MM_RESPONSEMAIL', 'mm_responsemail.php');
+define('FILENAME_MM_TEMPLATES', 'mm_templates.php');
+define('FILENAME_MM_BULKMAIL', 'mm_bulkmail.php');
+define('FILENAME_MM_EMAIL', 'mm_email.php');
 ?>

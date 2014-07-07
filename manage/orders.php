@@ -173,7 +173,13 @@ else { $sort_by = "o.orders_id DESC"; }
 
                       if ($num_rows == 0) {
                           $email = STORE_NAME . "\n" . EMAIL_SEPARATOR . "\n" . EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n" . EMAIL_TEXT_INVOICE_URL . ' ' . tep_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') . "\n" . EMAIL_TEXT_DATE_ORDERED . ' ' . tep_date_long($check_status['date_purchased']) . "\n\n" . $notify_comments . sprintf(EMAIL_TEXT_STATUS_UPDATE, $orders_status_array[$status]);
-                          tep_mail($check_status['customers_name'], $check_status['customers_email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . ' ' . $insert_id . ' ' .EMAIL_TEXT_SUBJECT_2, $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS);
+                          //*******start mail manager****************// 
+if (file_exists(DIR_FS_CATALOG_MODULES.'mail_manager/status_update.php')){
+include(DIR_FS_CATALOG_MODULES.'mail_manager/status_update.php'); 
+}else{
+tep_mail($check_status['customers_name'], $check_status['customers_email_address'], STORE_NAME . ' ' . EMAIL_TEXT_SUBJECT_1 . ' ' . $insert_id . ' ' .EMAIL_TEXT_SUBJECT_2, $email, STORE_OWNER, STORE_OWNER_EMAIL_ADDRESS); 
+}
+//********end mail manager****************//
                       } //if ($num_rows == 0)
                       else {
                           if ($_POST['notify'] != 'on')
@@ -445,6 +451,8 @@ else { $sort_by = "o.orders_id DESC"; }
 
 
 
+<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
+
 
 
                   <h3> <?php
@@ -462,7 +470,7 @@ else { $sort_by = "o.orders_id DESC"; }
  <?php
       echo $order->customer['telephone'];
 ?></p>
-                  
+
                     <p>    <?php
       echo ENTRY_EMAIL_ADDRESS;
 ?>
@@ -470,7 +478,9 @@ else { $sort_by = "o.orders_id DESC"; }
                      <?php
       echo '<a href="mailto:' . $order->customer['email_address'] . '"><u>' . $order->customer['email_address'] . '</u></a>';
 ?> </p>
-                  
+</div>
+
+<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12 well">
   
   <h3>                <?php
       echo ENTRY_SHIPPING_ADDRESS;
@@ -484,7 +494,9 @@ else { $sort_by = "o.orders_id DESC"; }
 </address>  
 
 
+</div>
 
+<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
 
             <h3>            <?php
       echo ENTRY_BILLING_ADDRESS;
@@ -494,8 +506,11 @@ else { $sort_by = "o.orders_id DESC"; }
 ?>  </address>  
  
 
+</div>
+<div class="clear">
 
-
+</div>
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
 <h3>
                   <?php
       echo ENTRY_PAYMENT_METHOD;
@@ -507,7 +522,7 @@ else { $sort_by = "o.orders_id DESC"; }
       echo $order->info['payment_method'];
 ?>
 </p>
-
+</div>
 
               <?php
       if (tep_not_null($order->info['cc_type']) || tep_not_null($order->info['cc_owner']) || tep_not_null($order->info['cc_number'])) {

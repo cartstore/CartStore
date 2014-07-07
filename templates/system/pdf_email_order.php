@@ -1,4 +1,4 @@
-<?php
+<?php  
 	$order_id = $insert_id;
 
 	require_once (DIR_WS_CLASSES . 'class.phpmailer.php');
