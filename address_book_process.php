@@ -322,7 +322,7 @@ require(DIR_WS_INCLUDES . 'header.php');
           <tr class="infoBoxContents">
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+                <td></td>
                 <td class="main" width="50%" valign="top"><?php echo DELETE_ADDRESS_DESCRIPTION; ?></td>
                 <td align="right" width="50%" valign="top"><table border="0" cellspacing="0" cellpadding="2">
                   <tr>
@@ -335,22 +335,20 @@ require(DIR_WS_INCLUDES . 'header.php');
           </tr>
         </table>
         
-        
+
         
         </td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
       <tr>
         <td><table border="0" width="100%" cellspacing="1" cellpadding="2" class="infoBox">
           <tr class="infoBoxContents">
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+
                 <td><?php echo '<a class="btn btn-default" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
                 <td align="right"><?php echo '<a class="btn btn-default" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, 'delete=' . $_GET['delete'] . '&action=deleteconfirm', 'SSL') . '">' .  IMAGE_BUTTON_DELETE . '</a>'; ?></td>
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+
               </tr>
             </table></td>
           </tr>
@@ -362,9 +360,7 @@ require(DIR_WS_INCLUDES . 'header.php');
       <tr>
         <td><?php include(DIR_WS_MODULES . 'address_book_details.php'); ?></td>
       </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '100%', '10'); ?></td>
-      </tr>
+
 <?php
     if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
 ?>
@@ -373,11 +369,13 @@ require(DIR_WS_INCLUDES . 'header.php');
           <tr class="infoBoxContents">
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-                <td><?php echo '<a class="btn btn-default" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
-                <td align="right"><?php echo tep_draw_hidden_field('action', 'update') . tep_draw_hidden_field('edit', $_GET['edit']) . tep_image_submit('button_update.gif', IMAGE_BUTTON_UPDATE); ?></td>
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
-              </tr>
+                 <td><p>
+
+					<?php echo '<a class="btn btn-default" href="' . tep_href_link(FILENAME_ADDRESS_BOOK, '', 'SSL') . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></p></td>
+                <td align="right"><p>
+
+					 </p><?php echo tep_draw_hidden_field('action', 'update') . tep_draw_hidden_field('edit', $_GET['edit']) . tep_image_submit('button_update.gif', IMAGE_BUTTON_UPDATE); ?></p></td>
+               </tr>
             </table></td>
           </tr>
         </table></td>
@@ -395,10 +393,10 @@ require(DIR_WS_INCLUDES . 'header.php');
           <tr class="infoBoxContents">
             <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr>
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+                <td width="10"></td>
                 <td><?php echo '<a class="btn btn-default" href="' . $back_link . '">' . IMAGE_BUTTON_BACK . '</a>'; ?></td>
                 <td align="right"><?php echo tep_draw_hidden_field('action', 'process') . tep_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE); ?></td>
-                <td width="10"><?php echo tep_draw_separator('pixel_trans.gif', '10', '1'); ?></td>
+                <td width="10"></td>
               </tr>
             </table></td>
           </tr>

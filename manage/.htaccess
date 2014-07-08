@@ -48,14 +48,14 @@
  
 ############################################
 ## disable magic quotes for php request vars
- 
-    php_flag magic_quotes_gpc on
+
+    php_flag magic_quotes_gpc off
  
 ############################################
 ## disable automatic session start
 ## before autoload was initialized
  
-   // php_flag session.auto_start off
+    php_flag session.auto_start off
  
 ############################################
 ## enable resulting html compression

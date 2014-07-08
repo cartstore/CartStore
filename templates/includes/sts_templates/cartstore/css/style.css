@@ -987,3 +987,81 @@ div.article_shorttext {height:203px;overflow:hidden;display:block;padding-bottom
 .contentCol .table tr.active h3 a {color:#fff;}
 
 .contentCol .table tr.active h3  {margin:0px;padding: 10px 19px;}
+
+
+
+
+
+/* Slider css start */
+
+.banner_home  {
+	background: linear-gradient(to bottom, #fefefe 0%, #f3f3f3 100%) repeat 0 0 #f3f3f3;
+	border: 1px solid #dddddd;
+}
+
+.banner_home .banner-image {
+    float: left;
+    padding: 10px 30px 0;
+    text-align: center;
+}
+
+.banner_home .banner-text {
+    color: #d1000e;
+    float: left;
+    font-size: 20px;
+    line-height: 32px;
+    width: 57%;
+}
+
+.banner_home .prevCls {
+    background: url("../images/prev_arrow.jpg") no-repeat left top;
+    height: 36px;
+    left: 0;
+    position: absolute;
+    top: 150px;
+    text-indent: -9999px;
+    width: 35px;
+}
+.banner_home .nextCls {
+    background: url("../images/next_arrow.jpg") no-repeat left top;
+    height: 36px;
+    position: absolute;
+    right: 0;
+    top: 150px;
+    text-indent: -9999px;
+    width: 35px;
+}
+
+.banner_home .banner-text .price-box {
+    color: #000;
+    font-size: 25px;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+.banner_home .banner-text a.buy-it:link, 
+.banner_home .banner-text a.buy-it:active, 
+.banner_home .banner-text a.buy-it:visited {
+    background: #404040;
+    border: 1px solid #404040;
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 38px;
+    line-height: 38px;
+    margin-bottom: 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s ease 0s;
+    width: 118px;
+}
+
+.banner_home {
+  /*  height: 365px;*/
+}
+
+
+
+
+
+

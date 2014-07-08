@@ -80,15 +80,19 @@ require(DIR_WS_INCLUDES . 'header.php');
 <?php
   }
 ?> 
-              <span class="pull-left">  <?php echo '<a class="btn button btn-default" href="' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?> </span>
+            <p>
+
+	 <span class="pull-left">  <?php echo '<a class="btn button btn-default" href="' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . '">' .  IMAGE_BUTTON_BACK . '</a>'; ?> </span></p> 
 <?php
   if (tep_count_customer_address_book_entries() < MAX_ADDRESS_BOOK_ENTRIES) {
 ?>
-           <span class="pull-right">   <?php echo '<a class="btn button btn-primary" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, '', 'SSL') . '">' . IMAGE_BUTTON_ADD_ADDRESS . '</a>'; ?> </span>
+       <p>
+
+	   <span class="pull-right">   <?php echo '<a class="btn button btn-primary" href="' . tep_href_link(FILENAME_ADDRESS_BOOK_PROCESS, '', 'SSL') . '">' . IMAGE_BUTTON_ADD_ADDRESS . '</a>'; ?> </span></p> 
 <?php
   }
 ?><div class="clear"></div>
-  <p> <?php echo sprintf(TEXT_MAXIMUM_ENTRIES, MAX_ADDRESS_BOOK_ENTRIES); ?></p>  </td>
+  <p><br> <?php echo sprintf(TEXT_MAXIMUM_ENTRIES, MAX_ADDRESS_BOOK_ENTRIES); ?></p>  </td>
       </tr>
     </table> 
 <!-- body_text_eof //-->

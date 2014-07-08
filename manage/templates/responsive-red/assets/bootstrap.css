@@ -435,7 +435,7 @@ h6 {
 }
 h1,
 .h1 {
-  font-size: 28px;
+  font-size: 33px;
 }
 h2,
 .h2 {
@@ -474,7 +474,7 @@ h4 small,
 .page-header {
   
   margin: 0px;
-  margin-top:10px;margin-bottom:10px;
+  margin-top:15px;margin-bottom:10px;
   padding:0px;
   padding-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;

@@ -1,23 +1,23 @@
-<div class="banner clearfix carousel slide" data-ride="carousel" id="carousel-example-generic" data-interval="false"><!-- banner -->
+<div class="banner_home clearfix carousel slide" data-ride="carousel" id="carousel-example-generic" data-interval="false"><!-- banner -->
     <div class="carousel-inner">
        
         
         
         
-        <div class="item active">
-    <div class="banner-image"><img class="img-responsive" src="templates/includes/sts_templates/phs/images/banner_image.jpg" width="136" height="318" alt=""></div>
+        <div class="item active clearfix">
+    <div class="banner-image"><img class="img-responsive" src="images/Testosterosa4oz_custom.jpg" width="136" height="318" alt=""></div>
     <div class="banner-text">
         <h1>Liver Clear 90 Caps 650mg</h1>
         <p>LiverClear is a powerful drainage and detoxification herbal formulation for the liver and gallbladder.</p>
         <div class="price-box">$42.90</div>
         <a class="buy-it" href="#">Buy It Now</a>
     </div>
-    
+
      </div>
         
         
-           <div class="item ">
-    <div class="banner-image"><img class="img-responsive" src="images/ClearLungPlus_custom_crop15.jpg" width="136" height="318" alt=""></div>
+           <div class="item clearfix">
+    <div class="banner-image"><img class="img-responsive" src="images/Testosterosa4oz_custom.jpg" width="136" height="318" alt=""></div>
     <div class="banner-text">
         <h1>ClearLung Plus 4 oz</h1>
         <p>Frees up mucous congestion and allows for increased expectoration.</p>
@@ -29,7 +29,7 @@
         
         
         
-           <div class="item ">
+           <div class="item clearfix">
     <div class="banner-image"><img class="img-responsive" src="images/Testosterosa4oz_custom.jpg" width="136" height="318" alt=""></div>
     <div class="banner-text">
         <h1> Testosterosa 4 oz</h1>
@@ -45,8 +45,8 @@
 
         
     </div>
-            <a class="prev " href="#carousel-example-generic" data-slide="prev">Previous</a>
-    <a class="next" href="#carousel-example-generic"data-slide="next" data-slide="next">Next</a>
+            <a class="prevCls " href="#carousel-example-generic" data-slide="prev">Previous</a>
+            <a class="nextCls" href="#carousel-example-generic"data-slide="next" data-slide="next">Next</a>
 </div><!-- //banner -->
 
 

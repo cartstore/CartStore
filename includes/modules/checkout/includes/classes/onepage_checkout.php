@@ -1267,13 +1267,13 @@ class osC_onePageCheckout
 				$email_text = sprintf(EMAIL_GREET_NONE, $customer['customers_firstname']);
 			}
 
-			$email_text .= EMAIL_WELCOME;
+			// $email_text .= EMAIL_WELCOME;
 
 			$email_text .= 'You can log into your account using the following' . "\n" .
 			'Username: ' . $onepage['customer']['email_address'] . "\n" .
 			'Password: ' . $onepage['customer']['password'] . "\n\n";
 
-			$email_text .= EMAIL_TEXT . EMAIL_CONTACT . EMAIL_WARNING;
+			$email_text .=  EMAIL_WARNING;
 
 			if (MODULE_ORDER_TOTAL_COUPON_STATUS == 'true'){
 				// Start - CREDIT CLASS Gift Voucher Contribution

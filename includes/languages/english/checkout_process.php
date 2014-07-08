@@ -16,12 +16,9 @@ define('EMAIL_TEXT_SUBJECT_1', ' Order');
 define('EMAIL_TEXT_SUBJECT_2', 'has been received.');
 //Package Tracking Plus END
 define('EMAIL_TEXT_ORDER_NUMBER', 'Order Number:');
-define('EMAIL_TEXT_INVOICE_URL', 'Detailed Invoice:');
+define('EMAIL_TEXT_INVOICE_URL', '');
 define('EMAIL_TEXT_DATE_ORDERED', 'Date Ordered:');
-define('EMAIL_TEXT_PRODUCTS', 'Thank you for your order!
-
-
-Products');
+define('EMAIL_TEXT_PRODUCTS', 'Thank you for your order!');
 define('EMAIL_TEXT_SUBTOTAL', 'Sub-Total:');
 define('EMAIL_TEXT_TAX', 'Tax:        ');
 define('EMAIL_TEXT_SHIPPING', 'Shipping: ');
