@@ -411,9 +411,12 @@ buildInfobox($header, $billingAddress, true);
 if(ONEPAGE_ADDR_LAYOUT == 'vertical')
 	{
 ?><div class="clear"></div>
+
+
 	<div id="loader-message">
 	
 </div>
+
 
 <div class="clear"></div>
 <?php

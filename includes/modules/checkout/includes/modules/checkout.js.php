@@ -1,6 +1,6 @@
 <?php
-//chdir("../../../../../");
-//require_once("includes/application_top.php");
+chdir("../../../../../");
+require_once("includes/application_top.php");
 header("Content-type: text/javascript");
 ?>
 var submitter = null;
@@ -21,9 +21,9 @@ function bindAutoFill($el){
 	}else{
 		var method = 'blur';
 	}
-
+	
 	$el.blur(unsetFocus).focus(setFocus);
-
+	
 	if (document.attachEvent){
 		$el.get(0).attachEvent('onpropertychange', function (){
 			if (jQuery(event.srcElement).data('hasFocus') && jQuery(event.srcElement).data('hasFocus') == 'true') return;
@@ -64,7 +64,7 @@ var checkout = {
 	showAjaxLoader: function ()
 		{
 				this.bootboxDialog = bootbox.dialog({
-					message: '<p class="text-info text-center"><img src="includes/modules/checkout/images/ajax_load.gif"></p>',
+					message: '<p class="text-info text-center"><img src="includes/modules/checkout/images/ajax_load.gif"></p>', 
 					show: false,
 					animate: false,
 					className: 'bootboxAjaxMessages'
@@ -76,20 +76,19 @@ var checkout = {
 		},
 	showAjaxMessage: function (message){
 			jQuery('#checkoutButtonContainer').hide();
-                        
-                       jQuery("#loader-message").load("./loading.php");
-
-                        
-			
+			this.bootboxDialog = bootbox.dialog({
+					message: '<p class="text-info text-center">Loading....<br><img src="includes/modules/checkout/images/ajax_load.gif"><br>' + message + '</p>', 
+					show: true,
+					animate: true,
+					className: 'bootboxAjaxMessages'
+			});
 	},
 	hideAjaxMessage: function (){
 			jQuery('#checkoutButtonContainer').show();
 			jQuery(".bootboxAjaxMessages").modal('hide');
-                        jQuery(".bootboxAjaxMessages").modal('hide');
-                    $('#loader-message').html("");
 	},
 	fieldErrorCheck: function ($element, forceCheck, hideIcon){
-
+		
 		forceCheck = forceCheck || false;
 		hideIcon = hideIcon || false;
 		var errMsg = this.checkFieldForErrors($element, forceCheck);
@@ -201,7 +200,7 @@ var checkout = {
 			if (!jQuery(this).hasClass('moduleRowSelected')){
 				jQuery(this).removeClass('moduleRowOver');
 			}
-		}).click(function (){
+		}).click(function (){ 
 			if (!jQuery(this).hasClass('moduleRowSelected')){
 				var selector = (jQuery(this).hasClass('shippingRow') ? '.shippingRow' : '.paymentRow') + '.moduleRowSelected';
 				jQuery(selector).removeClass('moduleRowSelected');
@@ -264,10 +263,10 @@ var checkout = {
 		jQuery('input, select', jQuery('#billingAddress')).each(function (){
 			if (jQuery(this).attr('name') != undefined && jQuery(this).attr('type') != 'checkbox' && jQuery(this).attr('type') != 'radio'){
 				jQuery(this).blur(function (){
-
+					
 					if (jQuery(this).hasClass('required')){
 						checkoutClass.fieldErrorCheck(jQuery(this));
-
+						
 					}
 				});
 				bindAutoFill(jQuery(this));
@@ -294,7 +293,7 @@ var checkout = {
 					checkoutClass.processBillingAddress(true);
 				}
 			};
-
+			
 			jQuery(this).unbind('blur');
 			if (jQuery(this).attr('type') == 'select-one'){
 				jQuery(this).change(processFunction);
@@ -307,7 +306,7 @@ var checkout = {
 			if (jQuery(this).attr('name') != undefined && jQuery(this).attr('type') != 'checkbox'){
 				var processAddressFunction = function (){
 					checkoutClass.shippingInfoChanged = true;
-
+					
 					if (jQuery(this).hasClass('required')){
 						if (checkoutClass.fieldErrorCheck(jQuery(this)) == false){
 							checkoutClass.processShippingAddress();
@@ -319,7 +318,7 @@ var checkout = {
 						checkoutClass.processShippingAddress();
 					}
 				};
-
+			
 				jQuery(this).blur(processAddressFunction);
 				bindAutoFill(jQuery(this));
 
@@ -342,7 +341,7 @@ var checkout = {
 					fieldType = 'delivery';
 				}
 				checkoutClass.addCountryAjax(jQuery(this), fieldType + '_state', 'stateCol_' + fieldType);
-
+	
 			});
 
 			jQuery('*[name="billing_zipcode"], *[name="delivery_zipcode"]').each(function (){
@@ -359,7 +358,7 @@ var checkout = {
 						processAddressFunction.call(checkoutClass);
 					}
 				}
-
+			
 				if (jQuery(this).attr('type') == 'select-one'){
 					jQuery(this).change(processFunction);
 				}else{
@@ -367,16 +366,16 @@ var checkout = {
 				}
 				bindAutoFill(jQuery(this));
 			});
-		}
+		}		
 	},
 	updateCartView: function (){
 		var checkoutClass = this;
-		this.queueAjaxRequest({
+		this.queueAjaxRequest({ 
 			url: this.pageLinks.checkout,
 			data: "action=updateCartView",
 			type: "POST",
 			beforeSendMsg: "Refreshing Shopping Cart",
-			success: function (data){
+			success: function (data){ 
 				if (data == 'none'){
 					document.location = checkoutClass.pageLinks.shoppingCart;
 				}else{
@@ -413,7 +412,7 @@ var checkout = {
 			dataType: 'json',
 			success: function (data){
 				checkoutClass.updateOrderTotals();
-
+				
 			},
 			errorMsg: 'There was an error ' + (status=='on'?'':'Un') + 'setting Gift Voucher method, please inform ' + checkoutClass.storeName + ' about this error.'
 		});
@@ -442,18 +441,18 @@ var checkout = {
 			type: 'post',
 			beforeSendMsg: 'Checking Totals',
 			success: function (data){
-				if(data == 0){
+				if(data == 0){	
 				checkoutClass.amountRemaininginTotal=false;
 		  		jQuery('#paymentMethods input:radio').attr('disabled',true);
 				}else{
 				checkoutClass.amountRemaininginTotal=true;
 				jQuery('#paymentMethods input:radio').attr('disabled',false);
 				}
-
+				
 			},
 			errorMsg: 'There was an error refreshing the shopping cart, please inform ' + checkoutClass.storeName + ' about this error.'
 		});
-
+		
 	},
 	updatePoints: function()
 	{
@@ -481,7 +480,7 @@ var checkout = {
 								event.preventDefault();
 								return false;
 							}
-
+							
 						});
 						jQuery(':checkbox[name="use_shopping_points"]').unbind('click').click(function() {
 							if(jQuery(':checkbox[name="use_shopping_points"]').is(':checked'))
@@ -494,7 +493,7 @@ var checkout = {
 							}
 							return true;
 						});
-
+						
 						jQuery(':input[name="customer_points"]').unbind('blur').blur(function() {
 							if(jQuery(':checkbox[name="use_shopping_points"]').is(':checked'))
 							{
@@ -502,7 +501,7 @@ var checkout = {
 								checkoutClass.checkPoints();
 							}
 						});
-
+						
 					}
 			},
 			errorMsg: 'There was an error updating points, please inform IT Web Experts about this error.'
@@ -525,7 +524,7 @@ var checkout = {
 				jQuery('input[name="customer_points"]').removeAttr('disabled');
 				checkoutClass.updatePoints();
 				checkoutClass.updateOrderTotals();
-
+				
 			},
 			errorMsg: 'There was an error redeeming points, please inform IT Web Experts about this error.'
 		});
@@ -543,7 +542,7 @@ var checkout = {
 			success: function (data){
 				checkoutClass.updatePoints();
 				checkoutClass.updateOrderTotals();
-
+				
 			},
 			errorMsg: 'There was an error redeeming points, please inform IT Web Experts about this error.'
 		});
@@ -561,7 +560,7 @@ var checkout = {
 				jQuery('#no' + descText + 'Address').hide();
 				jQuery('#' + action + 'Methods').html(data).show();
 				if(action == 'payment')
-				{
+				{ 
 					if(jQuery('input[name="cot_gv"]', jQuery('#paymentMethods')))
 					{
 						jQuery('input[name="cot_gv"]', jQuery('#paymentMethods')).each(function (){
@@ -586,7 +585,7 @@ var checkout = {
 								event.preventDefault();
 								return false;
 							}
-
+							
 						});
 						jQuery(':checkbox[name="use_shopping_points"]').unbind('click').click(function() {
 							if(jQuery(':checkbox[name="use_shopping_points"]').is(':checked'))
@@ -599,7 +598,7 @@ var checkout = {
 							}
 							return true;
 						});
-
+						
 						jQuery(':input[name="customer_points"]').unbind('blur').blur(function() {
 							if(jQuery(':checkbox[name="use_shopping_points"]').is(':checked'))
 							{
@@ -607,9 +606,9 @@ var checkout = {
 								checkoutClass.checkPoints();
 							}
 						});
-
+						
 					}
-
+					
 				}
 				jQuery('.' + action + 'Row').each(function (){
 					checkoutClass.addRowMethods(jQuery(this));
@@ -709,7 +708,7 @@ var checkout = {
 		});
 		$input.change(function (event, callBack){
 			var thisName = jQuery(this).attr('name');
-
+			
 			if (thisName == 'shipping_country')
 			{
 				checkoutClass.shippingInfoChanged = true;
@@ -723,7 +722,7 @@ var checkout = {
 					checkoutClass.addIcon(jQuery(this), 'success');
 				}
 			}
-
+			
 			var $origStateField = jQuery('*[name="' + fieldName + '"]', jQuery('#' + stateCol));
 			checkoutClass.queueAjaxRequest({
 				url: checkoutClass.pageLinks.checkout,
@@ -746,7 +745,7 @@ var checkout = {
 					if (thisName == 'shipping_country'){
 						processAddressFunction = checkoutClass.processShippingAddress;
 					}
-
+					
 					var processFunction = function (){
 						if (jQuery(this).hasClass('required')){
 							if (checkoutClass.fieldErrorCheck(jQuery(this)) == false){
@@ -756,9 +755,9 @@ var checkout = {
 							processAddressFunction.call(checkoutClass);
 						}
 					};
-
+					
 					bindAutoFill($curField);
-
+					
 					if ($curField.attr('type') == 'select-one'){
 						$curField.change(processFunction);
 					}else{
@@ -1078,9 +1077,9 @@ var checkout = {
 				}
 			}
 		});
-			jQuery('#updateAddressBilling').click(function (){
+			jQuery('#updateAddressBilling').click(function (){ 
 		checkoutClass.billingInfoChanged = false;
-
+		
 		var red=0;
 		jQuery('input', jQuery('#billingAddress')).each(function (){
 
@@ -1090,18 +1089,18 @@ if (jQuery(this).hasClass('required') ){
 			red = 1;
 			}else{
 				jQuery(this).removeClass('fieldRed');
-
+				
 				red =0;
 			}
 }
-	});
-if(red==1)
+	});													
+if(red==1) 
 alert('A required field was left blank. It is highlighted in red, please fill it in and click update');
 else
 checkoutClass.processBillingAddress();
 	});
-
-
+		
+		
 		jQuery('input[name="billing_email_address"]').each(function (){
 			jQuery(this).unbind('blur').change(function (){
 				var $thisField = jQuery(this);
@@ -1139,7 +1138,7 @@ checkoutClass.processBillingAddress();
 			});
 			bindAutoFill(jQuery(this));
 		});
-
+		
 		jQuery('input', jQuery('#shippingAddress')).each(function (){
 			if (jQuery(this).attr('name') != undefined && jQuery(this).attr('type') != 'checkbox'){
 				var processAddressFunction = function (){
@@ -1152,7 +1151,7 @@ checkoutClass.processBillingAddress();
 						}
 					}
 				};
-
+			
 				jQuery(this).change(processAddressFunction);
 				bindAutoFill(jQuery(this));
 
@@ -1165,8 +1164,8 @@ checkoutClass.processBillingAddress();
 				}
 			}
 		});
-
-		jQuery('#updateAddressShipping').click(function (){
+		
+		jQuery('#updateAddressShipping').click(function (){ 
 		var redalert=0;
 		checkoutClass.shippingInfoChanged = false;
 		jQuery('input', jQuery('#shippingAddress')).each(function (){
@@ -1177,13 +1176,13 @@ if (jQuery(this).hasClass('required') ){
 			redalert = 1;
 			}else{
 				jQuery(this).removeClass('fieldRed');
-
+				
 				redalert =0;
 			}
 
 }
-	});
-if(redalert==1)
+	});													
+if(redalert==1) 
 alert('A required field was left blank. It is highlighted in red, please fill it in and click update');
 else
 checkoutClass.processShippingAddress();
@@ -1199,7 +1198,7 @@ checkoutClass.processShippingAddress();
 				}
 				checkoutClass.addCountryAjax(jQuery(this), fieldType + '_state', 'stateCol_' + fieldType);
 			});
-
+		
 			jQuery('*[name="billing_zipcode"], *[name="delivery_zipcode"]').each(function (){
 				var processFunction = function (){
 					if (jQuery(this).attr('name') == 'delivery_zipcode'){
@@ -1210,7 +1209,7 @@ checkoutClass.processShippingAddress();
 						jQuery("#updateAddressBilling").click();
 					}
 				}
-
+			
 				if (jQuery(this).attr('type') == 'select-one'){
 					jQuery(this).change(processFunction);
 				}else{
@@ -1223,7 +1222,7 @@ checkoutClass.processShippingAddress();
 					if (jQuery(this).hasClass('required')){
 						checkoutClass.fieldErrorCheck(jQuery(this));
 					}
-				}
+				}			
 				if (jQuery(this).attr('type') == 'select-one'){
 					jQuery(this).change(processFunction);
 				}else{
@@ -1233,7 +1232,7 @@ checkoutClass.processShippingAddress();
 			});
 		}
 		jQuery('#updateCartButton').click(function (){
-
+		
 			checkoutClass.showAjaxLoader();
 			checkoutClass.queueAjaxRequest({
 				url: checkoutClass.pageLinks.checkout,
@@ -1242,7 +1241,7 @@ checkoutClass.processShippingAddress();
 				beforeSendMsg: 'Updating Product Quantities',
 				dataType: 'json',
 				success: function (){
-
+					
 					checkoutClass.updateCartView();
 					checkoutClass.updateFinalProductListing();
 					if (jQuery('#noPaymentAddress:hidden').size() > 0){
@@ -1250,14 +1249,14 @@ checkoutClass.processShippingAddress();
 						checkoutClass.updateShippingMethods(true);
 					}
 					checkoutClass.updateOrderTotals();
-
+					
 				},
 				errorMsg: 'There was an error updating shopping cart, please inform ' + checkoutClass.storeName + ' about this error.'
 			});
 			return false;
 		});
 
-
+		
 		if(checkoutClass.pointsInstalled == true)
 		{
 			jQuery(':input[name="customer_points"]').unbind('keypress').keypress(function(event){
@@ -1287,7 +1286,7 @@ checkoutClass.processShippingAddress();
 				}
 				return true;
 			});
-
+			
 			jQuery(':input[name="customer_points"]').unbind('blur').blur(function() {
 				if(jQuery(':checkbox[name="use_shopping_points"]').is(':checked'))
 				{
@@ -1295,13 +1294,13 @@ checkoutClass.processShippingAddress();
 					checkoutClass.checkPoints();
 				}
 			});
-
+			
 		}
 
-
+		
 		jQuery('#checkoutButton').click(function() {
 				return checkoutClass.checkAllErrors();
-
+											
 		});
 
 		if (checkoutClass.ccgvInstalled == true){
@@ -1353,7 +1352,7 @@ checkoutClass.processShippingAddress();
 					success: function (data){
 						if (data.success == false){
 							alert('Coupon is either invalid or expired.');
-
+							
 						}
 						checkoutClass.updateOrderTotals(true);
 					},

@@ -47,7 +47,8 @@ $headertags#
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="templates/includes/sts_templates/cartstore/js/bootstrap.min.js"></script>
-<script src="templates/system/bootbox.min.js" type="text/javascript"></script>
+		<script src="templates/system/bootbox.min.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="java.js.php"></script>
 <script type="text/javascript" src="templates/system/mojozoom/mojozoom.js"></script>
 <script type="text/javascript" src="templates/system/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
@@ -55,6 +56,7 @@ $headertags#
 <script type="text/javascript" src="//www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 <script src="templates/system/jquery.include.js" type="text/javascript"></script>
 <script src="templates/system/jquery.phoenix.js"></script>
+
 <script src="templates/system/jquery_init_local.js" type="text/javascript"></script>
 
 
