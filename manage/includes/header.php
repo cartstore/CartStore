@@ -107,7 +107,7 @@
 							</li>
 							
 								<li>
-								<a href="about.php"> <i class="fa fa-medkit"></i> Help  </a>
+								<a href="mysql-api.php"> <i class="fa fa-medkit"></i> MySQL Api  </a>
 							</li>
                                                         
                                                         <li>

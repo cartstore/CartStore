@@ -20,7 +20,7 @@
   define('MODULE_PAYMENT_CC_TEXT_ERROR', 'Credit Card Error!');
     define('MODULE_PAYMENT_CC_TEXT_CREDIT_CARD_CVV2', 'Credit Card Security Code');
 	  define('TEXT_EXPLANATION', '');
-define('MODULE_PAYMENT_CC_TEXT_PUBLIC_TI', 'Credit Card');
+define('MODULE_PAYMENT_CC_TEXT_PUBLIC_TITLE', 'Credit Card');
 
 
 ?>

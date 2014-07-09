@@ -310,7 +310,7 @@
 <div class="clear"></div>
 <hr>
 
- <div class="est_shipping" id="est_shipping">
+ <div class="est_shipping col-lg-12 col-md-12 col-sm-12 col-xs-12 row" id="est_shipping">
   <script type="text/javascript">
    jQuery(document).ready(function(){
      jQuery.ajax({
