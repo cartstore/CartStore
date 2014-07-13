@@ -284,11 +284,15 @@ Turn off all error reporting
 
   require(DIR_WS_LANGUAGES . $language . '.php');
 
+# include the cache class 
+    include('includes/classes/cache.class.php'); 
+    $cache = new cache($languages_id); 
+
   include_once(DIR_WS_CLASSES . 'seo.class.php');
   if (!is_object($seo_urls)) {
       $seo_urls = new SEO_URL($languages_id);
   }
-
+$cache->get_cache('GLOBAL');
 
   if (!tep_session_is_registered('currency') || isset($_GET['currency']) || ((USE_DEFAULT_LANGUAGE_CURRENCY == 'true') && (LANGUAGE_CURRENCY != $currency))) {
       if (!tep_session_is_registered('currency'))

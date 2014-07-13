@@ -322,9 +322,7 @@ function fixSeoLink($url)
 ?>
 
 <?php echo tep_draw_form('checkout', tep_href_link(FILENAME_CHECKOUT, '', $request_type), 'post','id=onePageCheckoutForm') . tep_draw_hidden_field('action', 'process'); ?>
-<table width="100%">
-<tr>
-<td>
+
 <?php
 if (isset($_GET['payment_error']) && is_object(${$_GET['payment_error']}) && ($error = ${$_GET['payment_error']}->get_error()))
 {
@@ -498,7 +496,7 @@ buildInfobox($header, $commentBox);
 		</tr>
 	</table>
 </form>
-</div>
+
  
 <!-- dialogs_bof //-->
 <div id="loginBox" title="Log Into My Account" style="display:none;">
@@ -555,7 +553,7 @@ buildInfobox($header, $commentBox);
     <!-- body_eof //-->
 
 
-</tr></td></table>
+
         <!-- right_navigation //-->
         <?php require(DIR_WS_INCLUDES . 'column_right.php'); ?>
         <!-- right_navigation_eof //-->
@@ -563,7 +561,6 @@ buildInfobox($header, $commentBox);
 <!-- footer //-->
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 <!-- footer_eof //-->
-</body>
-</html>
+
 <?php
 require(DIR_WS_INCLUDES . 'application_bottom.php');

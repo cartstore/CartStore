@@ -2,6 +2,11 @@
  <html class=" js no-touch localstorage svg">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+
+		
+
+
 		<title>CartStore Administration</title>
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  
@@ -399,6 +404,10 @@
 										<li>
 											<a href="javascript:;">Vendors Orders List</a>
 										</li>
+										
+
+										
+
 										<li>
 											<a href="move_vendor_prods.php">Move Products Between
 											<br>
@@ -630,6 +639,10 @@
 							<li>
 								<a href="stats_monthly_sales.php">Monthly Sales/Tax</a>
 							</li>
+							
+							<li>
+											<a href="search.php">Search Orders by Model #</a>
+										</li>
 						</ul>
 					</li>
 

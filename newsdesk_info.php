@@ -174,8 +174,7 @@ if (!tep_db_num_rows($product_info)) { // product not found in database
 <!-- AddThis Smart Layers END -->
            
            
-            <div class="article_desc"> <?php echo stripslashes($product_info_values['newsdesk_article_shorttext']); ?> <br>
-              <br>
+            <div class="article_desc"> <?php echo stripslashes($product_info_values['newsdesk_article_shorttext']); ?>
               <?php echo stripslashes($product_info_values['newsdesk_article_description']); ?> 
               
               

@@ -1,6 +1,4 @@
 
-
-
             <?php
             echo $messageStack->output('upload');
             ?>

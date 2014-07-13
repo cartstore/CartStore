@@ -170,8 +170,48 @@ define('DRPDOWN', "");
         }
       }
       $query = substr($query, 0, -2) . ' where ' . $parameters;
+    } elseif ($action == 'insert on duplicate key update') {
+      //the insert part
+      $query = 'insert into ' . $table . ' (';
+      while (list($columns, ) = each($data)) {
+        $query .= $columns . ', ';
+      }
+      $query = substr($query, 0, -2) . ') values (';
+      reset($data);
+      while (list(, $value) = each($data)) {
+        switch ((string)$value) {
+          case 'now()':
+            $query .= 'now(), ';
+            break;
+          case 'null':
+            $query .= 'null, ';
+            break;
+          default:
+            $query .= '\'' . tep_db_input($value) . '\', ';
+            break;
+        }
+      }
+      $query = substr($query, 0, -2) . ')';
+      
+      //the update part
+      $query .= ' on duplicate key update ';
+      reset($data);
+      while (list($columns, $value) = each($data)) {
+        switch ((string)$value) {
+          case 'now()':
+            $query .= $columns . ' = now(), ';
+            break;
+          case 'null':
+            $query .= $columns .= ' = null, ';
+            break;
+          default:
+            $query .= $columns . ' = \'' . tep_db_input($value) . '\', ';
+            break;
+        }
+      }
+      $query = substr($query, 0, -2);
     }
-
+    
     return tep_db_query($query, $link);
   }
 

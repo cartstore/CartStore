@@ -1,4 +1,3 @@
-
            
             <?php
             if (PRODUCT_LIST_NUMCOL == 1) {

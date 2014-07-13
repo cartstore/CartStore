@@ -87,8 +87,8 @@ $list_ctyp=tep_get_estimated_shipping_quotes($country,  $_GET['action'],$custome
  
 ' . ENTRY_POST_CODE . '</label>' . tep_draw_input_field('estzipcode', $estzipcode,'MAXLENGTH="20" SIZE="10" VALUE=""') . '</div>
  
-
- ' . tep_image_submit('button_continue.gif', Submit) . '
+<p>
+ ' . tep_image_submit('button_continue.gif', Submit) . '</p>
 
 <script type="text/javascript">
  function getEstShipping(){

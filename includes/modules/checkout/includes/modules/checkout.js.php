@@ -3,6 +3,7 @@ chdir("../../../../../");
 require_once("includes/application_top.php");
 header("Content-type: text/javascript");
 ?>
+
 var submitter = null;
 var paymentVals = new Array();
 
@@ -1297,7 +1298,7 @@ checkoutClass.processShippingAddress();
 			
 		}
 
-		
+
 		jQuery('#checkoutButton').click(function() {
 				return checkoutClass.checkAllErrors();
 											
