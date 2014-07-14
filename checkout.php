@@ -521,6 +521,12 @@ buildInfobox($header, $commentBox);
 		</div>
 </div>
 
+<div id="confirmationBox" title="Order Confirmation" style="display:none">
+	<center>
+		<br>Please review your order to make sure it's accurate and click Confirm Order after loading is complete<br>
+		<img id="imgDlgLgr" src="includes/modules/checkout/images/ajax-loader.gif"><br>
+	</center>
+</div>
 <?php if (isset($_GET['error_message'])) { ?>
 	<script>
 		jQuery(document).ready(function($){
@@ -532,21 +538,6 @@ buildInfobox($header, $commentBox);
 <div id="newAddress" title="New Address" style="display:none"></div>
 <div id="ajaxMessages" style="display:none;"></div>
 
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript">
-	jQuery("#myModal").modal({backdrop: false, show: false})
-</script>
 <!-- dialogs_eof//-->
     <!-- body_text_eof //-->
 
