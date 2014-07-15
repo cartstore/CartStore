@@ -15,6 +15,7 @@
 */
 
   define('MODULE_PAYMENT_REALEX_TEXT_TITLE', 'Realex Payments');
+  define('MODULE_PAYMENT_REALEX_TEXT_TITLE', 'Secure Credit Card payments with Realex');
   define('MODULE_PAYMENT_REALEX_TEXT_DESCRIPTION', 'realAuth Remote Curl');
   define('MODULE_PAYMENT_REALEX_TEXT_TYPE', 'Credit Card Type:');
   define('MODULE_PAYMENT_REALEX_TEXT_CREDIT_CARD_TYPE', 'Credit Card Type:');

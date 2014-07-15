@@ -1,7 +1,7 @@
 <?php
   
-  define('HTTP_SERVER', 'http://dev.cartstore.com');
-  define('HTTPS_SERVER', 'http://dev.cartstore.com');
+  define('HTTP_SERVER', 'http://www.dev.cartstore.com');
+  define('HTTPS_SERVER', 'http://www.dev.cartstore.com');
   define('ENABLE_SSL', false);
   define('HTTP_COOKIE_DOMAIN', '.cartstore.com');
   define('HTTPS_COOKIE_DOMAIN', '.cartstore.com');

@@ -447,6 +447,7 @@
     if (isset($pwa_array_shipping['entry_company'])) $company = $pwa_array_shipping['entry_company'];
 
     $street_address = $pwa_array_shipping['entry_street_address'];
+     $street_address_2 = $pwa_array_shipping['entry_street_address_2'];
 
     if (isset($pwa_array_shipping['entry_suburb'])) $suburb = $pwa_array_shipping['entry_suburb'];
 

@@ -2313,7 +2313,6 @@ case 'pollid':
 					$cache_data = ( $cache['cache_gzip'] == 1 ? gzinflate(base64_decode($cache['cache_data'])) : stripslashes($cache['cache_data']) );
 					switch($cache['cache_method']){
 						case 'EVAL': // must be PHP code
-						//	eval("$cache_data");
 							break;
 						case 'ARRAY':
 							$cache_data = unserialize($cache_data);
