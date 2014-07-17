@@ -210,6 +210,7 @@ define('ENTRY_STREET_ADDRESS_TEXT', '*');
 define('ENTRY_SUBURB', 'Suburb:');
 define('ENTRY_SUBURB_ERROR', '');
 define('ENTRY_SUBURB_TEXT', '');
+ 
 define('ENTRY_POST_CODE', 'Zip/Post Code (Insert NONE if not applicable.):');
 define('ENTRY_POST_CODE_ERROR', 'Your Post Code must contain a minimum of ' . ENTRY_POSTCODE_MIN_LENGTH . ' characters.');
 define('ENTRY_POST_CODE_TEXT', '*');
