@@ -57,6 +57,6 @@ $cba_cart = new CheckoutByAmazonCart($cart, $cba_module_info, $languages_id);
 ?>
 </p>
  
-<?
+<?php
 }
 ?>
