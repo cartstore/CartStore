@@ -1,4 +1,4 @@
-           
+
             <?php
             if (PRODUCT_LIST_NUMCOL == 1) {
                 include(dirname(__FILE__) . '/product_listing.php');
@@ -66,7 +66,7 @@
 
  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-4 content_sortPagiBar pull-right" style="text-align:right;">
     <div id="productsview" class="btn-group">
-			<a rel="view-grid" href="#" class="btn visible-lg hidden-xs"><i class="fa fa-th"></i></a>
+			<a rel="view-grid" href="#" class="btn hidden"><i class="fa fa-th"></i></a>
 			<a rel="view-list" href="#" class="btn active hidden-xs"><i class="fa fa-th-list"></i></a>
                         <!--
 <button class="btn btn-default ymm-link hidden-xs" data-toggle="modal" data-target="#myModal" id="ymm-link">
@@ -451,9 +451,9 @@ Advanced Sort</button> -->
 
                         print('
 			
-			<div class="media productitem clear">
+			<div class="media productitem clear row">
 			 <div class="">
-			  <div class="media-image col-lg-3 col-md-3 col-sm-3 col-xs-12">');
+			  <div class="media-image col-lg-3 col-md-3 col-sm-3 col-xs-3">');
 
                         if ($listing[$x]['products_image'] != "" && file_exists(DIR_WS_IMAGES . '/' . $listing[$x]['products_image'])) {
                             $imgsize = @getimagesize(DIR_WS_IMAGES . $listing[$x]['products_image']);
@@ -479,7 +479,7 @@ Advanced Sort</button> -->
 
 		   
 			
-		         <div class="media-body col-lg-9 col-md-9 col-sm-9 col-xs-12">
+		         <div class="media-body col-lg-9 col-md-9 col-sm-9 col-xs-9">
                
  
 ' . $multibuy .

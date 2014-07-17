@@ -3,12 +3,12 @@
        
         
         
-        
+
         <div class="item active clearfix">
-    <div class="banner-image"><img class="img-responsive" src="images/Testosterosa4oz_custom.jpg" width="136" height="318" alt=""></div>
+    <div class="banner-image"><img class="img-responsive" src="images/dd" width="136" height="318" alt=""></div>
     <div class="banner-text">
-        <h1>Liver Clear 90 Caps 650mg</h1>
-        <p>LiverClear is a powerful drainage and detoxification herbal formulation for the liver and gallbladder.</p>
+        <h1>ss</h1>
+        <p>ddddddd</p>
         <div class="price-box">$42.90</div>
         <a class="buy-it" href="#">Buy It Now</a>
     </div>
@@ -17,10 +17,10 @@
         
         
            <div class="item clearfix">
-    <div class="banner-image"><img class="img-responsive" src="images/Testosterosa4oz_custom.jpg" width="136" height="318" alt=""></div>
+    <div class="banner-image"><img class="img-responsive" src="images/ddd" width="136" height="318" alt=""></div>
     <div class="banner-text">
-        <h1>ClearLung Plus 4 oz</h1>
-        <p>Frees up mucous congestion and allows for increased expectoration.</p>
+        <h1>eeee</h1>
+        <p>wwww</p>
         <div class="price-box">$42.90</div>
         <a class="buy-it" href="#">Buy It Now</a>
     </div>
@@ -30,10 +30,10 @@
         
         
            <div class="item clearfix">
-    <div class="banner-image"><img class="img-responsive" src="images/Testosterosa4oz_custom.jpg" width="136" height="318" alt=""></div>
+    <div class="banner-image"><img class="img-responsive" src="images/ddd" width="136" height="318" alt=""></div>
     <div class="banner-text">
-        <h1> Testosterosa 4 oz</h1>
-        <p>For loss of desire or decreased testosterone levels--in men or women.</p>
+        <h1> tttt</h1>
+        <p>eeeeeee.</p>
         <div class="price-box">$42.90</div>
         <a class="buy-it" href="#">Buy It Now</a>
     </div>
@@ -61,15 +61,15 @@
 
 <div class="moduletable-shop row"><!-- moduletable-shop -->
     <div class="item-box col-md-4 col-sm-4">
-        <h3><a href="type-c-50.html">Shop by <br>Type</a></h3>
+        <h3><a href="#">ddddd</a></h3>
         <p>Lorem lipsum dolor sit amet solit sedle.</p>
     </div>
     <div class="item-box col-md-4 col-sm-4">
-        <h3><a href="condition-specific-c-61.html">Shop by <br>Health Concern</a></h3>
+        <h3><a href="#">###</a></h3>
         <p>Lorem lipsum dolor sit amet solit sedle.</p>
     </div>
     <div class="item-box col-md-4 col-sm-4">
-        <h3><a href="action-c-53.html">Shop by <br>Action</a></h3>
+        <h3><a href="#">eeeee</a></h3>
         <p>Lorem lipsum dolor sit amet solit sedle.</p>
     </div>
 </div><!-- //moduletable-shop -->
@@ -86,7 +86,7 @@ include(DIR_WS_MODULES . FILENAME_FEATURED);
 ?>
 
 <div class="content"><!-- content -->
-    <h3>Welcome <span>Pacific Health Services</span></h3>
+    <h3>Welcome <span></span></h3>
     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
     <p>Error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia qualityse consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 </div><!-- //content -->                                     

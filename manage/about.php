@@ -30,7 +30,7 @@
   }
   if (!file_exists(DIR_WS_LANGUAGES . $language . '/' . FILENAME_TERMS_CONDITIONS_CONTENT)) {
       tep_mail('CartStore admin'
-      , 'start@cartstore.com', 'Missing file', 'The terms and conditions file ' . DIR_WS_LANGUAGES . $language . '/' . FILENAME_TERMS_CONDITIONS_CONTENT . ' is missing.', STORE_NAME, STORE_OWNER_EMAIL_ADDRESS);
+      , 'team@cartstore.com', 'Missing file', 'The terms and conditions file ' . DIR_WS_LANGUAGES . $language . '/' . FILENAME_TERMS_CONDITIONS_CONTENT . ' is missing.', STORE_NAME, STORE_OWNER_EMAIL_ADDRESS);
       tep_redirect(tep_href_link(FILENAME_LOGOFF));
   }
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_LOGIN);
@@ -54,16 +54,7 @@ CartStore&#8482; Cloud</h1></div>
   <p><a href="http://www.cartstore.com/" class="btn btn-primary btn-lg" role="button" target="_BLANK"><i class="fa fa-user"></i> Request Service</a></p>
 </div>
 
- 
-<p>CarStore is a feature rich shopping cart cloud application for selling online. Its based in the Amazon AWS cloud. </p>
 
-<p>There are no limits to how large your store can scale. </p>
-
-<p>CartStore is available in every AWS region independently and with higher transaction global stores available in all simultaneously. </p>
-
-<p>CartStore is able to handle large amount of products while still maintaining good speeds. </p>
-
-<p>CartStore has been performance optimized and is the only shopping cart software that has its own built in intrusion detection system that covers known and unknown security vulnerabilities in the software indefinitely and because of that it is the most secure shopping cart software. </p>
 
   
       

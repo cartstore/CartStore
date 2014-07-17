@@ -5298,3 +5298,6 @@ padding: 5px 10px;
 
 
  .table thead > tr > td table td, .table tbody > tr > td table td, .table tfoot > tr > td table td {margin:-5px;border-top:0px; }
+
+
+.input-group , .form-control {max-width:300px;}

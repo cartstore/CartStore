@@ -220,25 +220,7 @@ require (DIR_WS_INCLUDES . 'column_left.php');
  </div>
 <br clear="both" />
 <hr>
- 
-   <?php
-			if ($cart->count_contents () > 0)
-			{
-				// PWA BOF
-				if (defined ( 'PURCHASE_WITHOUT_ACCOUNT' ) && (PURCHASE_WITHOUT_ACCOUNT == 'ja' || PURCHASE_WITHOUT_ACCOUNT == 'yes')) {
-					?>
-<h3>Or Checkout Without an Account.</h3>
- <P>Please note that all of our website account features will not be available to customers that do not wish to create an account.</P> 
-<?php
-					echo '<p><a class="btn btn-primary" href="' . tep_href_link ( FILENAME_CREATE_ACCOUNT, 'guest=guest', 'SSL' ) . '">Checkout!</a></p>';
-					?>
-				<div class="clear" /></div>
-			 
-<?php
-				}
-			}
-			// PWA EOF
-			?>
+
 <div class="modulelist">
 <?php // include 'includes/modules/new_products.php';?>
 </div>

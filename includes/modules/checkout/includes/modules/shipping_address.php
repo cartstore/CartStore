@@ -1,4 +1,4 @@
-<div id="shippingAddress" style="">
+<div id="shippingAddress" class="well col-lg-6 col-md-6 col-sm-6 col-xs-6" style="">
 <?php
 if (tep_session_is_registered('customer_id'))
 	{

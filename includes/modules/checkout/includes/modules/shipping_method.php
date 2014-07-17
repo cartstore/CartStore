@@ -76,9 +76,9 @@
  
  	    <b> <?php echo FREE_SHIPPING_TITLE; ?> <?php echo $quotes[$i]['icon']; ?></b>
  
-            <div class="col-lg-10 col-md-11 col-sm-11 col-xs-9"><?php echo sprintf(FREE_SHIPPING_DESCRIPTION, $currencies->format(MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER)) //. tep_draw_hidden_field('shipping', 'free_free'); ?></div>
-                  
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 radio" align=""><label><?php echo tep_draw_radio_field('shipping', 'free_free', $checked); ?></label></div> 
+            <div class="col-lg-10 col-md-9 col-sm-8 col-xs-8"><?php echo sprintf(FREE_SHIPPING_DESCRIPTION, $currencies->format(MODULE_ORDER_TOTAL_SHIPPING_FREE_SHIPPING_OVER)) //. tep_draw_hidden_field('shipping', 'free_free'); ?></div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 radio" align=""><label><?php echo tep_draw_radio_field('shipping', 'free_free', $checked); ?></label></div> 
      
             <div class="clear"></div>
             <hr>
@@ -106,11 +106,11 @@
 			$checked = ($quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'] == $shipping['id'] ? true : false);
 ?>
    
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9"><?php echo str_replace($search, $replace, $quotes[$i]['methods'][$j]['title']); ?></div> 
+            <div class="col-lg-10 col-md-9 col-sm-8 col-xs-8"><?php echo str_replace($search, $replace, $quotes[$i]['methods'][$j]['title']); ?></div> 
 <?php
 			if ( ($n > 1) || ($n2 > 1) ) {
 ?>
-                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 radio" align=""><label><?php echo $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], (isset($quotes[$i]['tax']) ? $quotes[$i]['tax'] : 0))); ?><?php echo tep_draw_radio_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'], $checked); ?> </label> </div> 
+                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 radio" align=""><label><?php echo tep_draw_radio_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id'], $checked); ?><?php echo $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], (isset($quotes[$i]['tax']) ? $quotes[$i]['tax'] : 0))); ?> </label> </div> 
             <div class="clear"></div>
 
             <hr>
@@ -131,7 +131,7 @@
 				}
 
 ?>
-		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3" align=""><?php echo $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], $quotes[$i]['tax'])) . tep_draw_hidden_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id']); ?></div>  <div class="clear"></div>
+		<div class="" align=""><?php echo $currencies->format(tep_add_tax($quotes[$i]['methods'][$j]['cost'], $quotes[$i]['tax'])) . tep_draw_hidden_field('shipping', $quotes[$i]['id'] . '_' . $quotes[$i]['methods'][$j]['id']); ?></div>  <div class="clear"></div>
 
             <hr>
 <?php

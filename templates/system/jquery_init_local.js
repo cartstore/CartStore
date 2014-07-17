@@ -72,16 +72,13 @@ $(this).css({ 'margin-left': window.pageXOffset - $(this).width() / 2, 'left': '
 		
 		
 $('.phoenix-input').phoenix()
-  $('#onePageCheckoutForm').submit(function(e){
+  $('.create_account').submit(function(e){
     $('.phoenix-input').phoenix('remove')
   })
-		
-		
-		
-	 
 
-	
 
+
+ $('select#country').phoenix('remove');
 });
 
 jQuery(".demo input:eq(toggler)").each(function($) {

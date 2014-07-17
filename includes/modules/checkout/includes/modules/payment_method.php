@@ -24,14 +24,14 @@
 ?>
    <div class="moduleRow paymentRow<?php echo ($selection[$i]['id'] == $paymentMethod ? ' moduleRowSelected' : '');?>">
    	 
-       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9"><?php echo $selection[$i]['module']; ?></div>
-   		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 radio" align=""><?php
+       <div class="col-lg-10 col-md-9 col-sm-8 col-xs-8"><?php echo $selection[$i]['module']; ?></div>
+   		<div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 radio" align=""><label><?php
 	 		if (sizeof($selection) > 1) {
 		 		echo tep_draw_radio_field('payment', $selection[$i]['id'], ($selection[$i]['id'] == $paymentMethod));
 	 		} else {
 		 		echo tep_draw_hidden_field('payment', $selection[$i]['id']);
 	 		}
-		?></div>
+		?></label></div>
 		 
   </div>
    

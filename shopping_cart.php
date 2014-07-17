@@ -131,7 +131,7 @@
 
 <tr>
 
-<td>' . '<p><a class="" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], 120, SMALL_IMAGE_HEIGHT) . '</a></p>
+<td>' . '<p><div  class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><a class="" href="' . tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $products[$i]['id']) . '">' . tep_image(DIR_WS_IMAGES . $products[$i]['image'], $products[$i]['name'], SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT) . '</a></div></p>
 
 
 
@@ -178,7 +178,7 @@
           
   
           </td>
-		  
+
 		  
 		  
 		  <td class="ui-state-default ui-state-highlight ui-state-active center">
@@ -269,7 +269,7 @@
           }
 ?>
           <?php
-          echo '<a class="btn btn-primary" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '"><i class="fa fa-shopping-cart"></i> Checkout ' . $currencies->format($cart->show_total()) .'</a>';
+          echo '<a class="btn btn-primary" href="' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . '"><i class="fa fa-shopping-cart"></i> Checkout <span class="hidden-xs">' . $currencies->format($cart->show_total()) .'</span></a>';
 ?>
              </span>
 </p>

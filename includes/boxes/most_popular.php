@@ -45,7 +45,7 @@ if (tep_db_num_rows($most_popular_query) >= MIN_DISPLAY_MOST_POPULAR) {
 
     new infoBox($info_box_contents);
 
-?>      </div>
+?>    </ul>  </div>
 	<!-- best_sellers_eof //-->
 
 	<?php

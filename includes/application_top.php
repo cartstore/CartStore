@@ -20,7 +20,7 @@
   
 
 
-ini_set('error_reporting', E_ALL ^ E_NOTICE);
+ini_set('error_reporting', E_ERROR);
 
 function microtime_float(){
     list($usec, $sec) = explode(" ", microtime());
@@ -28,7 +28,7 @@ function microtime_float(){
 }
 $DEBUG42['start_time'] = microtime_float();
 // ini_set('error_reporting', E_ALL);
- error_reporting(E_ALL);
+
 
 /*
 Team Do not remove comments in this file.

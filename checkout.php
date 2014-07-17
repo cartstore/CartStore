@@ -400,8 +400,13 @@ ob_start();
 include(DIR_WS_MODULES . 'checkout/includes/modules/billing_address.php');
 $billingAddress = ob_get_contents();
 ob_end_clean();
-$billingAddress = '<div id="logInRow" style="' . (isset($_SESSION['customer_id']) ? ' display:none;' : '' ) . '"><div class="clear"></div><br><p>' . TEXT_EXISTING_CUSTOMER_LOGIN . ' <a id="loginButton" href="' . fixSeoLink(tep_href_link(FILENAME_LOGIN)) . '">' . tep_draw_button('Login', 'key') . '</a></p></div>' . $billingAddress;
-$billingAddress .=  '<div style="float:right; padding:5px;' . (isset($_SESSION['customer_id']) ? '' : ' display:none;') . '"><a id="changeBillingAddress" href="' . tep_href_link('checkout_payment_address.php', '', $request_type) . '">' . tep_draw_button('Change Address') . '</a></div>';
+$billingAddress = '<div id="logInRow" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="' . (isset($_SESSION['customer_id']) ? ' display:none;' : '' ) . '">
+<div class="clear"></div>
+
+<p>' . TEXT_EXISTING_CUSTOMER_LOGIN . ' <a id="loginButton" href="' . fixSeoLink(tep_href_link(FILENAME_LOGIN)) . '">' . tep_draw_button('Login', 'key') . '</a></p>
+
+</div>' . $billingAddress;
+$billingAddress .=  '<div style="float:right; padding:5px;' . (isset($_SESSION['customer_id']) ? '' : ' display:none;') . '"><a id="changeBillingAddress" class="" href="' . tep_href_link('checkout_payment_address.php', '', $request_type) . '">' . tep_draw_button('Change Address') . '</a></div>';
 buildInfobox($header, $billingAddress, true);
 ?>
 </div>
@@ -420,7 +425,7 @@ if(ONEPAGE_ADDR_LAYOUT == 'vertical')
 <?php
 	} else {
 ?>
-	<div style="float:right; width:<?php echo (ONEPAGE_ADDR_LAYOUT == 'vertical' ? '100%' : '49.5%'); ?>; <?php echo (ONEPAGE_ADDR_LAYOUT == 'vertical' ? 'margin:auto' : 'margin-left:0px;'); ?>;">
+	<div><div class="clear"></div>
 <?php } ?>
 <?php
 if ($onepage['shippingEnabled'] === true) {
@@ -439,7 +444,7 @@ if ($onepage['shippingEnabled'] === true) {
 	}
 ?>
 </div>
-
+<div class="clear"></div>
 
 <?php
 if ($onepage['shippingEnabled'] === true){
